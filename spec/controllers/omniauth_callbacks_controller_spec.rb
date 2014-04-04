@@ -162,3 +162,4 @@ def stub_env_for_omniauth
   env = { "omniauth.auth" => { "provider" => "github", "uid" => "123455","legal_agreement" => true, "extra" => { "user_hash" => { "email" => "ghost@nobody.com" } } } }
   request.env["omniauth.auth"] = env["omniauth.auth"]
 end
+
