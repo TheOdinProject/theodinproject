@@ -8,11 +8,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash.notice = "Signed in!"
       sign_in_and_redirect user
     else
+      user.attributes
       session["devise.user_attributes"] = user.attributes
       redirect_to new_user_registration_url
     end
   end
   alias_method :github, :all
+
+  def failure
+    flash[:alert] = 'Authentication failed.'
+    redirect_to root_path
+  end
 
   # def github
   #   #binding.pry
