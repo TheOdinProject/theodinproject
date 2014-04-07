@@ -18,6 +18,7 @@ gem 'premailer-rails'
 gem 'omniauth-github' #for Github Authentication
 gem 'pry' #for debugging
 gem 'disqus' #for the forum sections of the website
+gem "font-awesome-rails"
 
 
 # Bundle edge Rails instead:
