@@ -8,13 +8,13 @@ def stub_env_for_omniauth
 end
 
 def click_signin
-  visit root_path
-  click_link "Signin with Github"
+  visit login_path
+  click_link "github"
 end
 
 def fill_in_correctly
-  visit root_path
-  click_link "Signin with Github"
+  visit login_path
+  click_link "github"
   fill_in('user_username', :with => "GhostMan")
   fill_in('user_email', :with => "ghost@nobody.com")
   check('user_legal_agreement')
@@ -22,8 +22,8 @@ def fill_in_correctly
 end
 
 def dont_check_legal_agreement
-  visit root_path
-  click_link "Signin with Github"
+  visit login_path
+  click_link "github"
   fill_in('user_username', :with => "GhostMan")
   fill_in('user_email', :with => "ghost@nobody.com")
   click_button('Sign up')
@@ -46,8 +46,8 @@ describe OmniauthCallbacksController, "github callback" do
         click_signin
       end
 
-        specify { page.should have_content('Username') }
-        specify { page.should have_content('Email') }
+        specify { page.should have_css('#user_username') }
+        specify { page.should have_css('#user_email') }
         specify { page.should have_content('Terms of Use') }
         specify { page.should_not have_css('password confirmation') }
         specify { page.should_not have_css('password required') }
@@ -70,9 +70,9 @@ describe OmniauthCallbacksController, "github callback" do
           click_signin
           fill_in_correctly
           click_link "Logout"
+          click_link "Login"
         end
-
-        specify { page.should have_content('Signin with Github') }
+        specify { find_link('github').visible? }
       end
 
       context 'should be able to sign in again' do
