@@ -132,19 +132,6 @@ describe OmniauthCallbacksController, "github callback" do
         expect(@user.provider).to eq(nil)
         expect(@user.uid).to eq(nil)
       end
-
-      context 'existing user log in with Github with same email address' do
-        before do
-          click_link "Logout"
-          visit root_path
-          click_signin
-        end
-
-        it 'should update existing user provider and uid' do
-          expect(@user.provider).to eq("github")
-          expect(@user.uid).to eq("123455")
-        end
-      end
     end
   end
 
