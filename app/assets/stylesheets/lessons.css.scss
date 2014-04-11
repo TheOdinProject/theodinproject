@@ -4,7 +4,8 @@
 @import "colors";
 @import "mixins";
 
-i{
+//styling for social share buttons
+i {
   float: left;
  font-size: 2em;
  color: black;
@@ -17,6 +18,7 @@ i{
 .social-padding{
   letter-spacing: 5px;
 }
+// end styling for social buttons
 
 .individual-lesson{
   /* User styles */
