@@ -5,6 +5,8 @@
 @import "mixins";
 
 i{
+  float: left;
+ font-size: 2em;
  color: black;
  opacity: 0.2;
  &:hover {
@@ -12,6 +14,9 @@ i{
  }
 }
 
+.social-padding{
+  letter-spacing: 5px;
+}
 
 .individual-lesson{
   /* User styles */

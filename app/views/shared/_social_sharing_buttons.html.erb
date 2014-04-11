@@ -6,26 +6,28 @@
 
 <br>
 
-
-<%= link_to "http://www.facebook.com/sharer.php?u=" + request.url do %>
-   <i class="fa fa-facebook-square"></i>
-  <% end %>
-
+<div class="social-padding">
+  <%= link_to "http://www.facebook.com/sharer.php?u=" + request.url, :target =>"_blank" do %>
+     <i class="fa fa-facebook-square"></i>
+    <% end %>
+</div>
 
 <!-- twitter -->
-
-<%= link_to "https://twitter.com/share" do %>
-   <i class="fa fa-twitter-square"></i>
-  <% end %>
-
+<div class="social-padding">
+    <%= link_to "https://twitter.com/share", :target =>"_blank" do %>
+     <i class="fa fa-twitter-square"></i>
+    <% end %>
+</div>
 
 <!-- pinterest -->
 
 <!-- googleplus -->
+<div class="social-padding">
+  <%= link_to "https://plus.google.com/share?url=" + request.url, :target =>"_blank" do %>
+     <i class="fa fa-google-plus-square"></i>
+    <% end %>
+</div>
 
-<%= link_to "https://plus.google.com/share?url=" + request.url do %>
-   <i class="fa fa-google-plus-square"></i>
-  <% end %>
 
 </div>
 
