@@ -3,18 +3,21 @@
 
 <div class="social-sharing-buttons">
 
-<% @uri = URI.parse(request.url) %>
-<%= @uri.path %>
 
 <br>
 
 
-<%= link_to "http://www.facebook.com/sharer.php?u=http://www.google.com" do %>
+<%= link_to "http://www.facebook.com/sharer.php?u=" + request.url do %>
    <i class="fa fa-facebook-square"></i>
   <% end %>
 
 
 <!-- twitter -->
+
+<%= link_to "https://twitter.com/share" do %>
+   <i class="fa fa-twitter-square"></i>
+  <% end %>
+
 
 <!-- pinterest -->
 
