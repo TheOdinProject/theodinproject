@@ -14,7 +14,7 @@
     E.src='http://platform.twitter.com/bookmarklets/share.js?v=1';
     F.getElementsByTagName('head')[0].appendChild(E)}());">
     <div class="social-padding">
-      <i class="fa fa-twitter-square"></i>
+      <i class="fa fa-twitter-square" rel="tooltip" title="Share on Twitter" id="twitter"></i>
     </div>
   </a>
 
@@ -28,7 +28,7 @@
     E.src='http://platform.facebook.com/bookmarklets/share.js?v=1';
     F.getElementsByTagName('head')[0].appendChild(E)}());">
     <div class="social-padding">
-      <i class="fa fa-facebook-square"></i>
+      <i class="fa fa-facebook-square" rel="tooltip" title="Share on Facebook" id="facebook"></i>
     </div>
   </a>
 
@@ -42,8 +42,14 @@
     E.src='http://platform.google.com/bookmarklets/share.js?v=1';
     F.getElementsByTagName('head')[0].appendChild(E)}());">
     <div class="social-padding">
-      <i class="fa fa-google-plus-square"></i>
+      <i class="fa fa-google-plus-square" rel="tooltip" title="Share on Google+" id="google-plus"></i>
     </div>
   </a>
 </div>
+
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $("[rel=tooltip]").tooltip({ placement: 'top'});
+});
+</script>
 
