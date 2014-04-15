@@ -239,7 +239,6 @@ describe "Courses and Lessons Pages" do
 
     it "should show the lesson name in the title" do
       subject.source.should have_selector('title', text: lesson1.title)
-      save_and_open_page
     end
 
     it "should show something in the lesson body container" do
