@@ -1,0 +1,55 @@
+<!-- Add facebook share button -->
+
+
+<div class="social-sharing-buttons">
+
+<br />
+
+  <a href="javascript:(function(){
+    window.twttr=window.twttr||{};
+    var D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;
+    if(C>A){G=Math.round((C/2)-(A/2))}
+    window.twttr.shareWin=window.open('http://twitter.com/share','','left='+H+',top='+G+',width='+D+',height='+A+',personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+    E=F.createElement('script');
+    E.src='http://platform.twitter.com/bookmarklets/share.js?v=1';
+    F.getElementsByTagName('head')[0].appendChild(E)}());">
+    <div class="social-padding">
+      <i class="fa fa-twitter-square social-sharing" rel="tooltip" title="Share on Twitter" id="twitter"></i>
+    </div>
+  </a>
+
+  <a href="javascript:(function(){
+    var ourpage = document.URL;
+    window.facebook=window.facebook||{};
+    var D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;
+    if(C>A){G=Math.round((C/2)-(A/2))}
+    window.facebook.shareWin=window.open('http://www.facebook.com/sharer.php?u='+ document.URL,'','left='+H+',top='+G+',width='+D+',height='+A+',personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+    E=F.createElement('script');
+    E.src='http://platform.facebook.com/bookmarklets/share.js?v=1';
+    F.getElementsByTagName('head')[0].appendChild(E)}());">
+    <div class="social-padding">
+      <i class="fa fa-facebook-square social-sharing" rel="tooltip" title="Share on Facebook" id="facebook"></i>
+    </div>
+  </a>
+
+  <a href="javascript:(function(){
+    var ourpage = document.URL;
+    window.google=window.google||{};
+    var D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;
+    if(C>A){G=Math.round((C/2)-(A/2))}
+    window.google.shareWin=window.open('https://plus.google.com/share?url='+ourpage,'','left='+H+',top='+G+',width='+D+',height='+A+',personalbar=0,toolbar=0,scrollbars=1,resizable=1');
+    E=F.createElement('script');
+    E.src='http://platform.google.com/bookmarklets/share.js?v=1';
+    F.getElementsByTagName('head')[0].appendChild(E)}());">
+    <div class="social-padding">
+      <i class="fa fa-google-plus-square social-sharing" rel="tooltip" title="Share on Google+" id="google-plus"></i>
+    </div>
+  </a>
+</div>
+
+<script type='text/javascript'>
+  $(document).ready(function(){
+    $("[rel=tooltip]").tooltip({ placement: 'top'});
+});
+</script>
+
