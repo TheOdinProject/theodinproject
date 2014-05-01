@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : title %></title>
     <%= csrf_meta_tags %>
 
-    
+
     <!-- Grabbing the Open Sand Condensed web fonts from Google -->
     <!-- NOTE: THIS IS A MAJOR CAUSE OF PAGE SLOWNESS!!!  -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Open+Sans:300,300italic,400,700' rel='stylesheet' type='text/css'>
@@ -17,7 +17,7 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
     <![endif]-->
 
-    <%= stylesheet_link_tag "application", :media => "all" %> 
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- Pull in any custom style mods from subordinate layouts -->
     <style type="text/css"><%= yield :stylesheets %> </style>
@@ -26,9 +26,9 @@
     ================================================== -->
     <!-- SHOULD BE Placed at the end of the document so the pages load faster BUT then my page-specific JS wouldn't run -->
     <%= javascript_include_tag "application" %>
-    
+
     <%= render "shared/ga" %>
-  
+
     <!-- Include the moot.it forums code if we're on the forums page -->
     <% if @is_forum %>
         <!-- (1) Optimize for mobile versions: http://goo.gl/EOpFl -->
@@ -42,7 +42,32 @@
 
       <!-- (1) Moot client application -->
       <script src="https://cdn.moot.it/1/moot.min.js"></script>
-
     <% end %>
+    <script>
+      // window.fbAsyncInit = function() {
+      //   FB.init({
+      //     appId      : 624291667655052,
+      //     xfbml      : true,
+      //     version    : 'v2.0'
+      //   });
+      // };
 
+      // (function(d, s, id){
+      //    var js, fjs = d.getElementsByTagName(s)[0];
+      //    if (d.getElementById(id)) {return;}
+      //    js = d.createElement(s); js.id = id;
+      //    js.src = "//connect.facebook.net/en_US/sdk.js";
+      //    fjs.parentNode.insertBefore(js, fjs);
+      //  }(document, 'script', 'facebook-jssdk'));
+      window.fbAsyncInit = function(){
+        FB.init({
+            appId: '{624291667655052}', status: true, cookie: true, xfbml: true });
+        };
+        (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];if   (d.getElementById(id)) {return;}js = d.createElement('script'); js.id = id; js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+        function postToFeed(title, desc, url, image){
+        var obj = {method: 'feed',link: url, name: title, description: desc};
+        function callback(response){}
+        FB.ui(obj, callback);
+        }
+    </script>
   </head>
