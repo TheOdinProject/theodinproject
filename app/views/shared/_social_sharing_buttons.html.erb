@@ -5,7 +5,7 @@
 
 <br />
 
-  <!-- <a href="javascript:(function(){
+  <a href="javascript:(function(){
     window.twttr=window.twttr||{};
     var D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;
     if(C>A){G=Math.round((C/2)-(A/2))}
@@ -16,14 +16,14 @@
     <div class="social-padding">
       <i class="fa fa-twitter-square social-sharing" rel="tooltip" title="Share on Twitter" id="twitter"></i>
     </div>
-  </a> -->
+  </a>
 
 
   <div class="social-padding">
     <i class="fa fa-facebook-square social-sharing" rel="tooltip" title="Share on Facebook" id="facebook"></i>
   </div>
 
-  <!-- <a href="javascript:(function(){
+  <a href="javascript:(function(){
     var ourpage = document.URL;
     window.google=window.google||{};
     var D=550,A=450,C=screen.height,B=screen.width,H=Math.round((B/2)-(D/2)),G=0,F=document,E;
@@ -35,12 +35,14 @@
     <div class="social-padding">
       <i class="fa fa-google-plus-square social-sharing" rel="tooltip" title="Share on Google+" id="google-plus"></i>
     </div>
-  </a> -->
+  </a>
 </div>
 
 <script type='text/javascript'>
   $(document).ready(function(){
+    // display a tooltip above social icon buttons with their description
     $("[rel=tooltip]").tooltip({ placement: 'top'});
+
     $('#facebook').click(function(){
       // grab url to be shared
       // var url = document.URL;
