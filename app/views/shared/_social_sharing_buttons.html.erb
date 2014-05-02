@@ -20,7 +20,7 @@
 
 
   <div class="social-padding">
-    <i class="fa fa-facebook-square social-sharing" data-url="www.theodinproject.com" data-title="Article Title" data-desc="Check this out!" rel="tooltip" title="Share on Facebook" id="facebook"></i>
+    <i class="fa fa-facebook-square social-sharing" data-title="Article Title" data-desc="Check this out!" rel="tooltip" title="Share on Facebook" id="facebook"></i>
   </div>
 
   <!-- <a href="javascript:(function(){
@@ -42,8 +42,13 @@
   $(document).ready(function(){
     $("[rel=tooltip]").tooltip({ placement: 'top'});
     $('#facebook').click(function(){
+      // grab url to be shared
+      // var url = document.URL;
+
+      // use this when in dev environment as local host will show nothing
+      var url = "http://www.theodinproject.com/introduction-to-web-development/what-a-web-developer-does";
       elem = $(this);
-      postToFeed(elem.data('title'), elem.data('desc'), elem.data('url'), elem.prop("http://localhost:3000/"));
+      postToFeed(elem.data('title'), elem.data('desc'), url, elem.prop(url));
 
       return false;
     });
