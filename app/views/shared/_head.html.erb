@@ -61,14 +61,21 @@
       //  }(document, 'script', 'facebook-jssdk'));
       window.fbAsyncInit = function(){
         FB.init({
-            appId: 624291667655052, status: true, cookie: true, xfbml: true });
-        };
-        (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];if   (d.getElementById(id)) {return;}js = d.createElement('script'); js.id = id; js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
-        function postToFeed(title, desc, url, image){
-          var obj = {method: 'feed',link: url, name: title, description: desc};
-          function callback(response){}
-          FB.ui(obj, callback);
-          console.log(obj);
-          }
+          // app id is available on App Dashboard when a new
+          // app is successfully set up
+          // at https://developers.facebook.com
+          appId: 624291667655052,
+          status: true, // check the login status upon init
+          cookie: true, // set sessions cookies to allow your server to access the session
+          xfbml: true // parse XFBML tags on this page
+        });
+      };
+      (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];if   (d.getElementById(id)) {return;}js = d.createElement('script'); js.id = id; js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+      function postToFeed(title, desc, url, image){
+        var obj = {method: 'feed',link: url, name: title, description: desc};
+        function callback(response){}
+        FB.ui(obj, callback);
+        console.log(obj);
+      }
     </script>
   </head>
