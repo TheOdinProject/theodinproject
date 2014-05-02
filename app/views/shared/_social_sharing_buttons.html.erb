@@ -20,7 +20,7 @@
 
 
   <div class="social-padding">
-    <i class="fa fa-facebook-square social-sharing" data-title="Article Title" data-desc="Some description for this article" rel="tooltip" title="Share on Facebook" id="facebook"></i>
+    <i class="fa fa-facebook-square social-sharing" data-url="www.theodinproject.com" data-title="Article Title" data-desc="Check this out!" rel="tooltip" title="Share on Facebook" id="facebook"></i>
   </div>
 
   <!-- <a href="javascript:(function(){
@@ -41,12 +41,14 @@
 <script type='text/javascript'>
   $(document).ready(function(){
     $("[rel=tooltip]").tooltip({ placement: 'top'});
-  $('#facebook').click(function(){
-    elem = $(this);
-    postToFeed(elem.data('title'), elem.data('desc'), elem.prop(document.URL));
+    $('#facebook').click(function(){
+      elem = $(this);
+      postToFeed(elem.data('title'), elem.data('desc'), elem.data('url'), elem.prop("http://localhost:3000/"));
 
-    return false;
+      return false;
     });
 });
 </script>
+
+
 
