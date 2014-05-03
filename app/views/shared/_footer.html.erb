@@ -38,5 +38,23 @@
       //console.log("did it!");
     });
     $("#suggestion-pathname").val(location.pathname);
+    // display a tooltip above social icon buttons with their description
+    $("[rel=tooltip]").tooltip({ placement: 'top'});
+
+    $('#facebook').click(function(){
+      // grab url to be shared
+      // var url = document.URL;
+
+      // use this when in dev environment as local host will show nothing
+      var url = "http://www.theodinproject.com/introduction-to-web-development/what-a-web-developer-does";
+
+      elem = $(this);
+
+      // note: lesson title, description and image are gathered from meta tags in the
+      // _header partial
+      postToFeed(elem.data('title'), elem.data('desc'), url, elem.prop(url));
+
+      return false;
+    });
   });
 </script>
