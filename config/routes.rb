@@ -5,6 +5,7 @@ devise_for :users, :controllers => { :registrations => "registrations", :omniaut
     get '/logout' => 'devise/sessions#destroy', :method => :delete
     get 'sign_up' => 'devise/registrations#new'
     get 'signup' => 'devise/registrations#new'
+    get 'confirm_email' => 'users#send_confirmation_link'
 
   end
 
