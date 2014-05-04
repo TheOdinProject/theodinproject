@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Make sure we get the preference built after the user saves
-  after_create :build_preferences, :send_welcome_email
+  after_create :build_preferences 
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about, :github, :facebook, :twitter, :linkedin, :skype, :screenhero, :google_plus, :legal_agreement, :provider, :uid
@@ -96,8 +96,11 @@ class User < ActiveRecord::Base
     end
   end
 
-
-
+  # Overwrite Devise method to allow users who registered before confirmation was required
+  # to continue using the site without being forced to confirm their email.
+  def active_for_authentication?
+    super && (!confirmation_required? || confirmed? || confirmation_period_valid? || reg_before_conf?)
+  end
 
   protected
 
@@ -112,6 +115,10 @@ class User < ActiveRecord::Base
         puts "Error sending welcome email!"
         puts e.message
       end
+    end
+
+    def send_on_create_confirmation_instructions
+      send_welcome_email
     end
 
 end
