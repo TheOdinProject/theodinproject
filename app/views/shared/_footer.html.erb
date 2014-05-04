@@ -43,10 +43,10 @@
 
     $('#facebook').click(function(){
       // grab url to be shared
-      // var url = document.URL;
-
-      // use this when in dev environment as local host will show nothing
-      var url = "http://www.theodinproject.com/introduction-to-web-development/what-a-web-developer-does";
+      // will NOT work in a dev environment
+      // localhost, 0.0.0.0:3000 or any other variation will not work
+      // must fake local host to be http://www.theodinproject/com/lesson...
+      var url = document.URL;
 
       elem = $(this);
 
