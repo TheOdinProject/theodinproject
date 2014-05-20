@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Make sure we get the preference built after the user saves
-  after_create :build_preferences, :send_welcome_email
+  after_create :build_preferences
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :about, :github, :facebook, :twitter, :linkedin, :skype, :screenhero, :google_plus, :legal_agreement, :provider, :uid
@@ -96,7 +96,25 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Overwrite Devise method to allow users who registered before confirmation was required
+  # to continue using the site without being forced to confirm their email.
+  def active_for_authentication?
+    super && (!confirmation_required? || confirmed? || confirmation_period_valid?) || reg_before_conf?
+  end
 
+  # Overwrite Devise method to send welcome email to new users with confirmation token
+  # Users who registered before confirmation was required receive normal confirmation email
+  def send_confirmation_instructions
+    unless @raw_confirmation_token
+      generate_confirmation_token!
+    end
+    if self.reg_before_conf == true
+      opts = pending_reconfirmation? ? { to: unconfirmed_email } : { }
+      send_devise_notification(:confirmation_instructions, @raw_confirmation_token, opts)
+    else  # new user
+      send_welcome_email(@raw_confirmation_token)
+    end
+  end
 
 
   protected
@@ -105,13 +123,13 @@ class User < ActiveRecord::Base
       self.create_user_pref
     end
 
-    def send_welcome_email
+    def send_welcome_email(token)
       begin
-        UserMailer.send_welcome_email_to(self).deliver!
+        @token = token
+        UserMailer.send_welcome_email_to(self, token).deliver!
       rescue Exception => e
         puts "Error sending welcome email!"
         puts e.message
       end
     end
-
 end

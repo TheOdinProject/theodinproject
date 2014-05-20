@@ -1,11 +1,14 @@
 Theodinproject::Application.routes.draw do
-devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks" }
+devise_for :users, 
+  :controllers => { :registrations => "registrations", 
+    :omniauth_callbacks => "omniauth_callbacks",
+    :confirmations => "confirmations" }
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy', :method => :delete
     get 'sign_up' => 'devise/registrations#new'
     get 'signup' => 'devise/registrations#new'
-
+    get 'confirm_email' => 'users#send_confirmation_link'
   end
 
   root :to => 'static_pages#home'
