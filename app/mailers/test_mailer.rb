@@ -2,19 +2,15 @@ class TestMailer < ActionMailer::Base
   default from: "no-reply@theodinproject.com"
   default to: "no-reply@theodinproject.com"
 
-  def send_test_email(header)
-    puts "Sending test email..."
-    
-    # FIRST DRAFT - HEADER BUILT IN METHOD
-    # smtpapi = {
-    #   "to" => [
-    #     "grace@shiba.inu",
-    #     "jesse@shiba.inu"
-    #   ]
-    # }
-    # header = smtpapi.to_json
-
-    # SECOND DRAFT - RAKE TASK BUILDS HEADER
+  def email_one_person
+    # RECIPIENT AND HEADER BUILT INTO METHOD
+    recipient = User.last
+    smtpapi = {
+      "to" => [
+        recipient.email
+      ]
+    }
+    header = smtpapi.to_json
     headers["X-SMTPAPI"] = header
     return mail
   end
