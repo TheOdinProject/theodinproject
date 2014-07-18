@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   # associates the user with the lessons he's completed so far
   has_many :lesson_completions, :foreign_key => :student_id
   has_many :completed_lessons, :through => :lesson_completions, :source => :lesson
+  # associates the user with emails he/she has received
+  has_many :email_campaigns, :through => :sent_emails
 
   # Return all users sorted by who has completed a lesson
   # most recently
