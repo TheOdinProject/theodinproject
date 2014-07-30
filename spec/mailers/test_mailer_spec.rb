@@ -30,6 +30,10 @@ describe TestMailer do
       @mail.header['X-SMTPAPI'].value.should eq('{"to":["foo@bar.com"]}')
     end
 
+    it "includes link to unsubscribe" do
+      expect(@mail.encoded).to have_link "here" # "Click -here- to unsubscibe..."
+    end
+
     it "records the email after it is sent" do
       expect(SentEmail.last.user).to eq(User.last)
     end
@@ -37,7 +41,6 @@ describe TestMailer do
     describe "check campaign" do
       #  "Happy path" covered above 
       #  Email should be delivered if it belongs to a campaign and category.
-
       it "alerts if email doesn't belong to campaign" do
         EmailCampaign.destroy_all
         expect { TestMailer.email_one_person }.to raise_error(TestMailer::NoCampaignError) 
@@ -53,7 +56,5 @@ describe TestMailer do
       end
     end 
 
-
   end
-
 end
