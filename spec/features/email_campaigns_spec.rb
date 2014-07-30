@@ -18,6 +18,30 @@ describe "Email Campaigns" do
     FactoryGirl.create(:user, :email => "foo@bar.com")
     expect {TestMailer.email_one_person.deliver}.to change(SentEmail.count).by(1)
   end
+
+  describe "Users Can Unsubscribe from Campaigns" do
+    before do
+      FactoryGirl.create(:user) # To receive email
+      # Create Category
+      cat = EmailCampaignCategory.new 
+      cat.name = "Category"
+      cat.save 
+      # Create Campaign
+      campaign = EmailCampaign.new
+      campaign.name = "Campaign"
+      campaign.method_name = "TestMailer.email_one_person"
+      campaign.email_campaign_category = EmailCampaignCategory.last
+      campaign.save
+      # Send email
+      TestMailer.email_one_person
+      @email = ActionMailer::Base.deliveries.last.encoded
+    end
+
+    it "has link to unsubscribe" do
+      expect(@email).to have_link('here')
+    end
+
+  end
   
   
 end
