@@ -16,7 +16,17 @@ describe "Email Campaigns" do
 
   it "records sent emails (sent to one person)" do 
     FactoryGirl.create(:user, :email => "foo@bar.com")
-    expect {TestMailer.email_one_person.deliver}.to change(SentEmail.count).by(1)
+    # Create Category
+    cat = EmailCampaignCategory.new 
+    cat.name = "Category"
+    cat.save 
+    # Create Campaign
+    campaign = EmailCampaign.new
+    campaign.name = "Campaign"
+    campaign.method_name = "TestMailer.email_one_person"
+    campaign.email_campaign_category = EmailCampaignCategory.last
+    campaign.save
+    expect { TestMailer.email_one_person.deliver }.to change(SentEmail.count).by(1)
   end
 
   describe "Users Can Unsubscribe from Campaigns" do
@@ -40,6 +50,14 @@ describe "Email Campaigns" do
     it "has link to unsubscribe" do
       expect(@email).to have_link('here')
     end
+
+    it "takes user to generic unsubscribe page" do
+      puts @email
+      link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+      click_on link
+      expect(page).to have_selector('div', text: "Unsubscribe")
+    end
+
 
   end
   

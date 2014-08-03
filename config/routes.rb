@@ -67,6 +67,12 @@ devise_for :users,
   get ':course_name' => 'lessons#index', :as => "lessons"
   get ':course_name/:lesson_name' => 'lessons#show', :as => "lesson"
 
+    # ***** UNSUBSCRIPTION ROUTES *****
+
+  get 'email_unsubscribe' => 'unsubscriptions#unsubscribe'
+  post 'unsubscribe' => 'unsubscriptions#create'
+  get 'confirm_unsubscription' => 'unsubscriptions#confirm'
+
 
 end
 
