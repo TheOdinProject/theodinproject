@@ -5,6 +5,14 @@ class UnsubscriptionsController < ApplicationController
   end
 
   def create
+    @user = User.find_by_email(params[:email_address])
+    if @user == nil
+      flash[:error] = "Email address is invalid"
+      redirect_to(:email_unsubscribe) and return
+    end
+    @categories = params[:categories]
+    Unsubscription.unsubscribe(@user, @categories)
+    redirect_to confirm_unsubscription_path
   end
 
   def confirm_unsubscription

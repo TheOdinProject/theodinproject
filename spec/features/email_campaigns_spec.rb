@@ -52,18 +52,69 @@ describe "Email Campaigns" do
         end
         
         it "lists all categories (except Transactional)" do
-          expect(page).to have_selector('input#Marketing')
-          expect(page).to have_selector('input#Newsletter')
+          expect(page).to have_selector('label', text: "Marketing")
+          expect(page).to have_selector('label', text: 'Newsletter')
         end
 
         it "does NOT list Transactional category" do
-          expect(page).to have_no_selector('input#Transactional')
+          expect(page).to have_no_selector('label', text: 'Transactional')
         end 
 
         it "has Unsubscribe All option" do
-          expect(page).to have_selector('input#unsubscribe_all')
+          expect(page).to have_selector('label', text: 'All')
         end
-      end    
+
+        it "gives error message if email doesn't belong to a User" do
+          fill_in("Email address", with: "fake@user.email")
+          click_on "Submit"
+          expect(page).to have_selector('div', text: "Email address is invalid")
+        end
+
+        specify "user can unsubscribe from one category" do
+          fill_in("Email address", with: User.last.email)
+          save_and_open_page
+          page.check("categories[:Marketing]")
+          click_on "Submit"
+          expect(User.last.unsubscriptions).to include(EmailCampaignCategory.find_by_name("Marketing")) 
+        end
+
+        specify "user can unsubscribe from multiple categories" do
+          pending
+        end
+
+        specify "user can unsubscribe from all categories" do
+          pending
+        end
+
+        specify "user CANNOT unsubscribe from Transactional emails" do
+          pending
+        end
+      end   
+
+      context "after unsubscribing" do
+
+        it "shows confirmation" do
+          pending
+        end
+
+        it "does not send user email in unsubscribed category" do
+          pending
+        end
+      end
+
+      context "after Unsubscribe All" do
+        it "does not send email in existing category" do
+          pending
+        end
+
+        it "does not send email in new category" do
+          pending
+        end
+
+        it "still sends Transactional emails" do
+          pending
+        end
+      end 
     end
   end 
 end

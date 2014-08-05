@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   has_many :completed_lessons, :through => :lesson_completions, :source => :lesson
   # associates the user with emails he/she has received
   has_many :email_campaigns, :through => :sent_emails
+  # associates the user with email campaigns he/she has unsubscribed from
+  has_many :unsubscriptions
 
   # Return all users sorted by who has completed a lesson
   # most recently
