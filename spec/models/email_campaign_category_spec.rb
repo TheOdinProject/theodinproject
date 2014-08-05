@@ -16,4 +16,16 @@ describe EmailCampaignCategory do
     expect(copy.valid?).to eq false
   end
 
+  describe "#list" do
+    before do
+      FactoryGirl.create(:email_campaign_category, name: 'Marketing')
+      FactoryGirl.create(:email_campaign_category, name: 'Newsletter')
+      FactoryGirl.create(:email_campaign_category, name: 'Transactional')
+      FactoryGirl.create(:email_campaign_category, name: 'transactional')
+    end
+
+    it 'returns list of categories without Transactional' do
+      expect(EmailCampaignCategory.list).to eq(['Marketing', "Newsletter"])
+    end
+  end
 end

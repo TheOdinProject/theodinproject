@@ -1,5 +1,22 @@
 <div class="row">
   <h1> Unsubscribe from Email Lists </h1>
 
+  <%= form_tag(controller: 'unsubscriptions', action: 'create', method: 'post') %>
+    <div>
+      <%= label_tag(:email_address) %>
+      <%= text_field_tag(:email_address) %>
+    </div>
+
+    <% @categories.each do |c| %>
+      <div>
+        <%= check_box_tag(c) %>
+        <%= label_tag(c) %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= check_box_tag(:unsubscribe_all) %>
+      <%= label_tag(:unsubscribe_all) %>
+    </div>
 
 </div>

@@ -1,6 +1,7 @@
 class UnsubscriptionsController < ApplicationController
 
   def email_unsubscribe
+    @categories = EmailCampaignCategory.list
   end
 
   def create
