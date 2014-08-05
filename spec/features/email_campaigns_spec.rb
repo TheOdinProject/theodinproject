@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "Email Campaigns" do 
+  before do
+    FactoryGirl.create(:user) # To receive email
+  end
 
   it "stores mailer and method name in campaign" do
     ec = EmailCampaign.new
@@ -15,8 +18,6 @@ describe "Email Campaigns" do
   #end
 
   it "records sent emails (sent to one person)" do 
-    FactoryGirl.create(:user, :email => "foo@bar.com")
-    # Create Category
     cat = EmailCampaignCategory.new 
     cat.name = "Category"
     cat.save 
@@ -26,36 +27,37 @@ describe "Email Campaigns" do
     campaign.method_name = "TestMailer.email_one_person"
     campaign.email_campaign_category = EmailCampaignCategory.last
     campaign.save
-    expect { TestMailer.email_one_person.deliver }.to change(SentEmail.count).by(1)
+    expect {TestMailer.email_one_person}.to change{SentEmail.count}.by(1)
   end
 
   describe "Users Can Unsubscribe from Campaigns" do
-    before do
-      FactoryGirl.create(:user) # To receive email
-      # Create Category
-      cat = EmailCampaignCategory.new 
-      cat.name = "Category"
-      cat.save 
-      # Create Campaign
-      campaign = EmailCampaign.new
-      campaign.name = "Campaign"
-      campaign.method_name = "TestMailer.email_one_person"
-      campaign.email_campaign_category = EmailCampaignCategory.last
-      campaign.save
-      # Send email
-      TestMailer.email_one_person
-      @email = ActionMailer::Base.deliveries.last.encoded
-    end
+    context "from link in email" do
+      before do
+        # Create Category
+        cat = EmailCampaignCategory.new 
+        cat.name = "Category"
+        cat.save 
+        # Create Campaign
+        campaign = EmailCampaign.new
+        campaign.name = "Campaign"
+        campaign.method_name = "TestMailer.email_one_person"
+        campaign.email_campaign_category = EmailCampaignCategory.last
+        campaign.save
+        # Send email
+        TestMailer.email_one_person
+        @email = ActionMailer::Base.deliveries.last.encoded
+      end
 
-    it "has link to unsubscribe" do
-      expect(@email).to have_link('here')
-    end
+      it "has link to unsubscribe" do
+        expect(@email).to have_link('here')
+      end
 
-    it "takes user to generic unsubscribe page" do
-      puts @email
-      link = @email.match(/href="(.*unsubscribe.*)"/)[1]
-      click_on link
-      expect(page).to have_selector('div', text: "Unsubscribe")
+      it "takes user to generic unsubscribe page" do
+        puts @email
+        link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+        visit link
+        expect(page).to have_selector('div', text: "Unsubscribe")
+      end
     end
 
 

@@ -52,6 +52,12 @@ devise_for :users,
   # Sitemap
   get "sitemap" => "sitemap#index", :defaults => { :format => "xml" }
 
+  # ***** EMAIL UNSUBSCRIPTION ROUTES *****
+  get 'email_unsubscribe' => 'unsubscriptions#email_unsubscribe'
+  post 'unsubscribe' => 'unsubscriptions#create'
+  get 'confirm_unsubscription' => 'unsubscriptions#confirm_unsubscription'
+
+
   # ***** COURSES AND LESSONS ROUTES *****
 
   get 'curriculum' => redirect('/courses')
@@ -66,13 +72,6 @@ devise_for :users,
   get ':course_name' => 'lessons#index', :as => "course"
   get ':course_name' => 'lessons#index', :as => "lessons"
   get ':course_name/:lesson_name' => 'lessons#show', :as => "lesson"
-
-    # ***** UNSUBSCRIPTION ROUTES *****
-
-  get 'email_unsubscribe' => 'unsubscriptions#unsubscribe'
-  post 'unsubscribe' => 'unsubscriptions#create'
-  get 'confirm_unsubscription' => 'unsubscriptions#confirm'
-
 
 end
 
