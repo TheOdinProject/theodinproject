@@ -5,14 +5,10 @@ describe TestMailer do
   describe 'email_one_person' do
 
     before :each do
-      category = EmailCampaignCategory.new
-      category.name = "Testing"
-      category.save
-      campaign = EmailCampaign.new
-      campaign.name = "Test"
-      campaign.method_name = "TestMailer.email_one_person"
-      campaign.email_campaign_category = category
-      campaign.save
+      FactoryGirl.create(:email_campaign_category)
+      FactoryGirl.create(:email_campaign, 
+        method_name: "TestMailer.email_one_person",
+        email_campaign_category: EmailCampaignCategory.last)
       FactoryGirl.create(:user, :email => "foo@bar.com")
       TestMailer.email_one_person
       @mail = ActionMailer::Base.deliveries.last
@@ -47,10 +43,6 @@ describe TestMailer do
       end
 
       it "alerts if email campaign doesn't belong to category" do
-        campaign = EmailCampaign.new
-        campaign.name = "Test"
-        campaign.method_name = "TestMailer.email_one_person"
-        campaign.save
         EmailCampaignCategory.destroy_all
         expect { TestMailer.email_one_person }.to raise_error(TestMailer::NoCampaignCategoryError)
       end
