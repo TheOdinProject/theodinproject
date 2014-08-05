@@ -6,10 +6,7 @@ describe "Email Campaigns" do
   end
 
   it "stores mailer and method name in campaign" do
-    ec = EmailCampaign.new
-    ec.name = "Test"
-    ec.method_name = "Mailer.method"
-    ec.save
+    FactoryGirl.create(:email_campaign, method_name: "Mailer.method")
     EmailCampaign.find_by_method_name("Mailer.method").should_not be_nil
   end
 
@@ -18,32 +15,20 @@ describe "Email Campaigns" do
   #end
 
   it "records sent emails (sent to one person)" do 
-    cat = EmailCampaignCategory.new 
-    cat.name = "Category"
-    cat.save 
-    # Create Campaign
-    campaign = EmailCampaign.new
-    campaign.name = "Campaign"
-    campaign.method_name = "TestMailer.email_one_person"
-    campaign.email_campaign_category = EmailCampaignCategory.last
-    campaign.save
+    FactoryGirl.create(:email_campaign_category)
+    FactoryGirl.create(:email_campaign, 
+      method_name: "TestMailer.email_one_person",
+      email_campaign_category: EmailCampaignCategory.last)
     expect {TestMailer.email_one_person}.to change{SentEmail.count}.by(1)
   end
 
   describe "Users Can Unsubscribe from Campaigns" do
     context "from link in email" do
       before do
-        # Create Category
-        cat = EmailCampaignCategory.new 
-        cat.name = "Category"
-        cat.save 
-        # Create Campaign
-        campaign = EmailCampaign.new
-        campaign.name = "Campaign"
-        campaign.method_name = "TestMailer.email_one_person"
-        campaign.email_campaign_category = EmailCampaignCategory.last
-        campaign.save
-        # Send email
+        FactoryGirl.create(:email_campaign_category)
+        FactoryGirl.create(:email_campaign, 
+          method_name: "TestMailer.email_one_person",
+          email_campaign_category: EmailCampaignCategory.last)
         TestMailer.email_one_person
         @email = ActionMailer::Base.deliveries.last.encoded
       end

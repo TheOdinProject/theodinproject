@@ -81,6 +81,20 @@ FactoryGirl.define do
     image_path "/some_image.png"
     category "ad category"
   end
+
+  factory :email_campaign_category do
+    sequence :name do |n|
+      "Email Campaign Category #{n}"
+    end
+  end
+
+  factory :email_campaign do
+    sequence :name do |n|
+      "Email Campaign #{n}"
+    end
+    method_name "Mailer.method"
+    association :email_campaign_category
+  end
  
  
 end
