@@ -9,8 +9,12 @@ class UnsubscriptionsController < ApplicationController
     if @user == nil
       flash[:error] = "Email address is invalid"
       redirect_to(:email_unsubscribe) and return
-    end
+    end    
     @categories = params[:categories]
+    if @categories.include?("unsubscribe_all")
+      @user.unsubscribe_all
+      redirect_to(confirm_unsubscription_path) and return
+    end
     Unsubscription.unsubscribe(@user, @categories)
     redirect_to confirm_unsubscription_path
   end

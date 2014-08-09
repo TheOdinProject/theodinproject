@@ -72,22 +72,34 @@ describe "Email Campaigns" do
 
         specify "user can unsubscribe from one category" do
           fill_in("Email address", with: User.last.email)
-          save_and_open_page
-          page.check("categories[:Marketing]")
+          page.check("categories[Marketing]")
           click_on "Submit"
-          expect(User.last.unsubscriptions).to include(EmailCampaignCategory.find_by_name("Marketing")) 
+          expect(Unsubscription.where(
+            user_id: User.last.id, 
+            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+            )
         end
 
         specify "user can unsubscribe from multiple categories" do
-          pending
+          fill_in("Email address", with: User.last.email)
+          page.check("categories[Marketing]")
+          page.check("categories[Newsletter]")
+          click_on "Submit"
+          expect(Unsubscription.where(
+            user_id: User.last.id, 
+            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+            )
+          expect(Unsubscription.where(
+            user_id: User.last.id, 
+            email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
+            )          
         end
 
         specify "user can unsubscribe from all categories" do
-          pending
-        end
-
-        specify "user CANNOT unsubscribe from Transactional emails" do
-          pending
+          fill_in("Email address", with: User.last.email)
+          page.check("categories[unsubscribe_all]")
+          click_on "Submit"
+          expect(User.last.unsubscribe_all?).to be_true
         end
       end   
 

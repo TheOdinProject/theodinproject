@@ -11,13 +11,13 @@
 
     <% @categories.each do |c| %>
       <div class="checkbox">
-        <%= check_box_tag("categories[:#{c}]") %>
+        <%= check_box_tag("categories[#{c}]") %>
         <%= label_tag(c) %>
       </div>
     <% end %>
 
     <div class="checkbox">
-      <%= check_box_tag("categories[:unsubscribe_all]") %>
+      <%= check_box_tag("categories[unsubscribe_all]") %>
       <%= label_tag(:all) %>
     </div>
 
