@@ -138,7 +138,7 @@ describe "Email Campaigns" do
         end
 
         it "does not send email in existing category" do
-          pending
+          pending        
         end
 
         it "does not send email in new category" do
