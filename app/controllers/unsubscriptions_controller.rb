@@ -13,12 +13,15 @@ class UnsubscriptionsController < ApplicationController
     @categories = params[:categories]
     if @categories.include?("unsubscribe_all")
       @user.unsubscribe_all
-      redirect_to(confirm_unsubscription_path) and return
+      redirect_to(login_path, notice: "Email address #{@user.email} has been 
+        unsubscribed from all categories.  Login to view and update preferences
+        from your profile page at any time.") and return
     end
     Unsubscription.unsubscribe(@user, @categories)
-    redirect_to confirm_unsubscription_path
+    # redirect_to confirm_unsubscription_path(params[:email_address] => @user.email, 
+    #   params[:list] => @categories)
+    redirect_to login_path, notice: "Subscription preferences have been updated for
+    #{@user.email}.  Login to view and update preferences from your profile page at any time."
   end
 
-  def confirm_unsubscription
-  end
 end

@@ -104,9 +104,18 @@ describe "Email Campaigns" do
       end   
 
       context "after unsubscribing" do
+        before do
+          link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+          visit link
+          fill_in("Email address", with: User.last.email)
+          page.check("categories[Marketing]")
+          page.check("categories[Newsletter]")
+          click_on "Submit"
+        end
 
         it "shows confirmation" do
-          pending
+          expect(page).to have_selector('div', text: 
+            "Subscription preferences have been updated for #{User.last.email}.")
         end
 
         it "does not send user email in unsubscribed category" do
@@ -115,6 +124,19 @@ describe "Email Campaigns" do
       end
 
       context "after Unsubscribe All" do
+        before do
+          link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+          visit link
+          fill_in("Email address", with: User.last.email)
+          page.check("categories[unsubscribe_all]")
+          click_on "Submit"
+        end
+
+        it "shows confirmation" do
+          expect(page).to have_selector('div', text:
+            "Email address #{User.last.email} has been unsubscribed from all categories.")
+        end
+
         it "does not send email in existing category" do
           pending
         end
