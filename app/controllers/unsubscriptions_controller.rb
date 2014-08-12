@@ -30,14 +30,17 @@ class UnsubscriptionsController < ApplicationController
   end
 
   def update
-    currently_unsubscribed = Unsubscription.category_names(current_user.unsubscriptions)
-    puts "\n\n\n\n\n\n\n\n\n\n"
-    puts currently_unsubscribed
     categories = params[:categories]
-    currently_unsubscribed.each do |c|
-      if !categories.include?(Unsubscription.category_names(c))
-        Unsubscription.destroy(c)
-      end
+    if categories == nil
+      current_user.unsubscriptions.destroy_all
+      redirect_to(email_preferences_path, notice: "Thanks for opting in to receive
+        emails from The Odin Project") and return
+    end
+    current_user.unsubscriptions.each do |u|
+      name = EmailCampaignCategory.find(u.email_campaign_category_id).name
+      unless categories.include?(name)
+        u.delete
+      end      
     end
     Unsubscription.unsubscribe(current_user, categories)
     redirect_to email_preferences_path, notice: "Email preferences have been successfully 

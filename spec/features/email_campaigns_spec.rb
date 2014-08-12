@@ -202,12 +202,17 @@ describe "Email Campaigns" do
         end
 
         it "deletes a previous unsubscription" do
-          page.check("categories[Marketing]")
+          page.uncheck("categories[Marketing]")
+          save_and_open_page
           click_on "Update"
           expect(Unsubscription.category_names(user1.unsubscriptions)).not_to include("Marketing")          
         end
 
         # TODO - MAKE SURE THINGS DON'T BLOW UP IF THERE ARE NO PREVIOUS UNSUBSCRIPTIONS
+
+        # TODO - USER CAN RECEIVE EMAILS IN ALL CATEGORIES
+
+        # TODO - USER CAN UNSUBSCRIBE FROM ALL CATEGORIES
 
       end
     end
