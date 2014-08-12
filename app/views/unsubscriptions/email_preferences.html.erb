@@ -1,0 +1,43 @@
+<div>
+
+  <h1 class="text-center">Email Preferences</h1>
+
+    <p>The Odin Project is all about learning to code with great resources
+      and helpful peers to help along the way.
+    </p>
+    <br>
+    <p>Sometimes we send emails to let you know about new opportunities or 
+      resources that are available.  We hope those emails are helpful, but 
+      you're welcome to opt out using the form below if you prefer.
+    <p>
+    <br>
+    <p>(If you change your mind, just clear the checkbox and click "Update"
+      to receive emails in that category again.)
+    </p>
+    <br>
+    <form role="form">
+      <p> Categories: </p>
+      <%= form_tag('/edit_subscriptions', method: 'post') do %>
+        <% @categories.each do |c| %>
+          <% if @currently_unsubscribed.include?(c) %>
+            <div class="checkbox">
+              <%= check_box_tag("categories[#{c}]", '1', true) %>
+              <%= label_tag(c) %>
+            </div>
+          <% else %>
+            <div class="checkbox">
+              <%= check_box_tag("categories[#{c}]", '1', false) %>
+              <%= label_tag(c) %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div>
+          <%= submit_tag("Update") %>
+        </div>
+      <% end %>
+    <form>
+
+
+</div>
+

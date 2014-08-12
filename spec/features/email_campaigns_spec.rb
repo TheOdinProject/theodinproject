@@ -23,11 +23,15 @@ describe "Email Campaigns" do
   end
 
   describe "Users Can Unsubscribe from Campaigns" do
+    before do
+      FactoryGirl.create(:email_campaign_category, name: "Marketing")
+      FactoryGirl.create(:email_campaign_category, name: "Newsletter")
+      FactoryGirl.create(:email_campaign_category, name: "Transactional")
+      FactoryGirl.create(:email_campaign_category, name: "All")
+    end
+
     context "from link in email" do
       before do
-        FactoryGirl.create(:email_campaign_category, name: "Marketing")
-        FactoryGirl.create(:email_campaign_category, name: "Newsletter")
-        FactoryGirl.create(:email_campaign_category, name: "Transactional")
         FactoryGirl.create(:email_campaign, 
           method_name: "TestMailer.email_one_person",
           email_campaign_category: EmailCampaignCategory.last)
@@ -97,7 +101,7 @@ describe "Email Campaigns" do
 
         specify "user can unsubscribe from all categories" do
           fill_in("Email address", with: User.last.email)
-          page.check("categories[unsubscribe_all]")
+          page.check("categories[All]")
           click_on "Submit"
           expect(User.last.unsubscribe_all?).to be_true
         end
@@ -128,7 +132,7 @@ describe "Email Campaigns" do
           link = @email.match(/href="(.*unsubscribe.*)"/)[1]
           visit link
           fill_in("Email address", with: User.last.email)
-          page.check("categories[unsubscribe_all]")
+          page.check("categories[All]")
           click_on "Submit"
         end
 
@@ -150,5 +154,62 @@ describe "Email Campaigns" do
         end
       end 
     end
+
+    context "Via Link from User Profile Page" do
+      let!(:user1) {FactoryGirl.create(:user)}
+      let!(:user2) {FactoryGirl.create(:user)}
+
+      specify "User doesn't see link if not logged in" do
+        visit user_path(User.first)
+        expect(page).to have_no_selector('a', text: "Update Email Preferences")
+      end
+
+      specify "User doesn't see link on other people's profiles" do
+        visit logout_path
+        sign_in(user1)
+        visit user_path(user2)
+        expect(page).to have_no_selector('a', text: "Update Email Preferences")
+      end
+
+      specify "Signed in user has link to update email preferences" do
+        visit logout_path
+        sign_in(user2)
+        visit user_path(user2)
+        expect(page).to have_selector('a', text: "Update Email Preferences")
+      end
+
+      context "On Update Email Preferences Page"
+        before do
+          Unsubscription.unsubscribe(user1, ["Marketing"])
+          sign_in(user1)
+          visit user_path(user1)
+          click_on "Update Email Preferences"
+          expect(current_path).to eq email_preferences_path
+        end        
+
+        specify "current unsubscriptions are checked" do
+          expect(page).to have_checked_field("categories[Marketing]")
+        end
+
+        specify "other categories are not checked" do
+          expect(page).to have_no_checked_field("categories[Newsletter]")
+        end
+
+        it "lets the user add an unsubscription" do
+          page.check("categories[Newsletter]")
+          click_on "Update"
+          expect(Unsubscription.category_names(user1.unsubscriptions)).to include("Newsletter")
+        end
+
+        it "deletes a previous unsubscription" do
+          page.check("categories[Marketing]")
+          click_on "Update"
+          expect(Unsubscription.category_names(user1.unsubscriptions)).not_to include("Marketing")          
+        end
+
+        # TODO - MAKE SURE THINGS DON'T BLOW UP IF THERE ARE NO PREVIOUS UNSUBSCRIPTIONS
+
+      end
+    end
   end 
-end
+# end

@@ -79,6 +79,10 @@
             <li>Facebook: <a href="<%= @user.facebook %>"><%= @user.facebook %></a></li>
             <li>LinkedIn: <a href="<%= @user.linkedin %>"><%= @user.linkedin %></a></li>
           </ul>
+
+          <% if current_user && current_user == @user %>
+            <%= link_to "Update Email Preferences", email_preferences_path %>
+          <% end %>
         <% end %>
       </div>
     </div>

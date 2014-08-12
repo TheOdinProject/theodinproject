@@ -55,6 +55,8 @@ devise_for :users,
   # ***** EMAIL UNSUBSCRIPTION ROUTES *****
   get 'email_unsubscribe' => 'unsubscriptions#email_unsubscribe'
   post 'unsubscribe' => 'unsubscriptions#create'
+  get 'email_preferences' => 'unsubscriptions#edit'
+  post 'edit_subscriptions' => 'unsubscriptions#update'
 
 
   # ***** COURSES AND LESSONS ROUTES *****
