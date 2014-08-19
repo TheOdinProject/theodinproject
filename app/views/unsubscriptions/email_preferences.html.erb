@@ -15,7 +15,6 @@
       to receive emails in that category again.)
     </p>
     <br>
-    <form role="form">
       <p> Categories: </p>
       <%= form_tag('/edit_subscriptions', method: 'post') do %>
         <% @categories.each do |c| %>
@@ -36,7 +35,6 @@
           <%= submit_tag("Update") %>
         </div>
       <% end %>
-    <form>
 
 
 </div>

@@ -30,19 +30,29 @@ class UnsubscriptionsController < ApplicationController
   end
 
   def update
-    categories = params[:categories]
-    if categories == nil
+    @categories = params[:categories]
+    # Remove all unsubscriptions and clear flag if user clears boxes
+    if @categories == nil
       current_user.unsubscriptions.destroy_all
+      current_user.update_column(:unsubscribe_all, false)
       redirect_to(email_preferences_path, notice: "Thanks for opting in to receive
         emails from The Odin Project") and return
     end
+    # Remove any unsubscriptions for unchecked boxes
     current_user.unsubscriptions.each do |u|
       name = EmailCampaignCategory.find(u.email_campaign_category_id).name
-      unless categories.include?(name)
+      unless @categories.include?(name)
         u.delete
       end      
     end
-    Unsubscription.unsubscribe(current_user, categories)
+    # Set or remove unsubscribe_all flag
+    if @categories.include?("All")
+      current_user.unsubscribe_all
+    else
+      current_user.update_column(:unsubscribe_all, false)
+    end
+    # Create unsubscriptions for any checked boxes
+    Unsubscription.unsubscribe(current_user, @categories)
     redirect_to email_preferences_path, notice: "Email preferences have been successfully 
     updated"
   end

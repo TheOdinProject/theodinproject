@@ -136,6 +136,10 @@ describe "Email Campaigns" do
           click_on "Submit"
         end
 
+        it "sets unsubscribe flag for user" do
+          expect(User.last.unsubscribe_all?).to eq(true)
+        end
+
         it "shows confirmation" do
           expect(page).to have_selector('div', text:
             "Email address #{User.last.email} has been unsubscribed from all categories.")
@@ -178,13 +182,14 @@ describe "Email Campaigns" do
         expect(page).to have_selector('a', text: "Update Email Preferences")
       end
 
-      context "On Update Email Preferences Page"
+      context "On Update Email Preferences Page" do
         before do
           Unsubscription.unsubscribe(user1, ["Marketing"])
           sign_in(user1)
           visit user_path(user1)
           click_on "Update Email Preferences"
           expect(current_path).to eq email_preferences_path
+          expect(user1.unsubscribe_all?).to eq(false)
         end        
 
         specify "current unsubscriptions are checked" do
@@ -203,18 +208,61 @@ describe "Email Campaigns" do
 
         it "deletes a previous unsubscription" do
           page.uncheck("categories[Marketing]")
-          save_and_open_page
           click_on "Update"
           expect(Unsubscription.category_names(user1.unsubscriptions)).not_to include("Marketing")          
         end
 
-        # TODO - MAKE SURE THINGS DON'T BLOW UP IF THERE ARE NO PREVIOUS UNSUBSCRIPTIONS
+        it "lets user unsubscribe from all categories" do
+          page.check("categories[All]")
+          click_on "Update"
+          expect(user1.reload.unsubscribe_all?).to eq(true)
+          expect(page).to have_checked_field("categories[All]")
+        end
 
-        # TODO - USER CAN RECEIVE EMAILS IN ALL CATEGORIES
+        it "lets user re-subscribe to all categories" do
+          user1.update_column(:unsubscribe_all, true)
+          visit email_preferences_path
+          page.uncheck("categories[Marketing]")          
+          page.uncheck("categories[All]")
+          click_on "Update"
+          expect(user1.unsubscriptions.count).to eq(0)
+          expect(user1.reload.unsubscribe_all?).to eq(false)
+        end          
 
-        # TODO - USER CAN UNSUBSCRIBE FROM ALL CATEGORIES
+        it "lets user remove unsubscribe_all flag" do
+          user1.update_column(:unsubscribe_all, true)
+          visit email_preferences_path
+          page.uncheck("categories[All]")
+          click_on "Update"
+          expect(user1.reload.unsubscribe_all?).to eq(false)
+        end
+
+        context "User with no previous unsubscriptions" do
+          before do
+            Unsubscription.destroy_all
+            visit email_preferences_path
+          end
+
+          specify "No boxes are checked" do
+            expect(page).to have_no_checked_field("categories[Marketing]")
+          end
+
+          specify "User doesn't add unsubscriptions" do
+            click_on "Update"
+            expect(page).to have_selector('div', text: "Thanks for opting in to receive emails")
+          end
+
+          specify "User adds multiple unsubscriptions" do
+            page.check("categories[Marketing]")
+            page.check("categories[Newsletter]")
+            click_on "Update"
+            expect(user1.unsubscriptions.count).to eq(2)
+            expect(page).to have_checked_field("categories[Marketing]")
+            expect(page).to have_checked_field("categories[Newsletter]")
+          end
+        end
 
       end
     end
   end 
-# end
+end
