@@ -38,6 +38,7 @@ describe "Manage Email Unsubscriptions" do
       
       it "gives error message if email doesn't belong to a User" do
         fill_in("Email address", with: "fake@user.email")
+        page.check("categories[All]")
         click_on "Submit"
         expect(page).to have_selector('div', text: "Email address is invalid")
       end
@@ -62,6 +63,22 @@ describe "Manage Email Unsubscriptions" do
 
       
       # UNSUBSCRIBE FROM CATEGORIES
+
+      describe "User doesn't unsubscribe from anything" do
+        before do
+          fill_in("Email address", with: User.last.email)
+          click_on "Submit"
+        end
+
+        it "shows helpful notification" do
+          expect(page).to have_selector('div', 
+            text: "Login to view and update preferences from your profile page at any time.")
+        end
+
+        it "sends user to courses page" do
+          expect(current_path).to eq courses_path
+        end
+      end
       
       describe "User unsubscribes from one category" do
         before do

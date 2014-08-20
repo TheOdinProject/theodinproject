@@ -7,18 +7,27 @@ class UnsubscriptionsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:email_address])
+    @categories = params[:categories]
+    # Verify User 
     if @user == nil
       flash[:error] = "Email address is invalid"
       redirect_to(:email_unsubscribe) and return
-    end    
-    @categories = params[:categories]
+    end  
+    # Avoid blowing up if no categories were checked
+    if @categories == nil
+      redirect_to(courses_path, 
+        notice: "Login to view and update preferences from your profile page at any time.") and return
+    end
+    # Create unsubscriptions
     Unsubscription.unsubscribe(@user, @categories)
+    # Set unsubscribe_all flag if needed
     if @categories.include?("All")
       @user.unsubscribe_all
       redirect_to(courses_path, notice: "Email address #{@user.email} has been 
         unsubscribed from all categories.  Login to view and update preferences
         from your profile page at any time.") and return
     end
+    # All done!
     redirect_to courses_path, notice: "Subscription preferences have been updated for
     #{@user.email}.  Login to view and update preferences from your profile page at any time."
   end
@@ -64,6 +73,14 @@ class UnsubscriptionsController < ApplicationController
     unless user_signed_in?
       render :nothing => true, :status => 401 # unauthorized
     end
+  end
+
+  #  NOT WORKING - DOESN'T REDIRECT
+  def verify_user(user)
+    if @user == nil
+      flash[:error] = "Email address is invalid"
+      redirect_to(:email_unsubscribe) and return
+    end  
   end
 
 
