@@ -31,6 +31,9 @@
           <%= link_to "<i class=\"fa fa-#{provider} providers-button\"></i>Link your #{provider.to_s.titleize} account".html_safe, omniauth_authorize_path(:user, :github), id: 'github-link', class: 'btn btn-social btn-large btn-lg btn-github' %><br />
         <% end -%>
       <% end %>
+      <% if current_user && current_user == @user %>
+        <%= link_to "Update email preferences", email_preferences_path, class: 'btn btn-large btn-lg btn-email-pref' %>
+      <% end %>
       <h3>About</h3>
       <div class="profile-about">
         <% if @edit %>
@@ -79,10 +82,6 @@
             <li>Facebook: <a href="<%= @user.facebook %>"><%= @user.facebook %></a></li>
             <li>LinkedIn: <a href="<%= @user.linkedin %>"><%= @user.linkedin %></a></li>
           </ul>
-
-          <% if current_user && current_user == @user %>
-            <%= link_to "Update Email Preferences", email_preferences_path %>
-          <% end %>
         <% end %>
       </div>
     </div>

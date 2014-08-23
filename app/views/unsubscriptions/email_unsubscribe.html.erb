@@ -1,24 +1,21 @@
-<div class="row">
+<div class="unsubscriptions-controller">
   <h1> Unsubscribe from Email Lists </h1>
-
-  <%= form_tag('/unsubscribe', method: 'post') do %>
-    <div>
-      <%= label_tag(:email_address) %>
-      <%= text_field_tag(:email_address) %>
-    </div>
-
-    <p> Unsubscribe from: </p>
-
-    <% @categories.each do |c| %>
-      <div class="checkbox">
-        <%= check_box_tag("categories[#{c}]") %>
-        <%= label_tag(c) %>
+  <div class="email-categories">
+    <%= form_tag('/unsubscribe', method: 'post') do %>
+      <div>
+        <%= label_tag(:email_address) %>
+        <%= text_field_tag(:email_address) %>
+      </div>
+      <p> Unsubscribe from: </p>
+      <% @categories.each do |c| %>
+        <div class="checkbox">
+          <%= check_box_tag("categories[#{c}]") %>
+          <%= label_tag(c) %>
+        </div>
+      <% end %>
+      <div>
+        <%= submit_tag("Submit") %>
       </div>
     <% end %>
-
-    <div>
-      <%= submit_tag("Submit") %>
-    </div>
-  <% end %>
-
+  </div>
 </div>
