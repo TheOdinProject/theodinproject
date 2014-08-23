@@ -120,10 +120,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def unsubscribe_all
-    self.update_column(:unsubscribe_all, true)
-  end
-
   protected
 
     def build_preferences

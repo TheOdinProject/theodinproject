@@ -167,26 +167,11 @@ describe User do
           # expect(user.latest_completed_lesson).to be(completed_lesson_early)
 
         end
+     
       end
 
-    end
-
-    describe "#unsubscribe_all" do
-
-      specify "new users do not have unsubscribe_all flag set" do
-        user = FactoryGirl.create(:user)
-        expect(user.unsubscribe_all?).to be_false
-      end
-
-      it "sets unsubscribe_all flag for user" do
-        user = FactoryGirl.create(:user)
-        user.unsubscribe_all
-        expect(user.unsubscribe_all?).to be_true
-      end
     end
 
   end
-
-
 
 end

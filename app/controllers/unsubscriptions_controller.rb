@@ -24,7 +24,7 @@ class UnsubscriptionsController < ApplicationController
     end
     # Set unsubscribe_all flag if needed
     if @categories.include?("All")
-      @user.unsubscribe_all
+      @user.update_column(:unsubscribe_all, true)
       redirect_to(courses_path, notice: "Email address #{@user.email} has been 
         unsubscribed from all categories.  Login to view and update preferences
         from your profile page at any time.") and return
@@ -60,7 +60,7 @@ class UnsubscriptionsController < ApplicationController
     end
     # Set or remove unsubscribe_all flag
     if @categories.keys.include?("All")
-      current_user.unsubscribe_all
+      current_user.update_column(:unsubscribe_all, true)
     else
       current_user.update_column(:unsubscribe_all, false)
     end
