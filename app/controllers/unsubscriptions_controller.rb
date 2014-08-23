@@ -1,5 +1,6 @@
 class UnsubscriptionsController < ApplicationController
   before_filter :authenticate_user!, only: [:edit, :update]
+  before_filter :confirm_categories_exist
 
   def email_unsubscribe
     @categories = EmailCampaignCategory.list
@@ -71,6 +72,14 @@ class UnsubscriptionsController < ApplicationController
 
     redirect_to email_preferences_path, notice: "Email preferences have been successfully 
     updated"
+  end
+
+  def confirm_categories_exist
+    if EmailCampaignCategory.count == 0
+      flash[:error] = "We're sorry. Something went wrong. Please email us at
+      contact@theodinproject.com for assistance"
+      redirect_to(courses_path) and return
+    end
   end
 
 

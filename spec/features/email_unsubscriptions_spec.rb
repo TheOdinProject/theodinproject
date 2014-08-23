@@ -4,6 +4,22 @@ describe "Manage Email Unsubscriptions" do
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:user2) {FactoryGirl.create(:user)}
 
+  describe "Pages don't blow up if there are no categories" do
+    before {EmailCampaignCategory.destroy_all}
+
+    specify "Email unsubscribe page gives error message" do
+      visit email_unsubscribe_path   # No EmailCampaignCategories have been created
+      expect(page).to have_selector('div', text: "We're sorry. Something went wrong.")
+    end
+
+    specify "Update email preferences page gives error message" do
+      visit logout_path  #To be safe - make sure no one is logged in
+      sign_in(user1)
+      visit email_preferences_path   #No EmailCampaignCategories have been created
+      expect(page).to have_selector('div', text: "We're sorry. Something went wrong.")
+    end
+  end
+
   before do
     FactoryGirl.create(:email_campaign_category, name: "Marketing")
     FactoryGirl.create(:email_campaign_category, name: "Newsletter")
