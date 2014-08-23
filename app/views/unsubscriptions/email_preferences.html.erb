@@ -16,15 +16,15 @@
     <p><strong>Categories:</strong></p>
     <%= form_tag('/edit_subscriptions', method: 'post') do %>
       <% @categories.each do |c| %>
-        <% if @currently_unsubscribed.include?(c) %>
+        <% if @currently_unsubscribed.include?(c.id) %>
           <div class="checkbox">
-            <%= check_box_tag("categories[#{c}]", '1', true) %>
-            <%= label_tag(c) %>
+            <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", true) %>
+            <%= label_tag(c.name) %>
           </div>
         <% else %>
           <div class="checkbox">
-            <%= check_box_tag("categories[#{c}]", '1', false) %>
-            <%= label_tag(c) %>
+            <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", false) %>
+            <%= label_tag(c.name) %>
           </div>
         <% end %>
       <% end %>

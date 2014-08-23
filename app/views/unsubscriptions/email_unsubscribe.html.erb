@@ -9,8 +9,8 @@
       <p> Unsubscribe from: </p>
       <% @categories.each do |c| %>
         <div class="checkbox">
-          <%= check_box_tag("categories[#{c}]") %>
-          <%= label_tag(c) %>
+          <%= check_box_tag("categories[#{c.name}]", value="#{c.id}") %>
+          <%= label_tag("#{c.name}") %>
         </div>
       <% end %>
       <div>

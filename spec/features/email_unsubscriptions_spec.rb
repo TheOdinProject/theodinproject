@@ -181,30 +181,33 @@ describe "Manage Email Unsubscriptions" do
 
     specify "User doesn't see link if not logged in" do
       visit user_path(User.first)
-      expect(page).to have_no_selector('a', text: "Update Email Preferences")
+      expect(page).to have_no_selector('a', text: "Update email preferences")
     end
 
     specify "User doesn't see link on other people's profiles" do
       visit logout_path
       sign_in(user1)
       visit user_path(user2)
-      expect(page).to have_no_selector('a', text: "Update Email Preferences")
+      expect(page).to have_no_selector('a', text: "Update email preferences")
     end
 
     specify "Signed in user has link to update email preferences" do
       visit logout_path
       sign_in(user2)
       visit user_path(user2)
-      expect(page).to have_selector('a', text: "Update Email Preferences")
+      expect(page).to have_selector('a', text: "Update email preferences")
     end
 
-    context "On Update Email Preferences Page" do
+    context "On Update email preferences Page" do
       describe "User with an existing unsubscription" do
         before do
-          Unsubscription.unsubscribe(user1, ["Marketing"])
+          Unsubscription.create(
+            user_id: user1.id,
+            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id
+          )
           sign_in(user1)
           visit user_path(user1)
-          click_on "Update Email Preferences"
+          click_on "Update email preferences"
         end        
 
         specify "current unsubscriptions are checked" do
@@ -265,7 +268,7 @@ describe "Manage Email Unsubscriptions" do
           Unsubscription.destroy_all
           sign_in(user1)
           visit user_path(user1)
-          click_on "Update Email Preferences"
+          click_on "Update email preferences"
         end
 
         # NO BOXES SHOULD BE CHECKED

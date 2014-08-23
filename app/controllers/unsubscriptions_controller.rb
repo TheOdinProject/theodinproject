@@ -1,5 +1,5 @@
 class UnsubscriptionsController < ApplicationController
-  before_filter :authenticate_request, only: [:edit, :update]
+  before_filter :authenticate_user!, only: [:edit, :update]
 
   def email_unsubscribe
     @categories = EmailCampaignCategory.list
@@ -19,7 +19,9 @@ class UnsubscriptionsController < ApplicationController
         notice: "Login to view and update preferences from your profile page at any time.") and return
     end
     # Create unsubscriptions
-    Unsubscription.unsubscribe(@user, @categories)
+    @categories.each do |c|
+      Unsubscription.create(user_id: @user.id, email_campaign_category_id: c)
+    end
     # Set unsubscribe_all flag if needed
     if @categories.include?("All")
       @user.unsubscribe_all
@@ -34,7 +36,10 @@ class UnsubscriptionsController < ApplicationController
 
   def edit
     @categories = EmailCampaignCategory.list
-    @currently_unsubscribed = Unsubscription.category_names(current_user.unsubscriptions)
+    @currently_unsubscribed = []
+    current_user.unsubscriptions.each do |u|
+      @currently_unsubscribed << u.email_campaign_category_id
+    end
     render :email_preferences
   end
 
@@ -49,31 +54,27 @@ class UnsubscriptionsController < ApplicationController
     end
     # Remove any unsubscriptions for unchecked boxes
     current_user.unsubscriptions.each do |u|
-      name = EmailCampaignCategory.find(u.email_campaign_category_id).name
-      unless @categories.include?(name)
+      unless @categories.values.include?(u.email_campaign_category_id)
         u.delete
       end      
     end
     # Set or remove unsubscribe_all flag
-    if @categories.include?("All")
+    if @categories.keys.include?("All")
       current_user.unsubscribe_all
     else
       current_user.update_column(:unsubscribe_all, false)
     end
     # Create unsubscriptions for any checked boxes
-    Unsubscription.unsubscribe(current_user, @categories)
+    @categories.values.each do |c|
+      Unsubscription.create(user_id: current_user.id, email_campaign_category_id: c)
+    end
+
     redirect_to email_preferences_path, notice: "Email preferences have been successfully 
     updated"
   end
 
 
   protected
-
-  def authenticate_request
-    unless user_signed_in?
-      render :nothing => true, :status => 401 # unauthorized
-    end
-  end
 
   #  NOT WORKING - DOESN'T REDIRECT
   def verify_user(user)

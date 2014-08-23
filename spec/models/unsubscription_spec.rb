@@ -20,33 +20,11 @@ describe Unsubscription do
     expect(u.valid?).to be_false
   end
 
-  describe '#unsubscribe' do
-
-    it 'does not create duplicate unsubscriptions' do
-      Unsubscription.unsubscribe(user, [category1.name])
-      expect{
-        Unsubscription.unsubscribe(user, [category1.name])
-      }.to change{Unsubscription.count}.by(0)
-    end
-
-    it "creates one new unsubscription" do
-      expect { 
-        Unsubscription.unsubscribe(user, [category2.name])
-        }.to change{Unsubscription.count}.by(1)
-    end
-
-    it "creates multiple unsubscriptions" do
-      expect { 
-        Unsubscription.unsubscribe(user, [category3.name, category4.name])
-        }.to change{Unsubscription.count}.by(2)
-    end
-
-    it "creates multiple unsubscriptions without duplicates" do
+  it "does not create duplicate unsubscriptions" do
+    2.times do 
       Unsubscription.create(user_id: user.id, email_campaign_category_id: category1.id)
-      expect { 
-        Unsubscription.unsubscribe(user, [category1.name, category3.name, category4.name])
-        }.to change{Unsubscription.count}.by(2)
     end
+    expect(user.unsubscriptions.count).to eq(1)
   end
 
   describe '#category_names' do
