@@ -19,7 +19,7 @@ class UnsubscriptionsController < ApplicationController
         notice: "Login to view and update preferences from your profile page at any time.") and return
     end
     # Create unsubscriptions
-    @categories.each do |c|
+    @categories.values.each do |c|
       Unsubscription.create(user_id: @user.id, email_campaign_category_id: c)
     end
     # Set unsubscribe_all flag if needed
