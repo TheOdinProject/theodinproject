@@ -8,7 +8,7 @@ class EmailCampaignCategory < ActiveRecord::Base
   def self.list
     categories = []
     self.all.each do |c|
-      categories << c.name unless c.name.match(/transactional/i)
+      categories << c unless c.name.match(/transactional/i)
     end
     return categories
   end

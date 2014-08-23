@@ -8,9 +8,7 @@ describe EmailCampaignCategory do
   end
 
   it "must have a unique name" do
-    original = EmailCampaignCategory.new
-    original.name = "One" 
-    original.save
+    original = FactoryGirl.create(:email_campaign_category, name: "One")
     copy = EmailCampaignCategory.new
     copy.name = "One"
     expect(copy.valid?).to eq false
@@ -25,7 +23,10 @@ describe EmailCampaignCategory do
     end
 
     it 'returns list of categories without Transactional' do
-      expect(EmailCampaignCategory.list).to eq(['Marketing', "Newsletter"])
+      expect(EmailCampaignCategory.list).to eq([
+        EmailCampaignCategory.find_by_name("Marketing"), 
+        EmailCampaignCategory.find_by_name("Newsletter")
+        ])
     end
   end
 end
