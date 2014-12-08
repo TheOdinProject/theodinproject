@@ -1,5 +1,7 @@
 # The Odin Project: [Learn Web Development for Free](http://theodinproject.com)
 
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/TheOdinProject/theodinproject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 v0.2.0
 
 This site provides the main user experience for The Odin Project, including the home page and all user functions.  It is meant to be a shell around [The Curriculum](http://theodinproject.com/curriculum) and to include the tools that help students learn more effectively along their learning journeys.
