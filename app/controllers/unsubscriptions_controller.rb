@@ -82,16 +82,4 @@ class UnsubscriptionsController < ApplicationController
     end
   end
 
-
-  protected
-
-  #  NOT WORKING - DOESN'T REDIRECT
-  def verify_user(user)
-    if @user == nil
-      flash[:error] = "Email address is invalid"
-      redirect_to(:email_unsubscribe) and return
-    end  
-  end
-
-
 end

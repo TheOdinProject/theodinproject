@@ -238,6 +238,8 @@ describe "Manage Email Unsubscriptions" do
           page.check("categories[Newsletter]")
           click_on "Update"
           expect(Unsubscription.category_names(user1.unsubscriptions)).to include("Newsletter")
+          # expect(user1.unsubscriptions).to include(Unsubscription.where(
+          #   email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id))
         end
 
         it "deletes a previous unsubscription" do

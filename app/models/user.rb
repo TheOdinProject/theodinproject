@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   has_many :lesson_completions, :foreign_key => :student_id
   has_many :completed_lessons, :through => :lesson_completions, :source => :lesson
   # associates the user with emails he/she has received
-  has_many :email_campaigns, :through => :sent_emails
+  has_many :sent_emails
   # associates the user with email campaigns he/she has unsubscribed from
   has_many :unsubscriptions
 
