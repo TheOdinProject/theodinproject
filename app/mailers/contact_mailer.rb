@@ -9,8 +9,8 @@ class ContactMailer < ActionMailer::Base
     @url = url
     @suggestion_text = suggestion_text
     @user_email = user_email
-    mail( { :to => FEEDBACK_EMAIL,
-            :subject => "Site FEEDBACK" } )
+    mail( :to => FEEDBACK_EMAIL,
+          :subject => "Site FEEDBACK" )
   end
 
 
