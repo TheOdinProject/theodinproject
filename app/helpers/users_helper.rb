@@ -7,15 +7,10 @@ module UsersHelper
   end
 
   def twitter_url(user)
-    url = ""
     if user.twitter
-      if user.twitter[0] == "@"
-        url = "http://www.twitter.com/#{user.twitter[1..-1]}"
-      else
-        url = "http://www.twitter.com/#{user.twitter}"
-      end
+      "http://www.twitter.com/#{user.twitter.sub('@', '')}"
     else
-      url
+      ""
     end
   end 
 end
