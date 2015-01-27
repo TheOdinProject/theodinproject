@@ -1,5 +1,4 @@
 class Ad < ActiveRecord::Base
-
   attr_accessible :category, :client, :image_path, :url, :style
 
   # Display VE ads for everyone
@@ -7,14 +6,18 @@ class Ad < ActiveRecord::Base
     true
   end
 
+  def self.ve_sample(style)
+    where(:style => style, :client => "ve", :category => "b2c_ab").sample
+  end
+
   # Samples a random ve banner ad
   def self.ve_banner
-    Ad.where(:style => "banner", :client => "ve", :category => "b2c_ab").sample
+    ve_sample(style: 'banner')
   end
 
   # Samples a random ve box ad
   def self.ve_box
-    Ad.where(:style => "box", :client => "ve", :category => "b2c_ab").sample
+    ve_sample(style: 'box')
   end
 
 end
