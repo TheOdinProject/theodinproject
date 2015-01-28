@@ -6,22 +6,7 @@ class CurriculumController < ApplicationController
     # https://api.github.com/repos/theodinproject
     #   /curriculum/contents/contributing.md
 
-    github = Github::Repos.new :user => "theodinproject", :repo => "curriculum", :oauth_token => "#{ENV['GITHUB_API_TOKEN']}"
-    dir = params[:dir] || "index.md"
-
     begin
-
-      response = github.contents.get :path => "#{dir}"
-
-      # If we've been returned a directory instead of a file
-      # (e.g. for /ruby as opposed to /ruby/index.md)
-      # Search through it looking for an index file
-      # if we find one, grab that file and proceed normally
-      if response.body.is_a?(Array)
-        gh_file = get_index_from_dir(github, response)
-      else
-        gh_file = response
-      end
 
       # Decode the gibberish into a real file and render to html
       decoded_file = Base64.decode64(gh_file["content"])
@@ -43,14 +28,31 @@ class CurriculumController < ApplicationController
   # Prefer to serve .html files over .md
   def get_index_from_dir(api_object, response_dir)
     response_dir.body.each do |item|
-      if item.name == "index.html"
-        return api_object.contents.get :path => item.path
-      end
-      if item.name == "index.md"
-        return api_object.contents.get :path => item.path
+      if item.name =~ /index\.(html|md)/
+        return get_contents(api_object, item.path)
       end
     end
     nil
   end
 
+  def github
+    @github ||= Github::Repos.new(:user => "theodinproject", :repo => "curriculum", :oauth_token => "#{ENV['GITHUB_API_TOKEN']}")
+  end
+
+  def get_contents(api_object, path)
+    api_object.contents.get :path => path
+  end
+
+  def gh_file
+    # If we've been returned a directory instead of a file
+    # (e.g. for /ruby as opposed to /ruby/index.md)
+    # Search through it looking for an index file
+    # if we find one, grab that file and proceed normally
+
+    dir = params[:dir] || "index.md"
+    response = get_contents(github, "#{dir}")
+
+    return response unless response.body.is_a?(Array)
+    get_index_from_dir(github, response)
+  end
 end
