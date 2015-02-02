@@ -86,13 +86,16 @@ FactoryGirl.define do
     sequence :name do |n|
       "Email Campaign Category #{n}"
     end
+    sequence :description do |n|
+      "Description of category #{n}"
+    end
   end
 
   factory :email_campaign do
-    sequence :name do |n|
-      "Email Campaign #{n}"
+    mailer_name "AwesomeMailer"
+    sequence :method_name do |n|
+      "mailer_method_#{n}"
     end
-    method_name "Mailer.method"
     association :email_campaign_category
   end
  

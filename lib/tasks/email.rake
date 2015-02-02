@@ -1,19 +1,25 @@
 namespace :email do
   
-  desc "send email via SendGrid API"
-  task :send, [:mailer, :message, :recipient] => [:environment, :get_smtpapi_header] do | t, args |
-    mailer = Kernel.const_get(args[:mailer].classify)
-    puts SMTPAPI
-    mailer.send(args[:message], SMTPAPI).deliver
+  desc "create basic email campaign categories"
+  task :create_campaign_categories => :environment do
+    categories = [
+      { name: "All", 
+        description: "All categories"
+      },
+      { name: "Nudges", 
+        description: "Friendly reminders and encouragement to keep coding"
+      },
+      { name: "Newletters", 
+        description: "Information of interest to the community"
+      },
+      { name: "Marketing",
+        description: "Offers and information about other services"
+      }
+    ]
+    categories.each do |category|
+      EmailCampaignCategory.find_or_create_by!(name: category.fetch(:name)) do |c|
+        c.description = category.fetch(:description)
+      end
+    end
   end
-
-  desc "build smptapi header" 
-  task :get_smtpapi_header, [:recipient] => :environment do | t, args |
-    SMTPAPI = {
-      "to" => [
-        args[:recipient]
-      ]
-    }.to_json
-  end
-
 end

@@ -3,15 +3,17 @@ require 'spec_helper'
 describe EmailCampaignCategory do
 
   it "must have a name" do
-    category = EmailCampaignCategory.new
-    expect(category.valid?).to eq false
+    expect(EmailCampaignCategory.new).to have(1).error_on(:name)
   end
 
   it "must have a unique name" do
-    original = FactoryGirl.create(:email_campaign_category, name: "One")
-    copy = EmailCampaignCategory.new
-    copy.name = "One"
-    expect(copy.valid?).to eq false
+    FactoryGirl.create(:email_campaign_category, name: "One")
+    duplicate = EmailCampaignCategory.new(name: "One")
+    expect(duplicate).to have(1).error_on(:name)
+  end
+
+  it "must have a description" do
+    expect(EmailCampaignCategory.new).to have(1).error_on(:description)
   end
 
   describe "#list" do

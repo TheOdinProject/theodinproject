@@ -2,37 +2,21 @@ require 'spec_helper'
 
 describe EmailCampaign do
 
-  it "must have a name" do
-    anon = EmailCampaign.new
-    anon.method_name = "Mailer.method"
-    expect(anon.valid?).to eq false
-  end
-
-  it "must have a unique name" do
-    original = EmailCampaign.new
-    original.name = "One"
-    original.method_name = "Mailer.one" 
-    original.save
-    copy = EmailCampaign.new
-    copy.name = "One"
-    copy.method_name = "Mailer.two"
-    expect(copy.valid?).to eq false
+  it "must have a mailer_name" do
+    expect(EmailCampaign.new).to have(1).error_on(:mailer_name)
   end
 
   it "must have a method name" do
-    useless = EmailCampaign.new
-    useless.name = "Useless"
-    expect(useless.valid?).to eq false
+    expect(EmailCampaign.new).to have(1).error_on(:method_name)
   end
 
   it "must have a unique method name" do
-    original = EmailCampaign.new
-    original.name = "One" 
-    original.method_name = "Mailer.one"
-    original.save
-    copy = EmailCampaign.new
-    copy.name = "Two"
-    copy.method_name = "Mailer.one"
-    expect(copy.valid?).to eq false
+    FactoryGirl.create(:email_campaign, method_name: "mailer_method")
+    duplicate = EmailCampaign.new(method_name: "mailer_method")
+    expect(duplicate).to have(1).error_on(:method_name)
   end  
+
+  it "must have an email_campaign_category" do
+    expect(EmailCampaign.new).to have(1).error_on(:email_campaign_category)
+  end
 end
