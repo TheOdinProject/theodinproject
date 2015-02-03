@@ -7,12 +7,14 @@
         <%= text_field_tag(:email_address) %>
       </div>
       <p> Unsubscribe from: </p>
+      <br>
       <% @categories.each do |c| %>
         <div class="checkbox">
           <%= check_box_tag("categories[#{c.name}]", value="#{c.id}") %>
-          <%= label_tag("#{c.name}") %>
+          <%= label_tag("#{c.name}:    #{c.description}") %>
         </div>
       <% end %>
+      <br>
       <div>
         <%= submit_tag("Submit") %>
       </div>

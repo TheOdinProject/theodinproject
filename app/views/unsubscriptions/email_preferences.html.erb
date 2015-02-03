@@ -14,20 +14,22 @@
   </p>
   <div class="email-categories">
     <p><strong>Categories:</strong></p>
+    <br>
     <%= form_tag('/edit_subscriptions', method: 'post') do %>
       <% @categories.each do |c| %>
         <% if @currently_unsubscribed.include?(c.id) %>
           <div class="checkbox">
             <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", true) %>
-            <%= label_tag(c.name) %>
+            <%= label_tag("#{c.name}:    #{c.description}") %>
           </div>
         <% else %>
           <div class="checkbox">
             <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", false) %>
-            <%= label_tag(c.name) %>
+            <%= label_tag("#{c.name}:    #{c.description}") %>
           </div>
         <% end %>
       <% end %>
+      <br>
       <div>
         <%= submit_tag("Update") %>
       </div>
