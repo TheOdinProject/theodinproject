@@ -13,7 +13,7 @@ module MailCampaignHelper
 
   def send_mail(method, users)
     campaign = check_campaign(method)
-
+    puts users.class
     # Filter users and return two arrays - 
     # One of Users and one of their email addresses
     filtered_list = filter(users, campaign)
@@ -66,6 +66,18 @@ module MailCampaignHelper
     end
     return recipients, recipient_addresses
   end
+
+  # IN PROGRESS
+  # def filter2(users, campaign)
+  #   category_id = campaign.email_campaign_category.id
+  #   recipients = users.where(unsubscribe_all: false).
+  #     joins(:unsubscriptions).where.not(
+  #       'unsubscriptions.email_campaign_category_id = ?', category_id).
+  #     joins(:sent_emails).where.not(
+  #       'sent_emails.email_campaign_id = ?', campaign.id).
+  #     pluck(:id, :email)
+  #   return recipients
+  # end
 
   def build_header(recipients)
     header = {
