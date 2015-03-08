@@ -22,12 +22,24 @@
             <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", true) %>
             <%= label_tag("#{c.name}:    #{c.description}") %>
           </div>
-        <% else %>
+        <% else %> <!-- Box is unchecked -->
           <div class="checkbox">
             <%= check_box_tag("categories[#{c.name}]", value="#{c.id}", false) %>
             <%= label_tag("#{c.name}:    #{c.description}") %>
           </div>
         <% end %>
+      <% end %>
+      <!-- Unsubscribe All -->
+      <% if current_user.unsubscribe_all? == false %>
+        <div class="checkbox">
+          <%= check_box_tag("categories[All]", value="All", false) %>
+          <%= label_tag("All:    Unsubscribe from all categories") %>          
+        </div>
+      <% else %>
+        <div class="checkbox">
+          <%= check_box_tag("categories[All]", value="All", true) %>
+          <%= label_tag("All:    Unsubscribe from all categories") %>          
+        </div>
       <% end %>
       <br>
       <div>

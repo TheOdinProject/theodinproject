@@ -7,7 +7,7 @@ describe "Manage Email Unsubscriptions" do
   describe "Pages don't blow up if there are no categories" do
     before {EmailCampaignCategory.destroy_all}
 
-    specify "Email unsubscribe page gives error message" do
+    specify "Generic unsubscribe page gives error message" do
       visit email_unsubscribe_path   # No EmailCampaignCategories have been created
       expect(page).to have_selector('div', text: "We're sorry. Something went wrong.")
     end
@@ -24,170 +24,139 @@ describe "Manage Email Unsubscriptions" do
     FactoryGirl.create(:email_campaign_category, name: "Marketing")
     FactoryGirl.create(:email_campaign_category, name: "Newsletter")
     FactoryGirl.create(:email_campaign_category, name: "Transactional")
-    FactoryGirl.create(:email_campaign_category, name: "All")
   end
 
-  describe "From link in email" do
-    before do
-      FactoryGirl.create(:email_campaign, 
-        method_name: "TestMailer.email_one_person",
-        email_campaign_category: EmailCampaignCategory.last)
-      TestMailer.email_one_person
-      @email = ActionMailer::Base.deliveries.last.encoded
+  describe "On generic unsubscribe page" do
+    before { visit '/email_unsubscribe' }
+
+    it "gives error message if email doesn't belong to a User" do
+      fill_in("Email address", with: "fake@user.email")
+      page.check("categories[All]")
+      click_on "Submit"
+      expect(page).to have_selector('div', text: "Email address is invalid")
     end
 
-    specify "email has unsubscribe link" do
-      expect(@email).to have_link('here') # "Click here to unsubscribe..."
+    # SHOW ALL CATEGORIES EXCEPT TRANSACTIONAL
+
+    it "has Marketing option" do
+      expect(page).to have_selector('label', text: "Marketing")
     end
 
-    specify "link takes user to generic unsubscribe page" do
-      link = @email.match(/href="(.*unsubscribe.*)"/)[1]
-      visit link
-      expect(page).to have_selector('div', text: "Unsubscribe")
+    it "has Newsletter option" do
+      expect(page).to have_selector('label', text: 'Newsletter')
     end
 
-    context "on Generic Unsubscribe page" do
+    it "has Unsubscribe All option" do
+      expect(page).to have_selector('label', text: 'All')
+    end
+
+    it "does NOT have Transactional option" do
+      expect(page).to have_no_selector('label', text: 'Transactional')
+    end 
+
+    
+    # UNSUBSCRIBE FROM CATEGORIES
+
+    describe "User doesn't unsubscribe from anything" do
       before do
-        link = @email.match(/href="(.*unsubscribe.*)"/)[1]
-        visit link
+        fill_in("Email address", with: User.last.email)
+        click_on "Submit"
       end
-      
-      it "gives error message if email doesn't belong to a User" do
-        fill_in("Email address", with: "fake@user.email")
+
+      it "shows helpful notification" do
+        expect(page).to have_selector('div', 
+          text: "Login to view and update preferences from your profile page at any time.")
+      end
+
+      it "sends user to courses page" do
+        expect(current_path).to eq courses_path
+      end
+    end
+    
+    describe "User unsubscribes from one category" do
+      before do
+        fill_in("Email address", with: User.last.email)
+        page.check("categories[Marketing]")
+        click_on "Submit"
+      end
+
+      it "creates unsubscription" do
+        expect(Unsubscription.where(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          )
+       end
+
+      it "shows confirmation" do
+        expect(page).to have_selector('div', 
+          text: "Subscription preferences have been updated for #{User.last.email}.")
+      end
+    end
+
+    describe "User unsubscribes from multiple categories" do
+      before do
+        fill_in("Email address", with: User.last.email)
+        page.check("categories[Marketing]")
+        page.check("categories[Newsletter]")
+        click_on "Submit"
+      end
+
+      it "creates first unsubscription" do
+        expect(Unsubscription.where(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          )
+      end
+
+      it "creates second unsubscription" do
+        expect(Unsubscription.where(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
+          )          
+      end
+
+      it "shows confirmation" do
+        expect(page).to have_selector('div', 
+          text: "Subscription preferences have been updated for #{User.last.email}.")
+      end
+    end
+
+    describe "User unsubscribes from all categories" do
+      before do
+        fill_in("Email address", with: User.last.email)
         page.check("categories[All]")
         click_on "Submit"
-        expect(page).to have_selector('div', text: "Email address is invalid")
       end
 
-      # SHOW ALL CATEGORIES EXCEPT TRANSACTIONAL
-
-      it "has Marketing option" do
-        expect(page).to have_selector('label', text: "Marketing")
+      it "sets unsubscribe_all flag" do
+        expect(User.last.reload.unsubscribe_all?).to be_true
       end
+    end
 
-      it "has Newsletter option" do
-        expect(page).to have_selector('label', text: 'Newsletter')
+    describe "User with previous unsubscriptions" do
+      before do
+        Unsubscription.create(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id
+        )
+        fill_in("Email address", with: User.last.email)
+        page.check("categories[Marketing]")
+        click_on "Submit"
       end
+      after { Unsubscription.last.delete }
 
-      it "has Unsubscribe All option" do
-        expect(page).to have_selector('label', text: 'All')
-      end
+      it "keeps previous unsubscription intact" do
+        expect(Unsubscription.where(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
+          )  
+      end        
 
-      it "does NOT have Transactional option" do
-        expect(page).to have_no_selector('label', text: 'Transactional')
-      end 
-
-      
-      # UNSUBSCRIBE FROM CATEGORIES
-
-      describe "User doesn't unsubscribe from anything" do
-        before do
-          fill_in("Email address", with: User.last.email)
-          click_on "Submit"
-        end
-
-        it "shows helpful notification" do
-          expect(page).to have_selector('div', 
-            text: "Login to view and update preferences from your profile page at any time.")
-        end
-
-        it "sends user to courses page" do
-          expect(current_path).to eq courses_path
-        end
-      end
-      
-      describe "User unsubscribes from one category" do
-        before do
-          fill_in("Email address", with: User.last.email)
-          page.check("categories[Marketing]")
-          click_on "Submit"
-        end
-
-        it "creates unsubscription" do
-          expect(Unsubscription.where(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
-            )
-         end
-
-        it "shows confirmation" do
-          expect(page).to have_selector('div', 
-            text: "Subscription preferences have been updated for #{User.last.email}.")
-        end
-      end
-
-      describe "User unsubscribes from multiple categories" do
-        before do
-          fill_in("Email address", with: User.last.email)
-          page.check("categories[Marketing]")
-          page.check("categories[Newsletter]")
-          click_on "Submit"
-        end
-
-        it "creates first unsubscription" do
-          expect(Unsubscription.where(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
-            )
-        end
-
-        it "creates second unsubscription" do
-          expect(Unsubscription.where(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
-            )          
-        end
-
-        it "shows confirmation" do
-          expect(page).to have_selector('div', 
-            text: "Subscription preferences have been updated for #{User.last.email}.")
-        end
-      end
-
-      describe "User unsubscribes from all categories" do
-        before do
-          fill_in("Email address", with: User.last.email)
-          page.check("categories[All]")
-          click_on "Submit"
-        end
-
-        it "sets unsubscribe_all flag" do
-          expect(User.last.reload.unsubscribe_all?).to be_true
-        end
-
-        it "adds unsubscription to 'All'" do
-          expect(Unsubscription.where(
-            user_id: User.last.id,
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("All").id)
-          )
-        end
-      end
-
-      describe "User with previous unsubscriptions" do
-        before do
-          Unsubscription.create(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id
-          )
-          fill_in("Email address", with: User.last.email)
-          page.check("categories[Marketing]")
-          click_on "Submit"
-        end
-        after { Unsubscription.last.delete }
-
-        it "keeps previous unsubscription intact" do
-          expect(Unsubscription.where(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
-            )  
-        end        
-
-        it "adds new unsubscription" do
-          expect(Unsubscription.where(
-            user_id: User.last.id, 
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
-            )          
-        end
+      it "adds new unsubscription" do
+        expect(Unsubscription.where(
+          user_id: User.last.id, 
+          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          )          
       end
     end
   end
@@ -257,10 +226,6 @@ describe "Manage Email Unsubscriptions" do
           it "sets unsubscribe_all flag" do
             expect(user1.reload.unsubscribe_all?).to eq(true)
           end
-
-          it "add unsubscription to 'All'" do
-            expect(user1.unsubscriptions.count).to eq(2) # "Marketing" and "All"
-          end
         end
 
         describe "User cancels unsubscribe_all" do
@@ -270,10 +235,6 @@ describe "Manage Email Unsubscriptions" do
             page.uncheck("categories[All]")
             click_on "Update"
           end
-
-          it "removes unsubscriptions to 'All'" do
-            expect(user1.unsubscriptions.count).to eq(1) #Still unsubscribed to "Marketing"
-          end          
 
           it "cancels unsubscribe_all flag" do
             expect(user1.reload.unsubscribe_all?).to eq(false)

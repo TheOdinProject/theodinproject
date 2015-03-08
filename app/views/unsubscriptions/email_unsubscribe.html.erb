@@ -14,6 +14,11 @@
           <%= label_tag("#{c.name}:    #{c.description}") %>
         </div>
       <% end %>
+      <!-- Unsubscribe All -->
+      <div class="checkbox">
+        <%= check_box_tag("categories[All]", value="All", false) %>
+        <%= label_tag("All:    Unsubscribe from all categories") %>          
+      </div>
       <br>
       <div>
         <%= submit_tag("Submit") %>

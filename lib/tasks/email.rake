@@ -3,9 +3,6 @@ namespace :email do
   desc "create basic email campaign categories"
   task :create_campaign_categories => :environment do
     categories = [
-      { name: "All", 
-        description: "All categories"
-      },
       { name: "Nudges", 
         description: "Friendly reminders and encouragement to keep coding"
       },
