@@ -6,10 +6,6 @@ class EmailCampaignCategory < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def self.list
-    categories = []
-    self.all.each do |c|
-      categories << c unless c.name.match(/transactional/i)
-    end
-    return categories
+    EmailCampaignCategory.where.not(name: "Transactional").where.not(name: "transactional")
   end
 end
