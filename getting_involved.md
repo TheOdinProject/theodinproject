@@ -36,14 +36,14 @@ To reflect some of the software development best practices from the industry tod
 Before diving in, it's important to have an idea of what Agile is.  There are certainly better links out there, so please suggest them!
 
 1. Watch this [video on Engineering Software as a Service](http://youtu.be/d0uKY2kLKmk?t=6m8s) from Armando Fox and David Patterson of Berkeley.  It covers the whole process of building SAAS from beginning to end.
-1. Watch this [video intro to SCRUM].  We won't be using all these practices in this exact same way, but it's a great intro.  We'll use Pivotal's "Points" system.
+1. Watch this [video intro to SCRUM](https://www.youtube.com/watch?v=XU0llRltyFM).  We won't be using all these practices in this exact same way, but it's a great intro.  We'll use Pivotal's "Points" system.
 2. Read through this [explanation of SCRUM and XP](http://www.serena.com/docs/repository/solutions/intro-to-agile-devel.pdf).  Don't get too caught up in the flow charts and details, we'll be doing our own thing.
 
 #### Our Version of Agile
 
 We're challenged because the team isn't a 9-5 software development team with reliable workflows and productivity -- contributors are a distributed group of part-time warriors learning at the same time.  Instead of building a certain number of stories-per-week, we're more likely to build at a rate of weeks-per-story.
 
-To account for this, we'll focus on a single feature / user story at a time until it's complete, and it will be handed off from one person/pair/group to the next depending on availability.  We'll use weekly SCRUM-style meetings and code reviews to manage workflow.  These meetings are managed through our [Google Community](https://plus.google.com/u/0/communities/100013596437379837846).
+To account for this, we'll focus on a single feature / user story at a time until it's complete, and it will be handed off from one person/pair/group to the next depending on availability.  We'll use occasional SCRUM-style meetings and code reviews to manage workflow.  These meetings are managed through our [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) when active.
 
 ### Product Management
 
@@ -149,17 +149,22 @@ We're still looking for the best program to record
 * Google Hangouts on Air is still the easiest
 * ???
 
+
 #### The Bad List
 
 We've had some bad experiences... It doesn't mean bad tools, but once bitten twice shy:
 
 * Quicktime Player -- no sound?? Huge files (>5gb/hour).
 
+
 ## Schedule Going Forward
 
-We manage the project in 1-week increments, typically holding weekly check-in "SCRUM" meetings on *Wednesdays from 6:00-7:30pm PST* to see how it's gone for everyone and what's on the agenda for the next week.  It will be a chance to ask group questions about stories or code, find partners, and schedule the coming week's pairing sessions.  We may also make code review a part of this meeting as well.  Think of this as sort of like a daily SCRUM meeting might normally be at an agile shop but with a bit more meat.
+We manage the project over the course of many weeks.  It's always a question of manpower and available leaders.  During active periods, we use 1-week increments, typically holding weekly check-in "SCRUM" meetings to see how it's gone for everyone and what's on the agenda for the next week.  In less active periods, it's more on an as-needed basis.  
 
-The weekly meetings will be posted to the [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) and the [Meetup Group](http://www.meetup.com/Learn-Web-Development-Paired-Programming-in-SF/).
+Those meetings are a chance to ask group questions about stories or code, find partners, and schedule the coming week's pairing sessions.  We may also make code review a part of this meeting as well.  Think of this as sort of like a daily SCRUM meeting might normally be at an agile shop but with a bit more meat.
+
+The meetings will be posted to the [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) and the [Meetup Group](http://www.meetup.com/Learn-Web-Development-Paired-Programming-in-SF/).
+
 
 ## How to Get Started
 
