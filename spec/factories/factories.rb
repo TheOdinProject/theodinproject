@@ -98,6 +98,16 @@ FactoryGirl.define do
     end
     association :email_campaign_category
   end
+
+  factory :unsubscription do
+    association :email_campaign_category
+    association :user
+  end
+
+  factory :sent_email do
+    association :user
+    association :email_campaign
+  end
  
  
 end

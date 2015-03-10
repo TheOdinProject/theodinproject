@@ -8,26 +8,26 @@ end
 
 
 # FROM UNSUBSCRIBE SPEC...
-      before do
-        link = @email.match(/href="(.*unsubscribe.*)"/)[1]
-        visit link
-      end
+    #   before do
+    #     link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+    #     visit link
+    #   end
 
 
-    before do
-      FactoryGirl.create(:email_campaign, 
-        method_name: "inactive_one_month",
-        email_campaign_category: EmailCampaignCategory.last)
-      NudgeMailer.inactive_one_month
-      @email = ActionMailer::Base.deliveries.last.encoded
-    end
+    # before do
+    #   FactoryGirl.create(:email_campaign, 
+    #     method_name: "inactive_one_month",
+    #     email_campaign_category: EmailCampaignCategory.last)
+    #   NudgeMailer.inactive_one_month
+    #   @email = ActionMailer::Base.deliveries.last.encoded
+    # end
 
-    specify "email has unsubscribe link" do
-      expect(@email).to have_link('here') # "Click here to unsubscribe..."
-    end
+    # specify "email has unsubscribe link" do
+    #   expect(@email).to have_link('here') # "Click here to unsubscribe..."
+    # end
 
-    specify "link takes user to generic unsubscribe page" do
-      link = @email.match(/href="(.*unsubscribe.*)"/)[1]
-      visit link
-      expect(page).to have_selector('div', text: "Unsubscribe")
-    end
+    # specify "link takes user to generic unsubscribe page" do
+    #   link = @email.match(/href="(.*unsubscribe.*)"/)[1]
+    #   visit link
+    #   expect(page).to have_selector('div', text: "Unsubscribe")
+    # end
