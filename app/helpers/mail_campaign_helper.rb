@@ -13,7 +13,6 @@ module MailCampaignHelper
 
   def send_mail(method, users)
     campaign = check_campaign(method)
-    puts users.class
     # Filter users and return two arrays - 
     # One of Users and one of their email addresses
     filtered_list = filter(users, campaign)

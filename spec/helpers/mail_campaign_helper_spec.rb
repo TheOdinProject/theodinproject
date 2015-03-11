@@ -5,6 +5,16 @@ describe MailCampaignHelper do
   let!(:user2) { FactoryGirl.create(:user) }
   let(:campaign) { FactoryGirl.create(:email_campaign) }
   
+  describe '#check_campaign(method)' do
+    it 'raises error if campaign is not registered' do
+      expect{check_campaign("fake_method_name")}.to raise_error(/create a campaign/)
+    end
+
+    it 'returns valid campaign' do
+      expect(check_campaign(campaign.method_name)).to eq(campaign)
+    end
+  end
+
   describe '#filter(users, campaign)' do
     # User who has unsubscribed_all flag should be filtered out
     let(:unsubscribed_user) {FactoryGirl.create(:user, unsubscribe_all: true) }
@@ -29,9 +39,8 @@ describe MailCampaignHelper do
       users = filter(User.all, campaign)
       expect(users[1]).to eq([user1.email, user2.email])
     end
-
   end
-  
+
   describe '#record(campaign, recipients)' do
     before do 
       recipients = [user1, user2]
@@ -54,7 +63,7 @@ describe MailCampaignHelper do
   describe '#build_header(recipients)' do
     it 'creates valid SMTPAPI header for Sendgrid'      
     # Method throws runtime error when called in isolation
-    # Headers should be tested in specific mailer tests
+    # Headers can be tested in specific mailer tests
     # Sendgrid also provides a validator at
     # https://sendgrid.com/docs/API_Reference/SMTP_API/smtpapi_validator.html   
   end

@@ -3,6 +3,7 @@ class EmailCampaign < ActiveRecord::Base
 
   belongs_to :email_campaign_category
   validates :email_campaign_category, presence: true
+  validates_associated :email_campaign_category
   validates :mailer_name, :method_name, presence: true
   validates :method_name, uniqueness: true
 
