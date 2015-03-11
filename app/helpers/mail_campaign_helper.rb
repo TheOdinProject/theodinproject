@@ -80,7 +80,14 @@ module MailCampaignHelper
 
   def build_header(recipients)
     header = {
-      "to" => recipients
+      "filters" => {
+        "subscriptiontrack" => {  # Tell Sendgrid not to 
+            "settings" => {       # add an Unsubscribe link
+                "enable" => 0     # because theirs is always
+            }                     # unsubscribe all
+        }
+    },
+      "to" => recipients          # Build list of addresses
     }.to_json
     headers["X-SMTPAPI"] = header
   end
