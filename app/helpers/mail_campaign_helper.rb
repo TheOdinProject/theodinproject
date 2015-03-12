@@ -18,7 +18,7 @@ module MailCampaignHelper
     filtered_list = filter(users, campaign)
 
     recipients = filtered_list[0]
-    if recipients.length < 1
+    if recipients == []
       puts "No recipients match criteria for email"
       return
     end
@@ -47,36 +47,23 @@ module MailCampaignHelper
   end
 
   def filter(users, campaign)
-    category_id = campaign.email_campaign_category.id
+    users =  users.where(unsubscribe_all: false).
+                   where.not(confirmed_at: nil).
+                   includes(:unsubscriptions).
+                   includes(:sent_emails)
     recipients = []
     recipient_addresses = []
+    # Filter users who have received this email or unsubscribed from this category
     users.each do |user|
-      # Skip if user has unsubscribed from all
-      next if user.unsubscribe_all?
-      # Skip if user has unsubscribed from category
-      next if user.unsubscriptions.where(
-        email_campaign_category_id: category_id) != []
-      # Skip if user has already gotten this email
-      next if user.sent_emails.where(
-        email_campaign_id: campaign.id) != []
-      # Still here? Add email to recipients array
-      recipients << user
-      recipient_addresses << user.email
+      if user.sent_emails.where(email_campaign_id: campaign.id) == [] &&
+         user.unsubscriptions.where(
+          email_campaign_category_id: campaign.email_campaign_category_id) == []
+        recipients << user
+        recipient_addresses << user.email
+      end
     end
     return recipients, recipient_addresses
   end
-
-  # IN PROGRESS
-  # def filter2(users, campaign)
-  #   category_id = campaign.email_campaign_category.id
-  #   recipients = users.where(unsubscribe_all: false).
-  #     joins(:unsubscriptions).where.not(
-  #       'unsubscriptions.email_campaign_category_id = ?', category_id).
-  #     joins(:sent_emails).where.not(
-  #       'sent_emails.email_campaign_id = ?', campaign.id).
-  #     pluck(:id, :email)
-  #   return recipients
-  # end
 
   def build_header(recipients)
     header = {
