@@ -3,6 +3,9 @@ require 'spec_helper'
 describe "Manage Email Unsubscriptions" do
   let!(:user1) {FactoryGirl.create(:user)}
   let!(:user2) {FactoryGirl.create(:user)}
+  let!(:marketing) {FactoryGirl.create(:email_campaign_category, name: "Marketing")}
+  let!(:newsletter) {FactoryGirl.create(:email_campaign_category, name: "Newsletter")}
+  let!(:transactional) {FactoryGirl.create(:email_campaign_category, name: "Transactional")}
 
   describe "Pages don't blow up if there are no categories" do
     before {EmailCampaignCategory.destroy_all}
@@ -20,11 +23,6 @@ describe "Manage Email Unsubscriptions" do
     end
   end
 
-  before do
-    FactoryGirl.create(:email_campaign_category, name: "Marketing")
-    FactoryGirl.create(:email_campaign_category, name: "Newsletter")
-    FactoryGirl.create(:email_campaign_category, name: "Transactional")
-  end
 
   describe "On generic unsubscribe page" do
     before { visit '/email_unsubscribe' }
@@ -83,7 +81,7 @@ describe "Manage Email Unsubscriptions" do
       it "creates unsubscription" do
         expect(Unsubscription.where(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          email_campaign_category_id: marketing.id)
           )
        end
 
@@ -104,14 +102,14 @@ describe "Manage Email Unsubscriptions" do
       it "creates first unsubscription" do
         expect(Unsubscription.where(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          email_campaign_category_id: marketing.id)
           )
       end
 
       it "creates second unsubscription" do
         expect(Unsubscription.where(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
+          email_campaign_category_id: newsletter.id)
           )          
       end
 
@@ -137,7 +135,7 @@ describe "Manage Email Unsubscriptions" do
       before do
         Unsubscription.create(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id
+          email_campaign_category_id: newsletter.id
         )
         fill_in("Email address", with: User.last.email)
         page.check("categories[Marketing]")
@@ -148,14 +146,14 @@ describe "Manage Email Unsubscriptions" do
       it "keeps previous unsubscription intact" do
         expect(Unsubscription.where(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id)
+          email_campaign_category_id: newsletter.id)
           )  
       end        
 
       it "adds new unsubscription" do
         expect(Unsubscription.where(
           user_id: User.last.id, 
-          email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id)
+          email_campaign_category_id: marketing.id)
           )          
       end
     end
@@ -188,7 +186,7 @@ describe "Manage Email Unsubscriptions" do
         before do
           Unsubscription.create(
             user_id: user1.id,
-            email_campaign_category_id: EmailCampaignCategory.find_by_name("Marketing").id
+            email_campaign_category_id: marketing.id
           )
           sign_in(user1)
           visit user_path(user1)
@@ -206,15 +204,16 @@ describe "Manage Email Unsubscriptions" do
         it "lets the user add an unsubscription" do
           page.check("categories[Newsletter]")
           click_on "Update"
-          expect(Unsubscription.category_names(user1.unsubscriptions)).to include("Newsletter")
-          # expect(user1.unsubscriptions).to include(Unsubscription.where(
-          #   email_campaign_category_id: EmailCampaignCategory.find_by_name("Newsletter").id))
+          expect(Unsubscription.last).to eq(Unsubscription.where(
+            "user_id = ? AND email_campaign_category_id = ?", 
+            user1.id, newsletter.id).first)
         end
 
         it "deletes a previous unsubscription" do
           page.uncheck("categories[Marketing]")
           click_on "Update"
-          expect(Unsubscription.category_names(user1.unsubscriptions)).not_to include("Marketing")          
+          expect(user1.unsubscriptions).not_to include(Unsubscription.where(
+            email_campaign_category_id: marketing.id))          
         end
 
         describe "User unsubscribes from all categories" do

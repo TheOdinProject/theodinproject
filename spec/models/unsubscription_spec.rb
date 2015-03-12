@@ -26,21 +26,4 @@ describe Unsubscription do
     end
     expect(user.unsubscriptions.count).to eq(1)
   end
-
-  describe '#category_names' do
-
-    it "returns an array with a single email_campaign_category name" do
-      Unsubscription.create(user_id: user.id, email_campaign_category_id: category1.id)
-      list = Unsubscription.category_names(user.unsubscriptions)
-      expect(list).to eq([category1.name])
-      expect(list.kind_of?(Array)).to be true
-    end            
-
-    it "returns array of email_campaign_category names" do
-      Unsubscription.create(user_id: user.id, email_campaign_category_id: category1.id)
-      Unsubscription.create(user_id: user.id, email_campaign_category_id: category2.id)
-      list = Unsubscription.category_names(user.unsubscriptions)
-      expect(list).to eq([category1.name, category2.name])
-    end
-  end
 end
