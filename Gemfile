@@ -34,10 +34,10 @@ group :development, :test do
   gem 'fakeweb', '~> 1.3.0'
   gem 'capybara',                   '<= 2.0.2'
   gem 'capybara-webkit', '~> 1.1.1'
+  gem 'jazz_hands'
 end
 
 group :development do
-  gem 'pry'
   gem 'better_errors', '~> 1.1.0' # gives much better error messages for debug
   gem 'quiet_assets', '~> 1.0.2'  # shortens up the server log output
   gem 'binding_of_caller', '~> 0.7.2' # helps out better_errors by giving you an interactive way to query variables and methods on the better_errors error screen
