@@ -7,7 +7,7 @@ describe "Authentication" do
 
   describe "User authentication flow" do
 
-    let(:user) { FactoryGirl.create(:user) }  
+    let(:user) { FactoryGirl.create(:user) }
 
     context "from the splash page" do
 
@@ -25,15 +25,8 @@ describe "Authentication" do
       end
     end
 
-    context "from the scheduler page" do
-      before do
-        visit scheduler_path
-      end
-      it { should have_link "Sign up" }
-    end
-
     context "from the home page" do
-    
+
       before { visit home_path }
 
       describe "should start on the home page" do
@@ -67,6 +60,31 @@ describe "Authentication" do
             end
           end
         end
+      end
+    end
+  end
+
+  describe "authentication pages" do
+
+    describe "sign up page" do
+      before do
+        visit signup_path
+      end
+
+      it "should have a field for username" do
+        expect(page).to have_selector("#user_username")
+      end
+      it "should have a field for email" do
+        expect(page).to have_selector("#user_username")
+      end
+      it "should have a field for password" do
+        expect(page).to have_selector("#user_password")
+      end
+      it "should have a field for password confirmation" do
+        expect(page).to have_selector("#user_password_confirmation")
+      end
+      it "should have a field for legal agreement" do
+        expect(page).to have_selector("#user_legal_agreement")
       end
     end
   end

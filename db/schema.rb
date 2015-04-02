@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224032949) do
+ActiveRecord::Schema.define(version: 20140505013220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,20 +23,16 @@ ActiveRecord::Schema.define(version: 20131224032949) do
     t.datetime "expires"
   end
 
-  create_table "cal_events", force: true do |t|
-    t.string   "summary"
-    t.datetime "start"
-    t.datetime "end"
-    t.string   "description"
-    t.string   "time_zone"
-    t.integer  "creator_id"
+  create_table "ads", force: true do |t|
+    t.string   "image_path",                null: false
+    t.string   "url",                       null: false
+    t.string   "style",                     null: false
+    t.string   "client",                    null: false
+    t.string   "category",                  null: false
+    t.integer  "display_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "cal_events", ["creator_id"], name: "index_cal_events_on_creator_id", using: :btree
-  add_index "cal_events", ["end"], name: "index_cal_events_on_end", using: :btree
-  add_index "cal_events", ["start"], name: "index_cal_events_on_start", using: :btree
 
   create_table "content_activations", force: true do |t|
     t.integer  "user_id",           null: false
@@ -71,6 +67,15 @@ ActiveRecord::Schema.define(version: 20131224032949) do
 
   add_index "courses", ["title"], name: "index_courses_on_title", unique: true, using: :btree
   add_index "courses", ["title_url"], name: "index_courses_on_title_url", using: :btree
+
+  create_table "lesson_completions", force: true do |t|
+    t.integer  "lesson_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lesson_completions", ["lesson_id", "student_id"], name: "index_lesson_completions_on_lesson_id_and_student_id", unique: true, using: :btree
 
   create_table "lessons", force: true do |t|
     t.string   "title"
@@ -120,8 +125,8 @@ ActiveRecord::Schema.define(version: 20131224032949) do
   add_index "user_prefs", ["user_id"], name: "index_user_prefs_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -141,9 +146,20 @@ ActiveRecord::Schema.define(version: 20131224032949) do
     t.string   "google_plus"
     t.string   "skype"
     t.string   "screenhero"
+    t.boolean  "legal_agreement",        default: false, null: false
+    t.datetime "legal_agree_date"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.boolean  "reg_before_conf",        default: false
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["legal_agreement"], name: "index_users_on_legal_agreement", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 

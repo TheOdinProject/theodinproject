@@ -33,9 +33,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order("last_sign_in_at desc").paginate(:page => params[:page], :per_page => 15)
+    # Grab students and order by most recent lesson completion
+    # @users = User.where.not(:last_sign_in_at => nil).order("last_sign_in_at desc").paginate(:page => params[:page], :per_page => 15)
+    @users = User.by_latest_completion.paginate(:page => params[:page], :per_page => 15)
   end
-  
+
+  def send_confirmation_link
+    current_user.send_confirmation_instructions
+    flash[:notice] = "Confirmation instructions have been sent to your email address!"
+    redirect_to request.referer
+  end
+
   protected
 
   def check_current_user
@@ -49,5 +57,9 @@ class UsersController < ApplicationController
     else
       render "/400.html", :status => 400 # bad request
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :username, :password, :password_confirmation, :legal_agreement)
   end
 end

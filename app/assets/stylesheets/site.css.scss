@@ -50,6 +50,20 @@ body {
 }
 /* end of Admin Flash CSS */
 
+
+// Social Sharing Buttons 
+.social_sharing_buttons {
+  letter-spacing: 5px;
+  a { 
+    color: black; 
+    font-size: 2em;
+    opacity: 0.2;
+    
+    &:hover { opacity: 0.5; }
+  }
+}
+// End of Social Sharing Buttons
+
 footer {
 
   background-color: $vdark_gray;
@@ -123,7 +137,7 @@ footer {
     margin-bottom: -4px;
     margin-right: 3px;
   }
-  .alpha-tag{
+  .beta-tag{
     vertical-align: super;
     font-size: .5em;
     font-variant: normal;
@@ -197,6 +211,11 @@ footer {
 }
 
 /* ********* User Pages ************* */
+
+#profile-page{
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
 
 .profile-photo-container{
   max-width: 270px;
@@ -283,9 +302,43 @@ form#edit-user{
   margin-bottom: 20px;
 }
 
+/* ****************** FORUM ********************** */
+#forum{
+
+  margin: 0px 0 80px;
+
+  h1{
+    margin: 1em 0;
+    font-size: 2rem;
+  }
+  p{
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: $light_gray;
+    margin: 0px 20px 30px 20px;
+    font-style: italic;
+  }
+}
+
+/* ****** Lesson .navbar && #lesson-nav Scroll Effect ****** */
+.scroll--down, .scroll--up {
+  @include linear-transform(300ms);
+}
+// IE8 support
+.navbar-fixed-top.scroll--down.ie8--onScroll{
+  top: -50px;
+}
+
 /* ****************** MEDIA QUERIES ********************** */
 @media (max-width: 979px){
   body {
     padding-top: 0px;
+  }
+}
+
+// For window.lesson.applyScrollEffect()
+@media (min-width: 980px) {
+  .navbar-fixed-top.scroll--down{
+    @include translateY(-100%);
   }
 }

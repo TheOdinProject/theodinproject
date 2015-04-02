@@ -42,7 +42,7 @@
     color: $mid_gray;
   }
   p{
-    font-weight: 300; 
+    font-weight: 300;
     color: $mid_gray;
   }
 
@@ -77,7 +77,7 @@
 
   .above-the-fold{
     width: 100%;
-    background: image-url("home_background_blur.jpg") no-repeat center center; // fixed; 
+    background: image-url("home_background_blur.jpg") no-repeat center center; // fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -161,7 +161,7 @@
     @include border-radius(20px);
   }
 
-  
+
   .social-buttons{
     text-align: center;
     height: 60px;
@@ -196,7 +196,7 @@
     h4{
       margin-top: 1em;
     }
-    
+
     .about-panels{
       max-width: 750px;
       margin: 30px auto;
@@ -283,18 +283,6 @@
           padding-right: 0;
         }
       }
-
-      // set the cascading left paddings for the panels
-      // @for $i from 1 through 7 {
-      //   .p#{ $i }{
-      //     margin-left: #{percentage($i * 6)/100};
-      //   }
-      // }
-      // @media(max-width: 700px){
-      //   .course-panel{
-      //     margin-left: 0;
-      //   }
-      // }
     }
   }
 
@@ -310,7 +298,7 @@
     }
 
     .panel-wrapper{
-      max-width: 800px; 
+      max-width: 800px;
 
       .panel{
         float: left;
@@ -354,7 +342,7 @@
     h3{
       color: #cfcfcf;
     }
-    
+
     .panel-wrapper{
       max-width: 750px;
       margin: 30px auto;
@@ -406,12 +394,12 @@
 
 #devise-form{
 
-  margin: 4em auto 12em;
+  margin: 3em auto 12em;
   max-width: 600px;
 
   h2{
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     margin-left: 0px;
     font-size: 3rem;
   }
@@ -440,6 +428,37 @@
       font-size: 25px;
     }
   }
+  .legal-wrapper{
+      margin: -10px 0 20px 180px;
+      max-width: 364px;
+    .help-inline{
+      color: #b94a48;
+    }
+    .legal-checkbox{
+      padding: 5px;
+      &.error{
+        margin-top: 30px;
+        padding: 10px;
+        border: 1px solid #b94a48;
+        @include border-radius(4px);
+        abbr{
+          color: #b94a48;
+        }
+      }
+
+      abbr{
+        font-size: 20px;
+      }
+      .legal-text{
+      }
+      input{
+        height: 20px;
+        width: 20px;
+        padding: 10px;
+        margin: 0 5px 0 0;
+      }
+    }
+  }
   input.btn{
     margin-right: 20px;
     height: 60px;
@@ -452,70 +471,6 @@
     margin-top: 32px;
   }
 
-}
-
-#scheduler{
-  p.warning{
-    font-size: 120%;
-    padding: 4px;
-    background-color: #Fbb;
-  }
-  p.filters{
-    font-size: 1rem;
-    line-height: 1.25em;
-  }
-  .filter-items{
-    color: $light_gray;
-  }
-  #time-zone{
-    font-size: 10px;
-    line-height: 0px;
-    margin-bottom: 10px;
-    color: gray;
-    font-style: italic;
-  }
-  #instructions-link{
-    &:hover{
-      cursor: pointer;
-    }
-  }
-  .instructions-sidebar{
-    display:none;
-  }
-
-  #calendar {
-    min-width: 600px;
-    margin: 0 auto 50px;
-  }
-  textarea#edit-event-info {
-    width: 100%;
-    height: 130px;
-    margin-top: 10px;
-  }
-  #delete-link {
-    margin-top: 10px;
-    margin-left: 8px;
-    display: inline-block;
-  }
-}
-#ajax-load{
-  font-size: 1.5em;
-  line-height: 1em;
-  color: #0d0;
-  position: fixed;
-  top: 10px;
-  left: 45%;
-  z-index: 100000;
-}
-.eventInfo{
-  color: #aaa;
-  padding: 5px;
-  margin: 5px 0px;
-}
-.view-profile-link{
-  font-weight: normal;
-  font-style: italic;
-  color: #08c;
 }
 
 .alpha-alert{
@@ -533,10 +488,30 @@
     }
   }
 }
+.alert{
+  position: relative;
+  z-index: 11;
+}
+.alert-error{
+  margin-bottom: 30px;
+}
+.signup-prompt-msg{
+  margin: 1em 2em 2em 1em;
+  padding: 1em;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  @include border-radius(10px);
 
+  p{
+    color: #888;
+    font-weight: 200;
+    font-size: 1rem;
+    line-height: 1.25em;
+  }
+}
 
 .StaticPagesController{
-  
+
   @extend .individual-lesson;
   .belief-heading{
     color: $highlight_orange;
@@ -551,46 +526,29 @@
 }
 
 
-.contributing{
+.contributing {
 
   @extend .individual-lesson;
-
-  .role-description{
-    border: 1px solid $vlight_gray;
+  .container {
+    // quick hack to override `position relative` inherited from .invididual-lesson
+    position: static;
   }
-  .charcoal{
-    font-size:.7em;
-    background: $mid_gray;
-    color:white;
+
+  .star{
     padding:15px;
-    font-weight: 300;
-    border-radius: 10px;
-
-    a{
-    color: $link_color;
-    }
-    span{
-      color:$highlight_orange;
-      font-weight: bold;
-    }
-
-    p{
-      margin: 0;
-      padding: 0;
-    }
-    span.role-name{
-      color: white;
-      font-weight: bold;
-    }
-    span.c-badge{
-      font-weight: bold;
-
-    }
   }
   .paths{
-    height: 550px;
-    overflow-y: auto;
-    margin-top: 0;
+    border: 1px solid $vlight_gray;
+    box-shadow: 3px 3px 3px #efefef;
+    padding:30px 30px;
+    margin:10px 50px 30px;
+    font-size:.7em;
+    font-weight:300;
+    border-radius:10px;
+
+    h2, h3, h4, h5{
+      margin-top:0px;
+    }
   }
   .skill-header{
     margin-top: 20px;
@@ -603,45 +561,174 @@
     color: $highlight_orange;
     cursor: pointer;
   }
+  span.highlight{
+    color:$highlight_orange;
+    font-weight: normal;
+  }
+  .center{
+    margin: auto;
+    text-align: center;
+  }
+  .light-emphasis{
+    color: #aaa;
+  }
+
+  #reasonsModal {
+    .modal-header .modal-footer {
+      height: 55px;
+      padding: 5px 20px;
+      background-color: #a1a1a1;
+    }
+    .modal-body {
+      padding:5px 15px;
+      margin:10px 20px;
+      font-size:.75em;
+      font-weight:300;
+    }
+  }
+	
+  .hof-card{
+	  height: auto;
+		min-width:410px;
+    border: 1px solid $vlight_gray;
+    box-shadow: 3px 3px 3px #efefef;
+    padding:30px 30px;
+    margin:90px 50px 30px;
+    font-size:.7em;
+    font-weight:300;
+    border-radius:10px;
+		.hof-links{
+			float:left;
+			a{
+		  	font: arial;
+	  		font-weight:600;
+		  	font-family:Tahoma;
+	  		font-size:1.4em;
+  			letter-spacing:-0.8px;
+  			text-decoration:none;
+				color:black;
+				opacity:0.4;
+			}
+			a:hover{
+				opacity:0.6;
+			}	
+			.blog{
+				margin-left:-24px;
+				margin-top:-45px;				
+			}
+			.github{
+				margin-left:-24px;
+				margin-top:5px;		
+			}
+		}
+		.name-bg{
+			height: 36px;
+			margin:20px -60px 4px 76px;
+			border-radius:12px;
+			background: #5BB75B;
+			h3 {
+			color:white;
+			margin-top:-4px;
+			margin-left:30px;
+			}
+		}
+		.bio{
+			float:right;
+			width:300px;
+			margin-top:-36px;			
+		}
+		p {
+			min-height:110px;
+			font-size:1.5em;
+			font-weight:350;
+		}
+		.img {
+			border:2px solid black;
+			box-shadow: 5px 5px 5px #B28F6B;
+			height:160px;
+			width:160px;
+			margin-left: -70px;
+			margin-top: -55px;
+			position:absolute;
+		}
+  }
 }
 
 
+
 #studygroup {
-  
   margin: 0 auto;
   max-width: 920px;
-  
+
   h1, h2, h3 {
-   margin: 0; 
+   margin: 0;
+  }
+  h3{
+    margin-bottom: .5em;
   }
 
-  h1 {
-    font-size: 25px;
-  }
 
   p {
     margin: 0 0 10px 0;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-  p {
     font-size: 14px;
   }
-  #side, #content {
-    float: left;
-  }
-  #side {
+
+
+  .studygroup-side {
     width: 300px;
     margin: 0 50px 50px 0;
   }
-  #content {
+
+  .studygroup-content {
     width: 525px;
+  }
+
+  .meetup-groups{
+    margin: 1.5em;
+    max-width: 600px;
+    li{
+      font-size: 1em;
+    }
+  }
+
+  .sg-logistics {
+    p{
+      margin: 0em 0;
+      color: $mid_gray;
+    }
+    strong{
+      color: $dark_gray;
+    }
+  }
+
+  #track1 .studygroup-content{
+    background: url(http://res.cloudinary.com/techblogpics/image/upload/v1393804779/web-dev-fade_ianp6i.png) top right no-repeat;
+  }
+
+  #track2 .studygroup-content{
+    background: url(http://res.cloudinary.com/techblogpics/image/upload/v1393811171/rubyonrails-fade3_lv4xao.png) top right no-repeat;
+  }
+
+  #studygroup-tabs{
+    li {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.25em;
+    }
+  }
+
+  li{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25em;
+  }
+  .tab-content{
+    li{
+      margin: .5em 0;
+    }
   }
   .rule {
     border-top: 1px solid #ccc;
     margin: 20px 0;
   }
-
 }

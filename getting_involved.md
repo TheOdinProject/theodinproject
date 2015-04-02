@@ -35,15 +35,15 @@ To reflect some of the software development best practices from the industry tod
 
 Before diving in, it's important to have an idea of what Agile is.  There are certainly better links out there, so please suggest them!
 
-1. Watch this [video on Engineering Software as a Service](http://www.youtube.com/watch?v=d0uKY2kLKmk) from Armando Fox and David Patterson of Berkeley.  It covers the whole process of building SAAS from beginning to end.
-1. Watch this [video intro to SCRUM].  We won't be using all these practices in this exact same way, but it's a great intro.  We'll use Pivotal's "Points" system.
+1. Watch this [video on Engineering Software as a Service](http://youtu.be/d0uKY2kLKmk?t=6m8s) from Armando Fox and David Patterson of Berkeley.  It covers the whole process of building SAAS from beginning to end.
+1. Watch this [video intro to SCRUM](https://www.youtube.com/watch?v=XU0llRltyFM).  We won't be using all these practices in this exact same way, but it's a great intro.  We'll use Pivotal's "Points" system.
 2. Read through this [explanation of SCRUM and XP](http://www.serena.com/docs/repository/solutions/intro-to-agile-devel.pdf).  Don't get too caught up in the flow charts and details, we'll be doing our own thing.
 
 #### Our Version of Agile
 
 We're challenged because the team isn't a 9-5 software development team with reliable workflows and productivity -- contributors are a distributed group of part-time warriors learning at the same time.  Instead of building a certain number of stories-per-week, we're more likely to build at a rate of weeks-per-story.
 
-To account for this, we'll focus on a single feature / user story at a time until it's complete, and it will be handed off from one person/pair/group to the next depending on availability.  We'll use weekly SCRUM-style meetings and code reviews to manage workflow.  These meetings are managed through our [Google Community](https://plus.google.com/u/0/communities/100013596437379837846).
+To account for this, we'll focus on a single feature / user story at a time until it's complete, and it will be handed off from one person/pair/group to the next depending on availability.  We'll use occasional SCRUM-style meetings and code reviews to manage workflow.  These meetings are managed through our [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) when active.
 
 ### Product Management
 
@@ -119,7 +119,7 @@ We may also be setting up an email list, though still trying to figure out how r
 
 ### Pairing
 
-We've experimented with several different pairing workflows and haven't settled on the definitive winner yet.  See ["How to Pair"](https://github.com/TheOdinProject/curriculum/blob/master/pairing/how_to_pair.md) for a more exhaustive description, but basically the idea is to switch off who is writing the code (the driver) and who is directing what to write (navigator) after a fixed amount of time (30 minutes) or a fixed set of tests.  You can also switch off every other test.
+We've experimented with several different pairing workflows and haven't settled on the definitive winner yet.  See ["How to Pair"](https://github.com/TheOdinProject/curriculum/blob/master/extra_stuff/pairing/how_to_pair.md) for a more exhaustive description, but basically the idea is to switch off who is writing the code (the driver) and who is directing what to write (navigator) after a fixed amount of time (30 minutes) or a fixed set of tests.  You can also switch off every other test.
 
 The main workflows we've tried are listed below.  The ideal workflow allows ulimited people to participate, easy switching between driver/navigator, and easy recording.  None have come out the clear winner, though the first is currently favored:
 
@@ -149,21 +149,28 @@ We're still looking for the best program to record
 * Google Hangouts on Air is still the easiest
 * ???
 
+
 #### The Bad List
 
 We've had some bad experiences... It doesn't mean bad tools, but once bitten twice shy:
 
 * Quicktime Player -- no sound?? Huge files (>5gb/hour).
 
+
 ## Schedule Going Forward
 
-We manage the project in 1-week increments, typically holding weekly check-in "SCRUM" meetings on *Wednesdays from 6:00-7:30pm PST* to see how it's gone for everyone and what's on the agenda for the next week.  It will be a chance to ask group questions about stories or code, find partners, and schedule the coming week's pairing sessions.  We may also make code review a part of this meeting as well.  Think of this as sort of like a daily SCRUM meeting might normally be at an agile shop but with a bit more meat.
+We manage the project over the course of many weeks.  It's always a question of manpower and available leaders.  During active periods, we use 1-week increments, typically holding weekly check-in "SCRUM" meetings to see how it's gone for everyone and what's on the agenda for the next week.  In less active periods, it's more on an as-needed basis.  
 
-The weekly meetings will be posted to the [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) and the [Meetup Group](http://www.meetup.com/Learn-Web-Development-Paired-Programming-in-SF/).
+Those meetings are a chance to ask group questions about stories or code, find partners, and schedule the coming week's pairing sessions.  We may also make code review a part of this meeting as well.  Think of this as sort of like a daily SCRUM meeting might normally be at an agile shop but with a bit more meat.
+
+The meetings will be posted to the [Google Community](https://plus.google.com/u/0/communities/100013596437379837846) and the [Meetup Group](http://www.meetup.com/Learn-Web-Development-Paired-Programming-in-SF/).
+
 
 ## How to Get Started
 
-Ready to get invovled?  Here's how.
+Ready to get involved?  Here's how.
+
+If you'll be participating, you can set up the project by following the setup instructions [in the README of the main repository](https://github.com/TheOdinProject/theodinproject).
 
 ### As an Observer
 
@@ -204,7 +211,7 @@ Your workflow will look like the following:
 1. [Tracker] Identify a story not attached to an epic
 2. [Tracker] Click "Start" to take ownership of it
 3. [Tracker / Google Docs] Create a Google Doc and share it.  Add a link to it in the comments at the bottom of the story. Use this document to track your approach, to-do's, and log progress from one session to the next, especially if you're working with others.
-3. [Github] [Grab the latest version of the repository from Github.](https://github.com/TheOdinProject/theodinproject)
+3. [Github] [Grab the latest version of the repository from Github.](https://github.com/TheOdinProject/theodinproject) Follow the instructions in the README.
 4. [Github] Make a feature branch with a title similar to the story you are working on (e.g. "close-admin-flash")
 5. [Community] Post hangouts for when you're working on it to get help.  If you end up working with others, they should work out of the story owner's code base (e.g. using Nitrous).  *You own the story, you own the code.*
 6. [Code] Write tests first, then make them pass with code.  Stories without tests will not be accepted.
