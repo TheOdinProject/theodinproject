@@ -6,7 +6,7 @@ describe SectionCompletion do
   
   subject(:section_completion) { SectionCompletion.new(   
     :student_id => user.id,
-    :section_id => lesson.id
+    :section_id => section.id
                                )}
 
   it { should respond_to(:student) }
