@@ -24,7 +24,10 @@ describe "Users" do
         page.source.should have_selector("h2", :text => user.username)
       end
       it "should show the github profile link" do
-        page.source.should have_link( "github"  ,"http://www.github.com/#{user.github}")
+        gitlink = "http://www.github.com/#{user.github}"
+        within('.social-links') do
+          page.source.should have_link("", :href => gitlink )
+        end
       end
       it "should show the about text" do
         page.source.should have_selector("p", :text => user.about) if !user.about.blank?
@@ -90,7 +93,9 @@ describe "Users" do
           current_path.should == user_path(user)
         end
         it "should show facebook changes" do
-          page.source.should have_link("facebook", "https://www.facebook.com/facebook")
+          within('.social-links') do
+            page.source.should have_link("", :href => "https://www.facebook.com/facebook")
+          end
         end
         it "should show about changes" do
           page.source.should have_selector("p", :text => "New about me")
