@@ -9,4 +9,8 @@ class Section < ActiveRecord::Base
 
   validates_uniqueness_of :position, :message => "Section position has already been taken"
   
+  def section_percent_completed_by(user)
+    uncompleted_lesson = self.lessons - user.completed_lessons
+    100 * (1.0 - uncompleted_lesson .count.to_f / self.lessons.count.to_f)
+  end
 end

@@ -40,4 +40,9 @@ module UsersHelper
     time = user.lesson_completion_time(lesson)
     time.to_formatted_s(:long)
   end
+
+  def course_percent(user, course)
+    percent = course.percent_completed_by(user)
+    percent.round
+  end
 end

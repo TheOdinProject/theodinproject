@@ -61,6 +61,11 @@ class User < ActiveRecord::Base
   def latest_lesson_completion
     self.lesson_completions.order(:created_at => :desc).first
   end
+  # completed courses
+  def percent_completed_courses
+    uncompleted_courses = Course.all - self.completed_courses
+    100 * (1.0 - uncompleted_courses.count.to_f / Course.all.count.to_f)
+  end
 
   include Authentication::ActiveRecordHelpers #check in domain/authentication/active_record_helpers.rb
 

@@ -136,14 +136,53 @@
     <% if !@user.completed_lessons.blank?%>
     <div class="span6">
       <div class="profile-projects">
-        <h3>Completed Lessons: <%= @user.completed_lessons.count %></h3>
-        <ul>
+        <h3>Courses completed</h3>
+        <% @user.completed_courses.each do |course| %>
+          <div class="well well-lg span6">
+            <div class="span3 ">
+            <h3><%= course.title %></h3>
+            <input class="dial" data-width="150" data-thickness=".2" data-linecap=round value="<%= course_percent(@user, course) %>"  readonly>
+            <% if course_percent(@user, course) >= 100 %>
+              <h4 style="color:#0f0">Course completed!</h4>
+            <%else%>
+              <h4>Course in progress...</h4>
+            <%end%>
+            </div>
+            <div class="offset3">
+              <h4>Sections completed</h4>
+              <ul>
+              <% course.sections.each do |section|%>
+                <% if @user.completed_sections.include? section %>
+                  <% if  section.section_percent_completed_by(@user) >= 100 %>
+                    <li><h5><i class="fa fa-check"></i><%= section.title %></h5></li>
+                  <%else%>
+                     <li><h5><%= section.title %></h5></li> 
+                  <li>
+                    <ul>
+                      <% course.lessons.each do |lesson| %>
+                      <%if @user.completed_lessons.include? lesson and lesson.section_id == section.id %>
+                      <li>
+                        <%= link_to lesson.title, lesson_path(course.title_url, lesson.title_url) %>
+                      </li>
+                        <%end%>
+                       <%end%>
+                    </ul>
+                  </li>
+                <%end%>
+                <% end %>
+              <% end %>
+              </ul>
+            </div>
+
+        </div>
+        <% end %>
+<!--        <ul>
           <% @user.completed_lessons.each do |lesson| %>
             <li><i class="fa fa-check"></i> <%= link_to("#{lesson.course.title}:  #{lesson.title}", lesson_path(lesson.course.title_url, lesson.title_url)) %>
               <p>Completed: <%= lesson_time(@user, lesson) %> UTC</p>
           </li>
           <% end %>
-        </ul>
+        </ul>  -->
       </div>
     </div>
     <% end %>
@@ -154,3 +193,10 @@
   </div>
 
 </div>
+<script>
+    $(function() {
+        $(".dial").knob({
+          'fgColor': '#006dcc'
+        });
+    });
+</script>

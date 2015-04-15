@@ -347,13 +347,15 @@ form#edit-user{
   margin-bottom: 20px;
 }
 .profile-projects{
-     -moz-box-shadow: 2px 2px $box_shadow;
-    -webkit-box-shadow: 2px 2px $box_shadow;
-    box-shadow: 2px 2px $box_shadow;
+  
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     padding-bottom: 5px;
+  
+    & .right{
+      right: 100px;
+    }
     & ul{
       list-style-type: none;
     }

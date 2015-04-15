@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require JQuery-Knob/jquery.knob.min.js
 //= require_tree .
