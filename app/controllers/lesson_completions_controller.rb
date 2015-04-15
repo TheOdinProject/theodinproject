@@ -13,7 +13,12 @@ class LessonCompletionsController < ApplicationController
       @course = @lesson.course
       @next_lesson = @lesson.next_lesson
       lc = LessonCompletion.new(:student_id => current_user.id, :lesson_id => @lesson.id)
+      section = SectionCompletion.new(section_id: @lesson.section_id ,student_id: current_user.id, )
+      course_of = Section.find_by(id: @lesson.section_id)
+      course = CourseCompletion.new(course_id: course_of.course_id, student_id: current_user.id)
       if lc.save
+        section.save
+        course.save
         render "create", :formats => [:js]
       else
         render :nothing => true, :status => 400 # bad request

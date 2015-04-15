@@ -6,6 +6,10 @@ class Course < ActiveRecord::Base
 
   has_many :sections
   has_many :lessons, :through => :sections
+  
+  
+  has_many :course_completions, :dependent => :destroy
+  has_many :completing_users, :through => :course_completions, :source => :student
 
   validates_uniqueness_of :position, :message => "Course position has already been taken"
 
@@ -13,5 +17,8 @@ class Course < ActiveRecord::Base
     uncompleted_lessons_in_course = self.lessons - user.completed_lessons
     100 * (1.0 - uncompleted_lessons_in_course.count.to_f / self.lessons.count.to_f)
   end
+  
 
+  
+  
 end

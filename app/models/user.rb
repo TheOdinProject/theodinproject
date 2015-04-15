@@ -24,7 +24,15 @@ class User < ActiveRecord::Base
   # associates the user with the lessons he's completed so far
   has_many :lesson_completions, :foreign_key => :student_id
   has_many :completed_lessons, :through => :lesson_completions, :source => :lesson
-
+  
+  # associates the user with the sections he's completed so far
+  has_many :section_completions, :foreign_key => :student_id
+  has_many :completed_sections, :through => :section_completions, :source => :section
+  # associates the user with the courses he's completed so far
+  has_many :course_completions, :foreign_key => :student_id
+  has_many :completed_courses, :through => :course_completions, :source => :course
+  
+  
   # Return all users sorted by who has completed a lesson
   # most recently
   # NOTE: The order clause will break if not on Postgres because
@@ -40,14 +48,23 @@ class User < ActiveRecord::Base
   def completed_lesson?(lesson)
     self.completed_lessons.include?(lesson)
   end
-
+  
   def latest_completed_lesson
     lc = self.latest_lesson_completion
     Lesson.find(lc.lesson_id) unless lc.nil?
   end
-
+  
+  def lesson_completion_time(lesson)
+   t = self.lesson_completions.where("lesson_id = %s ", lesson.id ).limit(1)
+    t.first["created_at"]
+  end
   def latest_lesson_completion
     self.lesson_completions.order(:created_at => :desc).first
+  end
+  # completed courses
+  def percent_completed_courses
+    uncompleted_courses = Course.all - self.completed_courses
+    100 * (1.0 - uncompleted_courses.count.to_f / Course.all.count.to_f)
   end
 
   include Authentication::ActiveRecordHelpers #check in domain/authentication/active_record_helpers.rb

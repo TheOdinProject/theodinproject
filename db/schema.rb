@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505013220) do
+ActiveRecord::Schema.define(version: 20150409065850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20140505013220) do
   end
 
   add_index "content_buckets", ["name"], name: "index_content_buckets_on_name", unique: true, using: :btree
+
+  create_table "course_completions", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_completions", ["course_id", "student_id"], name: "index_course_completions_on_course_id_and_student_id", unique: true, using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "title"
@@ -93,6 +102,15 @@ ActiveRecord::Schema.define(version: 20140505013220) do
   add_index "lessons", ["position"], name: "index_lessons_on_position", unique: true, using: :btree
   add_index "lessons", ["section_id"], name: "index_lessons_on_section_id", using: :btree
   add_index "lessons", ["title_url"], name: "index_lessons_on_title_url", using: :btree
+
+  create_table "section_completions", force: true do |t|
+    t.integer  "section_id"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "section_completions", ["section_id", "student_id"], name: "index_section_completions_on_section_id_and_student_id", unique: true, using: :btree
 
   create_table "sections", force: true do |t|
     t.string   "title"

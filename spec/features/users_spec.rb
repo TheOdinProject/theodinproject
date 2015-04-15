@@ -4,7 +4,7 @@ describe "Users" do
 
   subject { page }
 
-  let!(:user){ FactoryGirl.create(:user, :github => "http://www.github.com/foobar", :about => "I rock") }
+  let!(:user){ FactoryGirl.create(:user, :github => "foobar", :about => "I rock") }
   let!(:other_user) { FactoryGirl.create(:user, email: "other_user@example.com") }
   let!(:project) { FactoryGirl.create(:content_bucket) }
   
@@ -24,13 +24,16 @@ describe "Users" do
         page.source.should have_selector("h2", :text => user.username)
       end
       it "should show the github profile link" do
-        page.source.should have_link(user.github)
+        gitlink = "http://www.github.com/#{user.github}"
+        within('.social-links') do
+          page.source.should have_link("", :href => gitlink )
+        end
       end
       it "should show the about text" do
-        page.source.should have_selector("p", :text => user.about)
+        page.source.should have_selector("p", :text => user.about) if !user.about.blank?
       end
-      it "should list the lessons the user has completed" do
-        page.source.should have_selector("h3", :text => "Completed Lessons")
+      it "should list the courses the user has completed" do
+        page.source.should have_selector("h3", :text => "Courses completed") if user.completed_lessons.any?
       end
       it "should show the edit button" do
         page.source.should have_selector("button", :text => "Edit")
@@ -90,7 +93,10 @@ describe "Users" do
           current_path.should == user_path(user)
         end
         it "should show facebook changes" do
-          page.source.should have_link("facebook")
+          within('.social-links') do
+            page.source.should have_link("", :href => "https://www.facebook.com/facebook")
+          end
+          
         end
         it "should show about changes" do
           page.source.should have_selector("p", :text => "New about me")
