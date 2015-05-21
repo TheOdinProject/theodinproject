@@ -12,7 +12,7 @@ module Theodinproject
     config.active_support.escape_html_entities_in_json = true
     config.assets.enabled = true
     config.assets.version = '1.0'
-    # config.i18n.enforce_available_locales = false
+    config.i18n.enforce_available_locales = false
     
     Disqus::defaults[:account] = ENV['DISQUS_ACCOUNT_NAME']
     Disqus::defaults[:developer] = true
