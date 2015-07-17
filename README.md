@@ -68,35 +68,35 @@ This is basically all you need to get yourself set up with the repo and you shou
 
 If you're running Linux, this should be helpful.  If not... carry on, nothing to see here.
 
-1. Open your terminal and type ```sudo apt-get install postgresql
+1. Open your terminal and type ```sudo apt-get install postgresql```
 
-2. After installing postgres, you might like to install pgAdmin III. It is a nice GUI to have, especially for beginners. To do this, in terminal type ```sudo apt-get install pgadmin3
+2. After installing postgres, you might like to install pgAdmin III. It is a nice GUI to have, especially for beginners. To do this, in terminal type ```sudo apt-get install pgadmin3```
 
-3. To start off, we need to change the PostgreSQL postgres user password; we will not be able to access the server otherwise. As the “postgres” Linux user, we will execute the psql command. In terminal, type ```sudo -u postgres psql postgres
+3. To start off, we need to change the PostgreSQL postgres user password; we will not be able to access the server otherwise. As the “postgres” Linux user, we will execute the psql command. In terminal, type ```sudo -u postgres psql postgres```
 
-4. Set a password for the "postgres" database role using the command: ```\password postgres
+4. Set a password for the "postgres" database role using the command: ```\password postgres```
 and give your password when prompted. The password text will be hidden from the console for security purposes.
 Type Control+D to exit the posgreSQL prompt.
 
 5. To create the first database, which we will call "odin", simply type:
-```sudo -u postgres createdb odin
+```sudo -u postgres createdb odin```
 
 6. For ""Postgresql 9.1""+ install the adminpack "extension":
-```sudo -u postgres psql
-```CREATE EXTENSION adminpack;
+```sudo -u postgres psql```  
+```CREATE EXTENSION adminpack;```
 
 7. Open up pgAdmin III (app menu->development->pgAdmin III)
 
 8. Open file->add server and populate the following as field:data
 
-Name: localhost
-Host: localhost
-Port: 5432
-Service: <leave blank>
-Maintenance DB: postgres
-Username: $USER
-Password: <whatever>
-Store Password: yes
+Name: localhost  
+Host: localhost  
+Port: 5432  
+Service: \<leave blank>  
+Maintenance DB: postgres  
+Username: $USER  
+Password: <whatever>  
+Store Password: yes  
 and click "OK".
 
 9. You should see a new server populated in the side panel of the pgadmin window.
