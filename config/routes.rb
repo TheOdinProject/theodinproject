@@ -20,6 +20,7 @@ devise_for :users,
   get 'about' => "static_pages#about"
   get 'faq' => "static_pages#faq"
   get 'contact' => "static_pages#contact"
+  get 'getting_involved' => "static_pages#getting_involved"
   get 'contributing' => "static_pages#contributing"
   get 'studygroup' => redirect('/studygroups')
   get 'legal' => "static_pages#legal"
@@ -27,6 +28,7 @@ devise_for :users,
   get 'tou' => "static_pages#tou"
   get 'press' => redirect('https://docs.google.com/document/d/1FmjfYvOsQ-syoOCzuvPXv96TCxeJAT9m-Wl7trgNZcE/pub')
   get 'studygroups' => "static_pages#studygroups"
+  get 'chat'=>"static_pages#chat"
 
   #failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'

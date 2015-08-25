@@ -683,6 +683,14 @@
     width: 525px;
   }
 
+  .meetup-groups{
+    margin: 1.5em;
+    max-width: 600px;
+    li{
+      font-size: 1em;
+    }
+  }
+
   .sg-logistics {
     p{
       margin: 0em 0;
@@ -722,5 +730,50 @@
   .rule {
     border-top: 1px solid #ccc;
     margin: 20px 0;
+  }
+}
+
+
+/* styles for the chat page */
+
+h1{
+  text-align: center;
+}
+
+
+a.chat-btn{
+  float: left;
+  width: 40%
+}
+
+
+div.chat-actions a:first-child{
+  margin-right: 3%;
+}
+
+div.chat-actions{
+  width: 100%;
+
+}
+
+/* clearfix for the buttons container */
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+@media (max-width: 640px){
+  div.chat-actions{
+  margin: 0;
+  width: 100%;
+  }
+
+  a.chat-btn{
+    float: none;
+    width: 90%;
+    margin-top: 2%;
+
   }
 }
