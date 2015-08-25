@@ -30,6 +30,12 @@ For Nitrous:
 1. [Follow along with this gist](https://gist.github.com/afshinator/8035821) to do the setup on Nitrous.
 2. Don't forget to populate your test database with `$ rake db:test:prepare`
 
+#### VM Setup
+
+As an alternative to using an online environment, you can also use
+a virtual machine to emulate linux and unix based operating systems.
+There are many of them out there. A couple of free machines you can look into are [Oracles Virtual Box](https://www.virtualbox.org/wiki/Downloads) and [QEMU](http://wiki.qemu.org/Main_Page).
+
 #### Standard Setup
 
 1. Start by forking this repository by clicking the Fork button at the top right of this Github repo and then download your copy of the repo to your local machine by doing a `$ git clone git@github.com:YOUR_USERNAME/theodinproject.git` from the command line (the $ stands for your command prompt)
