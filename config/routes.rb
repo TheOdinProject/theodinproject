@@ -30,6 +30,11 @@ devise_for :users,
   get 'studygroups' => "static_pages#studygroups"
   get 'chat'=>"static_pages#chat"
 
+  scope '/blog' do
+    resources :posts
+  end
+  get 'blog/archive' => 'posts#archive'
+
   #failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
 
@@ -68,6 +73,7 @@ devise_for :users,
   get ':course_name' => 'lessons#index', :as => "course"
   get ':course_name' => 'lessons#index', :as => "lessons"
   get ':course_name/:lesson_name' => 'lessons#show', :as => "lesson"
+
 
 
 end
