@@ -1,7 +1,6 @@
 class LessonCompletionsController < ApplicationController
-  
   before_filter :authenticate_request
-  
+
   def create
     # Validate that the id does in fact correspond to a real lesson
     # Note that the authentication before_filter makes sure we've got a current_user
@@ -9,7 +8,7 @@ class LessonCompletionsController < ApplicationController
 
     if @lesson.nil?
       render :nothing => true, :status => 400 # bad request
-    else   
+    else
       @course = @lesson.course
       @next_lesson = @lesson.next_lesson
       lc = LessonCompletion.new(:student_id => current_user.id, :lesson_id => @lesson.id)
@@ -20,7 +19,7 @@ class LessonCompletionsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     # Validate that the id does in fact correspond to a real lessons
     # Note that the authentication before_filter makes sure we've got a current_user
@@ -28,14 +27,14 @@ class LessonCompletionsController < ApplicationController
 
     if @lesson.nil?
       render :nothing => true, :status => 400 # bad request
-    else   
+    else
       @course = @lesson.course
       @next_lesson = @lesson.next_lesson
       lc = LessonCompletion.where(:student_id => current_user.id, :lesson_id => @lesson.id).first
-      if lc.nil? 
+      if lc.nil?
         render :nothing => true, :status => 400 # bad request
       elsif lc.delete
-        render "create", :formats => [:js] 
+        render "create", :formats => [:js]
       else
         render :nothing => true, :status => 400 # bad request
       end

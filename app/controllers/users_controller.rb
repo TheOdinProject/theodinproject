@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :set_user, except: [:index, :send_confirmation_link]
   before_action :authenticate_user!
   before_action :check_current_user, :only => [:edit, :update]
