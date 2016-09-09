@@ -68,4 +68,4 @@ This is basically all you need to get yourself set up with the repo and you shou
 * [Kevin Mulhern](https://github.com/KevinMulhern)
 
 <hr>
-Created by [Erik Trautman](http://www.github.com/eriktrautman)
+Created by [The Great Erik Trautman](http://www.github.com/eriktrautman)
