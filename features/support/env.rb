@@ -34,7 +34,7 @@ ActionController::Base.allow_rescue = false
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 begin
-  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.strategy = :truncation
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
@@ -58,3 +58,14 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+if ENV['IN_BROWSER']
+  # On demand: non-headless tests via Selenium/WebDriver
+  # To run the scenarios in browser (default: Firefox), use the following command line:
+  # IN_BROWSER=true bundle exec cucumber
+  # or (to have a pause of 1 second between each step):
+  # IN_BROWSER=true PAUSE=1 bundle exec cucumber
+  Capybara.default_driver = :selenium
+  AfterStep do
+    sleep (ENV['PAUSE'] || 0).to_i
+  end
+end

@@ -44,6 +44,7 @@ group :development, :test do
   gem 'vcr',                        '~> 3.0'
   gem 'shoulda-matchers',           '~> 3.1'
   gem 'rake',                       '~> 10.4'
+  gem 'selenium-webdriver'
 end
 
 group :development do
