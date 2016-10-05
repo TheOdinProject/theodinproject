@@ -1,0 +1,21 @@
+def caesar_cipher(string, number)
+	array = Array.new
+	small = ("a".."z").to_a
+	caps = ("A".."Z").to_a
+	
+	string.split("").each do |i|
+		if small.include?(i)
+			array << small[(small.index(i) + number)%26]
+		elsif caps.include?(i)
+			array << caps[(caps.index(i) + number)%26]
+		else
+			array << i
+		end
+	end
+	
+	s=array.join
+	puts s
+end
+
+caesar_cipher("What a string!", 5)
+#"Bmfy f xywnsl!"
