@@ -41,11 +41,21 @@ Given /^no lessons are completed$/ do
   end
 end
 
-And /^the lesson '([^']+)' is completed$/ do |lesson_title|
+Given /^the lesson '([^']+)' is completed$/ do |lesson_title|
   lesson = Lesson.find_by(title: lesson_title)
   within "#lc-id-#{lesson.id}" do
     click_link 'Check to mark lesson completed'
   end
+end
+
+Given(/^the lesson is not completed$/) do
+  puts page.current_path
+  within '.individual-lesson' do
+    expect(page.to have_css('.lc-completion-indicator.hidden'))
+  end
+  puts page.body
+  expect(page).to have_css('.checkbox-container.lc-unchecked')
+  expect(page).not_to have_css('.lc-uncomplete-link')
 end
 
 When /^I mark the lesson '([^']+)'$/ do |lesson_title|
@@ -72,9 +82,13 @@ When /^I go back$/ do
   visit '/courses'
 end
 
+When /^I click the Mark lesson complete link$/ do 
+  click_link '.checkbox-container.lc-unchecked'
+end
+
 Then /^my progress should be saved$/ do
   within "#lc-id-#{@lesson.id}" do
-    expect(page.has_selector? 'a.lc-checkbox.lc-checked').to be true
+    expect(page).to have_css('a.lc-checkbox.lc-checked')
   end
 
   # make sure the percentage completion gets increased
@@ -86,7 +100,7 @@ end
 
 Then /^my progress should be declined$/ do
   within "#lc-id-#{@lesson.id}" do
-    expect(page.has_selector? 'a.lc-checkbox.lc-unchecked').to be true
+    expect(page).to have_css('a.lc-checkbox.lc-unchecked')
   end
 
   # make sure the percentage completion gets increased
@@ -107,7 +121,7 @@ Then /^I should find the course '([^']+)' completed$/ do |course_title|
   selector = ".course-title a[href='/courses/#{course_url_href}']"
 
   within selector do
-    expect(page.has_selector? '.cc-completion-indicator').to be true
-    expect(page.has_selector? '.cc-completion-indicator.hidden').to be false
+    expect(page).to have_css('.cc-completion-indicator')
+    expect(page).not_to have_css('.cc-completion-indicator.hidden')
   end
 end
