@@ -58,3 +58,13 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+require 'capybara/poltergeist'
+Capybara.default_max_wait_time = 5
+Capybara.javascript_driver = :poltergeist
+Capybara.server_port = 3001
+Capybara.app_host = 'http://localhost:3001'
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app)
+end

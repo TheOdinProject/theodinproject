@@ -8,28 +8,31 @@ RSpec.describe Lesson do
       section_id: 2,
       is_project: false,
       url: "/README.md",
-      content: nil
+      content: nil,
+      slug: 'test-lesson',
     )
   }
-  
+  let(:course) { double('Course', title: 'web_dev_101') }
+
   let(:find_lesson) { double('FindLesson') }
   let(:section) { double('Section', lessons: lessons) }
   let(:lessons) { [] }
 
   before do
     allow(lesson).to receive(:section).and_return(section)
+    allow(lesson).to receive(:course).and_return(course)
     allow(FindLesson).to receive(:new).with(lesson).and_return(find_lesson)
   end
-
+  
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course) }
   it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completing_users) }
-  it { is_expected.to validate_uniqueness_of(:position) }
+  it { is_expected.to validate_uniqueness_of(:position).case_insensitive }
   it { is_expected.to validate_presence_of(:content).on(:update) }
 
   describe '#next_lesson' do
-    it 'finds the next lesson' do
+    it 'returns the next lesson' do
       expect(find_lesson).to receive(:next_lesson)
       lesson.next_lesson
     end
