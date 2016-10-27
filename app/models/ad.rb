@@ -1,4 +1,4 @@
-class Ad < ActiveRecord::Base
+class Ad < ApplicationRecord
 
   # Display VE ads for everyone
   def self.show_ads?
