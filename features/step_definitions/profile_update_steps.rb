@@ -37,4 +37,3 @@ end
 Then(/^I have user google_plus (.+)$/) do |user_googlePlus|
   FactoryGirl.create(:user, google_plus: user_googlePlus)
 end
-

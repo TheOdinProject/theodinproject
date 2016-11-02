@@ -19,13 +19,6 @@ Scenario: Getting the profile page
   And I have user google_plus Gigs
 
 Scenario: Updating the user profile
-  Given When l press edit
-  When I enter "Mike" in the "username" field
-  And I enter "Mike" in the "skype" field
-  And I enter "Mike" in the "facebook" field
-  And I enter "Mike" in the "twitter" field
-  And I enter "Mike" in the "linkedin" field
-  And I enter "Mike" in the "github" field
-  And I enter "Mike" in the "google_plus" field
-  Then I press the update button
-  And I see Your profile was updated successfully
+  Given I have an account
+  When I edit my profile
+  Then my account will be updated
