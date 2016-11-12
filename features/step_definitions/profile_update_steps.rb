@@ -37,3 +37,24 @@ end
 Then(/^I have user google_plus (.+)$/) do |user_googlePlus|
   FactoryGirl.create(:user, google_plus: user_googlePlus)
 end
+
+
+Given(/^I have an account$/) do
+  FactoryGirl.create(:user)
+end
+
+When(/^I edit my profile$/) do 
+  visit edit_user_path('edit') 
+end
+
+
+# When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
+#   fill_in :user_username, :with => [:username]
+#   # fill_in(arg1, :with => arg2)
+# end
+# fill_in(arg1, :with => arg2), visible: false
+
+# Then(/^I see Your profile was updated successfully$/) do
+#   expect(page.body).
+#     to include('Your profile was updated successfully')
+# end

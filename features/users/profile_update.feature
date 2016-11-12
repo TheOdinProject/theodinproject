@@ -21,4 +21,5 @@ Scenario: Getting the profile page
 Scenario: Updating the user profile
   Given I have an account
   When I edit my profile
+  And I fill in "facebook" with "Mike"
   Then my account will be updated
