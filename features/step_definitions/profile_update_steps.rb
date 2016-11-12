@@ -44,9 +44,16 @@ Given(/^I have an account$/) do
 end
 
 When(/^I edit my profile$/) do 
-  visit edit_user_path('edit') 
+  visit edit_user_path(:user) 
 end
 
+When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
+  fill_in(arg1, :with => arg2)
+end
+
+# When(/^I enter "([^"]*)" in the "([^"]*)" field$/) do |arg1, arg2|
+#   fill_in(arg1, :with => arg2)
+# end
 
 # When(/^I fill in "([^"]*)" with "([^"]*)"$/) do |arg1, arg2|
 #   fill_in :user_username, :with => [:username]
