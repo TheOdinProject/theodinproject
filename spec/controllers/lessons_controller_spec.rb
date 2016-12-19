@@ -8,38 +8,36 @@ RSpec.describe LessonsController do
   let(:current_user) { double('User') }
 
   before do
-    allow(Lesson).to receive(:find).with('abc123').
-      and_return(lesson)
+    allow(Lesson).to receive(:friendly).and_return(lesson)
 
-    allow(controller).to receive(:current_user).
-      and_return(current_user)
+    allow(lesson).to receive(:find).with('abc123')
+      .and_return(lesson)
 
-    allow(Ad).to receive(:show_ads?).with(current_user).
-      and_return(true)
+    allow(controller).to receive(:current_user)
+      .and_return(current_user)
 
-    allow(ENV).to receive(:[]).with('SHOW_ADS').
-      and_return(true)
+    allow(ENV).to receive(:[]).with('SHOW_ADS')
+      .and_return(true)
   end
 
-  describe "GET show" do
-
+  describe 'GET show' do
     it 'renders the lesson' do
-      get :show, params
+      get :show, params: params
       expect(response).to render_template(:show)
     end
 
     it 'assigns @lesson' do
-      get :show, params
+      get :show, params: params
       expect(assigns(:lesson)).to eql(lesson)
     end
 
     it 'assigns @lower_banner_ad' do
-      get :show, params
+      get :show, params: params
       expect(assigns(:lower_banner_ad)).to eql(true)
     end
 
     it 'assigns @right_box_ad' do
-      get :show, params
+      get :show, params: params
       expect(assigns(:right_box_ad)).to eql(true)
     end
 
@@ -47,13 +45,14 @@ RSpec.describe LessonsController do
       let(:lesson_id) { '123' }
 
       before do
-        allow(Lesson).to receive(:find).with('123').
-          and_raise(ActiveRecord::RecordNotFound)
+        allow(Lesson).to receive(:friendly).and_return(lesson)
+        allow(lesson).to receive(:find).with('123')
+          .and_raise(ActiveRecord::RecordNotFound)
       end
 
       it 'returns a RoutingError' do
-        expect{ get :show, params }.
-          to raise_error(ActionController::RoutingError)
+        expect { get :show, params: params }
+          .to raise_error(ActionController::RoutingError)
       end
     end
 
@@ -62,39 +61,36 @@ RSpec.describe LessonsController do
       let(:show_ad) { false }
 
       before do
-        allow(ENV).to receive(:[]).with('SHOW_ADS').
-          and_return(env_show_ads)
+        allow(ENV).to receive(:[]).with('SHOW_ADS')
+          .and_return(env_show_ads)
 
-        allow(Ad).to receive(:show_ads?).with(current_user).
-          and_return(show_ad)
+        allow(Ad).to receive(:show_ads?).and_return(show_ad)
       end
 
       context 'when show ads environment variable is false' do
-
         context 'and show ads to current user is true' do
           let(:show_ad) { true }
 
           it 'does not assign @lower_banner_ad' do
-            get :show, params
-            expect(assigns(:lower_banner_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:lower_banner_ad)).to be_nil
           end
 
           it 'does not assign @right_box_ad' do
-            get :show, params
-            expect(assigns(:right_box_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:right_box_ad)).to be_nil
           end
         end
 
         context 'and show ads to current user is false' do
-
           it 'does not assign @lower_banner_ad' do
-            get :show, params
-            expect(assigns(:lower_banner_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:lower_banner_ad)).to be_nil
           end
 
           it 'does not assign @right_box_ad' do
-            get :show, params
-            expect(assigns(:right_box_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:right_box_ad)).to be_nil
           end
         end
       end
@@ -104,13 +100,13 @@ RSpec.describe LessonsController do
 
         context 'and show ads to current user is false' do
           it 'does not assign @lower_banner_ad' do
-            get :show, params
-            expect(assigns(:lower_banner_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:lower_banner_ad)).to be_nil
           end
 
           it 'does not assign @right_box_ad' do
-            get :show, params
-            expect(assigns(:right_box_ad)).to eql(nil)
+            get :show, params: params
+            expect(assigns(:right_box_ad)).to be_nil
           end
         end
       end

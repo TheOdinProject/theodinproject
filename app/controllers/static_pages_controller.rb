@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-
   def home
     @navbar = false
     @is_home_page = true
@@ -9,9 +8,6 @@ class StaticPagesController < ApplicationController
   end
 
   def getting_involved
-  end
-
-  def studygroups
   end
 
   def legal
@@ -24,7 +20,7 @@ class StaticPagesController < ApplicationController
   end
 
   def suggestion
-    if suggestion_body
+    if suggestion_body_not_empty?
       ContactMailer.suggestion_email(
         suggestion_body,
         current_page,
@@ -40,7 +36,7 @@ class StaticPagesController < ApplicationController
   private
 
   def user_identifier
-    current_user_email || '< not logged in >'
+    current_user_email || 'Anonymous'
   end
 
   def current_user_email
@@ -53,5 +49,9 @@ class StaticPagesController < ApplicationController
 
   def suggestion_body
     @suggestion_body ||= params[:suggestion]
+  end
+
+  def suggestion_body_not_empty?
+    !suggestion_body.empty?
   end
 end

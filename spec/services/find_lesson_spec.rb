@@ -1,24 +1,24 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe FindLesson do
   subject(:find_lesson) { FindLesson.new(lesson) }
-  let(:lesson) { double('Lesson', position: position) }
+
+  let(:lesson)   { double('Lesson', position: position) }
   let(:position) { 1 }
-  let(:course) { double('Course', lessons: lessons) }
-  let(:lessons) { [lesson, lesson_2, lesson_3] }
-  let(:lesson_2) { double('Lesson', position: 2 ) }
-  let(:lesson_3) { double('Lesson', position: 3 ) }
+  let(:course)   { double('Course', lessons: lessons) }
+  let(:lessons)  { [lesson, lesson_2, lesson_3] }
+  let(:lesson_2) { double('Lesson', position: 2) }
+  let(:lesson_3) { double('Lesson', position: 3) }
 
   before do
     allow(lesson).to receive(:course).and_return(course)
 
-    allow(lessons).to receive(:order).with("position asc").
-      and_return(lessons)
+    allow(lessons).to receive(:order).with(position: :asc)
+      .and_return(lessons)
 
-    allow(lessons).to receive(:find_by_position).with(2).
-      and_return(lesson_2)
+    allow(lessons).to receive(:find_by_position).with(2)
+      .and_return(lesson_2)
   end
-
 
   describe '#new' do
     it 'will return a new find lesson object' do
@@ -27,7 +27,6 @@ RSpec.describe FindLesson do
   end
 
   describe '#next_lesson' do
-
     it 'will return the next lesson' do
       expect(find_lesson.next_lesson).to eql(lesson_2)
     end
@@ -65,5 +64,4 @@ RSpec.describe FindLesson do
       end
     end
   end
-
 end

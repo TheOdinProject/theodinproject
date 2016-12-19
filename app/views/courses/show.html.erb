@@ -12,7 +12,7 @@
     <div class="heading-box">
       <% if user_signed_in? %>
         <div class="lc-percent-completion">
-          <%= render "shared/completion_percent" %>
+          <%= render "shared/completion_percent", course: @course %>
         </div>
       <% end %>
 
@@ -45,7 +45,7 @@
           <div class="lessons-list">
             <!-- <h2>lessons:</h2> -->
             <% lesson_num = 0 %>
-            <% section.lessons.order("position asc").each do |lesson| %>
+            <% section.lessons.includes(:course).order(position: :asc).each do |lesson| %>
               <% lesson_num += 1 unless lesson.is_project %>
 
                 <div class="lesson <%= lesson.is_project ? 'project' :''%>">

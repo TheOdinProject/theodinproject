@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-describe StaticPagesController do
-
+RSpec.describe StaticPagesController do
   describe 'GET home' do
-
     it 'renders the home page' do
       get :home
       expect(response).to render_template(:home)
@@ -31,13 +29,6 @@ describe StaticPagesController do
     it 'renders the getting involved page' do
       get :getting_involved
       expect(response).to render_template(:getting_involved)
-    end
-  end
-
-  describe 'GET studygroups' do
-    it 'renders the study groups page' do
-      get :studygroups
-      expect(response).to render_template(:studygroups)
     end
   end
 
@@ -74,9 +65,9 @@ describe StaticPagesController do
     let(:user_signed_in?) { true }
 
     before do
-      allow(ContactMailer).to receive(:suggestion_email).
-        with(suggestion_body, path_name, user_identifier).
-        and_return(contact_mailer)
+      allow(ContactMailer).to receive(:suggestion_email)
+        .with(suggestion_body, path_name, user_identifier)
+        .and_return(contact_mailer)
 
       allow(controller).to receive(:user_signed_in?).and_return(user_signed_in?)
       allow(controller).to receive(:current_user).and_return(current_user)
@@ -84,30 +75,30 @@ describe StaticPagesController do
     end
 
     it 'sends the sugestion email' do
-      post :suggestion, params
+      post :suggestion, params: params
       expect(contact_mailer).to have_received(:deliver_now)
     end
 
     it 'returns the suggestion body in JSON' do
-      post :suggestion, params
+      post :suggestion, params: params
       expect(response.body).to eql('hello')
     end
 
     context 'when no suggestion body has been entered' do
-      let(:suggestion_body) { nil }
+      let(:suggestion_body) { '' }
 
       it 'will not send the suggestion email' do
-        post :suggestion, params
+        post :suggestion, params: params
         expect(contact_mailer).not_to have_received(:deliver_now)
       end
     end
 
     context 'when the user is not signed in' do
       let(:user_signed_in?) { false }
-      let(:user_identifier) { '< not logged in >'}
+      let(:user_identifier) { 'Anonymous' }
 
       it 'will use < no logged in > for the user identifier' do
-        post :suggestion, params
+        post :suggestion, params: params
         expect(contact_mailer).to have_received(:deliver_now)
       end
     end

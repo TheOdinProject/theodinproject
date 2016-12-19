@@ -1,32 +1,41 @@
 require 'rails_helper'
 
-describe Ad do
+RSpec.describe Ad do
+  describe '.show_ads?' do
+    it 'shows the ad' do
+      expect(Ad.show_ads?).to eq(true)
+    end
+  end
 
-  context "with one ad created" do
+  describe '.ve_banner' do
+    let(:banner_ad_attrs) {
+      { style: 'banner', client: 've', category: 'b2c_ab' }
+    }
+    let(:banner_ads) { double('BannerAds') }
+    let(:banner_ad) { double('BannerAd', banner_ad_attrs) }
 
-    let(:ad){ FactoryGirl.create(:ad) }
+    before do
+      allow(Ad).to receive(:where).with(banner_ad_attrs).and_return(banner_ads)
+      allow(banner_ads).to receive(:sample).and_return(banner_ad)
+    end
 
-    describe ".show_ads?" do
+    it 'shows a random banner ad' do
+      expect(Ad.ve_banner).to eql(banner_ad)
+    end
+  end
 
-      context "with recently created user signed in" do
-        it "should show the ad" do
-          current_user = double("User", :created_at => 1.day.ago)
-          expect(Ad.show_ads?(current_user)).to eq(true)
-        end
-      end
+  describe '.ve_box' do
+    let(:box_ad_attrs) { { style: 'box', client: 've', category: 'b2c_ab' } }
+    let(:box_ads) { double('BoxAds') }
+    let(:box_ad) { double('BoxAd', box_ad_attrs) }
 
-      context "with longtime user signed in" do
-        it "should still show the ad" do
-          current_user = double("User", :created_at => 11.days.ago)
-          expect(Ad.show_ads?(current_user)).to eq(true)
-        end
-      end
+    before do
+      allow(Ad).to receive(:where).with(box_ad_attrs).and_return(box_ads)
+      allow(box_ads).to receive(:sample).and_return(box_ad)
+    end
 
-      context "with anonymous visitor" do
-        it "should show the ad" do
-          expect(Ad.show_ads?(nil)).to eq(true)
-        end
-      end
+    it 'shows a random box ad' do
+      expect(Ad.ve_box).to eql(box_ad)
     end
   end
 end

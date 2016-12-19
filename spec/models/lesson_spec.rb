@@ -7,9 +7,9 @@ RSpec.describe Lesson do
       position: 1,
       section_id: 2,
       is_project: false,
-      url: "/README.md",
+      url: '/README.md',
       content: nil,
-      slug: 'test-lesson',
+      slug: 'test-lesson'
     )
   }
   let(:course) { double('Course', title: 'web_dev_101') }
@@ -23,7 +23,7 @@ RSpec.describe Lesson do
     allow(lesson).to receive(:course).and_return(course)
     allow(FindLesson).to receive(:new).with(lesson).and_return(find_lesson)
   end
-  
+
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course) }
   it { is_expected.to have_many(:lesson_completions) }
@@ -53,9 +53,9 @@ RSpec.describe Lesson do
 
     before do
       allow(lesson).to receive(:position).and_return(3)
-      allow(lessons).to receive(:where).
-        with("is_project = ? AND position <= ?", false, 3).
-        and_return(appropiate_lessons)
+      allow(lessons).to receive(:where)
+        .with('position <= ?', 3)
+        .and_return(appropiate_lessons)
     end
 
     it 'returns the position of the lesson in the section' do
@@ -64,17 +64,42 @@ RSpec.describe Lesson do
   end
 
   describe '#import' do
-    it "updates the lesson" do
-      VCR.use_cassette("lesson_content") { lesson.import_content_from_github }
+    it 'updates the lessons content' do
+      VCR.use_cassette('lesson_content') { lesson.import_content_from_github }
       expect(lesson.reload.content).not_to be nil
     end
 
     context 'when the lesson content has not changed' do
-
-      it "does not update the lesson content" do
-        VCR.use_cassette("lesson_content") { lesson.import_content_from_github }
+      it 'does not update the lesson content' do
+        VCR.use_cassette('lesson_content') { lesson.import_content_from_github }
         expect(lesson).not_to receive(:update)
-        VCR.use_cassette("lesson_content") { lesson.import_content_from_github }
+        VCR.use_cassette('lesson_content') { lesson.import_content_from_github }
+      end
+    end
+
+    context 'when Octokit raises an error' do
+      let(:logger) { double('Logger') }
+
+      before do
+        allow(Octokit).to receive(:contents)
+          .with('theodinproject/curriculum', path: '/README.md')
+          .and_raise(Octokit::Error)
+
+        allow(lesson).to receive(:errors).and_return('there was a problem')
+        allow(lesson).to receive(:logger).and_return(logger)
+
+        allow(logger).to receive(:error)
+          .with('Failed to import "test_lesson" content: there was a problem')
+      end
+
+      it 'returns false' do
+        expect(lesson.import_content_from_github).to eql(false)
+      end
+
+      it 'logs a failure message' do
+        expect(logger).to receive(:error)
+          .with('Failed to import "test_lesson" content: there was a problem')
+        lesson.import_content_from_github
       end
     end
   end

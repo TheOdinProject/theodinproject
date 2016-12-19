@@ -25,17 +25,17 @@ devise_for :users,
   get 'cla' => "static_pages#cla"
   get 'tou' => "static_pages#tou"
   get 'press' => redirect('https://docs.google.com/document/d/1FmjfYvOsQ-syoOCzuvPXv96TCxeJAT9m-Wl7trgNZcE/pub')
-  get 'studygroups' => "static_pages#studygroups"
   get 'sitemap' => 'sitemap#index', :defaults => { :format => 'xml' }
 
   #failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
 
-  resources :users, :only => [:show, :index, :edit, :update] do
-    resource :contact, :only => [:new, :create]
-  end
+  resources :users, :only => [:show, :index, :edit, :update]
 
   # ***** COURSES AND LESSONS ROUTES *****
+  # deprecated /courses/curriculum route redirect
+  get '/courses/curriculum' => redirect('/courses')
+
   resources :courses, only: [:index, :show ] do
     resources :lessons, only: [:show]
   end
@@ -45,9 +45,9 @@ devise_for :users,
   delete 'lesson_completions/:lesson_id' => 'lesson_completions#destroy', :as => 'lesson_completion'
 
   # Explicitly redirect deprecated routes (301)
+
+  get 'curriculum' => redirect('/courses')
+  get 'scheduler' => redirect('/courses')
   get ':course_name' => redirect('/courses/%{course_name}')
   get ':course_name/:lesson_name' => redirect('courses/%{course_name}/lessons/%{lesson_name}')
-  get 'curriculum' => redirect('/courses')
-  get 'studygroup' => redirect('/studygroups')
-  get 'scheduler' => redirect('/courses')
 end

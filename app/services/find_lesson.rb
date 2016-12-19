@@ -1,6 +1,6 @@
 class FindLesson
-
   attr_reader :lesson
+  private :lesson
 
   def initialize(lesson)
     @lesson = lesson
@@ -21,7 +21,7 @@ class FindLesson
   end
 
   def lessons
-    lesson.course.lessons.order("position asc")
+    lesson.course.lessons.order(position: :asc)
   end
 
   def last_lesson?
