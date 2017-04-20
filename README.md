@@ -36,4 +36,4 @@ To find out more about how you can contribute please read our [contributing guid
 * [Arun Kumar](https://github.com/arun1595)
 
 <hr>
-Created by [Erik Trautman](http://www.github.com/eriktrautman)
+Created by [The Great Erik Trautman](http://www.github.com/eriktrautman)
