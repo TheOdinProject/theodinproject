@@ -3,6 +3,7 @@ ruby '2.3.0'
 
 gem 'rails',                        '~> 5.0.0'
 gem 'puma',                         '~> 3.6.0'
+gem 'turbolinks'
 gem 'simple_form',                  '3.3.1'
 gem 'jquery-rails',                 '~> 4.2.1'
 gem 'google-api-client',            '~> 0.9'
@@ -20,7 +21,7 @@ gem 'omniauth-github',              '~> 1.1.2' #for Github Authentication
 gem 'font-awesome-rails',           '~> 4.7'
 gem 'sass-rails',                   '~> 5.0'
 gem 'coffee-rails',                 '~> 4.2'
-gem 'twitter-bootstrap-rails',      '~> 2.2.8'
+gem 'bootstrap',                    '~> 4.0.0.alpha6'
 gem 'therubyracer',                 '~> 0.12'  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'less-rails',                   '~> 2.8'
 gem 'uglifier',                     '~> 3.0'
