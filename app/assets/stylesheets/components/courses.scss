@@ -1,0 +1,223 @@
+.CoursesController {
+  .course {
+    .heading {
+      color: $grey;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+      margin: 0 0 30px;
+    }
+
+    .course-badge {
+      margin: 30px 0;
+      width: 150px;
+    }
+
+    .course-title {
+      font-weight: 300;
+      color: $text-primary;
+      margin-bottom: 100px;
+    }
+
+    .course-completion {
+      color: $white;
+      font-size: 24px;
+      margin: 0 auto 100px;
+      padding: 16px;
+      background: $coffee;
+    }
+
+    .course-overview {
+      line-height: 1.88;
+      letter-spacing: 0.2px;
+      color: $text-primary;
+      margin-bottom: 60px;
+    }
+  }
+
+  .sections-list {
+    padding-bottom: 116px;
+
+    .section {
+      background: $white;
+      margin-bottom: 50px;
+      padding: 30px;
+
+      .section-title {
+        font-size: 24px;
+        letter-spacing: 0.3px;
+        margin-bottom: 16px;
+
+        @include media-breakpoint-down(md) {
+          h2 {
+            margin: 0 0 16px;
+          }
+        }
+      }
+
+      .section-description {
+        margin-bottom: 30px;
+      }
+
+      .course-lesson {
+        .lesson-link {
+          display: flex;
+
+          a {
+            display: block;
+          }
+
+          .lesson-link-text {
+            color: $light-orange;
+            font-size: 24px;
+            padding: 10px;
+
+            @include media-breakpoint-down(md) {
+              font-size: 20px;
+            }
+
+            .lesson-title {
+              padding-left: 20px;
+            }
+          }
+        }
+
+        .completion-status {
+          color: $pale-grey;
+          font-size: 13px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          text-transform: uppercase;
+
+          @include media-breakpoint-down(md) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .courses-list {
+    margin-bottom: 242px;
+
+    .course-card {
+      @include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.3));
+      background: $white;
+      color: $grey;
+      margin-top: 40px;
+      padding: 30px;
+      position: relative;
+
+      a {
+        text-decoration: none;
+      }
+
+      .cc-completion-indicator {
+        background: rgba(106,191,195, 0.9);
+        color: #fff;
+        font-size: 14px;
+        left: 0;
+        position: absolute;
+        padding: 8px;
+        top: 0;
+        z-index: 1;
+      }
+
+      .course-badge-wrapper {
+        padding: 0;
+        text-align: center;
+      }
+
+      .course-badge {
+        width: 100px;
+        height: 100px;
+      }
+
+      .course-title-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        @media screen and (max-width: 550px) {
+          margin-top: 20px;
+        }
+
+        .course-title {
+          h2 {
+            color: $text-primary;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.2px;
+            margin: 0;
+            max-width: 100%;
+          }
+
+          .lessons-count {
+            color: $grey;
+            font-size: 13px;
+          }
+
+          @media screen and (min-width: 768px) {
+              margin-left: 30px;
+          }
+
+          @media screen and (max-width: 550px) {
+            text-align: center;
+          }
+        }
+      }
+
+      .course-teaser {
+        color: $text-primary;
+        margin-top: 30px;
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+
+      .course-description {
+        p {
+          color: $grey;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .course-overview {
+          border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .course-overview {
+        padding: 0 30px;
+
+        .objectives, .projects {
+          h4 {
+            font-size: 16px;
+          }
+
+          .see-more {
+            padding: 0 0 20px;
+
+            a {
+              color: $black;
+              text-transform: uppercase;
+            }
+          }
+        }
+        .objectives-list, .projects-list {
+          list-style: none;
+          padding: 0;
+
+          li {
+            letter-spacing: 0.2px;
+            line-height: 1.88;
+
+            &:before {
+              content: "- ";
+            }
+          }
+        }
+      }
+    }
+  }
+}

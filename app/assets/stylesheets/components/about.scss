@@ -1,0 +1,196 @@
+#about {
+  .about-page-title {
+    margin-bottom: 70px;
+  }
+
+  .row {
+    padding: 40px 0;
+    color: $text-primary;
+  }
+
+  .intro {
+    padding-bottom: 120px;
+  }
+
+  .beliefs {
+    .beliefs-heading {
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
+    .belief {
+
+      .belief-illustration {
+        justify-content: center;
+        display: flex;
+
+        @media screen and (max-width: 575px) {
+          justify-content: center;
+        }
+      }
+
+      .belief-description {
+        .belief-short-text {
+          font-size: 1.2em;
+          padding-bottom: 1em;
+        }
+        @media screen and (max-width: 575px) {
+          margin-top: 40px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .story {
+    margin: 110px 0 170px;
+    padding: 100px 20px;
+    h2 {
+      width: 100%;
+      color: $primary;
+    }
+    .timeline {
+      font-size: .8em;
+      .year {
+        font-size: 1.2em;
+        font-weight: 900;
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+
+        h3 {
+          color: $primary;
+        }
+      }
+    }
+    @media(max-width: 576px) {
+      margin-bottom: 0px;
+    }
+  }
+
+  .contact {
+    h2 {
+      color: $primary;
+    }
+
+    .odin-logo {
+      text-align: center;
+      height: 300px;
+      @include media-breakpoint-up(lg) {
+        text-align: right;
+      }
+      @media(max-width: 360px) {
+          height: 210px;
+        }
+      img {
+        position: absolute;
+        left: -9000px;
+        right: -9000px;
+        margin: -60px auto 0 auto;
+        height: 480px;
+      @media(max-width: 576px) {
+          margin-top: -60px;
+          height: auto;
+          width: 100%;
+        }
+      @media(max-width: 480px) {
+          margin-top: -40px;
+          height: auto;
+          width: 120%;
+        }
+      }
+    }
+
+    .contact-text {
+      margin-top: 60px;
+      @media(max-width: 768px) {
+        margin-top: 30px;
+      }
+
+      p {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      h2 {
+          font-size: 36px;
+          font-weight: 300;
+          letter-spacing: 0.4px;
+          margin-bottom: 20px;
+        }
+      }
+
+    .cta {
+      text-decoration: none;
+      background-color: $primary;
+      color: #ffffff;
+      display: block;
+      text-align: center;
+      padding: 0 1.5em 0 1.5em;
+      width: 200px;
+      height: 60px;
+      border-radius: 3px;
+      line-height: 60px;
+      margin: 70px auto 70px;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      font-size: 18px;
+    }
+  }
+
+  .contribute {
+    background: linear-gradient(white, $light-grey);
+    margin: 0;
+    padding-bottom: 120px;
+    h2 {
+      font-weight: 300;
+      max-width: 960px;
+      margin: 0 auto;
+      font-size: 36px;
+      line-height: 1.5em;
+      letter-spacing: 0.4px;
+      color: $grey;
+    }
+    .cta {
+        text-decoration: none;
+        background-color: $button-primary;
+        color: $white;
+        display: block;
+        width: 300px;
+        text-align: center;
+        height: 60px;
+        border-radius: 3px;
+        line-height: 60px;
+        margin: 70px auto 0;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+        letter-spacing: 0.2px;
+        font-size: 18px;
+    }
+  }
+
+  .goldbar {
+    border-top: solid $primary 2px;
+    position: relative;
+    padding: 20px 0 26px 40px;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      background: $primary;
+    }
+  }
+}
+
+@media (min-width: 942px) {
+  .intro {
+    width: 80%;
+    margin: auto;
+  }
+}

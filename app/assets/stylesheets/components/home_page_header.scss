@@ -1,0 +1,34 @@
+header {
+    padding-bottom: 60px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-family: $body-fonts;
+    color: $grey;
+    font-weight: 400;
+    line-height: 23px;
+    font-size: 1em;
+    letter-spacing: 0.2px;
+  }
+
+  .signup-cta {
+    text-decoration: none;
+    background-color: $button-primary;
+    color: #ffffff;
+    display: block;
+    width: 200px;
+    text-align: center;
+    height: 60px;
+    border-radius: 3px;
+    line-height: 60px;
+    margin: 70px auto 0;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    font-size: 18px;
+  }
+
+}

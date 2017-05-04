@@ -2,22 +2,27 @@ class StaticPagesController < ApplicationController
   def home
     @navbar = false
     @is_home_page = true
+    @how_it_works_tiles = helpers.how_it_works_tiles
+    @courses = helpers.courses
   end
 
-  def about
+  def about; end
+
+  def getting_involved; end
+
+  def faq
+    @faq_items = helpers.faq_items
   end
 
-  def getting_involved
-  end
+  def legal; end
 
-  def legal
-  end
+  def tou; end
 
-  def tou
-  end
+  def cla; end
 
-  def cla
-  end
+  def style_guide; end
+
+  def success_stories; end
 
   def suggestion
     if suggestion_body_not_empty?

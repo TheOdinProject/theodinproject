@@ -23,13 +23,8 @@
           <%= render "layouts/#{flash[:partial]}" %>
         <% end %>
 
-        <div class="container">
-          <div class="row">
-            <%= render partial: 'shared/flash_helper', flash: flash %>
-            <%= yield %>
-          </div><!--/row-->
-        </div> <!-- /container -->
-
+        <%= render 'shared/flash_helper', flash: flash %>
+        <%= yield %>
       <% end %>
 
     </div>
@@ -37,7 +32,7 @@
     <%= render "shared/footer" %>
 
     <%= render 'shared/sidecar' %>
+
+    <%= yield :scripts %>
   </body>
-
-
 </html>

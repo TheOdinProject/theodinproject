@@ -1,0 +1,95 @@
+html {
+  height: 100%;
+  font-size: 100%;
+}
+
+body {
+  font-family: $body_fonts;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headline-fonts;
+}
+
+h1 {
+  color: $primary;
+  font-size: 2.25rem;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h2, h3 {
+  color: $text-primary;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  line-height: 1.88;
+  letter-spacing: 0.2px;
+  color: $text-primary;
+  font-size: 1em;
+  font-family: $body-fonts;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+.camel {
+  color: $primary;
+}
+
+.camo {
+  color: $camo;
+}
+
+.coffee {
+  color: $coffee;
+}
+
+.grey {
+  color: $grey;
+}
+
+.orange {
+  color: $dusty-orange;
+}
+
+.white {
+  color: $white;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bg-whitesmoke {
+  background: $white-smoke;
+}
+
+.btn-camel {
+  background: $primary;
+  color: $white;
+
+  &:hover, &:focus {
+    background: darken($primary, 10%);
+    color: $white;
+  }
+}
+
+.gradient {
+  background-image: linear-gradient(to bottom, $white, $light-grey);
+}

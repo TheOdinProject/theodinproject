@@ -1,0 +1,221 @@
+.success-stories {
+  min-height: 960px;
+  width: 100%;
+  padding-bottom: 60px;
+  @media(max-width: 480px){
+    padding-bottom: 0;
+  }
+  .success-stories-title {
+    width: 100%;
+    text-align: center;
+    padding-top: 70px;
+    letter-spacing: 0.3px;
+    @media(max-width: 480px){
+      padding-top: 50px;
+    }
+  }
+
+  .success-stories-container {
+    color: $text-primary;
+    max-width: 1280px;
+    min-height: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    @media(max-width: 480px){
+      margin-top: 20px;
+    }
+    .success-story {
+      flex-basis: 49.9%;
+      display: flex;
+      @media (max-width: 480px){
+          &.story-2 {
+            display: none;
+          }
+          &.story-3 {
+            display: none;
+          }
+        }
+      padding-bottom: 36px;
+      .name-and-photo {
+        flex: 2;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @media(max-width: 480px){
+          height: 90px;
+        }
+      }
+      .photo1 {
+        flex-basis: 100px;
+        text-align: center;
+        padding-top: 16px;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%
+        }
+        @media(max-width: 480px){
+          display: none;
+        }
+      }
+      .photo2 {
+        display: none;
+        flex-basis: 60px;
+        text-align: center;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%
+        }
+        @media(max-width: 480px){
+          display: block;
+        }
+      }
+      .success-content {
+        flex: 1;
+      }
+      @media(max-width: 480px) {
+        padding: 0 26px 0 26px;
+      }
+    }
+  }
+
+  .success-stories-read-more {
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    a {
+      color: $grey;
+      text-decoration: underline;
+    }
+  }
+
+  .success-stories-sign-up {
+    margin: 60px 0;
+    font-size: 2.2em;
+    font-weight: 100;
+    width: 100%;
+    padding: 0 40px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    p {
+      color: $grey;
+      line-height: 1.5em;
+    }
+    .signup-button {
+      text-decoration: none;
+      background-color: #6abfc3;
+      color: #ffffff;
+      display: block;
+      width: 190px;
+      text-align: center;
+      height: 60px;
+      border-radius: 3px;
+      line-height: 60px;
+      margin: 60px auto;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      font-size: 18px;
+    }
+  }
+}
+
+.success-stories-page {
+
+  .success-stories-title-full {
+    h1 {
+      margin-bottom: 30px;
+    }
+  }
+
+  .success-stories-container {
+    color: $text-primary;
+    max-width: 1280px;
+    min-height: 400px;
+    margin: 100px auto 6em;
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+    .success-story-full {
+      flex-basis: 70%;
+      display: flex;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 15px;
+
+        .completed-course{
+          font-weight: 500;
+          position: absolute;
+          right: 17%;
+          p{
+            color: #AAA;
+          }
+        }
+
+        .photo {
+          flex-basis: 100px;
+          text-align: center;
+          padding-top: 16px;
+          margin-right: 5px;
+
+          img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%
+          }
+        }
+
+        .success-content-full {
+          flex: 1;
+
+          .student-name {
+            margin-bottom: 20px;
+          }
+        }
+    }
+
+  .success-stories-read-more {
+    width: 100%;
+    text-align: center;
+
+    a {
+      color: rgba(74, 74, 74, 0.7)
+    }
+  }
+
+  .success-stories-sign-up {
+    font-size: 2.2em;
+    font-weight: light;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: rgba(74, 74, 74, 0.7);
+    margin-bottom: 3.6em;
+
+    .signup-button {
+      text-decoration: none;
+      background-color: #6abfc3;
+      color: #ffffff;
+      display: block;
+      width: 15%;
+      text-align: center;
+      height: 60px;
+      border-radius: 3px;
+      line-height: 60px;
+      margin: 60px auto 60px;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      font-size: 18px;
+    }
+  }
+
+}
