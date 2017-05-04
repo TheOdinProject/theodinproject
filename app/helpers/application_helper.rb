@@ -33,9 +33,8 @@ module ApplicationHelper
       },
       {
         question: 'What is the Goal of the The Odin Project?',
-        answer: <<~FAQ_ANSWER
-          <p>The goal of The Odin Project is to provide a complete path for students to go from zero to employed as web developers while working with other students along the way.</p>
-        FAQ_ANSWER
+        answer: 
+          '<p>The goal of The Odin Project is to provide a complete path for students to go from zero to employed as web developers while working with other students along the way.</p>'        
       },
       {
         question: 'How long does The Odin Project take?',
@@ -58,8 +57,9 @@ module ApplicationHelper
       {
         question: 'How is The Odin Project different from other programs?',
         answer: <<~FAQ_ANSWER
-          <p></p>
-          <p></p>
+          <p>The Odin Project is one of a kind in that it pulls the best resources from around the web and compiles them to create a complete curriculum.  In many other programs the curriculum is formatted to meet their specific curriculum.  This means that not all lessons are top-notch. The Odin Project sidesteps this downfall by pulling various free resources from around the web and compiles them in one place.</p>
+          <p>The Odin Project also develops your problem solving skills when it requires you to install programs on your local computer.  As developers, programming errors frequently arise and knowing how to decipher error messages is critical.  These problem solving skills are frequently ignored by other programs by using their online interface.</p>
+          <p>Lastly, The Odin Project is project based.  Other programs require you to simply input the correct answer. It is difficult to retain any knowledge by learning the bare minimum syntax. The Odin Project is designed with projects built from the ground up giving you real-world experience that you can use to build your portfolio and get hired as a web developer!</p>
         FAQ_ANSWER
       },
       {
@@ -85,9 +85,8 @@ module ApplicationHelper
       },
       {
         question: 'Is The Odin Project free?',
-        answer: <<~FAQ_ANSWER
-          <p>Yes! The Odin Project is an open-source project created and maintained by hard working volunteers. If you want to help please <%= link_to "reach out", contact_path %>.</p>
-        FAQ_ANSWER
+        answer:
+          '<p>Yes! The Odin Project is an open-source project created and maintained by hard working volunteers. If you want to help please <%= link_to "reach out", contact_path %>.</p>'
       },
       {
         question: 'When do I pay?',
