@@ -32,10 +32,11 @@
       </h3>
     <% end %>
 
+    <%= <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif"> %>
+
     <%= convert_markdown_to_html(@lesson.content) %>
 
     <%= render partial: 'chat_link' %>
-
 
     <% if @right_box_ad %>
       <%= render :partial => "right_box_ad", :locals => { :ad => @right_box_ad } %>
