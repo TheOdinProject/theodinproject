@@ -30,9 +30,13 @@
       <h3 class="lc-completion-indicator <%= current_user.completed_lesson?(@lesson) ? '' : 'hidden' %>" title="You've completed this lesson!">
         &#10004;
       </h3>
+
+      <!-- Displays You Can Do It giphy -->
+      <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
+        <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
+      <% end %>
     <% end %>
 
-    <%= <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif"> %>
 
     <%= convert_markdown_to_html(@lesson.content) %>
 
