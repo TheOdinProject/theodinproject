@@ -198,7 +198,6 @@
     }
   }
 
-
   // The information section at the end of each lesson
   // Includes the license and the link to that lesson's Github
   #info-box{
@@ -568,6 +567,11 @@
     border-bottom: 2px dotted $vlight_gray;
   }
 }
+
+#motivate-img-container {
+  text-align: center;
+}
+
 
 // The progress bar is too mashed together for
 // narrow screen sizes on long courses

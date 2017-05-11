@@ -23,6 +23,15 @@
 
 <!-- END progress-tracking bar -->
 
+<% if user_signed_in? %>
+  <!-- Displays You Can Do It giphy -->
+  <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
+    <div id="motivate-img-container">
+     <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
+   </div>
+  <% end %>
+<% end %>
+
 <div class="individual-lesson <%= @lesson.is_project ? 'project-lesson' : ''%>">
   <div class="container">
 
@@ -30,11 +39,6 @@
       <h3 class="lc-completion-indicator <%= current_user.completed_lesson?(@lesson) ? '' : 'hidden' %>" title="You've completed this lesson!">
         &#10004;
       </h3>
-
-      <!-- Displays You Can Do It giphy -->
-      <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
-        <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
-      <% end %>
     <% end %>
 
 
