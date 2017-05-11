@@ -198,7 +198,6 @@
     }
   }
 
-
   // The information section at the end of each lesson
   // Includes the license and the link to that lesson's Github
   #info-box{
@@ -577,7 +576,7 @@
   }
 }
 
-#lower-banner{
+#lower-adbox{
   height: 60px;
   width: 467px;
   border: 10px solid #eee;
@@ -586,6 +585,8 @@
   img{
     position: relative;
   }
+  background-image: url(http://s3.amazonaws.com/viking_education/mktg/viking_altad_wide.png);
+
   &:before{
     content: "From the creators of The Odin Project...";
     position: absolute;
@@ -631,11 +632,14 @@
     line-height:1.25em;
   }
   .lower-alt-txt{
-    margin-left: 80px!important;
+    margin-left: 0;
+    width: 468px;
+    height: 60px;
+    text-align: center;
   }
 }
 @media(max-width: 500px){
-  #lower-banner{
+  #lower-adbox{
     display: none;
   }
   #right-box{
@@ -643,7 +647,11 @@
   }
 }
 
-
+#motivate-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #lesson-nav{
   height: 1.75em;
