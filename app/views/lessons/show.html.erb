@@ -26,9 +26,7 @@
 <% if user_signed_in? %>
   <!-- Displays You Can Do It giphy -->
   <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
-    <div id="motivate-img-container">
-     <img src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
-   </div>
+    <img id="motivate-img" src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
   <% end %>
 <% end %>
 
