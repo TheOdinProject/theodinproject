@@ -522,7 +522,9 @@
 }
 
 .StaticPagesController{
-
+  #faq-accordion{
+    padding: 0;
+  }
   @extend .individual-lesson;
   .belief-heading{
     color: $highlight_orange;
