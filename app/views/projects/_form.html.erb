@@ -1,25 +1,32 @@
 <div class="project-form-container">
-  <h3 class="text-primary text-center project-form-title">Upload your project</h4>
-  <div id="message"></div>
+  <h1 class="text-center project-form-title accent">Upload your project</h1>
 
   <%= form_for([lesson, project], remote: true) do |f| %>
     <div class="form-group">
-      <%= f.label :repo_url, 'Repository URL', class: 'control-label' %>
-      <%= f.text_field :repo_url, class: 'form-control',
-            placeholder: 'https://github.com/username/reponame' %>
+      <div class="input-group">
+        <i class="fa fa-github"></i>
+        <%= f.text_field :repo_url, class: 'form-control',
+          placeholder: 'Repository URL' %>
+      </div>
     </div>
 
     <% if lesson.has_live_preview? %>
       <div class="form-group">
-        <%= f.label :live_preview, 'Live Preview', class: 'control-label' %>
-        <%= f.text_field :live_preview, class: 'form-control',
-              placeholder: 'https://appname.herokuapp.com' %>
+        <div class="input-group">
+          <i class="fa fa-paperclip"></i>
+          <%= f.text_field :live_preview, class: 'form-control',
+          placeholder: 'Live Preview URL' %>
+        </div>
       </div>
     <% end %>
 
-    <div class="form-group">
-      <%= f.submit (project.new_record? ? 'Upload project' : 'Update submission'),
-            class: 'btn btn-success btn-block btn-big project-submit-btn' %>
+    <div class="form-group text-center">
+      <%= f.submit (project.new_record? ? 'Upload project' : 'Update project'),
+        class: 'button button--primary project-submit-btn' %>
+    </div>
+
+    <div class="form-group text-center">
+      <button type="button" class="button" data-dismiss="modal">Cancel</button>
     </div>
   <% end %>
 </div>

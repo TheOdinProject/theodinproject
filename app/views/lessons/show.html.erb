@@ -1,5 +1,15 @@
 <%= title(@lesson.title) %>
 
+<% if user_signed_in? && @lesson.has_submission? %>
+  <div id="project-submission-modal-wrapper">
+    <%= render 'projects/form_modal', lesson: @lesson, project: @project %>
+  </div>
+<% end %>
+
+<% if @project&.persisted? %>
+  <%= render 'projects/delete_project_modal', lesson: @lesson, project: @project %>
+<% end %>
+
 <div class="individual-lesson">
   <div class="container">
     <div class="row">
@@ -22,6 +32,10 @@
 
       <%= render 'lesson_actions', lesson: @lesson %>
 
+      <div id="new-submission">
+        <%= render 'add_submission_button' if @project&.new_record? %>
+      </div>
+
       <%= render 'submissions' if @projects %>
 
       <%= render 'shared/bottom_cta',
@@ -33,9 +47,9 @@
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
   $(function() {
-    $(".individual-lesson a[href^='http://']").attr("target","_blank");
-    $(".individual-lesson a[href^='https://']").attr("target","_blank");
+    $(".individual-lesson a[href^='http://']").attr('target', '_blank');
+    $(".individual-lesson a[href^='https://']").attr('target', '_blank');
   });
 </script>

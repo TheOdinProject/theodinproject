@@ -7,7 +7,7 @@
   $('#project-submission-modal-wrapper')
     .html("<%= j render 'form_modal', lesson: @lesson, project: @project %>");
   $('body')
-    .prepend("<%= j render 'projects/delete_modal', lesson: @lesson, project: @project %>");
+    .prepend("<%= j render 'projects/delete_project_modal', lesson: @lesson, project: @project %>");
 
 <% else %>
   toastr.error('<%= @project.errors.full_messages[0] %>', 'Error', {

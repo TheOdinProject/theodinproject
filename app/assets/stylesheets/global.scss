@@ -94,3 +94,33 @@ ul {
 .gradient {
   background-image: linear-gradient(to bottom, $white, $light-grey);
 }
+
+@media (min-width: 992px) {
+  .modal-dialog {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-dialog {
+    max-width: 920px;
+    margin: 100px auto;
+  }
+}
+
+
+.form-control::-webkit-input-placeholder {
+  color: $pale-grey;
+}
+.form-control::-moz-placeholder {
+  color: $pale-grey;
+}
+.form-control:-moz-placeholder {
+  color: $pale-grey;
+}
+.form-control:-ms-input-placeholder {
+  color: $pale-grey;
+}
+.form-control::-ms-input-placeholder {
+  color: $pale-grey;
+}
