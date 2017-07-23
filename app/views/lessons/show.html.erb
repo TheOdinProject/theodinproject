@@ -47,9 +47,11 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $(function() {
-    $(".individual-lesson a[href^='http://']").attr('target', '_blank');
-    $(".individual-lesson a[href^='https://']").attr('target', '_blank');
-  });
-</script>
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $(document).on('turbolinks:load', function() {
+      $(".individual-lesson a[href^='http://']").attr('target', '_blank');
+      $(".individual-lesson a[href^='https://']").attr('target', '_blank');
+    });
+  </script>
+<% end %>
