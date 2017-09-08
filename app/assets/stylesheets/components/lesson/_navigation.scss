@@ -1,0 +1,49 @@
+.lesson-navigation {
+  margin-top: 300px;
+
+  &__element {
+    margin-bottom: 32px;
+  }
+
+  &__marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+
+    &--primary {
+      background: $primary;
+    }
+
+    &--coffee {
+      background: $coffee;
+    }
+
+    &--whitish-grey {
+      background: $whitish-grey;
+    }
+
+    &--light-grey {
+      background: $light-grey;
+    }
+
+    &--greyish-brown {
+      background: $text-primary;
+    }
+  }
+
+  .line {
+    width: 27px;
+    border: 1px solid $camo;
+    display: inline-block;
+    line-height: 16px;
+  }
+
+  &__title {
+    color: $grey;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
+}
