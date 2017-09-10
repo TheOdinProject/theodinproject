@@ -47,13 +47,15 @@
 
   &--complete {
     background-color: $button-disabled;
+    color: $black;
 
     &:after {
-      content: 'completed!';
+      content: 'Completed!';
     }
 
     &:hover {
       background: $red-danger;
+      color: $white;
 
       &:after {
         content: 'Incomplete';
