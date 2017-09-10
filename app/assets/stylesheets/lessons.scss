@@ -202,7 +202,6 @@
     }
   }
 
-
   // The information section at the end of each lesson
   // Includes the license and the link to that lesson's Github
   #info-box{
@@ -652,7 +651,11 @@
   }
 }
 
-
+#motivate-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 #lesson-nav{
   height: 1.75em;

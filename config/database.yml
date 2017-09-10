@@ -13,8 +13,8 @@ test: &test
   adapter: postgresql
   database: theodinproject_test
   pool: 5
-  username: 
-  password: 
+  username: theghall
+  password: pw
   host: localhost
 
 production:
