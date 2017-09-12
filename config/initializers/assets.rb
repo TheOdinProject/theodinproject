@@ -16,5 +16,3 @@ Rails.application.config.assets.version = '1.0'
 #   config.precompile += %w( fontawesome-webfont.woff )
 #   config.precompile += %w( fontawesome-webfont.ttf )
 # end
-
-Rails.application.config.assets.precompile += %w( lessons.js )

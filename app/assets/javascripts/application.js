@@ -16,10 +16,4 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require navbar
-//= require bootstrapScripts
-//= require faq
-//= require settings
-//= require formValidations
-//= require prism
-//= require admin_flash
+//= require_tree .
