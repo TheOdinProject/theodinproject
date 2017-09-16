@@ -1,6 +1,13 @@
 <div class="row">
   <div class="col-xl-10 offset-xl-1">
+
     <div class="card-main course-card bg-white">
+      <% if user_signed_in? && course_completed_by_user?(course, @user) %>
+        <div class="course-completion-bar">
+          COMPLETED <i class="fa fa-check-circle-o course-completion-bar__icon"></i>
+        </div>
+      <% end %>
+
       <%= render 'course_overview', course: course, user: @user %>
     </div> <!-- /.course-card -->
   </div> <!-- /.col -->

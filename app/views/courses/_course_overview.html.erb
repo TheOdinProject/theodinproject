@@ -1,4 +1,4 @@
-<div class="course-card-header">
+<div class="course-card-header <%= course_completed_class?(course, user) %>">
 
   <%= link_to course, class: 'course-card-header__link' do %>
     <div class='course-card-header__image'>
@@ -11,7 +11,7 @@
     <span class="course-card-header__sub-title"><%= course.lessons.size %> lessons</span>
   </div>
 
-  <%= link_to 'Open Course', course, class: 'button button--secondary course-card-header__button' %>
+  <%= link_to 'Open Course', course, class: "button #{open_course_button_style(course, user)} course-card-header__button" %>
 </div>
 
 <div class="row course-description-wrapper">
