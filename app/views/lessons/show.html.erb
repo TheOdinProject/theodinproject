@@ -23,6 +23,13 @@
 
 <!-- END progress-tracking bar -->
 
+<% if user_signed_in? %>
+  <!-- Displays You Can Do It giphy -->
+  <% if @lesson.is_project? && !current_user.completed_lesson?(@lesson) %>
+    <img id="motivate-img" src="https://media.giphy.com/media/xT4uQCnq6bDx8itLhK/giphy.gif">
+  <% end %>
+<% end %>
+
 <div class="individual-lesson <%= @lesson.is_project ? 'project-lesson' : ''%>">
   <div class="container">
 
@@ -32,11 +39,14 @@
       </h3>
     <% end %>
 
+<<<<<<< HEAD
     <h2><%= @lesson.title %></h2>
+=======
+
+>>>>>>> dev
     <%= convert_markdown_to_html(@lesson.content) %>
 
     <%= render partial: 'chat_link' %>
-
 
     <% if @right_box_ad %>
       <%= render :partial => "right_box_ad", :locals => { :ad => @right_box_ad } %>
