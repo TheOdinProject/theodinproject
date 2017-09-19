@@ -3,13 +3,14 @@
 
   &__element {
     margin-bottom: 32px;
+    display: flex;
+    align-items: center;
   }
 
   &__marker {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    display: inline-block;
 
     &--primary {
       background: $primary;
@@ -34,9 +35,9 @@
 
   .line {
     width: 27px;
+    height: 2px;
     border: 1px solid $camo;
-    display: inline-block;
-    line-height: 16px;
+    margin: 0 5px;
   }
 
   &__title {
