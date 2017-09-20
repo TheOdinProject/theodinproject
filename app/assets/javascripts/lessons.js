@@ -22,8 +22,8 @@ function setTargetForExternalLinks() {
 
 function navigationElement(markerClass, headingText) {
   return (
-    '<div class="lesson-navigation__element">' +
-    '<div class="lesson-navigation__marker lesson-navigation__marker--' + markerClass + '"></div>' +
+    '<div class="lesson-navigation__item">' +
+    '<div class="lesson-navigation__line lesson-navigation__line--' + markerClass + '"></div>' +
     '<div class="line"></div>' +
     '<div class="lesson-navigation__title">' +
     '<a class="grey" href="#' + kebabCase(headingText) + '">' + headingText +

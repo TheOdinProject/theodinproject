@@ -1,13 +1,13 @@
 .lesson-navigation {
   margin-top: 300px;
 
-  &__element {
+  &__item {
     margin-bottom: 32px;
     display: flex;
     align-items: center;
   }
 
-  &__marker {
+  &__line {
     width: 16px;
     height: 16px;
     border-radius: 50%;
