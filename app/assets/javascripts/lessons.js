@@ -26,7 +26,7 @@ function navigationElement(markerClass, headingText) {
     '<div class="lesson-navigation__line lesson-navigation__line--' + markerClass + '"></div>' +
     '<div class="line"></div>' +
     '<div class="lesson-navigation__title">' +
-    '<a class="grey" href="#' + kebabCase(headingText) + '">' + headingText +
+    '<a class="grey" href="#' + kebabCase(headingText) + '" data-turbolinks="false">' + headingText +
     '</a></div></div>'
   );
 }
