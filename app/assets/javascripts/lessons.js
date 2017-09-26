@@ -45,7 +45,10 @@ function constructLessonNavigation() {
   });
 
   var lessonNavigationLinksHTML = lessonNavigationLinks(headings);
-  document.querySelector('.lesson-navigation').innerHTML = lessonNavigationLinksHTML;
+  var lessonNavigation = document.querySelector('.lesson-navigation');
+  lessonNavigation.innerHTML = lessonNavigationLinksHTML;
+  Stickyfill.add(lessonNavigation);
+
 }
 
 function lessonPage() {
