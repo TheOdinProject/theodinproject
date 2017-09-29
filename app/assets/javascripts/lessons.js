@@ -1,9 +1,8 @@
-var markerClasses = [
-  'primary',
-  'coffee',
-  'whitish-grey',
-  'light-grey',
-  'greyish-brown'
+var LESSON_HEADINGS = [
+  'Overview',
+  'Learning Outcomes',
+  'Assignment',
+  'Additional Resources'
 ];
 
 function getElements(selector) {
@@ -20,35 +19,44 @@ function setTargetForExternalLinks() {
   });
 }
 
-function navigationElement(markerClass, headingText) {
+function navigationElement(headingText) {
   return (
     '<div class="lesson-navigation__item">' +
-    '<div class="lesson-navigation__line lesson-navigation__line--' + markerClass + '"></div>' +
-    '<div class="line"></div>' +
+    '<div class="lesson-navigation__circle"></div>' +
     '<div class="lesson-navigation__title">' +
     '<a class="grey" href="#' + kebabCase(headingText) + '" data-turbolinks="false">' + headingText +
     '</a></div></div>'
   );
 }
 
-function lessonNavigationLinks(headings) {
-  return headings.map(function (heading, index) {
-    var markerClass = markerClasses[index % markerClasses.length];
-    return navigationElement(markerClass, heading);
-  }).join('');
+function lessonNavigation(headings) {
+  return headings.map(navigationElement).join('');
+}
+
+function getInnerText(heading) {
+  return heading.innerText;
+}
+
+function isCommonHeading(heading) {
+  return LESSON_HEADINGS.indexOf(heading) !== -1;
+}
+
+function getLessonHeadings() {
+  var headingElements = getElements('.lesson-content h3');
+
+  return Array.prototype.slice.call(headingElements)
+  .map(getInnerText)
+  .filter(isCommonHeading);
 }
 
 function constructLessonNavigation() {
-  var headingElements = getElements('.lesson-content h3');
-  var headings = Array.prototype.slice.call(headingElements).map(function(heading) {
-    return heading.innerText;
-  });
+  var commonHeadings = getLessonHeadings();
+  if (commonHeadings.length === 0) return;
 
-  var lessonNavigationLinksHTML = lessonNavigationLinks(headings);
-  var lessonNavigation = document.querySelector('.lesson-navigation');
-  lessonNavigation.innerHTML = lessonNavigationLinksHTML;
-  Stickyfill.add(lessonNavigation);
-
+  var lessonNavigationHTML = lessonNavigation(commonHeadings);
+  var lessonNavigationElement = document.querySelector('.lesson-navigation');
+  lessonNavigationElement.innerHTML = lessonNavigationHTML;
+  Stickyfill.add(lessonNavigationElement);
 }
 
 function lessonPage() {

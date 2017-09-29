@@ -1,47 +1,19 @@
 .lesson-navigation {
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
-  margin-top: 50px;
-  margin-left: -5%;
-
+  top: 50px;
+ 
   &__item {
     margin-bottom: 32px;
     display: flex;
     align-items: center;
   }
 
-  &__line {
+  &__circle {
+    border-radius: 50%;
+    background: $grey;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-
-    &--primary {
-      background: $primary;
-    }
-
-    &--coffee {
-      background: $coffee;
-    }
-
-    &--whitish-grey {
-      background: $whitish-grey;
-    }
-
-    &--light-grey {
-      background: $light-grey;
-    }
-
-    &--greyish-brown {
-      background: $text-primary;
-    }
-  }
-
-  .line {
-    width: 27px;
-    height: 2px;
-    border: 1px solid $camo;
-    margin: 0 5px;
   }
 
   &__title {
@@ -49,6 +21,7 @@
     display: inline-block;
     font-size: 13px;
     letter-spacing: 0.2px;
+    margin-left: 10px;
     text-transform: uppercase;
   }
 }
