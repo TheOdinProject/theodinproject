@@ -24,7 +24,7 @@ function navigationElement(headingText) {
     '<div class="lesson-navigation__item">' +
     '<div class="lesson-navigation__circle"></div>' +
     '<div class="lesson-navigation__title">' +
-    '<a class="grey" href="#' + kebabCase(headingText) + '" data-turbolinks="false">' + headingText +
+    '<a class="lesson-navigation__link grey" href="#' + kebabCase(headingText) + '" data-turbolinks="false">' + headingText +
     '</a></div></div>'
   );
 }
@@ -49,13 +49,28 @@ function getLessonHeadings() {
   .filter(isCommonHeading);
 }
 
+function addActiveClass() {
+  var links = getElements('.lesson-navigation__link');
+
+  window.onhashchange = function() {
+    links.forEach(function (link) {
+      if (link.hash == window.location.hash)
+       link.classList.add('active');
+      else
+        link.classList.remove('active');
+    });
+  }
+}
+
 function constructLessonNavigation() {
   var commonHeadings = getLessonHeadings();
   if (commonHeadings.length === 0) return;
 
   var lessonNavigationHTML = lessonNavigation(commonHeadings);
   var lessonNavigationElement = document.querySelector('.lesson-navigation');
+
   lessonNavigationElement.innerHTML = lessonNavigationHTML;
+  addActiveClass();
   Stickyfill.add(lessonNavigationElement);
 }
 

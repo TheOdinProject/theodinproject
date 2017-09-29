@@ -24,4 +24,11 @@
     margin-left: 10px;
     text-transform: uppercase;
   }
+
+  &__link {
+    &.active {
+      color: $black;
+      font-weight: bold;
+    }
+  }
 }
