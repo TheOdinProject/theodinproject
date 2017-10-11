@@ -85,7 +85,7 @@ $ rails db:seed
 
 We pull in the lesson content from the Odin [curriculum repository](https://github.com/TheOdinProject/curriculum) on Github. We have created a rake task to do this easily.
 ```
-$ rake rake curriculum:update_content
+$ rake curriculum:update_content
 ```
 
 ## Running the app locally
