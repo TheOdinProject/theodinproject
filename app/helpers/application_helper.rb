@@ -115,8 +115,7 @@ module ApplicationHelper
       {
         question: 'How can I get in touch?',
         answer:
-        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:contact@theodinproject.com'>contact us</a>.  There is also a friendly Odin community in our <a href='https://gitter.im/TheOdinProject/theodinproject'>Gitter chat rooms</a></p>
-        FAQ_ANSWER"
+        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:contact@theodinproject.com'>contact us</a>.  There is also a friendly Odin community in our <a href='https://gitter.im/TheOdinProject/theodinproject'>Gitter chat rooms</a></p>"
       }
     ]
   end
@@ -198,6 +197,14 @@ module ApplicationHelper
 
   def next_lesson_to_complete(course, lesson_completions)
     NextLesson.new(course, lesson_completions).lesson_to_complete
+  end
+
+  def modifier_for_badge(course, user)
+    if course_completed_by_user?(course, user)
+      'progress-circle--completed'
+    else
+      'progress-circle--show-progress'
+    end
   end
 
   private
