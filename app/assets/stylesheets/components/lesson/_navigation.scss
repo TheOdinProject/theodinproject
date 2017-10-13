@@ -2,7 +2,8 @@
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
- 
+  margin-left: -100px;
+
   &__item {
     margin-bottom: 32px;
     display: flex;
