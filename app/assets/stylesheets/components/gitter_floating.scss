@@ -25,6 +25,10 @@
   box-shadow: -12px 0 18px 0 rgba(50,50,50,0.1);
 }
 
+.gitter-chat-embed-action-bar-item:active {
+  filter: none;
+}
+
 @media(max-width: 480px) {
   .chat-floating-btn {
     display: none;
