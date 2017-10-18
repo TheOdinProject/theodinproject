@@ -19,6 +19,10 @@
   }
 }
 
+.gitter-chat-embed-action-bar-item:active {
+  filter: none;
+}
+
 @media(max-width: 480px) {
   .chat-floating-btn {
     display: none;
