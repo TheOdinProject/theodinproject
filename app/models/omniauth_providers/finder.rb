@@ -35,9 +35,7 @@ module OmniauthProviders
     end
 
     def user
-      puts "*" * 100
-      p auth
-      @user ||= User.where(email: auth.info.email).first_or_create! do |user|
+      User.where(email: auth.info.email).first_or_create! do |user|
         user.username = auth.info.name
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
