@@ -42,7 +42,6 @@ module OmniauthProviders
         user.email = auth.info.email
         user.password = Devise.friendly_token[0,20]
         user.avatar = auth.info.image
-        user.save!(:validate => false)
       end
     end
   end
