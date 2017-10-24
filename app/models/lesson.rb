@@ -57,8 +57,7 @@ class Lesson < ApplicationRecord
   def github_response
     Octokit.contents(
       'theodinproject/curriculum',
-      path: url,
-      ref: 'master'
+      path: url
     )
   end
 
