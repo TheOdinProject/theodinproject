@@ -55,7 +55,10 @@ class Lesson < ApplicationRecord
   end
 
   def github_response
-    Octokit.contents('theodinproject/curriculum', path: url)
+    Octokit.contents(
+      'theodinproject/curriculum',
+      path: url
+    )
   end
 
   def failed_to_import_message
