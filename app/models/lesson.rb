@@ -58,7 +58,7 @@ class Lesson < ApplicationRecord
     Octokit.contents(
       'theodinproject/curriculum',
       path: url,
-      ref: 'feature/redesign-structure'
+      ref: 'master'
     )
   end
 
