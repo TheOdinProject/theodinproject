@@ -1,5 +1,5 @@
 var LESSON_HEADINGS = [
-  'Overview',
+  'Introduction',
   'Learning Outcomes',
   'Assignment',
   'Additional Resources'

@@ -13,9 +13,9 @@
       <div class="d-none d-lg-block d-xl-block lesson-navigation"></div>
     </div>
 
-    <div class="col-lg-7">
+    <div class="col-lg-8">
       <div class="lesson-content">
-        <%= convert_markdown_to_html(@lesson.content) %>
+        <%= Kramdown::Document.new(@lesson.content).to_html.html_safe %>
       </div>
     </div>
   </div>
@@ -40,5 +40,7 @@
       heading: 'Got questions?',
       sub_heading: 'Chat with our friendly Odin community in our Gitter chatrooms!'
     %>
+
+    <%= render 'viking-advert' %>
   </div>
 </div>
