@@ -5,13 +5,14 @@ RSpec.describe User do
     User.new(
       username: 'kevin',
       email: 'kevin@example.com',
-      legal_agreement: 'true',
       password: 'foobar',
       provider: provider,
-      uid: ''
+      uid: '',
+      avatar: avatar
     )
   }
   let(:provider) { '' }
+  let(:avatar) { 'http://github.com/fake-avatar' }
 
   let(:lesson_completions) {
     [first_lesson_completion, second_lesson_completion]
@@ -49,77 +50,12 @@ RSpec.describe User do
   end
 
   it { is_expected.to validate_uniqueness_of(:username) }
-
-  it {
-    is_expected.to validate_presence_of(:legal_agreement)
-      .with_message("Don't forget the legal stuff!")
-  }
-
   it { is_expected.to validate_length_of(:username) }
+  it { is_expected.to validate_length_of(:learning_goal) }
   it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completed_lessons) }
 
-  describe '.by_latest_completion' do
-    let(:first_user) {
-      double(
-        'User',
-        id: 1,
-        lesson_completions: [completed_lesson]
-      )
-    }
-
-    let(:completed_lesson) {
-      double(
-        'LessonCompletion',
-        student_id: 1,
-        created_at: DateTime.new(2016, 11, 7)
-      )
-    }
-
-    let(:second_user) {
-      double(
-        'User',
-        id: 2,
-        lesson_completions: [second_completed_lesson]
-      )
-    }
-
-    let(:second_completed_lesson) {
-      double(
-        'LessonCompletion',
-        student_id: 2,
-        created_at: DateTime.new(2016, 11, 10)
-      )
-    }
-
-    let(:users_completed_lessons) { double('ActiveRecord::Relation') }
-    let(:users_by_last_completed_lesson) { double('ActiveRecord::Relation') }
-    let(:grouped_by_users) { double('ActiveRecord::Relation') }
-
-    before do
-      allow(User).to receive(:left_outer_joins)
-        .with(:lesson_completions)
-        .and_return(users_completed_lessons)
-
-      allow(users_completed_lessons).to receive(:select)
-        .with('max(lesson_completions.created_at) as latest_completion_date, users.*')
-        .and_return(users_by_last_completed_lesson)
-
-      allow(users_by_last_completed_lesson).to receive(:group)
-        .with('users.id')
-        .and_return(grouped_by_users)
-
-      allow(grouped_by_users).to receive(:order)
-        .with('latest_completion_date desc nulls last')
-        .and_return([second_user, first_user])
-    end
-
-    it 'returns users ordered by thier latest lesson completion' do
-      expect(User.by_latest_completion).to eql([second_user, first_user])
-    end
-  end
-
-  describe '#completed_lesson?' do
+  describe '#has_completed?' do
     let(:exists?) { true }
 
     before do
@@ -127,14 +63,14 @@ RSpec.describe User do
     end
 
     it 'returns true' do
-      expect(user.completed_lesson?(first_lesson_completion)).to eql(true)
+      expect(user.has_completed?(first_lesson_completion)).to eql(true)
     end
 
     context 'when the passed in lesson hasnt been completed' do
       let(:exists?) { false }
 
       it 'returns false' do
-        expect(user.completed_lesson?(second_lesson_completion)).to eql(false)
+        expect(user.has_completed?(second_lesson_completion)).to eql(false)
       end
     end
   end
@@ -173,63 +109,13 @@ RSpec.describe User do
     end
   end
 
-  describe '.from_omniauth' do
-    let(:user) {
-      FactoryGirl.create(
-        :user,
-        username: 'kevin',
-        email: 'kevin@email.com',
-        provider: 'github',
-        uid: '123'
-      )
-    }
+  describe '#update_avatar' do
+    let(:github_avatar) { 'http://github.com/fake-avatar' }
+    let(:avatar) { nil }
 
-    let(:user_details) {
-      {
-        provider: 'github',
-        uid: '123',
-        username: 'kevin',
-        email: 'kevin@example.com'
-      }
-    }
-
-    let(:auth) {
-      {
-        provider: 'github',
-        uid: '123',
-        info: {
-          name: 'kevin',
-          email: 'kevin@example.com'
-        }
-      }
-    }
-
-    before do
-      allow(user).to receive(:where)
-        .with(provider: 'github', uid: '123')
-        .and_return(user)
-
-      allow(user).to receive(:first_or_create)
-        .with(user_details)
-        .and_return(user)
-    end
-
-    it 'returns the user' do
-      expect(User.from_omniauth(auth)).to eql(user)
-    end
-  end
-
-  describe '#add_omniauth' do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:auth) { { 'provider' => 'github', 'uid' => '123' } }
-
-    it 'returns the user' do
-      expect(user.add_omniauth(auth)).to eql(user)
-    end
-
-    it 'saves the omniauth provider attributte' do
-      user.add_omniauth(auth)
-      expect(user.provider).to eql('github')
+    it 'updates the users avatar' do
+      user.update_avatar(github_avatar)
+      expect(user.avatar).to eql('http://github.com/fake-avatar')
     end
   end
 
@@ -243,36 +129,6 @@ RSpec.describe User do
 
       it 'returns false' do
         expect(user.password_required?).to eql(false)
-      end
-    end
-  end
-
-  describe '#send_confirmation_instructions' do
-    let(:confirmation_token) { 'foo' }
-
-    before do
-      user.instance_variable_set(:@raw_confirmation_token, confirmation_token)
-      allow(user).to receive(:generate_confirmation_token!)
-        .and_return(confirmation_token)
-      allow(user).to receive(:send_welcome_email).with(confirmation_token)
-    end
-
-    it 'does not generate a new confirmation token' do
-      user.send_confirmation_instructions
-      expect(user).not_to receive(:generate_confirmation_token!)
-    end
-
-    it 'sends the welcome email' do
-      expect(user).to receive(:send_welcome_email).with('foo')
-      user.send_confirmation_instructions
-    end
-
-    context 'when raw confimration token is nil' do
-      let(:confirmation_token) { nil }
-
-      it 'does generate a new confirmation token' do
-        expect(user).to receive(:generate_confirmation_token!)
-        user.send_confirmation_instructions
       end
     end
   end

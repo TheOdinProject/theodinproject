@@ -3,9 +3,18 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   before_action :authenticate_user!
 
   def github
-    flash[flash_type] = flash_message
-    redirect_to_path
+    @user = UserProvider.find_user(auth)
+    update_users_avatar if avatar_needs_updated?
+
+    if @user.persisted?
+      sign_in_and_redirect @user
+      set_flash_message(:notice, :success, :kind => provider_title)
+    else
+      session['devise.github_data'] = auth
+      redirect_to new_user_registration_url
+    end
   end
+  alias_method :google, :github
 
   def failure
     flash[:alert] = 'Authentication failed.'
@@ -14,50 +23,27 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
 
-  def github_omniauth
-    @github_omniauth ||= omniauth_scenario
+  def provider_title
+    auth.provider.capitalize
   end
 
-  def omniauth_scenario
-    if user_signed_in?
-      LinkOmniauth.new(current_user, auth).create
-    else
-      NewOrExistingOmniauthUser.new(auth).create
-    end
+  def provider_data
+    "#devise.#{auth}_data"
   end
 
-  def flash_type
-    github_omniauth.fetch(:flash_type)
+  def update_users_avatar
+    @user.update_avatar(avatar_from_provider)
   end
 
-  def flash_message
-    github_omniauth.fetch(:flash_message)
+  def avatar_needs_updated?
+    avatar_from_provider != @user.avatar
   end
 
-  def user
-    @user ||= github_omniauth.fetch(:user)
+  def avatar_from_provider
+    @avatar_from_provider ||= auth.info.image
   end
 
   def auth
     request.env['omniauth.auth']
-  end
-
-  def store_user_details
-    session['devise.user_attributes'] = user.attributes
-  end
-
-  def user_needs_to_verify_details?
-    user.new_record?
-  end
-
-  def redirect_to_path
-    if user_signed_in?
-      redirect_to courses_path
-    elsif user_needs_to_verify_details?
-      store_user_details
-      redirect_to new_user_registration_url
-    else
-      sign_in_and_redirect user
-    end
   end
 end

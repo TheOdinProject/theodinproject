@@ -1,58 +1,52 @@
 class ProjectsController < ApplicationController
-  before_action :authorize_request,
-                except: [:all_submissions, :recent_submissions]
-  before_action :find_lesson, except: [:update, :destroy]
-  before_action :find_project, only: [:update, :destroy]
-  authorize_resource only: [:update, :destroy]
+  before_action :authenticate_request, except: :index
+  before_action :find_lesson
+  before_action :find_project, only: %i(update destroy)
+
+  authorize_resource only: %i(update destroy)
+
+  def index
+    @projects = projects
+    @course = CourseDecorator.new(@lesson.course)
+  end
 
   def create
-    @project = new_project
-    if @project.save
-      render_project_json(201)
-    else
-      render_errors_json
-    end
+    @project = new_project(project_params)
+    @project.save
+    set_recent_submissions
   end
 
   def update
-    if @project.update(project_params)
-      render_project_json(200)
-    else
-      render_errors_json
-    end
+    @project.update(project_params)
   end
 
   def destroy
     @project.destroy
-    head :ok
-  end
-
-  def all_submissions
-    submissions = Project.all_submissions(@lesson.id)
-    render json: submissions
-  end
-
-  def recent_submissions
-    submissions = Project.all_submissions(@lesson.id).limit(10)
-    render json: submissions
+    @project = new_project({})
+    set_recent_submissions
   end
 
   private
 
-  def render_project_json(status)
-    render json: @project, status: status
+  def projects
+    Project
+      .all_submissions(@lesson.id)
+      .page(params[:page])
   end
 
-  def render_errors_json
-    render json: @project.errors, status: 422
+  def set_recent_submissions
+    @submissions = Project
+                   .all_submissions(@lesson.id)
+                   .where.not(user_id: current_user.id)
+                   .limit(10)
   end
 
   def find_project
     @project = Project.find(params[:id])
   end
 
-  def new_project
-    project = current_user.projects.new(project_params)
+  def new_project(params)
+    project = current_user.projects.new(params)
     project.lesson_id = @lesson.id
     project
   end
@@ -61,11 +55,15 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:repo_url, :live_preview)
   end
 
-  def find_lesson
-    @lesson = Lesson.friendly.find(params[:lesson_id])
+  def lesson
+    Lesson.friendly.find(params[:lesson_id])
   end
 
-  def authorize_request
-    head :unauthorized unless user_signed_in?
+  def find_lesson
+    @lesson = LessonDecorator.new(lesson)
+  end
+
+  def authenticate_request
+    return head :unauthorized unless user_signed_in?
   end
 end

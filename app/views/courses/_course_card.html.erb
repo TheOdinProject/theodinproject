@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xl-10 offset-xl-1">
+    <div class="card-main course-card">
+      <% if user_signed_in? && course_completed_by_user?(course, @user) %>
+        <div class="course-completion-bar">
+          COMPLETED <i class="fa fa-check-circle-o course-completion-bar__icon"></i>
+        </div>
+      <% end %>
+
+      <div class="course-card-header <%= course_completed_class?(course, @user) %>">
+
+        <%= link_to course, class: 'course-card-header__link' do %>
+          <div class='course-card-header__image'>
+            <%= render 'shared/course_badge', course: course, user: @user, modifier: '' %>
+          </div>
+        <% end %>
+
+        <%= link_to course, class: 'course-card-header__link' do %>
+          <h2 id=<%= course.title.parameterize %> class="course-card-header__title">
+            <%= course.title %>
+          </h2>
+          <span class="course-card-header__sub-title"><%= course.lessons.size %> lessons</span>
+        <% end %>
+
+        <%= link_to 'Open Course', course, class: "button #{open_course_button_style(course, @user)} course-card-header__button" %>
+      </div>
+
+      <div class="course-card__description">
+        <p><%= course.description %></p>
+      </div>
+    </div> <!-- /.course-card -->
+  </div> <!-- /.col -->
+</div> <!-- /.row -->

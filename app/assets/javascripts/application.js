@@ -11,6 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require validate
+//= require tether
+//= require bootstrap-sprockets
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require turbolinks
 //= require_tree .
