@@ -58,8 +58,44 @@
   }
 
   ol {
-    padding-left: 1.25em;
-    list-style-position: inside;
+    display: table;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    border-collapse: separate;
+    border-spacing: 0em 0.9em;
+    
+    li {
+      display: table-row;
+      counter-increment: table-li;
+      
+      &:before {
+        content: counter(table-li) ".";
+        display: table-cell;
+        padding-right: 0.5em;
+        position: relative;
+      }
+
+      ol {
+        display: table;
+        padding-left: 0;
+        margin-bottom: -0.9em;
+        list-style: none;
+        border-collapse: separate;
+        border-spacing: 0em 0.9em;
+        
+        li {
+          display: table-row;
+          counter-increment: table-li2;
+          
+          &:before {
+            content: counter(table-li2) ".";
+            display: table-cell;
+            padding-right: 0.5em;
+          }
+        }
+      }
+    }
   }
 
   img {
