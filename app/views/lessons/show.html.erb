@@ -10,48 +10,50 @@
   <%= render 'projects/delete_project_modal', lesson: @lesson, project: @project %>
 <% end %>
 
-<div class="individual-lesson">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <%= render 'courses/course/banner', course: @course, show_completion_percent: true %>
-        <h2 class="lesson-title accent"><%= @lesson.title %></h2>
-        
-        <div id="lesson-content">
-          <%= convert_markdown_to_html(@lesson.content) %>
-        </div>
-      </div>
+<div class="container">
+  <div class="col-lg-8 offset-lg-2">
+    <div class='lesson-header'>
+      <%= render 'courses/course/banner', course: @lesson.course %>
+      <h3 class="lesson-header__title accent"><%= @lesson.title %></h3>
+    </div>
+
+    <div class="lesson-content">
+      <%= @lesson.content.html_safe %>
     </div>
   </div>
+</div>
 
-  <div id="lesson-details">
-    <div class="container text-center">
-      <%= render 'courses/course/banner', course: @course, show_completion_percent: false %>
-
-      <h3 class="lesson-title text-center text-uppercase accent bold"><%= @lesson.title %> </h3>
-
-      <%= render 'lesson_actions', lesson: @lesson %>
+<div class="lesson-functions">
+  <div class="container">
+    <div class="card-main">
+      <h1 class="lesson-functions__title"><%= @lesson.course.title %></h1>
+      <h3 class="lesson-functions__sub-title accent bold"><%= @lesson.title %></h3>
+      <div class="lesson-button-group">
+        <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+      </div>
 
       <div id="new-submission">
         <%= render 'add_submission_button' if @project&.new_record? %>
       </div>
 
-      <%= render 'submissions' if @projects %>
+      <% if @projects && ProjectSubmissionFeature.enabled? %>
+        <%= render 'submissions' %>
+      <% end %>
+    </div>
 
       <%= render 'shared/bottom_cta',
-        button: gitter_button,
-        heading: 'Got questions?',
-        sub_heading: 'Chat with our friendly Odin community in our Gitter chatrooms'
-      %>
-    </div>
+      button: gitter_button,
+      heading: 'Got questions?',
+      sub_heading: 'Chat with our friendly Odin community in our Gitter chatrooms!'
+    %>
+
+    <%= render 'viking-advert' %>
   </div>
 </div>
 
-<% content_for :scripts do %>
-  <script type="text/javascript">
-    $(document).on('turbolinks:load', function() {
-      $(".individual-lesson a[href^='http://']").attr('target', '_blank');
-      $(".individual-lesson a[href^='https://']").attr('target', '_blank');
-    });
-  </script>
-<% end %>
+<script>
+  $(function() {
+    $(".lesson-content a[href^='http://']").attr("target","_blank");
+    $(".lesson-content a[href^='https://']").attr("target","_blank");
+  });
+</script>

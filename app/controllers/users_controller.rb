@@ -1,19 +1,26 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user, except: [:index, :send_confirmation_link]
+  before_action :find_user, except: [:index]
   authorize_resource only: [:edit, :update]
 
   def show
-    @courses = Course.order(:position)
+    @courses = decorated_courses
   end
 
-  def send_confirmation_link
-    current_user.send_confirmation_instructions
-    flash[:notice] = 'Confirmation instructions have been sent to your email address!'
-    redirect_to request.referer
+  def update
+    @user.update_attributes!(user_params)
+    render json: @user
   end
 
   private
+
+  def decorated_courses
+    courses.map { |course| CourseDecorator.new(course) }
+  end
+
+  def courses
+    Course.order(:position).includes(:lessons, sections: [:lessons])
+  end
 
   def user_params
     params
@@ -23,14 +30,6 @@ class UsersController < ApplicationController
         :username,
         :password,
         :password_confirmation,
-        :legal_agreement,
-        :skype,
-        :screenhero,
-        :facebook,
-        :twitter,
-        :linkedin,
-        :github,
-        :google_plus,
         :learning_goal,
         :uid,
         :provider,
@@ -38,6 +37,10 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = UserDecorator.new(current_user)
+    @user = UserDecorator.new(user)
+  end
+
+  def user
+    User.includes(lesson_completions: [lesson: [:course]]).find(current_user.id)
   end
 end

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'registrations',
     omniauth_callbacks: 'omniauth_callbacks',
-    confirmations: 'confirmations'
   }
 
   devise_scope :user do
@@ -33,9 +32,11 @@ Rails.application.routes.draw do
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
 
-  resources :users, only: :show
+  resources :users, only: [:show, :update]
   get 'dashboard' => 'users#show', as: :dashboard
 
+  # Deprecated Route to Introduction to Web Development from external links
+  get '/courses/introduction-to-web-development' => redirect('/courses/web-development-101')
   resources :courses, only: %i(index show) do
     resources :lessons, only: :show
   end
@@ -46,8 +47,11 @@ Rails.application.routes.draw do
       delete 'vote', to: 'votes#destroy'
     end
 
-    resources :lesson_completions, only: %i(create destroy), as: 'completions'
+    resources :lesson_completions, only: %i(create), as: 'completions'
+    delete 'lesson_completions/' => 'lesson_completions#destroy', :as => 'lesson_completions'
   end
+
+   match "/404" => "errors#not_found", via: [ :get, :post, :patch, :delete ]
 
   # Explicitly redirect deprecated routes (301)
 

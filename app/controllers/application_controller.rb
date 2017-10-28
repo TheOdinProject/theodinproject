@@ -18,23 +18,18 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    set_confirm_email_flash unless current_user.confirmed?
     dashboard_path
   end
 
   def not_found_error
-    render file: 'public/404.html', status: :not_found, layout: false
+    render 'errors/not_found', status: :not_found
   end
 
   private
 
-  def set_confirm_email_flash
-    flash[:warning] = render_to_string partial: 'layouts/confirm_email'
-  end
-
   def configure_permitted_parameters
     devise_parameter_sanitizer
-      .permit(:sign_up, keys: [:username, :legal_agreement])
+      .permit(:sign_up, keys: [:username])
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
       u.permit(
@@ -46,9 +41,5 @@ class ApplicationController < ActionController::Base
         :learning_goal
       )
     end
-  end
-
-  def after_sign_in_redirect_path
-    session[:previous_url] || courses_path(ref: 'login')
   end
 end

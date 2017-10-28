@@ -1,21 +1,17 @@
 class LessonsController < ApplicationController
+  before_action :set_user
+
   def show
     @lesson = decorated_lesson
-    @course = CourseDecorator.new(lesson.course)
     set_project_and_submissions if @lesson.has_submission?
-    set_ads
   end
 
   private
 
-  def set_ads
-    return unless show_ads?
-    @lower_banner_ad = true
-    @right_box_ad = true
-  end
-
-  def show_ads?
-    ENV['SHOW_ADS'] && Ad.show_ads?
+  def set_user
+    if user_signed_in?
+      @user = User.includes(:completed_lessons).find(current_user.id)
+    end
   end
 
   def set_project_and_submissions
@@ -45,6 +41,6 @@ class LessonsController < ApplicationController
   end
 
   def lesson
-    Lesson.friendly.find(params[:id])
+    Lesson.includes(:section, course: [:lessons, sections: [:lessons]]).friendly.find(params[:id])
   end
 end

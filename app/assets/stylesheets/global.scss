@@ -8,17 +8,28 @@ body {
   font-family: $body_fonts;
 }
 
-a, a:hover, a:focus {
+a {
   text-decoration: none;
+
+  &:hover, &:focus {
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+[href]:not([class]) {
+    color: $primary;
+    text-decoration: underline;
+
+    &:hover {
+    color: $black;
+    text-decoration: none;
+  }
 }
 
 p {
   margin: 0;
   line-height: 1.88;
-}
-
-a, a:hover, a:focus {
-  text-decoration: none;
 }
 
 button {
@@ -95,32 +106,10 @@ ul {
   background-image: linear-gradient(to bottom, $white, $light-grey);
 }
 
-@media (min-width: 992px) {
-  .modal-dialog {
-    max-width: 700px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .modal-dialog {
-    max-width: 920px;
-    margin: 100px auto;
-  }
-}
-
-
-.form-control::-webkit-input-placeholder {
-  color: $pale-grey;
-}
-.form-control::-moz-placeholder {
-  color: $pale-grey;
-}
-.form-control:-moz-placeholder {
-  color: $pale-grey;
-}
-.form-control:-ms-input-placeholder {
-  color: $pale-grey;
-}
-.form-control::-ms-input-placeholder {
-  color: $pale-grey;
+[type="text"],
+[type="email"],
+[type="password"] {
+  background-color: $pale-grey-bg;
+  font-family: $body-fonts;
+  padding: 0.7rem 1rem 0.7rem 1rem;
 }

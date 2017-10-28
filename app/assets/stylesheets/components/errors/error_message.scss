@@ -1,0 +1,29 @@
+.error-message {
+  text-align: center;
+  padding-top: 6.3em;
+  margin-top: -25px;
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 2em;
+  }
+
+  &__title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: $white;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 2em;
+    }
+  }
+
+  &__sub-title {
+    color: $white;
+  }
+
+  &__link {
+    color: $white;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+}

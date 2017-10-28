@@ -9,7 +9,7 @@ footer {
   bottom: 0px;
   display: flex;
 
-  .footer-logo {
+  .footer-brand {
     display: flex;
     flex: 2;
     justify-content: center;
@@ -24,6 +24,14 @@ footer {
     a {
       font-size: 24px;
       flex:1;
+
+      span:hover {
+        color: $black;
+      }
+      img:hover {
+        -webkit-filter: brightness(0) grayscale(1);
+        filter: brightness(0) grayscale(1);
+      }
     }
   }
 
@@ -42,12 +50,16 @@ footer {
       align-items: flex-start;
     }
 
-    a {
+    .footer-link {
       flex-basis: 30px;
       color: rgba(74, 74, 74, 0.7);
       font-weight: bold;
       text-decoration: none;
       margin: 0;
+
+      &:hover {
+        color: $black;
+      }
     }
   }
 }
@@ -55,7 +67,7 @@ footer {
 @media (max-width: 768px) {
   footer {
     min-height: 140px;
-    .footer-logo {
+    .footer-brand {
       display: none;
     }
     .footer-links {
@@ -70,7 +82,7 @@ footer {
     .footer-links {
       display: none;
     }
-    .footer-logo {
+    .footer-brand {
       display:none;
     }
   }

@@ -1,18 +1,18 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
+
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :trackable, :validatable, :confirmable,
+         :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:github, :google]
 
-  validates_uniqueness_of :username, :email
+  validates_uniqueness_of :email
   validates :username, length: { in: 4..20 }
+  validates :learning_goal, length: { maximum: 100 }
 
   has_many :lesson_completions, foreign_key: :student_id
   has_many :completed_lessons, through: :lesson_completions, source: :lesson
-  has_many :projects
-
-  def completion_status(lesson)
-    has_completed?(lesson) ? 'Completed' : 'Incomplete'
-  end
+  has_many :projects, dependent: :destroy
+  has_many :user_providers, dependent: :destroy
 
   def has_completed?(lesson)
     completed_lessons.exists?(lesson.id)
@@ -31,36 +31,12 @@ class User < ApplicationRecord
     ordered_lesson_completions.last
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.username = auth.info.name
-      user.avatar = auth.info.image
-      user.skip_confirmation!
-    end
-  end
-
-  def update_avatar(github_avatar)
-    self.update!(avatar: github_avatar)
-  end
-
-  def add_omniauth(auth)
-    self.tap do |user|
-      user.provider ||= auth['provider']
-      user.uid ||= auth['uid']
-      user.save
-    end
+  def update_avatar(avatar)
+    self.update!(avatar: avatar)
   end
 
   def password_required?
     super && provider.blank?
-  end
-
-  def send_confirmation_instructions
-    generate_confirmation_token! unless @raw_confirmation_token
-    send_welcome_email(@raw_confirmation_token)
   end
 
   private
@@ -77,8 +53,8 @@ class User < ApplicationRecord
     end
   end
 
-  def send_welcome_email(token)
-    UserMailer.send_welcome_email_to(self, token).deliver_now!
+  def send_welcome_email
+    UserMailer.send_welcome_email_to(self).deliver_now!
   rescue => error
     logger.error "Error sending welcome email: #{error}"
   end

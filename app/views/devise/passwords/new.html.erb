@@ -1,19 +1,27 @@
-<div id="devise-form">
-  <h2>Forgot your password?</h2>
+<%= title('Forgot Your Password') %>
 
-  <p class="explanation">Enter your email and we'll send you password reset instructions</p>
+<div class="gradient">
+  <div class="container push-container-down">
+    <h1 class="text-center accent">Forgot your password?</h1>
+    <div class='col-lg-8 offset-lg-2'>
 
-  <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "form-horizontal" }) do |f| %>
-    <%= f.error_notification %>
+      <div class="card-main">
+        <p class="push-down">Enter your email and we'll send you password reset instructions.</p>
 
-    <div class="form-inputs">
-      <%= f.input :email, :required => true, :autofocus => true %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form" }) do |form| %>
+
+          <div class="form__section">
+            <span class="fa fa-envelope form__icon"></span>
+            <%= form.email_field :email, autofocus: true, placeholder: "Email", required: true, class: 'form__element form__element--with-icon'  %>
+          </div>
+
+          <% if resource.errors[:email].present? %>
+            <div class="form__error-message push-down user_email">Email address <%=resource.errors[:email].first %></div>
+          <% end %>
+
+          <%= form.submit "Send reset instructions", class: "button button--primary full-width push-down" %>
+        <% end %>
+      </div>
     </div>
-
-    <%= f.button :submit, "Send reset instructions", :class => "btn-primary btn-large pull-right" %>
-
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-
+  </div>
 </div>

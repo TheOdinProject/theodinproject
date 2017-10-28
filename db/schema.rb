@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629181228) do
+ActiveRecord::Schema.define(version: 20171027030143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,29 +22,13 @@ ActiveRecord::Schema.define(version: 20170629181228) do
     t.datetime "expires"
   end
 
-  create_table "ads", force: :cascade do |t|
-    t.string   "image_path",                null: false
-    t.string   "url",                       null: false
-    t.string   "style",                     null: false
-    t.string   "client",                    null: false
-    t.string   "category",                  null: false
-    t.integer  "display_count", default: 0, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "courses", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title_url"
-    t.integer  "position",                    null: false
-    t.string   "you_learn"
-    t.string   "you_build"
-    t.string   "teaser"
-    t.text     "brief_desc"
-    t.boolean  "is_active",   default: false
+    t.integer  "position",    null: false
     t.string   "slug"
     t.index ["slug"], name: "index_courses_on_slug", using: :btree
   end
@@ -120,6 +104,15 @@ ActiveRecord::Schema.define(version: 20170629181228) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "user_providers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_providers_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -135,15 +128,6 @@ ActiveRecord::Schema.define(version: 20170629181228) do
     t.datetime "updated_at"
     t.string   "username"
     t.text     "learning_goal"
-    t.string   "github"
-    t.string   "twitter"
-    t.string   "facebook"
-    t.string   "linkedin"
-    t.string   "google_plus"
-    t.string   "skype"
-    t.string   "screenhero"
-    t.boolean  "legal_agreement",        default: false, null: false
-    t.datetime "legal_agree_date"
     t.string   "provider"
     t.string   "uid"
     t.string   "confirmation_token"
@@ -154,9 +138,8 @@ ActiveRecord::Schema.define(version: 20170629181228) do
     t.string   "avatar"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["legal_agreement"], name: "index_users_on_legal_agreement", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", using: :btree
   end
 
   create_table "votes", force: :cascade do |t|

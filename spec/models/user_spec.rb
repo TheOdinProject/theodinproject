@@ -5,7 +5,6 @@ RSpec.describe User do
     User.new(
       username: 'kevin',
       email: 'kevin@example.com',
-      legal_agreement: 'true',
       password: 'foobar',
       provider: provider,
       uid: '',
@@ -50,9 +49,8 @@ RSpec.describe User do
       .and_return(lesson_completions)
   end
 
-  it { is_expected.to validate_uniqueness_of(:username) }
-
   it { is_expected.to validate_length_of(:username) }
+  it { is_expected.to validate_length_of(:learning_goal) }
   it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completed_lessons) }
 
@@ -109,59 +107,6 @@ RSpec.describe User do
       expect(user.last_lesson_completed).to eql(second_lesson_completion)
     end
   end
-  
-  describe '.from_omniauth' do
-    let(:user) {
-      FactoryGirl.create(
-        :user,
-        username: 'kevin',
-        email: 'kevin@email.com',
-        provider: 'github',
-        uid: '123'
-      )
-    }
-
-    let(:user_details) {
-      {
-        provider: 'github',
-        uid: '123',
-        username: 'kevin',
-        email: 'kevin@example.com'
-      }
-    }
-
-    let(:auth) {
-      double(
-        'OmniAuth::AuthHash',
-        provider: 'github',
-        uid: '123',
-        info: info
-      )
-    }
-
-    let(:info) {
-      double(
-        'OmniAuth::AuthHash::InfoHash',
-        name: 'kevin',
-        email: 'kevin@example.com',
-        image: 'http://github.com/fake-avatar'
-      )
-    }
-
-    before do
-      allow(user).to receive(:where)
-        .with(provider: 'github', uid: '123')
-        .and_return(user)
-
-      allow(user).to receive(:first_or_create)
-        .with(user_details)
-        .and_return(user)
-    end
-
-    it 'returns the user' do
-      expect(User.from_omniauth(auth)).to eql(user)
-    end
-  end
 
   describe '#update_avatar' do
     let(:github_avatar) { 'http://github.com/fake-avatar' }
@@ -170,20 +115,6 @@ RSpec.describe User do
     it 'updates the users avatar' do
       user.update_avatar(github_avatar)
       expect(user.avatar).to eql('http://github.com/fake-avatar')
-    end
-  end
-
-  describe '#add_omniauth' do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:auth) { { 'provider' => 'github', 'uid' => '123' } }
-
-    it 'returns the user' do
-      expect(user.add_omniauth(auth)).to eql(user)
-    end
-
-    it 'saves the omniauth provider attributte' do
-      user.add_omniauth(auth)
-      expect(user.provider).to eql('github')
     end
   end
 
@@ -197,36 +128,6 @@ RSpec.describe User do
 
       it 'returns false' do
         expect(user.password_required?).to eql(false)
-      end
-    end
-  end
-
-  describe '#send_confirmation_instructions' do
-    let(:confirmation_token) { 'foo' }
-
-    before do
-      user.instance_variable_set(:@raw_confirmation_token, confirmation_token)
-      allow(user).to receive(:generate_confirmation_token!)
-        .and_return(confirmation_token)
-      allow(user).to receive(:send_welcome_email).with(confirmation_token)
-    end
-
-    it 'does not generate a new confirmation token' do
-      user.send_confirmation_instructions
-      expect(user).not_to receive(:generate_confirmation_token!)
-    end
-
-    it 'sends the welcome email' do
-      expect(user).to receive(:send_welcome_email).with('foo')
-      user.send_confirmation_instructions
-    end
-
-    context 'when raw confimration token is nil' do
-      let(:confirmation_token) { nil }
-
-      it 'does generate a new confirmation token' do
-        expect(user).to receive(:generate_confirmation_token!)
-        user.send_confirmation_instructions
       end
     end
   end
