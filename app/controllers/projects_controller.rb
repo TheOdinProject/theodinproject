@@ -22,30 +22,29 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    @project = new_project({})
+    @project = new_project
     set_recent_submissions
   end
 
   private
 
   def projects
-    Project
-      .all_submissions(@lesson.id)
-      .page(params[:page])
+    all_projects.page(params[:page])
   end
 
   def set_recent_submissions
-    @submissions = Project
-                   .all_submissions(@lesson.id)
-                   .where.not(user_id: current_user.id)
-                   .limit(10)
+    @submissions = all_projects.where.not(user_id: current_user.id).limit(10)
+  end
+
+  def all_projects
+    Project.all_submissions(@lesson.id)
   end
 
   def find_project
     @project = Project.find(params[:id])
   end
 
-  def new_project(params)
+  def new_project(params = {})
     project = current_user.projects.new(params)
     project.lesson_id = @lesson.id
     project
