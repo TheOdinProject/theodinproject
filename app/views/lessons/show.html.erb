@@ -26,19 +26,25 @@
 <div class="lesson-functions">
   <div class="container">
     <div class="card-main">
-      <h1 class="lesson-functions__title"><%= @lesson.course.title %></h1>
-      <h3 class="lesson-functions__sub-title accent bold"><%= @lesson.title %></h3>
+      <h1 class="lesson-functions__title">
+        <%= @lesson.course.title %>
+      </h1>
+
+      <h3 class="lesson-functions__sub-title accent bold">
+        <%= @lesson.title %>
+      </h3>
+
       <div class="lesson-button-group">
         <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
-      </div>
-
-      <div id="new-submission">
-        <%= render 'add_submission_button' if @project&.new_record? %>
       </div>
 
       <% if @projects && ProjectSubmissionFeature.enabled? %>
         <%= render 'submissions' %>
       <% end %>
+
+      <div id="new-submission">
+        <%= render 'add_submission_button' if @project&.new_record? %>
+      </div>
     </div>
 
       <%= render 'shared/bottom_cta',

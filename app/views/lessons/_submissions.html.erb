@@ -1,14 +1,16 @@
 <div class="container submissions-container">
-  <div class="row submissions-container__header">
-    <h4 class="submissions-container__title secondary bold">Solutions</h4>
+  <div class="row">
+    <div class="col submissions-container__header">
+      <h4 class="submissions-container__title secondary bold">Solutions</h4>
 
-    <% if @projects.empty? %>
-      <p class="submissions-container__instuctions">This project has no solutions yet, be the first!</p>
-    <% else %>
-      <p class="submissions-container__instuctions">
-        Showing the most recent solutions. View the full list of solutions <%= link_to 'here', lesson_projects_path(@lesson), class: 'projects-link accent', target: '_blank' %>
-      </p>
-    <% end %>
+      <% if @projects.empty? %>
+        <p class="submissions-container__instructions">This project has no solutions yet, be the first!</p>
+      <% else %>
+        <p class="submissions-container__instructions">
+          Showing the most recent solutions. View the full list of solutions <%= link_to 'here', lesson_projects_path(@lesson), class: 'projects-link accent', target: '_blank' %>
+        </p>
+      <% end %>
+    </div>
   </div>
 
   <% @projects.each do |project| %>

@@ -105,6 +105,7 @@
     padding: 1.5em;
   }
 }
+
 .project-box {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 3px;
@@ -179,8 +180,9 @@
 
   .project-button {
     background: $whitish-grey;
-    box-shadow: none;
     border-radius: 3px;
+    box-shadow: none;
+    color: $black;
     font-size: 1rem;
     padding: 18px;
     width: 160px;
@@ -222,5 +224,11 @@
 @media (max-width: 405px) {
   .votes {
     padding: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .add-submission-button {
+    min-width: 295px;
   }
 }

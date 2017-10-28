@@ -7,10 +7,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+    }
   }
 
   &__title {
     font-size: 1.5rem;
+  }
+
+  &__instructions {
+    @include media-breakpoint-down(sm) {
+      margin-top: 1rem;
+    }
   }
 
   .pagination {
