@@ -45,9 +45,7 @@ class ProjectsController < ApplicationController
   end
 
   def new_project(params = {})
-    project = current_user.projects.new(params)
-    project.lesson_id = @lesson.id
-    project
+    current_user.projects.new(**params, lesson_id: @lesson.id)
   end
 
   def project_params
