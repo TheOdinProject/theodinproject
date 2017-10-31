@@ -19,7 +19,7 @@ section_position = 0
 lesson_counter = 0
 
 # number just throw all the positions into the stratosphere to avoid the annoyance of having to not duplicate them when updating lessons
-incrementer = 1000
+incrementer = 2000
 
 # Public: Only run this update attributes if all have one or more records in the database
 if Course.all.any? && Section.all.any? && Lesson.all.any?
@@ -120,6 +120,17 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: false,
   url: "/web_development_101/how_this_course_will_work.md"
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Introduction to Web Development",
+  title_url: "Introduction to Web Development".parameterize,
+  description: "Learn a little about web development as a career.",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/web_development_101/introduction_to_web_development.md"
 )
 
 lesson_counter += 1
@@ -346,17 +357,6 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: false,
   url: "/web_development_101/ruby_basics.md"
-)
-
-lesson_counter += 1
-create_or_update_lesson(
-  title: "Testing Basics",
-  title_url: "Testing Basics".parameterize,
-  description: "A brief introduction to testing in general and RSpec, Ruby's testing language.",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: false,
-  url: "/web_development_101/testing_basics.md"
 )
 
 lesson_counter += 1
