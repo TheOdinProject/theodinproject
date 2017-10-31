@@ -3,7 +3,7 @@
   $('#project-submission-modal').modal('hide');
   $('#add-submission-button').remove();
 
-  $('#submissions').html("<%= j render 'lessons/submissions', submissions: @submissions %>");
+  $('#submissions').html("<%= j render 'lessons/submissions', submissions: @projects, lesson: @lesson %>");
   $('#project-submission-modal-wrapper')
     .html("<%= j render 'form_modal', lesson: @lesson, project: @project %>");
   $('body')

@@ -6,14 +6,14 @@ class ProjectsController < ApplicationController
   authorize_resource only: %i(update destroy)
 
   def index
-    @projects = projects
+    @projects = all_projects.page(params[:page])
     @course = CourseDecorator.new(@lesson.course)
   end
 
   def create
     @project = new_project(project_params)
     @project.save
-    set_recent_submissions
+    @projects = latest_projects
   end
 
   def update
@@ -23,41 +23,39 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     @project = new_project
-    set_recent_submissions
+    @projects = latest_projects
   end
 
   private
 
-  def projects
-    all_projects.page(params[:page])
-  end
-
-  def set_recent_submissions
-    @submissions = all_projects.where.not(user_id: current_user.id).limit(10)
-  end
-
   def all_projects
     Project.all_submissions(@lesson.id)
+  end
+
+  def new_project(parameters = {})
+    project = current_user.projects.new(parameters)
+    project.lesson_id = @lesson.id
+    project
+  end
+
+  def latest_projects
+    all_projects.where.not(user_id: current_user.id).limit(10)
   end
 
   def find_project
     @project = Project.find(params[:id])
   end
 
-  def new_project(params = {})
-    current_user.projects.new(**params, lesson_id: @lesson.id)
-  end
-
-  def project_params
-    params.require(:project).permit(:repo_url, :live_preview)
+  def find_lesson
+    @lesson = LessonDecorator.new(lesson)
   end
 
   def lesson
     Lesson.friendly.find(params[:lesson_id])
   end
 
-  def find_lesson
-    @lesson = LessonDecorator.new(lesson)
+  def project_params
+    params.require(:project).permit(:repo_url, :live_preview)
   end
 
   def authenticate_request
