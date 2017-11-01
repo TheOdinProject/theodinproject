@@ -104,9 +104,7 @@ $(function() {
   })
 
   // Fire an event whenever an ad is clicked
-  $('.viking_advert__learn-more-button').on('click', 'a', function(e){
-    adId = $(e.target).parents('.ad').data('ad-id');
-    _gaq.push(['_trackEvent', 'ad', 'click', adId, 1])
+  $('.viking-advert__header').on('click', 'a', function(event) {
+    _gaq.push(['_trackEvent', 'viking_ad', 'click_viking_ad', 'viking_ad_click', 1])
   });
-
 });
