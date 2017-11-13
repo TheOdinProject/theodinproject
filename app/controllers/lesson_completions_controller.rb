@@ -2,7 +2,6 @@ class LessonCompletionsController < ApplicationController
   before_action :authenticate_request
   before_action :lookup_lesson
   before_action :set_user
-  before_action :lookup_request_source
 
   def create
     new_lesson_completion.save
@@ -40,9 +39,5 @@ class LessonCompletionsController < ApplicationController
 
   def authenticate_request
     head :unauthorized unless user_signed_in?
-  end
-
-  def lookup_request_source
-    @came_from_lesson = URI(request.referer).path.include?("lessons")
   end
 end
