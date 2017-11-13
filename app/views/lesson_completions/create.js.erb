@@ -1,5 +1,7 @@
-$('.lesson-button-group').html("<%= j render 'lessons/lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user  %>");
 $('.banner__badge').html("<%= j render 'shared/course_badge', course: @lesson.course, user: @user, modifier: '' %>");
 
-
-$("#section-lessons__<%= @lesson.id %>").html("<%= j render 'courses/course/lesson_completion_button', lesson: @lesson, course: @lesson.course, user: @user %>");
+<% if @came_from_lesson %>
+  $('.lesson-button-group').html("<%= j render 'lessons/lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user  %>");
+<% else %>
+  $("#section-lessons__<%= @lesson.id %>").html("<%= j render 'courses/course/lesson_completion_button', lesson: @lesson, course: @lesson.course, user: @user %>");
+<% end %>

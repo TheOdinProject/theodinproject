@@ -6,7 +6,9 @@
         <%= numbered_lesson_title(lesson, lesson_index) %>
       <% end %>
 
-      <%= render 'courses/course/lesson_completion_button', lesson: lesson, user: @user %>
+      <div id="section-lessons__<%= lesson.id %>">
+        <%= render 'courses/course/lesson_completion_button', lesson: lesson, user: @user %>
+      </div>
 
     </div>
   <% end %>
