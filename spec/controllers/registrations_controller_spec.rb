@@ -7,18 +7,29 @@ RSpec.describe RegistrationsController do
   end
 
   describe 'POST #create' do
+    let(:list_id) { ENV['MAILCHIMP_LIST_ID'] }
+    let(:email) { 'kevin@bazfiz.com' }
     let(:user_attributes) {
       {
         username: 'kevin',
-        email: 'kevin@example.com',
+        email: email,
         password: 'foobar1',
         password_confirmation: 'foobar1',
       }
     }
 
+    before do
+      mailchimp_remove_member(email, list_id)
+    end
+
     it 'redirects to the dashboard' do
       post :create, params: { user: user_attributes }
       expect(response).to redirect_to(dashboard_path)
+    end
+
+    it 'registers the new user on the mailchimp mailing list', :vcr do
+      post :create, params: { user: user_attributes }
+      expect(mailchimp_member_exists?(email, list_id)).to eq(true)
     end
   end
 

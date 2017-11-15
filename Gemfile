@@ -24,6 +24,7 @@ gem 'rack-attack'
 gem 'tether-rails' # dependency for bootstrap tooltips
 gem 'acts_as_votable'
 gem 'kramdown'
+gem 'gibbon',                       '~> 3.2.0' # for Mailchimp
 
 group :production do
   gem 'rails_12factor',             '~> 0.0.3'
