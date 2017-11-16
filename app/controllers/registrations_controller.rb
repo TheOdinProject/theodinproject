@@ -24,23 +24,11 @@ class RegistrationsController < Devise::RegistrationsController
 
   def register_mailing_list
     if resource.persisted?
-      gibbon_request = Gibbon::Request.new(
-        api_key: ENV['MAILCHIMP_API_KEY']
+      MailchimpSubscription.create(
+        email: resource.email,
+        username: resource.username,
+        signup_date: resource.created_at
       )
-      merge_fields = {
-        USERNAME: resource.username,
-        SIGNUPDATE: resource.created_at
-      }
-      gibbon_request
-        .lists(ENV['MAILCHIMP_LIST_ID'])
-        .members
-        .create(
-          body: {
-            email_address: resource.email,
-            status: :subscribed,
-            merge_fields: merge_fields
-          }
-        )
     end
   end
 end
