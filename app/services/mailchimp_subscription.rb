@@ -9,7 +9,9 @@ class MailchimpSubscription
   end
 
   def self.create(options)
-    new(options).create
+    instance = new(options)
+    instance.create
+    instance
   end
 
   def create
