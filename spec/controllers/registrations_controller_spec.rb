@@ -17,9 +17,16 @@ RSpec.describe RegistrationsController do
         password_confirmation: 'foobar1',
       }
     }
+    let(:user) do
+      User.create(
+        username: 'kevin',
+        email: email,
+        password: 'foobar'
+      )
+    end
 
     before do
-      mailchimp_remove_member(email, list_id)
+      allow(MailchimpSubscription).to receive(:create)
     end
 
     it 'redirects to the dashboard' do
@@ -27,9 +34,16 @@ RSpec.describe RegistrationsController do
       expect(response).to redirect_to(dashboard_path)
     end
 
-    it 'registers the new user on the mailchimp mailing list', :vcr do
+    it 'registers the new user on the mailchimp mailing list' do
+      allow(controller).to receive(:resource).and_return(user)
+      expect(MailchimpSubscription).to receive(:create)
+        .with(
+          email: user.email,
+          username: user.username,
+          signup_date: user.created_at
+        )
+
       post :create, params: { user: user_attributes }
-      expect(mailchimp_member_exists?(email, list_id)).to eq(true)
     end
   end
 
