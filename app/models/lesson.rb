@@ -29,9 +29,7 @@ class Lesson < ApplicationRecord
   end
 
   def import_content_from_github
-    update(content: decoded_content) if content_needs_updated
-  rescue Octokit::Error => errors
-    failed_to_import_message
+    LessonContentImporter.for(self)
   end
 
   def has_submission?
@@ -45,26 +43,6 @@ class Lesson < ApplicationRecord
   end
 
   private
-
-  def content_needs_updated
-    content != decoded_content
-  end
-
-  def decoded_content
-    @decoded_content ||= Base64.decode64(github_response[:content])
-  end
-
-  def github_response
-    Octokit.contents(
-      'theodinproject/curriculum',
-      path: url
-    )
-  end
-
-  def failed_to_import_message
-    logger.error "Failed to import \"#{title}\" content: #{errors}"
-    false
-  end
 
   def section_lessons
     section.lessons
