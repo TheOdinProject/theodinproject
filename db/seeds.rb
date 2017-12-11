@@ -2054,6 +2054,18 @@ create_or_update_lesson(
 
 lesson_counter += 1
 create_or_update_lesson(
+  title: "Library",
+  title_url: "Library".parameterize,
+  description: "Library",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/organizing-js/library-project.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
   title: "Factory Functions and the Module Pattern",
   title_url: "Factory Functions and the Module Pattern".parameterize,
   description: "Factory Functions and the Module Pattern",
@@ -2061,6 +2073,18 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: false,
   url: "/organizing-js/factory-functions.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Tic Tac Toe",
+  title_url: "Tic Tac Toe".parameterize,
+  description: "Tic Tac Toe",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/organizing-js/tic-tac-toe-project.md",
   repo: 'javascript_curriculum'
 )
 
@@ -2091,6 +2115,30 @@ create_or_update_lesson(
 
 lesson_counter += 1
 create_or_update_lesson(
+  title: "Restaurant Page",
+  title_url: "Restaurant Page".parameterize,
+  description: "Restaurant Page",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/organizing-js/restaurant-project.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "OOP Principles",
+  title_url: "OOP Principles".parameterize,
+  description: "OOP Principles",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/organizing-js/oop-concepts.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
   title: "Todo List",
   title_url: "Todo List".parameterize,
   description: "Todo List",
@@ -2114,17 +2162,17 @@ section = create_or_update_section(
   description: "Let's look at a few more practical applications of JavaScript and learn about a few useful tools that are widely used in the industry."
 )
 
-lesson_counter += 1
-create_or_update_lesson(
-  title: "Linting",
-  title_url: "Linting".parameterize,
-  description: "Linting",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: false,
-  url: "/js-in-the-real-world/linting.md",
-  repo: 'javascript_curriculum'
-)
+# lesson_counter += 1
+# create_or_update_lesson(
+#   title: "Linting",
+#   title_url: "Linting".parameterize,
+#   description: "Linting",
+#   position: lesson_counter,
+#   section_id: section.id,
+#   is_project: false,
+#   url: "/js-in-the-real-world/linting.md",
+#   repo: 'javascript_curriculum'
+# )
 
 lesson_counter += 1
 create_or_update_lesson(
@@ -2178,14 +2226,14 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-section_position += 1
-section = create_or_update_section(
-  title: "Asynchronous JavaScript and APIs",
-  title_url: "Asynchronous JavaScript".parameterize,
-  course_id: course.id,
-  position: section_position,
-  description: "Asynchronous JavaScript"
-)
+# section_position += 1
+# section = create_or_update_section(
+#   title: "Asynchronous JavaScript and APIs",
+#   title_url: "Asynchronous JavaScript".parameterize,
+#   course_id: course.id,
+#   position: section_position,
+#   description: "Asynchronous JavaScript"
+# )
 
 lesson_counter += 1
 create_or_update_lesson(
