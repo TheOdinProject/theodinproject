@@ -2162,17 +2162,17 @@ section = create_or_update_section(
   description: "Let's look at a few more practical applications of JavaScript and learn about a few useful tools that are widely used in the industry."
 )
 
-# lesson_counter += 1
-# create_or_update_lesson(
-#   title: "Linting",
-#   title_url: "Linting".parameterize,
-#   description: "Linting",
-#   position: lesson_counter,
-#   section_id: section.id,
-#   is_project: false,
-#   url: "/js-in-the-real-world/linting.md",
-#   repo: 'javascript_curriculum'
-# )
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Linting",
+  title_url: "Linting".parameterize,
+  description: "Linting",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/js-in-the-real-world/linting.md",
+  repo: 'javascript_curriculum'
+)
 
 lesson_counter += 1
 create_or_update_lesson(
@@ -2226,14 +2226,26 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-# section_position += 1
-# section = create_or_update_section(
-#   title: "Asynchronous JavaScript and APIs",
-#   title_url: "Asynchronous JavaScript".parameterize,
-#   course_id: course.id,
-#   position: section_position,
-#   description: "Asynchronous JavaScript"
-# )
+section_position += 1
+section = create_or_update_section(
+  title: "Asynchronous JavaScript and APIs",
+  title_url: "Asynchronous JavaScript".parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: "Asynchronous JavaScript"
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "JSON",
+  title_url: "JSON".parameterize,
+  description: "JSON",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/async-apis/json.md",
+  repo: 'javascript_curriculum'
+)
 
 lesson_counter += 1
 create_or_update_lesson(
