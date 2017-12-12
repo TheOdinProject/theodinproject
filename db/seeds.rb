@@ -2198,29 +2198,29 @@ create_or_update_lesson(
   repo: 'javascript_curriculum'
 )
 
-# lesson_counter += 1
-# create_or_update_lesson(
-#   title: "Webpack 2",
-#   title_url: "Webpack 2".parameterize,
-#   description: "Webpack 2",
-#   position: lesson_counter,
-#   section_id: section.id,
-#   is_project: false,
-#   url: "/js-in-the-real-world/webpack-2.md",
-#   repo: 'javascript_curriculum'
-# )
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Webpack 2",
+  title_url: "Webpack 2".parameterize,
+  description: "Webpack 2",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/js-in-the-real-world/webpack-2.md",
+  repo: 'javascript_curriculum'
+)
 
-# lesson_counter += 1
-# create_or_update_lesson(
-#   title: "ES?",
-#   title_url: "ES?".parameterize,
-#   description: "ES?",
-#   position: lesson_counter,
-#   section_id: section.id,
-#   is_project: false,
-#   url: "/js-in-the-real-world/es6-features.md",
-#   repo: 'javascript_curriculum'
-# )
+lesson_counter += 1
+create_or_update_lesson(
+  title: "ES?",
+  title_url: "ES?".parameterize,
+  description: "ES?",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/js-in-the-real-world/es6-features.md",
+  repo: 'javascript_curriculum'
+)
 
 # +++++++++++
 # SECTION
