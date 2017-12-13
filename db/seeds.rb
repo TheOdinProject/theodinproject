@@ -2282,17 +2282,78 @@ create_or_update_lesson(
   url: "/async-apis/project.md",
   repo: 'javascript_curriculum'
 )
+
 # +++++++++++
-# SECTION
+# section
 # +++++++++++
 
 section_position += 1
 section = create_or_update_section(
-  title: "JavaScript and Rails",
-  title_url: "JavaScript and Rails".parameterize,
+  title: "Testing JavaScript",
+  title_url: "Testing JavaScript".parameterize,
   course_id: course.id,
   position: section_position,
-  description: "A real web app needs a back end in order to persist its data and do sensitive operations.  Here you'll learn how to handle use AJAX to send data requests to your Rails back end.  You'll also get a chance to work with external APIs like Google Maps, which is something you'll probably find yourself doing quite frequently as you build your own projects in the future."
+  description: "Test driven development is an important skill in today's dev world.  This section digs into the details of writing automated JavaScript tests."
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Testing Basics",
+  title_url: "Testing Basics".parameterize,
+  description: "Testing Basics",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/testing/testing-1.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Testing Practice",
+  title_url: "Testing Practice".parameterize,
+  description: "Testing Practice",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/testing/testing-practice.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "More Testing",
+  title_url: "More Testing".parameterize,
+  description: "More Testing",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/testing/testing-2.md",
+  repo: 'javascript_curriculum'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Battleship",
+  title_url: "Battleship".parameterize,
+  description: "Battleship",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/testing/battleship-project.md",
+  repo: 'javascript_curriculum'
+)
+# +++++++++++
+# section
+# +++++++++++
+
+section_position += 1
+section = create_or_update_section(
+  title: "javascript and rails",
+  title_url: "javascript and rails".parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: "a real web app needs a back end in order to persist its data and do sensitive operations.  here you'll learn how to handle use ajax to send data requests to your rails back end.  you'll also get a chance to work with external apis like google maps, which is something you'll probably find yourself doing quite frequently as you build your own projects in the future."
 )
 
 lesson_counter += 1
@@ -2330,18 +2391,6 @@ section = create_or_update_section(
   course_id: course.id,
   position: section_position,
   description: "You've learned everything you need and all that remains to do is apply that knowledge to a worthy task.  In this section, we'll briefly cover how to test Javascript using Jasmine and then get you started with your capstone project so you can show off your range of skills."
-)
-
-lesson_counter += 1
-create_or_update_lesson(
-  title: "Javascript Testing with Jasmine",
-  title_url: "Javascript Testing with Jasmine".parameterize,
-  description: "...because if you can't test it, you won't know when you've broken it.",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: false,
-  url: "/javascript/js_testing.md",
-  repo: 'curriculum'
 )
 
 lesson_counter += 1
