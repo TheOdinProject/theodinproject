@@ -20,6 +20,7 @@ module ButtonHelper
       'Open Gitter',
       chat_link,
       class: 'button button--secondary',
+      id: 'gitter-button',
       target: '_blank'
     )
   end

@@ -18,7 +18,7 @@
     <div class="card-main">
       <h1 class="lesson-functions__title"><%= @lesson.course.title %></h1>
       <h3 class="lesson-functions__sub-title accent bold"><%= @lesson.title %></h3>
-      <div class="lesson-button-group">
+      <div class="lesson-button-group" id="lesson-buttons-container">
         <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
       </div>
 
