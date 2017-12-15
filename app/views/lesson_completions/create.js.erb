@@ -1,4 +1,5 @@
 $('.banner__badge').html("<%= j render 'shared/course_badge', course: @lesson.course, user: @user, modifier: '' %>");
+
 if($('.lesson-button-group').length == 0) {
   $("#section-lessons__<%= @lesson.id %>").html("<%= j render 'courses/course/lesson_completion_button', lesson: @lesson, course: @lesson.course, user: @user %>");
 } else {
