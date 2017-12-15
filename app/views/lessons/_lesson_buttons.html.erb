@@ -14,3 +14,24 @@
       id: "next-lesson-button"
   %>
 <% end %>
+ 
+<script>
+  // Fire an event whenever a user marks a lesson completed on the individual lesson page
+  // else marks a lesson uncompleted on the individual lesson page
+  $('#submission-button').on('click', function(e) {
+    if ($(this).data('method') === 'post')  {
+      console.log('completed')
+      _gaq.push(['_trackEvent', 'lesson_completion', 'mark_completed', window.location.href, 1]);
+      
+    } else {
+      console.log('not completed')
+      _gaq.push(['_trackEvent', 'lesson_completion', 'mark_not_completed', window.location.href, 1]);
+    }
+  });
+  //*******
+  // Fire an event when a user clicks on the next lesson navigation link in the individual lesson page
+  $('#next-lesson-button').on('click', function(e) {
+    console.log('you clicked next')
+    _gaq.push(['_trackEvent', 'lesson_navigation', 'click_next_lesson_link', 'lesson_page', 1]);
+  });
+</script>

@@ -1,6 +1,6 @@
 module ButtonHelper
   def signup_button
-    link_to 'Sign Up', sign_up_path, class: 'button button--primary'
+    link_to 'Sign Up', sign_up_path, class: 'button button--primary sign-up-button'
   end
 
   def login_button
