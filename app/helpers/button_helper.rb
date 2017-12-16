@@ -1,6 +1,6 @@
 module ButtonHelper
   def signup_button
-    link_to 'Sign Up', sign_up_path, class: 'button button--primary sign-up-button'
+    link_to 'Sign Up', sign_up_path, class: 'button button--primary'
   end
 
   def login_button
@@ -20,7 +20,6 @@ module ButtonHelper
       'Open Gitter',
       chat_link,
       class: 'button button--secondary',
-      id: 'gitter-button',
       target: '_blank'
     )
   end

@@ -63,7 +63,6 @@ document.addEventListener("turbolinks:load", function () {
 
     // Fire an event whenever someone tries to sign in the standard way
     $('[value="Login"]').on('click', function(e) {
-      console.log('login')
       _gaq.push(['_trackEvent', 'signin_buttons', 'click_normal_signin_button', 'signin_button', 1]);
     })
 
@@ -79,7 +78,6 @@ document.addEventListener("turbolinks:load", function () {
 
     // Fire an event whenever someone clicks the normal sign up button (e.g. not step 2 of the github flow)
     $('[value="Sign up"]').on('click', function(e){
-      console.log('sign up')
       _gaq.push(['_trackEvent', 'signup_buttons', 'sign_up', 'main_signup_button', 1]);
     })
 
