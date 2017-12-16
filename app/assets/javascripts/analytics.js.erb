@@ -45,12 +45,14 @@ document.addEventListener("turbolinks:load", function () {
     //see_lesson_buttons.html.erb for lesson button analytics
 
     // Fire an event when a user clicks on the gitter chat link in the individual lesson page
-    $('#gitter-button').on('click', function(e) {
+    $('[href="https://gitter.im/TheOdinProject/theodinproject"]').on('click', function(e) {
+      console.log('gitter button')
       _gaq.push(['_trackEvent', 'gitter_chat', 'click_gitter_chat_link', 'lesson_page', 1]);
     });
 
     // Fire an event when a user clicks on the floating chat button
     $('.chat-floating-btn').click(function(e) {
+      console.log('floating button')
       _gaq.push(['_trackEvent', 'gitter_chat', 'click_gitter_chat_floating_button', 'global', 1]);
     });
 
@@ -60,7 +62,8 @@ document.addEventListener("turbolinks:load", function () {
     });
 
     // Fire an event whenever someone tries to sign in the standard way
-    $('#login-button').on('click', function(e) {
+    $('[value="Login"]').on('click', function(e) {
+      console.log('login')
       _gaq.push(['_trackEvent', 'signin_buttons', 'click_normal_signin_button', 'signin_button', 1]);
     })
 
@@ -75,7 +78,8 @@ document.addEventListener("turbolinks:load", function () {
     })
 
     // Fire an event whenever someone clicks the normal sign up button (e.g. not step 2 of the github flow)
-    $('.sign-up-button').on('click', function(e){
+    $('[value="Sign up"]').on('click', function(e){
+      console.log('sign up')
       _gaq.push(['_trackEvent', 'signup_buttons', 'sign_up', 'main_signup_button', 1]);
     })
 
