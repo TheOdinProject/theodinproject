@@ -20,7 +20,7 @@
 
   .votes-count {
     color: $grey;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .vote-button {
@@ -32,6 +32,7 @@
 
     .fa {
       font-size: 2rem;
+      color: $heart-red;
     }
   }
 

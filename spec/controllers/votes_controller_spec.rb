@@ -5,7 +5,7 @@ RSpec.describe VotesController do
   let(:project) {
     double(
       'Project',
-      total_number_of_votes: '2'
+      total_votes: '2'
     )
   }
 
