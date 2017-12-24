@@ -9,9 +9,8 @@ class LessonsController < ApplicationController
   private
 
   def set_user
-    if user_signed_in?
-      @user = User.includes(:completed_lessons).find(current_user.id)
-    end
+    return unless user_signed_in?
+    @user = User.includes(:completed_lessons).find(current_user.id)
   end
 
   def set_project_and_submissions
@@ -29,7 +28,7 @@ class LessonsController < ApplicationController
   end
 
   def user_project
-    Project.where(user_id: current_user.id, lesson_id: @lesson.id).first
+    current_user.projects.where(lesson_id: @lesson.id).first
   end
 
   def new_project
@@ -41,6 +40,9 @@ class LessonsController < ApplicationController
   end
 
   def lesson
-    Lesson.includes(:section, course: [:lessons, sections: [:lessons]]).friendly.find(params[:id])
+    Lesson
+      .includes(:section, course: [:lessons, sections: [:lessons]])
+      .friendly
+      .find(params[:id])
   end
 end

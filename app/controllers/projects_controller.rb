@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   end
 
   def latest_projects
-    all_projects.where.not(user_id: current_user.id).limit(10)
+    all_projects.order(updated_at: :desc).limit(10)
   end
 
   def find_project

@@ -89,15 +89,12 @@
   margin: 1.25em 0;
 }
 
-#project-submission-modal, #project-submission-delete-modal {
-  display: none;
-  .modal-header {
-    border: none;
-  }
-  .modal-body {
-    overflow: hidden;
+#project-submission-modal {
+  .modal-dialog {
+    max-width: 920px;
   }
 }
+
 #project-submission-delete-modal {
   .action-btns {
     display: flex;

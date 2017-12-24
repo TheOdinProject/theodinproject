@@ -1,9 +1,9 @@
 <% if @project.valid? %>
-  toastr.success('Your submission was added', 'Success!');
   $('#project-submission-modal').modal('hide');
+  toastr.success('Your submission was added', 'Success!');
   $('#add-submission-button').remove();
 
-  $('#submissions').html("<%= j render 'lessons/submissions', submissions: @projects, lesson: @lesson %>");
+  $('#submissions').html("<%= j render 'lessons/submissions', projects: @projects, lesson: @lesson %>");
   $('#project-submission-modal-wrapper')
     .html("<%= j render 'form_modal', lesson: @lesson, project: @project %>");
   $('body')

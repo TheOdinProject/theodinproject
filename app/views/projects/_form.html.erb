@@ -22,7 +22,8 @@
 
     <div class="form-group text-center">
       <%= f.submit (project.new_record? ? 'Upload project' : 'Update project'),
-        class: 'button button--primary project-submit-btn' %>
+        class: 'button button--primary project-submit-btn',
+        disable_with: (project.new_record? ? 'Uploading project...' : 'Updating project..') %>
     </div>
 
     <div class="form-group text-center">

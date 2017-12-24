@@ -30,6 +30,8 @@
   <div class="col-lg-6 project-buttons">
     <%= link_to 'View Code', project.repo_url, class: 'button project-button', target: '_blank' %>
 
-    <%= link_to 'Live Preview', project.live_preview, class: 'button project-button live-preview-button', target: '_blank' %>
+    <% if project.live_preview.present? %>
+      <%= link_to 'Live Preview', project.live_preview, class: 'button project-button live-preview-button', target: '_blank' %>
+    <% end %>
   </div>
 </div>
