@@ -24,10 +24,15 @@
       <%= f.submit (project.new_record? ? 'Upload project' : 'Update project'),
         class: 'button button--primary project-submit-btn',
         disable_with: (project.new_record? ? 'Uploading project...' : 'Updating project..') %>
+      <button type="button" class="button cancel-button" data-dismiss="modal">Cancel</button>
     </div>
 
-    <div class="form-group text-center">
-      <button type="button" class="button" data-dismiss="modal">Cancel</button>
-    </div>
+    <% if project.persisted? %>
+      <div class="form-group text-center">
+        <button type="button" class="button btn-danger" data-target="#delete-project-modal" data-toggle="modal">
+          Delete
+        </button>
+      </div>
+    <% end %>
   <% end %>
 </div>

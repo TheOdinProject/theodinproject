@@ -1,0 +1,102 @@
+.project {
+  align-items: center;
+  border-bottom: solid 1px $very-pale-grey;
+  padding: 10px 0;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    background: $white-smoke;
+  }
+
+  .button_to {
+    display: inline;
+  }
+
+  &__votes {
+    color: $grey;
+    font-size: 1.1rem;
+
+    @include media-breakpoint-down(md) {
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .heart {
+      padding: 1em;
+    }
+
+    .fa { 
+      font-size: 2rem;
+    }
+  }
+
+  &__vote-button {
+    background: transparent;
+    box-shadow: none;
+    color: $whitish-grey;
+    cursor: pointer;
+    padding: 1em;
+
+    .fa {
+      font-size: 2rem;
+      color: $heart-red;
+    }
+  }
+
+  &__owner-name {
+    color: $text-primary;
+
+    @include media-breakpoint-down(md) {
+      text-align: left;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    @include media-breakpoint-down(sm) {
+      justify-content: center;
+    }
+
+    @include media-breakpoint-only(md) {
+      padding: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 20px;
+    }
+
+    .live-preview-button {
+      margin-left: 10px;
+    }
+  }
+
+  &__button {
+    background: $whitish-grey;
+    border-radius: 3px;
+    box-shadow: none;
+    color: $black;
+    font-size: 1rem;
+    padding: 18px;
+    width: 160px;
+    height: 60px;
+
+    &:hover, &:focus {
+      color: $white;
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: 0;
+      width: 150px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__action_buttons {
+    margin-top: 10px;
+  }
+}

@@ -1,39 +1,30 @@
 <div class="row project">
-  <div class="col-6 col-sm-5 col-md-4 col-lg-3 votes">
-    <% if current_user && current_user != project.user %>
-      <% if current_user.liked? project %>
-        <%= button_to lesson_project_vote_path(project.lesson_id, project.id),
-          method: :delete,
-          remote: true,
-          title: 'Unlike this project',
-          class: 'button button--primary vote-button' do %>
-          <i class="fa fa-heart"></i>
-        <% end %>
-      <% else %>
-        <%= button_to lesson_project_votes_path(project.lesson_id, project.id),
-          method: :post,
-          remote: true,
-          title: 'Like this project',
-          class: 'button button--primary vote-button' do %>
-          <i class="fa fa-heart-o"></i>
-        <% end %>
-      <% end %>
-    <% end %>
+  <div class="col-5 col-sm-3 col-md-2 col-lg-3 project__votes">
+    <%= heart_icon_for(current_user, project) %>
 
-    <span class="votes-count">
-      <%= pluralize(project.total_votes, 'like') %>
+    <span class="project__votes-count">
+     <%= project.total_votes %>
     </span>
   </div>
 
-  <div class="col-6 col-sm-7 col-md-8 col-lg-3 owner-name bold">
-    <%= project.owner_name.capitalize %>
+  <div class="col-7 col-sm-9 col-md-3 col-lg-3 project__owner-name bold">
+    <% if project.user == current_user %>
+      <%= link_to '#',
+        data: {toggle: 'modal',
+          target: '#project-submission-modal'
+        } do %>
+       <%= project.owner_name.capitalize %>
+      <% end %>
+    <% else %>
+       <%= project.owner_name.capitalize %>
+    <% end %>
   </div>
 
-  <div class="col-lg-6 project-buttons">
-    <%= link_to 'View Code', project.repo_url, class: 'button project-button', target: '_blank' %>
+  <div class="col-md-7 col-lg-6 project__buttons">
+    <%= link_to 'View Code', project.repo_url, class: 'button project__button', target: '_blank' %>
 
     <% if project.live_preview.present? %>
-      <%= link_to 'Live Preview', project.live_preview, class: 'button project-button live-preview-button', target: '_blank' %>
+      <%= link_to 'Live Preview', project.live_preview, class: 'button project__button live-preview-button', target: '_blank' %>
     <% end %>
   </div>
 </div>

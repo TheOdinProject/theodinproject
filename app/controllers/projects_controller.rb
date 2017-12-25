@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
+    @decorated_project = ProjectDecorator.new(@project)
   end
 
   def destroy

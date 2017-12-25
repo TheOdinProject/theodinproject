@@ -1,46 +1,3 @@
-.project {
-  align-items: center;
-  border-bottom: solid 1px $very-pale-grey;
-  padding: 10px 0;
-  transition: all 0.2s ease-out;
-
-  &:hover {
-    background: $white-smoke;
-  }
-
-  .button_to {
-    display: inline;
-  }
-
-  @include media-breakpoint-down(md) {
-    .votes {
-      text-align: center;
-    }
-  }
-
-  .votes-count {
-    color: $grey;
-    font-size: 1.1rem;
-  }
-
-  .vote-button {
-    background: transparent;
-    box-shadow: none;
-    color: $whitish-grey;
-    cursor: pointer;
-    padding: 1em;
-
-    .fa {
-      font-size: 2rem;
-      color: $heart-red;
-    }
-  }
-
-  .owner-name {
-    color: $text-primary;
-  }
-}
-
 .project-form-container {
   .form-group {
     margin-bottom: 20px;
@@ -84,123 +41,35 @@
   }
 }
 
-/** Project submissions **/
-
 .submissions-list {
   margin: 1.25em 0;
 }
 
-#project-submission-modal {
+#project-submission-modal, #delete-project-modal {
   .modal-dialog {
     max-width: 920px;
   }
+
+  .cancel-button {
+    margin-left: 30px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    .cancel-button {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
 }
 
-#project-submission-delete-modal {
-  .action-btns {
-    display: flex;
-    justify-content: space-around;
-    padding: 1.5em;
-  }
-}
-
-.project-box {
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 3px;
-  box-shadow: 0 0 15px 0.4px rgba(0, 0, 0, 0.05);
-  display: flex;
-  margin-top: 10px;
-  padding: 10px;
-  transition: all 0.3s ease-in;
-  &:hover {
-    box-shadow: 0 0 15px 0.4px rgba(0, 0, 0, 0.15);
-  }
-  .project-author {
-    margin-top: 0;
-    font-weight: 100;
-  }
-  .submission-details {
-    flex: 1 1;
-    .submission-links {
-      transition: all 0.8s linear;
-      .repo-url-btn, .live-preview-btn {
-        color: white;
-        text-shadow: none;
-        box-shadow: none;
-        border: none;
-        line-height: 2em;
-      }
-      .repo-url-btn {
-        background: blue;
-      }
-      .live-preview-btn {
-        background: green;
-      }
-    }
-    &:hover .submission-info {
-      display: block;
-    }
-  }
-
-  .project-action-links {
-    display: flex;
-    align-items: center;
-    .btn {
-      line-height: 2em;
-      .fa {
-        font-size: 1.5em;
-      }
-    }
-    #project-edit-btn {
-      margin-right: 5px;
-    }
+#delete-project-modal {
+  .actions {
+    margin: 30px;
   }
 }
 
 .current-user-submission {
   background: rgba(0,0,0,0.03);
-}
-
-.project-box:not(.current-user-submission) {
-  .submission-details {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.project-buttons {
-  display: flex;
-  justify-content: flex-end;
-
-  @include media-breakpoint-down(md) {
-    justify-content: center;
-  }
-
-  .project-button {
-    background: $whitish-grey;
-    border-radius: 3px;
-    box-shadow: none;
-    color: $black;
-    font-size: 1rem;
-    padding: 18px;
-    width: 160px;
-    height: 60px;
-
-    &:hover, &:focus {
-      color: $white;
-    }
-
-    @include media-breakpoint-down(xs) {
-      font-size: 1em;
-      line-height: 50px;
-      padding: 5px;
-      width: 150px;
-    }
-  }
-
-  .live-preview-button {
-    margin-left: 10px;
-  }
 }
 
 .project-submission {
