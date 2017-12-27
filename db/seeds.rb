@@ -498,18 +498,6 @@ create_or_update_lesson(
   repo: 'ruby_course'
 )
 
-lesson_counter += 1
-create_or_update_lesson(
-  title: "Databases",
-  title_url: "Databases".parameterize,
-  description: "The last foundational component is how to 'save' your data by using a database.  You'll learn the basics of SQL, the language used to talk to most relational databases.",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: false,
-  url: "/web_development_101/the_backend/database_basics_lesson.md",
-  repo: 'ruby_course'
-)
-
 # +++++++++++
 # SECTION
 # +++++++++++
@@ -988,6 +976,68 @@ create_or_update_lesson(
 )
 
 # ************************************************
+# CREATE DATABASE COURSE
+# ************************************************
+
+Rails.logger.info "\n\n***** STARTING COURSE: Databases *****"
+
+course_position += 1
+course = create_or_update_course(
+  title: "Databases",
+  title_url: "Databases".parameterize,
+  description: " Databases are used to organize and capture large amounts of data, typically by inputting, storing, retrieving and managing the information. This course will focus on relational databases, which are widely used to store data and SQL, the language used to query the database.",
+  position: course_position,
+)
+
+# +++++++++++
+# SECTION
+# +++++++++++
+section_position += 1
+section = create_or_update_section(
+  title: "Databases",
+  title_url: "Databases".parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: "Rails does a lot of the heavy lifting with connecting and querying a database but there will be times you need to tweak a query to the database using raw SQL. Learning how to query efficiently will help your understanding of what Rails helps abstract away."
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Databases",
+  title_url: "Databases".parameterize,
+  description: "Here you'll learn the basics of databases and how they store data.",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/databases/database_basics_lesson.md",
+  repo: 'mini_courses'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "Databases and SQL",
+  title_url: "Databases and SQL".parameterize,
+  description: "Data is the core of every major web app and here you'll learn how to speak SQL. Being able to properly query a database will go a long way to minimising any problems your website's users might encounter with slow response times.",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: false,
+  url: "/databases/databases.md",
+  repo: 'mini_courses'
+)
+
+lesson_counter += 1
+create_or_update_lesson(
+  title: "SQL",
+  title_url: "SQL".parameterize,
+  description: "The best way to learn is by practice, so this project will give you plenty of opportunity to apply your new SQL powers (for good).",
+  position: lesson_counter,
+  section_id: section.id,
+  is_project: true,
+  url: "/databases/project_databases.md",
+  repo: 'mini_courses'
+)
+
+# ************************************************
 # CREATE RAILS COURSE
 # ************************************************
 Rails.logger.info "\n\n***** STARTING COURSE: Ruby on Rails *****"
@@ -1204,30 +1254,6 @@ section = create_or_update_section(
   course_id: course.id,
   position: section_position,
   description: "This section covers the back end of Rails, which is the most important part of the framework.  You'll learn about databases and go deep into SQL before applying that knowledge to Rails' fantastic Active Record gem."
-)
-
-lesson_counter += 1
-create_or_update_lesson(
-  title: "Databases and SQL",
-  title_url: "Databases and SQL".parameterize,
-  description: "Data is the core of every major web app and here you'll learn how to speak SQL.",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: false,
-  url: "/rails_programming/databases_and_activerecord/databases.md",
-  repo: 'rails_course'
-)
-
-lesson_counter += 1
-create_or_update_lesson(
-  title: "SQL",
-  title_url: "SQL".parameterize,
-  description: "The best way to learn is by practice, so this project will give you plenty of opportunity to apply your new SQL powers (for good).",
-  position: lesson_counter,
-  section_id: section.id,
-  is_project: true,
-  url: "/rails_programming/databases_and_activerecord/project_databases.md",
-  repo: 'rails_course'
 )
 
 lesson_counter += 1
