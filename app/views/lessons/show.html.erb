@@ -40,7 +40,7 @@
 
       <% if @projects && ProjectSubmissionFeature.enabled? %>
         <div id="submissions">
-          <%= render 'submissions', projects: @projects, lesson: @lesson %>
+          <%= render 'recent_submissions', projects: @projects, lesson: @lesson %>
         </div>
       <% end %>
 

@@ -1,5 +1,12 @@
 <%= title("#{@lesson.title} Submissions") %>
 
+<% if user_signed_in? && @project %>
+  <div id="project-submission-modal-wrapper">
+    <%= render 'projects/form_modal', lesson: @lesson, project: @project %>
+  </div>
+  <%= render 'projects/delete_project_modal', lesson: @lesson, project: @project %>
+<% end %>
+
 <div class="gradient">
   <div class="container">
     <div class="projects-header">
@@ -9,15 +16,8 @@
 
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <div id="submissions" class="card-main">
-          <% if @projects.any? %>
-            <% @projects.each do |project| %>
-              <%= render 'project', project: ProjectDecorator.new(project) %>
-            <% end %>
-          <% else %>
-            <h4 class="text-center accent">The project does not have any submissions yet</h4>
-          <% end %>
-
+        <div id="index-submissions" class="card-main">
+          <%= render 'lessons/index_submissions', projects: @projects %>
           <%= paginate @projects %>
         </div>
       </div>

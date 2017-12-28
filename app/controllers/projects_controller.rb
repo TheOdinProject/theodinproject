@@ -6,8 +6,10 @@ class ProjectsController < ApplicationController
   authorize_resource only: %i(update destroy)
 
   def index
-    @projects = all_projects.page(params[:page])
+    @projects = all_projects.page(params[:page]).per(50)
     @course = CourseDecorator.new(@lesson.course)
+    @user = current_user
+    @project = @projects.where(user_id: current_user.id).first
   end
 
   def create
@@ -30,7 +32,7 @@ class ProjectsController < ApplicationController
   private
 
   def all_projects
-    Project.all_submissions(@lesson.id)
+    Project.all_submissions(@lesson.id).order(updated_at: :desc)
   end
 
   def new_project(parameters = {})
@@ -40,7 +42,7 @@ class ProjectsController < ApplicationController
   end
 
   def latest_projects
-    all_projects.order(updated_at: :desc).limit(10)
+    all_projects.limit(10)
   end
 
   def find_project

@@ -14,7 +14,7 @@
   </div>
 
   <% projects.each do |project| %>
-    <div id="project-<%=project.id%>">
+    <div id="project-<%= project.id %>">
       <%= render 'projects/project', project: ProjectDecorator.new(project) %>
     </div>
   <% end %>

@@ -3,7 +3,7 @@
   toastr.success('Your submission was added', 'Success!');
   $('#add-submission-button').remove();
 
-  $('#submissions').html("<%= j render 'lessons/submissions', projects: @projects, lesson: @lesson %>");
+  $('#submissions').html("<%= j render 'lessons/recent_submissions', projects: @projects, lesson: @lesson %>");
   $('#project-submission-modal-wrapper')
     .html("<%= j render 'form_modal', lesson: @lesson, project: @project %>");
   $('body')

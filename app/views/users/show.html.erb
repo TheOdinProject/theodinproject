@@ -10,7 +10,7 @@
 
 <div class="gradient">
   <% if @user.has_projects? && ProjectSubmissionFeature.enabled? %>
-    <%= render 'project_submissions', projects: @projects %>
+    <%= render 'projects', projects: @projects %>
   <% end %>
 
   <%= render 'shared/bottom_cta',
