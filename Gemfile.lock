@@ -161,6 +161,8 @@ GEM
     hashie (3.5.5)
     heapy (0.1.2)
     htmlentities (4.3.4)
+    httparty (0.15.6)
+      multi_xml (>= 0.5.2)
     i18n (0.8.4)
     ice_nine (0.11.2)
     jquery-rails (4.2.2)
@@ -403,6 +405,7 @@ DEPENDENCIES
   friendly_id (~> 5.1)
   gibbon (~> 3.2.0)
   github_api (~> 0.14)
+  httparty (~> 0.15.6)
   jquery-rails (~> 4.2.1)
   kaminari (~> 1.0, >= 1.0.1)
   kramdown

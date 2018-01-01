@@ -3,7 +3,16 @@ $(document).on('turbolinks:load', function() {
     $('#project_repo_url').focus();
   });
 
+  $('body').on('shown.bs.modal', '#project-report-modal', function () {
+    $('#description').focus();
+  });
+
   $('body').on('show.bs.modal', '#delete-project-modal', function() {
     $('#project-submission-modal').modal('hide');
+  });
+
+  $('.project__report-link').click(function() {
+    var projectId = this.dataset.projectId;
+    $('#id').val(projectId);
   });
 });

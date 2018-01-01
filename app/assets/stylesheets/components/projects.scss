@@ -45,12 +45,15 @@
   margin: 1.25em 0;
 }
 
-#project-submission-modal, #delete-project-modal {
+#project-submission-modal,
+#delete-project-modal,
+#project-report-modal {
   .modal-dialog {
     max-width: 920px;
   }
 
   .cancel-button {
+    color: #000;
     margin-left: 30px;
   }
 
@@ -68,29 +71,16 @@
   }
 }
 
-.current-user-submission {
-  background: rgba(0,0,0,0.03);
-}
+.report-project-form {
+  margin-top: 40px;
+  margin-bottom: 40px;
 
-.project-submission {
-  border-bottom: 1px solid $very-pale-grey;
-  justify-content: space-between;
-  padding: 10px 0;
-
-  &:last-child {
-    border: 0;
+  &__description {
+    min-height: 80px;
   }
 
-  @include media-breakpoint-down(sm) {
-    .lesson-title-wrapper {
-      margin-bottom: 20px;
-    }
-  }
-}
-
-@media (max-width: 405px) {
-  .votes {
-    padding: 0;
+  &__report-button {
+    margin-top: 30px;
   }
 }
 

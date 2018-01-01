@@ -43,10 +43,12 @@ Rails.application.routes.draw do
     end
 
     resources :lesson_completions, only: %i(create), as: 'completions'
-    delete 'lesson_completions/' => 'lesson_completions#destroy', :as => 'lesson_completions'
+    delete 'lesson_completions' => 'lesson_completions#destroy', :as => 'lesson_completions'
   end
 
-   match '/404' => 'errors#not_found', via: [ :get, :post, :patch, :delete ]
+  post 'report_project' => 'projects#report'
+
+  match '/404' => 'errors#not_found', via: [ :get, :post, :patch, :delete ]
 
   # Explicitly redirect deprecated routes (301)
 

@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_request, except: :index
   before_action :find_lesson
-  before_action :find_project, only: %i(update destroy)
+  before_action :find_project, only: %i(update destroy report)
 
   authorize_resource only: %i(update destroy)
 
@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @projects = all_projects.page(params[:page]).per(50)
     @course = CourseDecorator.new(@lesson.course)
     @user = current_user
-    @project = @projects.where(user_id: current_user.id).first
+    @project = @projects.where(user_id: current_user.id).first if current_user
   end
 
   def create
@@ -21,6 +21,14 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     @decorated_project = ProjectDecorator.new(@project)
+  end
+
+  def report
+    @reported = ProjectReporter.report(
+      project: @project,
+      reporter: current_user,
+      description: params[:description]
+    )
   end
 
   def destroy

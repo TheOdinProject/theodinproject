@@ -6,6 +6,10 @@
 
   &:hover {
     background: $white-smoke;
+
+    & .project__report-link {
+      display: inline;
+    }
   }
 
   .button_to {
@@ -49,6 +53,16 @@
 
     @include media-breakpoint-down(md) {
       text-align: left;
+    }
+  }
+
+  &__report-link {
+    color: $primary;
+    cursor: pointer;
+    display: none;
+
+    &:hover, &:active {
+      color: darken($primary, 20%);
     }
   }
 

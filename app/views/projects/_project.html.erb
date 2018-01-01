@@ -16,7 +16,19 @@
        <%= project.owner_name.capitalize %>
       <% end %>
     <% else %>
-       <%= project.owner_name.capitalize %>
+      <% if user_signed_in? %>
+        <%= link_to '#',
+          class: 'project__report-link',
+          data: {
+            'toggle' => 'modal',
+            'target' => '#project-report-modal',
+            'project-id' => project.id,
+          },
+          title: 'Report project' do %>
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+      <%= project.owner_name.capitalize %>
     <% end %>
   </div>
 
