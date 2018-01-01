@@ -21,8 +21,14 @@
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <div id="index-submissions" class="card-main">
-          <%= render 'lessons/index_submissions', projects: @projects %>
-          <%= paginate @projects %>
+          <% if @lesson.has_submission? %>
+            <%= render 'lessons/index_submissions', projects: @projects %>
+            <%= paginate @projects %>
+          <% else %>
+            <h4 class="text-center accent">
+              This project does not accept submissions
+            </h4>
+          <% end %>
         </div>
       </div>
     </div>
