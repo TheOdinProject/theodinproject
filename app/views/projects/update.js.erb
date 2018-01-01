@@ -1,5 +1,6 @@
-<% if @decorated_project.valid? %>
+<% if @project_updated %>
   $('#project-submission-modal').modal('hide');
+  $('.modal-backdrop').remove();
   toastr.success('Your project submission was updated!', 'Success');
 
   $('#project-<%= @decorated_project.id %>')

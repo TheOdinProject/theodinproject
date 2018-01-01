@@ -14,12 +14,12 @@ class ProjectsController < ApplicationController
 
   def create
     @project = new_project(project_params)
-    @project.save
+    @project_saved = @project.save
     @projects = latest_projects
   end
 
   def update
-    @project.update(project_params)
+    @project_updated = @project.update(project_params)
     @decorated_project = ProjectDecorator.new(@project)
   end
 
