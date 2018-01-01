@@ -14,7 +14,7 @@ function kebabCase(text) {
 }
 
 function setTargetForExternalLinks() {
-  getElements('.lesson-content a[href^=http]').forEach(function (externalLink) {
+  getElements('.lesson-content a[href^=http]').forEach(function(externalLink) {
     externalLink.setAttribute('target', '_blank');
   });
 }
@@ -53,11 +53,12 @@ function addActiveClass() {
   var links = getElements('.lesson-navigation__link');
 
   window.onhashchange = function() {
-    links.forEach(function (link) {
-      if (link.hash == window.location.hash)
-       link.classList.add('active');
-      else
+    links.forEach(function(link) {
+      if (link.hash == window.location.hash) {
+        link.classList.add('active');
+      } else {
         link.classList.remove('active');
+      }
     });
   }
 }
@@ -74,13 +75,46 @@ function constructLessonNavigation() {
   Stickyfill.add(lessonNavigationElement);
 }
 
-function lessonPage() {
+function isLessonPage() {
   return document.querySelector('.lesson') !== null;
 }
 
-document.addEventListener('turbolinks:load', function() {
-  if (!lessonPage()) return;
+function constructLessonSections() {
+  var lessonHeadings = getElements('.lesson-content h3');
+  lessonHeadings.forEach(function(heading) {
+    const id = heading.getAttribute('id');
+    heading.removeAttribute('id');
 
+    var section = document.createElement('div')
+    section.setAttribute('id', id);
+
+    if (isCommonHeading(heading.innerText)) {
+      section.classList.add('scrollspy');
+    }
+
+    heading.parentNode.insertBefore(section, heading);
+
+    var element = heading;
+    while (element.nextElementSibling !== null &&
+      element.nextElementSibling.tagName !== 'H3') {
+      section.appendChild(element.nextElementSibling);
+    }
+
+    section.insertBefore(heading, section.firstChild);
+  });
+}
+
+function spyLessonSections() {
+  $('.scrollspy').scrollSpy();
+}
+
+document.addEventListener('turbolinks:load', function() {
+  if (!isLessonPage()) return;
   setTargetForExternalLinks();
+
+  if (!window.matchMedia('(min-width: 992px)').matches) return;
+
   constructLessonNavigation();
+  constructLessonSections();
+  spyLessonSections();
 });
