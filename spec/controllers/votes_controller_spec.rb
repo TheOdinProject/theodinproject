@@ -30,13 +30,6 @@ RSpec.describe VotesController do
     allow(project).to receive(:remove_vote_for).with(user)
   end
 
-  describe 'GET #index' do
-    it 'returns the total number of votes for the project in json' do
-      get :index, params: params
-      expect(response.body).to eql('2')
-    end
-  end
-
   describe '#create' do
     it 'creates a new user vote for the project' do
       post :create, params: params

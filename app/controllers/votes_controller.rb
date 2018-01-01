@@ -1,11 +1,7 @@
 class VotesController < ApplicationController
-  before_action :authenticate_request, only: %i(create destroy)
+  before_action :authenticate_request
   before_action :set_project
-  before_action :check_owner, only: %i(create destroy)
-
-  def index
-    render json: @project.total_votes
-  end
+  before_action :check_owner
 
   def create
     @project.upvote_for(current_user)
