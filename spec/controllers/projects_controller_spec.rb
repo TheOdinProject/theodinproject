@@ -39,7 +39,9 @@ RSpec.describe ProjectsController, type: :controller do
     before do
       stub_lesson
       allow(Project).to receive(:all_submissions).with('1').and_return(projects)
+      allow(projects).to receive(:order).with(updated_at: :desc).and_return(projects)
       allow(projects).to receive(:page).and_return(projects)
+      allow(projects).to receive(:per).with(50).and_return(projects)
     end
 
     it 'renders the project index template' do
