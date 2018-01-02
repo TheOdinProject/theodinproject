@@ -104,7 +104,7 @@ function constructLessonSections() {
 }
 
 function spyLessonSections() {
-  $('.scrollspy').scrollSpy();
+  $('.scrollspy').scrollSpy({ scrollOffset: 50 });
 }
 
 document.addEventListener('turbolinks:load', function() {
