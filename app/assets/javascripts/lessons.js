@@ -94,10 +94,9 @@ function constructLessonSections() {
 
     heading.parentNode.insertBefore(section, heading);
 
-    var element = heading;
-    while (element.nextElementSibling !== null &&
-      element.nextElementSibling.tagName !== 'H3') {
-      section.appendChild(element.nextElementSibling);
+    while (heading.nextElementSibling !== null &&
+      heading.nextElementSibling.tagName !== 'H3') {
+      section.appendChild(heading.nextElementSibling);
     }
 
     section.insertBefore(heading, section.firstChild);
