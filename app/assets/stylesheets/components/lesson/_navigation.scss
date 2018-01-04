@@ -15,6 +15,10 @@
     background: $grey;
     width: 16px;
     height: 16px;
+
+    &.active {
+      background: $black;
+    }
   }
 
   &__title {

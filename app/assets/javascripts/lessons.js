@@ -56,8 +56,10 @@ function addActiveClass() {
     links.forEach(function(link) {
       if (link.hash == window.location.hash) {
         link.classList.add('active');
+        link.parentNode.previousSibling.classList.add('active');
       } else {
         link.classList.remove('active');
+        link.parentNode.previousSibling.classList.remove('active');
       }
     });
   }
