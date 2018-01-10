@@ -33,7 +33,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/basic_ruby/how_this_course_will_work_lesson.md",
+  url: "/ruby_programming/basic_ruby/lesson_how_this_course_will_work.md",
   repo: 'ruby_course'
 )
 
@@ -45,7 +45,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/basic_ruby/building_blocks_lesson.md",
+  url: "/ruby_programming/basic_ruby/lesson_building_blocks.md",
   repo: 'ruby_course'
 )
 
@@ -57,7 +57,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/basic_ruby/building_blocks_project.md",
+  url: "/ruby_programming/basic_ruby/project_building_blocks.md",
   repo: 'ruby_course'
 )
 
@@ -69,7 +69,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/basic_ruby/advanced_building_blocks_lesson.md",
+  url: "/ruby_programming/basic_ruby/lesson_advanced_building_blocks.md",
   repo: 'ruby_course'
 )
 
@@ -81,7 +81,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/basic_ruby/advanced_building_blocks_project.md",
+  url: "/ruby_programming/basic_ruby/project_advanced_building_blocks.md",
   repo: 'ruby_course'
 )
 
@@ -106,7 +106,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/intermediate_ruby/oop_lesson.md",
+  url: "/ruby_programming/intermediate_ruby/lesson_oop",
   repo: 'ruby_course'
 )
 
@@ -118,7 +118,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/intermediate_ruby/oop_project.md",
+  url: "/ruby_programming/intermediate_ruby/project_oop.md",
   repo: 'ruby_course'
 )
 
@@ -130,7 +130,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/intermediate_ruby/serialization_lesson.md",
+  url: "/ruby_programming/intermediate_ruby/lesson_serialization.md",
   repo: 'ruby_course'
 )
 
@@ -142,7 +142,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/intermediate_ruby/tutorial_event_manager.md",
+  url: "/ruby_programming/intermediate_ruby/project_event_manager.md",
   repo: 'ruby_course'
 )
 
@@ -154,7 +154,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/intermediate_ruby/file_io_project.md",
+  url: "/ruby_programming/intermediate_ruby/project_file_io.md",
   repo: 'ruby_course'
 )
 
@@ -179,7 +179,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/computer_science/a_very_brief_intro_to_cs_lesson.md",
+  url: "/ruby_programming/computer_science/lesson_a_very_brief_intro_to_cs.md",
   repo: 'ruby_course'
 )
 
@@ -191,7 +191,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/computer_science/recursion_lesson.md",
+  url: "/ruby_programming/computer_science/lesson_recursion.md",
   repo: 'ruby_course'
 )
 
@@ -203,7 +203,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/computer_science/recursion_project.md",
+  url: "/ruby_programming/computer_science/project_recursion.md",
   repo: 'ruby_course'
 )
 
@@ -215,7 +215,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/computer_science/data_structures_algorithms_lesson.md",
+  url: "/ruby_programming/computer_science/lesson_common_data_structures_algorithms.md",
   repo: 'ruby_course'
 )
 
@@ -227,7 +227,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/computer_science/linked_lists_project.md",
+  url: "/ruby_programming/computer_science/project_linked_lists.md",
   repo: 'ruby_course'
 )
 
@@ -239,7 +239,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/computer_science/data_structures_algorithms_project.md",
+  url: "/ruby_programming/computer_science/project_data_structures_algorithms_project.md",
   repo: 'ruby_course'
 )
 
@@ -264,19 +264,19 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/testing_with_rspec/introduction_to_rspec_lesson.md",
+  url: "/ruby_programming/testing_with_rspec/lesson_intro_to_rspec.md",
   repo: 'ruby_course'
 )
 
 @lesson_counter += 1
 create_or_update_lesson(
-  title: "Testing Ruby",
-  title_url: "Testing Ruby".parameterize,
+  title: "Testing Your Ruby Code",
+  title_url: "Testing Your Ruby Code".parameterize,
   description: "The real way to learn is by doing, so you'll jump in the time machine and write some tests for prior projects.",
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/testing_with_rspec/testing_project.md",
+  url: "/ruby_programming/testing_with_rspec/project_testing_your_ruby_code.md",
   repo: 'ruby_course'
 )
 
@@ -301,7 +301,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/git/a_deeper_look_at_git_lesson.md",
+  url: "/ruby_programming/git/lesson_a_deeper_look_at_git.md",
   repo: 'ruby_course'
 )
 
@@ -313,7 +313,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/git/using_git_in_the_real_world_lesson.md",
+  url: "/ruby_programming/git/lesson_using_git_in_the_real_world.md",
   repo: 'ruby_course'
 )
 
@@ -338,7 +338,7 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: true,
-  url: "/ruby_programming/conclusion/final_project.md",
+  url: "/ruby_programming/conclusion/project_ruby_final.md",
   repo: 'ruby_course'
 )
 
@@ -350,6 +350,6 @@ create_or_update_lesson(
   position: @lesson_counter,
   section_id: section.id,
   is_project: false,
-  url: "/ruby_programming/conclusion/conclusion_lesson.md",
+  url: "/ruby_programming/conclusion/lesson_conclusion.md",
   repo: 'ruby_course'
 )
