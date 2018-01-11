@@ -4,12 +4,15 @@
 
 Rails.logger.info "\n\n***** STARTING COURSE: Javascript *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 5
+section_position = 500
+
 course = create_or_update_course(
   title: "Javascript",
   title_url: "Javascript".parameterize,
   description: "Make your websites dynamic and interactive with JavaScript! You'll create features and stand-alone applications. This course will wrap everything you've learned at The Odin Project into one, final capstone project.",
-  position: @course_position,
+  position: course_position
 )
 
 # :description: "Javascript is taking over the world right now -- web applications are becoming more and more front-weighted.  While it used to be mostly a tool for animating drop down menus and validating form inputs, Javascript (with help from jQuery's magic) has grown into a way to produce full featured front end applications including single-page web apps.  In this section, you'll connect the Rails back ends you're an expert at building to dynamic front ends, completing the cycle to becoming a full stack web developer.  You'll learn some really nifty tricks and build some fun games along the way, too.",
@@ -18,12 +21,12 @@ course = create_or_update_course(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Introduction",
   title_url: "Introduction".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Welcome to the JavaScript course!  Start here!"
 )
 
@@ -55,12 +58,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Organizing your JavaScript Code",
   title_url: "Organizing JavaScript".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This series digs in to the things you need to write larger and larger applications with JavaScript.  This is where it gets real!"
 )
 
@@ -189,12 +192,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "JavaScript in the Real World",
   title_url: "JavaScript in the Real World".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Let's look at a few more practical applications of JavaScript and learn about a few useful tools that are widely used in the industry."
 )
 
@@ -262,12 +265,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Asynchronous JavaScript and APIs",
   title_url: "Asynchronous JavaScript".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Asynchronous JavaScript"
 )
 
@@ -323,12 +326,12 @@ create_or_update_lesson(
 # section
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Testing JavaScript",
   title_url: "Testing JavaScript".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Test driven development is an important skill in today's dev world.  This section digs into the details of writing automated JavaScript tests."
 )
 
@@ -383,12 +386,12 @@ create_or_update_lesson(
 # section
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "javascript and rails",
   title_url: "javascript and rails".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "a real web app needs a back end in order to persist its data and do sensitive operations.  here you'll learn how to handle use ajax to send data requests to your rails back end.  you'll also get a chance to work with external apis like google maps, which is something you'll probably find yourself doing quite frequently as you build your own projects in the future."
 )
 
@@ -420,12 +423,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Finishing Up with Javascript",
   title_url: "Finishing Up with Javascript".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You've learned everything you need and all that remains to do is apply that knowledge to a worthy task.  In this section, we'll briefly cover how to test Javascript using Jasmine and then get you started with your capstone project so you can show off your range of skills."
 )
 

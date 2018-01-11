@@ -4,23 +4,27 @@
 
 Rails.logger.info "\n\n***** STARTING COURSE: Ruby on Rails *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 3
+section_position = 300
+
 course = create_or_update_course(
   title: "Ruby on Rails",
   title_url: "Ruby on Rails".parameterize,
   description: "Take Ruby to the next level with the Ruby on Rails framework! Learn how to fully craft your site's backend using the Model-View-Controller design pattern. You'll gain the confidence to launch a website in under an hour.",
-  position: @course_position,
+  position: course_position,
 )
 
 # +++++++++++
 # SECTION
 # +++++++++++
-@section_position += 1
+
+section_position += 1
 section = create_or_update_section(
   title: "The Track ahead",
   title_url: "The Track ahead".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section, have a look at the track ahead in this course."
 )
 
@@ -39,12 +43,12 @@ create_or_update_lesson(
 # +++++++++++
 # SECTION
 # +++++++++++
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Sinatra",
   title_url: "Sinatra".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section we will look at sinatra, a light weight Ruby web framework. Learning Sinatra before tackling rails will reduce the learning curve in this course significantly as sinatra will expose most of the things that rails does under the hood for you. This should give you a better understanding about how everything works with Rails."
 )
 
@@ -75,12 +79,12 @@ create_or_update_lesson(
 # +++++++++++
 # SECTION
 # +++++++++++
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Introduction to Rails",
   title_url: "Introduction to Rails".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section, we'll dive right into Rails and get you building from the start so you have an idea of what (and how) you'll learn going forward.  We'll get your feet planted in the right spot and your head pointed the right direction."
 )
 
@@ -136,12 +140,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Routes, Views, Controllers and Assets",
   title_url: "Routes, Views, Controllers and Assets".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Now that you've gotten your feet wet, it's time to start looking carefully into the foundational pieces of the Rails framework.  We'll cover the path of an HTTP request from entering your application to returning as an HTML page to the browser."
 )
 
@@ -209,12 +213,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Databases and Active Record",
   title_url: "Databases and Active Record".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This section covers the back end of Rails, which is the most important part of the framework.  You'll learn about databases and go deep into SQL before applying that knowledge to Rails' fantastic Active Record gem."
 )
 
@@ -270,12 +274,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Forms and Authentication",
   title_url: "Forms and Authentication".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This section gets into some of the areas of web apps that are less glamorous than they are important.  Forms are your user's window to interact with your application. Authentication is critical for many applications, and you'll build a couple of auth systems from the ground up."
 )
 
@@ -331,12 +335,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Advanced Forms and Active Record",
   title_url: "Advanced Forms and Active Record".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Now it's starting to get fun!  Learn how to do more than just find and show your users... you'll learn how to use relationships between models to greatly expand your abilities and how to build web forms with sufficient firepower to achieve your most ambitious goals."
 )
 
@@ -428,12 +432,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "APIs, Mailers and Advanced Topics",
   title_url: "APIs, Mailers and Advanced Topics".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This final section will take you into some of the more interesting sides of the Rails ecosystem which will help you reach beyond your own app and into the lives of your users via email or harness the powers of other apps via their APIs."
 )
 

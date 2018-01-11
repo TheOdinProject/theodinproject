@@ -4,25 +4,27 @@
 
 Rails.logger.info "\n\n***** STARTING COURSE: Web Development 101 *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 1
+section_position = 100
+
 course = create_or_update_course(
   title: "Web Development 101",
   title_url: "Web Development 101".parameterize,
   description: "This is where it all begins! A hands-on introduction to all of the essential tools you'll need to build real, working websites. You'll learn what web developers actually do – the foundations you'll need for later courses.",
-  position: @course_position,
+  position: course_position,
 )
 
+# ++++++++++++++++++++
+# SECTION - The Basics
+# ++++++++++++++++++++
 
-# +++++++++++
-# SECTION
-# +++++++++++
-
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "The Basics",
   title_url: "The Basics".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This section will cover the baseline knowledge you need before getting into the more 'programming' aspects of web development.  You'll also get a chance to install the necessary software on your computer."
 )
 
@@ -114,12 +116,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Git Basics",
   title_url: "Git Basics".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section you will learn the basics of Git and how you can upload your future projects to Github so you can share your work and collaborate with others on projects easily."
 )
 
@@ -163,12 +165,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "The Front End",
   title_url: "The Front End".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section you'll spend a good deal of time getting familiar with the major client-side (browser-based) languages like HTML, CSS, and Javascript.  You'll get to build a webpage with HTML/CSS and learn some programming fundamentals with Javascript."
 )
 
@@ -224,12 +226,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "JavaScript Basics",
   title_url: "JavaScript Basics".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Here we finally dig in to JavaScript and learn how to make the web dynamic."
 )
 
@@ -368,12 +370,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "The Back End",
   title_url: "The Back End".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Here you'll learn about the back end, where we'll demystify what goes on behind the scenes on a web server.  You'll get to take a crack at Ruby, the sublimely awesome language that runs Ruby on Rails."
 )
 
@@ -429,12 +431,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Web Development Frameworks",
   title_url: "Web Development Frameworks".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You've probably heard about 'Ruby on Rails' and 'Backbone.js' and other sleek-sounding development frameworks.  In this section, you'll learn what a framework is, why we use them, and get acquainted with the ones we'll be covering in future courses."
 )
 
@@ -477,12 +479,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Pair Programming",
   title_url: "Pair Programming".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "So far, you've probably been working by yourself. Now it's time to learn how to team up with another person anywhere in the world."
 )
 
@@ -526,12 +528,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Tying it All Together",
   title_url: "Tying it All Together".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Now that you've had a healthy taste of all the major components in a web application, we'll take a step back and remember where they all fit into the bigger picture."
 )
 

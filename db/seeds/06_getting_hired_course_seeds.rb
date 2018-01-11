@@ -3,12 +3,15 @@
 # ************************************************
 Rails.logger.info "\n\n***** STARTING COURSE: Getting Hired *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 6
+section_position = 600
+
 course = create_or_update_course(
   title: "Getting Hired",
   title_url: "Getting Hired".parameterize,
   description: "Web development is a lifelong journey of learning and growth. Continue that journey on a professional development team! You'll learn where to find jobs, how to do great interviews, and the best strategies to launch your career.",
-  position: @course_position,
+  position: course_position,
 )
 
 # :description: "Learning on your own is a long hard road and you've come incredibly far.  Good work!  With that same level of focus and dedication, you should be able to polish off your skillsets, address your weak points, and get hired as a web developer.  Because you've still got a whole lot more to learn (it's really a lifetime journey) but now the best way to do that is by surrounding yourself with other great developers.  This course is all about that next step -- what else you'll need to know, where to find jobs, how to interview, and how to ultimately get that offer in hand.  It won't be easy, but you can do it!",
@@ -17,12 +20,12 @@ course = create_or_update_course(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Preparing for Your Job Search",
   title_url: "Preparing for Your Job Search".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Your job search begins long before you send out the first application, so be sure to adequately prepare by laying out a strategy and being honest with yourself about your goals, needs and expectations."
 )
 
@@ -102,12 +105,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Applying to and Interviewing for Jobs",
   title_url: "Applying to and Interviewing for Jobs".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "This is an odds game, so you've got to structure your plan and focus on highest probability approaches and targets.  In this section we'll cover how the process typically works and the best way to increase your odds of success. Go get 'em."
 )
 

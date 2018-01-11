@@ -1,5 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# This file should contain all the record creation needed to seed the database 
+# with its default values.
+
+# The data can then be loaded with the rake db:seed (or created alongside the 
+# db with db:setup).
 
 # ******* NOTE ********
 # You will have problems if you try to change the titles of 
@@ -12,8 +15,6 @@
 # Section Has Many Lessons. Lesson Belongs To Section.
 
 # Prevent conflict of a course, section or lesson being assigned the same value
-@course_position = 0
-@section_position = 0
 @lesson_counter = 0
 
 # High number to just throw all the positions into the stratosphere to avoid 
@@ -22,10 +23,8 @@ incrementer = 2000
 
 # Public: Only run this update attributes if all have one or more records
 # in thedatabase
-if Course.all.any? && Section.all.any? && Lesson.all.any?
-  Course.all.each { |c| c.update_attribute(:position, c.position + incrementer)}
-  Section.all.each { |s| s.update_attribute(:position, s.position + incrementer)}
-  Lesson.all.each { |l| l.update_attribute(:position, l.position + incrementer)}
+if Lesson.any?
+  Lesson.all.each { |l| l.update_attribute(:position, l.position + incrementer) }
 end
 
 def create_or_update_course(course_attrs)
@@ -88,22 +87,22 @@ end
 # SEED COURSES #
 ################
 
-load './db/seeds/ruby_course_seeds.rb'
-load './db/seeds/web_dev_101_seeds.rb'
-load './db/seeds/rails_course_seeds.rb'
-load './db/seeds/html_css_course_seeds.rb'
-load './db/seeds/javascript_course_seeds.rb'
-load './db/seeds/getting_hired_course_seeds.rb'
+load './db/seeds/01_web_dev_101_seeds.rb'
+load './db/seeds/02_ruby_course_seeds.rb'
+load './db/seeds/03_rails_course_seeds.rb'
+load './db/seeds/04_html_css_course_seeds.rb'
+load './db/seeds/05_javascript_course_seeds.rb'
+load './db/seeds/06_getting_hired_course_seeds.rb'
 
 # GENERATE SUCCESS STORY Content
-load './db/seeds/success_stories.rb'
+# load './db/seeds/success_stories.rb'
 
 #################
 # SANITY CHECKS #
 #################
 
 Rails.logger.info "\n\n\n\n\n##################   SANITY CHECKS   ##################\n\n"
-Rails.logger.info "#{@course_position} courses, #{@section_position} sections and #{@lesson_counter} lessons dealt with here."
+# Rails.logger.info "#{@course_position} courses, #{@section_position} sections and #{@lesson_counter} lessons dealt with here."
 Rails.logger.info "#{Course.count} courses, #{Section.count} sections and #{Lesson.count} lessons in the database.\n"
 extra_courses = Course.where("position >= ?", incrementer)
 extra_sections = Section.where("position >= ?", incrementer)

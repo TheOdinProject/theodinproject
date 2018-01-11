@@ -4,12 +4,15 @@
 
 Rails.logger.info "\n\n***** STARTING COURSE: HTML/CSS *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 4
+section_position = 400
+
 course = create_or_update_course(
   title: "HTML5 and CSS3",
   title_url: "HTML5 and CSS3".parameterize,
   description: "Good web design doesn't happen by accident. Learn how to make all that work you've done on the backend look great in a web browser! You'll be equipped to deeply understand and create your own design frameworks.",
-  position: @course_position
+  position: course_position
 )
 
 
@@ -17,12 +20,12 @@ course = create_or_update_course(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Basic HTML Page Structure",
   title_url: "Basic HTML Page Structure".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section, we'll cover the whole range of HTML5 so you'll be completely comfortable with putting the right elements in the right places on a page."
 )
 
@@ -103,12 +106,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Displaying and Inputting Data",
   title_url: "Displaying and Inputting Data".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Displaying and inputting data are two of your chief duties as a web developer. We'll cover the tools at your disposal, including tables and lists for display and forms for input."
 )
 
@@ -164,12 +167,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "CSS3",
   title_url: "CSS3".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "Here we'll cover each of the foundational CSS concepts in greater depth than you probably have before."
 )
 
@@ -261,12 +264,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Design and UX",
   title_url: "Design and UX".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "If you want to make your websites stop looking like they came from the 1990's, you'll need to gain an understanding for at least the best practices of design and User Experience (UX).  Not knowing this stuff is like charging over the next hill without any idea of why you're doing it."
 )
 
@@ -322,12 +325,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Responsive Design and CSS Frameworks",
   title_url: "Responsive Design and CSS Frameworks".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "These days you need to make sure your pages display easily on multiple viewport sizes by using fluid layouts and media queries.  Luckily there are CSS frameworks like Twitter Bootstrap that can save you a ton of time developing standard pages and which come with responsive functionality for free."
 )
 
@@ -383,12 +386,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Advanced CSS3",
   title_url: "Advanced CSS3".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "We'll take you beyond the basics of CSS and into a variety of additional topics from how to add some stylistic flair to your elements to using tools like preprocessors to save time and reduce repetition in your code."
 )
 

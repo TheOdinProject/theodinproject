@@ -4,24 +4,27 @@
 
 Rails.logger.info "\n\n***** STARTING COURSE: Ruby Programming *****"
 
-@course_position += 1
+# Set Course and section position here. Update file name appropriately.
+course_position = 2
+section_position = 200
+
 course = create_or_update_course(
   title: "Ruby Programming",
   title_url: "Ruby Programming".parameterize,
   description: "Time to dive deep into Ruby, the language 'designed for programmer happiness.' You'll cover object-oriented design, testing, and data structures – essential knowledge for learning other programming languages, too!",
-  position: @course_position,
+  position: course_position,
 )
 
 # +++++++++++
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Basic Ruby",
   title_url: "Basic Ruby".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section, we'll cover the basic building blocks of Ruby so you have them down cold.  Everything else you'll learn in programming builds on these concepts, so you'll be in a great place to take on additional projects and languages in the future."
 )
 
@@ -89,12 +92,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Intermediate Ruby",
   title_url: "Intermediate Ruby".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You've got tools in your Ruby tool box and now it's time to combine them into more meaningful programs.  In this section, you'll learn how to turn your spaghetti code into properly organized methods and classes.  You'll also learn how to serialize code and save it into files."
 )
 
@@ -162,12 +165,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "A Bit of Computer Science",
   title_url: "A Bit of Computer Science".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "In this section, you'll learn some fundamental computer science concepts that will help you when solving problems with a bit more complexity than just simple web serving.  You get to try on your engineering hat and solve some pretty nifty problems."
 )
 
@@ -247,12 +250,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Testing Ruby with RSpec",
   title_url: "Testing Ruby with RSpec".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You've been briefly introduced to testing in Ruby a couple of times before in the Web Development 101 course, but now you're going to really learn why testing can be hugely helpful and how to apply it to your own projects."
 )
 
@@ -284,12 +287,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Git",
   title_url: "Git".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You should be familiar with the basic Git workflow since you've been using it to save your projects along the way (right?!).  This section will start preparing you for for the more intermediate-level uses of Git that you'll find yourself doing ."
 )
 
@@ -321,12 +324,12 @@ create_or_update_lesson(
 # SECTION
 # +++++++++++
 
-@section_position += 1
+section_position += 1
 section = create_or_update_section(
   title: "Conclusion",
   title_url: "Conclusion".parameterize,
   course_id: course.id,
-  position: @section_position,
+  position: section_position,
   description: "You've come an exceptional distance already, now there's just the matter of wrapping it all together into one coherant package and creating something real.  This is your Final Exam and a major feather in your cap.  Once you've completed this section, you should have the confidence to tackle pretty much anything."
 )
 
