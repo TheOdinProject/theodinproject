@@ -17,4 +17,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require scrollspy.min
+//= require stickyFill.min
 //= require_tree .

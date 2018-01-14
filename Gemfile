@@ -28,6 +28,7 @@ gem 'gibbon',                       '~> 3.2.0' # for Mailchimp
 gem 'nokogiri', '1.8.1'
 gem 'toastr-rails'
 gem 'httparty', '~> 0.15.6'
+gem 'skylight'
 
 group :production do
   gem 'rails_12factor',             '~> 0.0.3'
