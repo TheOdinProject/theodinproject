@@ -71,7 +71,7 @@ function constructLessonNavigation() {
     var navigationColumn = document.querySelector('.lesson .col-lg-3');
     var lessonColumn = document.querySelector('.lesson .row');
 
-    navigationColumn.style.display = 'none';
+    navigationColumn.classList.add('d-none');
     lessonColumn.classList.add('justify-content-center');
   } else {
     var lessonNavigationHTML = lessonNavigation(commonHeadings);
