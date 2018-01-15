@@ -30,7 +30,7 @@ class ProjectReporter
   end
 
   def report_message
-    return unless description.present?
+    return if description.blank?
     "**Reporter's message**: #{description}"
   end
 
