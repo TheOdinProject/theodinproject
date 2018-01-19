@@ -6,8 +6,6 @@ document.addEventListener('turbolinks:load', function() {
   floatingMenu.addEventListener('mouseover', function() {
     chatFloatingMenu.className += ' floating-btn-show';
     forumFloatingMenu.className += ' floating-btn-show';
-    chatFloatingMenu.classList.remove('d-none');
-    forumFloatingMenu.classList.remove('d-none');
   });
 
   floatingMenu.addEventListener('mouseout', function() {
