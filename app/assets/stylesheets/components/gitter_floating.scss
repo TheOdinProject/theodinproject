@@ -16,8 +16,8 @@
     }
 
     &.main-floating-btn {
-      margin-bottom: 20px;
-      z-index: 3;
+      position: relative;
+      z-index: 2;
 
       .fa.fa-comments {
         color: $white;
@@ -32,7 +32,8 @@
       padding: 0.5em;
       margin-right: 0.6em;
       margin-left: 0.6em;
-      z-index: 0;
+      z-index: 1;
+      position: relative;
 
       .fa {
         color: $white;
