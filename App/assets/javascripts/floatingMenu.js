@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
-  const floatingMenu = document.querySelector('.floating-dropdown');
-  const chatFloatingMenu = document.querySelector('.forum-floating-btn');
-  const forumFloatingMenu = document.querySelector('.chat-floating-btn');
+  var floatingMenu = document.querySelector('.floating-dropdown');
+  var chatFloatingMenu = document.querySelector('.forum-floating-btn');
+  var forumFloatingMenu = document.querySelector('.chat-floating-btn');
 
   floatingMenu.addEventListener('mouseover', function() {
     chatFloatingMenu.className += ' floating-btn-show';
