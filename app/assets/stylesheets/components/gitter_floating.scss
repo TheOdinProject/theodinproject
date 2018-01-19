@@ -40,13 +40,14 @@
         font-size: 1.2em;
       }
     }
+  }
+}
 
-    &.floating-btn-show {
-      margin: 0 9px 20px 9px;
-      opacity: 1;
-      display: block;
-      transition: margin 1s, opacity 1s;
-    }
+.floating-dropdown:hover {
+  .chat-floating-btn, .forum-floating-btn {
+    margin: 0 9px 20px 9px;
+    opacity: 1;
+    transition: margin 1s, opacity 1s;
   }
 }
 
