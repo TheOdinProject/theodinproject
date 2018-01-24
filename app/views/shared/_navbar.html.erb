@@ -21,11 +21,18 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Community
           </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-top" aria-labelledby="navbarDropdown">
-            <%= link_to 'Forum', '#', class: 'dropdown-item' %>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'Chat', chat_link, class: 'dropdown-item gitter-chat-link', target: '_blank' %>
-          </div>
+          <ul class="dropdown-menu dropdown-menu-right menu-options pb-0">
+            <li>
+              <%= link_to forum_link, class: "drop-down-link accent" do %>
+                <span class="drop-down-logo fa fa-users mt-2"></span>Forum
+              <% end %>
+            </li>
+            <li>
+              <%= link_to chat_link, class: 'drop-down-link accent' do %>
+                <span class="drop-down-logo fa fa-comment mt-2"></span>Chat
+              <% end %>
+            </li>
+          </ul>
         </li>
 
         <li class="divider nav-link">|</li>
@@ -41,11 +48,18 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Community
           </a>
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-top" aria-labelledby="navbarDropdown">
-            <%= link_to 'Forum', '#', class: 'dropdown-item' %>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'Chat', chat_link, class: 'dropdown-item gitter-chat-link', target: '_blank' %>
-          </div>
+          <ul class="dropdown-menu dropdown-menu-right menu-options pb-0">
+            <li>
+              <%= link_to forum_link, class: "drop-down-link accent" do %>
+                <span class="drop-down-logo fa fa-users mt-2"></span>Forum
+              <% end %>
+            </li>
+            <li>
+              <%= link_to chat_link, class: 'drop-down-link accent' do %>
+                <span class="drop-down-logo fa fa-comment mt-2"></span>Chat
+              <% end %>
+            </li>
+          </ul>
         </li>
         <li class="nav-item <%= active_class(about_path) %>">
           <%= link_to 'About', about_path(ref: 'homenav'), class: 'nav-link' %>
