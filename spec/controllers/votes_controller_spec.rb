@@ -18,7 +18,6 @@ RSpec.describe VotesController do
 
   before do
     allow(Project).to receive(:find).with(project_id).and_return(project)
-
     allow(controller).to receive(:current_user).and_return(user)
     allow(controller).to receive(:user_signed_in?).and_return(user_signed_in?)
     allow(project).to receive(:upvote_for).with(user)
@@ -26,9 +25,11 @@ RSpec.describe VotesController do
   end
 
   describe '#create' do
-    it 'creates a new user vote for the project' do
-      post :create, params: params, format: :js
-      expect(project).to have_received(:upvote_for).with(user)
+    context "user votes another user's project" do
+      it 'creates a new user vote for the project' do
+        post :create, params: params, format: :js
+        expect(project).to have_received(:upvote_for).with(user)
+      end
     end
 
     context 'when user is not signed in' do
@@ -40,9 +41,9 @@ RSpec.describe VotesController do
       end
     end
 
-    context 'returns bad request when user tries to vote his own project' do
-      before do
-        allow(controller).to receive(:current_user).and_return(:other_user)
+    context 'when user tries to vote his own project' do
+      it 'returns bad request' do
+        allow(controller).to receive(:current_user).and_return(other_user)
         post :create, params: params, format: :js
         expect(response).to have_http_status(:bad_request)
       end
