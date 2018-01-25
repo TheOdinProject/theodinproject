@@ -30,8 +30,9 @@ class ProjectReporter
   end
 
   def report_message
-    return if description.blank?
-    "**Reporter's message**: #{description}"
+    if description.present?
+      "**Reporter's message**: #{description}"
+    end
   end
 
   def gitter_client
