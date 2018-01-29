@@ -1,4 +1,4 @@
-<% if @project_saved %>
+<% if @project.persisted? %>
   $('#project-submission-modal').modal('hide');
   $('.modal-backdrop').remove();
   toastr.success('Your submission was added', 'Success!');
