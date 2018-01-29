@@ -1,37 +1,47 @@
-<div class="project-form-container">
-  <h1 class="text-center project-form-title accent">Upload your project</h1>
+<div class="card-main card-main--shadowless project-form">
+  <h1 class="text-center project-form__title accent">Upload your project</h1>
 
-  <%= form_for([lesson, project], remote: true) do |f| %>
-    <div class="form-group">
-      <div class="input-group">
-        <i class="fa fa-github"></i>
-        <%= f.text_field :repo_url, class: 'form-control',
-          placeholder: 'Repository URL' %>
-      </div>
+  <%= form_for [lesson, project], remote: true, class: 'form' do |form| %>
+    <div class="form__section">
+      <span class="fa fa-github form__icon"></span>
+      <%= form.text_field :repo_url,
+        class: 'form__element form__element--with-icon',
+        placeholder: 'Repository URL'
+      %>
     </div>
 
     <% if lesson.has_live_preview? %>
-      <div class="form-group">
-        <div class="input-group">
-          <i class="fa fa-paperclip"></i>
-          <%= f.text_field :live_preview, class: 'form-control',
-          placeholder: 'Live Preview URL' %>
-        </div>
+      <div class="form__section">
+        <span class="fa fa-paperclip form__icon"></span>
+        <%= form.text_field :live_preview,
+          class: 'form__element form__element--with-icon',
+          placeholder: 'Live Preview URL'
+        %>
       </div>
     <% end %>
 
-    <div class="form-group text-center">
-      <%= f.submit (project.new_record? ? 'Upload project' : 'Update project'),
-        class: 'button button--primary project-submit-btn',
-        disable_with: (project.new_record? ? 'Uploading project...' : 'Updating project..') %>
-      <button type="button" class="button cancel-button" data-dismiss="modal">Cancel</button>
+    <div class="form__section text-center">
+      <%= form.submit (project.new_record? ? 'Upload project' : 'Update project'),
+        class: 'button button--primary project-form__button project-form__submit-btn',
+        disable_with: (project.new_record? ? 'Uploading project...' : 'Updating project..')
+      %>
+    </div>
+
+    <div class="form__section text-center">
+      <%= button_tag 'Cancel',
+        type: 'button',
+        class: 'button project-form__button',
+        data: { dismiss: 'modal' }
+      %>
     </div>
 
     <% if project.persisted? %>
-      <div class="form-group text-center">
-        <button type="button" class="button btn-danger" data-target="#delete-project-modal" data-toggle="modal">
-          Delete
-        </button>
+      <div class="form__section text-center">
+        <%= button_tag 'Delete',
+          type: 'button',
+          class: 'button project-form__button btn-danger',
+          data: { toggle: 'modal', target: '#delete-project-modal' }
+        %>
       </div>
     <% end %>
   <% end %>

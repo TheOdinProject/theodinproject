@@ -109,7 +109,8 @@ ul {
 
 [type="text"],
 [type="email"],
-[type="password"] {
+[type="password"],
+textarea {
   background-color: $pale-grey-bg;
   font-family: $body-fonts;
   padding: 0.7rem 1rem 0.7rem 1rem;
