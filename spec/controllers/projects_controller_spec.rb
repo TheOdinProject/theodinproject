@@ -69,29 +69,17 @@ RSpec.describe ProjectsController, type: :controller do
         allow(controller).to receive(:new_project).and_return(student_project)
       end
 
-      context 'valid values' do
-        it 'assigns recent submissions' do
-          allow(student_project).to receive(:save).and_return(true)
-          allow(controller).to receive(:latest_projects).and_return(projects)
-          subject
-          expect(assigns(:projects)).to eq(projects)
-        end
-
-        it 'renders the create template' do
-          allow(student_project).to receive(:save).and_return(true)
-          allow(controller).to receive(:latest_projects).and_return(projects)
-          expect(subject).to render_template(:create)
-        end
+      it 'assigns recent submissions' do
+        allow(student_project).to receive(:save).and_return(true)
+        allow(controller).to receive(:latest_projects).and_return(projects)
+        subject
+        expect(assigns(:projects)).to eq(projects)
       end
 
-      context 'invalid values' do
-        subject { post :create, params: invalid_params, xhr: true }
-
-        it 'renders the create template' do
-          allow(student_project).to receive(:save).and_return(false)
-          allow(controller).to receive(:latest_projects).and_return(projects)
-          expect(subject).to render_template(:create)
-        end
+      it 'renders the create template' do
+        allow(student_project).to receive(:save).and_return(true)
+        allow(controller).to receive(:latest_projects).and_return(projects)
+        expect(subject).to render_template(:create)
       end
     end
   end
