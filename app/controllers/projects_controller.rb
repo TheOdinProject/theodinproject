@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_request, except: :index
   before_action :find_lesson
-  before_action :find_project, only: %i(update destroy report)
+  before_action :find_project, only: %i(update destroy)
 
   authorize_resource only: %i(update destroy)
 
@@ -21,14 +21,6 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
     @decorated_project = ProjectDecorator.new(@project)
-  end
-
-  def report
-    @reported = ProjectReporter.report(
-      project: @project,
-      reporter: current_user,
-      description: params[:description]
-    )
   end
 
   def destroy

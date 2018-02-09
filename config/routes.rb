@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     delete 'lesson_completions' => 'lesson_completions#destroy', :as => 'lesson_completions'
   end
 
-  post 'report_project' => 'projects#report'
+  resources :reports, only: :create
 
   match '/404' => 'errors#not_found', via: [ :get, :post, :patch, :delete ]
 

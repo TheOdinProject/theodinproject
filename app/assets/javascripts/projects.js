@@ -13,6 +13,6 @@ $(document).on('turbolinks:load', function() {
 
   $('.project__report-link').click(function() {
     var projectId = this.dataset.projectId;
-    $('#id').val(projectId);
+    $('#project_id').val(projectId);
   });
 });

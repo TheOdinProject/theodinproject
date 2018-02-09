@@ -2,9 +2,8 @@
   <div class="col-12">
     <h1 class="text-center">Report project</h1>
 
-    <%= form_tag report_project_path, remote: true, class: 'form' do %>
-      <%= hidden_field_tag :lesson_id, lesson.id %>
-      <%= hidden_field_tag :id %>
+    <%= form_tag reports_path, remote: true, class: 'form' do %>
+      <%= hidden_field_tag :project_id %>
 
       <div class="form__section">
         <%= label_tag :description %>
