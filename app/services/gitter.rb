@@ -2,25 +2,21 @@ require 'json'
 
 module Gitter
   class Client
-    include HTTParty
-  
-    base_uri 'https://api.gitter.im/v1'
+    attr_reader :connection, :token
 
     def initialize(token:)
       @token = token
+      @connection = Faraday.new(headers: headers)
     end
 
     def send_message(text:, room_id:)
-      self.class.post(
-        "/rooms/#{room_id}/chatMessages",
-        headers: headers,
-        body: { text: text }.to_json
-      )
+      connection.post do |req|
+        req.url "https://api.gitter.im/v1/rooms/#{room_id}/chatMessages"
+        req.body = { text: text }.to_json
+      end
     end
 
     private
-
-    attr_reader :token
 
     def headers
       {
