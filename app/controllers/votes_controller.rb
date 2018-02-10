@@ -1,14 +1,16 @@
 class VotesController < ApplicationController
   before_action :authenticate_request
-  before_action :set_project
-  before_action :check_self_voting
 
   def create
+    @project = Project.find(params[:project_id])
+    check_self_voting
     @project.upvote_for(current_user)
     @decorated_project = ProjectDecorator.new(@project)
   end
 
   def destroy
+    @project = Project.find(params[:project_id])
+    check_self_voting
     @project.remove_vote_for(current_user)
     @decorated_project = ProjectDecorator.new(@project)
   end
