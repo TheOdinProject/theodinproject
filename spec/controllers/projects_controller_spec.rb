@@ -37,7 +37,8 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe 'GET #index' do
     before do
-      stub_lesson
+      allow(Lesson).to receive_message_chain(:friendly, :find)
+        .with(valid_params[:lesson_id]).and_return(lesson)
       allow(Project).to receive(:all_submissions).with('1').and_return(projects)
       allow(projects).to receive(:order).with(updated_at: :desc).and_return(projects)
       allow(projects).to receive(:page).and_return(projects)
@@ -64,8 +65,9 @@ RSpec.describe ProjectsController, type: :controller do
 
     context 'authenticated' do
       before do
-        stub_current_user_with(student)
-        stub_lesson
+        allow(controller).to receive(:current_user).and_return(student)
+        allow(Lesson).to receive_message_chain(:friendly, :find)
+          .with(valid_params[:lesson_id]).and_return(lesson)
         allow(controller).to receive(:new_project).and_return(student_project)
       end
 
@@ -99,10 +101,12 @@ RSpec.describe ProjectsController, type: :controller do
       context 'standard user' do
         describe 'can update his/her project' do
           before do
-            stub_current_user_with(student)
-            stub_lesson
-            stub_project(student_project)
-            stub_authorize(:update, student_project)
+            allow(controller).to receive(:current_user).and_return(student)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(student_project.id).and_return(student_project)
+            allow(controller).to receive(:authorize!).with(:update, student_project)
+              .and_return(student_project)
           end
 
           context 'valid values' do
@@ -128,10 +132,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(student)
-            stub_lesson
-            stub_project(admin_project)
-            stub_authorize_to_raise(:update, admin_project)
+            allow(controller).to receive(:current_user).and_return(student)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(admin_project.id).and_return(admin_project)
+            allow(controller).to receive(:authorize!).with(:update, admin_project)
+              .and_raise(CanCan::AccessDenied)
           end
 
           it_behaves_like 'unauthorized XHR request'
@@ -146,10 +152,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(admin)
-            stub_lesson
-            stub_project(admin_project)
-            stub_authorize(:update, admin_project)
+            allow(controller).to receive(:current_user).and_return(admin)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(admin_project.id).and_return(admin_project)
+            allow(controller).to receive(:authorize!).with(:update, admin_project)
+              .and_return(admin_project)
           end
 
           context 'valid values' do
@@ -174,10 +182,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(admin)
-            stub_lesson
-            stub_project(student_project)
-            stub_authorize(:update, student_project)
+            allow(controller).to receive(:current_user).and_return(admin)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(student_project.id).and_return(student_project)
+            allow(controller).to receive(:authorize!).with(:update, student_project)
+              .and_return(student_project)
           end
 
           context 'valid values' do
@@ -213,10 +223,12 @@ RSpec.describe ProjectsController, type: :controller do
       context 'standard user' do
         describe 'can destroy his/her project' do
           before do
-            stub_current_user_with(student)
-            stub_lesson
-            stub_project(student_project)
-            stub_authorize(:destroy, student_project)
+            allow(controller).to receive(:current_user).and_return(student)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(student_project.id).and_return(student_project)
+            allow(controller).to receive(:authorize!).with(:destroy, student_project)
+              .and_return(student_project)
             allow(controller).to receive(:new_project).and_return(student_project) 
           end
 
@@ -242,10 +254,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(student)
-            stub_lesson
-            stub_project(admin_project)
-            stub_authorize_to_raise(:destroy, admin_project)
+            allow(controller).to receive(:current_user).and_return(student)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(admin_project.id).and_return(admin_project)
+            allow(controller).to receive(:authorize!).with(:destroy, admin_project)
+              .and_raise(CanCan::AccessDenied)
           end
 
           it_behaves_like 'unauthorized XHR request'
@@ -261,10 +275,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(admin)
-            stub_lesson
-            stub_project(admin_project)
-            stub_authorize(:destroy, admin_project)
+            allow(controller).to receive(:current_user).and_return(admin)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(admin_project.id).and_return(admin_project)
+            allow(controller).to receive(:authorize!).with(:destroy, admin_project)
+              .and_return(admin_project)
             allow(controller).to receive(:new_project).and_return(admin_project)
             allow(controller).to receive(:latest_projects).and_return(projects)
           end
@@ -290,10 +306,12 @@ RSpec.describe ProjectsController, type: :controller do
           }
 
           before do
-            stub_current_user_with(admin)
-            stub_lesson
-            stub_project(student_project)
-            stub_authorize(:destroy, student_project)
+            allow(controller).to receive(:current_user).and_return(admin)
+            allow(Lesson).to receive_message_chain(:friendly, :find)
+              .with(valid_params[:lesson_id]).and_return(lesson)
+            allow(Project).to receive(:find).with(student_project.id).and_return(student_project)
+            allow(controller).to receive(:authorize!).with(:destroy, student_project)
+              .and_return(student_project)
             allow(controller).to receive(:new_project).and_return(admin_project)
             allow(controller).to receive(:latest_projects).and_return(projects)
           end
@@ -311,28 +329,5 @@ RSpec.describe ProjectsController, type: :controller do
         end
       end
     end
-  end
-
-  def stub_current_user_with(user)
-    allow(controller).to receive(:current_user).and_return(user)
-  end
-
-  def stub_lesson
-    allow(Lesson).to receive_message_chain(:friendly, :find)
-      .with(valid_params[:lesson_id]).and_return(lesson)
-  end
-
-  def stub_project(project)
-    allow(Project).to receive(:find).with(project.id).and_return(project)
-  end
-  
-  def stub_authorize(action, resource)
-    allow(controller).to receive(:authorize!).with(action, resource)
-      .and_return(resource)
-  end
-
-  def stub_authorize_to_raise(action, resource)
-    allow(controller).to receive(:authorize!).with(action, resource)
-      .and_raise(CanCan::AccessDenied)
   end
 end
