@@ -8,28 +8,7 @@
   </div>
 
   <div class="col-7 col-sm-9 col-md-3 col-lg-3 project__owner-name bold">
-    <% if project.user == current_user %>
-      <%= link_to '#',
-        data: {toggle: 'modal',
-          target: '#project-submission-modal'
-        } do %>
-       <%= project.owner_name.capitalize %>
-      <% end %>
-    <% else %>
-      <% if user_signed_in? %>
-        <%= link_to '#',
-          class: 'project__report-link',
-          data: {
-            'toggle' => 'modal',
-            'target' => '#project-report-modal',
-            'project-id' => project.id,
-          },
-          title: 'Report project' do %>
-          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
-      <%= project.owner_name.capitalize %>
-    <% end %>
+    <%= render 'projects/owner_name_and_report_link', project: project %>
   </div>
 
   <div class="col-md-7 col-lg-6 project__buttons">
