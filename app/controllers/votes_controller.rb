@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   before_action :authenticate_request
   before_action :set_project
-  before_action :check_owner
+  before_action :check_self_voting
 
   def create
     @project.upvote_for(current_user)
@@ -15,7 +15,7 @@ class VotesController < ApplicationController
 
   private
 
-  def check_owner
+  def check_self_voting
     head :bad_request if @project.user == current_user
   end
 
