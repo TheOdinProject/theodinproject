@@ -1,4 +1,6 @@
 class ProjectReporter
+  attr_reader :project, :reporter, :description
+
   def initialize(project, reporter, description)
     @project = project
     @reporter = reporter
@@ -17,8 +19,6 @@ class ProjectReporter
   end
 
   private
-
-  attr_reader :project, :reporter, :description
 
   def message
     <<~MESSAGE
