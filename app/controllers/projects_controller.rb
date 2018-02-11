@@ -36,9 +36,9 @@ class ProjectsController < ApplicationController
   end
 
   def new_project(parameters = {})
-    project = current_user.projects.new(parameters)
-    project.lesson_id = @lesson.id
-    project
+    current_user.projects.new(parameters).tap do |project|
+      project.lesson_id = @lesson.id
+    end
   end
 
   def latest_projects
