@@ -25,8 +25,7 @@ gem 'tether-rails' # dependency for bootstrap tooltips
 gem 'acts_as_votable'
 gem 'kramdown'
 gem 'gibbon',                       '~> 3.2.0' # for Mailchimp
-gem 'nokogiri', '1.8.2'
-gem 'toastr-rails'
+gem 'nokogiri',                     '~> 1.8', '>= 1.8.2'
 gem 'skylight'
 
 group :production do

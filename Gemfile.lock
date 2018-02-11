@@ -410,7 +410,7 @@ DEPENDENCIES
   kramdown
   letter_opener (~> 1.4)
   newrelic_rpm (~> 3.17)
-  nokogiri (= 1.8.2)
+  nokogiri (~> 1.8, >= 1.8.2)
   octokit (~> 4.6)
   omniauth-github (~> 1.1.2)
   omniauth-google-oauth2 (~> 0.5.1)
