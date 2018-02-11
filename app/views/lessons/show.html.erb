@@ -54,13 +54,13 @@
 
       <% if @projects && ProjectSubmissionFeature.enabled? %>
         <div id="submissions">
-          <%= render 'recent_submissions', projects: @projects, lesson: @lesson %>
+          <%= render 'recent_submissions',
+            projects: @projects,
+            project: @project,
+            lesson: @lesson
+          %>
         </div>
       <% end %>
-
-      <div id="new-submission">
-        <%= render 'add_submission_button' if @project&.new_record? %>
-      </div>
     </div>
 
     <%= render 'shared/bottom_cta',

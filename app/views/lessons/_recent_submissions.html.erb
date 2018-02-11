@@ -13,6 +13,10 @@
     </div>
   </div>
 
+  <div id="new-submission">
+    <%= render 'lessons/new_submission' if project&.new_record? %>
+  </div>
+
   <% projects.each do |project| %>
     <div id="project-<%= project.id %>">
       <%= render 'projects/project', project: ProjectDecorator.new(project) %>

@@ -5,7 +5,7 @@
   $('#add-submission-button').remove();
 
   $('#submissions')
-    .html("<%= j render 'lessons/recent_submissions', projects: @projects, lesson: @lesson %>");
+    .html("<%= j render 'lessons/recent_submissions', projects: @projects, project: @project, lesson: @lesson %>");
   $('#project-submission-modal-wrapper')
     .html("<%= j render 'form_modal', lesson: @lesson, project: @project %>");
   $('body')
