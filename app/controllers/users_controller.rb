@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @courses = decorated_courses
-    @projects = @user.projects.includes(:lesson)
+    @projects = @user.projects_with_lesson
   end
 
   def update
