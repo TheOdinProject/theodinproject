@@ -1,2 +1,0 @@
-class SuccessStory < ApplicationRecord
-end
