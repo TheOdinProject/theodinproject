@@ -1,5 +1,5 @@
 class ProjectSubmissionFeature
   def self.enabled?
-    true
+    false
   end
 end
