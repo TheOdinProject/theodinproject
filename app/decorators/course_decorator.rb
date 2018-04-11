@@ -21,7 +21,8 @@ class CourseDecorator < ApplicationDecorator
       'Ruby Programming' => 'badges/badge-ruby-borderless.svg',
       'Javascript' => 'badges/badge-javascript-borderless.svg',
       'Ruby on Rails' => 'badges/badge-ruby-on-rails-borderless.svg',
-      'Getting Hired' => 'badges/badge-getting-hired-borderless.svg'
+      'Getting Hired' => 'badges/badge-getting-hired-borderless.svg',
+      'Databases' => 'badge-database-borderless.svg',
     }
   end
 
