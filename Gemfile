@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.3'
+ruby '2.5'
 
 gem 'rails',                        '~> 5.0.0'
-gem 'puma',                         '~> 3.6.0'
+gem 'puma',                         '~> 3.11.2'
 gem 'turbolinks'
 gem 'jquery-rails',                 '~> 4.2.1'
-gem 'devise',                       '~> 4.2.0' # Managing environment variables
+gem 'devise',                       '~> 4.4.0' # Managing environment variables
 gem 'rack-timeout',                 '~> 0.4'
 gem 'kaminari',                     '~> 1.0', '>= 1.0.1'
 gem 'pg',                           '~> 0.19'
@@ -24,8 +24,10 @@ gem 'rack-attack'
 gem 'tether-rails' # dependency for bootstrap tooltips
 gem 'acts_as_votable'
 gem 'kramdown'
+gem 'toastr-rails'
 gem 'gibbon',                       '~> 3.2.0' # for Mailchimp
-gem 'nokogiri', '1.8.1'
+gem 'nokogiri',                     '~> 1.8', '>= 1.8.2'
+gem 'skylight'
 
 group :production do
   gem 'rails_12factor',             '~> 0.0.3'

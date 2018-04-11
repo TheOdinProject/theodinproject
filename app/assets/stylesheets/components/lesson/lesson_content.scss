@@ -1,6 +1,9 @@
 .lesson-content {
-  margin-top: 50px;
   padding-bottom: 60px;
+
+  h3:first-child {
+    margin-top: 0;
+  }
 
   h3 {
     margin-bottom: 20px;
@@ -96,4 +99,20 @@
   &__small-image {
     width: auto !important;
   }
+
+  details {
+    summary {
+      color: $grey;
+      font-size: 1.125rem;
+    }
+    
+    ul {
+      margin: 15px;
+    }
+  }
+
+  details:last-child {
+    margin-bottom: 30px;
+  }
+
 }

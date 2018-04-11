@@ -86,6 +86,7 @@ GEM
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    crass (1.0.3)
     css_parser (1.5.0)
       addressable
     cucumber (2.4.0)
@@ -119,10 +120,10 @@ GEM
       thor (~> 0.19)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
-    devise (4.2.1)
+    devise (4.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
+      railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
@@ -161,7 +162,8 @@ GEM
     hashie (3.5.5)
     heapy (0.1.2)
     htmlentities (4.3.4)
-    i18n (0.8.4)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
@@ -186,22 +188,23 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    loofah (2.0.3)
+    loofah (2.2.2)
+      crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
     memory_profiler (0.9.8)
-    method_source (0.8.2)
+    method_source (0.9.0)
     mime-types (2.99.3)
     mini_portile2 (2.3.0)
-    minitest (5.10.2)
+    minitest (5.11.3)
     multi_json (1.12.1)
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     newrelic_rpm (3.18.1.330)
     nio4r (2.1.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -243,8 +246,8 @@ GEM
     premailer-rails (1.9.6)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    puma (3.6.2)
-    rack (2.0.3)
+    puma (3.11.2)
+    rack (2.0.4)
     rack-attack (5.0.1)
       rack
     rack-test (0.6.3)
@@ -269,8 +272,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.3)
-      loofah (~> 2.0)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -335,6 +338,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.1)
+    skylight (1.5.0)
+      activesupport (>= 3.0.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -344,13 +349,15 @@ GEM
       sprockets (>= 3.0.0)
     tether-rails (1.4.0)
       rails (>= 3.1)
-    thor (0.19.4)
+    thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.7)
+    toastr-rails (1.0.3)
+      railties (>= 3.1.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
-    tzinfo (1.2.3)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
@@ -394,7 +401,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner (~> 1.5)
   derailed
-  devise (~> 4.2.0)
+  devise (~> 4.4.0)
   factory_girl_rails (~> 4.7)
   figaro (= 1.1)
   font-awesome-rails (~> 4.7)
@@ -406,7 +413,7 @@ DEPENDENCIES
   kramdown
   letter_opener (~> 1.4)
   newrelic_rpm (~> 3.17)
-  nokogiri (= 1.8.1)
+  nokogiri (~> 1.8, >= 1.8.2)
   octokit (~> 4.6)
   omniauth-github (~> 1.1.2)
   omniauth-google-oauth2 (~> 0.5.1)
@@ -414,7 +421,7 @@ DEPENDENCIES
   phantomjs (~> 2.1)
   poltergeist (~> 1.1)
   premailer-rails (~> 1.9)
-  puma (~> 3.6.0)
+  puma (~> 3.11.2)
   rack-attack
   rack-timeout (~> 0.4)
   rails (~> 5.0.0)
@@ -427,7 +434,9 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
   simplecov
+  skylight
   tether-rails
+  toastr-rails
   turbolinks
   uglifier (~> 3.0)
   vcr (~> 3.0)
@@ -435,7 +444,7 @@ DEPENDENCIES
   webmock (~> 2.1)
 
 RUBY VERSION
-   ruby 2.3.0p0
+   ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
