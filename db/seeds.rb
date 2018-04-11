@@ -14,19 +14,9 @@
 # Course Has Many Sections. Section Belongs To Course.
 # Section Has Many Lessons. Lesson Belongs To Section.
 
-# Prevent conflict of a course, section or lesson being assigned the same value
-@lesson_counter = 0
-
-# High number to just throw all the positions into the stratosphere to avoid
-# the annoyance of having to not duplicate them when updating lessons
-incrementer = 3000
 
 # Public: Only run this update attributes if all have one or more records
 # in thedatabase
-if Lesson.any?
-  Lesson.all.each { |l| l.update_attribute(:position, l.position + incrementer) }
-end
-
 def create_or_update_course(course_attrs)
   course = Course.where(title: course_attrs[:title]).first
 
@@ -83,8 +73,6 @@ def require_updates?(real_attrs, seed_attrs)
   # SAY "UPDATED" EVEN IF NOTHING CHANGED
 end
 
-
-
 load './db/seeds/01_web_dev_101_seeds.rb'
 load './db/seeds/02_ruby_course_seeds.rb'
 load './db/seeds/03_database_course_seeds.rb'
@@ -103,35 +91,4 @@ load './db/seeds/07_getting_hired_course_seeds.rb'
 
 Rails.logger.info "\n\n\n\n\n##################   SANITY CHECKS   ##################\n\n"
 Rails.logger.info "#{Course.count} courses, #{Section.count} sections and #{Lesson.count} lessons in the database.\n"
-extra_courses = Course.where("position >= ?", incrementer)
-extra_sections = Section.where("position >= ?", incrementer)
-extra_lessons = Lesson.where("position >= ?", incrementer)
-
-if extra_courses.count > 0 || extra_lessons.count > 0 || extra_sections.count > 0
-  "\n\nWARNING: You have leftover courses, sections or lessons in the database.  Probably a title duplicate.  Recommend deleting all instances with position >= #{incrementer}.\n\n"
-else
-  Rails.logger.info "There appears to be no leftover stuff in the database.  Go about your day in peace."
-end
-
-if extra_courses.count > 0
-  Rails.logger.warn "\n WARNING: #{extra_courses.count} leftover courses!"
-  extra_courses.each do |c|
-    Rails.logger.info ">>> Extra course: #{c.inspect}"
-  end
-end
-
-if extra_sections.count > 0
-  Rails.logger.warn "\n WARNING: #{extra_sections.count} leftover sections!"
-  extra_sections.each do |s|
-    Rails.logger.info ">>> Extra section: #{s.inspect}"
-  end
-end
-
-if extra_lessons.count > 0
-  Rails.logger.warn "\n WARNING: #{extra_lessons.count} leftover lessons!"
-  extra_lessons.each do |c|
-    Rails.logger.info ">>> Extra lesson: #{c.inspect}"
-  end
-end
-
 Rails.logger.info "\n#######################################################\n\n\n\n"
