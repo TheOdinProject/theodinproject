@@ -38,7 +38,7 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: false,
   url: "/databases/database_basics_lesson.md",
-  repo: 'mini_courses'
+  repo: 'curriculum'
 )
 
 lesson_position += 1
@@ -50,7 +50,7 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: false,
   url: "/databases/databases.md",
-  repo: 'mini_courses'
+  repo: 'curriculum'
 )
 
 lesson_position += 1
@@ -62,5 +62,5 @@ create_or_update_lesson(
   section_id: section.id,
   is_project: true,
   url: "/databases/project_databases.md",
-  repo: 'mini_courses'
+  repo: 'curriculum'
 )
