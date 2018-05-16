@@ -1,37 +1,26 @@
 class UsersController < ApplicationController
-  before_action :find_user, except: [:index, :send_confirmation_link]
   before_action :authenticate_user!
+  before_action :find_user, except: [:index]
   authorize_resource only: [:edit, :update]
 
   def show
-  end
-
-  def edit
-    @edit = true
-    render :show
+    @courses = decorated_courses
   end
 
   def update
-    if @user.update_attributes(user_params)
-      flash[:success] = 'Your profile was updated successfully'
-      redirect_to @user
-    else
-      flash.now[:error] = "We could not update your profile. Errors: #{@user.errors.full_messages}"
-      render :show
-    end
-  end
-
-  def index
-    @users = users_by_latest_lesson_completion
-  end
-
-  def send_confirmation_link
-    current_user.send_confirmation_instructions
-    flash[:notice] = 'Confirmation instructions have been sent to your email address!'
-    redirect_to request.referer
+    @user.update_attributes!(user_params)
+    render json: @user
   end
 
   private
+
+  def decorated_courses
+    courses.map { |course| CourseDecorator.new(course) }
+  end
+
+  def courses
+    Course.order(:position).includes(:lessons, sections: [:lessons])
+  end
 
   def user_params
     params
@@ -41,15 +30,7 @@ class UsersController < ApplicationController
         :username,
         :password,
         :password_confirmation,
-        :legal_agreement,
-        :skype,
-        :screenhero,
-        :facebook,
-        :twitter,
-        :linkedin,
-        :github,
-        :google_plus,
-        :about,
+        :learning_goal,
         :uid,
         :provider,
       )
@@ -60,10 +41,6 @@ class UsersController < ApplicationController
   end
 
   def user
-    User.find(params[:id])
-  end
-
-  def users_by_latest_lesson_completion
-    User.by_latest_completion.paginate(page: params[:page], per_page: 15)
+    User.includes(lesson_completions: [lesson: [:course]]).find(current_user.id)
   end
 end

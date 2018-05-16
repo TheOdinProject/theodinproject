@@ -1,12 +1,14 @@
 class RegistrationsController < Devise::RegistrationsController
-  private
+  after_action :register_mailing_list, only: [:create]
+
+  protected
 
   def after_sign_up_path_for(_resource)
-    session[:previous_url] || courses_path(ref: 'signup', newuser: 'true')
+    dashboard_path
   end
 
-  def after_update_path_for(_resource)
-    courses_path
+  def after_inactive_sign_up_path_for(resource)
+    dashboard_path
   end
 
   def update_resource(resource, params)
@@ -15,6 +17,18 @@ class RegistrationsController < Devise::RegistrationsController
       resource.update_without_password(params)
     else
       resource.update_with_password(params)
+    end
+  end
+
+  private
+
+  def register_mailing_list
+    if resource.persisted? && ENV['MAILCHIMP_API_KEY']
+      MailchimpSubscription.create(
+        email: resource.email,
+        username: resource.username,
+        signup_date: resource.created_at
+      )
     end
   end
 end

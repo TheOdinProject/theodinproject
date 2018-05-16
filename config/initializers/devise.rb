@@ -91,7 +91,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming his account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming his account.
-  config.allow_unconfirmed_access_for = 2.days
+  # config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -216,6 +216,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   require 'omniauth-github'
   config.omniauth :github, ENV["GITHUB_APP_ID"], ENV["GITHUB_SECRET"], :scope => 'user,public_repo'
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], name: 'google', verify_iss: false
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

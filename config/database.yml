@@ -4,6 +4,8 @@
 development:
   adapter: postgresql
   database: theodinproject
+  username: 
+  password: 
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -23,7 +25,7 @@ production:
   database: db/production
   pool: 5
   username:
-  password: 
+  password:
 
 cucumber:
   <<: *test

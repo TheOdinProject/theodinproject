@@ -13,8 +13,8 @@ before_script:
   - bundle install
   - psql -c 'create database theodinproject_test;' -U postgres
 script:
+  - bundle exec rake bundler:audit
   - bundle exec rspec
-  - bundle exec cucumber
 test:
   adapter: postgresql
   database: theodinproject_test

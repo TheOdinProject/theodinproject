@@ -1,0 +1,32 @@
+<%= title("#{@lesson.title} Submissions") %>
+
+<div class="gradient">
+  <div class="container">
+    <div class="projects-header">
+      <%= render 'courses/course/banner', course: @course %>
+      <h2 class="projects-header__title accent"><%= "All Submissions - #{@lesson.title}"%></h2>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div id="submissions" class="card-main">
+          <% if @projects.any? %>
+            <% @projects.each do |project| %>
+              <%= render 'project', project: ProjectDecorator.new(project) %>
+            <% end %>
+          <% else %>
+            <h4 class="text-center accent">The project does not have any submissions yet</h4>
+          <% end %>
+
+          <%= paginate @projects %>
+        </div>
+      </div>
+    </div>
+
+    <%= render 'shared/bottom_cta',
+      heading: 'Got questions?',
+      sub_heading: 'Chat with our friendly Odin community in our Gitter chatrooms!',
+      button: gitter_button
+    %>
+  </div>
+</div>

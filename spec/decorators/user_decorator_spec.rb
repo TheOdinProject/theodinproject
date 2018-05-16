@@ -6,91 +6,30 @@ RSpec.describe UserDecorator do
   let(:user) {
     double(
       'User',
-      twitter: user_twitter,
-      facebook: user_facebook,
-      linkedin: user_linkedin,
-      github: user_github
+      projects: projects
     )
   }
-  let(:user_twitter) { 'odinstudent' }
-  let(:user_facebook) { 'odinstudent' }
-  let(:user_linkedin) { 'odinstudent' }
-  let(:user_github) { 'odinstudent' }
 
-  describe '#twitter_url' do
-    it 'returns the users twitter url' do
-      expect(user_decorator.twitter_url)
-        .to eql('http://www.twitter.com/odinstudent')
+  let(:projects) { [project] }
+  let(:project) { double('Project') }
+
+  describe '#has_projects?' do
+    let(:project_exists?) { true }
+
+    before do
+      allow(projects).to receive(:exists?).and_return(project_exists?)
     end
 
-    context 'when the twitter handle starts with @' do
-      let(:user_twitter) { '@odinstudent' }
-
-      it 'returns the twitter url correctly formatted' do
-        expect(user_decorator.twitter_url)
-          .to eql('http://www.twitter.com/odinstudent')
-      end
+    it 'returns true' do
+      expect(user_decorator.has_projects?).to eql(true)
     end
 
-    context 'when the user does not have a twitter username' do
-      let(:user_twitter) { nil }
+    context 'when the user does not have any projects' do
+      let(:projects) { [] }
+      let(:project_exists?) { false }
 
-      it 'returns nil' do
-        expect(user_decorator.twitter_url).to eql(nil)
-      end
-    end
-  end
-
-  describe '#facebook_url' do
-    it 'returns the users formatted facebook url' do
-      expect(user_decorator.facebook_url)
-        .to eql('https://www.facebook.com/odinstudent')
-    end
-
-    context 'when user does not have a facebook username' do
-      let(:user_facebook) { nil }
-
-      it 'returns nil' do
-        expect(user_decorator.facebook_url).to eql(nil)
-      end
-    end
-  end
-
-  describe '#linkedin_url' do
-    it 'returns the users formatted linkedin url' do
-      expect(user_decorator.linkedin_url)
-        .to eql('https://www.linkedin.com/in/odinstudent')
-    end
-
-    context 'when user does not have a linkedin username' do
-      let(:user_linkedin) { nil }
-
-      it 'returns nil' do
-        expect(user_decorator.linkedin).to eql(nil)
-      end
-    end
-  end
-
-  describe '#github_url' do
-    it 'returns the users github url' do
-      expect(user_decorator.github_url)
-        .to eql('http://www.github.com/odinstudent')
-    end
-
-    context 'when the github username starts with http' do
-      let(:user_github) { 'http://www.github.com/odinstudent' }
-
-      it 'returns the twitter url correctly formatted' do
-        expect(user_decorator.github_url)
-          .to eql('http://www.github.com/odinstudent')
-      end
-    end
-
-    context 'when the user does not have a github username' do
-      let(:user_github) { nil }
-
-      it 'returns nil' do
-        expect(user_decorator.github_url).to eql(nil)
+      it 'returns false' do
+        expect(user_decorator.has_projects?).to eql(false)
       end
     end
   end

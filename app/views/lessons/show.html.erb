@@ -39,11 +39,6 @@
       </h3>
     <% end %>
 
-<<<<<<< HEAD
-    <h2><%= @lesson.title %></h2>
-=======
-
->>>>>>> dev
     <%= convert_markdown_to_html(@lesson.content) %>
 
     <%= render partial: 'chat_link' %>
@@ -52,75 +47,49 @@
       <%= render :partial => "right_box_ad", :locals => { :ad => @right_box_ad } %>
     <% end %>
 
-    <% if @lower_banner_ad %>
-      <%= render :partial => "lower_banner_ad", :locals => { :ad => @lower_banner_ad } %>
-    <% end %>
-
-    <div id="info-box">
-      <%= render 'shared/social_sharing_buttons' %>
-      <%= render 'lessons/contribution_links' %>
-      <%= render 'lessons/license' %>
-      <div class="clearfix"></div>
+<div class="container lesson">
+  <div class="row">
+    <div class="col-12">
+      <div class="lesson-header">
+        <%= link_to @lesson.course, class: 'course-card-header__link' do %>
+          <%= render 'courses/course/banner', course: @lesson.course %>
+        <% end %>
+        <h2 class="lesson-header__title accent"><%= @lesson.title %></h2>
+      </div>
     </div>
 
-    <div class="action-box">
-      <div class="lc-end-wrapper">
-        <%= render "shared/complete_lesson" %>
-      </div>
+    <div class="col-lg-3">
+      <div class="d-none d-lg-block d-xl-block lesson-navigation"></div>
+    </div>
 
-      <div class="lnav">
-
-        <div class="lnav-prev lnav-wrap <%= 'lnav-disabled' unless @lesson.prev_lesson %> ">
-          <% if @lesson.prev_lesson %>
-            <%= link_to course_lesson_path(@lesson.course, @lesson.prev_lesson, :ref => "lnav"), :title => "Go back to \"#{@lesson.prev_lesson.title}\""  do %>
-              <div class="lnav-prev-icon icon"></div>
-              <div class="lnav-text">
-                <p>Prev</p><p>Lesson</p>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="lnav-prev-icon icon"></div>
-            <div class="lnav-text">
-              <p>Previous</p><p>Lesson</p>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="lnav-index lnav-wrap">
-          <%= link_to course_path(@lesson.course.title_url, :ref => "lnav"), :title => "Go back to \"#{@lesson.course.title}\""  do %>
-            <div class="lnav-course-icon icon <%= 'lnav-active' if user_signed_in? && current_user.completed_lesson?(@lesson) && @lesson.next_lesson.nil? %>"></div>
-            <div class="lnav-text">
-              <p>View</p><p>Course</p>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="lnav-next lnav-wrap <%= 'lnav-disabled' unless @lesson.next_lesson %>">
-          <% if @lesson.next_lesson %>
-            <%= link_to course_lesson_path(@lesson.course, @lesson.next_lesson, :ref => "lnav"), :title => "Move on to \"#{@lesson.next_lesson.title}\"" do %>
-              <div class="lnav-next-icon icon <%= 'lnav-active' if user_signed_in? && current_user.completed_lesson?(@lesson) && !@lesson.next_lesson.nil? %>"></div>
-              <div class="lnav-text">
-                <p>Next</p><p>Lesson</p>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="lnav-next-icon icon"></div>
-            <div class="lnav-text">
-              <p>Next</p><p>Lesson</p>
-            </div>
-          <% end %>
-        </div>
+    <div class="col-lg-9">
+      <div class="lesson-content">
+        <%= @lesson.content.html_safe %>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  $(function(){
-    $(".individual-lesson a[href^='http://']").attr("target","_blank");
-    $(".individual-lesson a[href^='https://']").attr("target","_blank");
-  });
+<div class="lesson-functions">
+  <div class="container">
+    <div class="card-main">
+      <h1 class="lesson-functions__title"><%= @lesson.course.title %></h1>
+      <h3 class="lesson-functions__sub-title accent bold"><%= @lesson.title %></h3>
+      <div class="lesson-button-group">
+        <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+      </div>
 
-  // Invoke scroll effect, file lesson_header_onScroll.coffee
-  window.lesson.applyScrollEffect([$('.navbar-fixed-top'), $('#lesson-nav')], { showOnHover: true });
-</script>
+      <% if @projects && ProjectSubmissionFeature.enabled? %>
+        <%= render 'submissions' %>
+      <% end %>
+    </div>
+
+    <%= render 'shared/bottom_cta',
+      button: gitter_button,
+      heading: 'Got questions?',
+      sub_heading: 'Chat with our friendly Odin community in our Gitter chatrooms!'
+    %>
+
+    <%= render 'viking-advert' %>
+  </div>
+</div>
