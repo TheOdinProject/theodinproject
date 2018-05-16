@@ -43,12 +43,12 @@ module ApplicationHelper
           <p>The curriculum has also been designed in a modular fashion, making skimming through lessons a breeze.</p>"
       },
       {
-        question: 'What is the goal of the The Odin Project?',
+        question: 'What is the goal of the The Odin Project? :-)',
         answer:
           '<p>The goal of The Odin Project is to provide a complete path for students to go from zero to employed as web developers while working with other students along the way.</p>'
       },
       {
-        question: 'How long does The Odin Project take?',
+        question: 'How long does The Odin Project take? :-)',
         answer:
           "<p>We won't have any of this 'Learn it all in two days!' BS.  You can't start from scratch and learn true web development in such a short period of time and you know it.  It's highly unlikely that you'll be employable after a weekend workshop or a one-month part-time course.</p>
           <br />
