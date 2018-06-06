@@ -5,6 +5,7 @@ We teach:
 * Ruby programming
 * Sinatra
 * Ruby on Rails
+* my Change
 * SQL
 * HTML and CSS
 * Javascript and Jquery
