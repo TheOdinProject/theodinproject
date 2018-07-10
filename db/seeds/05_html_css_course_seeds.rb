@@ -27,7 +27,7 @@ section = create_or_update_section(
   title_url: "Basic HTML Page Structure".parameterize,
   course_id: course.id,
   position: section_position,
-  description: "In this section, we'll cover the whole range of HTML5 so you'll be completely comfortable with putting the right elements in the right places on a page."
+  description: "In this section, we'll cover the whole range of HTML so you'll be completely comfortable with putting the right elements in the right places on a page."
 )
 
 
@@ -389,8 +389,8 @@ create_or_update_lesson(
 
 section_position += 1
 section = create_or_update_section(
-  title: "Advanced CSS3",
-  title_url: "Advanced CSS3".parameterize,
+  title: "Advanced CSS",
+  title_url: "Advanced CSS".parameterize,
   course_id: course.id,
   position: section_position,
   description: "We'll take you beyond the basics of CSS and into a variety of additional topics from how to add some stylistic flair to your elements to using tools like preprocessors to save time and reduce repetition in your code."
