@@ -101,10 +101,18 @@ create_or_update_lesson(
   repo: 'curriculum'
 )
 
-#######################################################################################
-#######################################################################################
-#######################################################################################
-#######################################################################################
+# ++++++++++++++++++++
+# SECTION - The Basics
+# ++++++++++++++++++++
+
+section_position += 1
+section = create_or_update_section(
+  title: "Installations",
+  title_url: "Installations".parameterize,
+  course_id: course.id,
+  position: section_position,
+  description: "In this section you will configure your development enviornment, install Ruby and Rails, and launch your first rails application."
+)
 
 lesson_position += 1
 create_or_update_lesson(
@@ -120,9 +128,9 @@ create_or_update_lesson(
 
 lesson_position += 1
 create_or_update_lesson(
-  title: "Windows?",
-  title_url: "Windows".parameterize,
-  description: "What happens if I'm running Windows?",
+  title: "Prerequisites",
+  title_url: "Prerequisites".parameterize,
+  description: "Before we can install Ruby and Rails...",
   position: lesson_position,
   section_id: section.id,
   is_project: false,
@@ -153,12 +161,6 @@ create_or_update_lesson(
   url: "/web_development_101/installfest_first_rails_app.md",
   repo: 'curriculum'
 )
-
-
-#######################################################################################
-#######################################################################################
-#######################################################################################
-#######################################################################################
 
 # +++++++++++
 # SECTION
