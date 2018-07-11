@@ -102,7 +102,7 @@ create_or_update_lesson(
 )
 
 # ++++++++++++++++++++
-# SECTION - The Basics
+# SECTION - Installations
 # ++++++++++++++++++++
 
 section_position += 1
