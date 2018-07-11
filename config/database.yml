@@ -1,31 +1,30 @@
 # You may need to provide a username, in which case you'd use
 # your computer's user account (on a mac type $ echo $USER to
 # get it).
-
-default: &default
-  adapter: postgresql
-  pool: 5
-  host: localhost
-  username: <Your Postgres User>
-  password: <That User's Postgres Password>
-
 development:
-  <<: *default
+  adapter: postgresql
   database: theodinproject
+  username: 
+  password: 
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  <<: *default
+  adapter: postgresql
   database: theodinproject_test
+  pool: 5
+  username: 
+  password: 
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   database: db/production
   pool: 5
-  username: theodinproject
+  username:
   password:
 
 cucumber:
