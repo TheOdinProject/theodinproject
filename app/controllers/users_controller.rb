@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         :password_confirmation,
         :learning_goal,
         :uid,
-        :provider,
+        :provider
       )
   end
 
