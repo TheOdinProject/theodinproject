@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10.4
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  web:
+    build: .
+    command: 'bundle exec rails s -p 3000 -b 0.0.0.0'
+    volumes:
+      - .:/top
+    ports:
+      - '3000:3000'
+    environment:
+      - PG_HOST=db
+    depends_on:
+      - db
+volumes:
+  postgres:

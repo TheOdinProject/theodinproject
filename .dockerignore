@@ -1,0 +1,6 @@
+.dockerignore
+.git
+README.md
+log
+tmp
+coverage
