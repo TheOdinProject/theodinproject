@@ -11,4 +11,10 @@ class Course < ApplicationRecord
   def progress_for(user)
     user.progress_for(self)
   end
+
+  private
+
+  def should_generate_new_friendly_id?
+      slug.blank? || title_changed?
+  end
 end

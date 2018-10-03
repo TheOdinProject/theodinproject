@@ -31,7 +31,7 @@ section = create_or_update_section(
 
 lesson_position += 1
 create_or_update_lesson(
-  title: "How this Course Will Work",
+  title: "crap lesson",
   title_url: "How this Course Will Work".parameterize,
   description: "Before you dive in, get familiar with the lay of the land up ahead.",
   position: lesson_position,
