@@ -74,16 +74,22 @@ def require_updates?(real_attrs, seed_attrs)
 end
 
 load './db/seeds/01_web_dev_101_seeds.rb'
-load './db/seeds/02_ruby_course_seeds.rb'
-load './db/seeds/03_database_course_seeds.rb'
-load './db/seeds/04_rails_course_seeds.rb'
-load './db/seeds/05_html_css_course_seeds.rb'
-load './db/seeds/06_javascript_course_seeds.rb'
-load './db/seeds/07_getting_hired_course_seeds.rb'
+# load './db/seeds/02_ruby_course_seeds.rb'
+# load './db/seeds/03_database_course_seeds.rb'
+# load './db/seeds/04_rails_course_seeds.rb'
+# load './db/seeds/05_html_css_course_seeds.rb'
+# load './db/seeds/06_javascript_course_seeds.rb'
+# load './db/seeds/07_getting_hired_course_seeds.rb'
 
 
 # GENERATE SUCCESS STORY Content
 # load './db/seeds/success_stories.rb'
+
+# Include Dummy TrackUnit
+TrackUnit.create!(
+  name: "VueJS",
+  lessons: [Lesson.first, Lesson.second]
+)
 
 #################
 # SANITY CHECKS #

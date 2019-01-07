@@ -4,6 +4,8 @@ class Lesson < ApplicationRecord
   friendly_id :slug_candidates, use: [:slugged, :finders]
 
   belongs_to :section
+  belongs_to :track_unit
+  
   has_one :course, through: :section
   has_many :projects
   has_many :lesson_completions, dependent: :destroy

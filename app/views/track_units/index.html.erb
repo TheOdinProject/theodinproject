@@ -1,0 +1,9 @@
+<h1>Track Units Index</h1>
+
+<ul>
+  <% @track_units.each do |unit| %>
+    <%= link_to track_unit_path(unit) do %>
+      <li><p><%= unit.name %></p></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<h1>Track Units Show</h1>
+
+<h4><%= @track_unit.name %></h4>
+<ul>
+  <% @track_lessons.each do |lesson| %>
+    <li>
+      <%= link_to lesson.title, lesson_path(lesson) %>
+    </li>
+  <% end %>
+</ul>

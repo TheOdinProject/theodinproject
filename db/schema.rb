@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712020424) do
+ActiveRecord::Schema.define(version: 20190107193539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,18 +57,20 @@ ActiveRecord::Schema.define(version: 20180712020424) do
   create_table "lessons", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
-    t.integer  "position",                    null: false
+    t.integer  "position",                      null: false
     t.text     "description"
-    t.boolean  "is_project",  default: false
-    t.integer  "section_id",                  null: false
+    t.boolean  "is_project",    default: false
+    t.integer  "section_id",                    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title_url"
     t.text     "content"
     t.string   "slug"
     t.string   "repo"
+    t.integer  "track_unit_id"
     t.index ["position"], name: "index_lessons_on_position", using: :btree
     t.index ["slug", "section_id"], name: "index_lessons_on_slug_and_section_id", unique: true, using: :btree
+    t.index ["track_unit_id"], name: "index_lessons_on_track_unit_id", using: :btree
   end
 
   create_table "projects", force: :cascade do |t|
@@ -104,6 +106,14 @@ ActiveRecord::Schema.define(version: 20180712020424) do
     t.string   "social_media_link"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "track_units", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_track_units_on_lesson_id", using: :btree
   end
 
   create_table "user_providers", force: :cascade do |t|
@@ -158,6 +168,7 @@ ActiveRecord::Schema.define(version: 20180712020424) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "lessons", "track_units"
   add_foreign_key "projects", "lessons"
   add_foreign_key "projects", "users"
 end
