@@ -46,9 +46,8 @@ Rails.application.routes.draw do
     delete 'lesson_completions' => 'lesson_completions#destroy', :as => 'lesson_completions'
   end
 
-  #TODO: nest track_units into tracks
+  resources :tracks
   resources :track_units
-  resources :lessons
 
   resources :reports, only: :create
 

@@ -85,11 +85,8 @@ load './db/seeds/01_web_dev_101_seeds.rb'
 # GENERATE SUCCESS STORY Content
 # load './db/seeds/success_stories.rb'
 
-# Include Dummy TrackUnit
-TrackUnit.create!(
-  name: "VueJS",
-  lessons: [Lesson.first, Lesson.second]
-)
+# GENERATE DUMMY TRACKS
+load './db/seeds/dummy_tracks.rb'
 
 #################
 # SANITY CHECKS #

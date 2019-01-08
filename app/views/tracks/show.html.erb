@@ -1,0 +1,10 @@
+<div class="container">
+  <h2><%= @track.title %></h2>
+  <ul>
+    <% @units.each do |unit| %>
+      <li>
+      <%= link_to unit.name, track_unit_path(unit) %> 
+      </li>
+    <% end %>
+  </ul>
+</div>
