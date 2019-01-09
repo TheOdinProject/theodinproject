@@ -1,4 +1,0 @@
-Restore Gemfile
-Restore config/database.yml
-Set up seeds file, remove unnecessary content
-Create correct routes
