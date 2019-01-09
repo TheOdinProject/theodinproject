@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20190109205044) do
   end
 
   create_table "track_units", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.integer  "track_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

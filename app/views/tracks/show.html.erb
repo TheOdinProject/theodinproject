@@ -3,7 +3,7 @@
   <ul>
     <% @units.each do |unit| %>
       <li>
-      <%= link_to unit.name, track_unit_path(unit) %> 
+      <%= link_to unit.title, track_unit_path(unit) %> 
       </li>
     <% end %>
   </ul>

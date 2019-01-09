@@ -14,23 +14,23 @@ Track.create!(
 )
 
 TrackUnit.create!(
-  name: "TrackUnit: VueJS",
+  title: "TrackUnit: VueJS",
   lessons: [Lesson.first, Lesson.second],
   track: Track.find_by(title: "Track: Front End Frameworks")
 )
 TrackUnit.create!(
-  name: "TrackUnit: ReactJS",
+  title: "TrackUnit: ReactJS",
   lessons: [Lesson.third, Lesson.fourth],
   track: Track.find_by(title: "Track: Front End Frameworks")
 )
 
 TrackUnit.create!(
-  name: "TrackUnit: Ruby",
+  title: "TrackUnit: Ruby",
   lessons: [Lesson.first, Lesson.second],
   track: Track.find_by(title: "Track: Back End Infrastructure")
 )
 TrackUnit.create!(
-  name: "TrackUnit: Rails",
+  title: "TrackUnit: Rails",
   lessons: [Lesson.third, Lesson.fourth],
   track: Track.find_by(title: "Track: Back End Infrastructure")
 )
