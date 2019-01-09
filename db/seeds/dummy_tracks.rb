@@ -1,48 +1,36 @@
 if Rails.env.development?
-  User.delete_all
   TrackUnit.delete_all
   Track.delete_all
 end
 
-User.create!(
-  email: "andy@andy.com",
-  username: "andy",
-  password: "foobar",
-  password_confirmation: "foobar"
-)
-
-TrackUnit.create!(
-  name: "VueJS",
-  lessons: [Lesson.first, Lesson.second]
-)
-TrackUnit.create!(
-  name: "ReactJS",
-  lessons: [Lesson.third, Lesson.fourth]
-)
-
-TrackUnit.create!(
-  name: "Ruby",
-  lessons: [Lesson.first, Lesson.second]
-)
-TrackUnit.create!(
-  name: "Rails",
-  lessons: [Lesson.third, Lesson.fourth]
-)
-
 Track.create!(
   title: "Track: Front End Frameworks",
   description: "Learn how to use 3 Front End Frameworks",
-  track_units: [
-    TrackUnit.find_by(name: "VueJS"),
-    TrackUnit.find_by(name: "ReactJS")
-  ]
 )
 
 Track.create!(
   title: "Track: Back End Infrastructure",
   description: "Learn how to make full web apps with Ruby on Rails",
-  track_units: [
-    TrackUnit.find_by(name: "Ruby"),
-    TrackUnit.find_by(name: "Rails")
-  ]
+)
+
+TrackUnit.create!(
+  name: "TrackUnit: VueJS",
+  lessons: [Lesson.first, Lesson.second],
+  track: Track.find_by(title: "Track: Front End Frameworks")
+)
+TrackUnit.create!(
+  name: "TrackUnit: ReactJS",
+  lessons: [Lesson.third, Lesson.fourth],
+  track: Track.find_by(title: "Track: Front End Frameworks")
+)
+
+TrackUnit.create!(
+  name: "TrackUnit: Ruby",
+  lessons: [Lesson.first, Lesson.second],
+  track: Track.find_by(title: "Track: Back End Infrastructure")
+)
+TrackUnit.create!(
+  name: "TrackUnit: Rails",
+  lessons: [Lesson.third, Lesson.fourth],
+  track: Track.find_by(title: "Track: Back End Infrastructure")
 )
