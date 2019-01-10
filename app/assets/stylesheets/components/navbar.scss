@@ -213,6 +213,12 @@
           text-shadow: 0px 0px 8px rgba(204, 149, 67, .5);
         }
       }
+      //overriding bootstrap dropdown-toggle vertical align for tablet mode
+      .nav-link.dropdown-toggle::after{
+        vertical-align: baseline;
+        position: relative;
+        top:-0.255em;
+      }
       .divider {
         display: none;
       }
