@@ -215,7 +215,7 @@
       }
       //overriding bootstrap dropdown-toggle vertical align for tablet mode
       .nav-link.dropdown-toggle::after{
-        vertical-align: baseline;
+        vertical-align: baseline !important;
         position: relative;
         top:-0.255em;
       }
