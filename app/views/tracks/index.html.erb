@@ -1,0 +1,10 @@
+<h1>Tracks#index</h1>
+<div class="container">
+  <p>Lists all of the available tracks</p>
+  <ul>
+    <% @tracks.each do |track| %>
+      <li><%= link_to track.title, track_path(track) %></li>
+    <% end %>
+  </ul>
+</div>
+

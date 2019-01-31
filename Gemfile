@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rails-controller-testing',          '~> 1.0'
   gem 'figaro',                            '1.1'
   gem 'bundle-audit'
+  gem 'pry',                                '~> 0.12.2'
 end
 
 group :development do
