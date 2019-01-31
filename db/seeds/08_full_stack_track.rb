@@ -16,7 +16,7 @@ create_or_update_track(
       Course.find_by(title: "Ruby on Rails"),
       Course.find_by(title: "HTML and CSS"),
       Course.find_by(title: "Javascript"),
-#      Course.find_by(title: "Getting Hired"),
+      Course.find_by(title: "Getting Hired"),
     ]
 )
 
