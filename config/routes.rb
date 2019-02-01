@@ -40,7 +40,6 @@ Rails.application.routes.draw do
     resources :lessons, only: :show
   end
 
-
   resources :lessons, only: :show do
     resources :projects, only: %i(index create update destroy) do
       resources :votes, only: %i(create)

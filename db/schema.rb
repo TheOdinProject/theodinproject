@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131192911) do
+ActiveRecord::Schema.define(version: 20190201175505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20190131192911) do
     t.integer  "position",    null: false
     t.string   "slug"
     t.index ["slug"], name: "index_courses_on_slug", using: :btree
-  end
-
-  create_table "courses_tracks", id: false, force: :cascade do |t|
-    t.integer "track_id",  null: false
-    t.integer "course_id", null: false
-    t.index ["track_id", "course_id"], name: "index_courses_tracks_on_track_id_and_course_id", using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -110,6 +104,14 @@ ActiveRecord::Schema.define(version: 20190131192911) do
     t.string   "social_media_link"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "track_courses", force: :cascade do |t|
+    t.integer  "track_id"
+    t.integer  "course_id"
+    t.integer  "track_position"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "tracks", force: :cascade do |t|

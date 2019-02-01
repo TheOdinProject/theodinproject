@@ -15,10 +15,10 @@ Basic Implementation of Tracks feature.
 - [ ] Parameterize URL strings
 - [ ] Edit navbar to redirect to `/tracks` url
 - [ ] Add track choice to user's dashboard
-- [ ] Change TracksCourse join table to Tracks_Course model
-- [ ] Add tracks_section model
+- [x] Change TracksCourse join table to TracksCourse model
+- [ ] Add CourseSections model
 - [ ] Remove `pry` gem
-- [ ] Remove extra line in `config/routes.rb`
+- [x] Remove extra line in `config/routes.rb`
 - [ ] Unit Tests
 - [ ] Simplify TrackDecorator in `tracks_controller`
 - [ ] Remove empty CSS/JS Files
