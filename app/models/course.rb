@@ -3,6 +3,7 @@ class Course < ApplicationRecord
 
   has_many :sections, -> { order(:position) }
   has_many :lessons, through: :sections
+  has_and_belongs_to_many :tracks
 
   validates :position, presence: true
 

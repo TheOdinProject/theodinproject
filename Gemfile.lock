@@ -219,6 +219,9 @@ GEM
     premailer-rails (1.10.2)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.3)
     puma (3.11.4)
     rack (2.0.6)
@@ -397,6 +400,7 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 0.5.1)
   pg (~> 0.19)
   premailer-rails (~> 1.9)
+  pry (~> 0.12.2)
   puma (~> 3.11.2)
   rack-attack
   rack-timeout (~> 0.4)
@@ -423,4 +427,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
