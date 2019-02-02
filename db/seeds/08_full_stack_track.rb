@@ -9,7 +9,7 @@ end
 
 create_or_update_track(
   title: "Full Stack",
-  description: "The OG Odin: RELOADED",
+  description: "The OG Odin",
   position: 1,
   courses: [
     Course.find_by(title: "Web Development 101"),
