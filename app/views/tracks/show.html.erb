@@ -1,7 +1,7 @@
-<h1>Tracks#show</h1>
-<p>Displays all courses in track, similar to /courses/ page</p>
-
 <div class="container">
+  <h1 class="text-center">Tracks#show</h1>
+  <p class="text-center">Displays all courses in track, similar to /courses/ page</p>
+
   <% @courses.each do |course| %>
     <%= render 'courses/course_card', course: course %>
   <% end %>

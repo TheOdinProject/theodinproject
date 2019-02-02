@@ -11,6 +11,6 @@ class TracksController < ApplicationController
   private
 
   def ordered_decorated_courses(track_courses)
-    track_courses.order(:position).map{ |course| CourseDecorator.new(course) } 
+    track_courses.track_order.map{ |course| CourseDecorator.new(course) } 
   end
 end
