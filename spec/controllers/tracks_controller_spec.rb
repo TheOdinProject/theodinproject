@@ -4,7 +4,8 @@ RSpec.describe TracksController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      track = Track.create(title: "Rspec", description: "temp RSpec Track", position: 1)
+      get :show, id: track.id
       expect(response).to have_http_status(:success)
     end
   end
