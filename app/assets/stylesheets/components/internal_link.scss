@@ -13,3 +13,21 @@
     background-position: 0 .25em;
   }
 }
+
+// Keep from being hidden behind nav bar on small screens.
+@media (max-width: 992px) {
+  .course-section__title::before, .lesson-content h3::before {
+    display: block; 
+    content: " "; 
+    margin-top: -100px; 
+    height: 100px; 
+    visibility: hidden; 
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 600px){
+  .internal-link:hover {
+    background-image: none;
+  }
+}
