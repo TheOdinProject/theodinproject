@@ -37,7 +37,7 @@ class HeartIconPresenter
       remote: true,
       title: 'Like this project',
       class: 'button button--primary project__vote-button' do
-      '<i class="fas fa-heart-o"></i>'.html_safe
+      '<i class="far fa-heart"></i>'.html_safe
     end
   end
 
