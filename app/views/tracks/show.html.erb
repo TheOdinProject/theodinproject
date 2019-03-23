@@ -1,8 +1,31 @@
 <div class="container">
-  <h1 class="text-center">Tracks#show</h1>
-  <p class="text-center">Displays all courses in track, similar to /courses/ page</p>
+  <h1 class="text-center camel light curriculum-title"><%= @track.title %></h1>
+  <p class="text-center track-description"><%= @track.description %></p>
 
   <% @courses.each do |course| %>
     <%= render 'courses/course_card', course: course %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%if current_user.track == @track %>
+      <p class="text-center track-description">
+        THIS IS YOUR CURRENTLY SELECTED TRACK
+      </p>
+    <% else %>
+      <p class="text-center track-description">
+      <%= form_for current_user, remote: true do |form| %>
+        <%= hidden_field_tag :track_id, @track.id %>
+        <%= form.submit 'Select this track', class: 'button button--primary' %>
+      <% end %>
+      </p>
+    <% end %>
+  <% else %>
+      <p class="text-center track-description">
+        <%= render 'shared/bottom_cta',
+          button: sign_in_or_view_curriculum_button,
+          heading: 'Start learning for free now!',
+          sub_heading: ''
+        %>
+      </p>
   <% end %>
 </div>

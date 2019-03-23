@@ -34,6 +34,7 @@ class UsersController < ApplicationController
         :learning_goal,
         :uid,
         :provider,
+        :track_id,
       )
   end
 

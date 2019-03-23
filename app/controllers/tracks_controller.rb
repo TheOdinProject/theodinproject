@@ -2,6 +2,7 @@ class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
     @courses = ordered_decorated_courses
+    @user = current_user
   end
 
   def index
