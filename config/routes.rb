@@ -29,8 +29,11 @@ Rails.application.routes.draw do
 
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
-
   resources :users, only: [:show, :update]
+
+  namespace :users do
+    resources :tracks
+  end
   get 'dashboard' => 'users#show', as: :dashboard
 
   # Deprecated Route to Introduction to Web Development from external links

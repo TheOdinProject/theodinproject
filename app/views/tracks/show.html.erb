@@ -13,10 +13,7 @@
       </p>
     <% else %>
       <p class="text-center track-description">
-      <%= form_for current_user, remote: true do |form| %>
-        <%= hidden_field_tag :track_id, @track.id %>
-        <%= form.submit 'Select this track', class: 'button button--primary' %>
-      <% end %>
+      <%= link_to 'Select This Track', users_tracks_path(track_id: @track.id), remote: true, method: :post, class: 'button button--primary' %>
       </p>
     <% end %>
   <% else %>
