@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @courses = decorated_track_courses
     @projects = @user.projects_with_lesson
+    @track = Track.find(@user.track_id)
   end
 
   def update
