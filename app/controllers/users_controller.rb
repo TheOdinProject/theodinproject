@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   authorize_resource only: [:edit, :update]
 
   def show
-    @courses = decorated_courses
+    @courses = decorated_track_courses
     @projects = @user.projects_with_lesson
   end
 
@@ -17,6 +17,10 @@ class UsersController < ApplicationController
 
   def decorated_courses
     courses.map { |course| CourseDecorator.new(course) }
+  end
+
+  def decorated_track_courses
+    Track.find(@user.track_id).courses.map { |course| CourseDecorator.new(course) }
   end
 
   def courses
