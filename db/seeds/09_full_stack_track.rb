@@ -29,3 +29,4 @@ create_or_update_track(
     TrackCourse.create(track: Track.find_by(title: "Full Stack"), course: Course.find_by(title: "Getting Hired"), track_position: 4)
   ]
 )
+
