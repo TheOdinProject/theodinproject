@@ -63,7 +63,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: "nodeJS/getting-started/Getting-Started.md",
+  url: "nodeJS/getting-started/Getting-Started-Project.md",
   repo: 'curriculum'
 )
 
@@ -311,12 +311,12 @@ section = create_or_update_section(
 
 lesson_position += 1
 create_or_update_lesson(
-  title: "Odin-Store",
-  title_url: "project odin-store".parameterize,
-  description: "You use everything you've learned so far to build an ecommerce app that will make your portfolio shine!",
+  title: "Odin-Book",
+  title_url: "project odin-book".parameterize,
+  description: "You'll use everything you've learned so far to replicate Facebook!",
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: "nodeJS/Odin-Store.md",
+  url: "nodeJS/Odin-Book.md",
   repo: 'curriculum'
 )
