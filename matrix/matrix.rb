@@ -5,6 +5,7 @@ class Matrix
         @rows = []
         @columns = []
         get_rows
+        get_columns
     end    
 
     def get_rows
@@ -12,5 +13,10 @@ class Matrix
     end
 
     def get_columns
+        @rows[0].each_index do |col|
+            ary = []
+            @rows.each{|row| ary << row[col]}
+            @columns << ary
+        end
     end
 end
