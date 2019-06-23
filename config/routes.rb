@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
 
   namespace :users do
-    resources :tracks
+    resources :tracks, only: :create
   end
   get 'dashboard' => 'users#show', as: :dashboard
 
@@ -58,10 +58,9 @@ Rails.application.routes.draw do
   match '/404' => 'errors#not_found', via: [ :get, :post, :patch, :delete ]
 
   # Explicitly redirect deprecated routes (301)
-
   get '/courses/curriculum' => redirect('/courses')
   get 'curriculum' => redirect('/courses')
   get 'scheduler' => redirect('/courses')
-  
+
   resources :tracks, only: [:index, :show]
 end

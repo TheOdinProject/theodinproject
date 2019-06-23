@@ -29,8 +29,6 @@ gem 'nokogiri',                     '~> 1.8', '>= 1.8.4'
 gem 'sprockets',                    '~> 3.7.2'
 gem 'skylight'
 gem 'newrelic_rpm',               '~> 3.17'
-gem 'coffee-script'
-gem 'coffee-rails'
 
 group :production do
   gem 'rails_12factor',             '~> 0.0.3'

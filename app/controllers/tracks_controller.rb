@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   def show
     @track = Track.find(params[:id])
-    @courses = ordered_decorated_courses
+    @courses = decorated_courses
     @user = current_user
   end
 
@@ -11,7 +11,7 @@ class TracksController < ApplicationController
 
   private
 
-  def ordered_decorated_courses
-    @track.courses.track_order.map{ |course| CourseDecorator.new(course) } 
+  def decorated_courses
+    @track.courses.track_order.map{ |course| CourseDecorator.new(course) }
   end
 end

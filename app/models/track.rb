@@ -6,4 +6,6 @@ class Track < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :position, presence: true
+
+  scope :default, -> { where(default: true) }
 end
