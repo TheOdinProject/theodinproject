@@ -98,11 +98,16 @@ load './db/seeds/05_html_css_course_seeds.rb'
 load './db/seeds/06_javascript_course_seeds.rb'
 load './db/seeds/07_getting_hired_course_seeds.rb'
 load './db/seeds/08_node_js_course_seeds.rb'
-load './db/seeds/09_full_stack_track.rb'
-load './db/seeds/10_full_stack_javascript.rb'
+
+
+Rails.logger.info "\n\n***** STARTING TRACKS *****"
+
+load './db/seeds/tracks/full_stack_rails.rb'
+load './db/seeds/tracks/full_stack_javascript.rb'
+load './db/seeds/tracks/front_end.rb'
 
 # GENERATE SUCCESS STORY Content
-# load './db/seeds/success_stories.rb'
+load './db/seeds/success_stories.rb'
 
 # CREATE DEVELOPMENT USERS
 if Rails.env = "development"
