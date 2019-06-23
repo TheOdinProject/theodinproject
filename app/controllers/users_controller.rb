@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     @courses = decorated_track_courses
     @projects = @user.projects_with_lesson
-    @track = Track.find(@user.track_id)
+    @track = @user.track
   end
 
   def update
@@ -21,7 +21,9 @@ class UsersController < ApplicationController
   end
 
   def decorated_track_courses
-    Track.find(@user.track_id).courses.map { |course| CourseDecorator.new(course) }
+    @user.track.ordered_courses.map  do |course|
+      CourseDecorator.new(course)
+    end
   end
 
   def courses

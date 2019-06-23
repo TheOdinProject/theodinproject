@@ -1,5 +1,5 @@
 class CreateTracks < ActiveRecord::Migration[5.0]
-  def change
+  def up
     create_table :tracks do |t|
       t.string :title
       t.string :description
@@ -7,5 +7,9 @@ class CreateTracks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :tracks
   end
 end

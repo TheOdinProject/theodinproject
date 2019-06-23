@@ -10,13 +10,13 @@ track = create_or_update_track(
 
 position = 0
 courses_in_track = [
-  { course_id: Course.find_by_title("Web Development 101").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("Ruby Programming").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("Databases").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("Ruby on Rails").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("HTML and CSS").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("Javascript").id, track_position: position += 1 },
-  { course_id: Course.find_by_title("Getting Hired").id, track_position: position += 1 },
+  { course_id: Course.find_by_title("Web Development 101").id, position: position += 1 },
+  { course_id: Course.find_by_title("Ruby Programming").id, position: position += 1 },
+  { course_id: Course.find_by_title("Databases").id, position: position += 1 },
+  { course_id: Course.find_by_title("Ruby on Rails").id, position: position += 1 },
+  { course_id: Course.find_by_title("HTML and CSS").id, position: position += 1 },
+  { course_id: Course.find_by_title("Javascript").id, position: position += 1 },
+  { course_id: Course.find_by_title("Getting Hired").id, position: position += 1 },
 ]
 
 courses_in_track.each do |course_attrs|

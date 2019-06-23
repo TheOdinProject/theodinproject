@@ -5,8 +5,8 @@ class Course < ApplicationRecord
   has_many :lessons, through: :sections
   has_many :track_courses
 
-  scope :track_order, -> { 
-    Course.includes(:track_courses).order("track_courses.track_position") 
+  scope :track_order, -> {
+    Course.includes(:track_courses).order("track_courses.position") 
   }
 
   validates :position, presence: true

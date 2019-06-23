@@ -1,8 +1,15 @@
 class CreateJoinTableTracksCourses < ActiveRecord::Migration[5.0]
-  def change
-    create_join_table :tracks, :courses do |t|
-      t.index [:track_id, :course_id]
-      # t.index [:course_id, :track_id]
+  def up
+    create_table :track_courses do |t|
+      t.integer :track_id
+      t.integer :course_id
+      t.integer :position
+
+      t.timestamps
     end
+  end
+
+  def down
+    drop_table :track_courses
   end
 end
