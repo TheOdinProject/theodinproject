@@ -10,10 +10,25 @@ class LessonContentImporter
     new(lesson).import
   end
 
+  def self.import_all
+    total = Lesson.count
+
+    Rails.logger.info 'Importing lesson content...'
+
+    Lesson.all.each_with_index do |lesson, i|
+      Rails.logger.info "Importing #{i+1}/#{total}: #{lesson.title}"
+      self.for(lesson)
+    end
+
+    Rails.logger.info 'Lesson content import complete.'
+  end
+
   def import
-    lesson.update(content: content_converted_to_html) if content_needs_updated?
-  rescue Octokit::Error => errors
-    failed_to_import_message
+    lesson.update!(content: content_converted_to_html) if content_needs_updated?
+  rescue Octokit::Error => error
+    log_error(error.message)
+  rescue ActiveRecord::RecordInvalid => error
+    log_error(error.record.errors.full_messages)
   end
 
   private
@@ -34,8 +49,8 @@ class LessonContentImporter
     Octokit.contents(repo, path: lesson.url)
   end
 
-  def failed_to_import_message
-    Rails.logger.error "Failed to import \"#{lesson.title}\" content: #{lesson.errors}"
+  def log_error(message)
+    Rails.logger.error "Failed to import '#{lesson.title}' message: #{message}"
     false
   end
 

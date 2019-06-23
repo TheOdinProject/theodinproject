@@ -1,7 +1,7 @@
 .lesson-content {
   padding-bottom: 60px;
 
-  h3:first-child {
+  h3:nth-child(2) {
     margin-top: 0;
   }
 
@@ -11,8 +11,14 @@
     font-weight: bold;
     color: $text-primary;
     font-size: 1.5em;
-  }
 
+    @include media-breakpoint-down(md) {
+      &:before {
+        @include internal-link-offset();
+      }
+    }
+  }
+  
   h4 {
     margin-bottom: 10px;
     font-weight: bold;
