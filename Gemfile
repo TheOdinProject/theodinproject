@@ -26,19 +26,19 @@ gem 'toastr-rails'
 gem 'gibbon',                     '~> 3.2.0' # for Mailchimp
 gem 'nokogiri',                   '~> 1.10', '>= 1.10.3'
 gem 'sprockets',                  '~> 3.7.2'
-gem 'skylight'
 gem 'newrelic_rpm',               '~> 3.17'
 gem 'activeadmin'
 gem 'bootsnap',                   '~> 1.4'
 
 group :production do
   gem 'rails_12factor',           '~> 0.0.3'
+  gem 'skylight'
 end
 
 group :development, :test do
   gem 'rspec-rails',                      '~> 3.5'
   gem 'simplecov', :require => false
-  gem 'factory_bot_rails',                '~> 4.11'
+  gem 'factory_bot_rails',                '~> 5'
   gem 'database_cleaner',                 '~> 1.5'
   gem 'webmock',                          '~> 2.1'
   gem 'vcr',                              '~> 3.0'

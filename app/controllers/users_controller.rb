@@ -16,12 +16,8 @@ class UsersController < ApplicationController
 
   private
 
-  def decorated_courses
-    courses.map { |course| CourseDecorator.new(course) }
-  end
-
   def decorated_track_courses
-    @user.track.ordered_courses.map  do |course|
+    @user.track.courses.track_order.map  do |course|
       CourseDecorator.new(course)
     end
   end

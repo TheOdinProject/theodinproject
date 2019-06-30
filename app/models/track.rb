@@ -8,8 +8,4 @@ class Track < ApplicationRecord
   validates :position, presence: true
 
   scope :default, -> { where(default: true) }
-
-  def ordered_courses
-    courses.order(:position)
-  end
 end
