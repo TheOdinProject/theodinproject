@@ -109,24 +109,6 @@ load './db/seeds/tracks/front_end.rb'
 # GENERATE SUCCESS STORY Content
 load './db/seeds/success_stories.rb'
 
-# CREATE DEVELOPMENT USERS
-if Rails.env = "development"
-  User.delete_all
-  User.create(
-    email: 'user@example.com',
-    password: 'foobar',
-    password_confirmation: 'foobar',
-    username: 'user'
-  )
-  User.create(
-    email: 'admin@example.com',
-    password: 'foobar',
-    password_confirmation: 'foobar',
-    username: 'admin',
-    admin: true
-  )
-end
-
 #################
 # SANITY CHECKS #
 #################
