@@ -7,5 +7,5 @@ class Track < ApplicationRecord
   validates :description, presence: true
   validates :position, presence: true
 
-  scope :default, -> { where(default: true) }
+  scope :default, -> { find_by(default: true) }
 end
