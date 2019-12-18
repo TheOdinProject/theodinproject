@@ -4,6 +4,20 @@
 
       <%= link_to course_lesson_path(course, lesson), class: 'section-lessons__item__link' do %>
         <%= numbered_lesson_title(lesson, lesson_index) %>
+        <% learning_outcomes = lesson.content.split('<h3 id="learning-outcomes">') %>
+        <% learning_outcomes = learning_outcomes[1] %>
+        <% if learning_outcomes.nil? %>
+          <% next %>
+        <% elsif learning_outcomes.include?('<h3 id="assignment">')%>
+          <% learning_outcomes = learning_outcomes.to_s.split('<h3 id="assignment">') %>
+          <% learning_outcomes = learning_outcomes[0] == nil ? "" : '<h3 id="learning-outcomes">' + learning_outcomes[0] %>
+          <% learning_outcomes.gsub! '<summary>', '<summary style="color:black; font-size:14px">' %>
+          <% learning_outcomes.gsub! '<ul>', '<ul style="color:black; font-size:14px">' %>
+          <% learning_outcomes.gsub! '<li>', '<li><p>' %>
+          <% learning_outcomes.gsub! '</li>', '</p></li>' %>
+        <% else %>
+        <% end %>
+        <%= learning_outcomes.html_safe %>
       <% end %>
 
       <% if user_signed_in? %>
