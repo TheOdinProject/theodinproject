@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_referal
   protect_from_forgery with: :exception
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
@@ -30,6 +31,12 @@ class ApplicationController < ActionController::Base
 
   def not_found_error
     render 'errors/not_found', status: :not_found
+  end
+
+  def check_referal
+    if request.referer != nil && request.referer.include?('microverse.org')
+      flash[:info] = 'Did you know The Odin Project is 100% free of charge?'
+    end
   end
 
   private
