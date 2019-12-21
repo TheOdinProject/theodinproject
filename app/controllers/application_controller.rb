@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_referal
-    if bad_referal.include?(URI(request.referer).host)
+    if request.referer != nil && bad_referal.include?(URI(request.referer).host)
       flash[:info] = "Did you know The Odin Project is 100% free of charge? #{view_context.link_to('Click Here', faq_path)} to learn more".html_safe
     end
   end
