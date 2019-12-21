@@ -33,12 +33,6 @@ class ApplicationController < ActionController::Base
     render 'errors/not_found', status: :not_found
   end
 
-  def check_referal
-    if request.referer != nil && request.referer.include?('microverse.org')
-      flash[:info] = 'Did you know The Odin Project is 100% free of charge?'
-    end
-  end
-
   private
 
   def configure_permitted_parameters
@@ -55,5 +49,15 @@ class ApplicationController < ActionController::Base
         :learning_goal
       )
     end
+  end
+
+  def check_referal
+    if bad_referal.include?(URI(request.referer).host)
+      flash[:info] = "Did you know The Odin Project is 100% free of charge? #{view_context.link_to('Click Here', faq_path)} to learn more".html_safe
+    end
+  end
+
+  def bad_referal
+    ["microverse.org"]
   end
 end
