@@ -1,9 +1,10 @@
 <div class="section-lessons">
   <% lessons.each_with_index do |lesson, lesson_index| %>
-    <div class="section-lessons__item">
+
     <% if lesson.content.include?('<h3 id="learning-outcomes">') %>
-      <p class='show_learning_outcomes' style='color:lime' id='<%= "p_" + numbered_lesson_title(lesson,lesson_index) %>'>+</p>
+      <p class='show_learning_outcomes' title='show learning outcomes' style='color:lime; position:absolute; left:600px;' id='<%= "p_" + numbered_lesson_title(lesson,lesson_index) %>'>+</p>
     <% end %>
+    <div class="section-lessons__item">
       <%= link_to course_lesson_path(course, lesson), class: 'section-lessons__item__link' do %>
         <%= numbered_lesson_title(lesson, lesson_index) %>
         <% if lesson.content.include?('<h3 id="learning-outcomes">') %>
@@ -38,7 +39,18 @@
       id = event.target.id; 
       id = id.replace("p","div");
       el = document.getElementById(id);
-      el.style.display = 'block';
+      if(event.target.innerText == "+"){
+        el.style.display = 'block';
+        event.target.innerText = "-";
+        event.target.style.color = "red";
+        event.target.title = "hide learning outcomes";
+      }
+      else{
+        el.style.display = 'none';
+        event.target.innerText = "+";
+        event.target.style.color = "lime";
+        event.target.title = "show learning outcomes";
+      }
     }  
   }
 </script>
