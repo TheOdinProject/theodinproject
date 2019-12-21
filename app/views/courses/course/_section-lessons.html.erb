@@ -1,26 +1,24 @@
 <div class="section-lessons">
   <% lessons.each_with_index do |lesson, lesson_index| %>
-    <div class="section-lessons__item"><p class='show_learning_outcomes' style='color:lime' id='<%= "p_show_lesson_" + lesson_index.to_s %>'>+</p>
-
+    <div class="section-lessons__item">
+    <% if lesson.content.include?('<h3 id="learning-outcomes">') %>
+      <p class='show_learning_outcomes' style='color:lime' id='<%= "p_" + numbered_lesson_title(lesson,lesson_index) %>'>+</p>
+    <% end %>
       <%= link_to course_lesson_path(course, lesson), class: 'section-lessons__item__link' do %>
         <%= numbered_lesson_title(lesson, lesson_index) %>
-        <% learning_outcomes = lesson.content.split('<h3 id="learning-outcomes">') %>
-        <% learning_outcomes = learning_outcomes[1] %>
-        <% if learning_outcomes.nil? %>
-          <% next %>
-        <% elsif learning_outcomes.include?('<h3 id="assignment">')%>
-          <% learning_outcomes = learning_outcomes.to_s.split('<h3 id="assignment">') %>
-          <% learning_outcomes = learning_outcomes[0] == nil ? "" : '<h3 id="learning-outcomes">' + learning_outcomes[0] %>
+        <% if lesson.content.include?('<h3 id="learning-outcomes">') %>
+          <% learning_outcomes = lesson.content.split('<h3 id="learning-outcomes">') %>
+          <% learning_outcomes = learning_outcomes[1] %>
+          <% learning_outcomes = learning_outcomes.to_s.split(/<h3 id=/) %>
+          <% learning_outcomes = '<h3 id="learning-outcomes">' + learning_outcomes[0] %>
           <% learning_outcomes.gsub! '<summary>', '<summary style="color:black; font-size:14px">' %>
           <% learning_outcomes.gsub! '<ul>', '<ul style="color:black; font-size:14px">' %>
-          <% learning_outcomes.gsub! '<li>', '<li><p>' %>
-          <% learning_outcomes.gsub! '</li>', '</p></li>' %>
-        <% else %>
-          
-        <% end %>
-        <div id='<%= "div_show_lesson_" + lesson_index.to_s %>' style='display:none'>
-          <%= learning_outcomes.html_safe %>
-        </div>
+          <% learning_outcomes.gsub! '<li>', '<li><p style="color:black; font-size:14px">' %>
+          <% learning_outcomes.gsub! '</li>', '</p></li>' %>  
+          <div id='<%= "div_" + numbered_lesson_title(lesson,lesson_index) %>' style='display:none'>
+            <%= learning_outcomes.html_safe %>
+          </div>
+        <% end %>       
       <% end %>
 
       <% if user_signed_in? %>
@@ -37,10 +35,10 @@
   elements = document.getElementsByClassName('show_learning_outcomes')
   for(let i=0;i<elements.length;++i){
     elements[i].onclick = (event) => { 
-      let id = event.target.id 
-      id = id.replace("p","div")
-      el = document.getElementById(id)
-      el.style.display = 'block'
+      id = event.target.id; 
+      id = id.replace("p","div");
+      el = document.getElementById(id);
+      el.style.display = 'block';
     }  
   }
 </script>
