@@ -1,4 +1,4 @@
-var elements = document.getElementsByClassName('show_learning_outcomes')
+var elements = document.getElementsByClassName('show_learning_outcomes');
   for(var i=0;i<elements.length;++i){
     elements[i].onclick = (event) => { 
       var id = event.target.id; 
