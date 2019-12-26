@@ -4,7 +4,7 @@
   <% lessons.each_with_index do |lesson, lesson_index| %>
 
     <% if lesson.content.include?('<h3 id="learning-outcomes">') %>
-      <p class='show_learning_outcomes' title='show learning outcomes' style='color:lime; position:absolute; left:550px; font-size:30px' id='<%= "p_" + numbered_lesson_title(lesson,lesson_index) %>'>+</p>
+      <p class='show_learning_outcomes' title='show learning outcomes' style='color:lime; position:absolute; left:20px; font-size:30px' id='<%= "p_" + numbered_lesson_title(lesson,lesson_index) %>'>+</p>
     <% end %>
     <div class="section-lessons__item">
       <%= link_to course_lesson_path(course, lesson), class: 'section-lessons__item__link' do %>
