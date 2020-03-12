@@ -23,8 +23,8 @@ module Api
     let(:username) { 'development' }
     let(:password) { 'qwerty123' }
     let(:authenticate_request) do
-      ENV['API_USERNAME'] = 'development'
-      ENV['API_PASSWORD'] = 'qwerty123'
+      allow(ENV).to receive(:fetch).with('API_USERNAME').and_return(username)
+      allow(ENV).to receive(:fetch).with('API_PASSWORD').and_return(password)
       request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.
       encode_credentials(username, password)
     end
