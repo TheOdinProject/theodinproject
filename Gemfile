@@ -38,7 +38,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',                      '~> 3.5'
-  gem 'simplecov', :require => false
+  gem 'simplecov', '>= 0.16.1', :require => false
   gem 'factory_bot_rails',                '~> 5'
   gem 'database_cleaner',                 '~> 1.5'
   gem 'webmock',                          '~> 2.1'
