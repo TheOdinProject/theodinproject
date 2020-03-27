@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '~> 2.6'
 
-gem 'rails',                      '6'
+gem 'rails', '6.0.2.2'
 
 gem 'puma'
 gem 'turbolinks'
@@ -29,8 +29,8 @@ gem 'gibbon',                     '~> 3.2.0' # for Mailchimp
 gem 'nokogiri',                   '~> 1.10.8'
 gem 'sprockets',                  '~> 3.7.2'
 gem 'newrelic_rpm'
-gem 'activeadmin'
-gem 'coffee-rails'
+gem 'activeadmin', '>= 2.6.1'
+gem 'coffee-rails', '>= 5.0.0'
 
 group :production do
   gem 'rails_12factor',           '~> 0.0.3'
