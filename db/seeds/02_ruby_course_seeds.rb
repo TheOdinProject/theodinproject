@@ -65,7 +65,6 @@ section = create_or_update_section(
   position: section_position,
   description: "In this section, we'll cover the basic building blocks of Ruby so you have them down cold.  Everything else you'll learn in programming builds on these concepts, so you'll be in a great place to take on additional projects and languages in the future."
 )
-)
 
 lesson_position += 1
 create_or_update_lesson(
@@ -89,6 +88,7 @@ create_or_update_lesson(
   is_project: true,
   url: "/ruby_programming/basic_ruby/ruby_project.md",
   repo: 'curriculum'
+)
 
 lesson_position += 1
 create_or_update_lesson(
