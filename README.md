@@ -12,7 +12,7 @@ We teach:
 
 This repo contains the main app for the Odin Project which can be found online at [theodinproject.com](https://www.theodinproject.com). It pulls in lesson and project content from our [curriculum repo](https://github.com/TheOdinProject/curriculum).
 
-The Odin project community can be found on our [Discord server](https://discord.gg/hvqVr6d).
+The Odin project community can be found on our [Discord server](https://discord.gg/V75WSQG).
 
 
 ## Contributing
@@ -37,6 +37,12 @@ To find out more about how you can contribute, please read our [contributing gui
 * [Abby Jones](http://github.com/AbbyJonesDev)
 * [Kevin Mulhern](https://github.com/KevinMulhern)
 * [Arun Kumar](https://github.com/arku)
+* [Cody Loyd](https://github.com/codyloyd)
+* [Austin Mason](https://github.com/CouchofTomato)
+* [Briggs Elsperger](https://github.com/I3uckwheat)
+* [Rhys](https://github.com/105ron)
+* [L. P. Soai-Van](https://github.com/leosoaivan)
+* [Andy Duss](https://github.com/mindovermiles262)
 
 ---
 Created by [Erik Trautman](http://www.github.com/eriktrautman)

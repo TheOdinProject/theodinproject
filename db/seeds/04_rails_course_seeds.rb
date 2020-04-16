@@ -22,11 +22,11 @@ course = create_or_update_course(
 
 section_position += 1
 section = create_or_update_section(
-  title: "The Track ahead",
-  title_url: "The Track ahead".parameterize,
+  title: "Introduction",
+  title_url: "Introduction".parameterize,
   course_id: course.id,
   position: section_position,
-  description: "In this section, have a look at the track ahead in this course."
+  description: "In this section, we will install Rails."
 )
 
 lesson_position += 1
@@ -37,68 +37,34 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/introduction.md",
+  url: "/rails_programming/introduction/introduction.md",
   repo: 'curriculum'
 )
+
+lesson_position += 1
+create_or_update_lesson(
+  title: "Installing Rails",
+  title_url: "Installing Rails".parameterize,
+  description: "Get setup for this course by installing Rails.",
+  position: lesson_position,
+  section_id: section.id,
+  is_project: true,
+  url: "/rails_programming/introduction/installing_rails.md",
+  repo: 'curriculum'
+)
+
 
 # +++++++++++
 # SECTION
 # +++++++++++
+
 section_position += 1
 section = create_or_update_section(
-  title: "Sinatra",
-  title_url: "Sinatra".parameterize,
+  title: "Rails Basics",
+  title_url: "Rails Basics".parameterize,
   course_id: course.id,
   position: section_position,
-  description: "In this section we will look at sinatra, a light weight Ruby web framework. Learning Sinatra before tackling rails will reduce the learning curve in this course significantly as sinatra will expose most of the things that rails does under the hood for you. This should give you a better understanding about how everything works with Rails."
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: "Sinatra Basics",
-  title_url: "Sinatra Basics".parameterize,
-  description: "In this lesson you will learn the basics of Sinatra",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: false,
-  url: "/rails_programming/sinatra/sinatra.md",
-  repo: 'curriculum'
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: "Sinatra Project",
-  title_url: "Sinatra Project".parameterize,
-  description: "In this project you will convert some of the projects you completed in Ruby Programming into web apps.",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: true,
-  url: "/rails_programming/sinatra/project_sinatra.md",
-  repo: 'curriculum'
-)
-
-# +++++++++++
-# SECTION
-# +++++++++++
-section_position += 1
-section = create_or_update_section(
-  title: "Introduction to Rails",
-  title_url: "Introduction to Rails".parameterize,
-  course_id: course.id,
-  position: section_position,
-  description: "In this section, we'll dive right into Rails and get you building from the start so you have an idea of what (and how) you'll learn going forward.  We'll get your feet planted in the right spot and your head pointed the right direction."
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: "Getting Your Feet Wet",
-  title_url: "Getting Your Feet Wet".parameterize,
-  description: "This will give you the chance to build a full Rails app using some of the special tools Rails provides.",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: true,
-  url: "/rails_programming/introduction_to_rails/project_feet_wet.md",
-  repo: 'curriculum'
+  description: "It's time to start looking carefully into the foundational pieces of the Rails framework.  We'll cover the path of an HTTP request from entering your application to returning as an HTML page to the browser."
 )
 
 lesson_position += 1
@@ -109,45 +75,8 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/introduction_to_rails/web_refresher.md",
+  url: "/rails_programming/rails_basics/web_refresher.md",
   repo: 'curriculum'
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: "Deployment",
-  title_url: "Deployment".parameterize,
-  description: "There's nothing quite like seeing your application on a real website.  We'll show you how it's done.",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: false,
-  url: "/rails_programming/introduction_to_rails/deployment.md",
-  repo: 'curriculum'
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: "Let's Get Building",
-  title_url: "Let's Get Building".parameterize,
-  description: "In this project, you'll get started with the core tutorial we'll be following throughout this course.",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: true,
-  url: "/rails_programming/introduction_to_rails/project_lets_build.md",
-  repo: 'curriculum'
-)
-
-# +++++++++++
-# SECTION
-# +++++++++++
-
-section_position += 1
-section = create_or_update_section(
-  title: "Routes, Views, Controllers and Assets",
-  title_url: "Routes, Views, Controllers and Assets".parameterize,
-  course_id: course.id,
-  position: section_position,
-  description: "Now that you've gotten your feet wet, it's time to start looking carefully into the foundational pieces of the Rails framework.  We'll cover the path of an HTTP request from entering your application to returning as an HTML page to the browser."
 )
 
 lesson_position += 1
@@ -158,7 +87,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/routes_views_controllers_assets/routing.md",
+  url: "/rails_programming/rails_basics/routing.md",
   repo: 'curriculum'
 )
 
@@ -170,7 +99,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/routes_views_controllers_assets/controller_basics.md",
+  url: "/rails_programming/rails_basics/controller_basics.md",
   repo: 'curriculum'
 )
 
@@ -182,7 +111,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/routes_views_controllers_assets/views.md",
+  url: "/rails_programming/rails_basics/views.md",
   repo: 'curriculum'
 )
 
@@ -194,19 +123,31 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/rails_programming/routes_views_controllers_assets/asset_pipeline.md",
+  url: "/rails_programming/rails_basics/asset_pipeline.md",
   repo: 'curriculum'
 )
 
 lesson_position += 1
 create_or_update_lesson(
-  title: "Basic Routes, Views and Controllers",
-  title_url: "Basic Routes, Views and Controllers".parameterize,
-  description: "You'll get to play with routing and build what you've learned in this section so far.",
+  title: "Deployment",
+  title_url: "Deployment".parameterize,
+  description: "There's nothing quite like seeing your application on a real website.  We'll show you how it's done.",
+  position: lesson_position,
+  section_id: section.id,
+  is_project: false,
+  url: "/rails_programming/rails_basics/deployment.md",
+  repo: 'curriculum'
+)
+
+lesson_position += 1
+create_or_update_lesson(
+  title: "Blog App",
+  title_url: "Blog App".parameterize,
+  description: "You've learned the basics, now let's put them to work by building a basic blogging app.",
   position: lesson_position,
   section_id: section.id,
   is_project: true,
-  url: "/rails_programming/routes_views_controllers_assets/project_basic_rvc.md",
+  url: "/rails_programming/rails_basics/project_blog_app.md",
   repo: 'curriculum'
 )
 
