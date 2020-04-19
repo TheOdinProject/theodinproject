@@ -12,7 +12,7 @@
           <div class="curriculum-details-tile align-items-center">
             <%= image_tag course[:badge_image_url], alt: course[:badge_alt_text] %>
             <h4 class="bold text-uppercase">
-              <%= course[:title] %>
+            <%= link_to `#{course[:title]}`, `#{course[:title_url]}`%>
             </h4>
           </div>
           <% end %>

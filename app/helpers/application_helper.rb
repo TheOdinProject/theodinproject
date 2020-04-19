@@ -153,36 +153,44 @@ module ApplicationHelper
       {
         badge_image_url: 'badge-html-css.svg',
         badge_alt_text: 'html css badge',
-        title: 'HTML + CSS'
+        title: 'HTML + CSS',
+        title_url: '/courses/html5-and-css3'
       },
       {
         badge_image_url: 'badge-javascript.svg',
         badge_alt_text: 'javascript badge',
-        title: 'JavaScript'
+        title: 'JavaScript',
+        title_url: '/courses/javascript'
       },
       { badge_image_url: 'badge-git.svg',
         badge_alt_text: 'git badge',
         title: 'Git'
+        title_url: '/courses/web-development-101'
       },
       { badge_image_url: 'badge-database.svg',
         badge_alt_text: 'databases badge',
         title: 'Databases'
+        title_url: '/courses/databases'
       },
       { badge_image_url: 'badge-ruby.svg',
         badge_alt_text: 'ruby badge',
         title: 'Ruby'
+        title_url: '/courses/ruby-progrmming'
       },
       { badge_image_url: 'badge-ruby-on-rails.svg',
         badge_alt_text: 'ruby on rails badge',
-        title: 'Ruby on Rails'
+        title: 'Ruby on Rails',
+        title_url: '/courses/ruby-on-rails'
       },
       { badge_image_url: 'badge-nodejs.svg',
         badge_alt_text: 'nodejs badge',
-        title: 'NodeJS'
+        title: 'NodeJS',
+        title_url: '/courses/nodejs'
       },
       { badge_image_url: 'badge-getting-hired.svg',
         badge_alt_text: 'getting hired badge',
-        title: 'Getting Hired'
+        title: 'Getting Hired',
+        title_url: '/courses/getting-hired'
       }
     ]
   end
