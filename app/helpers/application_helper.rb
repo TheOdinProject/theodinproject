@@ -164,17 +164,17 @@ module ApplicationHelper
       },
       { badge_image_url: 'badge-git.svg',
         badge_alt_text: 'git badge',
-        title: 'Git'
+        title: 'Git',
         title_url: '/courses/web-development-101'
       },
       { badge_image_url: 'badge-database.svg',
         badge_alt_text: 'databases badge',
-        title: 'Databases'
+        title: 'Databases',
         title_url: '/courses/databases'
       },
       { badge_image_url: 'badge-ruby.svg',
         badge_alt_text: 'ruby badge',
-        title: 'Ruby'
+        title: 'Ruby',
         title_url: '/courses/ruby-progrmming'
       },
       { badge_image_url: 'badge-ruby-on-rails.svg',
