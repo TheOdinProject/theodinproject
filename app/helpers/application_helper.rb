@@ -154,7 +154,7 @@ module ApplicationHelper
         badge_image_url: 'badge-html-css.svg',
         badge_alt_text: 'html css badge',
         title: 'HTML + CSS',
-        path: '/courses/html5-and-css3'
+        path: '/courses/html-and-css'
       },
       {
         badge_image_url: 'badge-javascript.svg',
@@ -165,7 +165,7 @@ module ApplicationHelper
       { badge_image_url: 'badge-git.svg',
         badge_alt_text: 'git badge',
         title: 'Git',
-        path: '/courses/web-development-101'
+        path: '/courses/web-development-101#git-basics'
       },
       { badge_image_url: 'badge-database.svg',
         badge_alt_text: 'databases badge',
