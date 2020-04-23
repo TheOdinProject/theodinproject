@@ -9,7 +9,7 @@ before_script:
   - psql -c 'create database theodinproject_test;' -U postgres
 script:
   - bundle exec rake bundler:audit
-  - bundle exec rake db:migrate RAILS_ENV=test
+  - RAILS_ENV=test bundle exec rails db:schema:load
   - bundle exec rspec
 deploy:
   - &deploy
