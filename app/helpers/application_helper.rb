@@ -175,7 +175,7 @@ module ApplicationHelper
       { badge_image_url: 'badge-ruby.svg',
         badge_alt_text: 'ruby badge',
         title: 'Ruby',
-        path: '/courses/ruby-progrmming'
+        path: '/courses/ruby-programming'
       },
       { badge_image_url: 'badge-ruby-on-rails.svg',
         badge_alt_text: 'ruby on rails badge',
