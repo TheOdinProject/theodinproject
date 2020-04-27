@@ -154,7 +154,7 @@ module ApplicationHelper
         badge_image_url: 'badge-html-css.svg',
         badge_alt_text: 'html css badge',
         title: 'HTML + CSS',
-        path: '/courses/html-and-css'
+        path: '/courses/html5-and-css3'
       },
       {
         badge_image_url: 'badge-javascript.svg',
