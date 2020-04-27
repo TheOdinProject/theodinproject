@@ -120,7 +120,7 @@ create_or_update_lesson(
   position: lesson_position,
   section_id: section.id,
   is_project: false,
-  url: "/nodeJS/express-basics/preparing_for_deployment.md",
+  url: "/rails_programming/introduction/preparing_for_deployment.md",
   repo: 'curriculum'
 )
 
