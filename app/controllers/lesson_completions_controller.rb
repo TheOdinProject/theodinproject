@@ -4,7 +4,7 @@ class LessonCompletionsController < ApplicationController
   before_action :set_user
 
   def create
-    new_lesson_completion.save
+    LessonCompletion.create(student_id: current_user.id, lesson_id: @lesson.id)
   end
 
   def destroy
