@@ -27,7 +27,7 @@ gem 'kramdown'
 gem 'toastr-rails'
 gem 'gibbon',                     '~> 3.3.4' # for Mailchimp
 gem 'nokogiri',                   '~> 1.10.8'
-gem 'sprockets',                  '~> 3.7.2'
+gem 'sprockets',                  '~> 4.0.2'
 gem 'newrelic_rpm'
 gem 'activeadmin'
 gem 'webpacker'
