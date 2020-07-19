@@ -132,8 +132,8 @@ function constructInternalLinks(heading){
   internalLink.setAttribute('href', uri + '#' + id);
   internalLink.innerText = heading.innerText;
   internalLink.className = 'internal-link';
+  removeAllChildNodes(heading);
   heading.appendChild(internalLink);
-  heading.firstChild.remove();
 } 
 
 function spyLessonSections() {
@@ -153,3 +153,9 @@ document.addEventListener('turbolinks:load', function() {
   constructLessonNavigation();
   spyLessonSections();
 });
+
+function removeAllChildNodes(parentNode) {
+  while(parentNode.firstChild) {
+    parentNode.removeChild(parentNode.lastChild);
+  }
+}
