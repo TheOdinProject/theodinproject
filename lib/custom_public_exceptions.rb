@@ -9,3 +9,4 @@ class CustomPublicExceptions < ActionDispatch::PublicExceptions
     end
   end
 end
+#K
