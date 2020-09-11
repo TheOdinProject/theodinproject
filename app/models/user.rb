@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:github, :google]
+         :omniauthable, omniauth_providers: %i[github google]
 
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :username, length: { in: 2..100 }
@@ -20,7 +20,7 @@ class User < ApplicationRecord
     @progress[course]
   end
 
-  def has_completed?(lesson)
+  def completed?(lesson)
     completed_lessons.exists?(lesson.id)
   end
 
@@ -30,8 +30,12 @@ class User < ApplicationRecord
     Lesson.find(last_lesson_completed.lesson_id)
   end
 
-  def password_required?
-    super && provider.blank?
+  def active_for_authentication?
+    super && !banned?
+  end
+
+  def inactive_message
+    !banned? ? super : :banned
   end
 
   private
@@ -40,15 +44,9 @@ class User < ApplicationRecord
     lesson_completions.order(created_at: :asc).last
   end
 
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.github_data"] && session["devise.github_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
-
   def send_welcome_email
+    return if ENV['STAGING']
+
     UserMailer.send_welcome_email_to(self).deliver_now!
   end
 end

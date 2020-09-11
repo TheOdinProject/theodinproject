@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :check_referal
   protect_from_forgery with: :exception
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
@@ -16,7 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin_user!
-    unless current_user && current_user.admin?
+    authenticate_user!
+
+    unless current_user.admin?
+      flash[:alert] = 'Unauthorized Access!'
       redirect_to root_path
     end
   end
@@ -36,28 +38,10 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer
-      .permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(
-        :email,
-        :username,
-        :current_password,
-        :password,
-        :password_confirmation,
-        :learning_goal
-      )
+      u.permit(:email, :username, :current_password, :password, :password_confirmation, :learning_goal)
     end
-  end
-
-  def check_referal
-    if request.referer != nil && bad_referal.include?(URI(request.referer).host)
-      flash[:info] = "Did you know The Odin Project is 100% free of charge? #{view_context.link_to('Click Here', faq_path)} to learn more".html_safe
-    end
-  end
-
-  def bad_referal
-    ["microverse.org"]
   end
 end

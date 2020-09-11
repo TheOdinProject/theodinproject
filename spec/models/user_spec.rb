@@ -42,14 +42,14 @@ RSpec.describe User do
     end
   end
 
-  describe '#has_completed?' do
+  describe '#completed?' do
     let(:lesson) { create(:lesson) }
 
     context 'when the user has completed  the lesson' do
       let!(:lesson_completion) { create(:lesson_completion, lesson: lesson, student: user) }
 
       it 'returns true' do
-        expect(user.has_completed?(lesson)).to be(true)
+        expect(user.completed?(lesson)).to be(true)
       end
     end
 
@@ -57,7 +57,7 @@ RSpec.describe User do
       let!(:lesson_completion) { create(:lesson_completion, lesson: lesson) }
 
       it 'returns false' do
-        expect(user.has_completed?(lesson)).to be(false)
+        expect(user.completed?(lesson)).to be(false)
       end
     end
   end
@@ -103,22 +103,38 @@ RSpec.describe User do
     end
   end
 
-  describe '#password_required?' do
-    let(:user) { create(:user, provider: provider) }
-
-    context 'when the provider is blank' do
-      let(:provider) { '' }
+  describe '#active_for_authentication?' do
+    context 'when user has not been banned' do
+      let(:user) { create(:user) }
 
       it 'returns true' do
-        expect(user.password_required?).to eql(true)
+        expect(user.active_for_authentication?).to be(true)
       end
     end
 
-    context 'when the provider is not blank' do
-      let(:provider) { 'github' }
+    context 'when user has been banned' do
+      let(:user) { create(:user, banned: true) }
 
       it 'returns false' do
-        expect(user.password_required?).to eql(false)
+        expect(user.active_for_authentication?).to be(false)
+      end
+    end
+  end
+
+  describe '#inactive_message' do
+    context 'when user has not been banned' do
+      let(:user) { create(:user) }
+
+      it 'returns default inactive translation key' do
+        expect(user.inactive_message).to eq(:inactive)
+      end
+    end
+
+    context 'when user has been banned' do
+      let(:user) { create(:user, banned: true) }
+
+      it 'returns banned translation key' do
+        expect(user.inactive_message).to eq(:banned)
       end
     end
   end

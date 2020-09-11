@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_210201) do
+ActiveRecord::Schema.define(version: 2020_09_08_195534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_210201) do
     t.bigint "project_submission_id", null: false
     t.text "reason", default: "", null: false
     t.integer "status", default: 0, null: false
-    t.integer "action_taken", default: 0, null: false
+    t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_210201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_public", default: true, null: false
+    t.boolean "banned", default: false, null: false
     t.index ["is_public"], name: "index_project_submissions_on_is_public"
     t.index ["lesson_id"], name: "index_project_submissions_on_lesson_id"
     t.index ["user_id", "lesson_id"], name: "index_project_submissions_on_user_id_and_lesson_id", unique: true
@@ -177,8 +178,6 @@ ActiveRecord::Schema.define(version: 2020_08_16_210201) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.text "learning_goal"
-    t.string "provider"
-    t.string "uid"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -186,6 +185,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_210201) do
     t.boolean "admin", default: false, null: false
     t.string "avatar"
     t.integer "track_id", default: 1
+    t.boolean "banned", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

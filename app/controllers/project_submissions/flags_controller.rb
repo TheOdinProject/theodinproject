@@ -6,7 +6,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
       notify_discord_admins
       render json: flag, status: :ok
     else
-      render json: { error: "Unable to flag project submission" }, status: :unprocessable_entity
+      render json: { error: 'Unable to flag project submission' }, status: :unprocessable_entity
     end
   end
 

@@ -9,6 +9,9 @@ const CreateForm = ({ onClose, onSubmit }) => {
   const { register, handleSubmit, formState, errors, reset } = useForm({
     resolver: yupResolver(schema),
     mode: 'onTouched',
+    defaultValues: {
+      is_public: true,
+    }
   });
 
   const handleClose = () => {
@@ -42,7 +45,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
         </div>
         {errors.repo_url && <div className="form__error-message push-down"> {errors.repo_url.message}</div>}
 
-        <div className="form__section push-down-3x">
+        <div className="form__section">
           <span className="form__icon fas fa-link"></span>
           <input
             className="form__element form__element--with-icon"
@@ -55,11 +58,14 @@ const CreateForm = ({ onClose, onSubmit }) => {
         {errors.live_preview_url && <div className="form__error-message push-down"> {errors.live_preview_url.message}</div>}
 
         <div className="form__section form__section--right-aligned form__section--bottom">
+          <div className="form__toggle-checkbox">
             <p className="bold">MAKE SOLUTION PUBLIC</p>
             <label className="toggle form__public-checkbox">
-              <input className="toggle__input" type="checkbox" name="is_public" ref={register}  />
+              <input className="toggle__input" type="checkbox" name="is_public" ref={register} />
               <div className="toggle__fill"></div>
             </label>
+          </div>
+
           <button disabled={!formState.isValid} type="submit" className="button button--primary">Submit</button>
         </div>
       </form>
