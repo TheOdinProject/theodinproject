@@ -2,11 +2,9 @@ class ProjectSubmissions::FlagsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @flag = flag
-
-    if @flag.save
+    if flag.save
       notify_discord_admins
-      render json: @flag, status: :ok
+      render json: flag, status: :ok
     else
       render json: { error: "Unable to flag project submission" }, status: :unprocessable_entity
     end
@@ -15,11 +13,11 @@ class ProjectSubmissions::FlagsController < ApplicationController
   private
 
   def flag
-    Flag.new(
-      project_submission: project_submission,
-      flagger: current_user,
-      reason: params[:reason]
-    )
+    @flag ||= Flag.new(flag_params)
+  end
+
+  def flag_params
+    params.permit(:project_submission_id, :reason).merge(flagger: current_user)
   end
 
   def project_submission
@@ -27,10 +25,10 @@ class ProjectSubmissions::FlagsController < ApplicationController
   end
 
   def notify_discord_admins
-    DiscordNotifier.notify(Notifications::FlagSubmission.new(
-      flagger: current_user,
-      project_submission: project_submission,
-      reason: params[:reason]
-    ))
+    return if Rails.env.development?
+
+    DiscordNotifier.notify(
+      Notifications::FlagSubmission.new(flag)
+    )
   end
 end
