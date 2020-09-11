@@ -82,10 +82,6 @@ const ProjectSubmissions = (props) => {
     );
     if (response.status === 200) {
       setFlaggedSubmission({});
-
-      setSubmissions(prevSubmissions =>
-        prevSubmissions.filter((submission) => submission.id !== parseInt(project_submission_id))
-      );
     }
   };
 
