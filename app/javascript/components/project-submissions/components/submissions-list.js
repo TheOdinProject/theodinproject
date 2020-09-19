@@ -20,7 +20,7 @@ const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, allS
 
       { allSubmissionsPath.length > 0 &&
         <p className="submissions__view-more">
-          Showing 10 most recent submissions.
+          Showing {submissions.length} most recent submissions.
           <a href={allSubmissionsPath}> View full list of solutions here.</a>
         </p>
       }

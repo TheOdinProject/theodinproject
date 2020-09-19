@@ -1,9 +1,8 @@
 module Lessons
   class ProjectSubmissionsController < ApplicationController
-    
     before_action :authenticate_user!
     before_action :set_lesson
-    
+
     def index
       @project_submissions = Kaminari.paginate_array(
         project_submissions,

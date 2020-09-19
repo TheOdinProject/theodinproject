@@ -1,7 +1,7 @@
 class LessonProjectSubmissionsQuery
-
-  def initialize(lesson)
+  def initialize(lesson, limit: nil)
     @lesson = lesson
+    @limit = limit
   end
 
   def with_current_user_submission_first(user)
@@ -11,10 +11,10 @@ class LessonProjectSubmissionsQuery
   end
 
   private
-  
-  attr_reader :lesson
+
+  attr_reader :lesson, :limit
 
   def lesson_project_submissions
-    lesson.project_submissions.viewable.order(:created_at)
+    lesson.project_submissions.viewable.order(:created_at).limit(limit)
   end
 end
