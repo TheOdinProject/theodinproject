@@ -89,6 +89,11 @@ const ProjectSubmissions = (props) => {
     return submissions.find(submission => submission.user_id === userId);
   }, [userId, submissions.length]);
 
+  const showAddSubmissionButton = () => {
+    console.log(!userId)
+    !userSubmission || !userId
+  }
+
   return (
     <div className="submissions">
       <div className="submissions__header">
@@ -110,11 +115,12 @@ const ProjectSubmissions = (props) => {
             submission={flaggedSubmission}
             onSubmit={handleFlag}
             onClose={toggleShowFlagModal}
+            userId={userId}
           />
         </Modal>
 
         <div>
-          {!userSubmission && (
+          {showAddSubmissionButton() && (
             <button className="submissions__add button button--primary" onClick={toggleShowCreateModal}>
               Add Solution
             </button>
