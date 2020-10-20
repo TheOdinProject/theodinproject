@@ -6,7 +6,7 @@ class PathsController < ApplicationController
   end
 
   def index
-    @paths = Path.all
+    @paths = Path.all.filter { |path| path.title != 'Front End Only' }
   end
 
   private
