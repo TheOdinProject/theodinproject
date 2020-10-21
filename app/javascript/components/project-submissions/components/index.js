@@ -7,5 +7,5 @@ export {
   SubmissionsList,
   Modal,
   CreateForm,
-  FlagForm,
+  FlagForm
 };

@@ -81,7 +81,7 @@
     }
   }
 
-  &__flag {
+  &__flag, &__like {
     color: $button-disabled;
     cursor: pointer;
 
@@ -89,6 +89,12 @@
       position: absolute !important;
       top: 5px;
       right: 0;
+    }
+  }
+
+  &__like {
+    .liked {
+      color: blue !important;
     }
   }
 
