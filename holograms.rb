@@ -12,4 +12,10 @@
 
         end
 
+        def render_image(img)
+
+            live_image(img)
+
+        end
+
     end
