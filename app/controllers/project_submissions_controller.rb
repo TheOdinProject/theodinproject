@@ -1,4 +1,5 @@
 class ProjectSubmissionsController < ApplicationController
+  include ProjectsHelper
   before_action :authenticate_user!
   before_action :find_project_submission, only: %i[update destroy]
 
@@ -30,14 +31,5 @@ class ProjectSubmissionsController < ApplicationController
 
   def find_project_submission
     @project_submission = current_user.project_submissions.find(params[:id])
-  end
-
-  def project_submission_params
-    params.require(:project_submission).permit(
-      :repo_url,
-      :live_preview_url,
-      :is_public,
-      :lesson_id
-    )
   end
 end
