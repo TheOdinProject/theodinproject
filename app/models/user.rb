@@ -57,7 +57,7 @@ class User < ApplicationRecord
   end
 
   def enroll_in_web_development_101
-    path = Path.find_by(title: 'Web Development 101')
+    path = Path.find_by(title: 'Foundations')
 
     update(path_id: path.id) if path.present?
   end
