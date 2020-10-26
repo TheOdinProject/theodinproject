@@ -11,6 +11,7 @@ class Path < ApplicationRecord
   validates :description, presence: true
   validates :position, presence: true
 
-
-  scope :default, -> { find_by(default: true) }
+  def self.default_path
+    find_by(default_path: true)
+  end
 end

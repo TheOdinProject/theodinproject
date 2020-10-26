@@ -18,7 +18,7 @@ RSpec.describe User do
 
   context 'when user is created' do
     let(:mailer) { instance_double(ActionMailer::MessageDelivery) }
-    let!(:foundations_path) { create(:path, title: 'Foundations') }
+    let!(:default_path) { create(:path, default_path: true) }
 
     before do
       allow(UserMailer).to receive(:send_welcome_email_to).and_return(mailer)
@@ -30,9 +30,9 @@ RSpec.describe User do
       expect(UserMailer).to have_received(:send_welcome_email_to).with(user)
     end
 
-    it 'enrolls the user in the Foundations path' do
+    it 'enrolls the user in the default path' do
       user = create(:user)
-      expect(user.path).to eql(foundations_path)
+      expect(user.path).to eql(default_path)
     end
   end
 
