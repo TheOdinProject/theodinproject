@@ -1,9 +1,20 @@
 {
   "environments": {
     "review": {
+      "formation": [
+        { "process": "web",    "quantity": 1 }
+      ],
+      "buildpacks": [
+        {
+          "url": "heroku/ruby"
+        },
+        {
+          "url": "https://github.com/gaffneyc/heroku-buildpack-jemalloc.git"
+        }
+      ],
       "addons": ["heroku-postgresql:hobby-dev"],
       "scripts": {
-        "postdeploy": "bundle exec rails db:schema:load db:seed"
+        "postdeploy": "bundle exec rails db:seed curriculum:update_content"
       }
     }
   }

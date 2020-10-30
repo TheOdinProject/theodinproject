@@ -6,8 +6,19 @@ RSpec.describe Path do
   it { is_expected.to have_many(:users) }
   it { is_expected.to have_many(:path_courses).order(:position) }
   it { is_expected.to have_many(:courses).through(:path_courses) }
+  it { is_expected.to have_many(:path_prerequisites).dependent(:destroy) }
+  it { is_expected.to have_many(:prerequisites).through(:path_prerequisites).source(:prerequisite) }
 
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:description) }
   it { is_expected.to validate_presence_of(:position) }
+
+  describe '.default_path' do
+    let!(:default_path) { create(:path, default_path: true) }
+    let!(:non_default_path) { create(:path) }
+
+    it 'returns the default path users should be enrolled in when they sign up' do
+      expect(Path.default_path).to eq(default_path)
+    end
+  end
 end
