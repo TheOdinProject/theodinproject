@@ -12,15 +12,17 @@ const noop = () => {}
 const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboardView }) => {
   const { userId } = useContext(ProjectSubmissionContext);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [likes, incrementLikes] = useState(submission.likes);
+  const [liked, likeSubmissionHook] = useState(submission.liked_by);
   const isCurrentUsersSubmission = useMemo(() =>
     userId === submission.user_id, [userId, submission.user_id]);
 
   const toggleShowEditModal = () => setShowEditModal(prevShowEditModal => !prevShowEditModal);
   const livePreview = submission.live_preview_url.length > 0;
 
-  console.log(submission);
-
   const likeSubmission = async (submissionId) => {
+    if (liked) return false;
+
     const response = await axios.post(
       `/project_submissions/${submissionId}/likes`,
       {
@@ -28,7 +30,11 @@ const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboar
       }
     );
 
+    console.log(response);
+
     if (response.status === 200) {
+      incrementLikes(likes + 1);
+      likeSubmissionHook(true);
       return true;
     } else {
       return false;
@@ -55,16 +61,19 @@ const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboar
           <a href={submission.live_preview_url} target="_blank" className="submissions__button">Live Preview</a>
         }
 
-        {!isCurrentUsersSubmission
+        {!isCurrentUsersSubmission && userId != null
           ? 
-          <a className='submissions__like hint--top' aria-label='Like submission' onClick={(event) => {
+          <a className='submissions__like hint--top' id={`like_href-${submission.id}`} aria-label='Like submission' onClick={(event) => {
             event.preventDefault(); 
             const res = likeSubmission(submission.id);
             
-            if (res) event.target.classList.add('liked');
+            if (res) {
+              document.getElementById(`like_href-${submission.id}`).classList.add('liked');
+              document.getElementById(`like_icon-${submission.id}`).classList.add('liked');
+            }
           }
-          }>
-            <i className='fa fa-heart'></i>
+        }>
+            <i className={submission.liked_by ? 'fa fa-heart liked' : 'fa fa-heart'} id={`like_icon-${submission.id}`}></i> {likes}
           </a> 
           : ''
         }
