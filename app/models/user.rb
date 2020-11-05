@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   acts_as_voter
   after_create :send_welcome_email
+  after_create :enroll_in_web_development_101
 
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable,
@@ -54,5 +55,11 @@ class User < ApplicationRecord
     return if ENV['STAGING']
 
     UserMailer.send_welcome_email_to(self).deliver_now!
+  end
+
+  def enroll_in_web_development_101
+    default_path = Path.default_path
+
+    update(path_id: default_path.id) if default_path.present?
   end
 end

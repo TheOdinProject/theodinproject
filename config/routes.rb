@@ -45,8 +45,9 @@ Rails.application.routes.draw do
   end
   get 'dashboard' => 'users#show', as: :dashboard
 
-  # Deprecated Route to Introduction to Web Development from external links
-  get '/courses/introduction-to-web-development' => redirect('/courses/web-development-101')
+  # Deprecated Route to Web Development 101 from external links
+  get '/courses/web-development-101', to: redirect('/courses/foundations')
+  get '/courses/web-development-101/%{id}', to: redirect('/courses/foundations/%{id}')
 
   get '/courses' => redirect('/paths')
   resources :courses, only: %i[index show] do
@@ -69,6 +70,7 @@ Rails.application.routes.draw do
     resources :likes, controller: 'project_submissions/likes'
   end
 
+  get '/paths/web-development-101', to: redirect('/paths/foundations')
   resources :paths, only: %i[index show]
 
   match '/404' => 'errors#not_found', via: %i[get post patch delete]
