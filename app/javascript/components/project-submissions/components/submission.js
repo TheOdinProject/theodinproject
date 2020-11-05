@@ -30,8 +30,6 @@ const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboar
       }
     );
 
-    console.log(response);
-
     if (response.status === 200) {
       incrementLikes(likes + 1);
       likeSubmissionHook(true);
