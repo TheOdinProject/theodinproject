@@ -3,7 +3,6 @@ class ProjectSubmissions::LikesController < ApplicationController
   #before_action :authenticate_user!
 
   def create
-    puts 'this is the new shit'
     @project_submission = ProjectSubmission.find(params[:submission_id])
     @project_submission.liked_by current_user
 

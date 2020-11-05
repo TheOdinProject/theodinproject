@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_voter
   after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable, :recoverable,

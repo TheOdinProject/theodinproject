@@ -14,7 +14,7 @@ const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDa
     <div>
         { hasSubmissions
           ? <div>
-              {submissions.map(submission => (
+              {submissions.sort((a, b) => b.likes - a.likes).map(submission => (
                 <Submission
                   key={submission.id}
                   submission={submission}
