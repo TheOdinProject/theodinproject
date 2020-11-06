@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useContext } from 'react';
 import { object, func, bool } from 'prop-types';
-import axios from '../../../src/js/axiosWithCsrf';
 
 import Modal from './modal';
 import EditForm from './edit-form';
@@ -9,35 +8,14 @@ import SubmissionTitle from './submission-title';
 
 const noop = () => {}
 
-const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboardView }) => {
+const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboardView, handleLikeToggle }) => {
   const { userId } = useContext(ProjectSubmissionContext);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [likes, incrementLikes] = useState(submission.likes);
-  const [liked, likeSubmissionHook] = useState(submission.liked_by);
   const isCurrentUsersSubmission = useMemo(() =>
     userId === submission.user_id, [userId, submission.user_id]);
 
   const toggleShowEditModal = () => setShowEditModal(prevShowEditModal => !prevShowEditModal);
   const livePreview = submission.live_preview_url.length > 0;
-
-  const likeSubmission = async (submissionId) => {
-    if (liked) return false;
-
-    const response = await axios.post(
-      `/project_submissions/${submissionId}/likes`,
-      {
-        submission_id: submissionId,
-      }
-    );
-
-    if (response.status === 200) {
-      incrementLikes(likes + 1);
-      likeSubmissionHook(true);
-      return true;
-    } else {
-      return false;
-    }
-  };
 
   return (
     <div className="submissions__item">
@@ -63,7 +41,7 @@ const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboar
           ? 
           <a className='submissions__like hint--top' id={`like_href-${submission.id}`} aria-label='Like submission' onClick={(event) => {
             event.preventDefault(); 
-            const res = likeSubmission(submission.id);
+            const res = handleLikeToggle(submission);
             
             if (res) {
               document.getElementById(`like_href-${submission.id}`).classList.add('liked');
@@ -71,7 +49,7 @@ const Submission = ({ submission, handleUpdate, onFlag, handleDelete, isDashboar
             }
           }
         }>
-            <i className={submission.liked_by ? 'fa fa-heart liked' : 'fa fa-heart'} id={`like_icon-${submission.id}`}></i> {likes}
+            <i className={submission.liked_by ? 'fa fa-heart liked' : 'fa fa-heart'} id={`like_icon-${submission.id}`}></i> {submission.likes}
           </a> 
           : ''
         }

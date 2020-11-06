@@ -2,7 +2,7 @@ class ProjectSubmissionSerializer
   include Rails.application.routes.url_helpers
 
   def initialize(project_submission, current_user)
-    @current_user_voted = current_user.voted_for?(project_submission) unless current_user.nil?
+    @current_user = current_user
     @project_submission = project_submission
   end
 
@@ -24,7 +24,7 @@ class ProjectSubmissionSerializer
       lesson_path: lesson_path(lesson),
       lesson_has_live_preview: lesson.has_live_preview,
       likes: project_submission.votes_for.size,
-      liked_by: @current_user_voted
+      is_liked_by_current_user: current_user_voted_for_project?
     }
   end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
@@ -35,5 +35,9 @@ class ProjectSubmissionSerializer
 
   def lesson
     project_submission.lesson
+  end
+
+  def current_user_voted_for_project?
+    @current_user.voted_for?(project_submission) unless @current_user.nil?
   end
 end

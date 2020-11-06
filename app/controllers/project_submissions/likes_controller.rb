@@ -6,6 +6,6 @@ class ProjectSubmissions::LikesController < ApplicationController
     @project_submission = ProjectSubmission.find(params[:submission_id])
     @project_submission.liked_by current_user
 
-    render json: { message: "Project #{@project_submission.id} liked!" }
+    render json: ProjectSubmissionSerializer.as_json(@project_submission), status: :ok
   end
 end
