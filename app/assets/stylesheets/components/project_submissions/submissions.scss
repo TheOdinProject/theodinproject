@@ -41,6 +41,13 @@
     }
   }
 
+  &__left-container {
+    display: flex;
+    align-items: center;
+
+    
+  }
+
   &__submission-title {
     font-weight: 600;
     font-size: 1.25rem;
@@ -93,8 +100,10 @@
   }
 
   &__like {
+    margin-right: 15px;
+
     .liked {
-      color: blue !important;
+      color: #6abfc3 !important;
     }
   }
 

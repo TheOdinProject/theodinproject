@@ -86,25 +86,28 @@ const ProjectSubmissions = (props) => {
   };
 
   const toggleLikeSubmission = async (submission) => {
-    //if (submission.is_liked_by_current_user) return false;
-
-    console.log(submission);
-
     const response = await axios.post(
-      `/project_submissions/${submissionId}/likes`,
+      `/project_submissions/${submission.id}/likes`,
       {
         submission_id: submission.id,
+        is_liked_by_current_user: submission.is_liked_by_current_user
       }
     );
 
-    console.log(response);
-
     if (response.status === 200) {
-      //incrementLikes(likes + 1);
-      //likeSubmissionHook(true);
-      return true;
-    } else {
-      return false;
+      const updatedSubmission = response.data;
+
+      setSubmissions(prevSubmissions => {
+        const newSubmissions = prevSubmissions.map((sub) => {
+          if (updatedSubmission.id === sub.id) {
+            return updatedSubmission;
+          }
+
+          return sub;
+        })
+
+        return newSubmissions;
+      });
     }
   };
 
