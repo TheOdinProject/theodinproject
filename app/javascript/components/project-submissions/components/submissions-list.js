@@ -6,7 +6,7 @@ import ProjectSubmissionContext from '../ProjectSubmissionContext';
 
 const noop = () => {};
 
-const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDashboardView }) => {
+const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDashboardView, toggleLikeSubmission }) => {
   const { allSubmissionsPath, legacySubmissionsUrl } = useContext(ProjectSubmissionContext);
   const hasSubmissions = submissions.length > 0;
 
@@ -22,6 +22,7 @@ const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDa
                   onFlag={onFlag}
                   handleDelete={handleDelete}
                   isDashboardView={isDashboardView}
+                  toggleLikeSubmission={toggleLikeSubmission}
                 />
               ))}
             </div>
