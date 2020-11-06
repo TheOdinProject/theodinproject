@@ -1,7 +1,7 @@
 class ProjectSubmissionSerializer
   include Rails.application.routes.url_helpers
 
-  def initialize(project_submission, current_user)
+  def initialize(project_submission, current_user = nil)
     @current_user = current_user
     @project_submission = project_submission
   end
