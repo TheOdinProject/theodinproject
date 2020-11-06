@@ -6,7 +6,7 @@ class ProjectSubmissionSerializer
     @project_submission = project_submission
   end
 
-  def self.as_json(project_submission, current_user)
+  def self.as_json(project_submission, current_user = nil)
     new(project_submission, current_user).as_json
   end
 
