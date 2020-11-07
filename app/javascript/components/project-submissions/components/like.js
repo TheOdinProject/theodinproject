@@ -11,7 +11,7 @@ const Like = ({ submission, handleLikeToggle }) => {
     <>
       {!isCurrentUsersSubmission
         ?
-        <a className='submissions__like hint--top' aria-label={userId !== null ? 'Like submission' : 'Log in to like!'} onClick={(event) => {
+        <a className='submissions__like hint--top' aria-label={userId !== null ? (submission.is_liked_by_current_user ? 'Like submission' : 'Unlike submission') : 'Log in to like!'} onClick={(event) => {
           event.preventDefault();
           handleLikeToggle(submission);
         }
