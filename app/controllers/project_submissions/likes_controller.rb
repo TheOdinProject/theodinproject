@@ -1,5 +1,4 @@
 class ProjectSubmissions::LikesController < ApplicationController
-  include ProjectsHelper
   before_action :authenticate_user!
 
   def create

@@ -98,12 +98,12 @@ const ProjectSubmissions = (props) => {
       const updatedSubmission = response.data;
 
       setSubmissions(prevSubmissions => {
-        const newSubmissions = prevSubmissions.map((sub) => {
-          if (updatedSubmission.id === sub.id) {
+        const newSubmissions = prevSubmissions.map((submission) => {
+          if (updatedSubmission.id === submission.id) {
             return updatedSubmission;
           }
 
-          return sub;
+          return submission;
         })
 
         return newSubmissions;
