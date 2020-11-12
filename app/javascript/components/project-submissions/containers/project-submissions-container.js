@@ -23,9 +23,6 @@ const ProjectSubmissions = (props) => {
 
     event.preventDefault();
 
-    console.log('Creating');
-    console.log(repo_url, live_preview_url, is_public, lesson.id);
-
     const response = await axios.post(
       `/project_submissions`,
       {
