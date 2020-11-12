@@ -65,30 +65,6 @@ const ProjectSubmissions = (props) => {
     }
   };
 
-  const handleVisibleToggle = async (repo_url, live_preview_url, is_public, project_submission_id) => {
-    event.preventDefault();
-
-    console.log('Updating');
-    console.log(repo_url, live_preview_url, is_public, lesson.id);
-
-    const response = await axios.put(
-      `/project_submissions/${project_submission_id}`,
-      {
-        project_submission: {
-          repo_url,
-          live_preview_url,
-          is_public,
-          lesson_id: lesson.id,
-        }
-      }
-    );
-    if (response.status === 200) {
-      setSubmissions(prevSubmissions =>
-        Object.assign([], prevSubmissions, {[0]: response.data})
-      );
-    } 
-  }
-
   const handleDelete = async (id) => {
     event.preventDefault();
 
@@ -188,7 +164,6 @@ const ProjectSubmissions = (props) => {
         onFlag={(submission) => { setFlaggedSubmission(submission); toggleShowFlagModal() }}
         handleDelete={handleDelete}
         handleLikeToggle={toggleLikeSubmission}
-        handleVisibleToggle={handleVisibleToggle}
       />
     </div>
   )
