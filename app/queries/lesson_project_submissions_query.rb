@@ -5,9 +5,7 @@ class LessonProjectSubmissionsQuery
   end
 
   def with_current_user_submission_first(user)
-    return lesson_project_submissions if user.nil?
-
-    (user.project_submissions.where(lesson_id: lesson.id) + lesson_project_submissions).uniq
+    lesson_project_submissions
   end
 
   private

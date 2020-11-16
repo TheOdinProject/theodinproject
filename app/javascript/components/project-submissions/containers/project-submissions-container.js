@@ -157,6 +157,7 @@ const ProjectSubmissions = (props) => {
       </p>
       <SubmissionsList
         submissions={submissions}
+        userSubmission={userSubmission}
         handleUpdate={handleUpdate}
         onFlag={(submission) => { setFlaggedSubmission(submission); toggleShowFlagModal() }}
         handleDelete={handleDelete}
