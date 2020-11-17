@@ -11,9 +11,9 @@ const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDa
   const { allSubmissionsPath, legacySubmissionsUrl } = useContext(ProjectSubmissionContext);
   const hasSubmissions = submissions.length > 0;
   
-  if (userSubmission) {
-    submissions = submissions.filter((submission) => submission.user_id !== userId);
-  }
+  // if (userSubmission) {
+  //   submissions = submissions.filter((submission) => submission.user_id !== userSubmission.user_id);
+  // }
 
   return (
     <div>

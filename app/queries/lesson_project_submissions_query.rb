@@ -5,14 +5,10 @@ class LessonProjectSubmissionsQuery
   end
 
   def with_current_user_submission_first(user)
-    lesson_project_submissions
+    lesson.project_submissions.where.not(user_id: user&.id).viewable.order(cached_votes_total: :desc, created_at: :desc).limit(limit)
   end
 
   private
 
   attr_reader :lesson, :limit
-
-  def lesson_project_submissions
-    lesson.project_submissions.viewable.order(cached_votes_total: :desc, created_at: :desc).limit(limit)
-  end
 end
