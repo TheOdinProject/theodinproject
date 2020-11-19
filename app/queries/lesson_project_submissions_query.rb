@@ -5,7 +5,11 @@ class LessonProjectSubmissionsQuery
   end
 
   def with_current_user_submission_first(user)
-    lesson.project_submissions.where.not(user_id: user&.id).viewable.order(cached_votes_total: :desc, created_at: :desc).limit(limit)
+    lesson.project_submissions
+          .where
+          .not(user_id: user&.id)
+          .viewable.order(cached_votes_total: :desc, created_at: :desc)
+          .limit(limit)
   end
 
   private
