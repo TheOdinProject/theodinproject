@@ -5,20 +5,19 @@ import FlipMove from 'react-flip-move';
 import Submission from './submission';
 import ProjectSubmissionContext from '../ProjectSubmissionContext';
 
-const noop = () => {};
+const noop = () => { };
 
 const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDashboardView, handleLikeToggle, userSubmission }) => {
   const { allSubmissionsPath, legacySubmissionsUrl } = useContext(ProjectSubmissionContext);
   const hasSubmissions = submissions.length > 0;
-  
-  // if (userSubmission) {
-  //   submissions = submissions.filter((submission) => submission.user_id !== userSubmission.user_id);
-  // }
 
-  return (
-    <div>
+  console.log(isDashboardView);
+
+  if (isDashboardView) {
+    return (
+      <div>
         { userSubmission
-        ? <Submission
+          ? <Submission
             key={userSubmission.id}
             submission={userSubmission}
             handleUpdate={handleUpdate}
@@ -27,33 +26,73 @@ const SubmissionsList = ({ submissions, handleDelete, onFlag, handleUpdate, isDa
             isDashboardView={isDashboardView}
             handleLikeToggle={handleLikeToggle}
           />
-        : ''
+          : ''
         }
-        { hasSubmissions
-          ? <FlipMove>
-              {submissions.sort((a, b) => b.likes - a.likes).map(submission => (
-                <Submission
-                  key={submission.id}
-                  submission={submission}
-                  handleUpdate={handleUpdate}
-                  onFlag={onFlag}
-                  handleDelete={handleDelete}
-                  isDashboardView={isDashboardView}
-                  handleLikeToggle={handleLikeToggle}
-                />
-              ))}
-            </FlipMove>
+        { hasSubmissions ?
+          <> { submissions.map(submission => (
+              <Submission
+                key={submission.id}
+                submission={submission}
+                handleUpdate={handleUpdate}
+                onFlag={onFlag}
+                handleDelete={handleDelete}
+                isDashboardView={isDashboardView}
+                handleLikeToggle={handleLikeToggle}
+              />
+            ))
+          } </>
           : <h2 className='submissions__blank-slate'>No Submissions yet, be the first!</h2>
         }
 
-      { allSubmissionsPath &&
-        <p className='submissions__view-more'>
-          <span>Showing {submissions.length} most recent submissions - </span>
-          <a href={allSubmissionsPath}> View full list of solutions</a> or <a href={legacySubmissionsUrl} target='_blank'>View old submissions</a>
-        </p>
-      }
-    </div>
-  )
+        { allSubmissionsPath &&
+          <p className='submissions__view-more'>
+            <span>Showing {submissions.length} most recent submissions - </span>
+            <a href={allSubmissionsPath}> View full list of solutions</a> or <a href={legacySubmissionsUrl} target='_blank'>View old submissions</a>
+          </p>
+        }
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        { userSubmission
+          ? <Submission
+            key={userSubmission.id}
+            submission={userSubmission}
+            handleUpdate={handleUpdate}
+            onFlag={onFlag}
+            handleDelete={handleDelete}
+            isDashboardView={isDashboardView}
+            handleLikeToggle={handleLikeToggle}
+          />
+          : ''
+        }
+        { hasSubmissions
+          ? <FlipMove>
+            {submissions.sort((a, b) => b.likes - a.likes).map(submission => (
+              <Submission
+                key={submission.id}
+                submission={submission}
+                handleUpdate={handleUpdate}
+                onFlag={onFlag}
+                handleDelete={handleDelete}
+                isDashboardView={isDashboardView}
+                handleLikeToggle={handleLikeToggle}
+              />
+            ))}
+          </FlipMove>
+          : <h2 className='submissions__blank-slate'>No Submissions yet, be the first!</h2>
+        }
+
+        { allSubmissionsPath &&
+          <p className='submissions__view-more'>
+            <span>Showing {submissions.length} most recent submissions - </span>
+            <a href={allSubmissionsPath}> View full list of solutions</a> or <a href={legacySubmissionsUrl} target='_blank'>View old submissions</a>
+          </p>
+        }
+      </div>
+    )
+  }
 };
 
 SubmissionsList.defaultProps = {
