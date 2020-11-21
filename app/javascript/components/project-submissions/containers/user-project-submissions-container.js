@@ -31,7 +31,6 @@ const ProjectSubmissions = (props) => {
 
           return previousSubmission;
         });
-        //Object.assign([], prevSubmissions, {[0]: response.data})
       });
     }
   };
