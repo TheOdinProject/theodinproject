@@ -1,0 +1,2 @@
+# Ignore any test files in app/javascript
+/app/javascript/components/**/*.test.js
