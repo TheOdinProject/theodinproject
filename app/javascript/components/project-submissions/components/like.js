@@ -14,7 +14,7 @@ const Like = ({ submission, handleLikeToggle }) => {
         handleLikeToggle(submission, isCurrentUsersSubmission);
       }
       }>
-        {submission.likes} <i className={submission.is_liked_by_current_user ? 'fa fa-heart liked' : 'fa fa-heart'}></i>
+        {submission.likes} <i className={submission.is_liked_by_current_user ? 'fa fa-heart liked' : 'fa fa-heart'} aria-label='Like icon'></i>
       </a>
     </>
   );
