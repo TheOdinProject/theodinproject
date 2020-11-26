@@ -6,18 +6,19 @@ import Like from '../like';
 describe('Like', () => {
   const renderLikeComponent = (userId = null, isLikedByUser = false, handleClick = () => {}) => {
     return render(
-      <ProjectSubmissionContext.Provider value={{ userId }}>
-        <Like 
-          submission={{ is_liked_by_current_user: isLikedByUser }} 
-          handleLikeToggle={handleClick}
-        />;
-      </ProjectSubmissionContext.Provider>
     )
   }
 
   test('Tells user to log in to like submission', () => {
-    const { queryByLabelText, getByLabelText } = renderLikeComponent();
-
+    const { queryByLabelText, getByLabelText } = render(
+      <ProjectSubmissionContext.Provider value={{ userId: null }}>
+        <Like 
+          submission={{ is_liked_by_current_user: false }} 
+          handleLikeToggle={() => {}}
+        />;
+      </ProjectSubmissionContext.Provider>
+    );
+    
     const anchorNode = queryByLabelText('Log in to like!');
     const iconNode = getByLabelText('Like icon');
 
@@ -26,7 +27,14 @@ describe('Like', () => {
   })
 
   test('Indicates user can like submission', () => {
-    const { queryByLabelText, getByLabelText } = renderLikeComponent(1, false);
+    const { queryByLabelText, getByLabelText } = render(
+      <ProjectSubmissionContext.Provider value={{ userId: 1 }}>
+        <Like 
+          submission={{ is_liked_by_current_user: false }} 
+          handleLikeToggle={() => {}}
+        />;
+      </ProjectSubmissionContext.Provider>
+    );
 
     const anchorNode = queryByLabelText('Like submission');
     const iconNode = getByLabelText('Like icon');
@@ -37,7 +45,14 @@ describe('Like', () => {
 
 
   test('Indicates user has liked submission', () => {
-    const { queryByLabelText, getByLabelText } = renderLikeComponent(1, true);
+    const { queryByLabelText, getByLabelText } = render(
+      <ProjectSubmissionContext.Provider value={{ userId: 1 }}>
+        <Like 
+          submission={{ is_liked_by_current_user: true }} 
+          handleLikeToggle={() => {}}
+        />;
+      </ProjectSubmissionContext.Provider>
+    );
 
     const anchorNode = queryByLabelText('Unlike submission');
     const iconNode = getByLabelText('Like icon');
@@ -48,7 +63,14 @@ describe('Like', () => {
 
   test('Calls toggle like handler when clicked', () => {
     const handleClick = jest.fn();
-    const { getByLabelText } = renderLikeComponent(null, false, handleClick);
+    const { getByLabelText } = render(
+      <ProjectSubmissionContext.Provider value={{ userId: 1 }}>
+        <Like 
+          submission={{ is_liked_by_current_user: true }} 
+          handleLikeToggle={handleClick}
+        />;
+      </ProjectSubmissionContext.Provider>
+    );
     const anchorNode = getByLabelText(/like/);
     fireEvent.click(anchorNode);
 
