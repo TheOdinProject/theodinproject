@@ -4,11 +4,6 @@ import ProjectSubmissionContext from '../../ProjectSubmissionContext';
 import Like from '../like';
 
 describe('Like', () => {
-  const renderLikeComponent = (userId = null, isLikedByUser = false, handleClick = () => {}) => {
-    return render(
-    )
-  }
-
   test('Tells user to log in to like submission', () => {
     const { queryByLabelText, getByLabelText } = render(
       <ProjectSubmissionContext.Provider value={{ userId: null }}>
