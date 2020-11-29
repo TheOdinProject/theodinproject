@@ -29,6 +29,7 @@
   }
 
   &__item {
+    white-space: nowrap;
     border-top: solid 1px $very-pale-grey;
     display: flex;
     justify-content: space-between;
