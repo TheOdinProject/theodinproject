@@ -1,6 +1,7 @@
 .submissions {
   margin-bottom: 2em;
   text-align: left;
+  width: 650px;
 
   &__header {
     display: flex;
@@ -71,6 +72,7 @@
   }
 
   &__actions {
+
     a,
     span {
       margin-left: 1em;
@@ -95,7 +97,8 @@
     }
   }
 
-  &__flag, &__like {
+  &__flag,
+  &__like {
     color: $button-disabled;
     cursor: pointer;
   }
@@ -110,7 +113,7 @@
 
   &__public-icon {
     cursor: pointer;
-    
+
     color: $button-disabled;
 
     &--visible {
