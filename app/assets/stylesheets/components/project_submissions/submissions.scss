@@ -44,7 +44,6 @@
   &__left-container {
     display: flex;
     align-items: center;
-    max-width: 180px;
 
     @include media-breakpoint-down(sm) {
       margin-bottom: 1em;
@@ -55,6 +54,10 @@
     font-weight: 600;
     font-size: 1.25rem;
 
+    @include media-breakpoint-up(md) {
+      width: 150px;
+      margin-right: 20px;
+    }
   }
 
   &__button {
@@ -72,6 +75,13 @@
   }
 
   &__actions {
+    display: flex;
+    align-items: center;
+
+    & *{
+      flex-shrink: 0
+    }
+
     a,
     span {
       margin-left: 1em;
@@ -83,6 +93,7 @@
       width: 60%;
 
       .submissions__button {
+        flex-shrink: 0;
         margin: 0 0 1em;
       }
     }
