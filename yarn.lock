@@ -950,10 +950,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@hookform/resolvers@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-0.1.1.tgz#285fa7aa1b7b94fab526c4d39713ed3470558497"
-  integrity sha512-IKWcvDG82D0N+3ZjMSbdHul6TgL2Dd68aXyijLvc1mUCzBChvQwS6YDsXRrc9WuIjUPb9nluaVIIrmg3V1JMGQ==
+"@hookform/resolvers@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-1.1.1.tgz#20baf66cfd21f0feb65eea4f150ae8693be795f5"
+  integrity sha512-X6OWofkjr7U4Yjb0+OIgOKWttsy2UB8NeLejegGuWgcVad0kHQGezo7S1lhJmGS4icva13gfmGGcW3EOeEEQ5Q==
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
