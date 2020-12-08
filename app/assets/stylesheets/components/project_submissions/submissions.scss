@@ -55,8 +55,10 @@
     font-size: 1.25rem;
 
     @include media-breakpoint-up(md) {
-      width: 150px;
       margin-right: 20px;
+    }
+    @include media-breakpoint-between(md, lg) {
+      width: 100px;
     }
   }
 
@@ -78,8 +80,8 @@
     display: flex;
     align-items: center;
 
-    & *{
-      flex-shrink: 0
+    & * {
+      flex-shrink: 0;
     }
 
     a,
@@ -107,7 +109,8 @@
     }
   }
 
-  &__flag, &__like {
+  &__flag,
+  &__like {
     color: $button-disabled;
     cursor: pointer;
   }
@@ -125,7 +128,7 @@
 
   &__public-icon {
     cursor: pointer;
-    
+
     color: $button-disabled;
 
     &--visible {
