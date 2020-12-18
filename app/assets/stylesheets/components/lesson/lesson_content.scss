@@ -1,5 +1,6 @@
 .lesson-content {
   padding-bottom: 60px;
+  max-width: 680px;
 
   h3:nth-child(2) {
     margin-top: 0;
@@ -18,7 +19,7 @@
       }
     }
   }
-  
+
   h4 {
     margin-bottom: 10px;
     font-weight: bold;
@@ -44,7 +45,8 @@
     font-size: 1.125rem;
   }
 
-  ul, ol {
+  ul,
+  ol {
     line-height: 1.9;
   }
 
@@ -61,7 +63,6 @@
   }
 
   li {
-
     ul {
       margin-bottom: 0;
     }
@@ -90,7 +91,8 @@
       margin-bottom: 0;
     }
 
-    li, p {
+    li,
+    p {
       color: $text-primary;
     }
 
@@ -112,7 +114,7 @@
       color: $grey;
       font-size: 1.125rem;
     }
-    
+
     ul {
       margin: 15px;
     }
@@ -130,9 +132,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $primary
+      color: $primary;
     }
   }
 }
-
-
