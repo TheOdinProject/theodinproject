@@ -1,3 +1,5 @@
 .lesson {
-  max-width: 1240px;
+  @include media-breakpoint-up(lg) {
+    max-width: 1240px;
+  }
 }
