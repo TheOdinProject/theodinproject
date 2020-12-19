@@ -1,3 +1,7 @@
+.lesson-nav-wrapper {
+  margin-right: -60px;
+}
+
 .lesson-navigation {
   padding-bottom: 82px;
   position: -webkit-sticky;
@@ -32,7 +36,6 @@
   }
 
   &__link {
-
     &.active {
       color: $black;
       font-weight: bold;
