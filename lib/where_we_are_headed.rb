@@ -1,16 +1,16 @@
 require 'time'
+require 'colorize'
 
 def where_we_are_headed
-  puts 'We are gallopping towards the domination of the world'
-  puts 'At least we made it out of 2020' if Time.now.to_i > 2020
+  puts "\n\t\tWe are gallopping towards the domination of the world".red
+  puts "\t\t\tAt least we made it out of 2020" if Time.now.to_i > 2020
   if Time.now.year < 2022
-    puts "Don't be jumping for joy yet though"
-    puts "Nostradamus has some dire predictions for #{Time.now.year}"
+    puts "\n\t\tDon't be jumping for joy yet though".magenta
+    puts "\t\tNostradamus has some dire predictions for #{Time.now.year}".magenta
   end
   the_end = 3797 - Time.now.year
-  puts "According to the great Nostradamus we've still got #{the_end} years until the world ends"
-  puts "Let's hope we are living under this same deep state until then"
-  puts Time.now
+  puts "According to the great Nostradamus we've still got #{the_end} years until the world ends".red
+  puts "\tWe have a lot of time left here, it's only #{Time.now}\n".cyan
 end
 
 where_we_are_headed
