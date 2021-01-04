@@ -8136,10 +8136,10 @@ react-flip-move@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
   integrity sha512-HyUVv9g3t/BS7Yz9HgrtYSWyRNdR2F81nkj+C5iRY675AwlqCLB5JU9mnZWg0cdVz7IM4iquoyZx70vzZv3Z8Q==
 
-react-hook-form@^6.13.1:
-  version "6.13.1"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.13.1.tgz#b9c0aa61f746db8169ed5e1050de21cacb1947d6"
-  integrity sha512-Q0N7MYcbA8SigYufb02h9z97ZKCpIbe62rywOTPsK4Ntvh6fRTGDXSuzWuRhLHhArLoWbGrWYSNSS4tlb+OFXg==
+react-hook-form@^6.14.0:
+  version "6.14.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.14.0.tgz#d11f81f2d9d2b457806cb425a79954a1eeba1871"
+  integrity sha512-yj4aqASmyxFPyDtDLKBae+AazFv5vcC5CEpDlh1+r5k5BTH/J/CTG6q0H5lSinm0B0F6P7oTmXIYB75ZmuQz6g==
 
 react-is@^16.8.1:
   version "16.13.1"
