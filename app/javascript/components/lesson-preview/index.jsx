@@ -10,6 +10,8 @@ import axios from '../../src/js/axiosWithCsrf';
 
 import 'react-tabs/style/react-tabs.css';
 
+import { generateLink, decodeLink } from '../../src/js/mdPreviewShare';
+
 const LessonPreview = () => {
   const [content, setContent] = useState('');
   const [convertedContent, setConvertedContent] = useState('');
@@ -22,9 +24,26 @@ const LessonPreview = () => {
     }
   };
 
+  const showModal = () => {
+    console.log('copied!');
+  };
+
+  const handleClick = () => {
+    const link = generateLink(content);
+    navigator.clipboard.writeText(link).then(() => showModal());
+  };
+
   useEffect(() => {
     Prism.highlightAll();
   }, [convertedContent]);
+
+  useEffect(() => {
+    const query = window.location.search;
+    if (query) {
+      const encodedContent = new URLSearchParams(query).get('content');
+      setContent(decodeLink(encodedContent));
+    }
+  });
 
   return (
     <Tabs>
@@ -39,6 +58,9 @@ const LessonPreview = () => {
       <TabPanel>
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
+      <button type="button" className="btn-camel" onClick={handleClick}>
+        Share
+      </button>
     </Tabs>
   );
 };
