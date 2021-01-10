@@ -10,11 +10,12 @@ import axios from '../../src/js/axiosWithCsrf';
 
 import 'react-tabs/style/react-tabs.css';
 
-import { generateLink, decodeLink } from '../../src/js/mdPreviewShare';
+import { generateLink, encodeContent, decodeContent } from '../../src/js/mdPreviewShare';
 
 const LessonPreview = () => {
   const [content, setContent] = useState('');
   const [convertedContent, setConvertedContent] = useState('');
+  const [copied, setCopied] = useState(false);
 
   const fetchLessonPreview = async () => {
     const response = await axios.post('/lessons/preview', { content });
@@ -24,13 +25,10 @@ const LessonPreview = () => {
     }
   };
 
-  const showModal = () => {
-    console.log('copied!');
-  };
-
   const handleClick = () => {
-    const link = generateLink(content);
-    navigator.clipboard.writeText(link).then(() => showModal());
+    const encodedContent = encodeContent(content);
+    const link = generateLink(encodedContent);
+    navigator.clipboard.writeText(link).then(() => setCopied(true));
   };
 
   useEffect(() => {
@@ -41,9 +39,15 @@ const LessonPreview = () => {
     const query = window.location.search;
     if (query) {
       const encodedContent = new URLSearchParams(query).get('content');
-      setContent(decodeLink(encodedContent));
+      setContent(decodeContent(encodedContent));
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    if (copied) {
+      setTimeout(() => setCopied(false), 3000);
+    }
+  }, [copied]);
 
   return (
     <Tabs>
@@ -58,8 +62,8 @@ const LessonPreview = () => {
       <TabPanel>
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
-      <button type="button" className="btn-camel" onClick={handleClick}>
-        Share
+      <button type="button" className={copied ? 'button--secondary' : 'button--primary'} onClick={handleClick}>
+        {copied ? 'Copied!' : 'Share'}
       </button>
     </Tabs>
   );
