@@ -45,7 +45,7 @@ const LessonPreview = () => {
 
   useEffect(() => {
     if (copied) {
-      setTimeout(() => setCopied(false), 3000);
+      setTimeout(() => setCopied(false), 4000);
     }
   }, [copied]);
 
@@ -62,7 +62,11 @@ const LessonPreview = () => {
       <TabPanel>
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
-      <button type="button" className={copied ? 'button--secondary' : 'button--primary'} onClick={handleClick}>
+      <button
+        type="button"
+        className={`button ${copied ? 'button--secondary' : 'button--primary'} float-right mb-1`}
+        onClick={handleClick}
+      >
         {copied ? 'Copied!' : 'Share'}
       </button>
     </Tabs>
