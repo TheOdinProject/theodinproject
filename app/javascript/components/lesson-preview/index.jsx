@@ -10,7 +10,7 @@ import axios from '../../src/js/axiosWithCsrf';
 
 import 'react-tabs/style/react-tabs.css';
 
-import { generateLink, encodeContent, decodeContent } from '../../src/js/mdPreviewShare';
+import { generateLink, encodeContent, decodeContent } from '../../src/js/previewShare';
 
 const LessonPreview = () => {
   const [content, setContent] = useState('');
