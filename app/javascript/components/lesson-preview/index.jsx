@@ -31,9 +31,9 @@ const LessonPreview = () => {
     navigator.clipboard.writeText(link).then(() => setCopied(true));
   };
 
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [convertedContent]);
+  // useEffect(() => {
+  //   Prism.highlightAll();
+  // }, [convertedContent]);
 
   useEffect(() => {
     const query = window.location.search;
