@@ -48,10 +48,6 @@ describe('generateLink', () => {
 
   it('the correct link is generated', () => {
     const content = encodeContent('This is a test string!');
-<<<<<<< HEAD
     expect(generateLink(content)).toBe(`theodinproject.com/lessons/preview?content=${encodeURIComponent(content)}`);
-=======
-    expect(generateLink(content)).toBe(`theodinproject.com/lessons/preview?content=${content}`);
->>>>>>> master
   });
 });
