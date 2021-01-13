@@ -27,8 +27,6 @@ const LessonPreview = () => {
   };
 
   const handleClick = () => {
-    const encodedContent = encodeContent(content);
-    const link = generateLink(encodedContent);
     navigator.clipboard.writeText(link).then(() => setCopied(true));
   };
 
