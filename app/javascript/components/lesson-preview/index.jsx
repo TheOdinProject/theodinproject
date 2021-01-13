@@ -52,7 +52,7 @@ const LessonPreview = () => {
     const encodedContent = encodeContent(content);
     const generatedLink = generateLink(encodedContent);
     setLink(generatedLink);
-  });
+  }, [content]);
 
   return (
     <Tabs>
