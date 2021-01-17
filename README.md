@@ -21,7 +21,7 @@ The Odin project community can be found on our [Discord server](https://discord.
 [![Build Status](https://circleci.com/gh/TheOdinProject/theodinproject.svg?style=svg)](https://app.circleci.com/pipelines/github/TheOdinProject/theodinproject)
 [![View Performance Data on Skylight](https://badges.skylight.io/status/g0gJSNnzYAws.svg)](https://oss.skylight.io/app/applications/g0gJSNnzYAws)
 
-The Odin Project depends on open source contributions to grow, improve, and thrive.
+The Odin Project depends on open source contributions to grow, improve and thrive.
 We welcome contributions from beginners and experienced developers alike.
 
 To find out more about how you can contribute, please read our [contributing guide](https://github.com/TheOdinProject/theodinproject/wiki/Contributing-Guide).
