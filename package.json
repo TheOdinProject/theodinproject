@@ -12,7 +12,7 @@
     "axios": "^0.21.1",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "core-js": "^3.8.2",
     "hint.css": "^2.6.0",
     "jquery": "^3.5.1",
