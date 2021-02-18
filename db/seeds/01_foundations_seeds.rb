@@ -445,43 +445,6 @@ create_or_update_lesson(
 
 section_position += 1
 section = create_or_update_section(
-  title: 'The Back End',
-  title_url: 'The Back End'.parameterize,
-  course_id: course.id,
-  position: section_position,
-  description: "Here you'll learn about the back end, where we'll demystify what goes on behind the scenes on a web server."
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: 'Introduction to the Back End',
-  title_url: 'Introduction to the Back End'.parameterize,
-  description: 'A brief introduction to the wonderful world of server-side programming',
-  position: lesson_position,
-  section_id: section.id,
-  is_project: false,
-  url: '/foundations/the_back_end/introduction_to_the_backend_lesson.md',
-  repo: 'curriculum'
-)
-
-lesson_position += 1
-create_or_update_lesson(
-  title: 'Introduction to Frameworks',
-  title_url: 'Introduction to Frameworks'.parameterize,
-  description: "Let's figure out what all the hubbub is all about.",
-  position: lesson_position,
-  section_id: section.id,
-  is_project: false,
-  url: '/foundations/the_back_end/introduction_to_frameworks.md',
-  repo: 'curriculum'
-)
-
-# +++++++++++
-# SECTION
-# +++++++++++
-
-section_position += 1
-section = create_or_update_section(
   title: 'Tying it All Together',
   title_url: 'Tying it All Together'.parameterize,
   course_id: course.id,
