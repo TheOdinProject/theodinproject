@@ -14,6 +14,13 @@ def ruby_lessons
       url: '/ruby_programming/introduction/installing_ruby.md',
       identifier_uuid: '99b7fe68-6673-4b51-9bea-4c1c0aad59d9',
     },
+    'Basic Data Types' => {
+      title: 'Basic Data Types',
+      description: 'In this lesson we will explore the basic data types at your disposal in Ruby.',
+      is_project: false,
+      url: '/ruby_programming/basic_ruby/basic_data_types.md',
+      identifier_uuid: '3cf9a92e-6781-4112-9e8e-d3135819806b',
+    },
     'Variables' => {
       title: 'Variables',
       description: 'In this lesson we will explore how to use Variables in Ruby.',
@@ -187,8 +194,6 @@ def ruby_lessons
     'Recursion' => {
       title: 'Recursion',
       description: 'Take your newfound knowledge and apply it to a couple of classic recursive problems',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/ruby_programming/computer_science/project_recursion.md',
       accepts_submission: true,
@@ -243,13 +248,6 @@ def ruby_lessons
       url: '/ruby_programming/testing_with_rspec/introduction_to_rspec.md',
       identifier_uuid: '34eb5b73-29a8-4d5b-8747-a2ccad75806e',
     },
-    'Introduction to RSpec' => {
-      title: 'Introduction to RSpec',
-      description: 'In this lesson you will learn the basics of RSpec, the most popular testing framework in the Ruby world.',
-      is_project: false,
-      url: '/ruby_programming/testing_with_rspec/introduction_to_rspec.md',
-      identifier_uuid: '34eb5b73-29a8-4d5b-8747-a2ccad75806e',
-    },
     'Testing Your Ruby Code' => {
       title: 'Testing Your Ruby Code',
       description: "The real way to learn is by doing, so you'll jump in the time machine and write some tests for prior projects.",
@@ -289,83 +287,5 @@ def ruby_lessons
       url: '/ruby_programming/conclusion/lesson_conclusion.md',
       identifier_uuid: '2f75b1ec-3b5f-4b21-9f97-acfe6578bfb1',
     },
-    'APIs and Building Your Own' => {
-      title: 'APIs and Building Your Own',
-      description: 'Rails is really just an API itself... learn about APIs and how to turn your app into one',
-      is_project: false,
-      url: '/rails_programming/apis/api_basics.md',
-      identifier_uuid: 'd3fcb7b6-ba98-4c81-87cc-7eae3f17c990',
-    },
-    'Working With External APIs' => {
-      title: 'Working With External APIs',
-      description: "Lots of the power of APIs comes from interfacing with third-party applications, which we'll cover in this lesson.",
-      is_project: false,
-      url: '/rails_programming/apis/api_interfacing.md',
-      identifier_uuid: '81082701-d9ab-4bd4-8948-4ad4b3d10a6e',
-    },
-    'Kittens API' => {
-      title: 'Kittens API',
-      description: "In this project, you'll both build your own API",
-      is_project: true,
-      url: '/rails_programming/apis/project_kittens_api.md',
-      accepts_submission: true,
-      has_live_preview: true,
-      identifier_uuid: '5d0433d7-f3f3-46fa-99e7-3bc5893a2599'
-    },
-    'Using an API' => {
-      title: 'Using an API',
-      description: "In this project, you'll work with a third-party API.",
-      is_project: true,
-      url: '/rails_programming/apis/project_using_an_api.md',
-      accepts_submission: true,
-      has_live_preview: true,
-      identifier_uuid: '2adcd199-34b4-47e0-875c-0df9ecd61ea9',
-    },
-    'Mailers' => {
-      title: 'Mailers',
-      description: "You don't often think about where your email comes from.  Here you'll learn how to send it from your app.",
-      is_project: false,
-      url: '/rails_programming/mailers_advanced_topics/mailers.md',
-      identifier_uuid: 'e8bf71ba-1740-4c98-a963-50e83d7af59d',
-    },
-    'Sending Confirmation Emails' => {
-      title: 'Sending Confirmation Emails',
-      description: "Add email functionality to an existing project.  Just don't SPAM, it's frowned upon.",
-      is_project: true,
-      url: '/rails_programming/mailers_advanced_topics/project_mailers.md',
-      accepts_submission: true,
-      has_live_preview: true,
-      identifier_uuid: 'bd6d78b4-cefd-4938-8818-5adfe5620c2b'
-    },
-    'Advanced Topics' => {
-      title: 'Advanced Topics',
-      description: 'A mash-up of orphan topics like advanced routing, layouts, metaprogramming and design patterns.',
-      is_project: false,
-      url: '/rails_programming/mailers_advanced_topics/advanced_topics.md',
-      identifier_uuid: 'a4f06a72-0298-4165-b06c-1b0e837fe956',
-    },
-    'Websockets and Actioncable' => {
-      title: 'Websockets and Actioncable',
-      description: 'A delve into the basics of websockets and how Actioncable brings them to Rails.',
-      is_project: false,
-      url: '/rails_programming/mailers_advanced_topics/websockets_and_actioncable.md',
-      identifier_uuid: '949892d1-90af-46e0-a750-bedab0c5120b',
-    },
-    'Final Project' => {
-      title: 'Final Project',
-      description: "There's a pretty popular social networking app you should build.  They may have made a movie about it.",
-      is_project: true,
-      url: '/rails_programming/mailers_advanced_topics/project_final.md',
-      accepts_submission: true,
-      has_live_preview: true,
-      identifier_uuid: '3eac603e-c8e7-4ba8-ade0-87c4e3c3de59',
-    },
-    'Conclusion' => {
-      title: 'Conclusion',
-      description: "Holy cow, you've gotten to the end of the road!  ...Sort of.",
-      is_project: false,
-      url: '/rails_programming/mailers_advanced_topics/conclusion.md',
-      identifier_uuid: '170d4217-696c-45b9-91b5-0465bb46f032',
-    }
   }
 end

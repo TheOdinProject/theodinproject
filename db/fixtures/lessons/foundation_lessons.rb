@@ -204,7 +204,7 @@ def foundation_lessons
       url: '/foundations/javascript_basics/fundamentals-5.md',
       identifier_uuid: 'd85b729e-237e-4850-a6a8-44d84ecc6f52',
     },
-    {
+    'Calculator' => {
       title: 'Calculator',
       description: 'Calculator',
       is_project: true,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_225335) do
+ActiveRecord::Schema.define(version: 2021_03_13_093419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,9 @@ ActiveRecord::Schema.define(version: 2021_03_09_225335) do
     t.integer "position", null: false
     t.string "slug"
     t.string "identifier_uuid", default: "", null: false
+    t.integer "path_id"
     t.index ["identifier_uuid"], name: "index_courses_on_identifier_uuid", unique: true
+    t.index ["path_id"], name: "index_courses_on_path_id"
     t.index ["slug"], name: "index_courses_on_slug"
   end
 
@@ -77,12 +79,12 @@ ActiveRecord::Schema.define(version: 2021_03_09_225335) do
     t.integer "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "lesson_idenfier_uuid", default: "", null: false
+    t.string "lesson_identifier_uuid", default: "", null: false
     t.integer "course_id"
     t.integer "path_id"
     t.index ["course_id"], name: "index_lesson_completions_on_course_id"
     t.index ["lesson_id", "student_id"], name: "index_lesson_completions_on_lesson_id_and_student_id", unique: true
-    t.index ["lesson_idenfier_uuid"], name: "index_lesson_completions_on_lesson_idenfier_uuid"
+    t.index ["lesson_identifier_uuid"], name: "index_lesson_completions_on_lesson_identifier_uuid"
     t.index ["path_id"], name: "index_lesson_completions_on_path_id"
     t.index ["student_id"], name: "index_lesson_completions_on_student_id"
   end
@@ -118,14 +120,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_225335) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
-  end
-
-  create_table "path_courses", id: :serial, force: :cascade do |t|
-    t.integer "path_id"
-    t.integer "course_id"
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "path_prerequisites", force: :cascade do |t|
@@ -248,9 +242,9 @@ ActiveRecord::Schema.define(version: 2021_03_09_225335) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
+  add_foreign_key "courses", "paths", on_delete: :cascade
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
-  add_foreign_key "lesson_completions", "lessons", on_delete: :cascade
   add_foreign_key "path_prerequisites", "paths"
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"

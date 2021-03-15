@@ -469,3 +469,34 @@ create_or_update_lesson(
   choose_path_lesson: true,
   identifier_uuid: '01f33d4a-46c5-42ab-9aa6-23e21b789f6c',
 )
+
+
+course = Seeds::Course.create do |course|
+  course.identifier_uuid = "xxxx"
+  course.title = "course title"
+  course.description = "course description"
+end
+
+course.add_section do |section|
+  section.identifier_uuid = "xxx"
+  section.title = "section title"
+  section.description = "section description"
+
+  section.lessons do
+    ruby_lessons.fetch("Variables"),
+    ruby_lessons.fetch("Input and Output"),
+    ruby_lessons.fetch("Conditionals")
+  end
+end
+
+course.add_section do |section|
+  section.identifier_uuid = "xxx"
+  section.title = "section title"
+  section.description = "section description"
+
+  section.lessons do
+    ruby_lessons.fetch("Variables"),
+    ruby_lessons.fetch("Input and Output"),
+    ruby_lessons.fetch("Conditionals")
+  end
+end

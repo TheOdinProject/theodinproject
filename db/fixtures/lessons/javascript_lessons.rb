@@ -14,8 +14,8 @@ def javascript_lessons
       url: '/javascript/introduction/js101-review.md',
       identifier_uuid: '428d54c7-3324-4ee2-afaf-08e1c373b314',
     },
-    'Introduction' => {
-      title: 'Introduction',
+    'Organizing your JavaScript Code Introduction' => {
+      title: 'Organizing your JavaScript Code Introduction',
       description: 'introduction',
       is_project: false,
       url: '/javascript/organizing-js/organizing-introduction.md',
@@ -59,7 +59,7 @@ def javascript_lessons
       is_project: false,
       url: '/javascript/organizing-js/classes.md',
       identifier_uuid: '0583cd2d-4bff-4b36-9316-afc146c777f7',
-    }
+    },
     'ES6 Modules' => {
       title: 'ES6 Modules',
       description: 'ES6 Modules',
@@ -95,8 +95,6 @@ def javascript_lessons
     'Linting' => {
       title: 'Linting',
       description: 'Linting',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-in-the-real-world/linting.md',
       identifier_uuid: 'a7ae0481-b9cc-40b3-a9dd-4c7227ce2d3d',
@@ -104,8 +102,6 @@ def javascript_lessons
     'Dynamic User Interface Interactions' => {
       title: 'Dynamic User Interface Interactions',
       description: 'UI Interactions',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-in-the-real-world/ui-Interactions.md',
       identifier_uuid: 'd6a88ccb-9fdb-4544-a363-4d7f1054e36f',
@@ -113,8 +109,6 @@ def javascript_lessons
     'Forms' => {
       title: 'Forms',
       description: 'Forms',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-in-the-real-world/forms.md',
       identifier_uuid: 'c95fe496-2223-4c96-bf3f-9d8e3796d233',
@@ -122,8 +116,6 @@ def javascript_lessons
     'Webpack' => {
       title: 'Webpack',
       description: 'Webpack',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-in-the-real-world/webpack.md',
       identifier_uuid: 'eedfa6c8-b041-497d-ab37-565708a1b075',
@@ -131,17 +123,50 @@ def javascript_lessons
     'ES?' => {
       title: 'ES?',
       description: 'ES?',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-in-the-real-world/es6-features.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
     },
+    'JSON' => {
+      title: 'JSON',
+      description: 'JSON',
+      is_project: false,
+      url: '/javascript/async-apis/json.md',
+      identifier_uuid: 'ae0d44bf-60b7-4644-b61e-216a4a6b271b',
+    },
+    'Async' => {
+      title: 'Async',
+      description: 'Async',
+      is_project: false,
+      url: '/javascript/async-apis/promises-async.md',
+      identifier_uuid: '31ab5898-fd2b-48c4-9070-0e8b622b0805',
+    },
+    'Working with APIs' => {
+      title: 'Working with APIs',
+      description: 'Working with APIs',
+      is_project: false,
+      url: '/javascript/async-apis/APIs.md',
+      identifier_uuid: '8ce12e98-3413-4d0a-a749-0701ae959f6a',
+    },
+    'Async and Await' => {
+      title: 'Async and Await',
+      description: 'Async and Await',
+      is_project: false,
+      url: '/javascript/async-apis/async-await.md',
+      identifier_uuid: '70e6bedf-98ce-47bb-80fd-5d8ecf6f9f8b',
+    },
+    'Weather App' => {
+      title: 'Weather App',
+      description: 'Weather App',
+      is_project: true,
+      url: '/javascript/async-apis/project.md',
+      accepts_submission: true,
+      has_live_preview: true,
+      identifier_uuid: '5212a020-85ed-4e43-84ec-6b583b57e8cb',
+    },
     'Testing Basics' => {
       title: 'Testing Basics',
       description: 'Testing Basics',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/testing/testing-1.md',
       identifier_uuid: 'fcb8c8f9-7475-47bf-82a0-4df6a4afdf96',
@@ -149,8 +174,6 @@ def javascript_lessons
     'Testing Practice' => {
       title: 'Testing Practice',
       description: 'Testing Practice',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/testing/testing-practice.md',
       accepts_submission: true,
@@ -160,8 +183,6 @@ def javascript_lessons
     'More Testing' => {
       title: 'More Testing',
       description: 'More Testing',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/testing/testing-2.md',
       identifier_uuid: '82c12ec2-9a10-4177-8dfd-d87d34685983',
@@ -169,8 +190,6 @@ def javascript_lessons
     'Battleship' => {
       title: 'Battleship',
       description: 'Battleship',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/testing/battleship-project.md',
       accepts_submission: true,
@@ -180,8 +199,6 @@ def javascript_lessons
     'Using Ruby on Rails or BaaS For Your Back End' => {
       title: 'Using Ruby on Rails or BaaS For Your Back End',
       description: "You've got experience working with APIs, now it's time to treat your app like one.",
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/js-rails/rails_backend.md',
       identifier_uuid: '80eda4a3-02c9-489f-acef-bea2ba628e09',
@@ -189,8 +206,6 @@ def javascript_lessons
     "Where's Waldo (A Photo Tagging App)" => {
       title: "Where's Waldo (A Photo Tagging App)",
       description: "Pull together everything you've learned so far to create a \"Where's Waldo?\" game.",
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/js-rails/project_rails_backend.md',
       accepts_submission: true,

@@ -3,8 +3,6 @@ def react_lessons
     'React Introduction' => {
       title: 'React Introduction',
       description: 'React Introduction',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/react-introduction.md',
       identifier_uuid: '147b4b39-9725-4ef0-94bb-be13de0907fb',
@@ -12,8 +10,6 @@ def react_lessons
     'State and Props' => {
       title: 'State and Props',
       description: 'State and Props',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/state-and-props.md',
       identifier_uuid: '62dac0e1-2acc-4392-b5b5-a12e010f50e4',
@@ -21,8 +17,6 @@ def react_lessons
     'Handle Inputs and Render Lists' => {
       title: 'Handle Inputs and Render Lists',
       description: 'Handle Inputs and Render Lists',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/inputs-and-lists.md',
       identifier_uuid: '4ad5f107-7f36-4606-bf87-59b07e2558c8',
@@ -30,8 +24,6 @@ def react_lessons
     'CV Application' => {
       title: 'CV Application',
       description: 'CV Application',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/react-js/project-cv.md',
       accepts_submission: true,
@@ -41,8 +33,6 @@ def react_lessons
     'Lifecycle Methods' => {
       title: 'Lifecycle Methods',
       description: 'Lifecycle Methods',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/lifecycle-methods.md',
       identifier_uuid: '64f06d1e-44a6-41f6-a34b-f9f713c76aab',
@@ -50,8 +40,6 @@ def react_lessons
     'Hooks' => {
       title: 'Hooks',
       description: 'Hooks',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/hooks.md',
       identifier_uuid: 'a427cd6c-e001-4c52-80f8-f538883ffc39',
@@ -59,8 +47,6 @@ def react_lessons
     'Memory Card' => {
       title: 'Memory Card',
       description: 'Memory Card',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/react-js/project-memory-card.md',
       accepts_submission: true,
@@ -70,8 +56,6 @@ def react_lessons
     'Router' => {
       title: 'Router',
       description: 'Router',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/router.md',
       identifier_uuid: 'f34f2b12-a3fd-41a1-9726-140a1ebde5f1',
@@ -79,8 +63,6 @@ def react_lessons
     'Shopping Cart' => {
       title: 'Shopping Cart',
       description: 'Shopping Cart',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/javascript/react-js/project-shopping-chart.md',
       accepts_submission: true,
@@ -90,8 +72,6 @@ def react_lessons
     'Advanced Concepts' => {
       title: 'Advanced Concepts',
       description: 'Advanced Concepts',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/javascript/react-js/advanced-concepts.md',
       identifier_uuid: 'e2a290b1-cc94-498b-ba32-a40ddfbf2a3a',

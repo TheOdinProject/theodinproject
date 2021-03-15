@@ -3,8 +3,6 @@ def node_js_lessons
     'Introduction: What is NodeJs' => {
       title: 'Introduction: What is NodeJs',
       description: 'Lets take a look at what Node is, and what it means to write code for a server.',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/getting-started/Introduction.md',
       identifier_uuid: 'e05fed63-01e4-432a-9bbf-652d4398be0d',
@@ -12,8 +10,6 @@ def node_js_lessons
     'Getting Started' => {
       title: 'Getting Started',
       description: "You'll go through a basic Node tutorial and write some real server-side code.",
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/getting-started/Getting-Started.md',
       identifier_uuid: 'e03532e7-1e00-4e47-a36e-a5cddeca0f43',
@@ -21,8 +17,6 @@ def node_js_lessons
     'Basic Informational Site' => {
       title: 'Basic Informational Site',
       description: "Use what you've learned to build a very simple website skeleton",
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/getting-started/Getting-Started-Project.md',
       accepts_submission: true,
@@ -32,8 +26,6 @@ def node_js_lessons
     'Introduction to Express' => {
       title: 'Introduction to Express',
       description: 'We look at Express for the first time and learn what it does for us',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/express-basics/Express-Introduction.md',
       identifier_uuid: 'ba826e59-aeb3-4150-a893-5a9cbb185525',
@@ -41,8 +33,6 @@ def node_js_lessons
     'Express 101' => {
       title: 'Express 101',
       description: "It's time to dive into the main tutorial and actually write some code using the express-generator",
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/express-basics/Express-Lesson-1.md',
       identifier_uuid: 'ef20eb89-87d7-4c73-b376-e9f47c596ad9',
@@ -50,8 +40,6 @@ def node_js_lessons
     'Express 102: CRUD and MVC' => {
       title: 'Express 102: CRUD and MVC',
       description: 'Here you learn how to set up a database in your Express projects',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/express-basics/Express-Lesson-2.md',
       identifier_uuid: '2b19f45c-536a-412d-8062-2e5c4144b6b6',
@@ -59,8 +47,6 @@ def node_js_lessons
     'Preparing for Deployment' => {
       title: 'Preparing for Deployment',
       description: 'Get setup to use Heroku to deploy our web applications',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/rails_programming/introduction/preparing_for_deployment.md',
       identifier_uuid: '7eec89f0-5619-4dc7-a8b9-af009d36c288',
@@ -68,8 +54,6 @@ def node_js_lessons
     'Mini Message Board' => {
       title: 'Mini Message Board',
       description: 'We take a break from the main tutorial and create a simple message board.',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/express-basics/Express-Mini-Message-Board.md',
       accepts_submission: true,
@@ -79,8 +63,6 @@ def node_js_lessons
     'Express 103: Routes and Controllers' => {
       title: 'Express 103: Routes and Controllers',
       description: 'We learn how to use the express router and use the MVC pattern to set up controllers for our Library tutorial',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/express-basics/Express-Lesson-3.md',
       identifier_uuid: '17f1624b-4263-4e25-8aad-69c49e4990e5',
@@ -88,8 +70,6 @@ def node_js_lessons
     'Express 104: View Templates' => {
       title: 'Express 104: View Templates',
       description: 'This lesson shows you how to set up view templates.',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/express-basics/Express-Lesson-4.md',
       identifier_uuid: '3a3cddd5-e2cf-4545-bc3d-60c692018231',
@@ -97,8 +77,6 @@ def node_js_lessons
     'Express 105: Forms and Deployment' => {
       title: 'Express 105: Forms and Deployment',
       description: 'Here we learn how to use forms to create the data-entry portions of the Library Tutorial and finish the project by learning about deployment',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/express-basics/Express-Lesson-5.md',
       accepts_submission: true,
@@ -108,8 +86,6 @@ def node_js_lessons
     'Inventory Application' => {
       title: 'Inventory Application',
       description: "We put together everything you've learned so far by building an inventory management app for an imaginary store.",
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/express-basics/Express-Inventory-Application.md',
       accepts_submission: true,
@@ -126,8 +102,6 @@ def node_js_lessons
     'Security Configuration' => {
       title: 'Security Configuration',
       description: 'We learn how to use configuration modules to secure our apps',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/authentication/Security-Configuration.md',
       identifier_uuid: 'a310c4f1-bec5-4c2e-bb52-a89772a67ed4',
@@ -135,8 +109,6 @@ def node_js_lessons
     'Members Only' => {
       title: 'Members Only',
       description: "We create a private online clubhouse to practice using the auth strategies we've learned",
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/authentication/Members-Only.md',
       accepts_submission: true,
@@ -146,8 +118,6 @@ def node_js_lessons
     'API basics' => {
       title: 'API basics',
       description: 'You already know most of what you need to create robust APIs. This lesson fills in the blanks for you.',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/APIs/APIs.md',
       identifier_uuid: 'ef267268-b196-466b-9c03-32d399c961ee',
@@ -155,8 +125,6 @@ def node_js_lessons
     'API Security' => {
       title: 'API Security',
       description: 'We learn how to secure our APIs using JSON web tokens',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/APIs/API-Security.md',
       identifier_uuid: 'a9234831-cd6b-4597-be02-897361809b0c',
@@ -164,8 +132,6 @@ def node_js_lessons
     'Blog API' => {
       title: 'Blog API',
       description: 'You create the backend for a blog and then plug it into multiple frontend applications',
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/APIs/Blog-Project.md',
       accepts_submission: true,
@@ -175,8 +141,6 @@ def node_js_lessons
     'Testing Routes and Controllers' => {
       title: 'Testing Routes and Controllers',
       description: 'We learn how to use Supertest to write tests for our routes and controllers',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/testing/Testing.md',
       identifier_uuid: '5942067c-e52e-4bff-98e1-11f5e9c52b33',
@@ -184,8 +148,6 @@ def node_js_lessons
     'Testing database operations' => {
       title: 'Testing database operations',
       description: 'we learn how to use mongodb-memory-server to write tests for routes that manipulate a database',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/testing/Testing-Mongo.md',
       identifier_uuid: '8e0e26ea-57c4-4cc6-9d0d-bf8561de9dae',
@@ -193,8 +155,6 @@ def node_js_lessons
     'Odin-Book' => {
       title: 'Odin-Book',
       description: "You'll use everything you've learned so far to replicate Facebook!",
-      position: lesson_position,
-      section_id: section.id,
       is_project: true,
       url: '/nodeJS/Odin-Book.md',
       accepts_submission: true,
@@ -204,8 +164,6 @@ def node_js_lessons
     'Conclusion' => {
       title: 'Conclusion',
       description: 'Wow you\'ve gotten to the last lesson!',
-      position: lesson_position,
-      section_id: section.id,
       is_project: false,
       url: '/nodeJS/conclusion.md',
       identifier_uuid: '5881368f-71aa-4fb4-b3ab-632cdcfa802f'
