@@ -1,10 +1,9 @@
 module Seeds
   class Section
-
     attr_accessor :identifier_uuid, :title, :description, :position
     attr_reader :seeded_lessons
 
-    def initialize(course, position, &block)
+    def initialize(course, position)
       @course = course
       @position = position
       @seeded_lessons = []
@@ -26,9 +25,10 @@ module Seeds
       end.first
     end
 
+    # rubocop: disable Metrics/AbcSize
     def add_lessons(*lessons_attrs)
-      @lessons ||=
-      lessons_attrs.map.with_index do |lesson_attrs, index|
+      @add_lessons ||=
+        lessons_attrs.map.with_index do |lesson_attrs, index|
           position = index + 1
 
           seeded_lessons.push(
@@ -46,9 +46,10 @@ module Seeds
           )
         end
     end
+    # rubocop: enable Metrics/AbcSize
 
     private
 
-    attr_reader :course, :position
+    attr_reader :course
   end
 end

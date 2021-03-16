@@ -1,11 +1,10 @@
 module Seeds
   class Path
-
     include SeedHelpers
 
     attr_accessor :identifier_uuid, :title, :description, :position, :default_path
 
-    def initialize(&block)
+    def initialize
       @seeded_courses = []
 
       yield(self)
@@ -26,7 +25,7 @@ module Seeds
     end
 
     def add_course(&block)
-      Seeds::Course.create(course_position, &block).tap do |seeded_course|
+      Seeds::Course.create(path, course_position, &block).tap do |seeded_course|
         seeded_courses.push(seeded_course)
       end
     end
@@ -42,7 +41,5 @@ module Seeds
     def course_position
       seeded_courses.size + 1
     end
-
   end
-
 end

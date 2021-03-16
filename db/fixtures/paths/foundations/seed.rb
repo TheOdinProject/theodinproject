@@ -1,6 +1,6 @@
-#************************
+# ************************
 # Path - Foundations
-#************************
+# ************************
 path = Seeds::Path.create do |path|
   path.title = 'Foundations'
   path.description = "This is where it all begins! A hands-on introduction to all of the essential tools you'll need to build real, working websites. You'll learn what web developers actually do – the foundations you'll need for later courses."
@@ -14,7 +14,7 @@ end
 #######################
 
 course = path.add_course do |course|
-  course.title = "Foundations"
+  course.title = 'Foundations'
   course.description = "This is where it all begins! A hands-on introduction to all of the essential tools you'll need to build real, working websites. You'll learn what web developers actually do – the foundations you'll need for later courses."
   course.identifier_uuid = '783e9b72-a447-4f49-a9b3-b62826d68e04'
 end
@@ -25,7 +25,7 @@ end
 course.add_section do |section|
   section.title = 'Introduction'
   section.description = "This section will cover the baseline knowledge you need before getting into the more 'programming' aspects of web development."
-  section.identifier_uuid = "472bf0bc-2667-4206-84ea-43498b1d67f9"
+  section.identifier_uuid = '472bf0bc-2667-4206-84ea-43498b1d67f9'
 
   section.add_lessons(
     foundation_lessons.fetch('How this Course Will Work'),
@@ -138,4 +138,3 @@ end
 # clean up any removed seeds from the database
 course.delete_removed_seeds
 path.delete_removed_courses
-

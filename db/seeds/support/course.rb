@@ -1,11 +1,11 @@
 module Seeds
   class Course
-
     include SeedHelpers
 
     attr_accessor :identifier_uuid, :title, :description, :position
 
-    def initialize(position, &block)
+    def initialize(path, position)
+      @path = path
       @position = position
       yield self
 
@@ -13,8 +13,8 @@ module Seeds
       @course = course
     end
 
-    def self.create(position, &block)
-      new(position, &block)
+    def self.create(path, position, &block)
+      new(path, position, &block)
     end
 
     def add_section(&block)
@@ -29,6 +29,7 @@ module Seeds
         course.title = title
         course.description = description
         course.position = position
+        course.path_id = path.id
       end.first
     end
 
@@ -39,7 +40,7 @@ module Seeds
 
     private
 
-    attr_reader :seeded_sections
+    attr_reader :seeded_sections, :path
 
     def section_position
       seeded_sections.size + 1
