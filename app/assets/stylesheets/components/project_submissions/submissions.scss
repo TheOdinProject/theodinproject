@@ -68,6 +68,12 @@
     border-radius: 0.2em;
     font-weight: 600;
     text-align: center;
+    margin-right: 5px;
+
+    @include media-breakpoint-down(sm) {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
 
     &--edit {
       color: $grey;
@@ -142,6 +148,10 @@
     .liked {
       color: #6abfc3 !important;
     }
+  }
+
+  &__likes-number {
+    margin-right: 3px;
   }
 
   &__view-more {
