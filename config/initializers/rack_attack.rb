@@ -3,7 +3,7 @@ class Rack::Attack
   spammers = ENV.fetch('SPAM_DOMAINS', '').split(/,\s*/)
 
   Rack::Attack.throttle('report_ip', limit: 3, period: 60) do |request|
-    request.ip if request.path.ends_with?('/flags')
+    request.ip if request.path.ends_with?('/flags') && request.post?
   end
 
   spammer_regexp = Regexp.union(spammers)
