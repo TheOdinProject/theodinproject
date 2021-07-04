@@ -9,7 +9,7 @@
 
 <% if lesson.next_lesson %>
   <%= link_to 'Next Lesson',
-      path_course_lesson_path(course.path, course, lesson.next_lesson),
+      lesson_path(lesson.next_lesson),
       title: "Move on to '#{lesson.next_lesson.title}'",
       class: "button #{next_lesson_button_state(lesson)} lesson-button-group__item lesson-button",
       data: { test_id: 'next-lesson-btn' }

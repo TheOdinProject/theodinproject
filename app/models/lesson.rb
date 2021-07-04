@@ -1,7 +1,7 @@
 class Lesson < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :slug_candidates, use: %i[scoped slugged history finders], scope: :section
+  friendly_id :slug_candidates, use: %i[slugged history finders]
 
   belongs_to :section
   has_one :course, through: :section
@@ -31,11 +31,9 @@ class Lesson < ApplicationRecord
   def slug_candidates
     [
       :title,
-      [:title, course_title]
+      [section&.title, :title],
+      [section&.title, course&.title, :title],
+      [section&.title, course&.title, path&.title, :title]
     ]
-  end
-
-  def course_title
-    course&.title
   end
 end

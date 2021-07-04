@@ -24,7 +24,7 @@ RSpec.describe 'Course Progress Badge', type: :system do
 
   context 'when course has some progress' do
     it 'shows percentage of completion' do
-      visit path_course_lesson_path(path, course, first_lesson)
+      visit lesson_path(first_lesson)
       find(:test_id, 'complete_btn').click
       visit path_course_path(path, course)
 
@@ -36,9 +36,9 @@ RSpec.describe 'Course Progress Badge', type: :system do
 
   context 'when course is completed' do
     it 'shows 100% completion' do
-      visit path_course_lesson_path(path, course, first_lesson)
+      visit lesson_path(first_lesson)
       find(:test_id, 'complete_btn').click
-      visit path_course_lesson_path(path, course, second_lesson)
+      visit lesson_path(second_lesson)
       find(:test_id, 'complete_btn').click
       visit path_course_path(path, course)
 

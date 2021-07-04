@@ -12,7 +12,7 @@ RSpec.describe 'Lesson Completions', type: :system do
   context 'when user is signed in' do
     before do
       sign_in(user)
-      visit path_course_lesson_path(path, course, lesson)
+      visit lesson_path(lesson)
     end
 
     it 'can complete a lesson' do
@@ -38,7 +38,7 @@ RSpec.describe 'Lesson Completions', type: :system do
 
   context 'when user is not signed in' do
     it 'cannot complete a lesson' do
-      visit path_course_lesson_path(path, course, lesson)
+      visit lesson_path(lesson)
 
       expect(page).to have_no_submit_button('complete_btn')
       expect(page).to have_no_submit_button('incomplete_btn')

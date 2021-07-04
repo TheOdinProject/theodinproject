@@ -32,7 +32,7 @@ RSpec.describe ProjectSubmissionSerializer do
         user_id: 123,
         lesson_id: 12,
         lesson_title: 'A LESSON TITLE',
-        lesson_path: '/paths/a-path/courses/a-course/lessons/a-lesson-title',
+        lesson_path: '/lessons/a-lesson-title',
         lesson_has_live_preview: true,
         likes: 0,
         is_liked_by_current_user: nil

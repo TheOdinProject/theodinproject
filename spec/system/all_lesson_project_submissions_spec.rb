@@ -6,7 +6,7 @@ RSpec.describe 'View all Project Submissions for a Lesson', type: :system do
 
     it 'paginates the results' do
       create_list(:project_submission, 20, lesson: lesson)
-      visit path_course_lesson_path(lesson.section.course.path, lesson.section.course, lesson)
+      visit lesson_path(lesson)
       find(:test_id, 'view-all-projects-link').click
 
       within(:test_id, 'submissions-list') do
@@ -27,8 +27,7 @@ RSpec.describe 'View all Project Submissions for a Lesson', type: :system do
     it 'does not have an all project submissions page for the lesson' do
       visit lesson_project_submissions_path(lesson)
 
-      expect(page).to have_current_path(path_course_lesson_path(lesson.section.course.path, lesson.section.course,
-                                                                lesson))
+      expect(page).to have_current_path(lesson_path(lesson))
       expect(find(:test_id, 'flash')).to have_content('This project does not accept submissions')
     end
   end

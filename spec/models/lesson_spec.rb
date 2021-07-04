@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Lesson do
-  subject(:lesson) { described_class.new }
+  subject(:lesson) { create(:lesson) }
 
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course).through(:section) }
@@ -42,7 +42,7 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#import' do
+  describe '#import_content_from_github' do
     it 'uses the lesson content importer to get lesson content from github' do
       expect(LessonContentImporter).to receive(:for).with(lesson)
       lesson.import_content_from_github

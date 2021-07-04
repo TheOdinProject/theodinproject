@@ -8,7 +8,7 @@ RSpec.describe 'Add a Project Submission', type: :system do
 
     before do
       sign_in(user)
-      visit path_course_lesson_path(lesson.section.course.path, lesson.section.course, lesson)
+      visit lesson_path(lesson)
     end
 
     it 'successfully adds a submission' do
@@ -37,7 +37,7 @@ RSpec.describe 'Add a Project Submission', type: :system do
         end
 
         using_session('another_user') do
-          visit path_course_lesson_path(lesson.section.course.path, lesson.section.course, lesson)
+          visit lesson_path(lesson)
 
           within(:test_id, 'submissions-list') do
             expect(page).not_to have_content(user.username)
@@ -49,7 +49,7 @@ RSpec.describe 'Add a Project Submission', type: :system do
 
   context 'when a user is not signed in' do
     before do
-      visit path_course_lesson_path(lesson.section.course.path, lesson.section.course, lesson)
+      visit lesson_path(lesson)
     end
 
     it 'they cannot add a project submission' do

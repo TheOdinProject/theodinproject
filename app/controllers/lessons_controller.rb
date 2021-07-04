@@ -23,10 +23,16 @@ class LessonsController < ApplicationController
   end
 
   def lesson
-    course.lessons.find(params[:id])
+    if course.present?
+      course.lessons.find(params[:id])
+    else
+      Lesson.find(params[:id])
+    end
   end
 
   def course
+    return unless params[:path_id].present? && params[:course_id].present?
+
     Path.find(params[:path_id]).courses.find(params[:course_id])
   end
 end
