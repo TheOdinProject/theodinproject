@@ -36,12 +36,13 @@ gem 'react-rails'
 gem 'ruby-progressbar', '~> 1.11.0'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3.9'
-gem 'sentry-rails', '~> 4.6.0'
-gem 'sentry-ruby', '~> 4.6.0'
+gem 'sentry-rails', '~> 4.6.1'
+gem 'sentry-ruby', '~> 4.6.1'
 gem 'sidekiq'
 gem 'sprockets', '~> 4.0.2'
 gem 'turbolinks'
 gem 'uglifier', '~> 4.2'
+gem 'view_component', '~> 2.32', require: 'view_component/engine'
 gem 'webpacker'
 
 group :development, :test, :docker do
@@ -55,6 +56,7 @@ group :development, :test, :docker do
   gem 'rails-controller-testing'
   gem 'rake', '~> 13.0'
   gem 'rspec-rails'
+  gem 'rspec-retry', '~> 0.6.2'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'vcr', '~> 6.0'
