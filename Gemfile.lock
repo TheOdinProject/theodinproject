@@ -274,7 +274,7 @@ GEM
     listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.11.0)
+    loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -476,7 +476,7 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
     semantic_range (3.0.0)
-    sentry-rails (4.6.4)
+    sentry-rails (4.6.5)
       railties (>= 5.0)
       sentry-ruby-core (~> 4.6.0)
     sentry-ruby (4.6.5)
@@ -609,7 +609,7 @@ DEPENDENCIES
   ruby-progressbar (~> 1.11.0)
   sass-rails (~> 6.0)
   seed-fu (~> 2.3.9)
-  sentry-rails (~> 4.6.4)
+  sentry-rails (~> 4.6.5)
   sentry-ruby (~> 4.6.5)
   shoulda-matchers
   sidekiq
