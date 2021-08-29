@@ -71,16 +71,19 @@ end
 # +++++++++++++++++++++++++++++++
 # SECTION - The Front End
 # +++++++++++++++++++++++++++++++
+
 course.add_section do |section|
-  section.title = 'The Front End'
-  section.description = "In this section you'll spend a good deal of time getting familiar with the major client-side (browser-based) languages like HTML, CSS, and JavaScript. You'll get to build a webpage with HTML/CSS and learn some programming fundamentals with JavaScript."
-  section.identifier_uuid = '552d3718-14c6-4b0a-848d-2dcca271ac61'
+  section.title = 'HTML Foundations'
+  section.description = "In this section you'll the basics of HTML"
+  section.identifier_uuid = '37be8077-78c7-4137-83f5-05ce6428472b'
 
   section.add_lessons(
-    foundation_lessons.fetch('Introduction to the Front End'),
-    foundation_lessons.fetch('HTML and CSS Basics'),
-    foundation_lessons.fetch('Developer Tools'),
-    foundation_lessons.fetch('Google Homepage'),
+    foundation_lessons.fetch('Elements and Tags'),
+    foundation_lessons.fetch('HTML Boilerplate'),
+    foundation_lessons.fetch('Working with Text'),
+    foundation_lessons.fetch('Lists'),
+    foundation_lessons.fetch('Links and Images'),
+    foundation_lessons.fetch('Recipes'),
   )
 end
 

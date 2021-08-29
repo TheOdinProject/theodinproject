@@ -10,10 +10,10 @@ if Rails.env.development? || ENV['STAGING']
     end
   end
 
-  users.each do |user|
-    ProjectSubmission.find_or_create_by(user_id: user.id, lesson_id: Lesson.find_by(title: 'Google Homepage').id) do |submission|
-      submission.live_preview_url = 'https://www.google.com'
-      submission.repo_url = 'https://github.com'
-    end
-  end
+  # users.each do |user|
+  #   ProjectSubmission.find_or_create_by(user_id: user.id, lesson_id: Lesson.find_by(title: 'Google Homepage').id) do |submission|
+  #     submission.live_preview_url = 'https://www.google.com'
+  #     submission.repo_url = 'https://github.com'
+  #   end
+  # end
 end
