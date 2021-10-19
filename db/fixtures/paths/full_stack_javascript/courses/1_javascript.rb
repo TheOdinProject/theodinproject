@@ -70,7 +70,7 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('JSON'),
-    javascript_lessons.fetch('Async'),
+    javascript_lessons.fetch('Asynchronous Code'),
     javascript_lessons.fetch('Working with APIs'),
     javascript_lessons.fetch('Async and Await'),
     javascript_lessons.fetch('Weather App'),
@@ -138,7 +138,7 @@ course.add_section do |section|
   section.identifier_uuid = 'b0761d75-2a9a-4c33-b02a-1d072b75889f'
 
   section.add_lessons(
-    javascript_lessons.fetch('Final Project'),
+    javascript_lessons.fetch('JavaScript Final Project'),
     javascript_lessons.fetch('Conclusion'),
   )
 end

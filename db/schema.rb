@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_195824) do
+ActiveRecord::Schema.define(version: 2021_08_24_201230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_195824) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "url", null: false
     t.text "message", null: false
+    t.string "title", null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
@@ -167,6 +168,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_195824) do
     t.boolean "banned", default: false, null: false
     t.integer "cached_votes_total", default: 0
     t.datetime "discarded_at"
+    t.datetime "discard_at"
     t.index ["discarded_at"], name: "index_project_submissions_on_discarded_at"
     t.index ["is_public"], name: "index_project_submissions_on_is_public"
     t.index ["lesson_id"], name: "index_project_submissions_on_lesson_id"

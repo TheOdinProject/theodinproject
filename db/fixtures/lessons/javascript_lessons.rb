@@ -134,9 +134,9 @@ def javascript_lessons
       url: '/javascript/async-apis/json.md',
       identifier_uuid: 'ae0d44bf-60b7-4644-b61e-216a4a6b271b',
     },
-    'Async' => {
-      title: 'Async',
-      description: 'Async',
+    'Asynchronous Code' => {
+      title: 'Asynchronous Code',
+      description: 'Introduction to asynchronous programming',
       is_project: false,
       url: '/javascript/async-apis/promises-async.md',
       identifier_uuid: '31ab5898-fd2b-48c4-9070-0e8b622b0805',
@@ -212,8 +212,8 @@ def javascript_lessons
       has_live_preview: true,
       identifier_uuid: '386dd44a-31dc-45dc-a535-cd5508365c86',
     },
-    'Final Project' => {
-      title: 'Final Project',
+    'JavaScript Final Project' => {
+      title: 'JavaScript Final Project',
       description: "Tie everything you've learned from every course so far into one project where you'll build your favorite website from scratch.",
       is_project: true,
       url: '/javascript/finishing-up/project_final_js.md',
