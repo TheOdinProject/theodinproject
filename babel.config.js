@@ -16,6 +16,9 @@ module.exports = function(api) {
   }
 
   return {
+    ignore: [
+      "**/*.test.js",
+    ],
     presets: [
       isTestEnv && [
         '@babel/preset-env',
