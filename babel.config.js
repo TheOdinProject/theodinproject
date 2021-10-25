@@ -17,7 +17,7 @@ module.exports = function(api) {
 
   return {
     ignore: [
-      "**/*.test.js",
+      '**/*.test.js?',
     ],
     presets: [
       isTestEnv && [
