@@ -2,7 +2,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --coverage",
-    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'"
+    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'",
+    "bundle:analyze": "BUNDLE_ANALYZE=true NODE_ENV=production ./bin/webpack"
   },
   "dependencies": {
     "@babel/plugin-proposal-private-methods": "^7.14.5",
