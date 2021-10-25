@@ -1,19 +1,21 @@
 <%= title(@lesson.title) %>
 
-<div class="container lesson">
+<div class="container lesson-container lesson">
   <div class="row">
     <div class="col-12">
       <div class="lesson-header">
         <%= render 'courses/course/banner', course: @lesson.course %>
-        <h2 class="lesson-header__title accent"><%= @lesson.title %></h2>
+        <h2 class="lesson-header__title accent" data-test-id="lesson-title-header"><%= @lesson.title %></h2>
       </div>
     </div>
 
-    <div class="col-lg-3">
-      <div class="d-none d-lg-block d-xl-block lesson-navigation"></div>
+    <div class="col-lg-3 lesson-nav-wrapper">
+      <div>
+        <div class="d-none d-lg-block d-xl-block lesson-navigation"></div>
+      </div>
     </div>
 
-    <div class="col-lg-9">
+    <div class="col-xl-6 col-lg-8">
       <div class="lesson-content">
         <%= @lesson.content.html_safe %>
       </div>
@@ -25,7 +27,7 @@
   <div class="container">
     <div class="card-main">
 
-      <% if @lesson.accepts_submission? %>
+      <% if user_signed_in? && @lesson.accepts_submission? %>
         <%= react_component(
           "project-submissions/index",
           {
@@ -33,11 +35,12 @@
             course: @lesson.course.as_json,
             lesson: @lesson.as_json,
             submissions: @project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
-            allSubmissionsPath: lesson_project_submissions_path(@lesson),
-            legacySubmissionsUrl: legacy_submissions_url(@lesson),
+            allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
             userSubmission: user_submission(current_user, @lesson)
           }
         ) %>
+      <% elsif @lesson.accepts_submission? %>
+          <p class="lesson-functions__call-to-login">Please <%= link_to 'Log In', login_path, class: 'lesson-functions__link' %> or <%= link_to 'Sign Up', sign_up_path, class: 'lesson-functions__link', data: {test_id: 'sign_up'} %> to view user submissions for this project!</p>
       <% end %>
 
       <div class="lesson-button-group">

@@ -3,15 +3,11 @@ module ApplicationHelper
   require 'kramdown'
 
   def chat_link
-    'https://discord.gg/V75WSQG'
+    'https://discord.gg/fbFCkYabZB'
   end
 
   def github_link(extension = '')
     "https://github.com/TheOdinProject/#{extension}"
-  end
-
-  def forum_link
-    'https://forum.theodinproject.com'
   end
 
   def title(input = nil)
@@ -54,20 +50,21 @@ module ApplicationHelper
           <br />
           <p>On the other hand, you don't necessarily need to put in 4 years getting a CS degree.  80% of what they cover won't be used during a typical web developer's early career and it's not necessary to get hired.  So why not learn the 20% and learn the rest while you're getting paid on the job?</p>
           <br />
-          <p>We've essentially distilled down what you most need to learn to hit that employable level, but it's still a healthy dose of learning.  Depending how fast you learn, it will take roughly 1000 hours of work to hit that sweet spot.  If you're naturally more technical or come from a technical background, it may be a bit faster.  If you're less technical or brand new to all this, it will take longer.  Don't despair!  When you think about it, that's pretty much the same learning curve you had to climb to learn anything worthwhile so far in life.</p>"
+          <p>We've essentially distilled down what you most need to learn to hit that employable level, but it's still a healthy dose of learning.  There is no good way to estimate how long it will take you to reach that point, and we don't have any good way of getting data on how long it takes on average anyways.  If you're naturally more technical or come from a technical background, it may be a bit faster.  If you're less technical or brand new to all this, it will take longer.  Don't despair!  When you think about it, that's pretty much the same learning curve you had to climb to learn anything worthwhile so far in life.</p>"
       },
       {
         question: 'Which technologies can one expect to learn from The Odin Project?',
         answer:
-          "<p> The Odin Project contains three paths for students to choose from: <a href='paths/full-stack-ruby-on-rails'>Fullstack Ruby on Rails</a>, <a href='paths/full-stack-javascript'>Fullstack Javascript</a>, and <a href='paths/front-end-only'>Frontend only</a>. The Ruby on Rails path gives a general overview of what fullstack is. This is the default path for most beginners. The Javascript path focuses more on the connection between the webpage and the data with Javascript and NodeJS. The Frontend path primarily goes over HTML, CSS and Javascript but no Ruby on Rails. Below are some courses that are included in these curriculums:</p>
+          "<p>  All students are initially enrolled into the <a href='courses/foundations'>Foundations Course</a>. This will give you a chance to explore several of the languages and technologies you’ll need to know on your journey to becoming a web developer. Foundations introduces HTML, CSS, JavaScript, Git and more. We’ve also created mini-projects that give you a chance to test your new knowledge by building your own applications and websites! Once Foundations is complete, students have two paths to choose from: <a href='paths/full-stack-ruby-on-rails'>Fullstack Ruby on Rails</a> and <a href='paths/full-stack-javascript'>Fullstack JavaScript</a> </p>
           <br />
-          <p>The <a href='courses/foundations'>Foundations course</a> will give you a chance to explore several of the languages and technologies you’ll need to know on your journey to becoming a web developer. Foundations introduces HTML, CSS, Javascript, Ruby, Rails, Git, databases and more. We’ve also created mini-projects that give you a chance to test your new knowledge by building your own applications and websites!</p>
+          <p> The Full Stack Ruby on Rails path takes a back-to-front approach to fullstack development. We start with a <a href='courses/ruby-programming'>strong foundation in Ruby</a> and an understanding of databases before migrating into <a href='courses/ruby-on-rails'>Ruby on Rails</a> (which is a framework built using Ruby). Then you'll polish your front-end skills with a journey into <a href='courses/html-and-css'>HTML and CSS</a> before learning to make your websites flow, load quickly and look great with <a href='courses/javascript'>JavaScript</a>. </p>
           <br />
-          <p>The Odin Project takes a back-to-front approach to learning Ruby on Rails.  We start with a <a href='courses/ruby-programming'>strong foundation in Ruby</a> and an understanding of databases before migrating into <a href='courses/ruby-on-rails'>Ruby on Rails</a> (which is a framework built using Ruby).</p>
+          <p> The Full Stack Javascript path maintains our front-end momentum from Foundations by delving into <a href='courses/javascript'>Javascript.</a> Once you've got a solid foundation here, you'll take a deeper look at front-end design with <a href='courses/html-and-css'>HTML and CSS</a> before taking your JavaScript skills to the server-side with Express and MongoDB in <a href='courses/nodejs'>NodeJS</a>. </p>
           <br />
-          <p>The Odin Project then delves deep into <a href='courses/html-and-css'>HTML and CSS</a>, along with <a href='courses/javascript'>Javascript</a> to give you all the tools necessary to make websites flow, load quickly, and look great.  Along the way you’ll learn Git and deployment so you can build your own portfolio, collaborate with others, and see your work on the web.</p>
+          <p> Along the way in either path you’ll learn Git and deployment so you can build your own portfolio, collaborate with others, and see your work on the web. Finally, The Odin Project will provide you with opportunities to work with legacy codebases and open-source projects. We’ll also cover areas specifically intended to help when you’re <a href='courses/getting-hired'>looking for employment</a>. </p>
           <br />
-          <p>Finally, The Odin Project will provide you with opportunities to work with legacy codebases and open-source projects. We’ll also cover areas specifically intended to help when you’re <a href='courses/getting-hired'>looking for employment</a>.</p>"
+          <p> As you may have noticed, there is considerable overlap between the two paths with the only difference between them being the choice of back-end technology. They both guide you through harnessing the power of <a href='https://reactjs.org/'>React</a> along with software development paradigms such as Object-Oriented Programming and Test-Driven Development. More importantly, both paths will equally allow you to develop your own skills as a fullstack web developer. </p>
+         "
       },
       {
         question: 'How is The Odin Project different from other programs?',
@@ -77,13 +74,6 @@ module ApplicationHelper
           <p>The Odin Project also attempts to develop your problem solving skills when it requires you to install programs on your local computer.  As developers, programming errors frequently arise and knowing how to decipher error messages is critical.  These problem solving skills are frequently ignored by other programs.</p>
           <br />
           <p>Lastly, The Odin Project is project based.  Other programs require you to simply input the correct answer. It is difficult to retain any knowledge by learning the bare minimum syntax. The Odin Project is designed with projects built from the ground up giving you real-world experience that you can use to build your portfolio and get hired as a web developer!</p>"
-      },
-      {
-        question: 'Why Ruby on Rails?',
-        answer:
-          "<p>There are dozens of frameworks and technology stacks to choose from and, frankly, they do pretty much the same thing. Ruby on Rails is attractive because it’s straightforward and well documented.  It’s also used by many tech companies and has a strong community of developers who support it.</p>
-          <br />
-          <p>Ruby on Rails lets you deploy a functioning website in hours instead of weeks.  Rails also provides a great platform to build the skills you need to carry you to the next phase.</p>"
       },
       {
         question: 'Who is "Odin"?',
@@ -117,14 +107,14 @@ module ApplicationHelper
       {
         question: 'Can I use this curriculum to teach?',
         answer:
-          "<p>The Odin Project is licensed under two pieces: the curriculum and the main website.  The main website is a fully open-source project <a href='https://github.com/TheOdinProject/theodinproject/blob/master/license.txt'>under an MIT license</a>, so you can use the code for whatever you want.  The curriculum is currently licensed under a <a href='https://github.com/TheOdinProject/curriculum/blob/master/license.md'>Creative Commons license</a> which restricts it to noncommercial use without prior authorization.</p>
+          "<p>The Odin Project is licensed under two pieces: the curriculum and the main website.  The main website is a fully open-source project <a href='https://github.com/TheOdinProject/theodinproject/blob/main/license.txt'>under an MIT license</a>, so you can use the code for whatever you want.  The curriculum is currently licensed under a <a href='https://github.com/TheOdinProject/curriculum/blob/main/license.md'>Creative Commons license</a> which restricts it to noncommercial use without prior authorization.</p>
           <br />
-          <p>This means you can use The Odin Project’s curriculum to teach at your club, meetup, or with your friends (In fact, we’d love it if you did that and told us how it went!). You can’t, however, use it to start a bootcamp without having a conversation first.  Please reach out with any questions to <a href='mailto: contact@theodinproject.com'>contact@theodinproject.com</a></p>"
+          <p>This means you can use The Odin Project’s curriculum to teach at your club, meetup, or with your friends (In fact, we’d love it if you did that and told us how it went!). You can’t, however, use it to start a bootcamp without having a conversation first.  Please reach out with any questions to <a href='mailto: theodinprojectcontact@gmail.com'>theodinprojectcontact@gmail.com</a></p>"
       },
       {
         question: 'How can I get in touch?',
         answer:
-        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:contact@theodinproject.com'>contact us</a>.  There is also a friendly Odin community in our <a target='_blank' rel='noreferrer' href=#{chat_link}>Discord chat rooms.</a></p>"
+        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:theodinprojectcontact@gmail.com'>contact us</a>.  There is also a friendly Odin community in our <a target='_blank' rel='noreferrer' href=#{chat_link}>Discord chat rooms.</a></p>"
       }
     ]
   end
@@ -232,6 +222,10 @@ module ApplicationHelper
     else
       'progress-circle--show-progress'
     end
+  end
+
+  def unread_notifications?(user)
+    user.notifications.any?(&:unread?)
   end
 
   private

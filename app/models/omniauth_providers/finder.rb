@@ -20,7 +20,7 @@ module OmniauthProviders
     private
 
     def omniauth_provider
-      @omniauth_provider ||= UserProvider.where(provider: auth.provider, uid: auth.uid).first
+      @omniauth_provider ||= UserProvider.find_by(provider: auth.provider, uid: auth.uid)
     end
 
     def new_user_provider
@@ -35,9 +35,6 @@ module OmniauthProviders
         user.password = Devise.friendly_token[0, 20]
         user.avatar = auth.info.image
       end
-    rescue ActiveRecord::RecordInvalid
-      ::NewRelic::Agent.add_custom_attributes(auth)
-      raise
     end
     # rubocop:enable Metrics/AbcSize
   end

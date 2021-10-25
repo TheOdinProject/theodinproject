@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ApplicationHelper do
   describe '#chat_link' do
     it 'returns the chat url' do
-      expect(chat_link).to eq('https://discord.gg/V75WSQG')
+      expect(chat_link).to eq('https://discord.gg/fbFCkYabZB')
     end
   end
 
@@ -200,6 +200,26 @@ RSpec.describe ApplicationHelper do
 
     it 'returns the next lesson the user has to complete' do
       expect(helper.next_lesson_to_complete(course, lesson_completions)).to eql(lesson_to_complete)
+    end
+  end
+
+  describe '#unread_notifications' do
+    let!(:user) { create(:user) }
+
+    context 'when the user has unread notifications' do
+      let!(:unread_notification) { create(:notification, recipient: user, read_at: nil) }
+
+      it 'returns true' do
+        expect(helper.unread_notifications?(user)).to be true
+      end
+    end
+
+    context 'when the user has no unread notifications' do
+      let!(:read_notification) { create(:notification, recipient: user, read_at: Time.zone.now) }
+
+      it 'returns false' do
+        expect(helper.unread_notifications?(user)).to be false
+      end
     end
   end
 end

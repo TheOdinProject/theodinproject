@@ -8,9 +8,7 @@ class LessonDuration
     ActiveSupport::Duration.build(average_duration.to_i).inspect
   end
 
-  def title
-    lesson.title
-  end
+  delegate :title, to: :lesson
 
   private
 
@@ -18,7 +16,7 @@ class LessonDuration
 
   # rubocop:disable Style/RescueModifier
   def average_duration
-    durations.reduce(0) { |sum, duration| sum + duration } / durations.size rescue 0
+    durations.sum / durations.size rescue 0
   end
   # rubocop:enable Style/RescueModifier
 

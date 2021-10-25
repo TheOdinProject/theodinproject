@@ -1,16 +1,31 @@
 <div class="skill">
   <div class='skill__image'>
-    <%= render 'shared/course_badge', course: course, user: @user, modifier: modifier_for_badge(course, @user) %>
+    <%= render 'shared/course_badge', course: course, user: current_user, modifier: modifier_for_badge(course, current_user) %>
   </div>
 
   <div class="skill__details">
-    <%= link_to course, class: 'skill__link' do %>
+    <%= link_to path_course_url(course.path, course), class: 'skill__link' do %>
       <h3 class="skill__title"><%= course.title %></h3>
     <% end %>
     <span class="skill__sub-title"><%= course.lessons.size %> lessons</span>
   </div>
 
   <div class="skill__button-wrapper">
-    <%= render 'users/skill_state_buttons', course: course, user: @user %>
+    <% if course_completed_by_user?(course, current_user) %>
+      <%= link_to 'Open', path_course_path(course.path, course), class: 'button button--transparent skill__button', data: { test_id: "#{course.title.downcase}-open-btn" } %>
+    <% elsif course_started_by_user?(course, current_user) %>
+      <%= link_to 'Resume',
+        path_course_lesson_url(
+          course.path,
+          course,
+          next_lesson_to_complete(course, current_user.lesson_completions_for_course(course))
+        ),
+        class: 'button button--primary skill__button',
+        data: { test_id: "#{course.title.downcase}-resume-btn" }
+      %>
+    <% else %>
+      <%= link_to 'Start', path_course_url(course.path, course), class: 'button button--primary skill__button', data: {
+        test_id: "#{course.title.downcase}-start-btn" } %>
+    <% end %>
   </div>
 </div>

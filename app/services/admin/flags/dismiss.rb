@@ -1,18 +1,20 @@
 module Admin
   module Flags
     class Dismiss
-      def initialize(flag:)
+      def initialize(admin:, flag:)
+        @admin = admin
         @flag = flag
         @success = false
       end
 
-      def self.call(*args)
-        new(*args).call
+      def self.call(**args)
+        new(**args).call
       end
 
       def call
         flag.resolved!
         flag.dismiss!
+        flag.update!(resolved_by_id: admin.id)
         @success = true
 
         self
@@ -24,7 +26,7 @@ module Admin
 
       private
 
-      attr_reader :flag
+      attr_reader :flag, :admin
     end
   end
 end

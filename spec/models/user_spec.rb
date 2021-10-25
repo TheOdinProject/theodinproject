@@ -14,21 +14,11 @@ RSpec.describe User do
   it { is_expected.to have_many(:project_submissions).dependent(:destroy) }
   it { is_expected.to have_many(:user_providers).dependent(:destroy) }
   it { is_expected.to have_many(:flags).dependent(:destroy) }
-  it { is_expected.to belong_to(:path) }
+  it { is_expected.to have_many(:notifications) }
+  it { is_expected.to belong_to(:path).optional(true) }
 
   context 'when user is created' do
-    let(:mailer) { instance_double(ActionMailer::MessageDelivery) }
     let!(:default_path) { create(:path, default_path: true) }
-
-    before do
-      allow(UserMailer).to receive(:send_welcome_email_to).and_return(mailer)
-      allow(mailer).to receive(:deliver_now!)
-    end
-
-    it 'sends a welcome email' do
-      user = create(:user)
-      expect(UserMailer).to have_received(:send_welcome_email_to).with(user)
-    end
 
     it 'enrolls the user in the default path' do
       user = create(:user)
@@ -53,7 +43,7 @@ RSpec.describe User do
     let(:lesson) { create(:lesson) }
 
     context 'when the user has completed  the lesson' do
-      let!(:lesson_completion) { create(:lesson_completion, lesson: lesson, student: user) }
+      let!(:lesson_completion) { create(:lesson_completion, lesson: lesson, user: user) }
 
       it 'returns true' do
         expect(user.completed?(lesson)).to be(true)
@@ -77,21 +67,21 @@ RSpec.describe User do
         create(
           :lesson_completion,
           lesson: lesson_completed_last_week,
-          student: user,
+          user: user,
           created_at: Time.zone.today - 7.days
         )
 
         create(
           :lesson_completion,
           lesson: lesson_completed_yesterday,
-          student: user,
+          user: user,
           created_at: Time.zone.today - 1.day
         )
 
         create(
           :lesson_completion,
           lesson: lesson_completed_today,
-          student: user,
+          user: user,
           created_at: Time.zone.today
         )
       end
@@ -105,6 +95,19 @@ RSpec.describe User do
       it 'returns nil' do
         expect(user.latest_completed_lesson).to be(nil)
       end
+    end
+  end
+
+  describe '#lesson_completions_for_course' do
+    it 'returns the users lesson completions for a course' do
+      create(:lesson_completion, user: user)
+      course = create(:course)
+      lesson_completion_one_for_course = create(:lesson_completion, course_id: course.id, user: user)
+      lesson_completion_two_for_course = create(:lesson_completion, course_id: course.id, user: user)
+
+      expect(user.lesson_completions_for_course(course)).to contain_exactly(
+        lesson_completion_one_for_course, lesson_completion_two_for_course
+      )
     end
   end
 

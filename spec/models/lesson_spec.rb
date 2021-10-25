@@ -6,10 +6,28 @@ RSpec.describe Lesson do
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course).through(:section) }
   it { is_expected.to have_many(:project_submissions) }
-  it { is_expected.to have_many(:lesson_completions).dependent(:destroy) }
+  it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completing_users).through(:lesson_completions) }
 
   it { is_expected.to validate_presence_of(:position) }
+
+  describe '.most_recent_updated_at' do
+    before do
+      travel_to Time.utc(2021, 4, 14)
+    end
+
+    after do
+      travel_back
+    end
+
+    it 'returns the most recently updated_at time stamp' do
+      create(:lesson, updated_at: 2.weeks.ago)
+      create(:lesson, updated_at: 1.week.ago)
+      create(:lesson, updated_at: Time.utc(2021, 4, 10, 15))
+
+      expect(described_class.most_recent_updated_at).to eql(Time.utc(2021, 4, 10, 15))
+    end
+  end
 
   describe '#position_in_section' do
     let(:section) { create(:section) }

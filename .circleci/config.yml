@@ -4,11 +4,12 @@ version: 2.1
 executors:
   rails-executor:
     docker:
-      - image: circleci/ruby:2.6.6-stretch-node-browsers-legacy
+      - image: circleci/ruby:2.7.4-buster-node-browsers
         environment:
           RAILS_ENV: test
           POSTGRES_USERNAME: postgres
           POSTGRES_PASSWORD: password
+      - image: circleci/redis:alpine
       - image: circleci/postgres:12.2-ram
         environment:
           POSTGRES_USER: postgres
@@ -16,61 +17,59 @@ executors:
           POSTGRES_DB: theodinproject_test
     working_directory: ~/theodinproject
 
-jobs:
-  tests:
-    executor: rails-executor
+commands:
+  build-app:
+    description: Building app
     steps:
       - checkout
 
-      # Install bundler
-      - run: gem install bundler
-
-      # Restore Cached Dependencies
+      - run: gem install bundler:1.17.3
       - restore_cache:
           name: Restore bundle cache
           key: theodinproject-bundle-{{ checksum "Gemfile.lock" }}
-
       - restore_cache:
           name: Restore yarn cache
           key: theodinproject-yarn-{{ checksum "yarn.lock" }}
-
-      # Bundle install dependencies
       - run: bundle install --path vendor/bundle
-
-      # yarn install dependencies
       - run: yarn install
-
-      # Cache Dependencies
       - save_cache:
           name: Store bundle cache
           key: theodinproject-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-
       - save_cache:
           name: Store yarn cache
           key: theodinproject-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.yarn-cache
-
-      # Wait for DB
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      # Setup the database
       - run: bundle exec rake db:schema:load
 
-      # Run the rubocop
-      - run: bundle exec rubocop
-
-      # Run the Jest Tests
+jobs:
+  tests:
+    executor: rails-executor
+    steps:
+      - build-app
       - run: yarn test
-
-      # Run rspec
       - run: bundle exec rspec
-
+  linters:
+    executor: rails-executor
+    steps:
+      - build-app
+      - run: bundle exec rubocop
+      - run: yarn run eslint
+  seeds:
+    executor: rails-executor
+    steps:
+      - build-app
+      - run:
+          name: Seeds
+          command: bin/rails db:seed
 
 workflows:
   version: 2
   build:
     jobs:
       - tests
+      - linters
+      - seeds

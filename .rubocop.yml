@@ -1,4 +1,6 @@
-require: rubocop-performance
+require:
+  - rubocop-performance
+  - rubocop-rails
 
 AllCops:
   Include:
@@ -12,8 +14,7 @@ AllCops:
     - 'bin/*'
     - 'node_modules/**/*'
     - db/schema.rb
-
-
+  NewCops: enable
 
 Layout/LineLength:
   Max: 120
@@ -178,4 +179,7 @@ Performance/StringInclude:
   Enabled: true
 
 Style/FormatStringToken:
+  Enabled: false
+
+Rails/EnvironmentVariableAccess:
   Enabled: false

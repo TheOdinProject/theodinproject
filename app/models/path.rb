@@ -1,11 +1,10 @@
 class Path < ApplicationRecord
   extend FriendlyId
 
-  friendly_id :title, use: %i[slugged finders]
+  friendly_id :title, use: %i[slugged history finders]
 
-  has_many :users
-  has_many :path_courses, -> { order(:position) }, dependent: :destroy
-  has_many :courses, through: :path_courses
+  has_many :users, dependent: :nullify
+  has_many :courses, -> { order(:position) }, dependent: :destroy, inverse_of: :path
   has_many :path_prerequisites, dependent: :destroy
   has_many :prerequisites, through: :path_prerequisites, source: :prerequisite
 

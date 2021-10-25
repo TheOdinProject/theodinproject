@@ -11,7 +11,7 @@ RSpec.describe LessonsHelper do
 
     context 'when the current user has completed the lesson' do
       before do
-        create(:lesson_completion, student: current_user, lesson: lesson)
+        create(:lesson_completion, user: current_user, lesson: lesson)
       end
 
       it 'returns button primary class' do
@@ -31,17 +31,7 @@ RSpec.describe LessonsHelper do
 
     it 'returns the github edit url for the lesson' do
       expect(helper.github_edit_url(lesson)).to eql(
-        'https://github.com/TheOdinProject/curriculum/edit/master/lesson_course/lesson_title.md'
-      )
-    end
-  end
-
-  describe '#legacy_submissions_url' do
-    let(:lesson) { create(:lesson) }
-
-    it 'returns the legacy submissions url for the lesson' do
-      expect(helper.legacy_submissions_url(lesson)).to eql(
-        'https://github.com/TheOdinProject/curriculum/blob/master/legacy_submissions/lesson_course/lesson_title.md'
+        'https://github.com/TheOdinProject/curriculum/edit/main/lesson_course/lesson_title.md'
       )
     end
   end
@@ -72,6 +62,16 @@ RSpec.describe LessonsHelper do
     end
 
     context 'when the user does not have a project submission for the lesson' do
+      it 'returns nil' do
+        expect(helper.user_submission(current_user, lesson)).to be_nil
+      end
+    end
+
+    context 'when the user has had their submission soft deleted' do
+      let!(:soft_deleted_project_submission) do
+        create(:project_submission, user: current_user, lesson: lesson, discarded_at: Time.zone.today)
+      end
+
       it 'returns nil' do
         expect(helper.user_submission(current_user, lesson)).to be_nil
       end

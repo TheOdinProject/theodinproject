@@ -1,11 +1,14 @@
 # rubocop:disable Lint/MissingCopEnableDirective, Metrics/BlockLength
 Rails.application.routes.draw do
+  draw(:old_route_redirects)
   ActiveAdmin.routes(self)
 
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  resource :github_webhooks, only: :create, defaults: { formats: :json }
 
   root 'static_pages#home'
 
@@ -42,6 +45,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :paths, only: :create
+    resources :progress, only: :destroy
   end
   get 'dashboard' => 'users#show', as: :dashboard
 
@@ -50,9 +54,6 @@ Rails.application.routes.draw do
   get '/courses/web-development-101/%{id}', to: redirect('/courses/foundations/%{id}')
 
   get '/courses' => redirect('/paths')
-  resources :courses, only: %i[index show] do
-    resources :lessons, only: :show
-  end
 
   namespace :lessons do
     resource :preview, only: %i[show create]
@@ -71,7 +72,13 @@ Rails.application.routes.draw do
   end
 
   get '/paths/web-development-101', to: redirect('/paths/foundations')
-  resources :paths, only: %i[index show]
+  resources :paths, only: %i[index show] do
+    resources :courses, only: %i[index show] do
+      resources :lessons, only: %i[show]
+    end
+  end
+
+  resources :notifications, only: %i[index update]
 
   match '/404' => 'errors#not_found', via: %i[get post patch delete]
 

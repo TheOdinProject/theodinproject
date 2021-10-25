@@ -1,10 +1,15 @@
 import React from 'react';
-import { number, array, object, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import ProjectSubmissionsContainer from './containers/project-submissions-container';
-import ProjectSubmissionContext from "./ProjectSubmissionContext";
+import ProjectSubmissionContext from './ProjectSubmissionContext';
 
-const ProjectSubmissions = ({ submissions, course, lesson, userId, allSubmissionsPath, legacySubmissionsUrl, userSubmission }) => (
-  <ProjectSubmissionContext.Provider value={{ userId, lesson, course, allSubmissionsPath, legacySubmissionsUrl }}>
+const ProjectSubmissions = ({
+  submissions, course, lesson, userId, allSubmissionsPath, userSubmission,
+}) => (
+  <ProjectSubmissionContext.Provider value={{
+    userId, lesson, course, allSubmissionsPath,
+  }}
+  >
     <ProjectSubmissionsContainer submissions={submissions} userSubmission={userSubmission} />
   </ProjectSubmissionContext.Provider>
 );
@@ -12,16 +17,16 @@ const ProjectSubmissions = ({ submissions, course, lesson, userId, allSubmission
 ProjectSubmissions.defaultProps = {
   allSubmissionsPath: '',
   userId: null,
-}
+  userSubmission: null,
+};
 
 ProjectSubmissions.propTypes = {
-  userId: number,
-  submissions: array.isRequired,
-  lesson: object.isRequired,
-  course: object.isRequired,
-  allSubmissionsPath: string,
-  legacySubmissionsUrl: string,
-  userSubmission: object
+  userId: PropTypes.number,
+  submissions: PropTypes.array.isRequired,
+  lesson: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
+  allSubmissionsPath: PropTypes.string,
+  userSubmission: PropTypes.object,
 };
 
 export default ProjectSubmissions;
