@@ -1,6 +1,11 @@
 const { environment } = require('@rails/webpacker')
-
 const webpack = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
+environment.plugins.append(
+  'BundleAnalyzer',
+  new BundleAnalyzerPlugin()
+)
 
 environment.plugins.prepend('Provide', new webpack.ProvidePlugin({
   $: 'jquery',
