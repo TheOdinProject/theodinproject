@@ -40,7 +40,9 @@ require('turbolinks').start();
 const componentRequireContext = require.context(
   'components',
   true,
+  /^(?!.*__tests__\/.*).+/,
 );
+
 const ReactRailsUJS = require('react_ujs');
 
 ReactRailsUJS.useContext(componentRequireContext);
