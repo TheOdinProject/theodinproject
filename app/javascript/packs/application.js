@@ -37,7 +37,11 @@ import 'controllers';
 require('@rails/ujs').start();
 require('turbolinks').start();
 
-const componentRequireContext = require.context('components', true);
+const componentRequireContext = require.context(
+  'components',
+  true,
+  /^(?!.*test).+\.[jt]sx?$/,
+);
 const ReactRailsUJS = require('react_ujs');
 
 ReactRailsUJS.useContext(componentRequireContext);
