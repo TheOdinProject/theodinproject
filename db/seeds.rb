@@ -1,6 +1,7 @@
 # load all lessons
 load './db/fixtures/lessons/foundation_lessons.rb'
 load './db/fixtures/lessons/ruby_lessons.rb'
+load './db/fixtures/lessons/python_lessons.rb'
 load './db/fixtures/lessons/database_lessons.rb'
 load './db/fixtures/lessons/ruby_on_rails_lessons.rb'
 load './db/fixtures/lessons/html_and_css_lessons.rb'
