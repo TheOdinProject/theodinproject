@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '6.1.4.1'
 
 gem 'activeadmin'
-gem 'activeadmin_addons', '~> 1.8.3'
+gem 'activeadmin_addons', '~> 1.9.0'
 gem 'active_material'
 gem 'acts_as_votable'
-gem 'bootsnap', '~> 1.9.1', require: false
+gem 'bootsnap', '~> 1.9.3', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan'
 gem 'devise', '>= 4.7.1'
@@ -39,12 +39,11 @@ gem 'ruby-progressbar', '~> 1.11.0'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3.9'
 gem 'sentry-rails', '~> 4.8.0'
-gem 'sentry-ruby', '~> 4.8.0'
+gem 'sentry-ruby', '~> 4.8.1'
 gem 'sidekiq'
 gem 'sprockets', '~> 4.0.2'
-gem 'turbolinks'
 gem 'uglifier', '~> 4.2'
-gem 'view_component', '~> 2.43', require: 'view_component/engine'
+gem 'view_component', '~> 2.46', require: 'view_component/engine'
 gem 'webpacker'
 
 group :development, :test, :docker do

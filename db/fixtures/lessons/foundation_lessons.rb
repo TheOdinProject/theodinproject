@@ -186,13 +186,6 @@ def foundation_lessons
       url: '/foundations/javascript_basics/fundamentals-4.md',
       identifier_uuid: '336b3336-c589-4e61-876f-1c0e60617da4',
     },
-    'DOM manipulation' => {
-      title: 'DOM manipulation',
-      description: 'Finally, lets learn how to make your webpages move!',
-      is_project: false,
-      url: '/foundations/javascript_basics/DOM-manipulation.md',
-      identifier_uuid: '7718816d-45eb-477d-9443-a8f1de2db22c',
-    },
     'Etch-a-Sketch' => {
       title: 'Etch-a-Sketch',
       description: 'etch-a-sketch',
@@ -355,6 +348,20 @@ def foundation_lessons
       accepts_submission: true,
       has_live_preview: true,
       identifier_uuid: '22e0c585-c146-4dab-9dc0-17a20f0ecbc5',
+    },
+    'DOM Manipulation and Events' => {
+      title: 'DOM Manipulation and Events',
+      description: 'Finally, let\'s learn how to make our webpages move.',
+      is_project: false,
+      url: '/foundations/javascript_basics/DOM_manipulation_and_events.md',
+      identifier_uuid: '9c8fa0eb-2f69-4fc7-87a9-4506bd43ca1f',
+    },
+    'Revisiting Rock Paper Scissors' => {
+      title: 'Revisiting Rock Paper Scissors',
+      description: 'Let\'s apply our newfound knowledge of DOM and build our RPS\'s UI',
+      is_project: false,
+      url: '/foundations/javascript_basics/revisiting_rock_paper_scissors.md',
+      identifier_uuid: '7ff13edf-27d6-4edf-b0d0-863a632604d6',
     },
   }
 end
