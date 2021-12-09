@@ -4,7 +4,7 @@
 @path = Seeds::PathSeeder.create do |path|
   path.title = 'Data Analysis with Python'
   path.description = "This path takes you through our entire Data Analysis with Python curriculum. The courses should be taken in the order that they are displayed. You'll learn everything you need to know to analyze tabular data."
-  path.identifier_uuid = '694d152c-b522-4f7a-86aa-8f269c84695a'
+  path.identifier_uuid = '694d152c-b522-420a-869a-8f269c84695a'
   path.position = 4
 end
 
