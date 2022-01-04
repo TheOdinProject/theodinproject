@@ -2,13 +2,13 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.4.1'
+gem 'rails', '6.1.4.4'
 
 gem 'activeadmin'
-gem 'activeadmin_addons', '~> 1.8.3'
+gem 'activeadmin_addons', '~> 1.9.0'
 gem 'active_material'
 gem 'acts_as_votable'
-gem 'bootsnap', '~> 1.9.1', require: false
+gem 'bootsnap', '~> 1.9.3', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan'
 gem 'devise', '>= 4.7.1'
@@ -18,14 +18,14 @@ gem 'dry-initializer', '~> 3.0.4'
 gem 'friendly_id', '~> 5.4'
 gem 'gibbon', '~> 3.4.2'
 gem 'github_api', '~> 0.19'
-gem 'github_webhook', '~> 1.2.0'
+gem 'github_webhook', '~> 1.4.0'
 gem 'inline_svg', '~> 1.7'
 gem 'jquery-rails', '~> 4.4.0'
 gem 'kaminari', '~> 1.2'
 gem 'kramdown', '>= 2.3.1'
 gem 'newrelic_rpm'
 gem 'nokogiri', '~> 1.12.5'
-gem 'noticed', '~> 1.4'
+gem 'noticed', '~> 1.5'
 gem 'octokit', '~> 4.21'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
@@ -38,13 +38,12 @@ gem 'react-rails'
 gem 'ruby-progressbar', '~> 1.11.0'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3.9'
-gem 'sentry-rails', '~> 4.7.3'
-gem 'sentry-ruby', '~> 4.7.3'
+gem 'sentry-rails', '~> 4.8.1'
+gem 'sentry-ruby', '~> 4.8.1'
 gem 'sidekiq'
 gem 'sprockets', '~> 4.0.2'
-gem 'turbolinks'
 gem 'uglifier', '~> 4.2'
-gem 'view_component', '~> 2.43', require: 'view_component/engine'
+gem 'view_component', '~> 2.47'
 gem 'webpacker'
 
 group :development, :test, :docker do
@@ -74,6 +73,6 @@ group :development, :docker do
   gem 'reek'
   gem 'rubocop', '>= 1.12.1', require: false
   gem 'rubocop-performance', '>= 1.10.2', require: false
-  gem 'rubocop-rails', '~> 2.12', require: false
+  gem 'rubocop-rails', '~> 2.13', require: false
   gem 'web-console'
 end

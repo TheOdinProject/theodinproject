@@ -91,36 +91,6 @@ def foundation_lessons
       url: '/foundations/git_basics/git_basics.md',
       identifier_uuid: 'e48795b0-1df8-49c8-9c63-2072f31a36eb',
     },
-    'Introduction to the Front End' => {
-      title: 'Introduction to the Front End',
-      description: "An overview of what exactly the 'Front End' is",
-      is_project: false,
-      url: '/foundations/the_front_end/introduction_to_the_front_end.md',
-      identifier_uuid: '74fcb4ea-d96b-4c41-b3ac-cfd46d8cda54',
-    },
-    'HTML and CSS Basics' => {
-      title: 'HTML and CSS Basics',
-      description: "You'll learn all about how to build and style webpages with HTML and CSS",
-      is_project: false,
-      url: '/foundations/the_front_end/html_css_basics.md',
-      identifier_uuid: '364f5544-89ad-44aa-a4c7-34c5d1abd266',
-    },
-    'Developer Tools' => {
-      title: 'Developer Tools',
-      description: "Learn all about your browser's developer tools.",
-      is_project: false,
-      url: '/foundations/the_front_end/developer_tools.md',
-      identifier_uuid: '3b2d3077-0706-44b1-b8a9-7bf8ae24ccbc',
-    },
-    'Google Homepage' => {
-      title: 'Google Homepage',
-      description: "It's time to put your knowledge to work in the Wild.  Go forth and build!",
-      is_project: true,
-      url: '/foundations/the_front_end/project_html_css.md',
-      accepts_submission: true,
-      has_live_preview: true,
-      identifier_uuid: 'aaecd394-a1c4-4503-8493-4bf1f7c61d81',
-    },
     'Fundamentals Part 1' => {
       title: 'Fundamentals Part 1',
       description: "You'll get a chance to start picking up the programming fundamentals you need to make your webpages dynamic",
@@ -185,13 +155,6 @@ def foundation_lessons
       is_project: false,
       url: '/foundations/javascript_basics/fundamentals-4.md',
       identifier_uuid: '336b3336-c589-4e61-876f-1c0e60617da4',
-    },
-    'DOM manipulation' => {
-      title: 'DOM manipulation',
-      description: 'Finally, lets learn how to make your webpages move!',
-      is_project: false,
-      url: '/foundations/javascript_basics/DOM-manipulation.md',
-      identifier_uuid: '7718816d-45eb-477d-9443-a8f1de2db22c',
     },
     'Etch-a-Sketch' => {
       title: 'Etch-a-Sketch',
@@ -355,6 +318,20 @@ def foundation_lessons
       accepts_submission: true,
       has_live_preview: true,
       identifier_uuid: '22e0c585-c146-4dab-9dc0-17a20f0ecbc5',
+    },
+    'DOM Manipulation and Events' => {
+      title: 'DOM Manipulation and Events',
+      description: 'Finally, let\'s learn how to make our webpages move.',
+      is_project: false,
+      url: '/foundations/javascript_basics/DOM_manipulation_and_events.md',
+      identifier_uuid: '9c8fa0eb-2f69-4fc7-87a9-4506bd43ca1f',
+    },
+    'Revisiting Rock Paper Scissors' => {
+      title: 'Revisiting Rock Paper Scissors',
+      description: 'Let\'s apply our newfound knowledge of DOM and build our RPS\'s UI',
+      is_project: false,
+      url: '/foundations/javascript_basics/revisiting_rock_paper_scissors.md',
+      identifier_uuid: '7ff13edf-27d6-4edf-b0d0-863a632604d6',
     },
   }
 end

@@ -32,12 +32,8 @@ const renderSubmissionComponent = (submission, userId = 1, onFlag) => render(
 describe('Submission', () => {
   let queryByTestId;
 
-  afterAll(() => {
-    jest.resetModules();
-  });
-
   describe('Tests for all submissions', () => {
-    test('Renders live preivew with valid live_preview_url', () => {
+    test('Renders live preview with valid live_preview_url', () => {
       ({ queryByTestId } = renderSubmissionComponent({
         ...defaultSubmission,
         live_preview_url: 'https://google.com',
@@ -72,10 +68,6 @@ describe('Submission', () => {
       ({ queryByTestId } = renderSubmissionComponent(defaultSubmission));
     });
 
-    afterAll(() => {
-      jest.resetModules();
-    });
-
     test('Renders edit button', () => {
       const editButton = queryByTestId('edit-submission-btn');
       expect(editButton).toBeInTheDocument();
@@ -99,10 +91,6 @@ describe('Submission', () => {
 
     beforeEach(() => {
       ({ queryByTestId } = renderSubmissionComponent(defaultSubmission, 2, onFlag));
-    });
-
-    afterAll(() => {
-      jest.resetModules();
     });
 
     test('Does not render edit button', () => {
