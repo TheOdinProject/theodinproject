@@ -2,7 +2,6 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   collapseHandler() {
-    console.log(this)
     const foundElement = this.element.firstElementChild.childNodes;
     this.showIcon(foundElement);
     this.collapseIcon(foundElement);
