@@ -43,7 +43,7 @@ gem 'sentry-ruby', '~> 4.8.1'
 gem 'sidekiq'
 gem 'sprockets', '~> 4.0.2'
 gem 'uglifier', '~> 4.2'
-gem 'view_component', '~> 2.47', require: 'view_component/engine'
+gem 'view_component', '~> 2.47'
 gem 'webpacker'
 
 group :development, :test, :docker do
@@ -73,6 +73,6 @@ group :development, :docker do
   gem 'reek'
   gem 'rubocop', '>= 1.12.1', require: false
   gem 'rubocop-performance', '>= 1.10.2', require: false
-  gem 'rubocop-rails', '~> 2.12', require: false
+  gem 'rubocop-rails', '~> 2.13', require: false
   gem 'web-console'
 end
