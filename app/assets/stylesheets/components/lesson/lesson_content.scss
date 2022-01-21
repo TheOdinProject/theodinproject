@@ -50,7 +50,7 @@
     line-height: 1.9;
   }
 
-  ul {
+  ul, ol {
     padding-left: 1.25em;
     color: $grey;
     line-height: 1.9;
@@ -70,7 +70,6 @@
 
   ol {
     list-style: decimal;
-    padding-left: 1.25em;
   }
 
   img {
