@@ -1,4 +1,8 @@
 .lesson-preview {
+  &__detail {
+    text-align: center;
+    margin-bottom: 25px;
+  }
 
   &__input {
     width: 100%;
@@ -6,3 +10,4 @@
     padding: 1rem;
   }
 }
+

@@ -26,7 +26,11 @@
           <%= link_to "Community", chat_link, class: 'nav-link', target: '_blank', rel: 'noreferrer' %>
         </li>
 
-        <li class="nav-link">
+        <li class="nav-item px-2">
+          <%= render ThemeSwitcherComponent.new(theme: cookies[:theme]) %>
+        </li>
+
+        <li class="nav-link nav-divider">
           <span class='divider'>
           </span>
         </li>
@@ -63,7 +67,11 @@
           <%= link_to "FAQ", faq_path, class: 'nav-link' %>
         </li>
 
-        <li class="nav-link">
+        <li class="nav-item px-2">
+          <%= render ThemeSwitcherComponent.new(theme: cookies[:theme]) %>
+        </li>
+
+        <li class="nav-link nav-divider">
           <span class='divider'>
           </span>
         </li>
