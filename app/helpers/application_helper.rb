@@ -18,10 +18,6 @@ module ApplicationHelper
     bootstrap_classes.fetch(flash_type, custom_flash(flash_type))
   end
 
-  def active_class(path)
-    'active' if current_page?(path)
-  end
-
   def first_four_success_stories
     SuccessStory.limit(4)
   end
@@ -144,8 +140,14 @@ module ApplicationHelper
       {
         badge_image_url: 'badge-html-css.svg',
         badge_alt_text: 'html css badge',
-        title: 'HTML + CSS',
-        path: '/courses/html-and-css'
+        title: 'Intermediate HTML+CSS',
+        path: '/paths/full-stack-javascript/courses/intermediate-html-and-css'
+      },
+      {
+        badge_image_url: 'badge-html-css.svg',
+        badge_alt_text: 'html css badge',
+        title: 'Advanced HTML+CSS',
+        path: '/paths/full-stack-javascript/courses/advanced-html-and-css'
       },
       {
         badge_image_url: 'badge-javascript.svg',

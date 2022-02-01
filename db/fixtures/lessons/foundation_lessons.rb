@@ -48,6 +48,7 @@ def foundation_lessons
       is_project: false,
       url: '/foundations/installations/installation_overview.md',
       identifier_uuid: 'ef45c208-6ebf-4fff-ba92-1d7584d3a9f2',
+      installation_lesson: true,
     },
     'Prerequisites' => {
       title: 'Prerequisites',
@@ -55,6 +56,7 @@ def foundation_lessons
       is_project: false,
       url: '/foundations/installations/prerequisites.md',
       identifier_uuid: '93dbf0e1-3c06-46a8-8640-1d537e2e723b',
+      installation_lesson: true,
     },
     'Text Editors' => {
       title: 'Text Editors',
@@ -62,6 +64,7 @@ def foundation_lessons
       is_project: false,
       url: '/foundations/installations/text_editors.md',
       identifier_uuid: 'e65a3229-f1a2-4589-ba7f-c114d8e0c645',
+      installation_lesson: true,
     },
     'Command Line Basics' => {
       title: 'Command Line Basics',
@@ -333,5 +336,12 @@ def foundation_lessons
       url: '/foundations/javascript_basics/revisiting_rock_paper_scissors.md',
       identifier_uuid: '7ff13edf-27d6-4edf-b0d0-863a632604d6',
     },
+    'Installing Node.js' => {
+      title: 'Installing Node.js',
+      description: 'Install Node.js to run JavaScript outside of your browser',
+      is_project: false,
+      url: '/foundations/javascript_basics/installing_nodejs.md',
+      identifier_uuid: 'cb20c3d0-7342-4769-b10c-61d1de11af02'
+    }
   }
 end

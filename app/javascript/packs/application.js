@@ -23,15 +23,15 @@ import 'regenerator-runtime/runtime';
 import 'bootstrap/dist/js/bootstrap';
 import 'hint.css/hint.min.css';
 import 'notyf/notyf.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 import '../src/js/analytics';
 import '../src/js/axiosWithCsrf';
 import '../src/js/formValidations';
 import '../src/js/lessons';
 import '../src/js/bootstrapScripts';
 import '../src/js/settings';
-import '../src/js/navbar';
 import '../src/js/admin_flash';
-import '../src/js/odinDropDownMenu';
 import '../src/js/scrollspy.min';
 
 import 'controllers';

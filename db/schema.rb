@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_201230) do
+ActiveRecord::Schema.define(version: 2022_01_29_182526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 2021_08_24_201230) do
     t.boolean "choose_path_lesson", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
     t.bigint "course_id"
+    t.boolean "installation_lesson", default: false
     t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["identifier_uuid", "course_id"], name: "index_lessons_on_identifier_uuid_and_course_id", unique: true
+    t.index ["installation_lesson"], name: "index_lessons_on_installation_lesson"
     t.index ["position"], name: "index_lessons_on_position"
     t.index ["slug", "section_id"], name: "index_lessons_on_slug_and_section_id", unique: true
     t.index ["url"], name: "index_lessons_on_url"
@@ -165,7 +167,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_201230) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_public", default: true, null: false
-    t.boolean "banned", default: false, null: false
     t.integer "cached_votes_total", default: 0
     t.datetime "discarded_at"
     t.datetime "discard_at"

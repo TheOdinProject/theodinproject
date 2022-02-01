@@ -65,6 +65,7 @@ Rails.application.routes.draw do
 
   namespace :lessons do
     resource :preview, only: %i[show create]
+    resources :installation_lessons, only: %i[index]
   end
 
   namespace :courses do
@@ -91,6 +92,7 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: %i[index update]
+  resource :themes, only: :update
 
   match '/404' => 'errors#not_found', via: %i[get post patch delete]
 
