@@ -1,0 +1,57 @@
+<div class="sm:px-6 lg:px-8">
+  <nav class="flex flex-col justify-center" aria-label="Progress">
+
+    <h2 class="font-bold text-2xl text-gray-500">Discord Community Onboarding</h2>
+
+    <ol role="list" class="mt-6 space-y-6">
+      <% @step_summary.each_with_index do |step, index|  %>
+        <% step_url = @step_urls[index] %>
+        <% if step == 'current' %>
+          <li>
+            <%= link_to step_url[:path], class: "flex items-start", data: { test_id: "current-step-#{index + 1}" } do %>
+              <span class="flex-shrink-0 h-5 w-5 relative flex items-center justify-center" aria-hidden="true">
+                <span class="absolute h-4 w-4 rounded-full bg-gray-200"></span>
+                <span class="relative block w-2 h-2 bg-gold-600 rounded-full"></span>
+              </span>
+              <span class="ml-3 text-base font-medium text-gold-600 hover:text-gray-900">
+                <%= step_url[:title] %>
+              </span>
+            <% end %>
+          </li>
+        <% elsif step == 'true' %>
+          <li>
+            <%= link_to step_url[:path], class: "flex items-start", data: { test_id: "complete-step-#{index + 1}" } do %>
+              <span class="flex items-start">
+                <span class="flex-shrink-0 relative h-5 w-5 flex items-center justify-center">
+                  <svg class="h-full w-full text-gold-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <span class="ml-3 text-base font-medium text-gray-500 group-hover:text-gray-900">
+                  <%= step_url[:title] %>
+                </span>
+              </span>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to step_url[:path], class: "flex items-start", data: { test_id: "incomplete-step-#{index + 1}" } do %>
+              <div class="flex items-start">
+                <span class="flex-shrink-0 h-5 w-5 relative flex items-center justify-center" aria-hidden="true">
+                  <span class="absolute h-4 w-4 rounded-full bg-gray-200"></span>
+                  <span class="relative block w-2 h-2 bg-gray-400 rounded-full"></span>
+                </span>
+                <p class="ml-3 text-base font-medium text-gray-500 group-hover:text-gray-900">
+                  <%= step_url[:title] %>
+                </p>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ol>
+
+    <p class="text-md mt-6">Each of these articles have a checkbox at the bottom that must be completed in order to join our Discord <%= link_to "community", community_path %>.</p>
+
+  </nav>
+</div>

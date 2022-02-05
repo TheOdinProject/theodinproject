@@ -1,0 +1,12 @@
+<% if current_user %>
+  <div class="card-main mt-12">
+    <%= form_with url: update_onboarding_steps_user_path(current_user), method: :patch, class: "onboarding_form" do |form| %>
+      <div class="onboarding_form-section flex-initial">
+        <%= check_box_tag "user[community_onboarding_steps][#{step}]", true, ActiveRecord::Type::Boolean.new.cast(current_user.community_onboarding_steps[step]), class: 'form__check-box check-box', required: true %>
+        <%= label_tag "user[community_onboarding_steps][#{step}]", "I have read and agree to follow to participate in The Odin Project's Discord community", class: 'form__check-box-label' %>
+      </div>
+
+      <%= form.submit 'Save', class: 'rounded-md bg-odin-green-500 text-white px-6 py-2 mt-3 text-lg hover:bg-odin-green-600 focus:outline-none focus:ring-1 focus:ring-indigo-500', data: { test_id: 'submit-btn' } %>
+    <% end %>
+  </div>
+<% end %>

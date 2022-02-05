@@ -53,6 +53,12 @@ class User < ApplicationRecord
     lesson_completions.exists?(course_id: course.id)
   end
 
+  def update_onboarding(completed_step)
+    updated_steps = community_onboarding_steps.merge(completed_step)
+    update!(community_onboarding_steps: updated_steps)
+    update!(community_onboarded: true) if completed_onboarding_steps?
+  end
+
   private
 
   def last_lesson_completed
@@ -63,5 +69,12 @@ class User < ApplicationRecord
     default_path = Path.default_path
 
     self.path_id = default_path.id if default_path.present?
+  end
+
+  def completed_onboarding_steps?
+    ActiveRecord::Type::Boolean.new.cast(community_onboarding_steps['step_one']) &&
+      ActiveRecord::Type::Boolean.new.cast(community_onboarding_steps['step_two']) &&
+      ActiveRecord::Type::Boolean.new.cast(community_onboarding_steps['step_three']) &&
+      ActiveRecord::Type::Boolean.new.cast(community_onboarding_steps['step_four'])
   end
 end

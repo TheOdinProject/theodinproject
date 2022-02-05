@@ -173,4 +173,38 @@ RSpec.describe User do
       end
     end
   end
+
+  describe '#update_onboarding' do
+    context 'when the user completes the first step' do
+      before do
+        user.update_onboarding({ 'step_one' => 'true' })
+      end
+
+      it 'updates community_onboarding_steps' do
+        expect(user.community_onboarding_steps).to eq({ 'step_one' => 'true' })
+      end
+
+      it 'does not update community_onboarded' do
+        expect(user.community_onboarded).to be false
+      end
+    end
+
+    context 'when the user completes all four steps' do
+      before do
+        user.update_onboarding({ 'step_one' => 'true' })
+        user.update_onboarding({ 'step_two' => 'true' })
+        user.update_onboarding({ 'step_three' => 'true' })
+        user.update_onboarding({ 'step_four' => 'true' })
+      end
+
+      it 'updates community_onboarding_steps' do
+        completed_steps = { 'step_one' => 'true', 'step_two' => 'true', 'step_three' => 'true', 'step_four' => 'true' }
+        expect(user.community_onboarding_steps).to eq(completed_steps)
+      end
+
+      it 'updates community_onboarded' do
+        expect(user.community_onboarded).to be true
+      end
+    end
+  end
 end

@@ -235,6 +235,8 @@ ActiveRecord::Schema.define(version: 2022_06_19_133130) do
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
+    t.jsonb "community_onboarding_steps", default: {}, null: false
+    t.boolean "community_onboarded", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

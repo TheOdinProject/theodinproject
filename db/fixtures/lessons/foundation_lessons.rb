@@ -21,20 +21,6 @@ def foundation_lessons
       github_path: '/foundations/introduction/motivation_and_mindset.md',
       identifier_uuid: '276366c4-881b-4673-8e29-8f9ce8f3ae1d',
     },
-    'Asking For Help' => {
-      title: 'Asking For Help',
-      description: 'Guidelines for asking for help in programming communities.',
-      is_project: false,
-      github_path: '/foundations/introduction/asking_for_help.md',
-      identifier_uuid: 'ca37f3e5-1d7d-4a3b-bea0-95060052a83a',
-    },
-    'Join the Odin Community' => {
-      title: 'Join the Odin Community',
-      description: "Find out how to join Odin's community of new and veteran learners and how to get help with coding problems.",
-      is_project: false,
-      github_path: '/foundations/introduction/join_the_odin_community.md',
-      identifier_uuid: 'd950a6fe-8d04-4f36-a9d3-1def19e0f7a7',
-    },
     'How Does the Web Work?' => {
       title: 'How Does the Web Work?',
       description: "It's tough to program web sites without understanding how the web actually works!",

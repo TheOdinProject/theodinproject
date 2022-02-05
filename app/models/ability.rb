@@ -10,5 +10,6 @@ class Ability
 
   def common_abilities
     can :update, User, id: user.id
+    can :update_onboarding_steps, User, id: user.id
   end
 end

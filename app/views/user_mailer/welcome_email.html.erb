@@ -89,10 +89,10 @@
               <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
                 <tr>
                   <td class="inner contents" style="padding: 10px; width: 100%;">
-                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Plan out your strategy</p>
-                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">Figure out how much time each week you'll be able to devote to learning then browse through our
-                      <%= link_to "roadmap of paths", paths_url %> and plan your strategy accordingly. The biggest issue students have is getting distracted (especially
-                        since we link to so much juicy content), so staying focused is important.</p>
+                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Set a weekly goal</p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
+                      Figure out how many hours each week that you can devote to learning and set this as your learning goal in your <%= link_to "profile", edit_user_registration_url(@user) %>. Avoid setting a goal to complete a certain number of lessons each week so that you can complete the curriculum within in a specific time frame. This leads to frustration because the lessons are not the same length and the complexity of the lessons, exercises, and projects will increase.
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -129,10 +129,13 @@
               <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
                 <tr>
                   <td class="inner contents" style="padding: 10px; width: 100%;">
-                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Dive into your first course</p>
-                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">Get started! If you're brand spanking new to all this, start with
-                      <%= link_to "Foundations", path_url("foundations") %>. Otherwise start whatever
-                        <%= link_to "course", paths_url %> that interests you the most.</p>
+                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Start with Foundations</p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
+                      Everyone should start with <%= link_to "Foundations", path_url("foundations") %>. Whether you are brand new to programming or have some experience, it is important to complete our curriculum in order because it builds on itself.
+                    </p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 16px 0 0; text-align: left;">
+                      If you have some experience and are tempted to skip lessons, it is highly recommended to complete each lesson and project because people often misjudge how much they know. Instead of skipping entire lessons, you can skim through the material in a lesson that you already know. By following this approach, people often discover how much foundational knowledge they were missing.
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -168,10 +171,13 @@
               <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
                 <tr>
                   <td class="inner contents" style="padding: 10px; width: 100%;">
-                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Get help and work with others</p>
-                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">We have a Discord server that you can join by visiting it
-                      <%= link_to "here", 'https://discord.gg/V75WSQG' %>. If you fill out your
-                        <%= link_to "profile", user_url(@user) %>, it will help others who might want to get in touch with you in the meantime.</p>
+                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Join our Discord community</p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
+                      Everyone is encouraged to join our Discord community to ask questions about our lessons and projects. People that are ahead of you in the curriculum, as well as the people that wrote and maintain the curriculum, are always around and happy to help nudge you in the right direction.
+                    </p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 16px 0 0; text-align: left;">
+                      To join our Discord server, visit our <%= link_to "community", community_url %> for more information on our community rules and expectations.
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -221,46 +227,6 @@
           </td>
         </tr>
 
-
-        <!-- Dual colums row 5 -->
-        <tr>
-          <td class="left-sidebar" style="font-size: 0; padding: 0; text-align: left;">
-            <!--[if (gte mso 9)|(IE)]>
-        <table width="100%">
-        <tr>
-        <td width="100">
-        <![endif]-->
-            <div class="column left" style="display: inline-block; max-width: 45px; vertical-align: top; width: 100%;">
-              <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
-                <tr>
-                  <td class="inner" style="padding: 10px;">
-                    <p class="number" style="color: #ce973e; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 38px; font-weight: bold; margin: 0 0 0 5px;">!!</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <!--[if (gte mso 9)|(IE)]>
-        </td><td width="500">
-        <![endif]-->
-            <div class="column right" style="display: inline-block; max-width: 549px; vertical-align: top; width: 100%;">
-              <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
-                <tr>
-                  <td class="inner contents" style="padding: 10px; width: 100%;">
-                    <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Consider Thinkful</p>
-                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
-                      Check out <%= link_to "Thinkful", "https://www.thinkful.com/?utm_source=odin_signup&utm_source=The-Odin-Project&utm_medium=email&utm_content=odin-welcome-email&utm_campaign=tf_enroll" %>, a new type of school which provides 1-on-1 learning with industry experts to bring high growth tech careers to ambitious people everywhere. Thinkful’s Engineering Immersion (full time), Full Stack Flex (flexible), and Data Science (flexible) programs all come with a job guarantee. It proudly sponsors The Odin Project.</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <!--[if (gte mso 9)|(IE)]>
-        </td>
-        </tr>
-        </table>
-        <![endif]-->
-          </td>
-        </tr>
-
         <tr>
           <td class="one-column" style="padding: 0;">
             <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
@@ -271,20 +237,6 @@
                   <p class="outro-text bold" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold;">Best of luck with your learning journey!</p>
                   <p class="outro-text" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Sincerely,</p>
                   <p class="outro-text" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;"><span class="italicised" style="font-style: italic;">The Odin Maintainer Team</span></p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="one-column" style="padding: 0;">
-            <table width="100%" style="border-spacing: 0; color: #333333; font-family: sans-serif;">
-              <tr>
-                <td class="contents" style="padding: 0; text-align: left; width: 100%;">
-                  <p class="italicised-text" style="color: rgba(74, 74, 74, 0.3); font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-style: italic; line-height: 16px; margin: 10px;">The Odin Project is a free and open-source curriculum for learning web development. It charts a path through
-                    existing resources on the web so anyone in the world can develop a job-ready skillset and a professional
-                    portfolio of work without the loneliness and uncertainty of working on their own.</p>
                 </td>
               </tr>
             </table>

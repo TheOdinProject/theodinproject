@@ -10,6 +10,10 @@
       <p class="profile-card__learning-goal" data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
     </div>
 
+    <div class="card-main">
+      <%= render User::CommunityOnboardingComponent.new(current_user: current_user) %>
+    </div>
+
     <div class="skills">
       <div class="skills__header">
         <h2 class="skills__title text-2xl">Skills Progress</h2>

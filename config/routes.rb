@@ -46,11 +46,16 @@ Rails.application.routes.draw do
   get 'community_expectations' => 'static_pages#community_expectations'
   get 'before_asking' => 'static_pages#before_asking'
   get 'how_to_ask' => 'static_pages#how_to_ask'
+  get 'community' => 'community#show'
   get 'sitemap' => 'sitemap#index', defaults: { format: 'xml' }
 
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
-  resources :users, only: %i[show update]
+  resources :users, only: %i[show update] do
+    member do
+      patch :update_onboarding_steps
+    end
+  end
 
   namespace :users do
     resources :paths, only: :create
