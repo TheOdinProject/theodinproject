@@ -87,15 +87,15 @@
 
       &:focus{
         outline:none
-      }  
-      
+      }
+
       @include media-breakpoint-down(sm) {
         position: absolute !important;
         top: 5px;
         right: 0;
       }
     }
-  }  
+  }
 
   &__actions {
     display: flex;
