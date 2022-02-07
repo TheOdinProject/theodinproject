@@ -117,8 +117,8 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
     <div className="mb-8 text-left">
       <div className="flex flex-col text-center">
         <div>
-          <h3 className="submissions__title">Solutions:</h3>
-          <h4 data-test-id="course-lesson-title" className="submissions__project-title">
+          <h3 className="text-4xl font-medium">Solutions:</h3>
+          <h4 data-test-id="course-lesson-title" className="text-2xl text-gray-500 mb-4 md:mb-0">
             {course.title}
             : (
             {lesson.title}
