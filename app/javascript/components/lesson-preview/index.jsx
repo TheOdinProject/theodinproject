@@ -21,7 +21,7 @@ const LessonPreview = () => {
 
   const fetchLessonPreview = async () => {
     if (onPreviewTab) return;
-
+    //
     const response = await axios.post('/lessons/preview', { content });
 
     if (response.status === 200) {
