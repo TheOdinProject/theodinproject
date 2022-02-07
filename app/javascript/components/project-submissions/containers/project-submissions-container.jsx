@@ -114,9 +114,9 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
   };
 
   return (
-    <div className="submissions">
-      <div className="submissions__header">
-        <div className="submissions__course">
+    <div className="mb-8 text-left">
+      <div className="flex flex-col text-center">
+        <div>
           <h3 className="submissions__title">Solutions:</h3>
           <h4 data-test-id="course-lesson-title" className="submissions__project-title">
             {course.title}
@@ -124,6 +124,18 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
             {lesson.title}
             )
           </h4>
+        </div>
+        <div>
+          { !userProjectSubmission && (
+            <button
+              type="button"
+              className="submissions__add button button--primary"
+              onClick={toggleShowCreateModal}
+              data-test-id="add_submission_btn"
+            >
+              Add Solution
+            </button>
+          )}
         </div>
 
         <Modal show={showCreateModal} handleClose={toggleShowCreateModal}>
@@ -143,19 +155,6 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
             userId={userId}
           />
         </Modal>
-
-        <div>
-          { !userProjectSubmission && (
-            <button
-              type="button"
-              className="submissions__add button button--primary"
-              onClick={toggleShowCreateModal}
-              data-test-id="add_submission_btn"
-            >
-              Add Solution
-            </button>
-          )}
-        </div>
       </div>
       <SubmissionsList
         submissions={projectSubmissions}
