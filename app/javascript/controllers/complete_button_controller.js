@@ -10,7 +10,7 @@ export default class CompleteButton extends Controller {
   static targets = ['text'];
 
   static classes = ['loading', 'completed'];
-
+  //
   static values = {
     id: Number,
     isCompleted: Boolean,
