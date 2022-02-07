@@ -29,7 +29,8 @@ module.exports = {
       "./app/**/*.html.erb",
       "./app/components/*.html.erb",
       "./app/components/*.rb",
-      "app/assets/images/icons/*svg"
+      "app/assets/images/icons/*svg",
+      "./app/javascript/components/**/*.jsx",
     ],
   },
   variants: {
