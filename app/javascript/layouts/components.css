@@ -1,0 +1,8 @@
+@layer components {
+  .btn {
+    @apply rounded
+  }
+  .btn-primary {
+
+  }
+}
