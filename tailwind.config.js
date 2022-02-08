@@ -1,6 +1,9 @@
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    boxShadow: {
+      DEFAULT: '0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5)',
+    },
     extend: {
       colors: {
         'gold': {
@@ -21,6 +24,7 @@ module.exports = {
         'notification': 'rgba(74, 74, 74, 0.7)',
         'notification-hover': 'rgba(0, 0, 0, 1)',
         'new-notification': 'rgba(206, 151, 62, 1)',
+        'top-shadow': '0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5)',
       }
     }
   },
