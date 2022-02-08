@@ -14,19 +14,19 @@
   //   }
   // }
 
-  &__title {
-    font-size: 2.5em;
-    font-weight: 500;
-  }
+  // &__title {
+  //   font-size: 2.5em;
+  //   font-weight: 500;
+  // }
 
-  &__project-title {
-    font-size: 1.5em;
-    color: $grey;
+  // &__project-title {
+  //   font-size: 1.5em;
+  //   color: $grey;
 
-    @include media-breakpoint-down(sm) {
-      margin-bottom: 1rem;
-    }
-  }
+  //   @include media-breakpoint-down(sm) {
+  //     margin-bottom: 1rem;
+  //   }
+  // }
 
   &__item {
     border-top: solid 1px $very-pale-grey;
