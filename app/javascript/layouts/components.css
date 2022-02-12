@@ -8,6 +8,6 @@
 
   }
   .top-btn-primary {
-    @apply bg-gold
+    @apply bg-light-accent
   }
 }
