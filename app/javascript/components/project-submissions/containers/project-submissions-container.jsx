@@ -115,8 +115,10 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
 
   return (
     <div className="mb-8 text-left">
-      <div className="flex flex-col text-center">
-        <div>
+      <div className="flex flex-col text-center md:flex-row md:justify-between">
+        {/* Set md:text-left below for higher specificity, since BS also uses text-center,
+        and does so with !important */}
+        <div className="md:text-left">
           <h3 className="text-4xl font-medium">Solutions:</h3>
           <h4 data-test-id="course-lesson-title" className="text-2xl text-gray-500 mb-4 md:mb-0">
             {course.title}
