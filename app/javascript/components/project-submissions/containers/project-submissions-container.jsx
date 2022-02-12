@@ -139,7 +139,6 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
             </button>
           )}
         </div>
-
         <Modal show={showCreateModal} handleClose={toggleShowCreateModal}>
           <CreateForm
             lessonId={lesson.id}
@@ -148,7 +147,6 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
             userId={userId}
           />
         </Modal>
-
         <Modal show={showFlagModal} handleClose={toggleShowFlagModal}>
           <FlagForm
             submission={flaggedSubmission}
