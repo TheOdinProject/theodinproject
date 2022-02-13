@@ -44,6 +44,9 @@ module.exports = {
       margin: {
         '-25px': '-25px',
       },
+      fontFamily: {
+        'close-button': '"Font Awesome 5 Free"', // spaces must be escaped
+      },
     },
   },
   purge: {
