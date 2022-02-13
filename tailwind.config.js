@@ -19,6 +19,19 @@ module.exports = {
           '800': '#503914',
           '900': '#231909'
         },
+        'odin-green': {
+          DEFAULT: '#63BFC4',
+          '50': '#E8F6F6',
+          '100': '#D9F0F1',
+          '200': '#BCE3E6',
+          '300': '#9ED7DA',
+          '400': '#81CBCF',
+          '500': '#63BFC4',
+          '600': '#42A8AD',
+          '700': '#328085',
+          '800': '#23595C',
+          '900': '#133233',
+        },
         'nav-link-read': 'rgba(74, 74, 74, 0.7)',
         'nav-link-unread': 'rgba(206, 151, 62, 0.7)',
         'notification': 'rgba(74, 74, 74, 0.7)',
@@ -29,6 +42,12 @@ module.exports = {
       },
       fontFamily: {
         'close-button': '"Font Awesome 5 Free"', // spaces must be escaped
+      },
+      height: {
+        '60v': '60vh',
+      },
+      margin: {
+        '-25px': '-25px',
       },
     },
   },
