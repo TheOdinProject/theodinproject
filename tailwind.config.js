@@ -27,6 +27,9 @@ module.exports = {
         'top-shadow': '0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5)',
         'light-accent': '#63BFC4',
       },
+      fontFamily: {
+        'close-button': '"Font Awesome 5 Free"', // spaces must be escaped
+      },
     },
   },
   purge: {
