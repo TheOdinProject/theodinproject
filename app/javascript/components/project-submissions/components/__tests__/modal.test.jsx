@@ -13,7 +13,7 @@ describe('Modal', () => {
       </Modal>,
     );
 
-    expect(getByLabelText('modal--hidden')).toHaveClass('react-modal--hidden');
+    expect(getByLabelText('modal--hidden')).toHaveClass('hidden');
     expect(queryByLabelText('modal-data')).toBeFalsy();
   });
 
