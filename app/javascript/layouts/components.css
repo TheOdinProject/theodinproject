@@ -8,6 +8,6 @@
 
   }
   .top-btn-primary {
-    @apply bg-light-accent
+    @apply bg-odin-green
   }
 }
