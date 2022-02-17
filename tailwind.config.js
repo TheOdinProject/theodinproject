@@ -1,9 +1,6 @@
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    boxShadow: {
-      DEFAULT: '0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5)',
-    },
     extend: {
       colors: {
         'gold': {
