@@ -26,7 +26,7 @@ const Modal = ({ handleClose, show, children }) => {
             type="button"
             aria-label="close"
           >
-            x
+            <i class="fas fa-times" />
           </button>
           {show && children}
         </div>
