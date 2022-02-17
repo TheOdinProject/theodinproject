@@ -35,9 +35,6 @@ module.exports = {
         'notification-hover': 'rgba(0, 0, 0, 1)',
         'new-notification': 'rgba(206, 151, 62, 1)',
       },
-      fontFamily: {
-        'close-button': '"Font Awesome 5 Free"', // spaces must be escaped
-      },
       height: {
         '60v': '60vh',
       },
