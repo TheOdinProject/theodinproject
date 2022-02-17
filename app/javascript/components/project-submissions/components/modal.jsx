@@ -10,6 +10,7 @@ const modalCloseBtn = `
   bg-transparent
   text-odin-green hover:text-black text-xl font-black
   cursor-pointer
+  react-modal__close-btn
 `;
 
 const Modal = ({ handleClose, show, children }) => {
