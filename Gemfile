@@ -2,13 +2,13 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.4.4'
+gem 'rails', '6.1.4.6'
 
 gem 'activeadmin'
 gem 'activeadmin_addons', '~> 1.9.0'
 gem 'active_material'
 gem 'acts_as_votable'
-gem 'bootsnap', '~> 1.10.2', require: false
+gem 'bootsnap', '~> 1.10.3', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan'
 gem 'devise', '>= 4.7.1'
@@ -30,7 +30,7 @@ gem 'octokit', '~> 4.22'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
-gem 'pg', '~> 1.2'
+gem 'pg', '~> 1.3'
 gem 'premailer-rails', '~> 1.11'
 gem 'puma'
 gem 'rack-attack'
@@ -38,12 +38,12 @@ gem 'react-rails'
 gem 'ruby-progressbar', '~> 1.11.0'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3.9'
-gem 'sentry-rails', '~> 5.0.0'
-gem 'sentry-ruby', '~> 5.0.1'
+gem 'sentry-rails', '~> 5.1.0'
+gem 'sentry-ruby', '~> 5.1.0'
 gem 'sidekiq'
 gem 'sprockets', '~> 4.0.2'
 gem 'uglifier', '~> 4.2'
-gem 'view_component', '~> 2.48'
+gem 'view_component', '~> 2.49'
 gem 'webpacker'
 
 group :development, :test, :docker do
