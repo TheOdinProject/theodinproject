@@ -24,6 +24,10 @@
   }
 
   .form-section-center {
-    @apply flex flex-col items-center
+    @apply block text-center sm:flex sm:justify-center sm:flex-wrap
+  }
+
+  .form-toggle-checkbox {
+    @apply flex items-center my-5 mx-0 sm:mb-2.5 justify-center
   }
 }
