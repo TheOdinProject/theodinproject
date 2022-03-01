@@ -27,7 +27,14 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
     return (
       <div className="text-center">
         <h1 className="page-heading-title" data-test-id="success-message">Thanks for Submitting Your Solution!</h1>
-        <button type="button" className="button button--primary" onClick={onClose} data-test-id="close-btn">Close</button>
+        <button
+          type="button"
+          className="top-btn top-btn-primary"
+          onClick={onClose}
+          data-test-id="close-btn"
+        >
+          Close
+        </button>
       </div>
     );
   }
