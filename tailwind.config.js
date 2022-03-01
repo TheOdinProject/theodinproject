@@ -37,9 +37,16 @@ module.exports = {
       },
       height: {
         '60v': '60vh',
+        toggle: '15px',
       },
       margin: {
         '-25px': '-25px',
+      },
+      textColor: {
+        primary: '#4a4a4a',
+      },
+      width: {
+        toggle: '50px',
       },
     },
   },
@@ -53,7 +60,9 @@ module.exports = {
     ],
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+    },
   },
   corePlugins: {
     container: false,
