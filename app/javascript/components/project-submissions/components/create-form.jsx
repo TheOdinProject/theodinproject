@@ -45,11 +45,11 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
       <h1 className="text-center page-heading-title">Upload Your Project</h1>
 
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="form__section">
-          <span className="form__icon fab fa-github" />
+        <div className="form-section">
+          <span className="form-icon fab fa-github" />
           <input
             autoFocus
-            className="form__element form__element--with-icon"
+            className="form-element-with-icon"
             type="url"
             {...register('repo_url')}
             placeholder="Repository URL"
@@ -57,7 +57,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           />
         </div>
         {errors.repo_url && (
-        <div className="form__error-message push-down" data-test-id="error-message">
+        <div className="form-error" data-test-id="error-message">
           {' '}
           {errors.repo_url.message}
         </div>
@@ -66,10 +66,10 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
         { lesson.has_live_preview
           && (
           <>
-            <div className="form__section">
-              <span className="form__icon fas fa-link" />
+            <div className="form-section">
+              <span className="form-icon fas fa-link" />
               <input
-                className="form__element form__element--with-icon"
+                className="form-element-with-icon"
                 type="url"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
@@ -77,7 +77,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
               />
             </div>
             { errors.live_preview_url && (
-            <div className="form__error-message push-down" data-test-id="error-message">
+            <div className="form-error" data-test-id="error-message">
               {' '}
               {errors.live_preview_url.message}
             </div>
@@ -85,9 +85,9 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           </>
           )}
 
-        <div className="form__section form__section--center-aligned form__section--bottom">
-          <div className="form__toggle-checkbox">
-            <p className="bold">MAKE SOLUTION PUBLIC</p>
+        <div className="form-section form-section-center mb-0">
+          <div className="form-toggle-checkbox">
+            <p className="font-bold">MAKE SOLUTION PUBLIC</p>
             <label htmlFor="is_public" className="toggle form__public-checkbox" data-test-id="is-public-toggle-slider">
               <input
                 id="is_public"
