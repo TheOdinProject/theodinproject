@@ -18,7 +18,7 @@ const Like = ({ submission, handleLikeToggle }) => {
   return (
     <>
       <button
-        className="link-button submissions__like hint--top"
+        className="text-gray-300 mr-4 hint--top"
         type="button"
         aria-label={toolTipLabel()}
         data-test-id="like-btn"
@@ -27,9 +27,14 @@ const Like = ({ submission, handleLikeToggle }) => {
           handleLikeToggle(submission, isCurrentUsersSubmission);
         }}
       >
-        <span data-test-id="number-of-likes">{submission.likes}</span>
+        <span 
+          data-test-id="number-of-likes"
+          className="mr-0.5"
+        >
+          {submission.likes}
+        </span>
         {' '}
-        <i className={submission.is_liked_by_current_user ? 'fa fa-heart liked' : 'fa fa-heart'} aria-label="Like icon" />
+        <i className={submission.is_liked_by_current_user ? 'fa fa-heart text-odin-green' : 'fa fa-heart'} aria-label="Like icon" />
       </button>
     </>
   );

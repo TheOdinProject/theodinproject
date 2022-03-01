@@ -1,7 +1,11 @@
+/* eslint-disable quote-props */
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      borderWidth: {
+        '1': '1px',
+      },
       colors: {
         transitionProperty: {
           'stroke-dashoffset': 'stroke-dashoffset'
@@ -17,7 +21,7 @@ module.exports = {
           '600': '#A9792B',
           '700': '#7C5920',
           '800': '#503914',
-          '900': '#231909'
+          '900': '#231909',
         },
         'odin-green': {
           DEFAULT: '#63BFC4',
@@ -40,9 +44,18 @@ module.exports = {
       },
       height: {
         '60v': '60vh',
+        '600px': '600px',
       },
       margin: {
         '-25px': '-25px',
+        '1.25rem': '1.25rem',
+      },
+      textColor: {
+        primary: '#4a4a4a',
+      },
+      padding: {
+        '2px': '2px',
+        '60px': '60px',
       },
     },
   },
@@ -56,7 +69,9 @@ module.exports = {
     ],
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['checked'],
+    },
   },
   corePlugins: {
     container: false,

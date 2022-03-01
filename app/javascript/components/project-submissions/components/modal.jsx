@@ -18,6 +18,7 @@ const Modal = ({ handleClose, show, children }) => {
   return (
     <ScrollLock isActive={show}>
       <div className={showHideClassName} aria-label={show ? 'modal--shown' : 'modal--hidden'}>
+        {/* eslint-disable-next-line max-len */}
         <div className={`${modalBodyPosition} h-auto p-10 rounded-xl bg-white w-11/12 sm:w-4/5 md:w-3/5 lg:w-2/5 odin-dark-bg-accent`}>
           <button
             className={modalCloseBtn}

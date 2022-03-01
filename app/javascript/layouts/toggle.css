@@ -1,0 +1,22 @@
+@layer components {
+  .top-toggle-container {
+    @apply flex items-center my-1.25rem justify-center
+  }
+
+  .top-toggle-body {
+    @apply relative inline-flex flex-shrink-0
+    h-6 w-12 py-2px
+    border-2 border-transparent rounded-full
+    cursor-pointer
+    transition-colors ease-in-out duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-odin-green
+  }
+
+  .top-toggle-span {
+    @apply inline-block
+    h-5 w-5
+    pointer-events-none
+    rounded-full bg-white shadow
+    transform ring-0 transition ease-in-out duration-200
+  }
+}
