@@ -30,7 +30,7 @@
     "lodash": "^4.17.21",
     "notyf": "^3.10.0",
     "popper.js": "^1.16.1",
-    "postcss": "^7",
+    "postcss": "^8",
     "postcss-import": "^12.0.1",
     "prismjs": "^1.27.0",
     "prop-types": "^15.8.1",
