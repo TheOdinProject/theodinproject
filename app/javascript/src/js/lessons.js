@@ -135,8 +135,13 @@ function constructInternalLinks(heading) {
   const { id } = heading.parentElement;
   const internalLink = document.createElement('a');
   internalLink.setAttribute('href', `${uri}#${id}`);
-  internalLink.innerText = heading.innerText;
   internalLink.className = 'internal-link';
+
+  const headingDiv = document.createElement('div');
+  headingDiv.innerHTML = heading.innerHTML;
+  internalLink.appendChild(headingDiv);
+
+  removeChildren(heading);
   heading.appendChild(internalLink);
 }
 
