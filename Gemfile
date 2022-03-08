@@ -46,7 +46,6 @@ gem 'webpacker', '~> 5.4'
 
 group :development do
   gem 'better_errors', '~> 2.9'
-  gem 'dotenv-rails', '~> 2.7'
   gem 'letter_opener', '~> 1.7'
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'
@@ -58,6 +57,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.1'
+  gem 'dotenv-rails', '~> 2.7'
 end
 
 group :test do
