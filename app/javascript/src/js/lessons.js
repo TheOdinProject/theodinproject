@@ -138,7 +138,12 @@ function constructInternalLinks(heading) {
   internalLink.innerText = heading.innerText;
   internalLink.className = 'internal-link';
   heading.appendChild(internalLink);
-  heading.firstChild.remove();
+}
+
+function removeChildren(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 }
 
 function spyLessonSections() {
