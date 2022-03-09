@@ -56,8 +56,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.1'
   gem 'dotenv-rails', '~> 2.7'
+  gem 'rspec-rails', '~> 5.1'
 end
 
 group :test do
