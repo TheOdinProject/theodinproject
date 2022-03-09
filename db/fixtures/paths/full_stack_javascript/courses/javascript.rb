@@ -88,6 +88,7 @@ course.add_section do |section|
   section.add_lessons(
     javascript_lessons.fetch('Testing Basics'),
     javascript_lessons.fetch('Testing Practice'),
+    javascript_lessons.fetch('A Deeper Look at Git'),
     javascript_lessons.fetch('More Testing'),
     javascript_lessons.fetch('Battleship'),
   )
@@ -110,6 +111,8 @@ course.add_section do |section|
     react_lessons.fetch('Hooks'),
     react_lessons.fetch('Memory Card'),
     react_lessons.fetch('Router'),
+    react_lessons.fetch('React Testing Part 1'),
+    react_lessons.fetch('React Testing Part 2'),
     react_lessons.fetch('Shopping Cart'),
     react_lessons.fetch('Advanced Concepts'),
   )
@@ -120,11 +123,11 @@ end
 # ++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
   section.title = 'JavaScript and the Backend'
-  section.description = "A real web app needs a back end in order to persist its data and do sensitive operations. Here you'll learn how to use ajax to send data requests to your Rails back end or how to outsource your backend to a Backend-as-a-Service company like Firebase."
+  section.description = "A real web app needs a back end in order to persist its data and do sensitive operations. Here you'll learn how to outsource your backend to a Backend-as-a-Service company like Firebase."
   section.identifier_uuid = 'f9b2f981-7f7e-4058-9053-03fe199cc06c'
 
   section.add_lessons(
-    javascript_lessons.fetch('Using Ruby on Rails or BaaS For Your Back End'),
+    javascript_lessons.fetch('Using BaaS For Your Back End'),
     javascript_lessons.fetch("Where's Waldo (A Photo Tagging App)"),
   )
 end
