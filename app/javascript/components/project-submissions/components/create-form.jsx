@@ -49,7 +49,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           <span className="form-icon fab fa-github" />
           <input
             autoFocus
-            className="form__element form__element--with-icon dark-form-input"
+            className="form-element-with-icon form__element form__element--with-icon dark-form-input"
             type="url"
             {...register('repo_url')}
             placeholder="Repository URL"
@@ -69,7 +69,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
             <div className="form-section">
               <span className="form-icon fas fa-link" />
               <input
-                className="form__element form__element--with-icon dark-form-input"
+                className="form-element-with-icon form__element form__element--with-icon dark-form-input"
                 type="url"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
