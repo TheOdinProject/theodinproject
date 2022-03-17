@@ -49,11 +49,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           <span className="form-icon fab fa-github" />
           <input
             autoFocus
-<<<<<<< HEAD
-            className="form__element form__element--with-icon dark-form-input"
-=======
-            className="form-element-with-icon"
->>>>>>> 0e7fbe06 (Add more changes to form, start toggle)
+            className="form-element-with-icon dark-form-input"
             type="url"
             {...register('repo_url')}
             placeholder="Repository URL"
