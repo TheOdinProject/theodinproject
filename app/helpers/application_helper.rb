@@ -2,10 +2,6 @@
 module ApplicationHelper
   require 'kramdown'
 
-  def chat_link
-    'https://discord.gg/fbFCkYabZB'
-  end
-
   def github_link(extension = '')
     "https://github.com/TheOdinProject/#{extension}"
   end
@@ -16,10 +12,6 @@ module ApplicationHelper
 
   def bootstrap_class_for(flash_type)
     bootstrap_classes.fetch(flash_type, custom_flash(flash_type))
-  end
-
-  def first_four_success_stories
-    SuccessStory.limit(4)
   end
 
   def faq_items
@@ -110,7 +102,7 @@ module ApplicationHelper
       {
         question: 'How can I get in touch?',
         answer:
-        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:theodinprojectcontact@gmail.com'>contact us</a>.  There is also a friendly Odin community in our <a target='_blank' rel='noreferrer' href=#{chat_link}>Discord chat rooms.</a></p>"
+        "<p>If you have questions about The Odin Project itself, feel free to <a href='mailto:theodinprojectcontact@gmail.com'>contact us</a>.  There is also a friendly Odin community in our <a target='_blank' rel='noreferrer' href=#{ODIN_CHAT_URL}>Discord chat rooms.</a></p>"
       }
     ]
   end
@@ -153,43 +145,43 @@ module ApplicationHelper
         badge_image_url: 'badge-javascript.svg',
         badge_alt_text: 'javascript badge',
         title: 'JavaScript',
-        path: '/courses/javascript'
+        path: '/paths/full-stack-javascript/courses/javascript'
       },
       {
         badge_image_url: 'badge-git.svg',
         badge_alt_text: 'git badge',
         title: 'Git',
-        path: '/courses/web-development-101#git-basics'
+        path: '/paths/foundations/courses/foundations#git-basics'
       },
       {
         badge_image_url: 'badge-database.svg',
         badge_alt_text: 'databases badge',
         title: 'Databases',
-        path: '/courses/databases'
+        path: '/paths/full-stack-ruby-on-rails/courses/databases'
       },
       {
         badge_image_url: 'badge-ruby.svg',
         badge_alt_text: 'ruby badge',
         title: 'Ruby',
-        path: '/courses/ruby-programming'
+        path: '/paths/full-stack-ruby-on-rails/courses/ruby-programming'
       },
       {
         badge_image_url: 'badge-ruby-on-rails.svg',
         badge_alt_text: 'ruby on rails badge',
         title: 'Ruby on Rails',
-        path: '/courses/ruby-on-rails'
+        path: '/paths/full-stack-ruby-on-rails/courses/ruby-on-rails'
       },
       {
         badge_image_url: 'badge-nodejs.svg',
         badge_alt_text: 'nodejs badge',
         title: 'NodeJS',
-        path: '/courses/nodejs'
+        path: '/paths/full-stack-javascript/courses/nodejs'
       },
       {
         badge_image_url: 'badge-getting-hired.svg',
         badge_alt_text: 'getting hired badge',
         title: 'Getting Hired',
-        path: '/courses/getting-hired'
+        path: '/paths/full-stack-javascript/courses/getting-hired'
       }
     ]
   end
@@ -234,10 +226,6 @@ module ApplicationHelper
 
   def bootstrap_classes
     { 'notice' => 'alert-success', 'alert' => 'alert-danger' }
-  end
-
-  def medium_blog_path
-    'https://medium.com/the-odin-project'
   end
 end
 # rubocop:enable Metrics/MethodLength, Layout/LineLength, Metrics/ModuleLength

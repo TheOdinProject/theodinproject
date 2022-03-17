@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper do
-  describe '#chat_link' do
-    it 'returns the chat url' do
-      expect(chat_link).to eq('https://discord.gg/fbFCkYabZB')
-    end
-  end
-
   describe 'title' do
     it 'sets the title' do
       helper.title('Courses')
@@ -41,13 +35,6 @@ RSpec.describe ApplicationHelper do
       it 'returns the bootstrap success class' do
         expect(helper.bootstrap_class_for(flash_type)).to eql('alert-error')
       end
-    end
-  end
-
-  describe '#first_four_success_stories' do
-    it 'returns the first four success stories' do
-      expect(SuccessStory).to receive(:limit).with(4)
-      helper.first_four_success_stories
     end
   end
 

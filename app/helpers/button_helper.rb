@@ -12,7 +12,7 @@ module ButtonHelper
   end
 
   def curriculum_button
-    link_to 'Curriculum', curriculum_path, class: 'button button--primary'
+    link_to 'Curriculum', paths_path, class: 'button button--primary'
   end
 
   def contribute_button
@@ -22,7 +22,7 @@ module ButtonHelper
   def chat_button
     link_to(
       'Open Discord',
-      chat_link,
+      ODIN_CHAT_URL,
       class: 'button button--secondary',
       target: '_blank',
       rel: 'noreferrer'
