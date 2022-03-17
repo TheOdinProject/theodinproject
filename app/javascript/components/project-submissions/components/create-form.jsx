@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -6,7 +6,25 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import schema from '../schemas/project-submission-schema';
 import ProjectSubmissionContext from '../ProjectSubmissionContext';
 
+const darkModeCSSClassNames = 'form__element form__element--with-icon dark-form-input';
+const toggleContainerClassNames = `
+  relative inline-flex flex-shrink-0
+  h-6 w-12 py-2px
+  border-2 border-transparent rounded-full
+  cursor-pointer
+  transition-colors ease-in-out duration-200
+  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-odin-green
+`;
+const toggleBodyClassNames = `
+  inline-block
+  h-5 w-5
+  pointer-events-none
+  rounded-full bg-white shadow
+  transform ring-0 transition ease-in-out duration-200
+`;
+
 const CreateForm = ({ onClose, onSubmit, userId }) => {
+  const [isToggled, setIsToggled] = useState(false);
   const { lesson } = useContext(ProjectSubmissionContext);
   const {
     register,
@@ -18,6 +36,10 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
       is_public: true,
     },
   });
+
+  const handleOnClickToggle = () => {
+    setIsToggled(!isToggled);
+  };
 
   const {
     errors,
@@ -49,7 +71,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           <span className="form-icon fab fa-github" />
           <input
             autoFocus
-            className="form-element-with-icon form__element form__element--with-icon dark-form-input"
+            className={`form-element-with-icon ${darkModeCSSClassNames}`}
             type="url"
             {...register('repo_url')}
             placeholder="Repository URL"
@@ -69,7 +91,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
             <div className="form-section">
               <span className="form-icon fas fa-link" />
               <input
-                className="form-element-with-icon dark-form-input"
+                className={`form-element-with-icon ${darkModeCSSClassNames}`}
                 type="url"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
@@ -88,15 +110,22 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
         <div className="form-section form-section-center mb-0">
           <div className="form-toggle-checkbox">
             <p className="font-bold">MAKE SOLUTION PUBLIC</p>
-            <label htmlFor="is_public" className="toggle form__public-checkbox" data-test-id="is-public-toggle-slider">
-              <input
-                id="is_public"
-                className="toggle__input"
-                type="checkbox"
+            <div className="my-0 mx-4" data-test-id="is-public-toggle-slider">
+              <button
+                type="button"
+                onClick={handleOnClickToggle}
+                className={`${toggleContainerClassNames} ${isToggled ? 'bg-odin-green' : 'bg-gray-200'}`}
+                role="switch"
+                aria-checked="false"
                 {...register('is_public')}
-              />
-              <div className="toggle__fill" />
-            </label>
+              >
+                <span className="sr-only">MAKE SOLUTION PUBLIC</span>
+                <span
+                  aria-hidden="true"
+                  className={`${toggleBodyClassNames} ${isToggled ? 'translate-x-7' : 'translate-x-0'}`}
+                />
+              </button>
+            </div>
           </div>
 
           <button

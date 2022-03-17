@@ -1,9 +1,0 @@
-@layer components {
-  .toggle {
-    @apply inline-block cursor-pointer h-toggle w-toggle rounded-lg
-  }
-
-  .toggle-input {
-    @apply hidden checked:bg-odin-green
-  }
-}

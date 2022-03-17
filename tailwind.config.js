@@ -37,7 +37,6 @@ module.exports = {
       },
       height: {
         '60v': '60vh',
-        toggle: '15px',
       },
       margin: {
         '-25px': '-25px',
@@ -45,8 +44,8 @@ module.exports = {
       textColor: {
         primary: '#4a4a4a',
       },
-      width: {
-        toggle: '50px',
+      padding: {
+        '2px': '2px',
       },
     },
   },
