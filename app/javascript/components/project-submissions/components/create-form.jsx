@@ -69,11 +69,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
             <div className="form-section">
               <span className="form-icon fas fa-link" />
               <input
-<<<<<<< HEAD
-                className="form-element-with-icon"
-=======
                 className="form__element form__element--with-icon dark-form-input"
->>>>>>> main
                 type="url"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
