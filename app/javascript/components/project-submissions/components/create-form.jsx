@@ -108,7 +108,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           )}
 
         <div className="form-section form-section-center mb-0">
-          <div className="form-toggle-checkbox">
+          <div className="flex items-center my-5 mx-0 sm:mb-2.5 justify-center">
             <p className="font-bold">MAKE SOLUTION PUBLIC</p>
             <div className="my-0 mx-4" data-test-id="is-public-toggle-slider">
               <button
@@ -131,7 +131,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           <button
             disabled={formState.isSubmitting}
             type="submit"
-            className="button button--primary"
+            className="top-btn top-btn-primary"
             data-test-id="submit-btn"
           >
             Submit
