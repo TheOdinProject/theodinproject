@@ -60,8 +60,8 @@ module.exports = {
       textColor: {
         primary: '#4a4a4a',
       },
-      width: {
-        toggle: '50px',
+      padding: {
+        '2px': '2px',
       },
     },
   },
