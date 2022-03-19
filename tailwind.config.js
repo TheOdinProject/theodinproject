@@ -40,6 +40,7 @@ module.exports = {
       },
       margin: {
         '-25px': '-25px',
+        '1.25rem': '1.25rem',
       },
       textColor: {
         primary: '#4a4a4a',
