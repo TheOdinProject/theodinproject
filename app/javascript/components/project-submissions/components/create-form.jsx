@@ -9,7 +9,7 @@ import Toggle from './toggle';
 
 const darkModeCSSClassNames = 'form__element form__element--with-icon dark-form-input';
 
-const CreateForm = ({ onClose, onSubmit, userId }) => {
+const CreateForm = ({ onClose, onSubmit }) => {
   const [isToggled, setIsToggled] = useState(true);
   const { lesson } = useContext(ProjectSubmissionContext);
   const {
