@@ -108,7 +108,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
           )}
 
         <div className="form-section form-section-center mb-0">
-          <div className="flex items-center my-5 mx-0 sm:mb-2.5 justify-center">
+          <div className="flex items-center my-1.25rem sm:my-0 justify-center">
             <p className="font-bold">MAKE SOLUTION PUBLIC</p>
             <div className="my-0 mx-4" data-test-id="is-public-toggle-slider">
               <button
