@@ -18,22 +18,18 @@ const toggleBodyClassNames = `
   transform ring-0 transition ease-in-out duration-200
 `;
 
-const Toggle = ({
-  isToggled,
-  label,
-  onClick,
-  register,
-}) => (
+const Toggle = ({ label, isToggled, onClick }) => (
   <>
     <p className="font-bold">{label}</p>
     <div className="my-0 mx-4" data-test-id="is-public-toggle-slider">
       <button
+        id="is_public"
         type="button"
         onClick={onClick}
         className={`${toggleContainerClassNames} ${isToggled ? 'bg-odin-green' : 'bg-gray-200'}`}
         role="switch"
-        aria-checked="false"
-        {...register('is_public')}
+        aria-checked={isToggled}
+        // {...register('is_public')}
       >
         <span className="sr-only">{label}</span>
         <span
@@ -50,10 +46,9 @@ Toggle.defaultProps = {
 };
 
 Toggle.propTypes = {
-  isToggled: PropTypes.bool.isRequired,
   label: PropTypes.string,
+  isToggled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
 };
 
 export default Toggle;

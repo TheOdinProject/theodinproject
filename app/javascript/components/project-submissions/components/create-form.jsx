@@ -10,7 +10,7 @@ import Toggle from './toggle';
 const darkModeCSSClassNames = 'form__element form__element--with-icon dark-form-input';
 
 const CreateForm = ({ onClose, onSubmit, userId }) => {
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
   const { lesson } = useContext(ProjectSubmissionContext);
   const {
     register,
@@ -26,6 +26,10 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
   const handleOnClickToggle = () => {
     setIsToggled(!isToggled);
   };
+
+  const handleSubmitCallback = async (data) => (
+    onSubmit({ ...data, is_public: isToggled })
+  );
 
   const {
     errors,
@@ -52,7 +56,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
     <div>
       <h1 className="text-center page-heading-title">Upload Your Project</h1>
 
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
         <div className="form-section">
           <span className="form-icon fab fa-github" />
           <input
@@ -96,10 +100,9 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
         <div className="form-section form-section-center mb-0">
           <div className="flex items-center my-1.25rem sm:my-0 justify-center">
             <Toggle
-              isToggled={isToggled}
               label="MAKE SOLUTION PUBLIC"
               onClick={handleOnClickToggle}
-              register={register}
+              isToggled={isToggled}
             />
           </div>
 
