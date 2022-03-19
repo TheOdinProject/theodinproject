@@ -19,7 +19,7 @@ const CreateForm = ({ onClose, onSubmit, userId }) => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      is_public: true,
+      is_public: isToggled,
     },
   });
 
