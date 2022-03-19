@@ -18,6 +18,11 @@ const toggleBodyClassNames = `
   transform ring-0 transition ease-in-out duration-200
 `;
 
+/**
+ * react-hook-form's register does not apply to buttons, which is the root element of Tailwind's
+ * toggle. We must therefore pass it's "value" between form parent component and Toggle, thereby
+ * allowing us to add it into the form data.
+ */
 const Toggle = ({ label, isToggled, onClick }) => (
   <>
     <p className="font-bold">{label}</p>
@@ -29,7 +34,6 @@ const Toggle = ({ label, isToggled, onClick }) => (
         className={`${toggleContainerClassNames} ${isToggled ? 'bg-odin-green' : 'bg-gray-200'}`}
         role="switch"
         aria-checked={isToggled}
-        // {...register('is_public')}
       >
         <span className="sr-only">{label}</span>
         <span
