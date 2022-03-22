@@ -16,8 +16,6 @@ a {
   &:hover, &:focus {
     color: $black;
     text-decoration: none;
-    // keeping existing internal_link as it is, with this we could achieve this desired view on site as well
-    // position: revert;
   }
 }
 
