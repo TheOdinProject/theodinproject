@@ -98,7 +98,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
           )}
 
         <div className="form-section form-section-center mb-0">
-          <div className="flex items-center my-1.25rem sm:my-0 justify-center">
+          <div className="top-toggle-container">
             <Toggle
               label="MAKE SOLUTION PUBLIC"
               onClick={handleOnClickToggle}

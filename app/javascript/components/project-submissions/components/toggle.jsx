@@ -15,14 +15,14 @@ const Toggle = ({ label, isToggled, onClick }) => (
         id="is_public"
         type="button"
         onClick={onClick}
-        className={`top-toggle-container ${isToggled ? 'bg-odin-green' : 'bg-gray-200'}`}
+        className={`top-toggle-body ${isToggled ? 'bg-odin-green' : 'bg-gray-200'}`}
         role="switch"
         aria-checked={isToggled}
       >
         <span className="sr-only">{label}</span>
         <span
           aria-hidden="true"
-          className={`top-toggle-body ${isToggled ? 'translate-x-7' : 'translate-x-0'}`}
+          className={`top-toggle-span ${isToggled ? 'translate-x-7' : 'translate-x-0'}`}
         />
       </button>
     </div>
