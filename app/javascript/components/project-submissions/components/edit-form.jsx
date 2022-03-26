@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { func, object } from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from '../schemas/project-submission-schema';
+import Toggle from './toggle';
 
 const EditForm = ({
   submission, onSubmit, onClose, onDelete,
 }) => {
+  const [isToggled, setIsToggled] = useState(submission.is_public);
   const {
     register,
     handleSubmit,
@@ -25,16 +27,31 @@ const EditForm = ({
     errors,
   } = formState;
 
+  const handleOnClickToggle = () => {
+    setIsToggled(!isToggled);
+  };
+
   const handleDelete = () => {
     onDelete(submission.id);
     onClose();
   };
 
+  const handleSubmitCallback = async (data) => (
+    onSubmit({ ...data, is_public: isToggled })
+  );
+
   if (formState.isSubmitSuccessful) {
     return (
       <div className="text-center">
         <h1 className="page-heading-title">Thanks for Updating Your Solution!</h1>
-        <button type="button" className="button button--primary" onClick={onClose} data-test-id="close-btn">Close</button>
+        <button
+          type="button"
+          className="top-btn top-btn-primary"
+          onClick={onClose}
+          data-test-id="close-btn"
+        >
+          Close
+        </button>
       </div>
     );
   }
@@ -44,14 +61,14 @@ const EditForm = ({
     <div data-test-id="edit-form">
       <h1 className="text-center page-heading-title">Edit Your Project</h1>
 
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
         <input type="hidden" {...register('id')} value={submission.id} />
         <input type="hidden" {...register('lesson_id')} value={submission.lesson_id} />
-        <div className="form__section">
-          <span className="form__icon fab fa-github" />
+        <div className="form-section">
+          <span className="form-icon fab fa-github" />
           <input
             autoFocus
-            className="form-element-with-icon form__element form__element--with-icon dark-form-input"
+            className="form-element form-element-with-icon dark-form-input"
             type="text"
             {...register('repo_url')}
             placeholder="Repository URL"
@@ -59,7 +76,7 @@ const EditForm = ({
           />
         </div>
         {errors.repo_url && (
-        <div className="form__error-message push-down">
+        <div className="form-error">
           {' '}
           {errors.repo_url.message}
         </div>
@@ -67,10 +84,10 @@ const EditForm = ({
         { submission.lesson_has_live_preview
           && (
           <>
-            <div className="form__section">
-              <span className="form__icon fas fa-link" />
+            <div className="form-section">
+              <span className="form-icon fas fa-link" />
               <input
-                className="form-element-with-icon form__element form__element--with-icon dark-form-input"
+                className="form-element form-element-with-icon dark-form-input"
                 type="text"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
@@ -78,7 +95,7 @@ const EditForm = ({
               />
             </div>
             {errors.live_preview_url && (
-            <div className="form__error-message push-down">
+            <div className="form-error">
               {' '}
               {errors.live_preview_url.message}
             </div>
@@ -86,17 +103,17 @@ const EditForm = ({
           </>
           )}
 
-        <div className="form__section form__section--center-aligned form__section--bottom">
+        <div className="form-section form-section-center mb-0">
 
-          <div className="form__toggle-checkbox">
-            <p className="bold">MAKE SOLUTION PUBLIC</p>
-            <label htmlFor="is_public" className="toggle form__public-checkbox" data-test-id="is-public-toggle-slider">
-              <input id="is_public" className="toggle__input" type="checkbox" {...register('is_public')} />
-              <div className="toggle__fill round" />
-            </label>
+          <div className="flex items-center my-1.25rem sm:my-0 justify-center">
+            <Toggle
+              label="MAKE SOLUTION PUBLIC"
+              onClick={handleOnClickToggle}
+              isToggled={isToggled}
+            />
           </div>
 
-          <div className="form__button-group">
+          <div className="flex flex-col justify-center items-center">
             <button type="submit" className="button button--danger" onClick={handleDelete} data-test-id="delete-btn">Delete</button>
             &nbsp;
             &nbsp;
