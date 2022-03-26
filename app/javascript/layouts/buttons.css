@@ -10,4 +10,7 @@
   .top-btn-primary {
     @apply bg-odin-green
   }
+  .top-btn-danger {
+    @apply bg-red-500
+  }
 }

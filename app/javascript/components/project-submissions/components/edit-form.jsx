@@ -113,11 +113,23 @@ const EditForm = ({
             />
           </div>
 
-          <div className="flex flex-col justify-center items-center">
-            <button type="submit" className="button button--danger" onClick={handleDelete} data-test-id="delete-btn">Delete</button>
-            &nbsp;
-            &nbsp;
-            <button disabled={formState.isSubmitting} type="submit" className="button button--primary" data-test-id="submit-btn">Update</button>
+          <div className="flex flex-col md:flex-row justify-center items-center">
+            <button
+              type="submit"
+              className="top-btn top-btn-danger"
+              onClick={handleDelete}
+              data-test-id="delete-btn"
+            >
+              Delete
+            </button>
+            <button
+              disabled={formState.isSubmitting}
+              type="submit"
+              className="top-btn top-btn-primary"
+              data-test-id="submit-btn"
+            >
+              Update
+            </button>
           </div>
         </div>
       </form>
