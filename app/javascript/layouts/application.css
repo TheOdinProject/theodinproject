@@ -3,7 +3,12 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+<<<<<<< HEAD
 @import './layout.css';
 @import './typography.css';
+=======
+>>>>>>> 05297657 (Extract styling for Toggle)
 @import './buttons.css';
 @import './forms.css';
+@import './toggle.css';
+@import './typography.css';
