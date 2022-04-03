@@ -7,6 +7,9 @@ module.exports = {
         '1': '1px',
       },
       colors: {
+        transitionProperty: {
+          'stroke-dashoffset': 'stroke-dashoffset'
+        },
         'gold': {
           DEFAULT: '#CE973E',
           '50': '#F3E6D0',
