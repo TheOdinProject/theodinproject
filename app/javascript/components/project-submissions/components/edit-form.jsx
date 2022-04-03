@@ -113,10 +113,10 @@ const EditForm = ({
             />
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center sm:justify-evenly">
+          <div className="flex flex-col sm:flex-row">
             <button
               type="submit"
-              className="top-btn top-btn-danger w-full sm:w-auto"
+              className="top-btn top-btn-danger w-full sm:w-auto sm:mr-2"
               onClick={handleDelete}
               data-test-id="delete-btn"
             >
