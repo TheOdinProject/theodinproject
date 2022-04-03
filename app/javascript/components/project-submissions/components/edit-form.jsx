@@ -113,10 +113,10 @@ const EditForm = ({
             />
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center">
+          <div className="flex flex-col sm:flex-row justify-center sm:justify-evenly">
             <button
               type="submit"
-              className="top-btn top-btn-danger w-full"
+              className="top-btn top-btn-danger w-full sm:w-auto"
               onClick={handleDelete}
               data-test-id="delete-btn"
             >
@@ -125,7 +125,7 @@ const EditForm = ({
             <button
               disabled={formState.isSubmitting}
               type="submit"
-              className="top-btn top-btn-primary w-full mt-2 sm:mt-0"
+              className="top-btn top-btn-primary w-full sm:w-auto mt-2 sm:mt-0"
               data-test-id="submit-btn"
             >
               Update
