@@ -24,6 +24,6 @@
   }
 
   .form-section-center {
-    @apply block text-center sm:flex sm:justify-center sm:flex-wrap
+    @apply flex flex-col
   }
 }
