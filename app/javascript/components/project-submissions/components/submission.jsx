@@ -24,10 +24,10 @@ const Submission = forwardRef(({
   const livePreview = submission.live_preview_url.length > 0;
 
   return (
-    <div className="submissions__item" ref={ref} data-test-id="submission-item">
-      <div className="submissions__left-container">
+    <div className="submissions-items" ref={ref} data-test-id="submission-item">
+      <div className="flex items-center mb-4">
         <Like submission={submission} handleLikeToggle={handleLikeToggle} />
-        <p className="submissions__submission-title">
+        <p className="font-semibold text-xl break-words">
           <SubmissionTitle
             submission={submission}
             isCurrentUsersSubmission={isCurrentUsersSubmission}
@@ -36,12 +36,12 @@ const Submission = forwardRef(({
         </p>
       </div>
 
-      <div className="submissions__actions">
+      <div className="flex flex-col">
         <a
           href={submission.repo_url}
           target="_blank"
           rel="noreferrer"
-          className="submissions__button"
+          className="top-btn top-btn-disabled"
           data-test-id="view-code-btn"
         >
           View Code
@@ -52,7 +52,7 @@ const Submission = forwardRef(({
             href={submission.live_preview_url}
             target="_blank"
             rel="noreferrer"
-            className="submissions__button"
+            className="top-btn top-btn-disabled mt-5"
             data-test-id="live-preview-btn"
           >
             Live Preview
@@ -62,24 +62,28 @@ const Submission = forwardRef(({
         {isCurrentUsersSubmission
           ? (
             <div
-              className="submissions__button--edit"
+              className="submission-icon text-gray-500 hover:text-black"
               onMouseDown={toggleShowEditModal}
               role="button"
               tabIndex={0}
               aria-label="edit-button"
               data-test-id="edit-submission-btn"
-            />
+            >
+              <i className="fas fa-edit fa-lg" />
+            </div>
           )
           : (
-            <button
-              className="link-button submissions__flag hint--top"
-              aria-label="Report submission"
-              type="button"
-              data-test-id="flag-btn"
-              onClick={(e) => { e.preventDefault(); onFlag(submission); }}
-            >
-              <i className="fas fa-flag" />
-            </button>
+            <div className="submission-icon text-gray-300">
+              <button
+                className="hint--top"
+                aria-label="Report submission"
+                type="button"
+                data-test-id="flag-btn"
+                onClick={(e) => { e.preventDefault(); onFlag(submission); }}
+              >
+                <i className="fas fa-flag fa-lg" />
+              </button>
+            </div>
           )}
       </div>
 

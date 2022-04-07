@@ -1,7 +1,11 @@
+/* eslint-disable quote-props */
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      borderWidth: {
+        '1': '1px',
+      },
       colors: {
         'gold': {
           DEFAULT: '#CE973E',
@@ -14,7 +18,7 @@ module.exports = {
           '600': '#A9792B',
           '700': '#7C5920',
           '800': '#503914',
-          '900': '#231909'
+          '900': '#231909',
         },
         'odin-green': {
           DEFAULT: '#63BFC4',
@@ -68,4 +72,4 @@ module.exports = {
     container: false,
   },
   plugins: [],
-}
+};

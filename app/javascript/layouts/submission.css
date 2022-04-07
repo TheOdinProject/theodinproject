@@ -1,0 +1,12 @@
+@layer components {
+  .submissions-items {
+    @apply relative
+    border-solid border-t-1 border-gray-300
+    flex flex-col sm:flex-row justify-between items-center
+    py-4
+  }
+
+  .submission-icon {
+    @apply absolute top-1.5 right-0
+  }
+}
