@@ -58,7 +58,7 @@ const SubmissionsList = ({
 
       { allSubmissionsPath
         && (
-          <p className="submissions__view-more">
+          <p className="text-center py-6 px-0">
             <span>
               Showing
               {' '}
@@ -67,7 +67,13 @@ const SubmissionsList = ({
               most liked submissions -
               {' '}
             </span>
-            <a data-test-id="view-all-projects-link" href={allSubmissionsPath}> View full list of solutions</a>
+            <a 
+              data-test-id="view-all-projects-link" 
+              href={allSubmissionsPath}
+              className="no-underline text-gold"
+            > 
+              View full list of solutions
+            </a>
           </p>
         )}
     </div>
