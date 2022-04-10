@@ -51,8 +51,10 @@ const SubmissionsList = ({
               />
             ))}
           </FlipMove>
+        ) : (
+          <h2 className="text-center text-gray-600 font-bold pt-6 pr-0 pb-2 mb-0">No Submissions yet, be the first!</h2>
         )
-        : <h2 className="submissions__blank-slate">No Submissions yet, be the first!</h2>}
+      }
 
       { allSubmissionsPath
         && (
