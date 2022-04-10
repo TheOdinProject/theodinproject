@@ -15,4 +15,8 @@
   .top-btn-disabled {
     @apply bg-gray-300 text-gray-500 hover:text-black
   }
+
+  .submissions-button {
+    @apply top-btn top-btn-disabled font-semibold px-4 md:mr-4
+  }
 }

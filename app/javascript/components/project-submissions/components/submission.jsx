@@ -25,7 +25,7 @@ const Submission = forwardRef(({
 
   return (
     <div className="submissions-items" ref={ref} data-test-id="submission-item">
-      <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4 md:mb-0">
         <Like submission={submission} handleLikeToggle={handleLikeToggle} />
         <p className="font-semibold text-xl break-words">
           <SubmissionTitle
@@ -36,12 +36,12 @@ const Submission = forwardRef(({
         </p>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col md:flex-row md:items-center">
         <a
           href={submission.repo_url}
           target="_blank"
           rel="noreferrer"
-          className="top-btn top-btn-disabled"
+          className="submissions-button"
           data-test-id="view-code-btn"
         >
           View Code
@@ -52,7 +52,7 @@ const Submission = forwardRef(({
             href={submission.live_preview_url}
             target="_blank"
             rel="noreferrer"
-            className="top-btn top-btn-disabled mt-5"
+            className="submissions-button mt-5 md:mt-0"
             data-test-id="live-preview-btn"
           >
             Live Preview
@@ -73,17 +73,15 @@ const Submission = forwardRef(({
             </div>
           )
           : (
-            <div className="submission-icon text-gray-300">
-              <button
-                className="hint--top"
-                aria-label="Report submission"
-                type="button"
-                data-test-id="flag-btn"
-                onClick={(e) => { e.preventDefault(); onFlag(submission); }}
-              >
-                <i className="fas fa-flag fa-lg" />
-              </button>
-            </div>
+            <button
+              className="submission-icon text-gray-300 hint--top"
+              aria-label="Report submission"
+              type="button"
+              data-test-id="flag-btn"
+              onClick={(e) => { e.preventDefault(); onFlag(submission); }}
+            >
+              <i className="fas fa-flag fa-lg" />
+            </button>
           )}
       </div>
 
