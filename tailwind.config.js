@@ -41,6 +41,7 @@ module.exports = {
       },
       height: {
         '60v': '60vh',
+        '600px': '600px',
       },
       margin: {
         '-25px': '-25px',
@@ -51,6 +52,7 @@ module.exports = {
       },
       padding: {
         '2px': '2px',
+        '60px': '60px',
       },
     },
   },
