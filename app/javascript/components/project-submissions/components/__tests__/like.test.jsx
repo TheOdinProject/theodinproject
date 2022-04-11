@@ -3,6 +3,8 @@ import React from 'react';
 import ProjectSubmissionContext from '../../ProjectSubmissionContext';
 import Like from '../like';
 
+const likedClassName = 'text-odin-green';
+
 describe('Like', () => {
   test('Tells user to log in to like submission', () => {
     const { queryByLabelText, getByLabelText } = render(
@@ -19,7 +21,7 @@ describe('Like', () => {
     const iconNode = getByLabelText('Like icon');
 
     expect(anchorNode).toBeTruthy();
-    expect(iconNode).not.toHaveClass('liked');
+    expect(iconNode).not.toHaveClass(likedClassName);
   });
 
   test('Indicates user can like submission', () => {
@@ -37,7 +39,7 @@ describe('Like', () => {
     const iconNode = getByLabelText('Like icon');
 
     expect(anchorNode).toBeTruthy();
-    expect(iconNode).not.toHaveClass('liked');
+    expect(iconNode).not.toHaveClass(likedClassName);
   });
 
   test('Indicates user has liked submission', () => {
@@ -55,7 +57,7 @@ describe('Like', () => {
     const iconNode = getByLabelText('Like icon');
 
     expect(anchorNode).toBeTruthy();
-    expect(iconNode).toHaveClass('liked');
+    expect(iconNode).toHaveClass(likedClassName);
   });
 
   test('Calls toggle like handler when clicked', () => {
