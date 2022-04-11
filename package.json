@@ -60,7 +60,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "jest": "^27.5.1",
-    "webpack-dev-server": "^3"
+    "webpack-dev-server": "^4"
   },
   "jest": {
     "clearMocks": true,
