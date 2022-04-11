@@ -7,8 +7,6 @@ import schema from '../schemas/project-submission-schema';
 import ProjectSubmissionContext from '../ProjectSubmissionContext';
 import Toggle from './toggle';
 
-const darkModeCSSClassNames = 'form__element form__element--with-icon dark-form-input';
-
 const CreateForm = ({ onClose, onSubmit }) => {
   const [isToggled, setIsToggled] = useState(true);
   const { lesson } = useContext(ProjectSubmissionContext);
@@ -61,7 +59,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
           <span className="form-icon fab fa-github" />
           <input
             autoFocus
-            className={`form-element-with-icon ${darkModeCSSClassNames}`}
+            className="form-element-with-icon"
             type="url"
             {...register('repo_url')}
             placeholder="Repository URL"
@@ -81,7 +79,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
             <div className="form-section">
               <span className="form-icon fas fa-link" />
               <input
-                className={`form-element-with-icon ${darkModeCSSClassNames}`}
+                className="form-element-with-icon"
                 type="url"
                 placeholder="Live Preview URL"
                 {...register('live_preview_url')}
