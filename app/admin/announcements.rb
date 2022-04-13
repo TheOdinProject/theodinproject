@@ -1,10 +1,10 @@
 ActiveAdmin.register Announcement do
-  permit_params :message, :expires_at
+  permit_params :message, :expires
 
   form do |f|
     f.inputs do
       f.input :message
-      f.input :expires_at, as: :datepicker
+      f.input :expires, as: :datepicker
     end
     f.actions
   end

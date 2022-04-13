@@ -1,7 +1,9 @@
 class Announcement < ApplicationRecord
   validates :message, presence: true
-  validates :expires_at, presence: true
+  validates :expires, presence: true
 
-  scope :unexpired_messages, -> { where(expires_at: Time.zone.now..Float::INFINITY).order(created_at: :desc) }
-  scope :showable_messages, ->(disabled_ids) { unexpired_messages.where.not(id: disabled_ids) }
+  scope :unexpired_messages, -> { order('created_at desc').where('expires >= ?', Time.zone.now) }
+  scope :showable_messages, lambda { |disabled_announcement_ids|
+    unexpired_messages.where.not(id: disabled_announcement_ids)
+  }
 end
