@@ -44,7 +44,7 @@ RSpec.describe User do
 
     context 'when the user has completed the lesson' do
       it 'returns true' do
-        create(:lesson_completion, lesson:, user:)
+        create(:lesson_completion, lesson: lesson, user: user)
 
         expect(user.completed?(lesson)).to be(true)
       end
@@ -161,7 +161,7 @@ RSpec.describe User do
 
     context 'when the user has started the course' do
       it 'returns true' do
-        lesson_completion = create(:lesson_completion, user:, course:)
+        lesson_completion = create(:lesson_completion, user: user, course: course)
 
         expect(user.started_course?(course)).to be(true)
       end
