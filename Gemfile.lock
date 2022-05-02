@@ -577,6 +577,9 @@ DEPENDENCIES
   kramdown (~> 2.4)
   letter_opener (~> 1.8)
   listen (~> 3.7)
+  net-imap
+  net-pop
+  net-smtp
   newrelic_rpm (~> 8.6)
   noticed (~> 1.5)
   octokit (~> 4.22)
@@ -612,7 +615,7 @@ DEPENDENCIES
   webpacker (~> 5.4)
 
 RUBY VERSION
-   ruby 3.0.3p157
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.2.33
+   2.3.12

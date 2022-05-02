@@ -8,7 +8,7 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: circleci/ruby:3.0.3-buster-node-browsers-legacy
+      - image: cimg/ruby:3.1.2-browsers
         environment:
           RAILS_ENV: test
           POSTGRES_USERNAME: postgres
