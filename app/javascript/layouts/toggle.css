@@ -5,7 +5,7 @@
 
   .top-toggle-body {
     @apply relative inline-flex flex-shrink-0
-    h-6 w-12 py-2px
+    h-6 w-12
     border-2 border-transparent rounded-full
     cursor-pointer
     transition-colors ease-in-out duration-200

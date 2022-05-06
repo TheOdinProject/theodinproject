@@ -22,7 +22,7 @@ const Toggle = ({ label, isToggled, onClick }) => (
         <span className="sr-only">{label}</span>
         <span
           aria-hidden="true"
-          className={`top-toggle-span ${isToggled ? 'translate-x-7' : 'translate-x-0'}`}
+          className={`top-toggle-span ${isToggled ? 'translate-x-6' : 'translate-x-0'}`}
         />
       </button>
     </div>
