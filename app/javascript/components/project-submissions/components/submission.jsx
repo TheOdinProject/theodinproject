@@ -11,6 +11,16 @@ import Like from './like';
 
 const noop = () => { };
 
+const submissionItemClassnames = `
+  relative py-4
+  border-solid border-t-1 border-gray-300
+  flex flex-col md:flex-row justify-between items-center
+`;
+const submissionIconClassnames = `
+  absolute md:relative 
+  top-1.5 md:top-0 right-0
+`;
+
 const Submission = forwardRef(({
   submission, handleUpdate, onFlag, handleDelete, isDashboardView, handleLikeToggle,
 }, ref) => {
@@ -24,7 +34,7 @@ const Submission = forwardRef(({
   const livePreview = submission.live_preview_url.length > 0;
 
   return (
-    <div className="submissions-items" ref={ref} data-test-id="submission-item">
+    <div className={submissionItemClassnames} ref={ref} data-test-id="submission-item">
       <div className="flex items-center mb-4 md:mb-0">
         <Like submission={submission} handleLikeToggle={handleLikeToggle} />
         <p className="font-semibold text-xl break-words">
@@ -62,7 +72,7 @@ const Submission = forwardRef(({
         {isCurrentUsersSubmission
           ? (
             <div
-              className="submission-icon text-gray-500 hover:text-black"
+              className={`${submissionIconClassname} text-gray-500 hover:text-black`}
               onMouseDown={toggleShowEditModal}
               role="button"
               tabIndex={0}
@@ -74,7 +84,7 @@ const Submission = forwardRef(({
           )
           : (
             <button
-              className="submission-icon text-gray-300 hint--top"
+              className={`${submissionIconClassnames} text-gray-300 hint--top`}
               aria-label="Report submission"
               type="button"
               data-test-id="flag-btn"
