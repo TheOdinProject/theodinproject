@@ -2,11 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/**
- * react-hook-form's register does not apply to buttons, which is the root element of Tailwind's
- * toggle. We must therefore pass it's "value" between form parent component and Toggle, thereby
- * allowing us to add it into the form data.
- */
 const Toggle = ({ label, isToggled, onClick }) => (
   <>
     <p className="font-bold">{label}</p>
