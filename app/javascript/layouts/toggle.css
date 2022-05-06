@@ -1,6 +1,6 @@
 @layer components {
   .top-toggle-container {
-    @apply flex items-center my-1.25rem justify-center
+    @apply flex items-center my-5 justify-center
   }
 
   .top-toggle-body {
