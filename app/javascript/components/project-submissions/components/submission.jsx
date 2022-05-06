@@ -72,14 +72,14 @@ const Submission = forwardRef(({
         {isCurrentUsersSubmission
           ? (
             <div
-              className={`${submissionIconClassname} text-gray-500 hover:text-black`}
+              className={`${submissionIconClassnames} text-gray-500 hover:text-black`}
               onMouseDown={toggleShowEditModal}
               role="button"
               tabIndex={0}
               aria-label="edit-button"
               data-test-id="edit-submission-btn"
             >
-              <i className="fas fa-edit fa-lg" />
+              <i className="fas fa-edit" />
             </div>
           )
           : (
@@ -90,7 +90,7 @@ const Submission = forwardRef(({
               data-test-id="flag-btn"
               onClick={(e) => { e.preventDefault(); onFlag(submission); }}
             >
-              <i className="fas fa-flag fa-lg" />
+              <i className="fas fa-flag" />
             </button>
           )}
       </div>
