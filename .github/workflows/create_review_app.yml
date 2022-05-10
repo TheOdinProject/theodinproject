@@ -1,0 +1,32 @@
+name: "Heroku Review App"
+on:
+  pull_request:
+    types: [opened, reopened, closed, synchronize]
+
+jobs:
+  create-review-app:
+    runs-on: ubuntu-latest
+    name: Heroku review app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Deploy Heroku app
+        uses: pmbanugo/heroku-review-app-actions@v2.0.0
+        id: deploy
+        with:
+          api-key: ${{ secrets.HEROKU_API_KEY }}
+          pipeline-id: ${{ secrets.HEROKU_PIPELINE_ID }}
+          base-name: theodinproject
+      - name: Get the review app url
+        run: echo "The URL is ${{ steps.deploy.outputs.url }}"
+      - name: Comment on commit
+        uses: phulsechinmay/rewritable-pr-comment@v0.2.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_IDENTIFIER: "Deploy"
+          message: |
+            I deployed a review app for you to try out this pull request 👇🏽
+
+            Heroku Review App: ${{ steps.deploy.outputs.url }}
