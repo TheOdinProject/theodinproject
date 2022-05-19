@@ -65,11 +65,6 @@ module.exports = {
       "app/assets/images/icons/*svg",
     ],
   },
-  variants: {
-    extend: {
-      backgroundColor: ['checked'],
-    },
-  },
   corePlugins: {
     container: false,
   },
