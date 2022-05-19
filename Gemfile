@@ -23,7 +23,7 @@ gem 'inline_svg', '~> 1.8'
 gem 'jquery-rails', '~> 4.4'
 gem 'kaminari', '~> 1.2'
 gem 'kramdown', '~> 2.4'
-gem 'newrelic_rpm', '~> 8.6'
+gem 'newrelic_rpm', '~> 8.7'
 gem 'noticed', '~> 1.5'
 gem 'octokit', '~> 4.22'
 gem 'omniauth-github', '~> 2.0'
@@ -47,7 +47,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.28', require: false
+  gem 'rubocop', '~> 1.29', require: false
   gem 'rubocop-performance', '~> 1.13', require: false
   gem 'rubocop-rails', '~> 2.14', require: false
   gem 'rubocop-rspec', '~> 2.10', require: false

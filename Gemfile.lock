@@ -580,7 +580,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  newrelic_rpm (~> 8.6)
+  newrelic_rpm (~> 8.7)
   noticed (~> 1.5)
   octokit (~> 4.22)
   omniauth-github (~> 2.0)
@@ -595,7 +595,7 @@ DEPENDENCIES
   react-rails (~> 2.6)
   rspec-rails (~> 5.1)
   rspec-retry (~> 0.6)
-  rubocop (~> 1.28)
+  rubocop (~> 1.29)
   rubocop-performance (~> 1.13)
   rubocop-rails (~> 2.14)
   rubocop-rspec (~> 2.10)
