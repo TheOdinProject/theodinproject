@@ -3,9 +3,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import './icons.css';
 @import './buttons.css';
 @import './forms.css';
+@import './icons.css';
 @import './layout.css';
 @import './toggle.css';
 @import './typography.css';
