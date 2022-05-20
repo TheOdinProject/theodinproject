@@ -52,7 +52,7 @@ const FlagForm = ({ onSubmit, submission, userId }) => {
         <div className="form-section form-section-center">
           <button
             disabled={formState.isSubmitting}
-            className="top-btn top-btn-primary"
+            className="button button--primary"
             type="submit"
             data-test-id="submit-flag-btn"
           >

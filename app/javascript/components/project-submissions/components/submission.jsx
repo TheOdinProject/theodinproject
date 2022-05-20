@@ -17,6 +17,10 @@ const submissionItemClassnames = `
   flex flex-col md:flex-row justify-between items-center
 `;
 
+const submissionButtonClassnames = `
+  button button--gray font-semibold
+`;
+
 const Submission = forwardRef(({
   submission, handleUpdate, onFlag, handleDelete, isDashboardView, handleLikeToggle,
 }, ref) => {
@@ -47,7 +51,7 @@ const Submission = forwardRef(({
           href={submission.repo_url}
           target="_blank"
           rel="noreferrer"
-          className="button submissions-button md:mr-4"
+          className={`${submissionButtonClassnames} md:mr-4`}
           data-test-id="view-code-btn"
         >
           View Code
@@ -58,7 +62,7 @@ const Submission = forwardRef(({
             href={submission.live_preview_url}
             target="_blank"
             rel="noreferrer"
-            className="button submissions-button mt-5 md:mt-0 md:mr-4"
+            className={`${submissionButtonClassnames} mt-5 md:mt-0 md:mr-4`}
             data-test-id="live-preview-btn"
           >
             Live Preview

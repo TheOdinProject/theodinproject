@@ -70,7 +70,7 @@ const LessonPreview = () => {
       </TabPanel>
       <button
         type="button"
-        className={`top-btn ${copied ? 'top-btn-secondary' : 'top-btn-primary'} float-right mb-1`}
+        className={`button ${copied ? 'button--secondary' : 'button--primary'} float-right mb-1`}
         onClick={handleClick}
       >
         {copied ? 'Copied!' : 'Share'}

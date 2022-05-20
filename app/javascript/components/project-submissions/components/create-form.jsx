@@ -39,7 +39,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
         <h1 className="page-heading-title" data-test-id="success-message">Thanks for Submitting Your Solution!</h1>
         <button
           type="button"
-          className="top-btn top-btn-primary"
+          className="button button--primary"
           onClick={onClose}
           data-test-id="close-btn"
         >
@@ -107,7 +107,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
           <button
             disabled={formState.isSubmitting}
             type="submit"
-            className="top-btn top-btn-primary"
+            className="button button--primary"
             data-test-id="submit-btn"
           >
             Submit

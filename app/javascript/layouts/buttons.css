@@ -6,14 +6,6 @@
     focus:ring-2 focus:ring-offset-2 hover:text-white focus:text-white
   }
     
-  /* Prefixed with "top" due to Bootstrap conflicts */
-  .top-btn {
-    @apply inline-block rounded shadow py-2 px-10 md:px-14 border-0
-    text-base font-bold text-center no-underline text-white
-    cursor-pointer
-    hover:bg-opacity-80
-  }
-
   .button--primary {
     @apply bg-odin-green hover:bg-odin-green-600 focus:ring-odin-green-400
   }
@@ -24,6 +16,10 @@
 
   .button--danger {
     @apply bg-red-600 hover:bg-red-800 focus:ring-red-400
+  }
+
+  .button--gray {
+    @apply bg-gray-300 text-gray-500 hover:text-black focus:ring-gray-300
   }
 
   .button--clear {
@@ -45,18 +41,6 @@
 
   .button--google {
     @apply bg-blue-500 hover:bg-blue-600 focus:ring-blue-400
-  }
-  .top-btn-danger {
-    @apply bg-red-500
-  }
-  .top-btn-disabled {
-    @apply bg-gray-300 text-gray-500 hover:text-black
-  }
-  .top-btn-secondary {
-    @apply bg-gold
-  }
-  .submissions-button {
-    @apply top-btn top-btn-disabled font-semibold px-4 md:mr-4
   }
 }
 
