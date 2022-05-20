@@ -16,10 +16,6 @@ const submissionItemClassnames = `
   border-solid border-t-1 border-gray-300
   flex flex-col md:flex-row justify-between items-center
 `;
-const submissionIconClassnames = `
-  absolute md:relative 
-  top-1.5 md:top-0 right-0
-`;
 
 const Submission = forwardRef(({
   submission, handleUpdate, onFlag, handleDelete, isDashboardView, handleLikeToggle,
@@ -51,7 +47,7 @@ const Submission = forwardRef(({
           href={submission.repo_url}
           target="_blank"
           rel="noreferrer"
-          className="submissions-button"
+          className="button submissions-button md:mr-4"
           data-test-id="view-code-btn"
         >
           View Code
@@ -62,7 +58,7 @@ const Submission = forwardRef(({
             href={submission.live_preview_url}
             target="_blank"
             rel="noreferrer"
-            className="submissions-button mt-5 md:mt-0"
+            className="button submissions-button mt-5 md:mt-0 md:mr-4"
             data-test-id="live-preview-btn"
           >
             Live Preview
@@ -72,7 +68,7 @@ const Submission = forwardRef(({
         {isCurrentUsersSubmission
           ? (
             <div
-              className={`${submissionIconClassnames} text-gray-500 hover:text-black`}
+              className={`submissions-flag text-gray-500 hover:text-black`}
               onMouseDown={toggleShowEditModal}
               role="button"
               tabIndex={0}
@@ -84,7 +80,7 @@ const Submission = forwardRef(({
           )
           : (
             <button
-              className={`${submissionIconClassnames} text-gray-300 hint--top`}
+              className={`submissions-flag text-gray-300 hint--top`}
               aria-label="Report submission"
               type="button"
               data-test-id="flag-btn"
