@@ -96,13 +96,11 @@ const CreateForm = ({ onClose, onSubmit }) => {
           )}
 
         <div className="form-section form-section-center mb-0">
-          <div className="top-toggle-container">
-            <Toggle
-              label="MAKE SOLUTION PUBLIC"
-              onClick={handleOnClickToggle}
-              isToggled={isToggled}
-            />
-          </div>
+          <Toggle
+            label="MAKE SOLUTION PUBLIC"
+            onClick={handleOnClickToggle}
+            isToggled={isToggled}
+          />
 
           <button
             disabled={formState.isSubmitting}

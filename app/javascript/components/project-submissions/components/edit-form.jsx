@@ -104,14 +104,11 @@ const EditForm = ({
           )}
 
         <div className="form-section form-section-center mb-0">
-
-          <div className="top-toggle-container">
-            <Toggle
-              label="MAKE SOLUTION PUBLIC"
-              onClick={handleOnClickToggle}
-              isToggled={isToggled}
-            />
-          </div>
+          <Toggle
+            label="MAKE SOLUTION PUBLIC"
+            onClick={handleOnClickToggle}
+            isToggled={isToggled}
+          />
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <button
