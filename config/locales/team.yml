@@ -1,0 +1,145 @@
+# name - required
+# image - required
+# github - optional
+# twitter - optional
+# linkedin - optional
+# website - optional
+
+en:
+  team_members:
+    core:
+      corbin:
+        name: "Corbin Dinis"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      hannu:
+        name: "Hannu Hafza"
+        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tim:
+        name: "Timothée Hardman"
+        image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      noor:
+        name: "Noor Narcissus"
+        image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tuva:
+        name: "Tuva Margarida"
+        image: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      assol:
+        name: "Assol Nilam"
+        image: "https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+      stig:
+        name: "Stígandr Patricia"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+
+
+    maintainers:
+      corbin:
+        name: "Corbin Dinis"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      hannu:
+        name: "Hannu Hafza"
+        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tim:
+        name: "Timothée Hardman"
+        image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      noor:
+        name: "Noor Narcissus"
+        image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tuva:
+        name: "Tuva Margarida"
+        image: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      assol:
+        name: "Assol Nilam"
+        image: "https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+      stig:
+        name: "Stígandr Patricia"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+
+
+    moderators:
+      corbin:
+        name: "Corbin Dinis"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      hannu:
+        name: "Hannu Hafza"
+        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tim:
+        name: "Timothée Hardman"
+        image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      noor:
+        name: "Noor Narcissus"
+        image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"
+      tuva:
+        name: "Tuva Margarida"
+        image: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        website: "https://example.com"
+      assol:
+        name: "Assol Nilam"
+        image: "https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+      stig:
+        name: "Stígandr Patricia"
+        image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+        github: "https://github.com"
+        twitter: "https://twitter.com"
+        linkedin: "https://linkedin.com"
+        website: "https://example.com"

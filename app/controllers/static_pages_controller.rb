@@ -14,4 +14,6 @@ class StaticPagesController < ApplicationController
   def success_stories
     @success_stories = SuccessStory.all
   end
+
+  def team; end
 end

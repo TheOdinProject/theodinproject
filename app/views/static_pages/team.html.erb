@@ -1,0 +1,14 @@
+<%= title('Team') %>
+
+<div class="page-container">
+    <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl pb-10">
+      <h1 class="page-heading-title pb-0">Meet our team</h1>
+      <!-- <p class="text-lg text-gray-500">Ornare sagittis, suspendisse in hendrerit quis. Sed dui aliquet lectus sit pretium egestas vel mattis neque.</p> -->
+    </div>
+
+  <div class="space-y-16">
+    <%= render 'static_pages/team/role', role: 'core', role_title: 'Core' %>
+    <%= render 'static_pages/team/role', role: 'maintainers', role_title: 'Maintainers' %>
+    <%= render 'static_pages/team/role', role: 'moderators', role_title: 'Community Moderators' %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="space-y-12">
+  <div class="relative">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="w-full border-t border-gray-300"></div>
+    </div>
+
+    <div class="relative flex justify-center">
+      <span class="px-3 bg-white text-2xl font-semibold text-gray-900"><%= role_title %></span>
+    </div>
+  </div>
+
+  <ul role="list" class="mx-auto grid grid-cols-2 gap-12 sm:grid sm:grid-cols-3 sm:gap-12 lg:grid-cols-4">
+    <% I18n.t("team_members.#{role}").values.each do |team_member| %>
+      <%= render Team::MemberComponent.new(team_member: team_member) %>
+    <% end %>
+  </ul>
+</div>

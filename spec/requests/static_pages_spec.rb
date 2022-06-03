@@ -28,12 +28,21 @@ RSpec.describe 'Static Pages', type: :request do
     end
   end
 
-  describe 'GET #success stories' do
+  describe 'GET #success_stories' do
     it 'renders the success stories page' do
       get success_stories_path
 
       expect(response).to have_http_status(:ok)
       expect(response).to render_template(:success_stories)
+    end
+  end
+
+  describe 'GET #team' do
+    it 'renders the team page' do
+      get team_path
+
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template(:team)
     end
   end
 end
