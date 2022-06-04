@@ -1,7 +1,7 @@
 module Team
   class MemberComponent < ViewComponent::Base
     TeamMember = Struct.new(
-      :name, :image, :twitter, :github, :linkedin, :website, keyword_init: true
+      :name, :image, :twitter, :github, :linkedin, :website, :member, :role, keyword_init: true
     )
 
     def initialize(team_member:)
