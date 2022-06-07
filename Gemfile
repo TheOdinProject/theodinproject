@@ -20,7 +20,7 @@ gem 'gibbon', '~> 3.4'
 gem 'github_api', '~> 0.19'
 gem 'github_webhook', '~> 1.4'
 gem 'inline_svg', '~> 1.8'
-gem 'jquery-rails', '~> 4.4'
+gem 'jquery-rails', '~> 4.5'
 gem 'kaminari', '~> 1.2'
 gem 'kramdown', '~> 2.4'
 gem 'newrelic_rpm', '~> 8.7'
@@ -61,7 +61,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.37'
-  gem 'climate_control', '~> 1.0'
+  gem 'climate_control', '~> 1.1'
   gem 'cuprite', '~> 0.13'
   gem 'erb_lint', '~> 0.1', require: false
   gem 'factory_bot_rails', '~> 6.2'
