@@ -48,7 +48,7 @@ group :development do
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.30', require: false
-  gem 'rubocop-performance', '~> 1.13', require: false
+  gem 'rubocop-performance', '~> 1.14', require: false
   gem 'rubocop-rails', '~> 2.14', require: false
   gem 'rubocop-rspec', '~> 2.11', require: false
   gem 'web-console', '~> 4.2'
@@ -61,7 +61,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.37'
-  gem 'climate_control', '~> 1.0'
+  gem 'climate_control', '~> 1.1'
   gem 'cuprite', '~> 0.13'
   gem 'erb_lint', '~> 0.1', require: false
   gem 'factory_bot_rails', '~> 6.2'
