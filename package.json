@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.18.2",
-    "@babel/plugin-proposal-private-methods": "^7.17.12",
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/preset-react": "^7.17.12",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@hookform/resolvers": "2.9.3",
@@ -24,7 +24,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.6.0",
-    "browserslist": "^4.20.4",
+    "browserslist": "^4.21.1",
     "core-js": "^3.23.3",
     "el-transition": "^0.0.7",
     "hint.css": "^2.7.0",
