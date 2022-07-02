@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_21_121447) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_07_02_084526) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,18 +21,18 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.integer "resource_id"
     t.string "author_type"
     t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
   create_table "announcements", id: :serial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "message", limit: 255
-    t.datetime "expires_at", null: false
+    t.datetime "expires_at", precision: nil, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
@@ -41,8 +40,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
   create_table "courses", id: :serial, force: :cascade do |t|
     t.string "title", limit: 255
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "position", null: false
     t.string "slug"
     t.string "identifier_uuid", default: "", null: false
@@ -60,8 +59,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.text "reason", default: "", null: false
     t.integer "status", default: 0, null: false
     t.integer "taken_action", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
@@ -72,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
@@ -82,8 +81,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
   create_table "lesson_completions", id: :serial, force: :cascade do |t|
     t.integer "lesson_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "lesson_identifier_uuid", default: "", null: false
     t.integer "course_id"
     t.integer "path_id"
@@ -101,8 +100,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.text "description"
     t.boolean "is_project", default: false
     t.integer "section_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "content"
     t.string "slug"
     t.boolean "accepts_submission", default: false, null: false
@@ -124,9 +123,9 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.bigint "recipient_id", null: false
     t.string "type", null: false
     t.jsonb "params"
-    t.datetime "read_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "read_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "url", null: false
     t.text "message", null: false
     t.string "title", null: false
@@ -137,8 +136,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
   create_table "path_prerequisites", force: :cascade do |t|
     t.bigint "path_id", null: false
     t.bigint "prerequisite_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["path_id", "prerequisite_id"], name: "index_path_prerequisites_on_path_id_and_prerequisite_id", unique: true
     t.index ["path_id"], name: "index_path_prerequisites_on_path_id"
     t.index ["prerequisite_id"], name: "index_path_prerequisites_on_prerequisite_id"
@@ -148,8 +147,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.string "title"
     t.string "description"
     t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "slug"
     t.boolean "default_path", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
@@ -169,12 +168,12 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.string "live_preview_url", default: "", null: false
     t.integer "user_id"
     t.integer "lesson_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "is_public", default: true, null: false
     t.integer "cached_votes_total", default: 0
-    t.datetime "discarded_at"
-    t.datetime "discard_at"
+    t.datetime "discarded_at", precision: nil
+    t.datetime "discard_at", precision: nil
     t.index ["discarded_at"], name: "index_project_submissions_on_discarded_at"
     t.index ["is_public"], name: "index_project_submissions_on_is_public"
     t.index ["lesson_id"], name: "index_project_submissions_on_lesson_id"
@@ -186,8 +185,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.string "title", limit: 255
     t.integer "position", null: false
     t.integer "course_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.text "description"
     t.string "identifier_uuid", default: "", null: false
     t.index ["course_id"], name: "index_sections_on_course_id"
@@ -201,16 +200,16 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.text "story_content"
     t.string "job_title"
     t.string "social_media_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "user_providers", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "provider"
     t.string "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_user_providers_on_user_id"
   end
 
@@ -218,20 +217,20 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.string "email", limit: 255, default: "", null: false
     t.string "encrypted_password", limit: 255, default: "", null: false
     t.string "reset_password_token", limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip", limit: 255
     t.string "last_sign_in_ip", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "username", limit: 255
     t.text "learning_goal"
     t.string "confirmation_token", limit: 255
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmed_at", precision: nil
+    t.datetime "confirmation_sent_at", precision: nil
     t.string "unconfirmed_email", limit: 255
     t.boolean "admin", default: false, null: false
     t.string "avatar"
@@ -251,8 +250,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_121447) do
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
