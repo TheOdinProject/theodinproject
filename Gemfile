@@ -10,7 +10,7 @@ gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.13'
 gem 'bootsnap', '~> 1.12', require: false
 gem 'bootstrap', '4.6.0'
-gem 'cancancan', '~> 3.3'
+gem 'cancancan', '~> 3.4'
 gem 'devise', '~> 4.8'
 gem 'discard', '~> 1.2'
 gem 'discordrb-webhooks', '~> 3.4'
@@ -20,7 +20,6 @@ gem 'github_api', '~> 0.19'
 gem 'github_webhook', '~> 1.4'
 gem 'inline_svg', '~> 1.8'
 gem 'jquery-rails', '~> 4.5'
-gem 'kaminari', '~> 1.2'
 gem 'kramdown', '~> 2.4'
 gem 'newrelic_rpm', '~> 8.8'
 gem 'noticed', '~> 1.5'
@@ -28,7 +27,8 @@ gem 'octokit', '~> 4.25'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-google-oauth2', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-gem 'pg', '~> 1.3'
+gem 'pagy', '~> 5.10'
+gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.6'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
@@ -46,7 +46,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.30', require: false
+  gem 'rubocop', '~> 1.31', require: false
   gem 'rubocop-performance', '~> 1.14', require: false
   gem 'rubocop-rails', '~> 2.15', require: false
   gem 'rubocop-rspec', '~> 2.11', require: false
@@ -64,7 +64,6 @@ group :test do
   gem 'cuprite', '~> 0.13'
   gem 'erb_lint', '~> 0.1', require: false
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'rails-controller-testing', '~> 1.0'
   gem 'rspec-retry', '~> 0.6'
   gem 'shoulda-matchers', '~> 5.1'
   gem 'simplecov', '~> 0.21', require: false
