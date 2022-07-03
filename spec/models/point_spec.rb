@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: points
+#
+#  id         :bigint           not null, primary key
+#  discord_id :string           not null
+#  points     :integer          default(0), not null
+#
 require 'rails_helper'
 
 RSpec.describe Point do

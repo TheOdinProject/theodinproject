@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: courses
+#
+#  id               :integer          not null, primary key
+#  title            :string(255)
+#  description      :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  position         :integer          not null
+#  slug             :string
+#  identifier_uuid  :string           default(""), not null
+#  path_id          :integer
+#  show_on_homepage :boolean          default(FALSE), not null
+#  badge_uri        :string           not null
+#
 class CourseSerializer
   def initialize(course, between_dates = nil)
     @course = course

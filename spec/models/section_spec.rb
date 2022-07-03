@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: sections
+#
+#  id              :integer          not null, primary key
+#  title           :string(255)
+#  position        :integer          not null
+#  course_id       :integer          not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  description     :text
+#  identifier_uuid :string           default(""), not null
+#
 require 'rails_helper'
 
 RSpec.describe Section do

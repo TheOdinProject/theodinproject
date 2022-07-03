@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: flags
+#
+#  id                    :bigint           not null, primary key
+#  flagger_id            :integer          not null
+#  project_submission_id :bigint           not null
+#  reason                :text             default(""), not null
+#  status                :integer          default("active"), not null
+#  taken_action          :integer          default("pending"), not null
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  resolved_by_id        :integer
+#
 require 'rails_helper'
 
 RSpec.describe Flag do

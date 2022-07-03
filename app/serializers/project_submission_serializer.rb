@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: project_submissions
+#
+#  id                 :integer          not null, primary key
+#  repo_url           :string
+#  live_preview_url   :string           default(""), not null
+#  user_id            :integer
+#  lesson_id          :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  is_public          :boolean          default(TRUE), not null
+#  cached_votes_total :integer          default(0)
+#  discarded_at       :datetime
+#  discard_at         :datetime
+#
 class ProjectSubmissionSerializer
   include Rails.application.routes.url_helpers
 

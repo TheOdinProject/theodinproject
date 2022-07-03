@@ -43,6 +43,7 @@ gem 'view_component', '~> 2.57'
 gem 'webpacker', '~> 5.4'
 
 group :development do
+  gem 'annotate', '~> 3.2'
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'

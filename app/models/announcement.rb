@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: announcements
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  message    :string(255)
+#  expires_at :datetime         not null
+#  user_id    :bigint
+#
 class Announcement < ApplicationRecord
   validates :message, presence: true
   validates :expires_at, presence: true
