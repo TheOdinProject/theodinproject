@@ -21,7 +21,7 @@ gem 'github_webhook', '~> 1.4'
 gem 'inline_svg', '~> 1.8'
 gem 'jquery-rails', '~> 4.5'
 gem 'kramdown', '~> 2.4'
-gem 'newrelic_rpm', '~> 8.8'
+gem 'newrelic_rpm', '~> 8.9'
 gem 'noticed', '~> 1.5'
 gem 'octokit', '~> 4.25'
 gem 'omniauth-github', '~> 2.0'
@@ -60,7 +60,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.37'
-  gem 'climate_control', '~> 1.1'
+  gem 'climate_control', '~> 1.2'
   gem 'cuprite', '~> 0.13'
   gem 'erb_lint', '~> 0.1', require: false
   gem 'factory_bot_rails', '~> 6.2'
