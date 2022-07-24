@@ -71,7 +71,7 @@ h6,
 .course-description__heading,
 .error-message__sub-title,
 .footer-link,
-.internal-link,
+.anchor-link,
 .lesson-navigation__link,
 .nav-link,
 .text-notification,
@@ -101,12 +101,20 @@ a:hover,
   color: var(--dark-font-color) !important;
 }
 
+.lesson-content strong {
+  color: var(--dark-font-color) !important;
+}
+
 .dark-form-input {
   background-color: var(--dark-input-bg-color) !important;
 }
 
-pre:not(.line-numbers) code {
-  color: var(--dark-pseudocode-color) !important;
+.prose code {
+  background-color: var(--dark-bg-accent);
+}
+
+pre code {
+  background-color: transparent !important;
 }
 
 .react-modal__body,
@@ -143,5 +151,13 @@ pre:not(.line-numbers) code {
 }
 
 .skill__sub-title {
+  color: var(--dark-font-color) !important;
+}
+
+.lesson-note {
+  background-color: var(--dark-bg-accent) !important;
+}
+
+.lesson-content details summary {
   color: var(--dark-font-color) !important;
 }
