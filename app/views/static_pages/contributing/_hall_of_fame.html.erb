@@ -1,0 +1,30 @@
+<section class="gradient">
+  <div class='page-container space-y-8'>
+    <h3 class="text-gold text-center font-bold text-2xl">Hall of Fame</h3>
+
+    <p class="text-center max-w-prose mx-auto">
+      The Hall of Fame members are the hardworking devs who have built
+      The Odin Project into the site that you see before you now.
+    </p>
+
+    <div class="grid grid-cols-12 gap-6">
+      <% members = t('hall_of_fame') %>
+      <% members.each do |member| %>
+        <div class="col-span-4 sm:col-span-3 md:col-span-2">
+          <%= link_to(member[:github_url], target: "_blank", rel: "noreferrer") do %>
+            <%= image_tag(member[:image], alt: member[:name], class: 'h-full') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="text-center underline py-6">
+      <%= link_to 'View All Contributors',
+          github_link('theodinproject/graphs/contributors'),
+          class: 'text-gold',
+          target: '_blank',
+          rel: 'noreferrer'
+      %>
+    </div>
+  </div>
+</section>
