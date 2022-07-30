@@ -78,19 +78,19 @@ en:
     - question: 'How can I get in touch?'
       answer: <p>If you have questions about The Odin Project itself, feel free to <a href='mailto:theodinprojectcontact@gmail.com'>contact us</a>. There is also a friendly Odin community in our <a target='_blank' rel='noreferrer' href='https://discord.gg/fbFCkYabZB'>Discord chat rooms.</a></p>
   about_page_beliefs:
-    - short_text: Education should be free and accessible
+    - title: Education should be free and accessible
       description: This curriculum itself is free and we tried to link to resources that are themselves free so anyone in the world can use them.
       image_path: about_page/img-education.svg
       image_alt: book icon
-    - short_text: You learn best by actually building
+    - title: You learn best by actually building
       description: The Odin Project curriculum is full of projects that will help you build a strong portfolio of work on GitHub to fill out your resume.
       image_path: about_page/img-build.svg
       image_alt: keyboard icon
-    - short_text: Motivation is fueled by working with others
+    - title: Motivation is fueled by working with others
       description: We're committed to connecting students together so they can stay motivated and learn faster.
       image_path: about_page/img-people.svg
       image_alt: people icon
-    - short_text: Open source is best
+    - title: Open source is best
       description: Our curriculum and website are available on GitHub and we encourage students to actually contribute to the project itself!
       image_path: about_page/img-opensource.svg
       image_alt: open source icon
@@ -104,3 +104,102 @@ en:
     - image: 'img-connect.svg'
       subtitle: 'Connect'
       description: You're not alone. Learn and get help from our friendly community of beginner and experienced developers.
+  contributing_page_beliefs:
+    - title: Flexibility
+      description: You can work on your own time. It's not 9 to 5 so you can get involved when it's convenient for you.
+      image_path: 'contributing/img-clock.svg'
+      image_alt: Clock
+    - title: Recognition
+      description: Significant Contributors will be listed on this page and on Github.
+      image_path: 'contributing/img-exposure.svg'
+      image_alt: Person with Loudspeaker
+    - title: Experience
+      description: You'll get the chance to work within a team of experienced engineers and to work on new and interesting features that will expand your capabilities.
+      image_path: 'contributing/img-job.svg'
+      image_alt: Briefcase
+    - title: Impact
+      description: The features you work on or the lessons you create will help thousands of students learn life changing skills.
+      image_path: 'contributing/img-community.svg'
+      image_alt: Impact
+  hall_of_fame:
+    - name: Erik Trautman
+      image: hall_of_fame_images/erik.jpg
+      github_url: http://github.com/eriktrautman
+    - name: Joe Sawyer
+      image: hall_of_fame_images/joe.jpg
+      github_url: http://github.com/zkay
+    - name: Afshin Moktari
+      image: hall_of_fame_images/afshin.jpg
+      github_url: http://github.com/afshinator
+    - name: Nathan Hall
+      image: hall_of_fame_images/nathanhall.png
+      github_url: http://github.com/dominathan
+    - name: Abby Jones
+      image: hall_of_fame_images/abby.jpg
+      github_url: http://github.com/AbbyJonesDev
+    - name: Joshua Gorchov
+      image: hall_of_fame_images/joshua.jpg
+      github_url: http://github.com/gorchov
+    - name: Neil Gehani
+      image: hall_of_fame_images/neil.jpg
+      github_url: http://github.com/ngehani
+    - name: Ian White
+      image: hall_of_fame_images/ian.jpg
+      github_url: ''
+    - name: Bill Walker
+      image: hall_of_fame_images/bill.jpg
+      github_url: http://github.com/mach1010
+    - name: Mazin Power
+      image: https://avatars1.githubusercontent.com/u/7075351?v=3&s=400
+      github_url: https://github.com/muzfuz
+    - name: Ada Chiu
+      image: https://avatars0.githubusercontent.com/u/13413986?v=3&s=400
+      github_url: https://github.com/adachiu
+    - name: Kevin Mulhern
+      image: https://avatars1.githubusercontent.com/u/7963776?v=3&s=460
+      github_url: https://github.com/KevinMulhern
+    - name: Arun Kumar
+      image: https://avatars0.githubusercontent.com/u/7039523?v=3&s=400
+      github_url: https://github.com/arku
+    - name: Cody Loyd
+      image: https://avatars0.githubusercontent.com/u/18574792?v=3&s=400
+      github_url: https://github.com/codyloyd
+    - name: Cornelius Soon
+      image: https://avatars2.githubusercontent.com/u/16495574?v=3&s=400
+      github_url: https://github.com/csrail
+    - name: Rhys
+      image: https://avatars3.githubusercontent.com/u/19835799?v=3&s=400
+      github_url: https://github.com/105ron
+    - name: Austin
+      image: https://avatars2.githubusercontent.com/u/12649577?v=3&s=400
+      github_url: https://github.com/CouchofTomato
+    - name: Leo
+      image: https://avatars2.githubusercontent.com/u/13614862?v=3&s=400
+      github_url: https://github.com/leosoaivan
+    - name: Chad Kreutzer
+      image: https://avatars1.githubusercontent.com/u/13308917?v=3&s=400
+      github_url: https://github.com/ChadKreutzer
+    - name: Roberto Pando
+      image: https://avatars1.githubusercontent.com/u/20132181?v=3&s=400
+      github_url: https://github.com/RobPando
+    - name: Ryan
+      image: https://avatars3.githubusercontent.com/u/20901017?v=3&s=400
+      github_url: https://github.com/ryanford-frontend
+  ways_to_contribute:
+    - title: Contribute to the Curriculum
+      description: |
+        The curriculum consists of the lessons and projects on this site.
+        We are constantly expanding and updating the curriculum to keep it current and
+        ensure it meets our students' needs in the ever changing world of web development.
+        Our goal is to create the best free web development curriculum in the world, anyone
+        is welcome to join in and help us in striving for this goal.
+      path: curriculum
+    - title: Contribute to the Main Site
+      description: |
+        The site you are on right now is a Ruby on Rails application. We are
+        always working on new features that improve the platform and help students in
+        their learning journey. As with any Open Source project, there is also a constant
+        backlog of outstanding issues and bugs that need to be fixed. Anyone is welcome
+        to join in and start working on any of the issues we currently have posted in
+        the Github repository for the site.
+      path: theodinproject
