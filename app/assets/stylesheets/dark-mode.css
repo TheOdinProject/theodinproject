@@ -147,10 +147,6 @@ pre:not(.line-numbers) code {
   color: var(--dark-font-color) !important;
 }
 
-.button--clear {
-  color: var(--dark-font-color);
-}
-
 .form-divider__text {
   background: var(--dark-bg-color);
 }
