@@ -18,7 +18,6 @@ RSpec.describe 'Selecting Paths', type: :system do
 
       find(:test_id, 'rails-select-path-btn').click
 
-      expect(page).to have_css('.alert-success')
       expect(find(:test_id, 'flash')).to have_text('You have selected the Rails path')
       expect(user.reload.path).to eq(rails_path)
     end
@@ -29,7 +28,6 @@ RSpec.describe 'Selecting Paths', type: :system do
       visit path_path(rails_path)
       find(:test_id, 'rails-select-path-btn').click
 
-      expect(page).to have_css('.alert-success')
       expect(find(:test_id, 'flash')).to have_text('You have selected the Rails path')
       expect(user.reload.path).to eq(rails_path)
     end

@@ -12,6 +12,7 @@ gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.13', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan', '~> 3.4'
+gem 'classy-yaml', '~> 0.8'
 gem 'devise', '~> 4.8'
 gem 'discard', '~> 1.2'
 gem 'discordrb-webhooks', '~> 3.4'

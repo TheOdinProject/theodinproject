@@ -11,10 +11,6 @@ module ApplicationHelper
     content_for(:title) { "#{input} | The Odin Project" } if input
   end
 
-  def bootstrap_class_for(flash_type)
-    bootstrap_classes.fetch(flash_type, custom_flash(flash_type))
-  end
-
   def how_it_works_tiles
     [
       {
@@ -57,16 +53,6 @@ module ApplicationHelper
 
   def unread_notifications?(user)
     user.notifications.any?(&:unread?)
-  end
-
-  private
-
-  def custom_flash(flash_type)
-    "alert-#{flash_type}"
-  end
-
-  def bootstrap_classes
-    { 'notice' => 'alert-success', 'alert' => 'alert-danger' }
   end
 end
 # rubocop:enable Metrics/MethodLength, Layout/LineLength

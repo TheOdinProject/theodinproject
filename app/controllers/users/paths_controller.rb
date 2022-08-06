@@ -7,7 +7,7 @@ module Users
       if current_user.update(path:)
         redirect_to path, notice: "You have selected the #{path.title} path"
       else
-        redirect_to :back, notice: "Unable to select the #{path.title} path"
+        redirect_back(fallback_location: paths_url, alert: "Unable to select the #{path.title} path")
       end
     end
 

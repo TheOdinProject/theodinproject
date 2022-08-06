@@ -84,6 +84,8 @@ module.exports = {
       "./app/components/*.rb",
       "./app/javascript/components/**/*.jsx",
       "app/assets/images/icons/*svg",
+      "./config/utility_classes.yml",
+      "./app/components/**/*.yml",
     ],
     options: {
       safelist: ['lesson-note', 'lesson-content__panel', 'anchor-link', 'toc-item-active'],
