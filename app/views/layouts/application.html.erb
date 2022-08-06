@@ -35,7 +35,10 @@
   </head>
 
   <body class="line-numbers h-full">
-    <%= render 'shared/navbar_and_flashes' %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/announcement'%>
+    <%= render 'shared/flash', flash: flash if flash.any? %>
+
     <%= yield %>
 
     <%= render 'shared/footer' %>
