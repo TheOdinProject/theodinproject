@@ -157,7 +157,7 @@ GEM
       rainbow
       rubocop
       smart_properties
-    erubi (1.10.0)
+    erubi (1.11.0)
     execjs (2.7.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -471,9 +471,9 @@ GEM
       activerecord (>= 3.1)
       activesupport (>= 3.1)
     semantic_range (3.0.0)
-    sentry-rails (5.3.1)
+    sentry-rails (5.4.1)
       railties (>= 5.0)
-      sentry-ruby-core (~> 5.3.1)
+      sentry-ruby (~> 5.4.1)
     sentry-ruby (5.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     sentry-ruby-core (5.3.1)
@@ -518,8 +518,9 @@ GEM
     unf_ext (0.0.8.1)
     unicode-display_width (2.2.0)
     vcr (6.1.0)
-    view_component (2.62.0)
+    view_component (2.66.0)
       activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -528,7 +529,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.14.0)
+    webmock (3.17.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -596,7 +597,7 @@ DEPENDENCIES
   ruby-progressbar (~> 1.11)
   sass-rails (~> 6.0)
   seed-fu (~> 2.3)
-  sentry-rails (~> 5.3)
+  sentry-rails (~> 5.4)
   sentry-ruby (~> 5.4)
   sentry-sidekiq (~> 5.3)
   shakapacker (= 6.5.0)
@@ -604,9 +605,9 @@ DEPENDENCIES
   sidekiq (~> 6.5)
   simplecov (~> 0.21)
   vcr (~> 6.1)
-  view_component (~> 2.62)
+  view_component (~> 2.66)
   web-console (~> 4.2)
-  webmock (~> 3.14)
+  webmock (~> 3.17)
 
 RUBY VERSION
    ruby 3.1.2p20

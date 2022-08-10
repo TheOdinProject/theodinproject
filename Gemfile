@@ -35,12 +35,12 @@ gem 'react-rails', '~> 2.6'
 gem 'ruby-progressbar', '~> 1.11'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
-gem 'sentry-rails', '~> 5.3'
+gem 'sentry-rails', '~> 5.4'
 gem 'sentry-ruby', '~> 5.4'
 gem 'sentry-sidekiq', '~> 5.3'
 gem 'shakapacker', '6.5.0'
 gem 'sidekiq', '~> 6.5'
-gem 'view_component', '~> 2.62'
+gem 'view_component', '~> 2.66'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
@@ -68,7 +68,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.1'
   gem 'simplecov', '~> 0.21', require: false
   gem 'vcr', '~> 6.1'
-  gem 'webmock', '~> 3.14'
+  gem 'webmock', '~> 3.17'
 end
 
 # TODO: These gems are no longer default in Ruby 3.1 and have to be declared explicity, or Rspec will break.
