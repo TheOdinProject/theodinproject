@@ -69,6 +69,7 @@ course.add_section do |section|
   section.add_lessons(
     git_lessons.fetch('Introduction to Git'),
     git_lessons.fetch('Git Basics'),
+    git_lessons.fetch('Commit Messages'),
   )
 end
 
@@ -87,7 +88,6 @@ course.add_section do |section|
     foundation_lessons.fetch('Working with Text'),
     foundation_lessons.fetch('Lists'),
     foundation_lessons.fetch('Links and Images'),
-    git_lessons.fetch('Commit Messages'),
     foundation_lessons.fetch('Recipes'),
   )
 end
