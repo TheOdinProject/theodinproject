@@ -13,11 +13,21 @@
 
       <%= form_for user,
         html: { class: 'form settings-view--hidden', id: 'learning-goal-update-form' },
-        remote: true do |form|
+        remote: true,
+        data: {controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form|
       %>
 
-        <div class="form__section">
-          <%= form.text_field :learning_goal, class: 'form__element', maxlength: 100, size: 140, data: { test_id: 'edit-learning-goal-text-field' } %>
+        <div class="form-field mb-4">
+          <div class="form__section mb-0">
+            <%= form.text_field :learning_goal, 
+            class: 'form__element', 
+            required: true, 
+            minlength: 4, 
+            maxlength: 100, 
+            size: 140, 
+            data: { test_id: 'edit-learning-goal-text-field', attr: 'form-validation.learningGoal', action: 'blur->form-validation#validate' } %>
+          </div>
+          <div class="form__error-message user_username mt-2"></div>
         </div>
 
         <%= form.submit 'Update', class: 'button button--primary full-width', data: { test_id: 'edit-learning-goal-submit-btn' } %>

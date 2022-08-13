@@ -19,18 +19,6 @@ RSpec.describe 'User login', type: :system do
       end
     end
 
-    context 'with blank input fields' do
-      it 'notifies the user one or both of their credentials is invalid' do
-        visit root_path
-
-        find(:test_id, 'nav-login').click
-
-        find(:test_id, 'submit-btn').click
-
-        expect(find(:test_id, 'flash')).to have_text 'Invalid email or password.'
-      end
-    end
-
     context 'with an invalid email format' do
       it 'notifies the user that the email is not valid' do
         visit root_path
