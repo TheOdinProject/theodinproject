@@ -22,6 +22,9 @@
           "description": "This is a staging environment",
           "value": "true"
         }
+      },
+      "scripts": {
+        "postdeploy": "bundle exec rake heroku:postdeploy"
       }
     }
   }
