@@ -1,14 +1,32 @@
 <div class="card-main">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |form| %>
+  <%= form_for(
+    resource, as: resource_name, 
+    url: session_path(resource_name),
+    html: { class: "form"},
+    data: {controller: 'form-validation', action: 'submit->form-validation#validateAll'}) do |form| %>
 
-    <div class="form__section">
-      <span class="fas fa-envelope form__icon"></span>
-      <%= form.email_field :email, required: false, autofocus: true, placeholder: "Email Address", class: 'form__element form__element--with-icon', data: { test_id: 'email-field' } %>
+    <div class="form-field mb-4">
+      <div class="form__section mb-0">
+        <span class="fas fa-envelope form__icon"></span>
+        <%= form.email_field :email,
+        required: false, 
+        placeholder: "Email Address", 
+        class: 'form__element form__element--with-icon', 
+        data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+      </div>
+      <div class="form__error-message user_email mt-2"></div>
     </div>
 
-    <div class="form__section">
-      <span class="fas fa-lock form__icon"></span>
-      <%= form.password_field :password, required: false, placeholder:  "Password", class: 'form__element form__element--with-icon', data: { test_id: 'password-field' } %>
+    <div class="form-field mb-4">
+      <div class="form__section mb-0">
+        <span class="fas fa-lock form__icon"></span>
+        <%= form.password_field :password,
+        required: false, 
+        placeholder:  "Password", 
+        class: 'form__element form__element--with-icon', 
+        data: { test_id: 'password-field',attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+      </div>
+      <div class="form__error-message user_password mt-2"></div>
     </div>
 
 
@@ -20,7 +38,7 @@
     </div>
 
     <div class="form__button-section">
-      <%= form.submit "Login", class: "button button--primary full-width", data: { test_id: 'submit-btn' } %>
+      <%= form.submit "Login", class: "button button--primary full-width", data: { test_id: 'submit-btn', disable_with: false } %>
     </div>
   <% end %>
 
