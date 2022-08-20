@@ -8,6 +8,7 @@ gem 'activeadmin', '~> 2.13'
 gem 'activeadmin_addons', '~> 1.9'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.13'
+gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.13', require: false
 gem 'bootstrap', '4.6.0'
 gem 'cancancan', '~> 3.4'
@@ -38,7 +39,7 @@ gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.4'
 gem 'sentry-ruby', '~> 5.4'
 gem 'sentry-sidekiq', '~> 5.4'
-gem 'shakapacker', '6.5.0'
+gem 'shakapacker', '6.5.1'
 gem 'sidekiq', '~> 6.5'
 gem 'view_component', '~> 2.66'
 
@@ -46,7 +47,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.34', require: false
+  gem 'rubocop', '~> 1.35', require: false
   gem 'rubocop-performance', '~> 1.14', require: false
   gem 'rubocop-rails', '~> 2.15', require: false
   gem 'rubocop-rspec', '~> 2.12', require: false
