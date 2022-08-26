@@ -8,6 +8,17 @@ module.exports = {
         DEFAULT: {
           css: {
             color: theme('colors.blue-gray.600'),
+            a: {
+              color: theme('colors.gold.600'),
+              'text-decoration': 'none',
+              '&:hover': {
+                color: theme('colors.gold.600'),
+                'text-decoration': 'underline',
+              },
+              '&:visited': {
+                color: theme('colors.gold.700'),
+              }
+            },
             code: {
               color: theme('colors.pink'),
               backgroundColor: theme('colors.gray.100'),
@@ -26,6 +37,9 @@ module.exports = {
                 color: '#0f172a',
                 'text-decoration': 'none',
                 'font-weight': '600',
+                '&:visited': {
+                  color: 'inherit',
+                }
               },
             },
             details: {
