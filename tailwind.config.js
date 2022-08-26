@@ -9,14 +9,14 @@ module.exports = {
           css: {
             color: theme('colors.blue-gray.600'),
             a: {
-              color: theme('colors.gold.600'),
+              color: theme('colors.teal.700'),
               'text-decoration': 'none',
               '&:hover': {
-                color: theme('colors.gold.600'),
+                color: theme('colors.teal.600'),
                 'text-decoration': 'underline',
               },
               '&:visited': {
-                color: theme('colors.gold.700'),
+                color: theme('colors.fuchsia.700'),
               }
             },
             code: {
@@ -55,6 +55,9 @@ module.exports = {
       colors: {
         teal:  colors.teal,
         'blue-gray': colors.blueGray,
+        purple: colors.purple,
+        violet: colors.violet,
+        fuchsia: colors.fuchsia,
         transitionProperty: {
           'stroke-dashoffset': 'stroke-dashoffset'
         },
