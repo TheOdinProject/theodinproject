@@ -37,7 +37,7 @@
     "el-transition": "^0.0.7",
     "hint.css": "^2.7.0",
     "humps": "^2.0.1",
-    "jquery": "^3.6.0",
+    "jquery": "^3.6.1",
     "js-base64": "^3.7.2",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.6.1",
