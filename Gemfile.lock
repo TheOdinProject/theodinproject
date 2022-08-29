@@ -400,7 +400,10 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redis (4.7.1)
+    redis (5.0.0)
+      redis-client (~> 0.7)
+    redis-client (0.7.1)
+      connection_pool
     regexp_parser (2.5.0)
     require_all (3.0.0)
     responders (3.0.1)
@@ -486,7 +489,7 @@ GEM
       semantic_range (>= 2.3.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
-    sidekiq (6.5.4)
+    sidekiq (6.5.5)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.5.0)
