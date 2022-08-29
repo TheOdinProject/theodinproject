@@ -78,8 +78,8 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     acts_as_votable (0.13.2)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     arbre (1.5.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
@@ -344,7 +344,7 @@ GEM
       ast (~> 2.4.1)
     pg (1.4.3)
     popper_js (1.16.0)
-    public_suffix (4.0.7)
+    public_suffix (5.0.0)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -528,7 +528,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.17.1)
+    webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -607,7 +607,7 @@ DEPENDENCIES
   vcr (~> 6.1)
   view_component (~> 2.69)
   web-console (~> 4.2)
-  webmock (~> 3.17)
+  webmock (~> 3.18)
 
 RUBY VERSION
    ruby 3.1.2p20
