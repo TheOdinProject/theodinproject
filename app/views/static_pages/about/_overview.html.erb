@@ -1,5 +1,5 @@
-<section class="py-12 sm:py-24 bg-gray-100 odin-dark-bg">
-  <div class="container">
+<section class=" bg-gray-100 odin-dark-bg">
+  <div class="page-container">
     <h2 class="mb-12 text-gold text-center text-2xl font-bold">Overview of The Odin Project</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
@@ -39,9 +39,9 @@
 
       <div class="col-span-3 lg:col-span-1">
         <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
-          <% card.header(classes: 'flex align-middle') do %>
+          <% card.header(classes: 'flex items-center') do %>
             <a href="https://www.github.com/theodinproject" target="_blank"><i class="fab fa-github fa-3x"></i></a>
-            <h3 class="font-bold text-3xl text-gray-400 inline-block ml-4">Open Source</h3>
+            <h3 class="font-bold text-3xl text-gray-800 inline-block ml-4">Open Source</h3>
           <% end %>
           <% card.body do %>
             <p class="mb-8">This website and the curriculum it hosts are completely open source. That means anyone can work on new features or fix existing bugs on the website. This also extends to the curriculum itself, anyone can work on new lessons, add new resources and improve existing lessons.</p>
