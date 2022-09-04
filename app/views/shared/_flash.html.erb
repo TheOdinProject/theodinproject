@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto relative flex flex-col items-end space-y-4">
+<div class="relative flex flex-col items-end space-y-4">
   <div class="fixed z-40 mr-8">
     <% flash.each do |type, message| %>
       <%= render Alerts::FlashComponent.new(type: type, message: message) %>
