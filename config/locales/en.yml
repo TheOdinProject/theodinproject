@@ -94,3 +94,13 @@ en:
       description: Our curriculum and website are available on GitHub and we encourage students to actually contribute to the project itself!
       image_path: about_page/img-opensource.svg
       image_alt: open source icon
+  how_it_works_items:
+    - image: 'img-learn.svg'
+      subtitle: 'Learn'
+      description: 'Learn from a curriculum with the best curated online tutorials, blogs, and courses.'
+    - image: 'img-build.svg'
+      subtitle: 'Build'
+      description: 'Build dozens of portfolio-worthy projects along the way, from simple scripts to full programs and deployed websites.'
+    - image: 'img-connect.svg'
+      subtitle: 'Connect'
+      description: You're not alone. Learn and get help from our friendly community of beginner and experienced developers.
