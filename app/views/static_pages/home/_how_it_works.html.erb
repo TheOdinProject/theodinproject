@@ -7,14 +7,14 @@
   </div>
   <div class="flex flex-col md:flex-row max-w-5xl mx-auto text-center">
 
-    <% how_it_works_tiles.each do |tile| %>
-    <div class="p-5 flex-1">
-      <%= image_tag tile[:image], class: 'h-20 sm:h-32 md:h-40 inline', alt: 'how-it-works illustration' %>
-      <h4 class='font-bold text-xl mt-8 mb-4'><%= tile[:subtitle] %></h4>
-      <div class="px-8 sm:px-16 md:px-0">
-        <p><%= tile[:description] %></p>
+    <% t("how_it_works_items").each do |item| %>
+      <div class="p-5 flex-1">
+        <%= image_tag item[:image], class: 'h-20 sm:h-32 md:h-40 inline', alt: 'how-it-works illustration' %>
+        <h4 class='font-bold text-xl mt-8 mb-4'><%= item[:subtitle] %></h4>
+        <div class="px-8 sm:px-16 md:px-0">
+          <p><%= item[:description] %></p>
+        </div>
       </div>
-    </div>
     <% end %>
 
   </div>

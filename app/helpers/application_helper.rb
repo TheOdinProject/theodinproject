@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/MethodLength, Layout/LineLength
 module ApplicationHelper
   require 'kramdown'
   include Pagy::Frontend
@@ -9,26 +8,6 @@ module ApplicationHelper
 
   def title(input = nil)
     content_for(:title) { "#{input} | The Odin Project" } if input
-  end
-
-  def how_it_works_tiles
-    [
-      {
-        image: 'img-learn.svg',
-        subtitle: 'Learn',
-        description: 'Learn from a curriculum with the best curated online tutorials, blogs, and courses.'
-      },
-      {
-        image: 'img-build.svg',
-        subtitle: 'Build',
-        description: 'Build dozens of portfolio-worthy projects along the way, from simple scripts to full programs and deployed websites.'
-      },
-      {
-        image: 'img-connect.svg',
-        subtitle: 'Connect',
-        description: 'You’re not alone. Learn and get help from our friendly community of beginner and experienced developers.'
-      }
-    ]
   end
 
   def sign_in_or_view_curriculum_button
@@ -55,4 +34,3 @@ module ApplicationHelper
     user.notifications.any?(&:unread?)
   end
 end
-# rubocop:enable Metrics/MethodLength, Layout/LineLength
