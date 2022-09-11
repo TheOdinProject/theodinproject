@@ -26,7 +26,7 @@ RSpec.describe 'User Reset Progress', type: :system do
       expect(find(:test_id, 'rails-open-btn')).to have_text('Open')
     end
 
-    visit edit_user_registration_path
+    visit edit_users_profile_path
     page.accept_confirm do
       find(:test_id, 'user-reset-progress-link').click
     end
@@ -44,7 +44,7 @@ RSpec.describe 'User Reset Progress', type: :system do
       expect(page).to have_content(rails_course.title)
     end
 
-    visit edit_user_registration_path
+    visit edit_users_profile_path
     page.accept_confirm do
       find(:test_id, 'user-reset-progress-link').click
     end

@@ -26,7 +26,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './src/js/analytics';
 import './src/js/axiosWithCsrf';
 import './src/js/bootstrapScripts';
-import './src/js/settings';
 
 import 'controllers';
 

@@ -1,18 +1,18 @@
 <div class="card-main">
   <%= form_for(
-    resource, as: resource_name, 
-    url: registration_path(resource_name), 
-    html: { class: 'form'}, 
+    resource, as: resource_name,
+    url: registration_path(resource_name),
+    html: { class: 'form'},
     data: {controller: 'form-validation', action: 'submit->form-validation#validateAll'}) do |form| %>
 
     <div class="form-field mb-4">
       <div class="form__section mb-0">
         <span class="fas fa-user form__icon"></span>
-        <%= form.text_field :username, 
-        required: true, 
-        placeholder: 'Username', 
-        class: 'form__element form__element--with-icon', 
-        data: {test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate'} %>
+        <%= form.text_field :username,
+        required: true,
+        placeholder: 'Username',
+        class: 'form__element form__element--with-icon',
+        data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate'} %>
       </div>
       <div class="form__error-message user_username mt-2"></div>
     </div>
@@ -20,11 +20,11 @@
     <div class="form-field mb-4">
       <div class="form__section mb-0">
         <span class="fas fa-envelope form__icon"></span>
-        <%= form.email_field :email, 
-        required: true, 
-        value: params[:email], 
-        placeholder: 'Email', 
-        class: 'form__element form__element--with-icon', 
+        <%= form.email_field :email,
+        required: true,
+        value: params[:email],
+        placeholder: 'Email',
+        class: 'form__element form__element--with-icon',
         data: {test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate'} %>
       </div>
       <div class="form__error-message user_email mt-2"></div>
@@ -33,10 +33,10 @@
     <div class="form-field mb-4">
       <div class="form__section mb-0">
         <span class="fas fa-lock form__icon"></span>
-        <%= form.password_field :password, 
-        required: true, 
-        placeholder: 'Password', 
-        class: 'form__element form__element--with-icon', 
+        <%= form.password_field :password,
+        required: true,
+        placeholder: 'Password',
+        class: 'form__element form__element--with-icon',
         data: {test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate'} %>
       </div>
       <div class="form__error-message user_password mt-2"></div>
@@ -45,10 +45,10 @@
     <div class="form-field mb-4">
       <div class="form__section mb-0">
         <span class="fas fa-lock form__icon"></span>
-        <%= form.password_field :password_confirmation, 
-        required: true, 
-        placeholder: 'Password Confirmation', 
-        class: 'form__element form__element--with-icon', 
+        <%= form.password_field :password_confirmation,
+        required: true,
+        placeholder: 'Password Confirmation',
+        class: 'form__element form__element--with-icon',
         data: {test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate'} %>
       </div>
       <div class="form__error-message user_password_confirmation mt-2"></div>

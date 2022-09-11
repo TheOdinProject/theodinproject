@@ -66,6 +66,7 @@ h3,
 h4,
 h5,
 h6,
+label,
 .active,
 .error-message__sub-title,
 .footer-link,
@@ -103,6 +104,7 @@ a:hover,
 
 .dark-form-input {
   background-color: var(--dark-input-bg-color) !important;
+  color: var(--dark-font-color) !important;
 }
 
 .form-element-with-icon, .form-icon {
@@ -183,5 +185,20 @@ pre code {
 }
 
 .toc-item-active {
+  background-color: var(--dark-bg-accent) !important;
+}
+
+.odin-dark-page-nav-item {
+  color: var(--dark-header-color) !important;
+  background-color: var(--dark-bg-color) !important;
+}
+
+.odin-dark-page-nav-item:hover {
+  color: var(--dark-font-color) !important;
+  background-color: var(--dark-bg-accent) !important;
+}
+
+.odin-dark-page-nav-item-active {
+  color: var(--dark-font-color) !important;
   background-color: var(--dark-bg-accent) !important;
 }

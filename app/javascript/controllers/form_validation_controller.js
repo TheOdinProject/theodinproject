@@ -13,19 +13,15 @@ export default class FormValidation extends ValidationController {
         message: '^is too short (minimum is 4 characters)',
       },
     },
+    currentPassword: {
+      presence: true,
+    },
     password: {
       presence: true,
       length: {
         minimum: 6,
         maximum: 128,
         message: '^is too short (minimum is 6 characters)',
-      },
-    },
-    learningGoal: {
-      presence: true,
-      length: {
-        minimum: 4,
-        message: '^is too short (minimum is 4 characters)',
       },
     },
   };
@@ -39,11 +35,16 @@ export default class FormValidation extends ValidationController {
   }
 
   afterValidate({ el, attr }) {
-    FormValidation.errorMessageEl(el).textContent = this.errorMessage(attr);
+    if (this.errors.has(attr)) {
+      FormValidation.errorMessageEl(el).textContent = this.errorMessage(attr);
+    }
   }
 
   static errorMessageEl(el) {
-    return el.closest('.form-field').querySelector('.form__error-message');
+    const errorField = el.parentElement.nextElementSibling;
+    errorField.classList.remove('hidden');
+
+    return errorField;
   }
 
   errorMessage(attr) {
