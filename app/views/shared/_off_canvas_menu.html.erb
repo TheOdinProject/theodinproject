@@ -72,7 +72,7 @@
           <hr class="border-t border-gray-200 my-4" aria-hidden="true">
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
-              <%= render Nav::ItemComponent.new(path: edit_user_registration_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
                <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], mobile: true) %>
               <%= render Nav::ItemComponent.new(path: logout_path, text: 'Log out', test_id: 'nav-logout', icon_path: 'icons/log-out.svg', mobile: true) %>
             <% else %>

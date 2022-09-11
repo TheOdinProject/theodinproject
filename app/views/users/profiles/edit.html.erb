@@ -1,0 +1,77 @@
+<%= title('Settings') %>
+
+<div class="bg-gray-100 odin-dark-bg">
+  <div class="page-container">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+      <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
+        <%= render VerticalNavigation::ContainerComponent.new do |c| %>
+          <% c.with_links([
+            { name: 'Profile', href: edit_users_profile_path, icon_path: 'user-circle.svg' },
+            { name: 'Password', href: edit_user_registration_path, icon_path: 'key.svg' },
+          ]) %>
+        <% end %>
+      </aside>
+
+      <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+
+        <%= form_with model: current_user, url: users_profile_path, builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+          <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+            <% card.header do %>
+                <h3 class="text-xl leading-6 font-medium text-gray-900">Profile</h3>
+                <span class="block mt-1 text-gray-500 odin-dark-text">Profile information will be displayed on your dashboard.</span>
+            <% end %>
+            <% card.body do %>
+              <div class="grid grid-cols-6 gap-6">
+
+                <div class="col-span-6 sm:col-span-3">
+                  <%= form.label :username %>
+                  <%= form.text_field :username, class: 'form-input dark-form-input', data: { test_id: 'username-field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+                </div>
+
+                <div class="col-span-6 sm:col-span-4">
+                  <%= form.label :email %>
+                  <%= form.email_field :email, class: 'form-input dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+                </div>
+
+                <div class="col-span-6 sm:col-span-6">
+                  <%= form.label :learning_goal %>
+                  <%= form.text_area :learning_goal, class: 'form-textarea dark-form-input', placeholder: 'I wanna be the very best...', rows: 4, data: { test_id: 'learning-goal-field' } %>
+                </div>
+
+                <div class="col-span-6">
+                  <%= form.label :avatar %>
+                  <div class="flex items-center">
+                    <%= render User::AvatarComponent.new(current_user: current_user, classes: "w-16") %>
+                  </div>
+                   <span class="block text-gray-500 text-sm mt-2 odin-dark-text">Avatar can be grabbed from Github or Google when signing in with those services.</span>
+                </div>
+              </div>
+            <% end %>
+            <% card.footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 odin-dark-bg-accent') do %>
+              <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { test_id: 'save-profile-btn', disable_with: false } %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+          <% card.header do %>
+            <h3 class="text-xl leading-6 font-medium text-gray-900">Danger Zone</h3>
+             <span class="block mt-1 text-gray-500 odin-dark-text">Careful, these actions can not be undone.</span>
+          <% end %>
+          <% card.body do %>
+            <div class="inline-flex flex-col space-y-5">
+              <%= link_to users_progress_path(current_user), class: 'button button--clear px-3 py-2 text-sm odin-dark-clear-button', data: { confirm: 'Are you sure?', test_id: 'user-reset-progress-link' }, method: :delete do %>
+                <%= inline_svg_tag 'icons/refresh.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-red-700', aria: true, title: 'Reset icon' %>
+                Reset progress
+              <% end %>
+              <%= link_to registration_path(current_user), class: 'button button--clear px-3 py-2 text-sm odin-dark-clear-button', data: { confirm: 'Are you sure?', test_id: 'user-account-delete-link' }, method: :delete do %>
+                <%= inline_svg_tag 'icons/trash.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-red-700', aria: true, title: 'Trash can icon' %>
+                Delete account
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

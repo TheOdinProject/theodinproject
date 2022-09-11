@@ -10,6 +10,6 @@ module UsersHelper
   private
 
   def settings_link
-    link_to 'settings', edit_user_registration_path, class: 'profile-card__link'
+    link_to 'settings', edit_users_profile_path, class: 'profile-card__link'
   end
 end

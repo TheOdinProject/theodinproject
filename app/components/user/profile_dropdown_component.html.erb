@@ -20,7 +20,7 @@
     aria-labelledby="user-menu-button"
     tabindex="-1"
   >
-    <%= link_to edit_user_registration_path, class: "odin-dark-nav-item text-gray-700 group flex items-center px-3 py-2 text-sm #{ 'bg-gray-100 text-gray-900' if current_page?(edit_user_registration_path) }" do %>
+    <%= link_to edit_users_profile_path, class: "odin-dark-nav-item text-gray-700 group flex items-center px-3 py-2 text-sm #{ 'bg-gray-100 text-gray-900' if current_page?(edit_users_profile_path) }" do %>
       <%= inline_svg_tag 'icons/gear-solid.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500', aria: true, title: 'settings icon' %>
       Settings
     <% end %>

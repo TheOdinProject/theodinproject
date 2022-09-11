@@ -50,12 +50,12 @@ Rails.application.routes.draw do
 
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
-  resources :users, only: %i[update]
   get 'dashboard' => 'users#show', as: :dashboard
 
   namespace :users do
     resources :paths, only: :create
     resources :progress, only: :destroy
+    resource :profile, only: %i[edit update]
   end
 
   namespace :lessons do
