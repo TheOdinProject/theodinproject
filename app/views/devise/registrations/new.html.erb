@@ -1,16 +1,54 @@
 <%= title('Sign Up') %>
 
-<div class="gradient">
-  <div class="container tmp-container-spacer">
-    <div class="col-lg-6 col-md-10 offset-lg-3 offset-md-1">
-      <h1 class="page-heading-title">Sign Up for Free</h1>
-      <%= render 'form' %>
 
-      <%= render 'shared/bottom_cta',
-        button: login_button,
-        heading: 'Have an account?',
-        sub_heading: ''
-      %>
+<div class="container tmp-container-spacer">
+  <div class="col-lg-6 col-md-10 offset-lg-3 offset-md-1">
+    <h1 class="page-heading-title">Sign Up for Free</h1>
+
+    <div class="card-main odin-dark-bg-accent">
+      <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+        <div class="grid grid-cols-6 gap-6">
+          <div class="col-span-6">
+            <%= form.label :username %>
+            <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'form-input dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+          </div>
+
+          <div class="col-span-6">
+            <%= form.label :email %>
+            <%= form.email_field :email, required: true, value: params[:email], class: 'form-input dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+          </div>
+
+          <div class="col-span-6">
+            <%= form.label :password %>
+            <%= form.password_field :password, required: true, class: 'form-input dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+          </div>
+
+          <div class="col-span-6">
+            <%= form.label :password_confirmation %>
+            <%= form.password_field :password_confirmation, required: true, class: 'form-input dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+          </div>
+
+          <div class="col-span-6 text-center">
+            <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-600 hover:underline text-sm odin-dark-text' %>
+          </div>
+        </div>
+
+        <div class="form__button-section">
+          <%= form.submit 'Sign up', class: 'button button--primary full-width', data: {test_id: 'submit_btn', disable_with: false } %>
+        </div>
+      <% end %>
+
+      <div class="form-divider text-center">
+        <span class="form-divider__text">OR SIGN UP WITH</span>
+      </div>
+
+      <%= render 'shared/omniauth_buttons' %>
     </div>
+
+    <%= render 'shared/bottom_cta',
+      button: login_button,
+      heading: 'Have an account?',
+      sub_heading: ''
+    %>
   </div>
 </div>
