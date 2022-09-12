@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { func, object, number } from 'prop-types';
 
+import TextArea from './form/text-area';
+
 const FlagForm = ({ onSubmit, submission }) => {
   const {
     register, handleSubmit, formState,
@@ -18,36 +20,23 @@ const FlagForm = ({ onSubmit, submission }) => {
     );
   }
 
-  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div>
       <h1 className="text-center page-heading-title">Flag Submission</h1>
 
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="hidden"
-          {...register('project_submission_id')}
-          value={submission.id}
-        />
-        <div className="form-section">
-          <textarea
-            autoFocus
-            placeholder="Please be as detailed as possible"
-            className="form-element"
+        <input type="hidden" value={submission.id} {...register('project_submission_id')} />
+        <div className="mb-6">
+          <TextArea
+            name="reason"
+            register={register}
+            errors={errors}
             rows="5"
-            {...register('reason', {
-              minLength: { value: 4, message: 'Must be at least 4 characters' },
-              required: 'Required',
-            })}
-            data-test-id="flag-description-field"
+            placeholder="Please explain why you are flagging this submission..."
+            autoFocus
+            dataTestId="flag-description-field"
           />
         </div>
-        {errors.reason && (
-        <div className="form-error">
-          {' '}
-          {errors.reason.message}
-        </div>
-        )}
 
         <div className="form-section form-section-center">
           <button
@@ -62,7 +51,6 @@ const FlagForm = ({ onSubmit, submission }) => {
       </form>
     </div>
   );
-  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 FlagForm.defaultProps = {
