@@ -2686,12 +2686,12 @@ atob@^2.1.2:
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
 autoprefixer@^10, autoprefixer@^10.4.8:
-  version "10.4.8"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.8.tgz#92c7a0199e1cfb2ad5d9427bd585a3d75895b9e5"
-  integrity sha512-75Jr6Q/XpTqEf6D2ltS5uMewJIx5irCU1oBYJrWjFenq/m12WRRrz6g15L1EIoYvPLXTbEry7rDOwrcYNj77xw==
+  version "10.4.9"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.9.tgz#40f932f7d0535264823882031f9254ea72c693e5"
+  integrity sha512-Uu67eduPEmOeA0vyJby5ghu1AAELCCNSsLAjK+lz6kYzNM5sqnBO36MqfsjhPjQF/BaJM5U/UuFYyl7PavY/wQ==
   dependencies:
     browserslist "^4.21.3"
-    caniuse-lite "^1.0.30001373"
+    caniuse-lite "^1.0.30001394"
     fraction.js "^4.2.0"
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
@@ -3222,10 +3222,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001370, caniuse-lite@^1.0.30001373:
-  version "1.0.30001373"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001373.tgz#2dc3bc3bfcb5d5a929bec11300883040d7b4b4be"
-  integrity sha512-pJYArGHrPp3TUqQzFYRmP/lwJlj8RCbVe3Gd3eJQkAV8SAC6b19XS9BjMvRdvaS8RMkaTN8ZhoHP6S1y8zzwEQ==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001370, caniuse-lite@^1.0.30001394:
+  version "1.0.30001397"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001397.tgz#010d9d56e3b8abcd8df261d0a94b22426271a15f"
+  integrity sha512-SW9N2TbCdLf0eiNDRrrQXx2sOkaakNZbCjgNpPyMJJbiOrU5QzMIrXOVMRM1myBXTD5iTkdrtU/EguCrBocHlA==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
@@ -9973,10 +9973,10 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-shakapacker@6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-6.5.1.tgz#3c1554771c0498ea757cb86dfc06811875f4c2bd"
-  integrity sha512-yOVvek0fxAU3FUjWcT7GxpJ/zAbhKbGEw78HHYfMAHE95cDhxTAQjBwvChP/PlceiteXUryRI0Mrdy7jqXvmnw==
+shakapacker@6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-6.5.2.tgz#dda95543107a71c7ada3f6ee102a1a31563c6738"
+  integrity sha512-32hpr/AuyQJEk/4J8quL/xLPl+NPR0mBvJ3D9AtwHIkbSTUA0++LZrvVO+aQ4S1Uy3Iz2KSI/JVRGGD/C4SFFg==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
