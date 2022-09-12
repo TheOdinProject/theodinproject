@@ -1,25 +1,28 @@
 <%= title('New Password') %>
 
-<div class="gradient">
-  <div class="container tmp-container-spacer push-container-down">
-    <h1 class="page-heading-title">Change your password</h1>
-    <div class='col-lg-8 offset-lg-2'>
-      <div class="card-main">
+<div class="container tmp-container-spacer push-container-down">
+  <h1 class="page-heading-title">Change your password</h1>
+  <div class='col-lg-8 offset-lg-2'>
 
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form" }) do |form| %>
+    <div class="card-main odin-dark-bg-accent">
+      <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :put, class: 'grid grid-cols-6 gap-6 grid-flow-row' } do |form| %>
           <%= form.hidden_field :reset_password_token %>
 
-          <div class="form__section">
-            <%= form.password_field :password, placeholder: "New Password", required: true, class: "form__element" %>
+          <div class="col-span-full">
+            <%= form.label :password, 'New password' %>
+            <%= form.password_field :password, required: true, class: 'form-input dark-form-input' %>
           </div>
 
-          <div class="form__section">
-            <%= form.password_field :password_confirmation, placeholder: "Confirm New Password", required: true, class: "form__element" %>
+          <div class="col-span-full">
+            <%= form.label :password_confirmation, 'Confirm new password' %>
+            <%= form.password_field :password_confirmation, required: true, class: 'form-input dark-form-input' %>
           </div>
 
-          <%= form.submit "Change my password", class: "button button--primary full-width" %>
-        <% end %>
-      </div>
+          <div class="col-span-full">
+            <%= form.submit 'Change my password', class: 'button button--primary full-width' %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
