@@ -122,4 +122,14 @@ RSpec.describe TailwindFormBuilder do
       expect(builder.label(:username, 'Some Text')).to eql(expected_html.strip)
     end
   end
+
+  describe '#check_box' do
+    it 'returns a tailwind styled check box' do
+      expected_html = <<~HTML
+        <input name="user[username]" type="hidden" value="0" autocomplete="off" /><input class="h-4 w-4 border-gray-300 rounded " type="checkbox" value="1" name="user[username]" id="user_username" />
+      HTML
+
+      expect(builder.check_box(:username)).to eql(expected_html.strip)
+    end
+  end
 end

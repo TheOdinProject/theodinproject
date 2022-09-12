@@ -29,6 +29,12 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     super(attribute, text, options.merge(default_opts), &)
   end
 
+  def check_box(attribute, options = {}, checked_value = '1', unchecked_value = '0')
+    default_opts = { class: "h-4 w-4 border-gray-300 rounded #{options[:class]}" }
+
+    super(attribute, options.merge(default_opts), checked_value, unchecked_value)
+  end
+
   private
 
   def classes_for(attribute, options)
