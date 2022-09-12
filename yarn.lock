@@ -2509,7 +2509,7 @@ ansi-styles@^5.0.0:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
-ansis@^1.4.0:
+ansis@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ansis/-/ansis-1.4.0.tgz#fae2b44b6478be748a5f5e67f185cd9bb885a145"
   integrity sha512-jaJCg2/68pwinZeW86YBSNv0kNPr3PSog/IqflOVCbqCedSCvrDCBUW1y4V9gcEUDNxrGtVLAkMIivvpsq1VwA==
@@ -11223,12 +11223,12 @@ webpack-merge@5, webpack-merge@^5.7.3:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-remove-empty-scripts@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-0.8.3.tgz#8ee8c84bc4acf1adef6e55985f3b6263562df2d2"
-  integrity sha512-yB3LufKVUuZgFBQI3oM3z/429ezWopn8BMf/GBH8bW2lsMfeTbbPCQwNil+8QBQ6HAKl3KgOQFqIOsku+EGUPg==
+webpack-remove-empty-scripts@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-0.8.4.tgz#83e937f0525b7add253c277e4f0e7e89305c924b"
+  integrity sha512-X9TVQ5mkl00aW33v1EAe4SZVzvz7EEpbXbNNDSUnY6IeePbrnODl7r3HS9Cy2Dq2pvY7FGfqWsL0GO1q2Vq6KA==
   dependencies:
-    ansis "^1.4.0"
+    ansis "1.4.0"
 
 webpack-sources@^1.0.0, webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"
