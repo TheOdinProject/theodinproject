@@ -1,25 +1,20 @@
 <%= title('Forgot Your Password') %>
 
-<div class="gradient">
+<div class="odin-dark-bg">
   <div class="container tmp-container-spacer push-container-down">
     <h1 class="page-heading-title">Forgot your password?</h1>
     <div class='col-lg-8 offset-lg-2'>
 
-      <div class="card-main">
-        <p class="push-down">Enter your email and we'll send you password reset instructions.</p>
+      <div class="card-main odin-dark-bg-accent">
 
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form" }) do |form| %>
-
-          <div class="form__section">
-            <span class="fas fa-envelope form__icon"></span>
-            <%= form.email_field :email, autofocus: true, placeholder: "Email", required: true, class: 'form__element form__element--with-icon'  %>
+        <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :post } do |form| %>
+          <div class="mb-6">
+            <%= form.label :email %>
+             <%= form.email_field :email, autofocus: true, required: true, placeholder: 'you@example.com', class: 'form-input dark-form-input' %>
+             <div class="mt-2 text-sm text-gray-500">Where should we send the password reset instructions to?</div>
           </div>
 
-          <% if resource.errors[:email].present? %>
-            <div class="form__error-message push-down user_email">Email address <%=resource.errors[:email].first %></div>
-          <% end %>
-
-          <%= form.submit "Send reset instructions", class: "button button--primary full-width push-down" %>
+          <%= form.submit 'Send reset instructions', class: 'button button--primary full-width push-down' %>
         <% end %>
       </div>
     </div>
