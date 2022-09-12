@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from '../schemas/project-submission-schema';
 import Toggle from './form/toggle';
+import UrlField from './form/url-field';
 
 const EditForm = ({
   submission, onSubmit, onClose, onDelete,
@@ -23,9 +24,7 @@ const EditForm = ({
     },
   });
 
-  const {
-    errors,
-  } = formState;
+  const { errors } = formState;
 
   const handleOnClickToggle = () => {
     setIsToggled(!isToggled);
@@ -56,7 +55,6 @@ const EditForm = ({
     );
   }
 
-  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div data-test-id="edit-form">
       <h1 className="text-center page-heading-title">Edit Your Project</h1>
@@ -64,51 +62,32 @@ const EditForm = ({
       <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
         <input type="hidden" {...register('id')} value={submission.id} />
         <input type="hidden" {...register('lesson_id')} value={submission.lesson_id} />
-        <div className="form-section">
-          <span className="form-icon fab fa-github" />
-          <input
+
+        <div className="flex flex-col space-y-4">
+          <UrlField
+            name="repo_url"
+            label="Github repository url"
+            icon="fab fa-github"
+            placeholder="https://github.com"
+            register={register}
+            errors={errors}
             autoFocus
-            className="form-element form-element-with-icon"
-            type="text"
-            {...register('repo_url')}
-            placeholder="Repository URL"
-            data-test-id="repo-url-field"
           />
-        </div>
-        {errors.repo_url && (
-        <div className="form-error">
-          {' '}
-          {errors.repo_url.message}
-        </div>
-        )}
-        { submission.lesson_has_live_preview
-          && (
-          <>
-            <div className="form-section">
-              <span className="form-icon fas fa-link" />
-              <input
-                className="form-element form-element-with-icon"
-                type="text"
-                placeholder="Live Preview URL"
-                {...register('live_preview_url')}
-                data-test-id="live-preview-url-field"
-              />
-            </div>
-            {errors.live_preview_url && (
-            <div className="form-error">
-              {' '}
-              {errors.live_preview_url.message}
-            </div>
-            ) }
-          </>
+
+          { submission.lesson_has_live_preview && (
+            <UrlField
+              name="live_preview_url"
+              label="Live preview url"
+              icon="fas fa-link"
+              placeholder="https://www.example.com"
+              register={register}
+              errors={errors}
+            />
           )}
+        </div>
 
         <div className="form-section form-section-center mb-0">
-          <Toggle
-            label="MAKE SOLUTION PUBLIC"
-            onClick={handleOnClickToggle}
-            isToggled={isToggled}
-          />
+          <Toggle label="MAKE SOLUTION PUBLIC" onClick={handleOnClickToggle} isToggled={isToggled} />
 
           <div className="flex flex-col items-center sm:flex-row sm:justify-center">
             <button
@@ -132,7 +111,6 @@ const EditForm = ({
       </form>
     </div>
   );
-  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 EditForm.propTypes = {
