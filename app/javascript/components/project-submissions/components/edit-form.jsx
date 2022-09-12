@@ -4,7 +4,7 @@ import { func, object } from 'prop-types';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from '../schemas/project-submission-schema';
-import Toggle from './toggle';
+import Toggle from './form/toggle';
 
 const EditForm = ({
   submission, onSubmit, onClose, onDelete,

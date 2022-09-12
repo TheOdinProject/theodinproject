@@ -5,7 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import schema from '../schemas/project-submission-schema';
 import ProjectSubmissionContext from '../ProjectSubmissionContext';
-import Toggle from './toggle';
+import Toggle from './form/toggle';
+import UrlField from './form/url-field';
 
 const CreateForm = ({ onClose, onSubmit }) => {
   const [isToggled, setIsToggled] = useState(true);
@@ -49,58 +50,36 @@ const CreateForm = ({ onClose, onSubmit }) => {
     );
   }
 
-  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div>
       <h1 className="text-center page-heading-title">Upload Your Project</h1>
 
       <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
-        <div className="form-section">
-          <span className="form-icon fab fa-github" />
-          <input
+        <div className="flex flex-col space-y-4">
+          <UrlField
+            name="repo_url"
+            label="Github repository url"
+            icon="fab fa-github"
+            placeholder="https://www.github.com"
+            register={register}
+            errors={errors}
             autoFocus
-            className="form-element-with-icon"
-            type="url"
-            {...register('repo_url')}
-            placeholder="Repository URL"
-            data-test-id="repo-url-field"
           />
-        </div>
-        {errors.repo_url && (
-        <div className="form-error" data-test-id="error-message">
-          {' '}
-          {errors.repo_url.message}
-        </div>
-        )}
 
-        { lesson.has_live_preview
-          && (
-          <>
-            <div className="form-section">
-              <span className="form-icon fas fa-link" />
-              <input
-                className="form-element-with-icon"
-                type="url"
-                placeholder="Live Preview URL"
-                {...register('live_preview_url')}
-                data-test-id="live-preview-url-field"
-              />
-            </div>
-            { errors.live_preview_url && (
-            <div className="form-error" data-test-id="error-message">
-              {' '}
-              {errors.live_preview_url.message}
-            </div>
-            ) }
-          </>
+          { lesson.has_live_preview && (
+            <UrlField
+              name="live_preview_url"
+              label="Live preview url"
+              icon="fas fa-link"
+              placeholder="https://www.example.com"
+              register={register}
+              errors={errors}
+            />
           )}
+        </div>
 
-        <div className="form-section form-section-center lg:flex-row lg:justify-center mb-0">
-          <Toggle
-            label="MAKE SOLUTION PUBLIC"
-            onClick={handleOnClickToggle}
-            isToggled={isToggled}
-          />
+        <div className="form-section form-section-center pt-8 lg:flex-row lg:justify-center mb-0">
+          <Toggle label="MAKE SOLUTION PUBLIC" onClick={handleOnClickToggle} isToggled={isToggled} />
 
           <button
             disabled={formState.isSubmitting}
@@ -114,7 +93,6 @@ const CreateForm = ({ onClose, onSubmit }) => {
       </form>
     </div>
   );
-  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 CreateForm.defaultProps = {
