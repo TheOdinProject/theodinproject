@@ -62,7 +62,7 @@
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.54.9",
     "sass-loader": "^13.0.2",
-    "shakapacker": "6.5.1",
+    "shakapacker": "6.5.2",
     "stickyfilljs": "^2.1.0",
     "stimulus-use": "^0.50.0",
     "stimulus-validation": "^1.0.1-beta.3",
@@ -83,7 +83,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
-    "eslint": "^8.23.0",
+    "eslint": "^8.23.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
