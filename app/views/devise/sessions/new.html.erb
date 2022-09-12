@@ -1,16 +1,54 @@
 <%= title('Login') %>
 
-<div class="gradient">
+<div class="odin-dark-bg">
   <div class="container tmp-container-spacer">
     <div class="col-lg-6 col-md-10 offset-lg-3 offset-md-1">
       <h1 class="page-heading-title">Login</h1>
-        <%= render 'form' %>
 
-        <%= render 'shared/bottom_cta',
-          button: create_new_account_button,
-          heading: "Haven't signed up yet?",
-          sub_heading: ''
-        %>
+      <div class="card-main odin-dark-bg-accent">
+        <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
+          <div class="grid grid-cols-6 gap-6 grid-flow-row">
+            <div class="col-span-6 sm:col-span-6">
+              <%= form.label :email %>
+              <%= form.email_field :email, required: false, class: 'form-input dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+            </div>
+
+            <div class="col-span-6 sm:col-span-6">
+              <%= form.label :password %>
+              <%= form.password_field :password, required: false, class: 'form-input dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+            </div>
+
+            <div class="flex items-center justify-between col-span-6">
+              <div class="flex items-center">
+                <%= form.check_box :remember_me, checked: true, class: 'form-checkbox text-teal-600 focus:ring-teal-500' %>
+                <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0' %>
+              </div>
+
+              <div class="text-sm">
+              <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-700 underline hover:text-gray-600 odin-dark-text' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form__button-section">
+            <%= form.submit 'Login', class: 'button button--primary full-width', data: { test_id: 'submit-btn', disable_with: false } %>
+          </div>
+        <% end %>
+
+        <div class="form-divider text-center">
+          <span class="form-divider__text">OR LOG IN WITH</span>
+        </div>
+
+        <div class="text-center">
+          <%= render "shared/omniauth_buttons" %>
+        </div>
+      </div>
+
+      <%= render 'shared/bottom_cta',
+        button: create_new_account_button,
+        heading: "Haven't signed up yet?",
+        sub_heading: ''
+      %>
 
     </div>
   </div>

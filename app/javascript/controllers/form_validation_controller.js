@@ -36,6 +36,7 @@ export default class FormValidation extends ValidationController {
 
   afterValidate({ el, attr }) {
     if (this.errors.has(attr)) {
+      FormValidation.applyErrorStylesTo(el);
       FormValidation.errorMessageEl(el).textContent = this.errorMessage(attr);
     }
   }
@@ -49,6 +50,16 @@ export default class FormValidation extends ValidationController {
 
   errorMessage(attr) {
     return this.errors.has(attr) ? this.errors.get(attr)[0] : '';
+  }
+
+  static applyErrorStylesTo(el) {
+    el.classList.add(
+      'border-red-300',
+      'text-red-900',
+      'placeholder-red-300',
+      'focus:ring-red-500',
+      'focus:border-red-500',
+    );
   }
 }
 
