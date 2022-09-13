@@ -74,9 +74,9 @@
             <% if user_signed_in? %>
               <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
                <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: logout_path, text: 'Log out', test_id: 'nav-logout', icon_path: 'icons/log-out.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: logout_path, text: 'Log out', test_id: 'nav-logout', icon_path: 'icons/logout.svg', mobile: true) %>
             <% else %>
-              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-signup', icon_path: 'icons/lightning-bolt.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-signup', icon_path: 'icons/rocket.svg', mobile: true) %>
                <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], mobile: true) %>
               <%= render Nav::ItemComponent.new(path: login_path, text: 'Log in', test_id: 'nav-login', icon_path: 'icons/log-in.svg', mobile: true) %>
             <% end %>
