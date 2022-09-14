@@ -2509,10 +2509,10 @@ ansi-styles@^5.0.0:
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
-ansis@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/ansis/-/ansis-1.4.0.tgz#fae2b44b6478be748a5f5e67f185cd9bb885a145"
-  integrity sha512-jaJCg2/68pwinZeW86YBSNv0kNPr3PSog/IqflOVCbqCedSCvrDCBUW1y4V9gcEUDNxrGtVLAkMIivvpsq1VwA==
+ansis@1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/ansis/-/ansis-1.5.2.tgz#c9bada6ff5dd88b0b979ab8df0b51096b9dda4bb"
+  integrity sha512-T3vUABrcgSj/HXv27P+A/JxGk5b/ydx0JjN3lgjBTC2iZUFxQGjh43zCzLSbU4C1QTgmx9oaPeWNJFM+auI8qw==
 
 anymatch@^2.0.0:
   version "2.0.0"
@@ -3626,10 +3626,10 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.23.3.tgz#bcd02d3d8ec68ad871ef50d5ccbb248ddb54f401"
   integrity sha512-XpoouuqIj4P+GWtdyV8ZO3/u4KftkeDVMfvp+308eGMhCrA3lVDSmAxO0c6GGOcmgVlaKDrgWVMo49h2ab/TDA==
 
-core-js@^3.16.2, core-js@^3.25.0, core-js@^3.4.0:
-  version "3.25.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.0.tgz#be71d9e0dd648ffd70c44a7ec2319d039357eceb"
-  integrity sha512-CVU1xvJEfJGhyCpBrzzzU1kjCfgsGUxhEvwUV2e/cOedYWHdmluamx+knDnmhqALddMG16fZvIqvs9aijsHHaA==
+core-js@^3.16.2, core-js@^3.25.1, core-js@^3.4.0:
+  version "3.25.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.25.1.tgz#5818e09de0db8956e16bf10e2a7141e931b7c69c"
+  integrity sha512-sr0FY4lnO1hkQ4gLDr24K0DGnweGO1QwSj5BpfQjpSJPdqWalja4cTps29Y/PJVG/P7FYlPDkH3hO+Tr0CvDgQ==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -9381,10 +9381,10 @@ react-flip-move@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
   integrity sha512-HyUVv9g3t/BS7Yz9HgrtYSWyRNdR2F81nkj+C5iRY675AwlqCLB5JU9mnZWg0cdVz7IM4iquoyZx70vzZv3Z8Q==
 
-react-hook-form@7.34.2:
-  version "7.34.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.34.2.tgz#9ac6d1a309a7c4aaa369d1269357a70e9e9bf4de"
-  integrity sha512-1lYWbEqr0GW7HHUjMScXMidGvV0BE2RJV3ap2BL7G0EJirkqpccTaawbsvBO8GZaB3JjCeFBEbnEWI1P8ZoLRQ==
+react-hook-form@7.35.0:
+  version "7.35.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.35.0.tgz#b133de48fc84b1e62f9277ba79dfbacd9bb13dd3"
+  integrity sha512-9CYdOed+Itbiu5VMVxW0PK9mBR3f0gDGJcZEyUSm0eJbDymQ913TRs2gHcQZZmfTC+rtxyDFRuelMxx/+xwMcw==
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -11223,12 +11223,12 @@ webpack-merge@5, webpack-merge@^5.7.3:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-remove-empty-scripts@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-0.8.4.tgz#83e937f0525b7add253c277e4f0e7e89305c924b"
-  integrity sha512-X9TVQ5mkl00aW33v1EAe4SZVzvz7EEpbXbNNDSUnY6IeePbrnODl7r3HS9Cy2Dq2pvY7FGfqWsL0GO1q2Vq6KA==
+webpack-remove-empty-scripts@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-1.0.0.tgz#34b922994b6d01c040197946e410f1980525a0ad"
+  integrity sha512-uruq44uTDK9qZr7WqhRzONh2Ha5fwyjMvC0SvrLFlQI7v1g3WyCELdHGEaqGW/qWA00spxqcvKF47THI1W1Mlg==
   dependencies:
-    ansis "1.4.0"
+    ansis "1.5.2"
 
 webpack-sources@^1.0.0, webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"
