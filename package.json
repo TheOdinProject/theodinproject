@@ -74,7 +74,7 @@
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
     "webpack-merge": "5",
-    "webpack-remove-empty-scripts": "^0.8.4",
+    "webpack-remove-empty-scripts": "^1.0.0",
     "yup": "^0.32.11"
   },
   "browserslist": [
