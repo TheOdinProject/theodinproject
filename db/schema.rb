@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_080835) do
+ActiveRecord::Schema.define(version: 2022_09_15_061812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,15 +230,10 @@ ActiveRecord::Schema.define(version: 2022_07_06_080835) do
     t.datetime "updated_at", null: false
     t.string "username", limit: 255
     t.text "learning_goal"
-    t.string "confirmation_token", limit: 255
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email", limit: 255
     t.boolean "admin", default: false, null: false
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username"
