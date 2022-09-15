@@ -15,6 +15,6 @@ class UserMailer < ApplicationMailer
   private
 
   def logo_path
-    File.read(Rails.root.join('app/assets/images/logo.svg'))
+    Rails.root.join('app/assets/images/logo.svg').read
   end
 end
