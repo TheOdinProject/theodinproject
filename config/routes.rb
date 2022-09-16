@@ -18,16 +18,13 @@ Rails.application.routes.draw do
     root to: redirect('/dashboard'), as: :authenticated_root
   end
 
-  devise_for :users, controllers: {
-    registrations: 'registrations',
-    omniauth_callbacks: 'omniauth_callbacks',
-  }
+  devise_for :users, module: 'users'
 
   devise_scope :user do
-    get '/login' => 'devise/sessions#new'
-    get '/logout' => 'devise/sessions#destroy', method: :delete
-    get 'sign_up' => 'devise/registrations#new'
-    get 'signup' => 'devise/registrations#new'
+    get '/login' => 'users/sessions#new'
+    get '/logout' => 'users/sessions#destroy', method: :delete
+    get 'sign_up' => 'users/registrations#new'
+    get 'signup' => 'users/registrations#new'
   end
 
   namespace :api do
