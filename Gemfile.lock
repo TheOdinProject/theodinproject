@@ -521,7 +521,7 @@ GEM
     unf_ext (0.0.8.1)
     unicode-display_width (2.2.0)
     vcr (6.1.0)
-    view_component (2.71.0)
+    view_component (2.72.0)
       activesupport (>= 5.0.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -610,7 +610,7 @@ DEPENDENCIES
   sidekiq (~> 6.5)
   simplecov (~> 0.21)
   vcr (~> 6.1)
-  view_component (~> 2.71)
+  view_component (~> 2.72)
   web-console (~> 4.2)
   webmock (~> 3.18)
 
