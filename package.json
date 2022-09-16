@@ -30,7 +30,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.6.0",
-    "browserslist": "^4.21.3",
+    "browserslist": "^4.21.4",
     "compression-webpack-plugin": "10",
     "core-js": "^3.25.1",
     "css-loader": "^6.7.1",
@@ -74,7 +74,7 @@
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
     "webpack-merge": "5",
-    "webpack-remove-empty-scripts": "^0.8.4",
+    "webpack-remove-empty-scripts": "^1.0.0",
     "yup": "^0.32.11"
   },
   "browserslist": [
