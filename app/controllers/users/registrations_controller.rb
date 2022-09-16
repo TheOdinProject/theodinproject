@@ -1,5 +1,5 @@
 # rubocop: disable Rails/LexicallyScopedActionFilter
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   after_action :send_welcome_email, only: [:create]
 
   protected

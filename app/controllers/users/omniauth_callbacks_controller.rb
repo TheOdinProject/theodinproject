@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
     @user = UserProvider.find_user(auth)
 
