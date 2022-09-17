@@ -10,17 +10,17 @@
           <div class="grid grid-cols-6 gap-6 grid-flow-row">
             <div class="col-span-6 sm:col-span-6">
               <%= form.label :email %>
-              <%= form.email_field :email, required: false, class: 'form-input dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+              <%= form.email_field :email, required: false, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
             </div>
 
             <div class="col-span-6 sm:col-span-6">
               <%= form.label :password %>
-              <%= form.password_field :password, required: false, class: 'form-input dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+              <%= form.password_field :password, required: false, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
             </div>
 
             <div class="flex items-center justify-between col-span-6">
               <div class="flex items-center">
-                <%= form.check_box :remember_me, checked: true, class: 'form-checkbox text-teal-600 focus:ring-teal-500' %>
+                <%= form.check_box :remember_me, checked: true, class: 'text-teal-600 focus:ring-teal-500' %>
                 <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0' %>
               </div>
 

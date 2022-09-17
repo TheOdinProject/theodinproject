@@ -12,8 +12,8 @@
     <h3 class="text-3xl font-bold pb-6">Start learning for free</h3>
 
     <%= form_with url: sign_up_path, method: :get do |form| %>
-      <div class="p-1 flex rounded-md bg-white focus-within:ring-2 focus-within:ring-indigo-500 border border-gray-300">
-        <%= form.email_field :email, placeholder: 'Email Address', required: true, class: 'form-input border-none focus:ring-0 w-60 p-2 focus:outline-none bg-white block rounded-none lg:w-80 lg:text-md rounded-l-md' %>
+      <div class="dark-form-input p-1 flex rounded-md bg-white focus-within:ring-2 focus-within:ring-indigo-500 border border-gray-300">
+        <%= form.email_field :email, placeholder: 'Email Address', required: true, class: 'dark-form-input border-none focus:ring-0 w-60 p-2 focus:outline-none bg-white block rounded-none lg:w-80 lg:text-md rounded-l-md' %>
         <%= form.submit 'Get Started!', class: 'button button--primary py-2' %>
       </div>
     <% end %>

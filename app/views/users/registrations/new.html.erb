@@ -10,22 +10,22 @@
         <div class="grid grid-cols-6 gap-6">
           <div class="col-span-6">
             <%= form.label :username %>
-            <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'form-input dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+            <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
           </div>
 
           <div class="col-span-6">
             <%= form.label :email %>
-            <%= form.email_field :email, required: true, value: params[:email], class: 'form-input dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+            <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
           </div>
 
           <div class="col-span-6">
             <%= form.label :password %>
-            <%= form.password_field :password, required: true, class: 'form-input dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+            <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
           </div>
 
           <div class="col-span-6">
             <%= form.label :password_confirmation %>
-            <%= form.password_field :password_confirmation, required: true, class: 'form-input dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+            <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
           </div>
 
           <div class="col-span-6 text-center">
