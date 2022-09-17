@@ -20,7 +20,7 @@ const UrlField = ({ name, label, icon, register, errors, autoFocus, placeholder 
           type="url"
           autoFocus={autoFocus}
           id={name}
-          className={`form-input block w-full pl-10 rounded-md dark-form-input ${styles()}`}
+          className={`block w-full pl-10 rounded-md dark-form-input ${styles()}`}
           placeholder={placeholder}
           data-test-id={`${kebabCase(name)}-field`}
           {...register(name)}

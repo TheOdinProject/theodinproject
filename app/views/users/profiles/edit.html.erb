@@ -25,17 +25,17 @@
 
                 <div class="col-span-6 sm:col-span-3">
                   <%= form.label :username %>
-                  <%= form.text_field :username, class: 'form-input dark-form-input', data: { test_id: 'username-field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+                  <%= form.text_field :username, class: 'dark-form-input', data: { test_id: 'username-field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :email %>
-                  <%= form.email_field :email, class: 'form-input dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+                  <%= form.email_field :email, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
                   <%= form.label :learning_goal %>
-                  <%= form.text_area :learning_goal, class: 'form-textarea dark-form-input', placeholder: 'I wanna be the very best...', rows: 4, data: { test_id: 'learning-goal-field' } %>
+                  <%= form.text_area :learning_goal, class: 'dark-form-input', placeholder: 'I wanna be the very best...', rows: 4, data: { test_id: 'learning-goal-field' } %>
                 </div>
 
                 <div class="col-span-6">

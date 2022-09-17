@@ -23,18 +23,18 @@
               <div class="grid grid-cols-6 gap-6 grid-flow-row">
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :current_password %>
-                  <%= form.password_field :current_password, class: 'form-input dark-form-input', data: { test_id: 'current-password-field', attr: 'form-validation.currentPassword', action: 'blur->form-validation#validate' }
+                  <%= form.password_field :current_password, class: 'dark-form-input', data: { test_id: 'current-password-field', attr: 'form-validation.currentPassword', action: 'blur->form-validation#validate' }
                   %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :password %>
-                  <%= form.password_field :password, class: 'form-input dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+                  <%= form.password_field :password, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :password_confirmation %>
-                  <%= form.password_field :password_confirmation, class: 'form-input dark-form-input', data: { test_id: 'password-confirmation-field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+                  <%= form.password_field :password_confirmation, class: 'dark-form-input', data: { test_id: 'password-confirmation-field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
                 </div>
               </div>
             <% end %>
