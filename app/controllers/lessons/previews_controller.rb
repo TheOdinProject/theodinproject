@@ -6,7 +6,7 @@ module Lessons
       if content.present?
         render json: { content: MarkdownConverter.new(params[:content]).as_html }
       else
-        render json: { content: 'Nothing to preview' }
+        render json: { content: '<p>Nothing to preview</p>' }
       end
     end
 
