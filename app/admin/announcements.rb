@@ -1,5 +1,5 @@
 ActiveAdmin.register Announcement do
-  permit_params :message, :expires_at, :user_id
+  permit_params :message, :expires_at, :user_id, :learn_more_url
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Announcement do
     f.inputs do
       f.input :message
       f.input :expires_at, as: :datepicker
+      f.input :learn_more_url
       f.input :user_id, input_html: { value: f.current_user.id }, as: :hidden
     end
     f.actions

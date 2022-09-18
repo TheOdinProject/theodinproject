@@ -6,8 +6,9 @@ export default class AnnouncementController extends Controller {
     id: Number,
   };
 
-  hide() {
+  dismiss() {
     const expiresAt = new Date(this.expiresAtValue).toUTCString();
     document.cookie = `announcement_${this.idValue}=disabled; expires=${expiresAt}; path=/`;
+    this.element.remove();
   }
 }

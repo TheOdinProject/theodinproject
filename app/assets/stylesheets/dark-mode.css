@@ -202,3 +202,15 @@ pre code {
   color: var(--dark-font-color) !important;
   background-color: var(--dark-bg-accent) !important;
 }
+
+.odin-dark-font-color {
+  color: white !important;
+}
+
+.odin-dark-border {
+  border-color: #4B5563 !important;
+}
+
+.odin-dark-close-button:hover {
+  background-color: #4B5563 !important;
+}
