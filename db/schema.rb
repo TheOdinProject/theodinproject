@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_15_061812) do
+ActiveRecord::Schema.define(version: 2022_09_17_151628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_09_15_061812) do
     t.string "message", limit: 255
     t.datetime "expires_at", null: false
     t.bigint "user_id"
+    t.string "learn_more_url"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 

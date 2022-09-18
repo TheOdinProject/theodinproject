@@ -3,5 +3,6 @@ FactoryBot.define do
     message { 'a message for all users' }
     expires_at { 1.day.from_now }
     user { create(:user) }
+    learn_more_url { 'https://example.com' }
   end
 end
