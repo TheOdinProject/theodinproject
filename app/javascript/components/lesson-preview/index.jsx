@@ -8,8 +8,6 @@ import LessonContentInput from './components/lesson-content-input';
 import LessonContentPreview from './components/lesson-content-preview';
 import axios from '../../src/js/axiosWithCsrf';
 
-import 'react-tabs/style/react-tabs.css';
-
 import { generateLink, encodeContent, decodeContent } from '../../src/js/previewShare';
 
 const LessonPreview = () => {
@@ -56,10 +54,10 @@ const LessonPreview = () => {
   }, [content]);
 
   return (
-    <Tabs>
-      <TabList>
-        <Tab onClick={() => setOnPreviewTab(false)}>Write</Tab>
-        <Tab onClick={fetchLessonPreview}>Preview</Tab>
+    <Tabs selectedTabClassName="text-gray-900 bg-gray-100 hover:bg-gray-200 odin-dark-page-nav-item-active">
+      <TabList className="flex items-center mb-3">
+        <Tab onClick={() => setOnPreviewTab(false)} className="odin-dark-page-nav-item text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer">Write</Tab>
+        <Tab onClick={fetchLessonPreview} className="ml-2 odin-dark-page-nav-item text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer">Preview</Tab>
       </TabList>
 
       <TabPanel>
