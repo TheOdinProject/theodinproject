@@ -1,0 +1,23 @@
+<%= title('Forgot Your Password') %>
+
+<div class="bg-gray-50 h-full odin-dark-bg">
+  <div class="page-container">
+    <h1 class="page-heading-title">Forgot your password?</h1>
+
+    <div class='max-w-xl mx-auto'>
+
+      <%= render CardComponent.new(classes: "odin-dark-bg-accent") do |card| %>
+        <% card.body do %>
+          <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :post } do |form| %>
+            <div class="mb-6">
+              <%= form.label :email, "Whats your email address?" %>
+                <%= form.email_field :email, autofocus: true, required: true, placeholder: 'you@example.com', class: 'dark-form-input' %>
+            </div>
+
+            <%= form.submit 'Send reset link', class: 'button button--primary full-width push-down' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

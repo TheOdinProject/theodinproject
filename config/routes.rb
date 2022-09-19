@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     root to: redirect('/dashboard'), as: :authenticated_root
   end
 
-  devise_for :users, module: 'users'
+  devise_for(
+    :users,
+    module: 'users',
+    controllers: { passwords: 'users/password_resets' },
+    path_names: { password: 'password_reset' }
+  )
 
   devise_scope :user do
     get '/login' => 'users/sessions#new'
