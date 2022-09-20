@@ -9387,10 +9387,10 @@ react-flip-move@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.4.tgz#261f66101fbc305f9b7b28959c5cf8236413ca74"
   integrity sha512-HyUVv9g3t/BS7Yz9HgrtYSWyRNdR2F81nkj+C5iRY675AwlqCLB5JU9mnZWg0cdVz7IM4iquoyZx70vzZv3Z8Q==
 
-react-hook-form@7.35.0:
-  version "7.35.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.35.0.tgz#b133de48fc84b1e62f9277ba79dfbacd9bb13dd3"
-  integrity sha512-9CYdOed+Itbiu5VMVxW0PK9mBR3f0gDGJcZEyUSm0eJbDymQ913TRs2gHcQZZmfTC+rtxyDFRuelMxx/+xwMcw==
+react-hook-form@7.36.0:
+  version "7.36.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.36.0.tgz#27bf64e2a06b994bc64e055b4cc502794b8f6978"
+  integrity sha512-2PmRhTDH90/G1XWbUGpfuFBf7wxj9kYvzPqoZCv4wUGBIfuac0fK3up9sbeoz0ghpLYcFFXRVDKMUXgMutLXTw==
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -9849,10 +9849,10 @@ select-hose@^2.0.0:
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg==
 
-selfsigned@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-2.0.1.tgz#8b2df7fa56bf014d19b6007655fff209c0ef0a56"
-  integrity sha512-LmME957M1zOsUhG+67rAjKfiWFox3SBxE/yymatMZsAx+oMrJ0YQ8AToOnyCm7xbeg2ep37IHLxdu0o2MavQOQ==
+selfsigned@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-2.1.1.tgz#18a7613d714c0cd3385c48af0075abf3f266af61"
+  integrity sha512-GSL3aowiF7wa/WtSFwnUrludWFoNhftq8bUkH9pkzjpN2XSPOAYEgg6e0sS9s0rZwgJzJiQRPU18A6clnoW5wQ==
   dependencies:
     node-forge "^1"
 
@@ -11181,10 +11181,10 @@ webpack-dev-middleware@^5.3.1:
     range-parser "^1.2.1"
     schema-utils "^4.0.0"
 
-webpack-dev-server@^4.11.0:
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-4.11.0.tgz#290ee594765cd8260adfe83b2d18115ea04484e7"
-  integrity sha512-L5S4Q2zT57SK7tazgzjMiSMBdsw+rGYIX27MgPgx7LDhWO0lViPrHKoLS7jo5In06PWYAhlYu3PbyoC6yAThbw==
+webpack-dev-server@^4.11.1:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-4.11.1.tgz#ae07f0d71ca0438cf88446f09029b92ce81380b5"
+  integrity sha512-lILVz9tAUy1zGFwieuaQtYiadImb5M3d+H+L1zDYalYoDl0cksAB1UNyuE5MMWJrG6zR1tXkCP2fitl7yoUJiw==
   dependencies:
     "@types/bonjour" "^3.5.9"
     "@types/connect-history-api-fallback" "^1.3.5"
@@ -11209,7 +11209,7 @@ webpack-dev-server@^4.11.0:
     p-retry "^4.5.0"
     rimraf "^3.0.2"
     schema-utils "^4.0.0"
-    selfsigned "^2.0.1"
+    selfsigned "^2.1.1"
     serve-index "^1.9.1"
     sockjs "^0.3.24"
     spdy "^4.0.2"
@@ -11224,10 +11224,10 @@ webpack-merge@5, webpack-merge@^5.7.3:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
 
-webpack-remove-empty-scripts@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-1.0.0.tgz#34b922994b6d01c040197946e410f1980525a0ad"
-  integrity sha512-uruq44uTDK9qZr7WqhRzONh2Ha5fwyjMvC0SvrLFlQI7v1g3WyCELdHGEaqGW/qWA00spxqcvKF47THI1W1Mlg==
+webpack-remove-empty-scripts@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-remove-empty-scripts/-/webpack-remove-empty-scripts-1.0.1.tgz#5a9790625d3dd81a423dde84fd64db61869457b4"
+  integrity sha512-xYiTgeS2ahqwExL7igmUeUMnZ+CQX7mrRFjSIR83PsEj1U7lM/GVEpzrayJxYTYZEdSTBYtoCCVulUWO9gtLmA==
   dependencies:
     ansis "1.5.2"
 
