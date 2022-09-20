@@ -32,7 +32,7 @@
     "bootstrap": "^4.6.0",
     "browserslist": "^4.21.4",
     "compression-webpack-plugin": "10",
-    "core-js": "^3.25.1",
+    "core-js": "^3.25.2",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.1.0",
     "el-transition": "^0.0.7",
@@ -90,7 +90,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^27.5.1",
-    "webpack-dev-server": "^4.11.0"
+    "webpack-dev-server": "^4.11.1"
   },
   "jest": {
     "clearMocks": true,
