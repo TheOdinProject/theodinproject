@@ -1,55 +1,76 @@
-<%= title('Login') %>
+<%= title('Sign in') %>
 
-<div class="odin-dark-bg">
-  <div class="container tmp-container-spacer">
-    <div class="col-lg-6 col-md-10 offset-lg-3 offset-md-1">
-      <h1 class="page-heading-title">Login</h1>
+<div class="bg-gray-50 h-full odin-dark-bg">
+  <div class="page-container">
 
-      <div class="card-main odin-dark-bg-accent">
-        <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
-          <div class="grid grid-cols-6 gap-6 grid-flow-row">
-            <div class="col-span-6 sm:col-span-6">
-              <%= form.label :email %>
-              <%= form.email_field :email, required: false, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
-            </div>
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+      <span class="block mt-2 text-center text-sm text-gray-600">
+        Or
+        <%= link_to 'sign up for a new account', sign_up_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
+      </span>
+    </div>
 
-            <div class="col-span-6 sm:col-span-6">
-              <%= form.label :password %>
-              <%= form.password_field :password, required: false, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
-            </div>
-
-            <div class="flex items-center justify-between col-span-6">
-              <div class="flex items-center">
-                <%= form.check_box :remember_me, checked: true, class: 'text-teal-600 focus:ring-teal-500' %>
-                <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0' %>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+        <%= card.body do %>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
+            <div class="space-y-6">
+              <div>
+                <%= form.label :email, "Email address" %>
+                <%= form.email_field :email, required: false, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
               </div>
 
-              <div class="text-sm">
-              <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-700 underline hover:text-gray-600 odin-dark-text' %>
+              <div>
+                <%= form.label :password %>
+                <%= form.password_field :password, required: false, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <%= form.check_box :remember_me, checked: true, class: 'text-teal-700 focus:ring-teal-800' %>
+                  <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0' %>
+                </div>
+
+                <div class="text-sm">
+                  <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-600 hover:text-gray-500 underline odin-dark-text' %>
+                </div>
+              </div>
+
+              <div>
+                <%= form.submit 'Sign in', class: 'button button--primary w-full py-2 px-4 text-sm', data: { test_id: 'submit-btn', disable_with: false } %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="mt-6">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="bg-white px-2 text-gray-500 odin-dark-bg-accent odin-dark-text">Or continue with</span>
               </div>
             </div>
           </div>
 
-          <div class="form__button-section">
-            <%= form.submit 'Login', class: 'button button--primary full-width', data: { test_id: 'submit-btn', disable_with: false } %>
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <div>
+              <%= button_to omniauth_authorize_path(resource_name, :github), class: 'button button--clear odin-dark-clear-button w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0', title: "GitHub", data: { test_id: "github-btn" } do %>
+                <span class="sr-only">Sign in with GitHub</span>
+                <%= inline_svg_tag "icons/github.svg", class: "h-5 w-5", aria: true, title: 'GitHub icon' %>
+              <% end %>
+            </div>
+
+            <div>
+              <%= button_to omniauth_authorize_path(resource_name, :google), class: 'button button--clear odin-dark-clear-button w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0', title: "Google", data: { test_id: "google-btn" } do %>
+                <span class="sr-only">Sign in with Google</span>
+                <%= inline_svg_tag "icons/google.svg", class: "h-5 w-5", aria: true, title: 'Google icon' %>
+              <% end %>
+            </div>
           </div>
         <% end %>
-
-        <div class="form-divider text-center">
-          <span class="form-divider__text">OR LOG IN WITH</span>
-        </div>
-
-        <div class="text-center">
-          <%= render "shared/omniauth_buttons" %>
-        </div>
-      </div>
-
-      <%= render 'shared/bottom_cta',
-        button: create_new_account_button,
-        heading: "Haven't signed up yet?",
-        sub_heading: ''
-      %>
-
+      <% end %>
     </div>
   </div>
 </div>
