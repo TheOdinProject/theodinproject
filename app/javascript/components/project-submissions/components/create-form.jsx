@@ -54,7 +54,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
     <div>
       <h1 className="text-center page-heading-title">Upload Your Project</h1>
 
-      <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
+      <form className="p-4" onSubmit={handleSubmit(handleSubmitCallback)}>
         <div className="flex flex-col space-y-4">
           <UrlField
             name="repo_url"
@@ -78,7 +78,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
           )}
         </div>
 
-        <div className="form-section form-section-center pt-8 lg:flex-row lg:justify-center mb-0">
+        <div className="flex flex-col items-center pt-8 lg:flex-row lg:justify-center">
           <Toggle label="MAKE SOLUTION PUBLIC" onClick={handleOnClickToggle} isToggled={isToggled} />
 
           <button
