@@ -107,10 +107,6 @@ a:hover,
   color: var(--dark-font-color) !important;
 }
 
-.form-element-with-icon, .form-icon {
-  color: var( --dark-header-color) !important;
-}
-
 .prose code {
   background-color: var(--dark-code-bg-color);
 }

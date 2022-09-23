@@ -24,7 +24,7 @@ const FlagForm = ({ onSubmit, submission }) => {
     <div>
       <h1 className="text-center page-heading-title">Flag Submission</h1>
 
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="p-4" onSubmit={handleSubmit(onSubmit)}>
         <input type="hidden" value={submission.id} {...register('project_submission_id')} />
         <div className="mb-6">
           <TextArea
@@ -38,7 +38,7 @@ const FlagForm = ({ onSubmit, submission }) => {
           />
         </div>
 
-        <div className="form-section form-section-center">
+        <div className="flex justify-center">
           <button
             disabled={formState.isSubmitting}
             className="button button--primary"

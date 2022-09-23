@@ -59,7 +59,7 @@ const EditForm = ({
     <div data-test-id="edit-form">
       <h1 className="text-center page-heading-title">Edit Your Project</h1>
 
-      <form className="form" onSubmit={handleSubmit(handleSubmitCallback)}>
+      <form className="p-4" onSubmit={handleSubmit(handleSubmitCallback)}>
         <input type="hidden" {...register('id')} value={submission.id} />
         <input type="hidden" {...register('lesson_id')} value={submission.lesson_id} />
 
@@ -86,13 +86,13 @@ const EditForm = ({
           )}
         </div>
 
-        <div className="form-section form-section-center mb-0">
+        <div className="flex flex-col items-center">
           <Toggle label="MAKE SOLUTION PUBLIC" onClick={handleOnClickToggle} isToggled={isToggled} />
 
-          <div className="flex flex-col items-center sm:flex-row sm:justify-center">
+          <div className="flex items-center gap-x-4">
             <button
               type="submit"
-              className="button button--danger sm:mr-2"
+              className="button button--danger"
               onClick={handleDelete}
               data-test-id="delete-btn"
             >
@@ -101,7 +101,7 @@ const EditForm = ({
             <button
               disabled={formState.isSubmitting}
               type="submit"
-              className="button button--primary mt-2 sm:mt-0"
+              className="button button--primary"
               data-test-id="submit-btn"
             >
               Update
