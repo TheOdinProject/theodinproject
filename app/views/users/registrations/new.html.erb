@@ -1,54 +1,67 @@
-<%= title('Sign Up') %>
+<%= title('Sign up') %>
 
+<div class="bg-gray-50 h-full odin-dark-bg">
+  <div class="page-container">
 
-<div class="container tmp-container-spacer">
-  <div class="col-lg-6 col-md-10 offset-lg-3 offset-md-1">
-    <h1 class="page-heading-title">Sign Up for Free</h1>
-
-    <div class="card-main odin-dark-bg-accent">
-      <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
-        <div class="grid grid-cols-6 gap-6">
-          <div class="col-span-6">
-            <%= form.label :username %>
-            <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
-          </div>
-
-          <div class="col-span-6">
-            <%= form.label :email %>
-            <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
-          </div>
-
-          <div class="col-span-6">
-            <%= form.label :password %>
-            <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
-          </div>
-
-          <div class="col-span-6">
-            <%= form.label :password_confirmation %>
-            <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
-          </div>
-
-          <div class="col-span-6 text-center">
-            <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-600 hover:underline text-sm odin-dark-text' %>
-          </div>
-        </div>
-
-        <div class="form__button-section">
-          <%= form.submit 'Sign up', class: 'button button--primary full-width', data: {test_id: 'submit_btn', disable_with: false } %>
-        </div>
-      <% end %>
-
-      <div class="form-divider text-center">
-        <span class="form-divider__text">OR SIGN UP WITH</span>
-      </div>
-
-      <%= render 'shared/omniauth_buttons' %>
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up for free</h2>
+      <span class="block mt-2 text-center text-sm text-gray-600 odin-dark-text">
+        Or
+        <%= link_to 'sign in to your existing account', login_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
+      </span>
     </div>
 
-    <%= render 'shared/bottom_cta',
-      button: login_button,
-      heading: 'Have an account?',
-      sub_heading: ''
-    %>
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+        <%= card.body do %>
+          <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+            <div class="space-y-6">
+              <div>
+                <%= form.label :username %>
+                <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div>
+                <%= form.label :email %>
+                <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div>
+                <%= form.label :password %>
+                <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div>
+                <%= form.label :password_confirmation %>
+                <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div class="text-center">
+                <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-600 hover:underline text-sm odin-dark-text' %>
+              </div>
+
+              <div>
+                <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit_btn', disable_with: false } %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="mt-6">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <span class="bg-white px-2 text-gray-500 odin-dark-bg-accent odin-dark-text">Or continue with</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

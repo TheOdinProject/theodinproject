@@ -5,7 +5,7 @@
 
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
-      <span class="block mt-2 text-center text-sm text-gray-600">
+      <span class="block mt-2 text-center text-sm text-gray-600 odin-dark-text">
         Or
         <%= link_to 'sign up for a new account', sign_up_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
       </span>
@@ -55,19 +55,7 @@
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-3">
-            <div>
-              <%= button_to omniauth_authorize_path(resource_name, :github), class: 'button button--clear odin-dark-clear-button w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0', title: "GitHub", data: { test_id: "github-btn" } do %>
-                <span class="sr-only">Sign in with GitHub</span>
-                <%= inline_svg_tag "icons/github.svg", class: "h-5 w-5", aria: true, title: 'GitHub icon' %>
-              <% end %>
-            </div>
-
-            <div>
-              <%= button_to omniauth_authorize_path(resource_name, :google), class: 'button button--clear odin-dark-clear-button w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0', title: "Google", data: { test_id: "google-btn" } do %>
-                <span class="sr-only">Sign in with Google</span>
-                <%= inline_svg_tag "icons/google.svg", class: "h-5 w-5", aria: true, title: 'Google icon' %>
-              <% end %>
-            </div>
+            <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
           </div>
         <% end %>
       <% end %>
