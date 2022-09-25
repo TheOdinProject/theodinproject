@@ -5,10 +5,14 @@ class ThemesController < ApplicationController
     theme = params[:theme]
 
     if ALLOWED_THEMES.include?(theme)
-      cookies.permanent[:theme] = theme
-      redirect_back(fallback_location: root_path)
+      change_current_theme(theme)
+
+      respond_to do |format|
+        format.html { redirect_back(fallback_location: root_path) }
+        format.turbo_stream
+      end
     else
-      redirect_back(fallback_location: root_path, alert: 'Sorry, that theme is not allowed.')
+      redirect_back(fallback_location: root_path, alert: 'Sorry, that theme is not allowed.', status: :see_other)
     end
   end
 end

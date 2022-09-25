@@ -1,15 +1,13 @@
-<% if mobile %>
-  <%= link_to themes_path(theme: other_theme), method: :put,  class: "odin-dark-nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium" do %>
-    <%= inline_svg_tag "icons/#{icon}.svg", class: "odin-dark-nav-item text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6", aria: true, title: "#{text} icon" %>
-    <%= text %>
-  <% end %>
-<% elsif icon_only %>
-  <%= link_to themes_path(theme: other_theme), method: :put, class: 'odin-dark-nav-item text-gray-700 group flex items-center px-3 py-2 text-sm' do %>
-    <%= inline_svg_tag "icons/#{icon}.svg", class: 'odin-dark-nav-item mr-3 h-5 w-5 text-gray-500 group-hover:text-gray-700', aria: true, title: 'theme icon' %>
-  <% end %>
-<% else %>
-  <%= link_to themes_path(theme: other_theme), method: :put, class: 'odin-dark-nav-item text-gray-700 group flex items-center px-3 py-2 text-sm' do %>
-    <%= inline_svg_tag "icons/#{icon}.svg", class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500', aria: true, title: 'theme icon' %>
-    <%= text %>
-  <% end %>
+<%= link_to(
+  themes_path(theme: other_theme.name),
+  class: "odin-dark-nav-item #{yass(link: type)}",
+  data: {
+    turbo: "true",
+    'turbo-method' => :put,
+    "turbo-frame" => "_top",
+  }
+) do %>
+  <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: "odin-dark-nav-item #{yass(icon: type)}", aria: true, title: 'theme icon' %>
+  <%= text unless icon_only? %>
 <% end %>
+

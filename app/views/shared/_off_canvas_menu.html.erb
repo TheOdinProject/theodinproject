@@ -53,7 +53,7 @@
 
       <div class="flex-1 h-0 pt-3 pb-4 overflow-y-auto">
         <div class="flex-shrink-0 flex items-center px-4">
-          <%= render LogoComponent.new(theme: cookies[:theme], classes: 'h-15 w-auto') %>
+          <%= render LogoComponent.new(classes: 'h-15 w-auto') %>
         </div>
         <nav aria-label="Sidebar" class="mt-3">
           <div class="px-2 space-y-1">
@@ -73,11 +73,15 @@
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
               <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
-               <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], mobile: true) %>
+               <%= turbo_frame_tag "theme_switcher_mobile" do %>
+                <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+              <% end %>
               <%= render Nav::ItemComponent.new(path: logout_path, text: 'Log out', test_id: 'nav-logout', icon_path: 'icons/logout.svg', mobile: true) %>
             <% else %>
               <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-signup', icon_path: 'icons/rocket.svg', mobile: true) %>
-               <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], mobile: true) %>
+              <%= turbo_frame_tag "theme_switcher_mobile" do %>
+                <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+              <% end %>
               <%= render Nav::ItemComponent.new(path: login_path, text: 'Log in', test_id: 'nav-login', icon_path: 'icons/log-in.svg', mobile: true) %>
             <% end %>
           </div>

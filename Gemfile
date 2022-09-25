@@ -42,6 +42,7 @@ gem 'sentry-ruby', '~> 5.4'
 gem 'sentry-sidekiq', '~> 5.4'
 gem 'shakapacker', '6.5.2'
 gem 'sidekiq', '~> 6.5'
+gem 'turbo-rails', '~> 1.3'
 gem 'view_component', '~> 2.72'
 
 group :development do
@@ -79,3 +80,6 @@ end
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+
+# Use Redis for Action Cable
+gem 'redis', '~> 4.0'

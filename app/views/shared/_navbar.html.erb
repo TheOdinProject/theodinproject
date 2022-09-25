@@ -6,10 +6,10 @@
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
           <%= link_to root_path, class: 'logo' do %>
-            <%= image_tag 'icons/odin-icon.svg' , alt: "Odin Logo" , class: 'block lg:hidden h-15 w-auto text-red-500' %>
+            <%= image_tag 'icons/odin-icon.svg' , alt: "Odin Logo" , class: 'block lg:hidden h-15 w-auto' %>
           <% end %>
 
-          <%= render LogoComponent.new(theme: cookies[:theme], classes: 'hidden lg:block h-15 w-auto') %>
+          <%= render LogoComponent.new(classes: 'hidden lg:block h-15 w-auto') %>
         </div>
 
       </div>
@@ -29,7 +29,7 @@
             <%= inline_svg_tag "icons/bell.svg", class: "h-6 w-6", aria: true, title: "Notifications icon" %>
           <% end %>
 
-          <%= render User::ProfileDropdownComponent.new(current_user: current_user, theme: cookies[:theme]) %>
+          <%= render User::ProfileDropdownComponent.new(current_user: current_user) %>
         <% else %>
           <div class="hidden md:ml-6 md:flex sm:space-x-8">
           <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
@@ -37,7 +37,9 @@
           <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
           <%= render Nav::ItemComponent.new(path: login_path, text: 'Log In', test_id: 'nav-login') %>
           <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4', data: { test_id: 'nav-signup' } %>
-          <%= render Theme::SwitcherComponent.new(theme: cookies[:theme], icon_only: true) %>
+          <%= turbo_frame_tag "theme_switcher" do %>
+            <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :icon_only) %>
+          <% end %>
         </div>
 
         <% end %>

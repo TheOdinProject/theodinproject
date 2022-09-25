@@ -1,10 +1,13 @@
 class User::ProfileDropdownComponent < ViewComponent::Base
-  def initialize(current_user:, theme:)
+  include Turbo::FramesHelper
+
+  delegate :current_theme, to: :helpers
+
+  def initialize(current_user:)
     @current_user = current_user
-    @theme = theme
   end
 
   private
 
-  attr_reader :current_user, :theme
+  attr_reader :current_user
 end

@@ -25,7 +25,9 @@
       Settings
     <% end %>
 
-    <%= render Theme::SwitcherComponent.new(theme: theme) %>
+    <%= turbo_frame_tag "theme_switcher" do %>
+      <%= render Theme::SwitcherComponent.new(current_theme: current_theme) %>
+    <% end %>
 
     <%= link_to logout_path, class: "odin-dark-nav-item text-gray-700 group flex items-center px-3 py-2 text-sm" do %>
       <%= inline_svg_tag 'icons/logout.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500', aria: true, title: 'settings icon' %>

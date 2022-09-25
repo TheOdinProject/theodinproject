@@ -18,6 +18,7 @@
     "@hookform/resolvers": "2.9.8",
     "@hotwired/stimulus": "^3.1.0",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
+    "@hotwired/turbo-rails": "^7.2.0",
     "@rails/ujs": "^7.0.4",
     "@rails/webpacker": "5.4.3",
     "@sentry/browser": "^7.13.0",

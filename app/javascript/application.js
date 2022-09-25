@@ -28,6 +28,7 @@ import './src/js/axiosWithCsrf';
 import './src/js/bootstrapScripts';
 
 import 'controllers';
+import { Turbo } from '@hotwired/turbo-rails';
 
 Rails.start();
 
@@ -35,3 +36,5 @@ const componentRequireContext = require.context('./components', true);
 const ReactRailsUJS = require('react_ujs');
 
 ReactRailsUJS.useContext(componentRequireContext);
+
+Turbo.session.drive = false;

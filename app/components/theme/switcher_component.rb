@@ -1,25 +1,28 @@
 class Theme::SwitcherComponent < ViewComponent::Base
-  def initialize(theme:, mobile: false, icon_only: false)
-    @theme = theme
-    @mobile = mobile
-    @icon_only = icon_only
-  end
+  include Classy::Yaml::ComponentHelpers
 
-  def dark_mode?
-    theme == 'dark'
-  end
-
-  def icon
-    dark_mode? ? 'sun' : 'moon'
+  def initialize(current_theme:, type: :default)
+    @current_theme = current_theme
+    @type = type
   end
 
   def text
-    dark_mode? ? 'Light Mode' : 'Dark Mode'
+    "#{current_theme.name.capitalize} mode"
   end
 
   def other_theme
-    dark_mode? ? 'light' : 'dark'
+    Users::Theme.all.find { |other_theme| other_theme.name != current_theme.name }
   end
 
-  attr_reader :theme, :mobile, :icon_only
+  def icon_only?
+    type == :icon_only
+  end
+
+  def mobile?
+    type == :mobile
+  end
+
+  private
+
+  attr_reader :current_theme, :type
 end
