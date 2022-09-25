@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Theme::SwitcherComponent, type: :component do
   context 'when dark mode is enabled' do
     it 'renders the light mode button' do
-      component = described_class.new(theme: 'dark')
+      component = described_class.new(current_theme: Users::Theme.for('dark'))
 
       render_inline(component)
 
@@ -13,7 +13,7 @@ RSpec.describe Theme::SwitcherComponent, type: :component do
 
   context 'when dark mode is not enabled' do
     it 'renders the dark mode button' do
-      component = described_class.new(theme: 'light')
+      component = described_class.new(current_theme: Users::Theme.for('light'))
 
       render_inline(component)
 

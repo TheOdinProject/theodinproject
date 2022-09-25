@@ -1,0 +1,13 @@
+<%= turbo_stream.update "theme_switcher"  do %>
+  <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: current_user ? :default : :icon_only) %>
+<% end %>
+
+<%= turbo_stream.update "theme_switcher_mobile" do %>
+  <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+<% end %>
+
+<%= turbo_stream.update "dark_mode_style_styles" do %>
+  <%= render 'layouts/dark_mode_styles', theme: current_theme %>
+<% end %>
+
+
