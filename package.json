@@ -35,7 +35,7 @@
     "compression-webpack-plugin": "10",
     "core-js": "^3.25.3",
     "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^4.1.0",
+    "css-minimizer-webpack-plugin": "^4.2.0",
     "el-transition": "^0.0.7",
     "hint.css": "^2.7.0",
     "humps": "^2.0.1",
