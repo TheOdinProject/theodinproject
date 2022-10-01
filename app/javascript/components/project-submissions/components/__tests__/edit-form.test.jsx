@@ -40,7 +40,7 @@ describe('EditForm', () => {
     test('validates repo_url', async () => {
       await act(async () => {
         fireEvent.change(screen.getByPlaceholderText(/github.com/i), {
-          target: { value: 'idk' },
+          target: { value: 'htt://not-a-url' },
         });
 
         fireEvent.click(screen.getByRole('button', { name: 'Update' }));
@@ -52,7 +52,7 @@ describe('EditForm', () => {
     test('validates live_preview_url', async () => {
       await act(async () => {
         fireEvent.change(screen.getByPlaceholderText(/www.example.com/i), {
-          target: { value: 'idk' },
+          target: { value: 'htt://not-a-url' },
         });
 
         fireEvent.click(screen.getByRole('button', { name: 'Update' }));
