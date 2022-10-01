@@ -70,7 +70,6 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "terser-webpack-plugin": "5",
-    "validate.js": "^0.13.1",
     "webpack": "5",
     "webpack-assets-manifest": "5",
     "webpack-cli": "4",
