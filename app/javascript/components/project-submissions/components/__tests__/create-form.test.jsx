@@ -65,7 +65,7 @@ describe('CreateForm', () => {
           ,
         </ProjectSubmissionContext.Provider>,
       );
-        
+
       await act(async () => {
         const repoUrlInput = screen.getByTestId('repo-url-field');
         const livePreviewUrlInput = screen.getByTestId('live-preview-url-field');
@@ -140,7 +140,7 @@ describe('CreateForm', () => {
       await act(async () => {
         const repoUrlInput = screen.getByTestId('repo-url-field');
 
-        fireEvent.change(repoUrlInput, { target: { value: 'not-a-url' } });
+        fireEvent.change(repoUrlInput, { target: { value: 'htt://not-a-url' } });
         fireEvent.click(screen.getByTestId('submit-btn'));
       });
 
@@ -152,7 +152,7 @@ describe('CreateForm', () => {
       await act(async () => {
         const livePreviewUrlInput = screen.getByTestId('live-preview-url-field');
 
-        fireEvent.change(livePreviewUrlInput, { target: { value: 'not a url' } });
+        fireEvent.change(livePreviewUrlInput, { target: { value: 'htt://not-a-url' } });
         fireEvent.click(screen.getByTestId('submit-btn'));
       });
 
