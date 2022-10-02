@@ -11,6 +11,10 @@
     @apply bg-gray-200;
   }
 
+  .lesson-content__panel pre code {
+    @apply bg-transparent;
+  }
+
   .lesson-note {
     @apply bg-gray-50 p-4 border-l-4 border-gold;
   }
