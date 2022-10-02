@@ -7,7 +7,7 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 export default class ProgressController extends Controller {
   static targets = ['percentage', 'progressCircle', 'loading'];
 
-  static classes = ['loaded'];
+  static classes = ['loading'];
 
   static values = {
     url: String,
@@ -33,7 +33,7 @@ export default class ProgressController extends Controller {
       this.loadingValue = false;
       this.percentValue = percentage;
       this.percentageTarget.textContent = `${percentage}% Complete`;
-      this.percentageTarget.classList.add(this.loadedClass);
+      this.percentageTarget.classList.remove(this.loadingClass);
     });
   }
 
