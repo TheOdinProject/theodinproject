@@ -44,6 +44,6 @@
   }
 
   .toc-item-active {
-    @apply text-blue-gray-800 bg-blue-gray-100 border-l-2 border-gold;
+    @apply text-slate-800 bg-slate-100 border-l-2 border-gold;
   }
 }

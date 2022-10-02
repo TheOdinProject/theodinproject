@@ -3,7 +3,6 @@
     ["prismjs", {
         "languages": ["ruby", "javascript", "css", "markup", "sql", "erb", "jsx"],
         "plugins": ["line-numbers"],
-        "theme": "tomorrow",
         "css": true
     }]
   ]
