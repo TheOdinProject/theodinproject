@@ -1,16 +1,30 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  darkMode: 'class', // or 'media' or 'class'
+  content: [
+    './app/**/*.html.erb',
+    './app/components/*.html.erb',
+    './app/components/*.rb',
+    './app/javascript/components/**/*.jsx',
+    'app/assets/images/icons/*.svg',
+    './config/utility_classes.yml',
+    './app/components/**/*.yml',
+    './app/builders/**/*.rb',
+  ],
+  safelist: [
+    'lesson-note',
+    'lesson-content__panel',
+    'anchor-link',
+    'toc-item-active'
+  ],
   theme: {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.blue-gray.600'),
             code: {
               color: theme('colors.pink'),
-              backgroundColor: theme('colors.gray.100'),
+              backgroundColor: theme('colors.slate.100'),
               padding: '3px',
               'font-weight': 'normal',
               '&:before': {
@@ -23,9 +37,12 @@ module.exports = {
             h3: {
               width: 'fit-content',
               a: {
-                color: '#0f172a',
+                color: theme('colors.slate.800'),
                 'text-decoration': 'none',
                 'font-weight': '600',
+                '&:hover': {
+                  color: theme('colors.slate.800'),
+                }
               },
             },
             details: {
@@ -33,14 +50,13 @@ module.exports = {
                 'font-size': '1.25rem',
                 'margin-bottom': '1.25rem',
                 'font-weight': '600',
+                'cursor': 'pointer',
               },
             }
           },
         },
       }),
       colors: {
-        teal:  colors.teal,
-        'blue-gray': colors.blueGray,
         transitionProperty: {
           'stroke-dashoffset': 'stroke-dashoffset'
         },
@@ -75,26 +91,6 @@ module.exports = {
       padding: {
         '2px': '2px',
       },
-    },
-  },
-  purge: {
-    content: [
-      "./app/**/*.html.erb",
-      "./app/components/*.html.erb",
-      "./app/components/*.rb",
-      "./app/javascript/components/**/*.jsx",
-      "app/assets/images/icons/*svg",
-      "./config/utility_classes.yml",
-      "./app/components/**/*.yml",
-      "./app/builders/**/*.rb",
-    ],
-    options: {
-      safelist: ['lesson-note', 'lesson-content__panel', 'anchor-link', 'toc-item-active'],
-    }
-  },
-  variants: {
-    extend: {
-      fontWeight: ['hover', 'focus'],
     },
   },
   corePlugins: {
