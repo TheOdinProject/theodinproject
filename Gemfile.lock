@@ -290,10 +290,8 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.2.3)
-    net-imap (0.2.3)
-      digest
+    net-imap (0.3.1)
       net-protocol
-      strscan
     net-pop (0.1.1)
       digest
       net-protocol
@@ -509,11 +507,10 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     statsd-ruby (1.5.0)
-    strscan (3.0.1)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    timeout (0.2.0)
+    timeout (0.3.0)
     turbo-rails (1.3.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
