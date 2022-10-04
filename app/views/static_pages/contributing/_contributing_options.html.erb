@@ -1,7 +1,7 @@
 <div>
   <h3 class="text-center font-bold text-xl mb-8">There are two main ways you can contribute:</h3>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <% contributions = t('ways_to_contribute') %>
+    <% contributions = t('.ways_to_contribute') %>
     <% contributions.each do |contribution| %>
       <%= render CardComponent.new(classes: "odin-dark-bg-accent mb-8 py-8 px-4 flex flex-col flex-between h-full") do |card| %>
         <% card.header do %>

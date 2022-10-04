@@ -8,7 +8,7 @@
     </p>
 
     <div class="grid grid-cols-12 gap-6">
-      <% members = t('hall_of_fame') %>
+      <% members = t('.members') %>
       <% members.each do |member| %>
         <div class="col-span-4 sm:col-span-3 md:col-span-2">
           <%= link_to(member[:github_url], target: "_blank", rel: "noreferrer") do %>
