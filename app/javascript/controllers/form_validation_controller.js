@@ -38,6 +38,8 @@ export default class FormValidation extends ValidationController {
     if (this.errors.has(attr)) {
       FormValidation.applyErrorStylesTo(el);
       FormValidation.errorMessageEl(el).textContent = this.errorMessage(attr);
+    } else {
+      FormValidation.removeError(el);
     }
   }
 
@@ -59,6 +61,26 @@ export default class FormValidation extends ValidationController {
       'placeholder-red-300',
       'focus:ring-red-500',
       'focus:border-red-500',
+    );
+  }
+
+  static removeError(el) {
+    const errorField = el.parentElement.nextElementSibling;
+    errorField.classList.add('hidden');
+    errorField.textContent = '';
+    el.classList.remove(...el.classList);
+    el.classList.add(
+      'block',
+      'w-full',
+      'border',
+      'rounded-md',
+      'py-2',
+      'px-3',
+      'focus:outline-none',
+      'border-gray-300',
+      'focus:ring-blue-600',
+      'focus:border-blue-600',
+      'dark-form-input',
     );
   }
 }

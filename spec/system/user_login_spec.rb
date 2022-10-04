@@ -30,6 +30,19 @@ RSpec.describe 'User login', type: :system do
 
         expect(page).to have_content('is not a valid email')
       end
+
+      it 'removes the message once a user fixes their email address' do
+        visit root_path
+
+        find(:test_id, 'nav-login').click
+
+        find(:test_id, 'email-field').fill_in with: 'aaaaa'
+        expect(page).to have_content('is not a valid email')
+
+        find(:test_id, 'email-field').fill_in with: user.email
+        find(:test_id, 'password-field').click
+        expect(page).not_to have_content('is not a valid email')
+      end
     end
 
     context 'with a password less than 6 characters' do
