@@ -53,7 +53,7 @@ export default class FormValidation extends ValidationController {
 
   static errorMessageEl(el) {
     const errorField = el.parentElement.nextElementSibling;
-    errorField.classList.toggle('hidden');
+    errorField.classList.remove('hidden');
 
     return errorField;
   }
@@ -68,7 +68,7 @@ export default class FormValidation extends ValidationController {
 
   static removeError(el) {
     const errorField = el.parentElement.nextElementSibling;
-    errorField.classList.toggle('hidden');
+    errorField.classList.add('hidden');
     errorField.textContent = '';
     el.classList.remove(...invalidFieldClasses);
   }
