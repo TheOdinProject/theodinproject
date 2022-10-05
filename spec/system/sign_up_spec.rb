@@ -21,7 +21,7 @@ RSpec.describe 'Sign Up', type: :system do
   end
 
   context 'when invalid' do
-    it 'validates the sign in fields' do
+    it 'validates the sign up fields' do
       find(:test_id, 'username_field').fill_in(with: 'c')
       find(:test_id, 'email_field').fill_in(with: 'codesquad64@')
       find(:test_id, 'password_field').fill_in(with: 'partyparrot128')
@@ -32,6 +32,15 @@ RSpec.describe 'Sign Up', type: :system do
       expect(page).to have_content('is not a valid email')
       expect(page).to have_content('The passwords do not match')
       expect(page).to have_current_path(sign_up_path)
+    end
+
+    it 're-validates sign up fields and updates UI' do
+      find(:test_id, 'email_field').fill_in(with: 'codesquad64@')
+      expect(page).to have_content('is not a valid email')
+
+      find(:test_id, 'email_field').fill_in(with: 'codesquad64@example.com')
+      find(:test_id, 'username_field').fill_in(with: 'needtotriggerblur')
+      expect(page).not_to have_content('is not a valid email')
     end
   end
 

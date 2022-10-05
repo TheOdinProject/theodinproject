@@ -47,6 +47,19 @@ RSpec.describe 'User Profile', type: :system do
         expect(page).to have_content('is not a valid email')
         expect(page).to have_content('is too short (minimum is 4 characters)')
       end
+
+      it 're-validates and removes the error once a field is corrected' do
+        find(:test_id, 'username-field').fill_in(with: 'zz')
+        find(:test_id, 'email-field').fill_in(with: 'zz')
+        find(:test_id, 'save-profile-btn').click
+
+        expect(page).to have_content('is not a valid email')
+
+        find(:test_id, 'email-field').fill_in(with: 'valid@example.com')
+        find(:test_id, 'save-profile-btn').click
+
+        expect(page).not_to have_content('is not a valid email')
+      end
     end
   end
 
