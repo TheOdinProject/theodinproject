@@ -5,11 +5,15 @@
     <div class= 'col-span-12 md:col-span-8 md:col-start-3'>
       <h1 class="page-heading-title">Dashboard</h1>
 
-      <div class="card-main profile-card">
-        <%= render User::AvatarComponent.new(current_user: current_user, classes: ' w-24') %>
-        <h2 class="profile-card__username text-2xl pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
-        <p class="profile-card__learning-goal" data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
-      </div>
+      <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+        <% card.body do %>
+          <div class="flex items-center">
+            <%= render User::AvatarComponent.new(current_user: current_user, classes: ' w-24') %>
+            <h2 class="basis-3/5 text-2xl pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
+            <p data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
+          </div>
+        <% end %>
+      <% end %>
 
       <div class="skills">
         <div class="skills__header">
