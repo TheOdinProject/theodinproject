@@ -33,19 +33,19 @@ en:
   static_pages:
     about:
         beliefs:
-        - short_text: Education should be free and accessible
+        - title: Education should be free and accessible
           description: This curriculum itself is free and we tried to link to resources that are themselves free so anyone in the world can use them.
           image_path: about_page/img-education.svg
           image_alt: book icon
-        - short_text: You learn best by actually building
+        - title: You learn best by actually building
           description: The Odin Project curriculum is full of projects that will help you build a strong portfolio of work on GitHub to fill out your resume.
           image_path: about_page/img-build.svg
           image_alt: keyboard icon
-        - short_text: Motivation is fueled by working with others
+        - title: Motivation is fueled by working with others
           description: We're committed to connecting students together so they can stay motivated and learn faster.
           image_path: about_page/img-people.svg
           image_alt: people icon
-        - short_text: Open source is best
+        - title: Open source is best
           description: Our curriculum and website are available on GitHub and we encourage students to actually contribute to the project itself!
           image_path: about_page/img-opensource.svg
           image_alt: open source icon
