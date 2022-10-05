@@ -3,6 +3,14 @@ import { Application } from 'stimulus';
 /* eslint-enable */
 import { ValidationController } from 'stimulus-validation';
 
+const invalidFieldClasses = [
+  'border-red-300',
+  'text-red-900',
+  'placeholder-red-300',
+  'focus:ring-red-500',
+  'focus:border-red-500',
+];
+
 export default class FormValidation extends ValidationController {
   static rules = {
     email: { email: { message: '^is not a valid email' } },
@@ -55,33 +63,14 @@ export default class FormValidation extends ValidationController {
   }
 
   static applyErrorStylesTo(el) {
-    el.classList.add(
-      'border-red-300',
-      'text-red-900',
-      'placeholder-red-300',
-      'focus:ring-red-500',
-      'focus:border-red-500',
-    );
+    el.classList.add(...invalidFieldClasses);
   }
 
   static removeError(el) {
     const errorField = el.parentElement.nextElementSibling;
     errorField.classList.add('hidden');
     errorField.textContent = '';
-    el.classList.remove(...el.classList);
-    el.classList.add(
-      'block',
-      'w-full',
-      'border',
-      'rounded-md',
-      'py-2',
-      'px-3',
-      'focus:outline-none',
-      'border-gray-300',
-      'focus:ring-blue-600',
-      'focus:border-blue-600',
-      'dark-form-input',
-    );
+    el.classList.remove(...invalidFieldClasses);
   }
 }
 
