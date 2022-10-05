@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html style="background-color: <%= params.dig(:lookbook, :display, :bg_color) || 'white' %>">
+  <head>
+    <title>
+      Component Previews
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application_stylesheet', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+  </head>
+  <body style="padding: 20px">
+    <div style="
+    margin-left: auto;
+    margin-right: auto;
+    max-width: <%= params.dig(:lookbook, :display, :max_width) || '100%' %>
+  ">
+      <%= yield %>
+      <%= render 'shared/ga' %>
+    </div>
+</html>

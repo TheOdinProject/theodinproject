@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  if Rails.env.development?
+    mount Lookbook::Engine, at: '/lookbook'
+  end
+
   resource :github_webhooks, only: :create, defaults: { formats: :json }
 
   unauthenticated do

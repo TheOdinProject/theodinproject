@@ -46,6 +46,7 @@ gem 'view_component', '~> 2.74'
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
+  gem 'lookbook', '~> 1.1.0'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.36', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
