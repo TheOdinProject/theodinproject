@@ -82,4 +82,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Settings for view component previews https://viewcomponent.org/guide/previews.html
+  config.view_component.preview_paths << Rails.root.join('spec/components/previews')
+  config.view_component.default_preview_layout = 'component_preview'
 end
