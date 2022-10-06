@@ -10,6 +10,20 @@ RSpec.describe Users::Theme do
     end
   end
 
+  describe '.exists?' do
+    context 'when the theme exists' do
+      it 'returns true' do
+        expect(described_class.exists?('light')).to be true
+      end
+    end
+
+    context 'when the theme does not exist' do
+      it 'returns false' do
+        expect(described_class.exists?('foo')).to be false
+      end
+    end
+  end
+
   describe '.for' do
     it 'returns the theme for the given name' do
       expect(described_class.for('dark')).to have_attributes(name: 'dark', icon: 'moon')
