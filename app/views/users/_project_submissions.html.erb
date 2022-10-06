@@ -1,5 +1,5 @@
-<div class="user-project-submissions">
-  <h2 class="user-project-submissions__title text-2xl">Project Submissions</h2>
+<div class="mb-12">
+  <h2 class="font-bold text-gray-500 text-2xl text-center mb-8">Project Submissions</h2>
 
   <% if project_submissions.any? %>
     <%= react_component(
@@ -10,6 +10,6 @@
         }
     ) %>
   <% else %>
-    <h3 class="user-project-submissions__blank-slate-message text-xl">No submissions yet</h3>
+    <h3 class="text-gray-500 text-center text-xl">No submissions yet</h3>
   <% end %>
 </div>
