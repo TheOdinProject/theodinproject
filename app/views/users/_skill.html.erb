@@ -1,6 +1,6 @@
-<div class="skill justify-between flex-col text-center md:flex-row md:text-left">
+<div class="flex items-center justify-between flex-col text-center md:flex-row md:text-left text-gray-500 pb-7 mb-7 border-b">
   <div class="flex items-center flex-col md:flex-row">
-    <div class='skill__image'>
+    <div class='mb-4 pr-0 md:pr-6'>
       <%= render Progress::BadgeComponent.new(
         course: course,
         current_user: current_user,
@@ -9,11 +9,11 @@
       )%>
     </div>
 
-    <div class="skill__details">
-      <%= link_to path_course_url(course.path, course), class: 'skill__link' do %>
-        <h3 class="skill__title text-xl"><%= course.title %></h3>
+    <div>
+      <%= link_to path_course_url(course.path, course) do %>
+        <h3 class="font-bold text-gray-500 text-xl mb-0"><%= course.title %></h3>
       <% end %>
-      <span class="skill__sub-title"><%= course.lessons.size %> lessons</span>
+      <span class="text-xs uppercase"><%= course.lessons.size %> lessons</span>
     </div>
   </div>
 
