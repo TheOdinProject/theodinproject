@@ -21,7 +21,7 @@ RSpec.describe 'User Reset Progress', type: :system do
 
   it 'resets progress' do
     expect(user.lesson_completions.count).to eq(2)
-    within(find_by_id('skills')) do
+    within(find(:test_id, 'skills')) do
       expect(find(:test_id, 'progress-badge')).to have_text('100%')
       expect(find(:test_id, 'rails-open-btn')).to have_text('Open')
     end
@@ -33,14 +33,14 @@ RSpec.describe 'User Reset Progress', type: :system do
     visit dashboard_path
 
     expect(user.lesson_completions.count).to eq(0)
-    within(find_by_id('skills')) do
+    within(find(:test_id, 'skills')) do
       expect(find(:test_id, 'default-badge')).to have_text('')
       expect(find(:test_id, 'foundations-start-btn')).to have_text('Start')
     end
   end
 
   it 'resets to the default path' do
-    within(find_by_id('skills')) do
+    within(find(:test_id, 'skills')) do
       expect(page).to have_content(rails_course.title)
     end
 
@@ -51,7 +51,7 @@ RSpec.describe 'User Reset Progress', type: :system do
     visit dashboard_path
 
     expect(user.reload.path).not_to eq(rails_path)
-    within(find_by_id('skills')) do
+    within(find(:test_id, 'skills')) do
       expect(page).to have_content(foundation_course.title)
     end
   end
