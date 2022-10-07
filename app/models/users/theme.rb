@@ -11,6 +11,10 @@ module Users
       DEFAULT_THEMES.map { |name, icon| new(name:, icon:) }
     end
 
+    def self.exists?(theme)
+      all.map(&:name).include?(theme)
+    end
+
     def self.for(value)
       all.find { |theme| theme.name == value }
     end
