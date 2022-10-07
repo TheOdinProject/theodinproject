@@ -16,31 +16,31 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // Fire an event whenever someone tries to sign in the standard way
-  document.querySelector('input[value="Login"]')?.addEventListener('click', (e) => {
-    _gaq.push(['_trackEvent', 'signin_buttons', 'click_normal_signin_button', 'signin_button', 1]);
+  document.querySelector('input[value="Sign in"]')?.addEventListener('click', (e) => {
+    _gaq.push(['_trackEvent', 'sign-in_buttons', 'click_normal_sign-in_button', 'sign-in_button', 1]);
   });
 
   // Fire an event whenever someone tries to sign up else sign in with Github by clicking the Github button
-  document.querySelector('.button--github')?.addEventListener('click', () => {
+  document.querySelector('[data-test-id="github-btn"]')?.addEventListener('click', () => {
     if (window.location.pathname === '/sign_up') {
-      _gaq.push(['_trackEvent', 'signup_buttons', 'click_github_signup button', 'github_signup_button', 1]);
-    } else if (window.location.pathname === '/login') {
-      _gaq.push(['_trackEvent', 'signin_buttons', 'click_github_signin_button', 'github_signin_button', 1]);
+      _gaq.push(['_trackEvent', 'sign-up_buttons', 'click_github_sign-up button', 'github_sign-up_button', 1]);
+    } else if (window.location.pathname === '/sign_in') {
+      _gaq.push(['_trackEvent', 'sign-in_buttons', 'click_github_sign-in_button', 'github_sign-in_button', 1]);
     }
   });
 
   // Fire an event whenever someone tries to sign up else sign in with Google by clicking the Google button
-  document.querySelector('.button--google')?.addEventListener('click', () => {
+  document.querySelector('[data-test-id="google-btn"]')?.addEventListener('click', () => {
     if (window.location.pathname === '/sign_up') {
-      _gaq.push(['_trackEvent', 'signup_buttons', 'click_google_signup button', 'google_signup_button', 1]);
-    } else if (window.location.pathname === '/login') {
-      _gaq.push(['_trackEvent', 'signin_buttons', 'click_google_signin_button', 'google_signin_button', 1]);
+      _gaq.push(['_trackEvent', 'sign-up_buttons', 'click_google_sign-up button', 'google_sign-up_button', 1]);
+    } else if (window.location.pathname === '/sign_in') {
+      _gaq.push(['_trackEvent', 'sign-in_buttons', 'click_google_sign-in_button', 'google_sign-in_button', 1]);
     }
   });
 
   // Fire an event whenever someone clicks the normal sign up button (e.g. not step 2 of the github flow)
   document.querySelector('input[value="Sign up"]')?.addEventListener('click', () => {
-    _gaq.push(['_trackEvent', 'signup_buttons', 'sign_up', 'main_signup_button', 1]);
+    _gaq.push(['_trackEvent', 'sign-up_buttons', 'sign_up', 'main_sign-up_button', 1]);
   });
 
   // Fire an event whenever an ad is clicked
@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fire an event when a lesson is marked either complete or incomplete  
+  // Fire an event when a lesson is marked either complete or incomplete
   document.querySelectorAll('[data-complete-button-is-completed-value]').forEach((complete) => {
     complete.addEventListener('click', () => {
       if (complete.dataset.completeButtonIsCompletedValue === 'true') {

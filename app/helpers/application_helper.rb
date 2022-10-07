@@ -14,7 +14,7 @@ module ApplicationHelper
     if current_user
       curriculum_button
     else
-      signup_button
+      sign_up_button
     end
   end
 

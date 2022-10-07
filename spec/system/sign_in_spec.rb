@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User login', type: :system do
+RSpec.describe 'Sign in', type: :system do
   let!(:user) { create(:user, email: 'odinstudent@example.com') }
 
   context 'when using an email and password' do
@@ -8,7 +8,7 @@ RSpec.describe 'User login', type: :system do
       it 'allows the user to sign in' do
         visit root_path
 
-        find(:test_id, 'nav-login').click
+        find(:test_id, 'nav-sign-in').click
 
         find(:test_id, 'email-field').fill_in with: user.email
         find(:test_id, 'password-field').fill_in with: user.password
@@ -23,7 +23,7 @@ RSpec.describe 'User login', type: :system do
       it 'notifies the user that the email is not valid' do
         visit root_path
 
-        find(:test_id, 'nav-login').click
+        find(:test_id, 'nav-sign-in').click
 
         find(:test_id, 'email-field').fill_in with: 'aaaaaaa'
         find(:test_id, 'password-field').fill_in with: user.password
@@ -34,7 +34,7 @@ RSpec.describe 'User login', type: :system do
       it 'removes the message once a user fixes their email address' do
         visit root_path
 
-        find(:test_id, 'nav-login').click
+        find(:test_id, 'nav-sign-in').click
 
         find(:test_id, 'email-field').fill_in with: 'aaaaa'
         expect(page).to have_content('is not a valid email')
@@ -49,7 +49,7 @@ RSpec.describe 'User login', type: :system do
       it 'notifies the user that the password is not valid' do
         visit root_path
 
-        find(:test_id, 'nav-login').click
+        find(:test_id, 'nav-sign-in').click
 
         find(:test_id, 'email-field').fill_in with: user.email
         find(:test_id, 'password-field').fill_in with: 'aaa'
@@ -68,10 +68,10 @@ RSpec.describe 'User login', type: :system do
       OmniAuth.config.mock_auth[:github] = nil
     end
 
-    it 'logs in the user' do
+    it 'signs in the user' do
       visit root_path
 
-      find(:test_id, 'nav-login').click
+      find(:test_id, 'nav-sign-in').click
 
       find(:test_id, 'github-btn').click
 
@@ -88,10 +88,10 @@ RSpec.describe 'User login', type: :system do
       OmniAuth.config.mock_auth[:google] = nil
     end
 
-    it 'logs in the user' do
+    it 'signs in the user' do
       visit root_path
 
-      find(:test_id, 'nav-login').click
+      find(:test_id, 'nav-sign-in').click
 
       find(:test_id, 'google-btn').click
 

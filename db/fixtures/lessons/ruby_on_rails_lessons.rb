@@ -153,7 +153,7 @@ def ruby_on_rails_lessons
     },
     'Private Events' => {
       title: 'Private Events',
-      description: "Build a system to manage signups for you and your friends' special events.",
+      description: "Build a system to manage sign-ups for you and your friends' special events.",
       is_project: true,
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/project_private_events.md',
       accepts_submission: true,
@@ -176,7 +176,7 @@ def ruby_on_rails_lessons
     },
     'Flight Booker' => {
       title: 'Flight Booker',
-      description: 'Build an airline flight signup system, which is a nest of interesting complexities',
+      description: 'Build an airline flight sign-up system, which is a nest of interesting complexities',
       is_project: true,
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/project_flight_booker.md',
       accepts_submission: true,

@@ -35,8 +35,8 @@
           <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
           <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about') %>
           <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
-          <%= render Nav::ItemComponent.new(path: login_path, text: 'Log In', test_id: 'nav-login') %>
-          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4', data: { test_id: 'nav-signup' } %>
+          <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in') %>
+          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4', data: { test_id: 'nav-sign-up' } %>
           <%= turbo_frame_tag "theme_switcher", class: "flex items-center justify-center" do %>
             <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :icon_only) %>
           <% end %>

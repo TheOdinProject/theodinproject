@@ -7,10 +7,10 @@
     <%= render Complete::ButtonComponent.new(lesson: lesson, current_user: current_user) %>
   <% else %>
     <%= link_to(
-      'Login to track progress',
-      login_path,
+      'Sign in to track progress',
+      sign_in_path,
       class: 'button button--primary',
-      data: { test_id: 'login_button' }
+      data: { test_id: 'sign_in_button' }
     )%>
   <% end %>
 

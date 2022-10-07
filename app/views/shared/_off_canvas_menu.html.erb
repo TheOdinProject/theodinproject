@@ -76,13 +76,13 @@
                <%= turbo_frame_tag "theme_switcher_mobile" do %>
                 <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
               <% end %>
-              <%= render Nav::ItemComponent.new(path: logout_path, text: 'Log out', test_id: 'nav-logout', icon_path: 'icons/logout.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', mobile: true) %>
             <% else %>
-              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-signup', icon_path: 'icons/rocket.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', mobile: true) %>
               <%= turbo_frame_tag "theme_switcher_mobile" do %>
                 <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
               <% end %>
-              <%= render Nav::ItemComponent.new(path: login_path, text: 'Log in', test_id: 'nav-login', icon_path: 'icons/log-in.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', mobile: true) %>
             <% end %>
           </div>
         </nav>
