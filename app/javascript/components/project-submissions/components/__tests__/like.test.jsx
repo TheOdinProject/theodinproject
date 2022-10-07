@@ -4,7 +4,7 @@ import ProjectSubmissionContext from '../../ProjectSubmissionContext';
 import Like from '../like';
 
 describe('Like', () => {
-  test('Tells user to log in to like submission', () => {
+  test('Tells user to sign in to like submission', () => {
     const { queryByLabelText, getByLabelText } = render(
       <ProjectSubmissionContext.Provider value={{ userId: null }}>
         <Like
@@ -15,7 +15,7 @@ describe('Like', () => {
       </ProjectSubmissionContext.Provider>,
     );
 
-    const anchorNode = queryByLabelText('Log in to like!');
+    const anchorNode = queryByLabelText('Sign in to like!');
     const iconNode = getByLabelText('Like icon');
 
     expect(anchorNode).toBeTruthy();

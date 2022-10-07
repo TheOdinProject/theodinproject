@@ -6,7 +6,7 @@ RSpec.describe Progress::BadgeComponent, type: :component do
   let!(:lesson) { create(:lesson, section:) }
   let(:user) { create(:user) }
 
-  context 'when the user is logged in and has started the course' do
+  context 'when the user is signed in and has started the course' do
     it 'renders a progress circle around the badge' do
       component = described_class.new(
         course:,
@@ -22,7 +22,7 @@ RSpec.describe Progress::BadgeComponent, type: :component do
     end
   end
 
-  context 'when the user is logged in but has not started the course' do
+  context 'when the user is signed in but has not started the course' do
     it 'renders the badge without a progress circle' do
       component = described_class.new(
         course:,
@@ -37,7 +37,7 @@ RSpec.describe Progress::BadgeComponent, type: :component do
     end
   end
 
-  context 'when the user is not logged in' do
+  context 'when the user is not signed in' do
     it 'renders the badge without a progress circle' do
       component = described_class.new(
         course:,

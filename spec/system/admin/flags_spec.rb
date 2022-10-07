@@ -90,7 +90,7 @@ RSpec.describe 'Admin Flags', type: :system do
       end
     end
 
-    it 'prohibits the banned user from logging in again' do
+    it 'prohibits the banned user from signing in again' do
       using_session('the_banned_user') do
         visit new_user_session_path
         find(:test_id, 'email-field').fill_in(with: submission_owner.email)

@@ -38,7 +38,7 @@ RSpec.describe 'Lesson Completions', type: :system do
 
       expect(page).not_to have_button('Mark Complete')
       expect(page).not_to have_button('Lesson Completed')
-      expect(find(:test_id, 'login_button')).to have_content('Login to track progress')
+      expect(find(:test_id, 'sign_in_button')).to have_content('Sign in to track progress')
     end
   end
 end

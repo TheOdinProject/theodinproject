@@ -26,7 +26,7 @@ The following checkbox is OPTIONAL:
 **2. How To Reproduce:**
 <!--
 What steps one might need to take in order to reproduce this bug, e.g.:
-1. Log in
+1. Sign in
 2. Visit a lesson page
 3. Click the complete button
 4. The complete button does not update
@@ -36,7 +36,7 @@ What steps one might need to take in order to reproduce this bug, e.g.:
 **3. Expected Behavior:**
 <!--
 A brief description of what you expected to happen, e.g.:
-1. Log in
+1. Sign in
 2. Visit a lesson page
 3. Click the complete button
 4. The complete button updates correctly

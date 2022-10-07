@@ -26,10 +26,9 @@ Rails.application.routes.draw do
   )
 
   devise_scope :user do
-    get '/login' => 'users/sessions#new'
-    get '/logout' => 'users/sessions#destroy', method: :delete
-    get 'sign_up' => 'users/registrations#new'
-    get 'signup' => 'users/registrations#new'
+    get '/sign_in' => 'users/sessions#new'
+    get '/sign_out' => 'users/sessions#destroy', method: :delete
+    get '/sign_up' => 'users/registrations#new'
   end
 
   namespace :api do

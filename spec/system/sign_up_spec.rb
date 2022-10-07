@@ -5,7 +5,7 @@ RSpec.describe 'Sign Up', type: :system do
 
   before do
     visit root_path
-    find(:test_id, 'nav-signup').click
+    find(:test_id, 'nav-sign-up').click
   end
 
   context 'when using email and password to sign up' do
@@ -44,7 +44,7 @@ RSpec.describe 'Sign Up', type: :system do
     end
   end
 
-  context 'when using github oauth to signup' do
+  context 'when using github oauth to sign up' do
     before do
       mock_oauth_provider(:github)
     end
@@ -63,7 +63,7 @@ RSpec.describe 'Sign Up', type: :system do
         OmniAuth.config.mock_auth[:github] = :invalid_credentials
       end
 
-      it 'handles failed signup' do
+      it 'handles failed sign up' do
         find(:test_id, 'github-btn').click
 
         expect(page).to have_current_path(new_user_session_path)
@@ -92,7 +92,7 @@ RSpec.describe 'Sign Up', type: :system do
     end
   end
 
-  context 'when using google oauth to signup' do
+  context 'when using google oauth to sign up' do
     before do
       mock_oauth_provider(:google)
     end
@@ -131,7 +131,7 @@ RSpec.describe 'Sign Up', type: :system do
         OmniAuth.config.mock_auth[:google] = :invalid_credentials
       end
 
-      it 'handles failed signup' do
+      it 'handles failed sign up' do
         find(:test_id, 'google-btn').click
 
         expect(page).to have_current_path(new_user_session_path)

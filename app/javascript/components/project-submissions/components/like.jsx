@@ -8,7 +8,7 @@ const Like = ({ submission, handleLikeToggle }) => {
   const spanClassnames = submission.is_liked_by_current_user ? 'fa fa-heart text-teal-700' : 'fa fa-heart';
 
   const toolTipLabel = () => {
-    if (!userId) { return 'Log in to like!'; }
+    if (!userId) { return 'Sign in to like!'; }
 
     return submission.is_liked_by_current_user ? 'Unlike submission' : 'Like submission';
   };
