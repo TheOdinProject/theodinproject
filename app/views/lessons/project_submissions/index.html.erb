@@ -1,8 +1,8 @@
 <%= title(@lesson.title) %>
 
-<div class="container tmp-container-spacer">
-  <div class="row">
-    <div class="col-12">
+<div class="tmp-container-spacer">
+  <div class="grid grid-cols-12">
+    <div class="col-span-12 md:col-start-3 md:col-span-8">
       <%= react_component(
           "project-submissions/index",
           {

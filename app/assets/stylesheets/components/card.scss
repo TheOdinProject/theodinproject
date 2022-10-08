@@ -13,7 +13,7 @@
     }
   }
 
-  @include media-breakpoint-down(xs) {
+  @screen(xs) {
     padding: 30px;
   }
 
@@ -34,7 +34,7 @@
     outline: 0;
     position: relative;
 
-    @include media-breakpoint-down(md) {
+    @screen(md) {
       margin-top: 1.25rem;
     }
   }
@@ -46,7 +46,7 @@
     justify-content: space-between;
     border-bottom: 1px solid $very-pale-grey;
 
-    @include media-breakpoint-down(md) {
+    @screen(md) {
       flex-direction: column;
       text-align: center;
       margin-top: 1.25rem;
