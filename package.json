@@ -30,7 +30,6 @@
     "babel-loader": "8",
     "babel-plugin-prismjs": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "bootstrap": "^4.6.0",
     "browserslist": "^4.21.4",
     "compression-webpack-plugin": "10",
     "core-js": "^3.25.4",

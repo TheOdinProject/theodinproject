@@ -10,7 +10,6 @@ gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.13'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.13', require: false
-gem 'bootstrap', '4.6.0'
 gem 'cancancan', '~> 3.4'
 gem 'classy-yaml', '~> 0.8'
 gem 'devise', '~> 4.8'
