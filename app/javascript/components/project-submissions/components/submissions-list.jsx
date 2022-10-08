@@ -67,7 +67,13 @@ const SubmissionsList = ({
               most liked submissions -
               {' '}
             </span>
-            <a data-test-id="view-all-projects-link" href={allSubmissionsPath}> View full list of solutions</a>
+            <a
+              className="text-gold"
+              data-test-id="view-all-projects-link"
+              href={allSubmissionsPath}
+            >
+              View full list of solutions
+            </a>
           </p>
         )}
     </div>
