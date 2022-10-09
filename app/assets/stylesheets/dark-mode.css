@@ -22,16 +22,12 @@
 
 body,
 .navbar,
-.card-main,
-.card-block,
-.card-header,
 #footer,
 .modal {
   background-color: var(--dark-bg-color) !important;
 }
 
 .gradient,
-.bg-whitesmoke,
 .lesson-content__panel,
 .odin-dropdown__menu,
 .benefits,

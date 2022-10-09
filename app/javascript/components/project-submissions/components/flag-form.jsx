@@ -14,7 +14,7 @@ const FlagForm = ({ onSubmit, submission }) => {
   if (formState.isSubmitSuccessful) {
     return (
       <div className="text-center text-3xl">
-        <h2 className="bold">Thanks for helping us keep our community safe!</h2>
+        <h2 className="font-semibold">Thanks for helping us keep our community safe!</h2>
         <p>Our Moderators will review this issue shortly.</p>
       </div>
     );
