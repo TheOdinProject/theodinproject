@@ -23,7 +23,7 @@ module.exports = {
         DEFAULT: {
           css: {
             code: {
-              color: theme('colors.pink'),
+              color: theme('colors.pink.500'),
               backgroundColor: theme('colors.slate.100'),
               padding: '3px',
               'font-weight': 'normal',
