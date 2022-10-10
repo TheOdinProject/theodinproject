@@ -7,7 +7,7 @@
       <% card.body do %>
         <div class="flex items-center flex-col md:flex-row gap-4">
           <%= render User::AvatarComponent.new(current_user: current_user, classes: " w-24") %>
-          <h2 class="basis-3/5 text-2xl pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
+          <h2 class="truncate w-full basis-3/5 text-2xl md:pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
           <p data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
         </div>
       <% end %>
