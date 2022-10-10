@@ -37,7 +37,7 @@ gem 'ruby-progressbar', '~> 1.11'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.4'
-gem 'sentry-ruby', '~> 5.4'
+gem 'sentry-ruby', '~> 5.5'
 gem 'sentry-sidekiq', '~> 5.4'
 gem 'shakapacker', '6.5.2'
 gem 'sidekiq', '~> 6.5'
@@ -57,7 +57,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails', '~> 2.8'
-  gem 'rspec-rails', '~> 5.1'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :test do
