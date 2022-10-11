@@ -81,4 +81,4 @@ gem 'net-pop'
 gem 'net-smtp'
 
 # Use Redis for Action Cable
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.0'
