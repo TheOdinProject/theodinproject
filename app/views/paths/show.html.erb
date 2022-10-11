@@ -6,13 +6,13 @@
     <section class="flex flex-col justify-between items-start space-y-8 mb-12 md:flex-row md:items-center md:space-y-0">
       <div>
         <h1 class="page-heading-title text-left m-0"><%= @path.title %></h1>
-        <p class="text-left max-w-lg lg:max-w-xl"><%= @path.description %></p>
+        <p class="text-left max-w-lg lg:max-w-xl text-gray-500 dark:text-gray-400"><%= @path.description %></p>
       </div>
 
       <% if current_user&.path != @path %>
         <%= button_to 'Select Path', users_paths_path(path_id: @path.id), class: 'button button--secondary', remote: false, method: :post, data: { disable_with: 'Selecting...', test_id: "#{@path.title.downcase}-select-path-btn" } %>
       <% else %>
-        <%= button_to 'Selected Path', "", class: 'button button--disabled', disabled: true %>
+        <span class="button button--clear dark:bg-gray-700 hover:bg-transparent cursor-default">Selected Path</span>
       <% end %>
     </section>
 

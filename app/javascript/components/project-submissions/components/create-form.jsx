@@ -37,7 +37,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
   if (formState.isSubmitSuccessful) {
     return (
       <div className="text-center">
-        <h1 className="page-heading-title" data-test-id="success-message">Thanks for Submitting Your Solution!</h1>
+        <h1 className="page-heading-title pb-2" data-test-id="success-message">Thanks for Submitting Your Solution!</h1>
         <button
           type="button"
           className="button button--primary"
@@ -55,7 +55,7 @@ const CreateForm = ({ onClose, onSubmit }) => {
       <h1 className="text-center page-heading-title">Upload Your Project</h1>
 
       <form className="p-4" onSubmit={handleSubmit(handleSubmitCallback)}>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-6">
           <UrlField
             name="repo_url"
             label="Github repository url"

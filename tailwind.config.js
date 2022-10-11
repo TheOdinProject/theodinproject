@@ -5,6 +5,7 @@ module.exports = {
     './app/**/*.html.erb',
     './app/components/**/*',
     './app/components/*.rb',
+    './app/javascript/**/*.js',
     './app/javascript/components/**/*.jsx',
     'app/assets/images/icons/*.svg',
     './config/utility_classes.yml',
@@ -17,16 +18,13 @@ module.exports = {
     'anchor-link',
     'toc-item-active'
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
             code: {
-              color: theme('colors.pink.500'),
-              backgroundColor: theme('colors.slate.100'),
-              padding: '3px',
-              'font-weight': 'normal',
               '&:before': {
                 display: 'none',
               },
@@ -37,11 +35,11 @@ module.exports = {
             h3: {
               width: 'fit-content',
               a: {
-                color: theme('colors.slate.800'),
+                color: theme('colors.gray.800'),
                 'text-decoration': 'none',
                 'font-weight': '600',
                 '&:hover': {
-                  color: theme('colors.slate.800'),
+                  color: theme('colors.gray.800'),
                 }
               },
             },
@@ -53,6 +51,12 @@ module.exports = {
                 'cursor': 'pointer',
               },
             }
+          },
+        },
+        gray: {
+          css: {
+            '--tw-prose-code': theme('colors.pink.700'),
+            '--tw-prose-invert-code': theme('colors.pink.400'),
           },
         },
       }),

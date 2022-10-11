@@ -1,18 +1,18 @@
 <%= title('Sign in') %>
 
-<div class="bg-gray-50 h-full odin-dark-bg">
+<div class="bg-gray-50 h-screen dark:bg-gray-900">
   <div class="page-container">
 
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
-      <span class="block mt-2 text-center text-sm text-gray-600 odin-dark-text">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Sign in to your account</h2>
+      <span class="block mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
         Or
         <%= link_to 'sign up for a new account', sign_up_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
       </span>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+      <%= render CardComponent.new do |card| %>
         <%= card.body do %>
           <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
             <div class="space-y-6">
@@ -29,11 +29,11 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
                   <%= form.check_box :remember_me, checked: true, class: 'form-checkbox text-teal-700 focus:ring-teal-800' %>
-                  <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0' %>
+                  <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0 dark:text-gray-300' %>
                 </div>
 
                 <div class="text-sm">
-                  <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-600 hover:text-gray-500 underline odin-dark-text' %>
+                  <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-600 underline dark:text-gray-300' %>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@
                 <div class="w-full border-t border-gray-300"></div>
               </div>
               <div class="relative flex justify-center text-sm">
-                <span class="bg-white px-2 text-gray-500 odin-dark-bg-accent odin-dark-text">Or continue with</span>
+                <span class="bg-white dark:bg-gray-800 px-2 text-gray-500 dark:text-gray-400">Or continue with</span>
               </div>
             </div>
           </div>

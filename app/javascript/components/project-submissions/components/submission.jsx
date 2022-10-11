@@ -12,7 +12,7 @@ import Like from './like';
 const noop = () => { };
 
 const submissionItemClassnames = `
-  relative py-4
+  relative py-6
   border-solid border-t border-gray-300
   flex flex-col md:flex-row justify-between items-center
 `;
@@ -72,7 +72,7 @@ const Submission = forwardRef(({
         {isCurrentUsersSubmission
           ? (
             <div
-              className="submissions-flag text-gray-500 hover:text-black"
+              className="submissions-flag text-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 cursor-pointer"
               onMouseDown={toggleShowEditModal}
               role="button"
               tabIndex={0}
@@ -84,7 +84,7 @@ const Submission = forwardRef(({
           )
           : (
             <button
-              className="submissions-flag text-gray-300 hint--top"
+              className="submissions-flag text-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hint--top"
               aria-label="Report submission"
               type="button"
               data-test-id="flag-btn"

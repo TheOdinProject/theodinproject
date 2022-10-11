@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "jest --coverage",
-    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'"
+    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js' './app/components/**/*.js'"
   },
   "dependencies": {
     "@babel/core": "7",

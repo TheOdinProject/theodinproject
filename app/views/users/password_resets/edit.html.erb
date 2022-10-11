@@ -1,27 +1,27 @@
 <%= title('New Password') %>
 
-<div class="bg-gray-50 h-full odin-dark-bg">
+<div class="h-screen">
   <div class="page-container">
     <h1 class="page-heading-title">Change password</h1>
 
     <div class='max-w-xl mx-auto'>
-      <%= render CardComponent.new(classes: "odin-dark-bg-accent") do |card| %>
+      <%= render CardComponent.new do |card| %>
         <% card.body do %>
           <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :put, class: 'grid grid-cols-6 gap-6 grid-flow-row' } do |form| %>
               <%= form.hidden_field :reset_password_token %>
 
               <div class="col-span-full">
                 <%= form.label :password, 'New password' %>
-                <%= form.password_field :password, required: true, class: 'dark-form-input' %>
+                <%= form.password_field :password, required: true %>
               </div>
 
               <div class="col-span-full">
                 <%= form.label :password_confirmation, 'Confirm new password' %>
-                <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input' %>
+                <%= form.password_field :password_confirmation, required: true %>
               </div>
 
               <div class="col-span-full">
-                <%= form.submit 'Change my password', class: 'button button--primary w-full' %>
+                <%= form.submit 'Change my password', class: 'button button--primary w-full text-sm' %>
               </div>
             </div>
           <% end %>

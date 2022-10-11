@@ -1,35 +1,33 @@
 <%= title('Success Stories') %>
 
-<div class='bg-gray-50 odin-dark-bg'>
-  <div class="page-container">
-    <h1 class="page-heading-title">Success Stories</h1>
+<div class="page-container">
+  <h1 class="page-heading-title">Success Stories</h1>
 
-    <div class="max-w-5xl mx-auto">
+  <div class="max-w-5xl mx-auto">
 
-      <% @success_stories.each do |story| %>
-        <%= render CardComponent.new(classes: "mb-6 odin-dark-bg-accent") do |card| %>
-          <% card.header do %>
-            <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-              <div class="w-20 h-20 rounded-full overflow-hidden">
-                <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: "w-full" %>
-              </div>
-              <div class="flex flex-col sm:flex-row">
-                <p class="font-bold text-center"><%= link_to story.student_name, story.social_media_link, class: 'text-gold' %></p>
-                <p class="text-gray-500 sm:ml-1"><%= story.job_title %></p>
-              </div>
+    <% @success_stories.each do |story| %>
+      <%= render CardComponent.new(classes: "mb-10") do |card| %>
+        <% card.header do %>
+          <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <div class="w-20 h-20 rounded-full overflow-hidden">
+              <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: "w-full" %>
             </div>
-          <% end %>
-          <% card.body do %>
-            <p class="text-gray-800"><%= story.story_content %></p>
-          <% end %>
+            <div class="flex flex-col text-center sm:text-left">
+              <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'text-gold' %></p>
+              <p class="text-gray-500 dark:text-gray-400"><%= story.job_title %></p>
+            </div>
+          </div>
+        <% end %>
+        <% card.body do %>
+          <p class="dark:text-gray-300 dark:antialiased"><%= story.story_content %></p>
         <% end %>
       <% end %>
-    </div>
-
-    <%= render 'shared/bottom_cta',
-      button: sign_in_or_view_curriculum_button,
-      heading: 'Start learning for free now!',
-      sub_heading: ''
-    %>
+    <% end %>
   </div>
+
+  <%= render 'shared/bottom_cta',
+    button: sign_in_or_view_curriculum_button,
+    heading: 'Start learning for free now!',
+    sub_heading: ''
+  %>
 </div>
