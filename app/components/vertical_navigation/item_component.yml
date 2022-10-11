@@ -1,6 +1,6 @@
 link:
-  active: 'bg-gray-200 text-gray-900 odin-dark-page-nav-item-active'
-  inactive: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+  active: 'bg-slate-200 text-slate-900 dark:bg-slate-700/50 dark:text-slate-300'
+  inactive: 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:hover:bg-slate-600/70 dark:hover:text-slate-300 dark:text-slate-400'
 icon:
-  active: 'text-gray-500 group-hover:text-gray-700 odin-dark-page-nav-item-active'
-  inactive: 'text-gray-400 group-hover:text-gray-500'
+  active: 'text-slate-500 group-hover:text-slate-700 dark:text-slate-300 dark:group-hover:text-slate-300'
+  inactive: 'text-slate-400 group-hover:text-slate-500 dark:text-slate-400 dark:group-hover:text-slate-300'

@@ -1,0 +1,64 @@
+.pagy-nav {
+  @apply flex space-x-2 my-8 justify-center;
+}
+
+.pagy-nav .page a,
+.pagy-nav .page.active,
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page a,
+.pagy-nav-js .page.active,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  @apply block px-3 py-1 text-slate-500 dark:text-slate-300 font-semibold;
+  &:hover{
+    @apply text-slate-700 dark:text-slate-200;
+  }
+  &:active{
+    @apply text-slate-700 dark:text-slate-200;
+  }
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  @apply text-slate-400 dark:text-slate-600 first-letter:cursor-default;
+  &:hover {
+    @apply text-slate-400 dark:text-slate-600;
+  }
+  &:active {
+    @apply text-slate-400 dark:text-slate-600;
+  }
+}
+
+.pagy-nav .page.active,
+.pagy-nav-js .page.active {
+  @apply cursor-default text-slate-700 dark:text-slate-600;
+  &:hover {
+    @apply text-slate-800 dark:text-slate-600;
+  }
+  &:active {
+    @apply text-slate-800 dark:text-slate-600;
+  }
+}
+
+
+.pagy-combo-nav-js .pagy-combo-input {
+  @apply bg-white px-2 rounded-sm
+}
+
+.pagy-combo-nav-js .page.prev,
+.pagy-combo-nav-js .page.next {
+  &:hover {
+    @apply text-slate-800;
+  }
+  &:active {
+    @apply text-slate-800;
+  }
+}
+
+.pagy-combo-nav-js .page.prev.disabled,
+.pagy-combo-nav-js .page.next.disabled {
+  @apply text-slate-400 cursor-default;
+}

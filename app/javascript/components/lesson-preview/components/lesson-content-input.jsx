@@ -8,7 +8,7 @@ const LessonContentInput = ({ onChange, content }) => {
 
   return (
     <textarea
-      className="w-full min-h-screen block rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark-form-input"
+      className="w-full min-h-screen block rounded-md border-slate-300 dark:bg-slate-700 dark:focus:ring-2 dark:placeholder-slate-400 dark:border-slate-500 dark:focus:ring-slate-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark-form-input"
       placeholder="Lesson content..."
       onChange={handleOnChange}
       value={content}

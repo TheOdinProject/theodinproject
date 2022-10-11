@@ -1,6 +1,6 @@
 <%= title('Settings') %>
 
-<div class="bg-gray-100 h-full odin-dark-bg">
+<div class="h-screen">
   <div class="page-container">
 
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
@@ -15,9 +15,9 @@
 
       <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
         <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { method: :put }, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
-          <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+          <%= render CardComponent.new do |card| %>
             <% card.header do %>
-              <h3 class="text-xl leading-6 font-medium text-gray-900">Change your password</h3>
+              <h3 class="text-xl leading-6 font-medium text-slate-700 dark:text-slate-200">Change your password</h3>
             <% end %>
             <% card.body do %>
               <div class="grid grid-cols-6 gap-6 grid-flow-row">
@@ -38,7 +38,7 @@
                 </div>
               </div>
             <% end %>
-            <% card.footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 odin-dark-bg-accent') do %>
+            <% card.footer(classes: 'px-4 py-3 pt-3 bg-slate-50 text-right sm:px-6 dark:bg-slate-700/40') do %>
               <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { disable_with: false } %>
             <% end %>
           <% end %>

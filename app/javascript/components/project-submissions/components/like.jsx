@@ -19,7 +19,7 @@ const Like = ({ submission, handleLikeToggle }) => {
 
   return (
     <button
-      className="text-gray-300 mr-4 hint--top"
+      className="text-slate-300 mr-4 hint--top"
       type="button"
       aria-label={toolTipLabel()}
       data-test-id="like-btn"

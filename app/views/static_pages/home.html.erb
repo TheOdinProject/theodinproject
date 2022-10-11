@@ -1,11 +1,11 @@
 <div id="home-page">
-  <div class="w-full text-center gradient odin-dark-bg">
+  <div class="w-full text-center bg-white dark:bg-slate-900">
     <header class="pb-14 page-container">
       <h1 class="text-4xl font-light text-gold-500 mx-auto pb-4"> Your Career in Web Development Starts Here </h1>
-      <div class="text-gray-600 pb-16">
+      <div class="text-slate-600 dark:text-slate-300/80 pb-16">
         <p class="mb-4">Our full stack curriculum is free and supported by a passionate open source community.</p>
         <% if Lesson.any? %>
-          <%= link_to "Last Curriculum Update: #{time_ago_in_words(Lesson.most_recent_updated_at)} ago", github_link("curriculum/commits"), target: :_blank, class: "odin-dark-link tracking-wide underline" %>
+          <%= link_to "Last Curriculum Update: #{time_ago_in_words(Lesson.most_recent_updated_at)} ago", github_link("curriculum/commits"), target: :_blank, class: "tracking-wide underline" %>
         <% end %>
       </div>
 

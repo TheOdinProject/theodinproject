@@ -3,11 +3,11 @@
 <div class="page-container">
   <div class="max-w-3xl mx-auto">
     <h1 class="page-heading-title">Dashboard</h1>
-    <%= render CardComponent.new(classes: "mb-24 odin-dark-bg-accent") do |card| %>
+    <%= render CardComponent.new(classes: "mb-24") do |card| %>
       <% card.body do %>
         <div class="flex items-center flex-col md:flex-row gap-4">
           <%= render User::AvatarComponent.new(current_user: current_user, classes: " w-24") %>
-          <h2 class="truncate w-full basis-3/5 text-2xl text-center md:text-left md:pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
+          <h2 class="truncate w-full basis-3/5 text-2xl text-center md:text-left md:pl-4 font-semibold" data-test-id="profile_username"><%= current_user.username %></h2>
           <p data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
         </div>
       <% end %>
@@ -15,11 +15,9 @@
 
     <div class="mb-24" data-test-id="skills">
       <div class="text-center mt-0 mb-12 mx-auto">
-        <h2 class="font-bold text-gray-500 text-2xl mb-8">Skills Progress</h2>
+        <h2 class="text-slate-700 text-2xl font-medium mb-4 dark:text-slate-300">Skills Progress</h2>
         <% if current_user.path.courses.size > 1 %>
-          <p>
-            The following courses should be taken in order
-          </p>
+          <p class="text-slate-500 dark:text-slate-400">The following courses should be taken in order</p>
         <% end %>
       </div>
 

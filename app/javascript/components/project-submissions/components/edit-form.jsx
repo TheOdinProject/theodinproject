@@ -63,7 +63,7 @@ const EditForm = ({
         <input type="hidden" {...register('id')} value={submission.id} />
         <input type="hidden" {...register('lesson_id')} value={submission.lesson_id} />
 
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-6">
           <UrlField
             name="repo_url"
             label="Github repository url"
@@ -86,7 +86,7 @@ const EditForm = ({
           )}
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center pt-10">
           <Toggle label="MAKE SOLUTION PUBLIC" onClick={handleOnClickToggle} isToggled={isToggled} />
 
           <div className="flex items-center gap-x-4">

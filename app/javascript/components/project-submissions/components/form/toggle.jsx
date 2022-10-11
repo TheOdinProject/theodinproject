@@ -27,7 +27,7 @@ const Toggle = ({ label, isToggled, onClick }) => (
         id="is_public"
         type="button"
         onClick={onClick}
-        className={`${toggleBodyClassNames} ${isToggled ? 'bg-teal-700' : 'bg-gray-200'}`}
+        className={`${toggleBodyClassNames} ${isToggled ? 'bg-teal-700' : 'bg-slate-200 dark:bg-slate-700'}`}
         role="switch"
         aria-checked={isToggled}
       >

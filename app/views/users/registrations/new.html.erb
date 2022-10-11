@@ -1,67 +1,65 @@
 <%= title('Sign up') %>
 
-<div class="bg-gray-50 odin-dark-bg">
-  <div class="page-container">
+<div class="page-container">
 
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up for free</h2>
-      <span class="block mt-2 text-center text-sm text-gray-600 odin-dark-text">
-        Or
-        <%= link_to 'sign in to your existing account', sign_in_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
-      </span>
-    </div>
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-200">Sign up for free</h2>
+    <span class="block mt-2 text-center text-sm text-slate-600 dark:text-slate-300">
+      Or
+      <%= link_to 'sign in to your existing account', sign_in_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
+    </span>
+  </div>
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
-        <%= card.body do %>
-          <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
-            <div class="space-y-6">
-              <div>
-                <%= form.label :username %>
-                <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
-              </div>
-
-              <div>
-                <%= form.label :email %>
-                <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
-              </div>
-
-              <div>
-                <%= form.label :password %>
-                <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
-              </div>
-
-              <div>
-                <%= form.label :password_confirmation %>
-                <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
-              </div>
-
-              <div class="text-center">
-                <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-600 hover:underline text-sm odin-dark-text' %>
-              </div>
-
-              <div>
-                <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit_btn', disable_with: false } %>
-              </div>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <%= render CardComponent.new do |card| %>
+      <%= card.body do %>
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+          <div class="space-y-6">
+            <div>
+              <%= form.label :username %>
+              <%= form.text_field :username, required: true, autofocus: params[:email].present?, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
             </div>
-          <% end %>
 
-          <div class="mt-6">
-            <div class="relative">
-              <div class="absolute inset-0 flex items-center">
-                <div class="w-full border-t border-gray-300"></div>
-              </div>
-              <div class="relative flex justify-center text-sm">
-                <span class="bg-white px-2 text-gray-500 odin-dark-bg-accent odin-dark-text">Or continue with</span>
-              </div>
+            <div>
+              <%= form.label :email %>
+              <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
             </div>
-          </div>
 
-          <div class="mt-6 grid grid-cols-2 gap-3">
-            <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
+            <div>
+              <%= form.label :password %>
+              <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+            </div>
+
+            <div>
+              <%= form.label :password_confirmation %>
+              <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+            </div>
+
+            <div class="text-center">
+              <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-slate-500 dark:text-slate-400 hover:underline text-sm' %>
+            </div>
+
+            <div>
+              <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit_btn', disable_with: false } %>
+            </div>
           </div>
         <% end %>
+
+        <div class="mt-6">
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-slate-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="bg-white dark:bg-slate-800 px-2 text-slate-500 dark:text-slate-400">Or continue with</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
