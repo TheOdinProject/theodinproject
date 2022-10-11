@@ -1,14 +1,14 @@
 <%= title("Notifications") %>
 
-<div class="page-container h-full">
+<div class="page-container h-screen">
   <h1 class="page-heading-title">Notifications</h1>
   <ul class="space-y-3">
     <% unless @notifications.empty? %>
       <%= render NotificationComponent.with_collection(@notifications) %>
     <% else %>
       <div class="text-center mx-auto">
-        <h3 class="text-lg leading-6 font-medium text-gray-900 mb-2">No notifications yet</h3>
-        <p>Why not take your next lesson while you wait?</p>
+        <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-300 mb-2">No notifications yet</h3>
+        <p class="text-gray-500 dark:text-gray-400">Why not take your next lesson while you wait?</p>
       </div>
     <% end %>
   </ul>

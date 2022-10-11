@@ -1,33 +1,33 @@
-<section class=" bg-gray-100 odin-dark-bg">
+<section class="bg-gray-100 dark:bg-gray-700/10">
   <div class="page-container">
-    <h2 class="mb-12 text-gold text-center text-2xl font-bold">Overview of The Odin Project</h2>
+    <h2 class="mb-12 text-center text-2xl font-semibold">Overview of The Odin Project</h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
-      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1 odin-dark-bg-accent') do |card| %>
+      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
         <% card.body(classes: 'text-center' ) do %>
-          <p class="font-bold text-gray-400 text-3xl"><%= User.count %></p>
+          <p class="font-bold text-3xl text-gray-500 dark:text-gray-400"><%= User.count %></p>
           <p>Learners</p>
         <% end %>
       <% end %>
 
-      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1 odin-dark-bg-accent') do |card| %>
-        <% card.body(classes: 'text-center' ) do %>
-          <p class="font-bold text-gray-400 text-3xl">5000+</p>
+      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
+        <% card.body(classes: 'text-center text-gray-500 dark:text-gray-400') do %>
+          <p class="font-bold text-3xl">5000+</p>
           <p>Contributors</p>
         <% end %>
       <% end %>
 
-      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1 odin-dark-bg-accent') do |card| %>
-        <% card.body(classes: 'text-center' ) do %>
-          <p class="font-bold text-gray-400 text-3xl">2013</p>
-          <p>Founded</p>
+      <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
+        <% card.body(classes: 'text-center text-gray-500 dark:text-gray-400') do %>
+          <p class="font-bold text-3xl">2013</p>
+          <p >Founded</p>
         <% end %>
       <% end %>
 
       <div class="col-span-3 lg:col-span-2">
-        <%= render CardComponent.new(classes: 'h-full odin-dark-bg-accent') do |card| %>
+        <%= render CardComponent.new(classes: 'h-full') do |card| %>
           <% card.header do %>
-            <h3 class="font-bold text-3xl">Origin of The Odin Project</h3>
+            <h3 class="font-bold text-2xl">Origin of The Odin Project</h3>
           <% end %>
           <% card.body do %>
             <p class="mb-8">The Odin Project provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.</p>
@@ -38,10 +38,10 @@
       </div>
 
       <div class="col-span-3 lg:col-span-1">
-        <%= render CardComponent.new(classes: 'odin-dark-bg-accent') do |card| %>
+        <%= render CardComponent.new do |card| %>
           <% card.header(classes: 'flex items-center') do %>
-            <a href="https://www.github.com/theodinproject" target="_blank"><i class="fab fa-github fa-3x"></i></a>
-            <h3 class="font-bold text-3xl text-gray-800 inline-block ml-4">Open Source</h3>
+            <a href="https://www.github.com/theodinproject" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+            <h3 class="font-bold text-2xl inline-block ml-4">Open Source</h3>
           <% end %>
           <% card.body do %>
             <p class="mb-8">This website and the curriculum it hosts are completely open source. That means anyone can work on new features or fix existing bugs on the website. This also extends to the curriculum itself, anyone can work on new lessons, add new resources and improve existing lessons.</p>

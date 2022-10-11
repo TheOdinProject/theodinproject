@@ -5,7 +5,7 @@ const TextArea = ({ name, register, errors, rows, autoFocus, placeholder, dataTe
   const styles = () => (
     errors[name]
       ? 'pr-10 border-red-300 text-red-900 placeholder-red-400 focus:ring-red-500 focus:border-red-500'
-      : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500'
+      : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-500 dark:focus:ring-gray-400 dark:focus:border-gray-400'
     );
 
   return (
@@ -13,7 +13,7 @@ const TextArea = ({ name, register, errors, rows, autoFocus, placeholder, dataTe
       <textarea
         autoFocus={autoFocus}
         placeholder={placeholder}
-        className={`block w-full border rounded-md shadow-sm py-2 px-3 focus:outline-none dark-form-input ${styles()}`}
+        className={`block w-full border rounded-md shadow-sm py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:placeholder-gray-400 ${styles()}`}
         rows={rows}
         data-test-id={dataTestId}
         {...register(name, {

@@ -3,16 +3,17 @@ class Progress::BadgeComponent < ViewComponent::Base
 
   delegate :user_signed_in?, :percentage_completed_by_user, to: :helpers
 
-  def initialize(course:, current_user:, url:, show_badge: true)
+  def initialize(course:, current_user:, url:, show_badge: true, background_color: 'bg-white dark:bg-gray-900')
     @course = course
     @current_user = current_user
     @url = url
     @show_badge = show_badge
+    @background_color = background_color
   end
 
   private
 
-  attr_reader :course, :current_user, :url, :show_badge
+  attr_reader :course, :current_user, :url, :show_badge, :background_color
 
   def circumference
     RADIUS * 2 * Math::PI

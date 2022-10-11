@@ -54,10 +54,10 @@ const LessonPreview = () => {
   }, [content]);
 
   return (
-    <Tabs selectedTabClassName="text-gray-900 bg-gray-100 hover:bg-gray-200 odin-dark-page-nav-item-active">
+    <Tabs selectedTabClassName="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90 dark:text-gray-300">
       <TabList className="flex items-center mb-3">
-        <Tab onClick={() => setOnPreviewTab(false)} className="odin-dark-page-nav-item text-gray-600 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer">Write</Tab>
-        <Tab onClick={fetchLessonPreview} className="ml-2 odin-dark-page-nav-item text-gray-600 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer">Preview</Tab>
+        <Tab onClick={() => setOnPreviewTab(false)} className="text-gray-600 hover:text-gray-800 bg-gray-50 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none">Write</Tab>
+        <Tab onClick={fetchLessonPreview} className="ml-2 text-gray-600 hover:text-gray-800 bg-gray-50 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none">Preview</Tab>
       </TabList>
 
       <TabPanel>
@@ -66,13 +66,15 @@ const LessonPreview = () => {
       <TabPanel>
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
-      <button
-        type="button"
-        className={`button ${copied ? 'button--secondary' : 'button--primary'} float-right mb-1`}
-        onClick={handleClick}
-      >
-        {copied ? 'Copied!' : 'Share'}
-      </button>
+      <div className='flex pt-10 justify-end'>
+        <button
+          type="button"
+          className={`button ${copied ? 'button--secondary' : 'button--primary'}`}
+          onClick={handleClick}
+        >
+          {copied ? 'Copied!' : 'Share'}
+        </button>
+      </div>
     </Tabs>
   );
 };

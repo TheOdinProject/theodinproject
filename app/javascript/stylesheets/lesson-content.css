@@ -1,6 +1,6 @@
 @layer components {
   .lesson-content__panel {
-    @apply bg-gray-100 p-6 rounded-lg;
+    @apply bg-gray-100 p-6 rounded-lg dark:bg-gray-800 dark:highlight-white;
   }
 
   .lesson-content__panel > *:first-child {
@@ -8,15 +8,19 @@
   }
 
   .lesson-content__panel code {
-    @apply bg-gray-200;
+    @apply bg-gray-200 dark:bg-gray-700/30;
   }
 
   .lesson-content__panel pre code {
-    @apply bg-transparent;
+    @apply bg-transparent dark:bg-transparent;
+  }
+
+  .lesson-content__panel {
+    @apply dark:prose-pre:bg-slate-800/60 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10;
   }
 
   .lesson-note {
-    @apply bg-gray-50 p-4 border-l-4 border-gold;
+    @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700;
   }
 
   .lesson-note > *:first-child {
@@ -27,8 +31,13 @@
     @apply mb-0;
   }
 
+  .lesson-content pre code {
+    @apply !bg-transparent p-0;
+    padding-top: 3px;
+  }
+
   .lesson-content a > code {
-    @apply text-pink-500;
+    @apply text-pink-700 dark:text-pink-400/90;
   }
 
   .lesson-content a > strong {
@@ -48,6 +57,6 @@
   }
 
   .toc-item-active {
-    @apply text-slate-800 bg-slate-100 border-l-2 border-gold;
+    @apply text-gray-800 bg-gray-100 dark:bg-gray-700/40 dark:text-gray-300 border-l-2 border-gold-600;
   }
 }

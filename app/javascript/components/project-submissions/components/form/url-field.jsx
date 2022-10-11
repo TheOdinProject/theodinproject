@@ -6,21 +6,21 @@ const UrlField = ({ name, label, icon, register, errors, autoFocus, placeholder 
   const styles = () => (
     errors[name]
       ? 'pr-10 border-red-300 text-red-900 placeholder-red-400 focus:ring-red-500 focus:border-red-500'
-      : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500'
+      : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-500 dark:focus:ring-gray-500 dark:focus:border-transparent dark:focus:ring-2'
     );
 
   return (
     <div>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700 text-left">{ label }</label>
+      <label htmlFor={name} className="block text-sm font-medium text-gray-700 dark:text-gray-200 text-left">{ label }</label>
       <div className="mt-1 relative rounded-md shadow-sm">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <span className={`text-gray-700 odin-dark-icon ${icon}`} />
+          <span className={`text-gray-700 dark:text-gray-400 ${icon}`} />
         </div>
         <input
           type="url"
           autoFocus={autoFocus}
           id={name}
-          className={`block w-full pl-10 rounded-md dark-form-input ${styles()}`}
+          className={`block w-full pl-10 rounded-md dark:bg-gray-700/50 dark:placeholder-gray-400 ${styles()}`}
           placeholder={placeholder}
           data-test-id={`${kebabCase(name)}-field`}
           {...register(name)}

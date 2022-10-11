@@ -3,7 +3,13 @@
     @apply max-w-7xl mx-auto py-10 px-4 sm:py-14 sm:px-6 lg:px-8;
   }
 
-  .gradient {
-    @apply bg-gradient-to-b from-white to-gray-100;
+  @layer utilities {
+    .gradient {
+      @apply bg-gradient-to-b from-white to-gray-100;
+    }
+
+    .highlight-white {
+      box-shadow: inset 0 1px 0 0 hsl(0deg 0% 100% / 5%);
+    }
   }
 }
