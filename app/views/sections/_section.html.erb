@@ -1,11 +1,11 @@
-<%= render CardComponent.new(classes: "mb-10 odin-dark-bg-accent") do |card| %>
-  <% card.header do %>
+<%= render CardComponent.new(classes: 'mb-10') do |card| %>
+  <% card.header(classes: 'border-b dark:border-slate-700 pb-6 pt-6') do %>
     <%= link_to  "##{section.title.parameterize}", id: section.title.parameterize, class: 'no-underline' do %>
-      <h3 class="text-2xl font-semibold pb-4 text-gray-600 hover:text-gray-800">
+      <h3 class="text-xl font-semibold pb-2 text-slate-700 anchor-link dark:text-slate-300">
         <%= section.title %>
       </h3>
     <% end %>
-    <p class="text-gray-500"><%= section.description %></p>
+    <p class="text-slate-500 dark:text-slate-400 prose prose-slate max-w-none"><%= section.description %></p>
   <% end %>
 
   <% card.body do %>

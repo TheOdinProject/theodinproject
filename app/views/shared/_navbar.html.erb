@@ -1,6 +1,6 @@
 <%= render 'shared/off_canvas_menu' %>
 
-<nav>
+<nav class="shadow-sm bg-white dark:bg-slate-900 dark:shadow-none">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <div class="flex justify-between">
       <div class="flex">
@@ -21,7 +21,7 @@
             <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
           </div>
 
-          <%= link_to notifications_path, class: "odin-dark-nav-item ml-3 bg-white p-1 rounded-full text-gray-400 relative hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold-500", data: { test_id: 'navbar-notification-icon' } do %>
+          <%= link_to notifications_path, class: "ml-3 bg-white dark:bg-slate-900 p-1 rounded-full text-slate-400 dark:text-slate-300 relative hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500", data: { test_id: 'navbar-notification-icon' } do %>
             <span class="sr-only">View notifications</span>
             <% if unread_notifications?(current_user) %>
                 <span data-test-id="unread-notifications" class="absolute top-1 right-0.5 w-2 h-2 rounded-lg bg-gold-500"></span>
@@ -36,7 +36,7 @@
           <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about') %>
           <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
           <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in') %>
-          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4', data: { test_id: 'nav-sign-up' } %>
+          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4 text-sm', data: { test_id: 'nav-sign-up' } %>
           <%= turbo_frame_tag "theme_switcher", class: "flex items-center justify-center" do %>
             <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :icon_only) %>
           <% end %>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="-mr-2 flex items-center md:hidden">
-        <button type="button" data-controller="custom-events" data-action="custom-events#emit" data-custom-events-event-name-value="openMobileMenu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" data-controller="custom-events" data-action="custom-events#emit" data-custom-events-event-name-value="openMobileMenu" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-slate-200 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open mobile menu</span>
           <%= inline_svg_tag "icons/ham-burger.svg", class: "block h-6 w-6", aria: true, title: "Open mobile menu button" %>
         </button>

@@ -4,8 +4,8 @@ import { Application } from 'stimulus';
 import { ValidationController } from 'stimulus-validation';
 
 const invalidFieldClasses = [
-  'border-red-300',
-  'text-red-900',
+  'border-red-400',
+  'text-red-600',
   'placeholder-red-300',
   'focus:ring-red-500',
   'focus:border-red-500',

@@ -1,12 +1,12 @@
 <%= title('Installation Lessons Appendix') %>
 
-<div class="page-container h-full">
+<div class="page-container h-screen">
   <h1 class="page-heading-title text-center">Installation Lessons Appendix</h1>
   <ul>
     <% @lessons.each do |lesson|%>
        <li>
-          <p class="text-1xl text-center m-3 text-gray-600">
-            <%= link_to lesson.title, lesson_path(lesson), class: "underline hover:no-underline hover:text-gray-500" %>
+          <p class="text-1xl text-center m-3 text-slate-600 dark:text-slate-300">
+            <%= link_to lesson.title, lesson_path(lesson), class: "underline hover:no-underline hover:text-slate-500 dark:hover:text-slate-400" %>
           </p>
         </li>
     <% end %>

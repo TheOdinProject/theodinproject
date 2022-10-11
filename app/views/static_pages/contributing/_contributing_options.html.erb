@@ -3,7 +3,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <% contributions = t('.ways_to_contribute') %>
     <% contributions.each do |contribution| %>
-      <%= render CardComponent.new(classes: "odin-dark-bg-accent mb-8 py-8 px-4 flex flex-col flex-between h-full") do |card| %>
+      <%= render CardComponent.new(classes: "mb-8 py-8 px-4 flex flex-col flex-between h-full") do |card| %>
         <% card.header do %>
           <h3 class="font-bold text-gold text-center text-xl my-2"><%= contribution[:title] %></h3>
         <% end %>

@@ -1,4 +1,4 @@
-<footer>
+<footer class="bg-white dark:bg-slate-800">
   <div class="max-w-7xl px-4 sm:px-6 lg:px-8 py-3 mx-auto">
     <div class="flex justify-center lg:justify-between py-8">
       <div class="w-80">
@@ -9,10 +9,10 @@
         <p class="py-4 hidden lg:block">High quality coding education created by an Open-Source community.</p>
 
         <div class="flex justify-between">
-          <%= link_to "https://github.com/TheOdinProject" do %><span aria-label="github" class="text-gray-700 text-4xl hover:text-gray-900 fab fa-github odin-dark-icon"/><% end %>
-          <%= link_to "https://discord.gg/V75WSQG" do %><span aria-label="discord chat" class="text-gray-700 text-4xl hover:text-gray-900 fab fa-discord odin-dark-icon"/><% end %>
-          <%= link_to "https://www.facebook.com/theodinproject/" do %><span aria-label="facebook" class="text-gray-700 hover:text-gray-900 text-4xl fab fa-facebook odin-dark-icon"/><% end %>
-          <%= link_to "https://twitter.com/TheOdinProject" do %><span aria-label="twitter" class="text-gray-700 hover:text-gray-900 text-4xl fab fa-twitter odin-dark-icon"/><% end %>
+          <%= link_to "https://github.com/TheOdinProject" do %><span aria-label="github" class="text-slate-700 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-400 text-4xl fab fa-github"/><% end %>
+          <%= link_to "https://discord.gg/V75WSQG" do %><span aria-label="discord chat" class="text-slate-700 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-400 text-4xl fab fa-discord"/><% end %>
+          <%= link_to "https://www.facebook.com/theodinproject/" do %><span aria-label="facebook" class="text-slate-700 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-400 text-4xl fab fa-facebook"/><% end %>
+          <%= link_to "https://twitter.com/TheOdinProject" do %><span aria-label="twitter" class="text-slate-700 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-400 text-4xl fab fa-twitter"/><% end %>
         </div>
       </div>
 
@@ -20,14 +20,14 @@
     </div>
 
     <div class="flex lg:flex-row items-center lg:pb-4 gap-y-6 pt-6">
-      <div class="flex items-center space-x-0 gap-x-8 gap-y-3 flex-wrap justify-center md:block md:space-x-10 odin-dark-text">
-        <%= link_to "About", about_path, class: "hover:text-gray-500" %>
-        <%= link_to "FAQ", faq_path, class: "hover:text-gray-500", data: { test_id: 'faq-link' } %>
-        <%= link_to "Blog", ODIN_BLOG_URL, target: "_blank", rel: "noreferrer", class: "hover:text-gray-500" %>
-        <%= link_to "Success Stories", success_stories_path, class: "hover:text-gray-500" %>
-        <%= link_to "Contribute", contributing_path, class: "hover:text-gray-400" %>
-        <%= link_to "Appendix", lessons_installation_lessons_path, class: "hover:text-gray-500" %>
-        <%= link_to "Terms of Use", terms_of_use_path, class: "hover:text-gray-500" %>
+      <div class="flex items-center space-x-0 gap-x-8 gap-y-3 flex-wrap justify-center md:block md:space-x-10">
+        <%= link_to "About", about_path, class: "hover:text-slate-500 dark:hover:text-slate-400" %>
+        <%= link_to "FAQ", faq_path, class: "hover:text-slate-500 dark:hover:text-slate-400", data: { test_id: 'faq-link' } %>
+        <%= link_to "Blog", ODIN_BLOG_URL, target: "_blank", rel: "noreferrer", class: "hover:text-slate-500 dark:hover:text-slate-400" %>
+        <%= link_to "Success Stories", success_stories_path, class: "hover:text-slate-500 dark:hover:text-slate-400" %>
+        <%= link_to "Contribute", contributing_path, class: "hover:text-slate-500 dark:hover:text-slate-400" %>
+        <%= link_to "Appendix", lessons_installation_lessons_path, class: "hover:text-slate-500 dark:hover:text-slate-400" %>
+        <%= link_to "Terms of Use", terms_of_use_path, class: "hover:text-slate-500 dark:hover:text-slate-400" %>
       </div>
     </div>
   </div>

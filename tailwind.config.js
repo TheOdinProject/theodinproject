@@ -5,6 +5,7 @@ module.exports = {
     './app/**/*.html.erb',
     './app/components/**/*',
     './app/components/*.rb',
+    './app/javascript/**/*.js',
     './app/javascript/components/**/*.jsx',
     'app/assets/images/icons/*.svg',
     './config/utility_classes.yml',
@@ -17,6 +18,7 @@ module.exports = {
     'anchor-link',
     'toc-item-active'
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({

@@ -10,7 +10,7 @@
   <div
     data-mobile-menu-target="menuOverlay"
     data-action="click->mobile-menu#close"
-    class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden"
+    class="fixed inset-0 bg-slate-600 bg-opacity-75 dark:bg-black dark:bg-opacity-60 hidden"
     aria-hidden="true"
     data-transition-enter="transition-opacity ease-linear duration-200"
     data-transition-enter-start="transform opacity-0"
@@ -23,7 +23,7 @@
 
     <div
       data-mobile-menu-target="menu"
-      class="odin-dark-mobile-menu relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-none hidden"
+      class="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-none hidden dark:bg-slate-800"
       data-transition-enter="transition ease-in-out duration-200 transform"
       data-transition-enter-start="-translate-x-full"
       data-transition-enter-end="translate-x-0"
@@ -69,7 +69,7 @@
               <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', mobile: true) %>
             <% end %>
           </div>
-          <hr class="border-t border-gray-200 my-4" aria-hidden="true">
+          <hr class="border-t border-slate-200 my-4" aria-hidden="true">
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
               <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>

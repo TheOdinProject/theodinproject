@@ -4,22 +4,26 @@
   }
 
   p:not(.lesson-content p) {
-    @apply text-gray-600 text-lg tracking-wide;
+    @apply text-lg tracking-wide;
   }
 }
 
 @layer components {
   .page-heading-title {
-    @apply text-3xl text-gray-900 font-semibold pb-10 text-center mx-auto;
+    @apply text-3xl text-slate-800 font-semibold pb-10 text-center mx-auto dark:text-slate-300;
   }
 
   .anchor-link {
-    @apply text-gray-600 flex relative items-center;
+    @apply text-slate-300 dark:text-slate-100 flex relative items-center;
+  }
+
+  .anchor-link:hover {
+    @apply dark:text-slate-200;
   }
 
   .anchor-link:hover:before {
     content: "\f0c1";
     font-family: "Font Awesome 5 Free";
-    @apply text-gray-500 text-xs absolute -left-5 font-semibold hidden sm:block;
+    @apply text-slate-500 dark:text-slate-300 text-xs absolute -left-5 font-semibold hidden sm:block;
   }
 }
