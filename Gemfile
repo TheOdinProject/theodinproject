@@ -63,7 +63,7 @@ end
 group :test do
   gem 'capybara', '~> 3.37'
   gem 'climate_control', '~> 1.2'
-  gem 'cuprite', '~> 0.13'
+  gem 'cuprite', '~> 0.14'
   gem 'erb_lint', '~> 0.2', require: false
   gem 'factory_bot_rails', '~> 6.2'
   gem 'rspec-retry', '~> 0.6'
