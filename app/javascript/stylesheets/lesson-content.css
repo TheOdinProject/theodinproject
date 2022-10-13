@@ -53,10 +53,10 @@
   }
 
   [data-lesson-toc-target="toc"] li {
-    @apply border-l-2
+    @apply border-l-2 border-gray-300 dark:border-gray-400
   }
 
   .toc-item-active {
-    @apply text-gray-800 bg-gray-100 dark:bg-gray-700/40 dark:text-gray-300 border-l-2 border-gold-600;
+    @apply text-gray-800 bg-gray-100 dark:bg-gray-700/40 dark:text-gray-300 border-l-2 !border-gold-600;
   }
 }
