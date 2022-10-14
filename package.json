@@ -59,7 +59,7 @@
     "react-scrolllock": "^5.0.1",
     "react-tabs": "4.2.1",
     "react_ujs": "^2.6.2",
-    "regenerator-runtime": "^0.13.9",
+    "regenerator-runtime": "^0.13.10",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
     "shakapacker": "6.5.2",
