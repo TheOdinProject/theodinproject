@@ -4,7 +4,8 @@ RSpec.describe LessonContentImporter do
   subject(:importer) { described_class.new(lesson) }
 
   let(:lesson) do
-    create(:lesson, content: lesson_content, title: 'Ruby Basics', github_path: '/ruby_basics/variables')
+    create(:lesson, title: 'Ruby Basics', github_path: '/ruby_basics/variables',
+                    content: create(:content, body: lesson_content))
   end
 
   let(:lesson_content) { "<p>Hello World</p>\n" }
@@ -33,14 +34,14 @@ RSpec.describe LessonContentImporter do
 
   describe '#import' do
     it 'updates the lesson content' do
-      expect { importer.import }.to change { lesson.reload.content }.to("<p>Hello World!</p>\n")
+      expect { importer.import }.to change { lesson.content.reload.body }.to("<p>Hello World!</p>\n")
     end
 
     context 'when lesson content is the same as the github content' do
       let(:decoded_lesson_content) { 'Hello World' }
 
       it 'does not update the lesson content' do
-        expect { importer.import }.not_to change { lesson.reload.content }
+        expect { importer.import }.not_to change { lesson.content.reload.body }
       end
     end
 

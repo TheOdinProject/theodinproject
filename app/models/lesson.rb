@@ -6,6 +6,7 @@ class Lesson < ApplicationRecord
   belongs_to :section
   has_one :course, through: :section
   has_one :path, through: :course
+  has_one :content, dependent: :destroy
   has_many :project_submissions, dependent: :destroy
   has_many :lesson_completions, dependent: :destroy
   has_many :completing_users, through: :lesson_completions, source: :user
@@ -14,6 +15,8 @@ class Lesson < ApplicationRecord
   scope :installation_lessons, -> { where(installation_lesson: true) }
 
   validates :position, presence: true
+
+  delegate :body, to: :content
 
   def position_in_section
     section_lessons.where('position <= ?', position).count
