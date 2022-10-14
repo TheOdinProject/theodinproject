@@ -5,6 +5,7 @@ RSpec.describe Lesson do
 
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course).through(:section) }
+  it { is_expected.to have_one(:content) }
   it { is_expected.to have_many(:project_submissions) }
   it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completing_users).through(:lesson_completions) }
