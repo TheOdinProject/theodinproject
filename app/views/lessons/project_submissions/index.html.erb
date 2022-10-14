@@ -2,15 +2,15 @@
 
 <div class="page-container">
   <%= react_component(
-      "project-submissions/index",
-      {
-        userId: current_user&.id,
-        course: @lesson.course.as_json,
-        lesson: @lesson.as_json,
-        submissions: @project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
-        userSubmission: @user_submission
-      }
-    ) %>
+        'project-submissions/index',
+        {
+          userId: current_user&.id,
+          course: @lesson.course.as_json,
+          lesson: @lesson.as_json,
+          submissions: @project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
+          userSubmission: @user_submission
+        }
+      ) %>
   <div class="text-center">
     <%== pagy_nav(@pagy) %>
   </div>

@@ -4,7 +4,7 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
-        <% card.body(classes: 'text-center' ) do %>
+        <% card.body(classes: 'text-center') do %>
           <p class="font-bold text-3xl text-gray-500 dark:text-gray-400"><%= User.count %></p>
           <p>Learners</p>
         <% end %>
@@ -20,7 +20,7 @@
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
         <% card.body(classes: 'text-center text-gray-500 dark:text-gray-400') do %>
           <p class="font-bold text-3xl">2013</p>
-          <p >Founded</p>
+          <p>Founded</p>
         <% end %>
       <% end %>
 

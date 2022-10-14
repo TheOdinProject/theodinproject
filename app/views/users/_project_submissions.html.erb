@@ -3,12 +3,12 @@
 
   <% if project_submissions.any? %>
     <%= react_component(
-        "project-submissions/user-project-submissions",
-        {
-          userId: current_user&.id,
-          submissions: project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
-        }
-    ) %>
+          'project-submissions/user-project-submissions',
+          {
+            userId: current_user&.id,
+            submissions: project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
+          }
+        ) %>
   <% else %>
     <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
   <% end %>

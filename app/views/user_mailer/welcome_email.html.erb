@@ -36,7 +36,7 @@
       <table class="outer" align="center" style="background-color: #ffffff; border: 1px solid black; border-spacing: 0; color: #333333; font-family: sans-serif; max-width: 600px; width: 100%;">
         <tr>
           <td class="full-width-image center" style="padding: 0; text-align: center;">
-            <%=  image_tag attachments['logo.svg'].url, alt: 'home page banner' %>
+            <%= image_tag attachments['logo.svg'].url, alt: 'home page banner' %>
               <p class="main-heading" style="color: #cc9543; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 28px; font-weight: bold; margin: 10px 0 20px 0; vertical-align: center;">The Odin Project</p>
           </td>
         </tr>
@@ -91,7 +91,7 @@
                   <td class="inner contents" style="padding: 10px; width: 100%;">
                     <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Plan out your strategy</p>
                     <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">Figure out how much time each week you'll be able to devote to learning then browse through our
-                      <%= link_to "roadmap of paths", paths_url %> and plan your strategy accordingly. The biggest issue students have is getting distracted (especially
+                      <%= link_to 'roadmap of paths', paths_url %> and plan your strategy accordingly. The biggest issue students have is getting distracted (especially
                         since we link to so much juicy content), so staying focused is important.</p>
                   </td>
                 </tr>
@@ -130,9 +130,9 @@
                 <tr>
                   <td class="inner contents" style="padding: 10px; width: 100%;">
                     <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Dive into your first course</p>
-                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">Get started! If you're brand spanking new to all this, start with
-                      <%= link_to "Foundations", path_url("foundations") %>. Otherwise start whatever
-                        <%= link_to "course", paths_url %> that interests you the most.</p>
+                    <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
+                      Get started! If you're brand spanking new to all this, start with <%= link_to 'Foundations', path_url('foundations') %>.
+                      Otherwise start whatever <%= link_to 'course', paths_url %> that interests you the most.</p>
                   </td>
                 </tr>
               </table>
@@ -170,7 +170,7 @@
                   <td class="inner contents" style="padding: 10px; width: 100%;">
                     <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Get help and work with others</p>
                     <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">We have a Discord server that you can join by visiting it
-                      <%= link_to "here", 'https://discord.gg/V75WSQG' %>.
+                      <%= link_to 'here', 'https://discord.gg/V75WSQG' %>.
                   </td>
                 </tr>
               </table>
@@ -220,7 +220,6 @@
           </td>
         </tr>
 
-
         <!-- Dual colums row 5 -->
         <tr>
           <td class="left-sidebar" style="font-size: 0; padding: 0; text-align: left;">
@@ -247,7 +246,7 @@
                   <td class="inner contents" style="padding: 10px; width: 100%;">
                     <p class="h3" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; font-weight: bold; letter-spacing: 0.3px; margin: 8px 0 16px 0; text-align: left;">Consider Thinkful</p>
                     <p class="h3-paragraph" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; margin: 0; text-align: left;">
-                      Check out <%= link_to "Thinkful", "https://www.thinkful.com/?utm_source=odin_signup&utm_source=The-Odin-Project&utm_medium=email&utm_content=odin-welcome-email&utm_campaign=tf_enroll" %>, a new type of school which provides 1-on-1 learning with industry experts to bring high growth tech careers to ambitious people everywhere. Thinkful’s Engineering Immersion (full time), Full Stack Flex (flexible), and Data Science (flexible) programs all come with a job guarantee. It proudly sponsors The Odin Project.</p>
+                      Check out <%= link_to 'Thinkful', 'https://www.thinkful.com/?utm_source=odin_signup&utm_source=The-Odin-Project&utm_medium=email&utm_content=odin-welcome-email&utm_campaign=tf_enroll' %>, a new type of school which provides 1-on-1 learning with industry experts to bring high growth tech careers to ambitious people everywhere. Thinkful’s Engineering Immersion (full time), Full Stack Flex (flexible), and Data Science (flexible) programs all come with a job guarantee. It proudly sponsors The Odin Project.</p>
                   </td>
                 </tr>
               </table>
@@ -266,7 +265,7 @@
               <tr>
                 <td class="contents inner" style="padding: 10px; text-align: left; width: 100%;">
                   <p class="outro-text" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;">If you have any additional questions, check out our
-                    <%= link_to "Frequently Asked Questions", faq_url %> or feel free to reach out to <a href="mailto: theodinprojectcontact@gmail.com">theodinprojectcontact@gmail.com</a>.</p>
+                    <%= link_to 'Frequently Asked Questions', faq_url %> or feel free to reach out to <a href="mailto: theodinprojectcontact@gmail.com">theodinprojectcontact@gmail.com</a>.</p>
                   <p class="outro-text bold" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold;">Best of luck with your learning journey!</p>
                   <p class="outro-text" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;">Sincerely,</p>
                   <p class="outro-text" style="color: #4a4a4a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;"><span class="italicised" style="font-style: italic;">The Odin Maintainer Team</span></p>

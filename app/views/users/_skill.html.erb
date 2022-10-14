@@ -2,11 +2,11 @@
   <div class="flex items-center flex-col md:flex-row gap-6">
     <div class=''>
       <%= render Progress::BadgeComponent.new(
-        course: course,
-        current_user: current_user,
-        url: courses_progress_path(course.id),
-        show_badge: false,
-      )%>
+            course:,
+            current_user:,
+            url: courses_progress_path(course.id),
+            show_badge: false,
+          ) %>
     </div>
 
     <div>
@@ -24,11 +24,11 @@
       <%= link_to 'Resume',
         lesson_url(next_lesson_to_complete(course, current_user.lesson_completions_for_course(course))),
         class: 'button button--clear button--medium',
-        data: { test_id: "#{course.title.downcase}-resume-btn" }
-      %>
+        data: { test_id: "#{course.title.downcase}-resume-btn" } %>
     <% else %>
       <%= link_to 'Start', path_course_url(course.path, course), class: 'button button--clear button--medium', data: {
-        test_id: "#{course.title.downcase}-start-btn" } %>
+            test_id: "#{course.title.downcase}-start-btn"
+          } %>
     <% end %>
   </div>
 </div>

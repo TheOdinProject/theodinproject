@@ -4,8 +4,7 @@
   data-action="custom-events:openMobileMenu@window->mobile-menu#open"
   class="fixed inset-0 flex z-40 hidden lg:hidden"
   role="dialog"
-  aria-modal="true"
->
+  aria-modal="true">
 
   <div
     data-mobile-menu-target="menuOverlay"
@@ -17,8 +16,7 @@
     data-transition-enter-end="transform opacity-100"
     data-transition-leave="transition-opacity ease-linear duration-200"
     data-transition-leave-start="transform opacity-100"
-    data-transition-leave-end="transform opacity-0"
-  >
+    data-transition-leave-end="transform opacity-0">
   </div>
 
     <div
@@ -29,8 +27,7 @@
       data-transition-enter-end="translate-x-0"
       data-transition-leave="transition ease-in-out duration-200 transform"
       data-transition-leave-start="translate-x-0"
-      data-transition-leave-end="-translate-x-full"
-    >
+      data-transition-leave-end="-translate-x-full">
 
       <div
         data-mobile-menu-target="closeButton"
@@ -41,8 +38,7 @@
         data-transition-enter-end="transform opacity-100"
         data-transition-leave="transition ease-in duration-200"
         data-transition-leave-start="transform opacity-100"
-        data-transition-leave-end="transform opacity-0"
-      >
+        data-transition-leave-end="transform opacity-0">
         <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
           <span class="sr-only">Close sidebar</span>
           <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -73,14 +69,14 @@
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
               <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
-               <%= turbo_frame_tag "theme_switcher_mobile" do %>
-                <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+               <%= turbo_frame_tag 'theme_switcher_mobile' do %>
+                <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
               <% end %>
               <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', mobile: true) %>
             <% else %>
               <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', mobile: true) %>
-              <%= turbo_frame_tag "theme_switcher_mobile" do %>
-                <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+              <%= turbo_frame_tag 'theme_switcher_mobile' do %>
+                <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
               <% end %>
               <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', mobile: true) %>
             <% end %>

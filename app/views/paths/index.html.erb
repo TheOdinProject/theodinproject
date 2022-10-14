@@ -1,4 +1,4 @@
-<%= title("All Paths") %>
+<%= title('All Paths') %>
 
 <div class="page-container">
   <div class="max-w-4xl mx-auto">
@@ -13,15 +13,15 @@
             <% end %>
             <div class="flex items-center flex-col sm:block">
               <h3 class="text-1xl text-gold-600">START HERE</h3>
-              <%= link_to path_path(@foundations), class: "no-underline" do %>
+              <%= link_to path_path(@foundations), class: 'no-underline' do %>
                 <h2 class="text-3xl font-semibold">Foundations</h2>
               <% end %>
             </div>
           </div>
 
           <div class="space-x-6 justify-center hidden md:flex">
-            <%= render Paths::SelectButtonComponent.new(current_user: current_user, path: @foundations, classes: 'px-12')%>
-            <%= render Paths::ViewButtonComponent.new(current_user: current_user, path: @foundations, classes: 'px-12') %>
+            <%= render Paths::SelectButtonComponent.new(current_user:, path: @foundations, classes: 'px-12') %>
+            <%= render Paths::ViewButtonComponent.new(current_user:, path: @foundations, classes: 'px-12') %>
           </div>
         </div>
       <% end %>
@@ -32,8 +32,8 @@
 
       <% card.footer do |card| %>
         <div class="flex space-x-6 justify-center sm:items-center sm:justify-start md:hidden">
-          <%= render Paths::SelectButtonComponent.new(current_user: current_user, path: @foundations, classes: 'px-10')%>
-          <%= render Paths::ViewButtonComponent.new(current_user: current_user, path: @foundations, classes: 'px-10') %>
+          <%= render Paths::SelectButtonComponent.new(current_user:, path: @foundations, classes: 'px-10') %>
+          <%= render Paths::ViewButtonComponent.new(current_user:, path: @foundations, classes: 'px-10') %>
         </div>
       <% end %>
     <% end %>
@@ -62,8 +62,8 @@
             </div>
           <% end %>
 
-          <% card.body(classes: "flex-grow") do %>
-            <%= link_to path_path(path), class: "no-underline" do %>
+          <% card.body(classes: 'flex-grow') do %>
+            <%= link_to path_path(path), class: 'no-underline' do %>
               <h2 class="text-2xl font-semibold pb-4">
                 <%= path.title %>
               </h2>
@@ -76,12 +76,12 @@
 
           <% card.footer do %>
             <div class="flex space-x-6 items-center justify-center sm:justify-start">
-              <%= render Paths::SelectButtonComponent.new(current_user: current_user, path: path, classes: 'px-10 lg:px-12') %>
-              <%= render Paths::ViewButtonComponent.new(current_user: current_user, path: path, classes: 'px-10 lg:px-12') %>
+              <%= render Paths::SelectButtonComponent.new(current_user:, path:, classes: 'px-10 lg:px-12') %>
+              <%= render Paths::ViewButtonComponent.new(current_user:, path:, classes: 'px-10 lg:px-12') %>
             </div>
           <% end %>
         <% end %>
-      <% end%>
+      <% end %>
     </div>
   </div>
 </div>
