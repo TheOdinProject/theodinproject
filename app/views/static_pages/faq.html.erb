@@ -5,17 +5,17 @@
   <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
       <dl class="space-y-6 divide-y divide-gray-200">
-        <% t(".items").each do |item| %>
-          <%= render Faq::ItemComponent.new(item: item) %>
+        <% t('.items').each do |item| %>
+          <%= render Faq::ItemComponent.new(item:) %>
         <% end %>
       </dl>
     </div>
   </div>
 
   <%= render(
-    'shared/bottom_cta',
-    button: chat_button,
-    heading: 'Have a question?',
-    sub_heading: 'Chat with our friendly Odin community in our Discord server!'
-  )%>
+        'shared/bottom_cta',
+        button: chat_button,
+        heading: 'Have a question?',
+        sub_heading: 'Chat with our friendly Odin community in our Discord server!'
+      ) %>
 </div>

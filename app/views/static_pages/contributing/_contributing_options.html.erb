@@ -3,12 +3,12 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <% contributions = t('.ways_to_contribute') %>
     <% contributions.each do |contribution| %>
-      <%= render CardComponent.new(classes: "mb-8 py-8 px-4 flex flex-col flex-between h-full") do |card| %>
+      <%= render CardComponent.new(classes: 'mb-8 py-8 px-4 flex flex-col flex-between h-full') do |card| %>
         <% card.header do %>
           <h3 class="font-bold text-gold text-center text-xl my-2"><%= contribution[:title] %></h3>
         <% end %>
 
-        <% card.body(classes:"text-center mb-6" ) do %>
+        <% card.body(classes: 'text-center mb-6') do %>
           <p><%= contribution[:description] %></p>
         <% end %>
 
@@ -17,8 +17,7 @@
                         github_link(contribution[:path]),
                         class: 'button button--primary',
                         target: '_blank',
-                        rel: 'noreferrer'
-            %>
+                        rel: 'noreferrer' %>
         <% end %>
       <% end %>
     <% end %>

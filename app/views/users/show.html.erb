@@ -3,10 +3,10 @@
 <div class="page-container">
   <div class="max-w-3xl mx-auto">
     <h1 class="page-heading-title">Dashboard</h1>
-    <%= render CardComponent.new(classes: "mb-24") do |card| %>
+    <%= render CardComponent.new(classes: 'mb-24') do |card| %>
       <% card.body do %>
         <div class="flex items-center flex-col md:flex-row gap-4">
-          <%= render User::AvatarComponent.new(current_user: current_user, classes: " w-24") %>
+          <%= render User::AvatarComponent.new(current_user:, classes: 'w-24') %>
           <h2 class="truncate w-full basis-3/5 text-2xl text-center md:text-left md:pl-4 font-semibold" data-test-id="profile_username"><%= current_user.username %></h2>
           <p data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
         </div>
@@ -28,8 +28,7 @@
   </div>
 
   <%= render 'shared/bottom_cta',
-    button: chat_button,
-    heading: 'Have a question?',
-    sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!'
-  %>
+      button: chat_button,
+      heading: 'Have a question?',
+      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!' %>
 </div>

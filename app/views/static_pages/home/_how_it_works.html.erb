@@ -7,7 +7,7 @@
   </div>
   <div class="flex flex-col md:flex-row max-w-5xl mx-auto text-center">
 
-    <% t(".items").each do |item| %>
+    <% t('.items').each do |item| %>
       <div class="p-5 flex-1">
         <%= image_tag item[:image], class: 'h-20 sm:h-32 md:h-40 inline', alt: 'how-it-works illustration' %>
         <h4 class='font-bold text-xl mt-8 mb-4'><%= item[:subtitle] %></h4>

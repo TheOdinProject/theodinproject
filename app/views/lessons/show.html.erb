@@ -29,16 +29,16 @@
       <% card.body do %>
         <% if user_signed_in? && @lesson.accepts_submission? %>
           <%= react_component(
-            "project-submissions/index",
-            {
-              userId: current_user.id,
-              course: @lesson.course.as_json,
-              lesson: @lesson.as_json,
-              submissions: @project_submissions,
-              allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
-              userSubmission: @user_submission
-            }
-          ) %>
+                'project-submissions/index',
+                {
+                  userId: current_user.id,
+                  course: @lesson.course.as_json,
+                  lesson: @lesson.as_json,
+                  submissions: @project_submissions,
+                  allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
+                  userSubmission: @user_submission
+                }
+              ) %>
         <% elsif @lesson.accepts_submission? %>
           <p class="mb-7">
             Please <%= link_to 'Sign in', sign_in_path, class: 'text-gold' %> or <%= link_to 'Sign up', sign_up_path, class: 'text-gold', data: {test_id: 'sign_up'} %> to view user submissions for this project!
@@ -49,7 +49,6 @@
       <% end %>
     <% end %>
 
-
     <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gold text-lg block mt-14' do %>
       <span class="fab fa-github mr-1"></span>
       <span> Improve this lesson on GitHub</span>
@@ -58,8 +57,7 @@
     <%= render 'shared/bottom_cta',
       button: chat_button,
       heading: 'Have a question?',
-      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!'
-    %>
+      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!' %>
 
     <%= render 'advert' %>
   </div>

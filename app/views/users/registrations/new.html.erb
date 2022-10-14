@@ -57,7 +57,7 @@
         </div>
 
         <div class="mt-6 grid grid-cols-2 gap-3">
-          <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
+          <%= render(Oauth::ConnectButtonComponent.with_collection(%i[github google], resource_name:)) %>
         </div>
       <% end %>
     <% end %>

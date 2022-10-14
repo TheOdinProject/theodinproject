@@ -11,7 +11,7 @@
       <% members = t('.members') %>
       <% members.each do |member| %>
         <div class="col-span-4 sm:col-span-3 md:col-span-2">
-          <%= link_to(member[:github_url], target: "_blank", rel: "noreferrer") do %>
+          <%= link_to(member[:github_url], target: '_blank', rel: 'noreferrer') do %>
             <%= image_tag(member[:image], alt: member[:name], class: 'h-full') %>
           <% end %>
         </div>
@@ -23,8 +23,7 @@
           github_link('theodinproject/graphs/contributors'),
           class: 'text-gold',
           target: '_blank',
-          rel: 'noreferrer'
-      %>
+          rel: 'noreferrer' %>
     </div>
   </div>
 </section>

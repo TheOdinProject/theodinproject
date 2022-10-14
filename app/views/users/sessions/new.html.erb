@@ -17,7 +17,7 @@
           <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
             <div class="space-y-6">
               <div>
-                <%= form.label :email, "Email address" %>
+                <%= form.label :email, 'Email address' %>
                 <%= form.email_field :email, required: false, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
               </div>
 
@@ -55,7 +55,7 @@
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-3">
-            <%= render(Oauth::ConnectButtonComponent.with_collection([:github, :google], resource_name: resource_name)) %>
+            <%= render(Oauth::ConnectButtonComponent.with_collection(%i[github google], resource_name:)) %>
           </div>
         <% end %>
       <% end %>

@@ -1,4 +1,4 @@
-<%= render CardComponent.new(classes: "mb-16 relative") do |card| %>
+<%= render CardComponent.new(classes: 'mb-16 relative') do |card| %>
   <% card.header do %>
     <% if user_signed_in? && course_completed_by_user?(course, current_user) %>
       <div class="absolute top-0 left-0 bg-teal-700 text-teal-50 w-full text-center py-1 font-semibold rounded-t-md">
@@ -10,25 +10,25 @@
     <div class="flex flex-col items-center justify-between space-y-5 border-b border-gray-300 dark:border-gray-600 pb-4 md:flex-row md:space-y-0">
       <div class="flex flex-col items-center space-y-4 md:flex-row md:space-x-6 text-center md:space-y-0">
         <%= render Progress::BadgeComponent.new(
-            course: course,
-            current_user: current_user,
-            url: courses_progress_path(course.id),
-            background_color: "bg-white dark:bg-gray-800",
-          ) %>
+              course:,
+              current_user:,
+              url: courses_progress_path(course.id),
+              background_color: 'bg-white dark:bg-gray-800',
+            ) %>
 
         <%= link_to path_course_url(course.path, course), class: 'flex flex-col md:items-start' do %>
-          <h2 id=<%= course.title.parameterize %> class="font-medium text-lg uppercase md:text-left text-gray-600 dark:text-gray-200">
+          <h2 id=<%= course.title.parameterize %> ">
             <%= course.title %>
           </h2>
-          <span class="uppercase text-sm text-gray-400/70"><%= course.lessons.size %> lessons</span>
+          <span class=" uppercase text-sm text-gray-400 70 "><%= course.lessons.size %> lessons</span>
         <% end %>
       </div>
 
-      <%= link_to 'Open Course', path_course_url(course.path, course), class: "button button--clear" %>
+      <%= link_to 'Open Course', path_course_url(course.path, course), class: 'button button--clear' %>
     </div>
   <% end %>
 
   <% card.body do %>
-     <p class="dark:text-gray-300/90"><%= course.description %></p>
+     <p class=" dark:text-gray-300 90 "><%= course.description %></p>
   <% end %>
 <% end %>

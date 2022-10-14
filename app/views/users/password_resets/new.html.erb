@@ -10,7 +10,7 @@
         <% card.body do %>
           <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :post } do |form| %>
             <div class="mb-6">
-              <%= form.label :email, "Whats your email address?" %>
+              <%= form.label :email, 'Whats your email address?' %>
                 <%= form.email_field :email, autofocus: true, required: true, placeholder: 'you@example.com', class: 'dark-form-input' %>
             </div>
 

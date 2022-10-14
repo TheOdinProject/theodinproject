@@ -1,10 +1,10 @@
 <div class="mb-6">
   <div class='flex justify-center'>
     <%= render Progress::BadgeComponent.new(
-      course: course,
-      current_user: current_user,
-      url: courses_progress_path(course.id)
-    )%>
+          course:,
+          current_user:,
+          url: courses_progress_path(course.id)
+        ) %>
   </div>
 
   <%= link_to path_course_url(course.path, course), class: 'no-underline' do %>

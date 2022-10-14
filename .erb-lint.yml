@@ -1,13 +1,3 @@
-EnableDefaultLinters: true
-linters:
-  ErbSafety:
-    enabled: true
-    better_html_config: .better-html.yml
-  Rubocop:
-    enabled: true
-    rubocop_config:
-      inherit_from:
-        - .rubocop.yml
 ---
 exclude:
   - '*vendor/*'
@@ -68,6 +58,36 @@ linters:
       Layout/HashAlignment:
         Enabled: false
       Rails/LinkToBlank:
+        Enabled: false
+      Layout/SpaceInsideHashLiteralBraces:
+        Enabled: false
+      Style/StringLiteralsInInterpolation:
+        Enabled: false
+      Layout/ArgumentAlignment:
+        Enabled: false
+      Style/SafeNavigation:
+        Enabled: false
+      Style/TrailingCommaInHashLiteral:
+        Enabled: false
+      Style/RedundantParentheses:
+        Enabled: false
+      Lint/FloatComparison:
+        Enabled: false
+      Style/TrailingCommaInArguments:
+        Enabled: false
+      Layout/EndAlignment:
+        Enabled: false
+      Rails/DurationArithmetic:
+        Enabled: false
+      Style/HashConversion:
+        Enabled: false
+      Layout/ElseAlignment:
+        Enabled: false
+      Layout/IndentationWidth:
+        Enabled: false
+      Style/TrailingCommaInArrayLiteral:
+        Enabled: false
+      Style/IfWithBooleanLiteralBranches:
         Enabled: false
 
   SelfClosingTag:

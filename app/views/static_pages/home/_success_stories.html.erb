@@ -6,7 +6,7 @@
   <div class="max-w-7xl mx-auto mt-8 sm:mt-16 flex flex-nowrap xl:flex-wrap flex-col xl:flex-row items-center">
     <% @success_stories.each do |story| %>
     <div class="px-6 sm:px-0 max-w-xl xl:max-w-none xl:w-1/2 flex pb-9">
-      <div class="w-16 sm:w-24 text-center pt-4 sm:flex justify-center"> <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: "w-12 h-12 rounded-full" %> </div>
+      <div class="w-16 sm:w-24 text-center pt-4 sm:flex justify-center"> <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: 'w-12 h-12 rounded-full' %> </div>
 
       <div class="flex-1">
          <div class="flex flex-row items-center">

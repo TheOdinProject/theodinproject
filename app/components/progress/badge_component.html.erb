@@ -2,15 +2,13 @@
   <%= link_to path_course_path(course.path, course) do %>
     <div
       data-controller="progress"
-      data-progress-url-value=<%= url %>
-      data-progress-percent-value="0"
+      data-progress-url-value="<%= url %>"
       data-progress-circumference-value="<%= circumference %>"
       data-progress-loading-value="false"
       data-progress-loading-class="opacity-0"
       data-action="update-progress@window->progress#fetchProgress"
       data-test-id='progress-badge'
-      class="inline-flex items-center justify-center group h-24 w-24 sm:h-28 sm:w-28"
-    >
+      class="inline-flex items-center justify-center group h-24 w-24 sm:h-28 sm:w-28">
       <svg height="100%" width="100%" class="overflow-visible z-30 transform-gpu origin-center -rotate-90" viewBox="0 0 20 20">
         <circle class="text-gray-200 dark:text-gray-400" stroke-width="1.3" stroke="currentColor" fill="none" r="9" cx="50%" cy="50%" />
         <circle
@@ -23,15 +21,14 @@
           style="<%= "stroke-dasharray: #{circumference}, #{circumference}; stroke-dashoffset: #{circumference};" %>"
           r="9"
           cx="50%"
-          cy="50%"
-        />
+          cy="50%" />
       </svg>
       <div class="w-20 h-20 sm:w-24 sm:h-24 sm:p-2 z-20 absolute group-hover:opacity-0 rounded-full overflow-hidden <%= background_color %> <%= show_badge? %>">
         <%= inline_svg(
               borderless_badge,
               alt: "#{course.title} badge",
-              class: "bg-inherit rounded-full"
-            )%>
+              class: 'bg-inherit rounded-full'
+            ) %>
       </div>
       <span class="absolute">
         <div class="flex items-center justify-center space-x-0.5 animate-bounce hidden" data-progress-target="loading">
