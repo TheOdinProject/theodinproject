@@ -7,9 +7,9 @@
 
     <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
       <article class="col-span-full xl:col-span-7 xl:col-start-2">
-        <div class="lesson-content max-w-prose mx-auto xl:mx-0 prose prose-lg prose-gray prose-a:text-gold-600 prose-code:bg-gray-100 prose-code:p-1 prose-code:font-normal dark:prose-code:bg-gray-700/40 prose-code:rounded-md break-words line-numbers dark:prose-invert dark:antialiased prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg dark:prose-pre:bg-slate-800/70 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10" data-controller="syntax-highlighting" data-lesson-toc-target="lessonContent">
+        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do %>
           <%= @lesson.content.html_safe %>
-        </div>
+        <% end %>
       </article>
 
       <aside class="col-span-3 col-start-10 justify-self-end hidden xl:block">
