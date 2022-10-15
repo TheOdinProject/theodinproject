@@ -1,6 +1,4 @@
-class Alerts::FlashComponent < ViewComponent::Base
-  include Classy::Yaml::ComponentHelpers
-
+class Alerts::FlashComponent < ApplicationComponent
   def initialize(type:, message:)
     @type = type.to_sym
     @message = message

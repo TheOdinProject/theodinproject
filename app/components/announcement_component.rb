@@ -1,4 +1,4 @@
-class AnnouncementComponent < ViewComponent::Base
+class AnnouncementComponent < ApplicationComponent
   def initialize(announcement:)
     @announcement = announcement
   end

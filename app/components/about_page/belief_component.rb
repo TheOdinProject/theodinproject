@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class AboutPage::BeliefComponent < ViewComponent::Base
+class AboutPage::BeliefComponent < ApplicationComponent
   with_collection_parameter :belief
 
   def initialize(belief:)

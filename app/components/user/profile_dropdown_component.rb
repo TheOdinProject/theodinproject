@@ -1,4 +1,4 @@
-class User::ProfileDropdownComponent < ViewComponent::Base
+class User::ProfileDropdownComponent < ApplicationComponent
   include Turbo::FramesHelper
 
   delegate :current_theme, to: :helpers

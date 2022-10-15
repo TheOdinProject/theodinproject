@@ -1,4 +1,4 @@
-class Nav::ItemComponent < ViewComponent::Base
+class Nav::ItemComponent < ApplicationComponent
   def initialize(path:, text:, test_id:, icon_path: nil, mobile: false)
     @path = path
     @text = text

@@ -1,4 +1,4 @@
-class ContentContainerComponent < ViewComponent::Base
+class ContentContainerComponent < ApplicationComponent
   def initialize(classes: '', data_attributes: {})
     @classes = classes
     @data_attributes = data_attributes
@@ -6,11 +6,5 @@ class ContentContainerComponent < ViewComponent::Base
 
   private
 
-  attr_reader :classes
-
-  def data_attributes
-    @data_attributes.map do |key, value|
-      "data-#{key.to_s.dasherize}=#{value.to_s.dasherize}"
-    end.join(' ')
-  end
+  attr_reader :classes, :data_attributes
 end

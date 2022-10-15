@@ -1,4 +1,4 @@
-class LogoComponent < ViewComponent::Base
+class LogoComponent < ApplicationComponent
   def initialize(classes:)
     @classes = classes
   end

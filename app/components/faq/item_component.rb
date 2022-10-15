@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class Faq::ItemComponent < ViewComponent::Base
+class Faq::ItemComponent < ApplicationComponent
   renders_one :question
   renders_one :answer
 
