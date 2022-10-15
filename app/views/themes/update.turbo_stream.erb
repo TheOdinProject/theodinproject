@@ -6,8 +6,4 @@
   <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
 <% end %>
 
-<%= turbo_stream.update "dark_mode_style_styles" do %>
-  <%= render 'layouts/dark_mode_styles', theme: current_theme %>
-<% end %>
-
 
