@@ -1,6 +1,7 @@
 <%= title('Help Yourself Before Asking Others') %>
 <div class="page-container">
-  <div class="lesson-content prose prose-lg prose-gray prose-a:text-gold-600 max-w-prose mx-auto dark:prose-invert dark:antialiased dark:prose-code:bg-gray-700/60 dark:prose-pre:prose-code">
+
+  <%= render ContentContainerComponent.new do %>
 
     <h2>Help Yourself Before Asking Others</h2>
 
@@ -98,8 +99,7 @@
     <p>
       Going through each of these tips can take quite a bit of time, but as you get more experience many of these will become part of your development process, which will save you time in the end. If you have not found the root of the problem, after working through each of these tips, it is time to ask others. However, asking others for help is not as simple as it may sound, so please read <a href="/how_to_ask" target="_blank">How to Ask a Technical Question</a>.
     </p>
-
-  </div>
+  <% end %>
 
   <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/before_asking.html.erb' %>
 

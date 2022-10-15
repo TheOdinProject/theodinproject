@@ -2,7 +2,8 @@
 
 <div class="page-container">
   <h1 class="page-heading-title">Terms of Use</h1>
-  <div class="prose prose-lg prose-gray prose-a:text-gold-600 max-w-prose mx-auto dark:prose-invert dark:antialiased">
+
+  <%= render ContentContainerComponent.new do %>
     <h3 id="introduction">Introduction</h3>
     <p>This document should be read in conjunction with Thinkful's <a href="https://www.thinkful.com/privacy-policy/">privacy policy</a> and <a href="https://www.thinkful.com/terms-of-service/">terms of service</a>.</p>
 
@@ -176,5 +177,5 @@
 
     <h3 id="headings">Headings</h3>
     <p>The headings in this User Agreement are inserted only as a matter of convenience and for reference and in no way define, limit or describe the scope or intent of this User Agreement.</p>
-  </div>
+  <% end %>
 </div>
