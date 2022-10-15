@@ -564,7 +564,6 @@ DEPENDENCIES
   github_api (~> 0.19)
   github_webhook (~> 1.4)
   inline_svg (~> 1.8)
-  jquery-rails (~> 4.5)
   kramdown (~> 2.4)
   letter_opener (~> 1.8)
   listen (~> 3.7)
