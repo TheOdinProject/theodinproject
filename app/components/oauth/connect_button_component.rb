@@ -1,5 +1,5 @@
 module Oauth
-  class ConnectButtonComponent < ViewComponent::Base
+  class ConnectButtonComponent < ApplicationComponent
     with_collection_parameter :provider
     delegate :omniauth_authorize_path, to: :helpers
 

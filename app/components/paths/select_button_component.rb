@@ -1,5 +1,5 @@
 module Paths
-  class SelectButtonComponent < ViewComponent::Base
+  class SelectButtonComponent < ApplicationComponent
     def initialize(current_user:, path:, classes: '')
       @current_user = current_user
       @path = path

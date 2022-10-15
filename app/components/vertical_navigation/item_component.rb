@@ -1,6 +1,4 @@
-class VerticalNavigation::ItemComponent < ViewComponent::Base
-  include Classy::Yaml::ComponentHelpers
-
+class VerticalNavigation::ItemComponent < ApplicationComponent
   def initialize(name:, href:, icon_path:)
     @name = name
     @href = href

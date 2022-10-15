@@ -1,4 +1,4 @@
-class CardComponent < ViewComponent::Base
+class CardComponent < ApplicationComponent
   renders_one :header, Card::HeaderComponent
   renders_one :body, Card::BodyComponent
   renders_one :footer, Card::FooterComponent
@@ -8,13 +8,7 @@ class CardComponent < ViewComponent::Base
     @data_attributes = data_attributes
   end
 
-  def data_attributes
-    @data_attributes
-      .map { |key, value| "data-#{key.to_s.dasherize}=#{value.to_s.dasherize}" }
-      .join(' ')
-  end
-
   private
 
-  attr_reader :classes
+  attr_reader :classes, :data_attributes
 end

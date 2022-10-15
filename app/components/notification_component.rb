@@ -1,4 +1,4 @@
-class NotificationComponent < ViewComponent::Base
+class NotificationComponent < ApplicationComponent
   def initialize(notification:)
     @notification = notification
   end

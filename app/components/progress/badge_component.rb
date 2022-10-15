@@ -1,4 +1,4 @@
-class Progress::BadgeComponent < ViewComponent::Base
+class Progress::BadgeComponent < ApplicationComponent
   RADIUS = 9
 
   delegate :user_signed_in?, :percentage_completed_by_user, to: :helpers

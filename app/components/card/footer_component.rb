@@ -1,5 +1,5 @@
 module Card
-  class FooterComponent < ViewComponent::Base
+  class FooterComponent < ApplicationComponent
     def initialize(classes: '')
       @classes = classes
     end

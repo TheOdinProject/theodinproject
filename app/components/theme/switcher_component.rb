@@ -1,6 +1,4 @@
-class Theme::SwitcherComponent < ViewComponent::Base
-  include Classy::Yaml::ComponentHelpers
-
+class Theme::SwitcherComponent < ApplicationComponent
   def initialize(current_theme:, type: :default)
     @current_theme = current_theme
     @type = type

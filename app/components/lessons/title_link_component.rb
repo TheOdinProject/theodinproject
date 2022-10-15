@@ -1,5 +1,5 @@
 module Lessons
-  class TitleLinkComponent < ViewComponent::Base
+  class TitleLinkComponent < ApplicationComponent
     def initialize(lesson:, lesson_number:)
       @lesson = lesson
       @lesson_number = lesson_number
