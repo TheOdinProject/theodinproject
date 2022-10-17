@@ -291,7 +291,7 @@ GEM
     net-smtp (0.3.2)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (8.10.1)
+    newrelic_rpm (8.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
@@ -570,7 +570,7 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  newrelic_rpm (~> 8.10)
+  newrelic_rpm (~> 8.11)
   noticed (~> 1.6)
   octokit (~> 5.6)
   omniauth-github (~> 2.0)
