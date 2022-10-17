@@ -23,7 +23,7 @@ Closes #XXXXX
 
 
 ## Pull Request Requirements
-<!-- Replace the whitespace between the square brackets with an 'x', e.g. [x]. Or after you create the PR, they will become checkboxes that you can click on. -->
+<!-- Replace the whitespace between the square brackets with an 'x', e.g. [x]. After you create the PR, they will become checkboxes that you can click on. -->
 -   [ ] I have thoroughly read and understand [The Odin Project Contributing Guide](https://github.com/TheOdinProject/theodinproject/blob/main/CONTRIBUTING.md)
 -   [ ] The title of this PR follows the `keyword: brief description of change` format, using one of the following keywords:
   - `Feature` - adds new or amends existing user-facing behavior
