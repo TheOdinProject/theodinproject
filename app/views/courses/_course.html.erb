@@ -17,10 +17,10 @@
             ) %>
 
         <%= link_to path_course_url(course.path, course), class: 'flex flex-col md:items-start' do %>
-          <h2 id=<%= course.title.parameterize %> ">
+          <h2 id=<%= course.title.parameterize %> class="font-medium text-lg uppercase md:text-left text-gray-600 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <span class=" uppercase text-sm text-gray-400 70 "><%= course.lessons.size %> lessons</span>
+          <span class="uppercase text-sm text-gray-400/70 "><%= course.lessons.size %> lessons</span>
         <% end %>
       </div>
 
@@ -29,6 +29,6 @@
   <% end %>
 
   <% card.body do %>
-     <p class=" dark:text-gray-300 90 "><%= course.description %></p>
+     <p class="dark:text-gray-300/90 "><%= course.description %></p>
   <% end %>
 <% end %>
