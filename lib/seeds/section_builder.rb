@@ -1,8 +1,8 @@
 # rubocop: disable Style/ClassVars
-require './lib/seeds/lesson_seeder'
+require './lib/seeds/lesson_builder'
 
 module Seeds
-  class SectionSeeder
+  class SectionBuilder
     @@total_seeded_lessons = Hash.new(0)
 
     attr_accessor :identifier_uuid, :title, :description, :position
@@ -17,7 +17,7 @@ module Seeds
       @section = section
     end
 
-    def self.create(course, position, &)
+    def self.build(course, position, &)
       new(course, position, &)
     end
 
@@ -32,7 +32,7 @@ module Seeds
 
     def add_lessons(*lessons)
       @add_lessons ||= lessons.map do |lesson|
-        LessonSeeder.create(section, lesson_position, lesson).tap do |seeded_lesson|
+        LessonBuilder.build(section, lesson_position, lesson).tap do |seeded_lesson|
           seeded_lessons.push(seeded_lesson)
         end
       end

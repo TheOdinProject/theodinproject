@@ -1,8 +1,8 @@
 require './lib/seeds/helpers'
-require './lib/seeds/course_seeder'
+require './lib/seeds/course_builder'
 
 module Seeds
-  class PathSeeder
+  class PathBuilder
     include Helpers
 
     attr_accessor :identifier_uuid, :title, :description, :position, :default_path, :short_title, :badge_uri
@@ -14,7 +14,7 @@ module Seeds
       @path = path
     end
 
-    def self.create(&)
+    def self.build(&)
       new(&)
     end
 
@@ -31,7 +31,7 @@ module Seeds
     end
 
     def add_course(&)
-      Seeds::CourseSeeder.create(path, course_position, &).tap do |seeded_course|
+      Seeds::CourseBuilder.build(path, course_position, &).tap do |seeded_course|
         seeded_courses.push(seeded_course)
       end
     end

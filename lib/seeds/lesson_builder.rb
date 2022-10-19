@@ -1,12 +1,12 @@
 module Seeds
-  class LessonSeeder
+  class LessonBuilder
     def initialize(section, position, attributes)
       @section = section
       @position = position
       @attributes = attributes
     end
 
-    def self.create(section, position, attributes)
+    def self.build(section, position, attributes)
       new(section, position, attributes).lesson
     end
 

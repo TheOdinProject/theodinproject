@@ -1,8 +1,8 @@
 require './lib/seeds/helpers'
-require './lib/seeds/section_seeder'
+require './lib/seeds/section_builder'
 
 module Seeds
-  class CourseSeeder
+  class CourseBuilder
     include Seeds::Helpers
 
     attr_accessor :identifier_uuid, :title, :description, :position, :show_on_homepage, :badge_uri
@@ -16,12 +16,12 @@ module Seeds
       @course = course
     end
 
-    def self.create(path, position, &)
+    def self.build(path, position, &)
       new(path, position, &)
     end
 
     def add_section(&)
-      Seeds::SectionSeeder.create(course, section_position, &).tap do |section|
+      Seeds::SectionBuilder.build(course, section_position, &).tap do |section|
         seeded_sections.push(section)
       end
     end

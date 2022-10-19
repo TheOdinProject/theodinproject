@@ -1,9 +1,9 @@
-require './lib/seeds/section_seeder'
+require './lib/seeds/section_builder'
 require 'rails_helper'
 
-RSpec.describe Seeds::SectionSeeder do
-  subject(:section_seeder) do
-    described_class.create(course, position) do |section|
+RSpec.describe Seeds::SectionBuilder do
+  subject(:section_builder) do
+    described_class.build(course, position) do |section|
       section.identifier_uuid = 'section_uuid'
       section.title = 'Basics Section'
       section.description = 'a basics section'
@@ -13,27 +13,27 @@ RSpec.describe Seeds::SectionSeeder do
   let(:course) { create(:course) }
   let(:position) { 1 }
 
-  describe '.create' do
-    it 'creates a new section' do
-      expect { section_seeder }.to change { Section.count }.from(0).to(1)
+  describe '.build' do
+    it 'builds a new section' do
+      expect { section_builder }.to change { Section.count }.from(0).to(1)
     end
 
-    it 'creates a section with the given title' do
-      section_seeder
+    it 'builds a section with the given title' do
+      section_builder
 
       section = Section.find_by(identifier_uuid: 'section_uuid')
       expect(section.title).to eq('Basics Section')
     end
 
-    it 'creates a section with the given description' do
-      section_seeder
+    it 'builds a section with the given description' do
+      section_builder
 
       section = Section.find_by(identifier_uuid: 'section_uuid')
       expect(section.description).to eq('a basics section')
     end
 
-    it 'creates a section with the given position' do
-      section_seeder
+    it 'builds a section with the given position' do
+      section_builder
 
       section = Section.find_by(identifier_uuid: 'section_uuid')
       expect(section.position).to eq(1)
@@ -49,7 +49,7 @@ RSpec.describe Seeds::SectionSeeder do
           course:
         )
 
-        expect { section_seeder }.to change { existing_section.reload.title }
+        expect { section_builder }.to change { existing_section.reload.title }
           .from('Intermediate Section').to('Basics Section')
           .and change { existing_section.position }.from(2).to(1)
       end
@@ -60,10 +60,10 @@ RSpec.describe Seeds::SectionSeeder do
     let(:section) { Section.find_by(identifier_uuid: 'section_uuid') }
 
     it 'adds lessons to the section' do
-      section_seeder
+      section_builder
 
       expect do
-        section_seeder.add_lessons(
+        section_builder.add_lessons(
           {
             title: 'Ruby Lesson',
             description: 'A Ruby Lesson',
@@ -82,7 +82,7 @@ RSpec.describe Seeds::SectionSeeder do
 
     context 'when adding multiple lessons' do
       it 'applies to correct position to each lesson' do
-        lessons = section_seeder.add_lessons(
+        lessons = section_builder.add_lessons(
           {
             title: 'Ruby Lesson',
             description: 'A Ruby Lesson',
