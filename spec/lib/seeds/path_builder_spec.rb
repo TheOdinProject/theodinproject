@@ -1,9 +1,9 @@
-require './lib/seeds/path_seeder'
+require './lib/seeds/path_builder'
 require 'rails_helper'
 
-RSpec.describe Seeds::PathSeeder do
-  subject(:path_seeder) do
-    described_class.create do |path|
+RSpec.describe Seeds::PathBuilder do
+  subject(:path_builder) do
+    described_class.build do |path|
       path.identifier_uuid = 'path_uuid'
       path.title = 'Foundations'
       path.description = 'a foundation path'
@@ -13,34 +13,34 @@ RSpec.describe Seeds::PathSeeder do
     end
   end
 
-  describe '.create' do
-    it 'creates a new path' do
-      expect { path_seeder }.to change { Path.count }.from(0).to(1)
+  describe '.build' do
+    it 'builds a new path' do
+      expect { path_builder }.to change { Path.count }.from(0).to(1)
     end
 
-    it 'creates a path with the given title' do
-      path_seeder
+    it 'builds a path with the given title' do
+      path_builder
 
       path = Path.find_by(identifier_uuid: 'path_uuid')
       expect(path.title).to eq('Foundations')
     end
 
-    it 'creates a path with the given description' do
-      path_seeder
+    it 'builds a path with the given description' do
+      path_builder
 
       path = Path.find_by(identifier_uuid: 'path_uuid')
       expect(path.description).to eq('a foundation path')
     end
 
-    it 'creates a path with the given position' do
-      path_seeder
+    it 'builds a path with the given position' do
+      path_builder
 
       path = Path.find_by(identifier_uuid: 'path_uuid')
       expect(path.position).to eq(1)
     end
 
-    it 'creates a path with the given default path attribute' do
-      path_seeder
+    it 'builds a path with the given default path attribute' do
+      path_builder
 
       path = Path.find_by(identifier_uuid: 'path_uuid')
       expect(path.default_path).to be(true)
@@ -50,7 +50,7 @@ RSpec.describe Seeds::PathSeeder do
       it 'updates the attributes that are different' do
         existing_path = create(:path, identifier_uuid: 'path_uuid', title: 'Development 101', position: 2)
 
-        expect { path_seeder }.to change { existing_path.reload.title }
+        expect { path_builder }.to change { existing_path.reload.title }
           .from('Development 101').to('Foundations')
           .and change { existing_path.position }.from(2).to(1)
       end
@@ -61,10 +61,10 @@ RSpec.describe Seeds::PathSeeder do
     let(:path) { Path.find_by(identifier_uuid: 'path_uuid') }
 
     it 'adds a course to the path' do
-      path_seeder
+      path_builder
 
       expect do
-        path_seeder.add_course do |course|
+        path_builder.add_course do |course|
           course.identifier_uuid = 'course_uuid'
           course.title = 'Ruby'
           course.description = 'A Ruby course'
@@ -75,21 +75,21 @@ RSpec.describe Seeds::PathSeeder do
 
     context 'when adding multiple courses' do
       it 'applies to correct position to each course' do
-        course_one = path_seeder.add_course do |course|
+        course_one = path_builder.add_course do |course|
           course.identifier_uuid = 'course_uuid_1'
           course.title = 'Ruby'
           course.description = 'A Ruby course'
           course.badge_uri = 'ruby-soho.jpeg'
         end
 
-        course_two = path_seeder.add_course do |course|
+        course_two = path_builder.add_course do |course|
           course.identifier_uuid = 'course_uuid_2'
           course.title = 'Rails'
           course.description = 'A Rails course'
           course.badge_uri = 'choo-choo-choose-you.bmp'
         end
 
-        course_three = path_seeder.add_course do |course|
+        course_three = path_builder.add_course do |course|
           course.identifier_uuid = 'course_uuid_3'
           course.title = 'JS'
           course.description = 'A JS course'
@@ -109,13 +109,13 @@ RSpec.describe Seeds::PathSeeder do
       create(:course, identifier_uuid: 'course_uuid_1', path_id: path.id)
       seeded_course = create(:course, identifier_uuid: 'course_uuid_2', path_id: path.id)
 
-      path_seeder.add_course do |course|
+      path_builder.add_course do |course|
         course.identifier_uuid = 'course_uuid_2'
         course.badge_uri = 'nothing-to-see-here.svg'
       end
 
-      path_seeder.delete_removed_courses
-      expect(path_seeder.path.courses.reload).to contain_exactly(seeded_course)
+      path_builder.delete_removed_courses
+      expect(path_builder.path.courses.reload).to contain_exactly(seeded_course)
     end
   end
 end
