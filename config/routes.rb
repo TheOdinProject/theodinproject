@@ -59,7 +59,9 @@ Rails.application.routes.draw do
   end
 
   namespace :lessons do
-    resource :preview, only: %i[show create]
+    resource :preview, only: %i[show create] do
+      post :markdown
+    end
     resources :installation_lessons, only: %i[index]
   end
 

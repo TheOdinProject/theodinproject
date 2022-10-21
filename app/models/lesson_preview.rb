@@ -1,0 +1,2 @@
+class LessonPreview < ApplicationRecord
+end
