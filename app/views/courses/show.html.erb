@@ -6,7 +6,7 @@
 
     <div class="mb-6">
       <h2 class="text-lg font-medium text-gray-700 dark:text-gray-300">Overview</h2>
-      <p class="text-gray-500 dark:text-gray-400"><%= @course.description %></p>
+      <span class="text-gray-500 dark:text-gray-400 prose"><%= @course.description %></span>
     </div>
 
     <%= render @sections, locals: { course: @course } %>
