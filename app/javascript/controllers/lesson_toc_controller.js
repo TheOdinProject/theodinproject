@@ -41,7 +41,7 @@ export default class LessonTocController extends Controller {
   headings() {
     return (
       Array
-        .from(this.lessonContentTarget.querySelectorAll('h3'))
+        .from(this.lessonContentTarget.querySelectorAll('section > h3'))
         .map((heading) => heading)
         .filter((heading) => heading.innerText)
     );
