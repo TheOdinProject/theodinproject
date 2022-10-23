@@ -292,8 +292,10 @@ def ruby_on_rails_lessons
     'Installing PostgreSQL' => {
       title: 'Installing PostgreSQL',
       description: 'This lesson updates the local development environment with a new database provider.',
+      is_project: false,
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/installing_psql.md',
       identifier_uuid: 'b2990a57-ff1f-4b08-a607-2b7bd35fca50',
+      installation_lesson: true,
     }
   }
 end
