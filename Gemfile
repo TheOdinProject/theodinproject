@@ -7,7 +7,7 @@ gem 'rails', '6.1.6.1'
 gem 'activeadmin', '~> 2.13'
 gem 'activeadmin_addons', '~> 1.9'
 gem 'active_material', '~> 1.5'
-gem 'acts_as_votable', '~> 0.13'
+gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.13', require: false
 gem 'cancancan', '~> 3.4'
