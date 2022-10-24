@@ -5,10 +5,10 @@ module Lessons
     end
 
     def create
-      previewLesson = LessonPreview.create(lesson_preview_params)
+      preview_link = LessonPreview.create(lesson_preview_params)
 
-      if previewLesson
-        render json: { preview_link: preview_link(previewLesson.id) }
+      if preview_link
+        render json: { preview_link: preview_link(preview_link.id) }
       else
         render json: { error: "Preview can't be created" }
       end
