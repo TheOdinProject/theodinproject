@@ -9,8 +9,6 @@ import LessonContentInput from './components/lesson-content-input';
 import LessonContentPreview from './components/lesson-content-preview';
 import axios from '../../src/js/axiosWithCsrf';
 
-import { generateLink, encodeContent, decodeContent } from '../../src/js/previewShare';
-
 const LessonPreview = ({previewContent}) => {
   const [content, setContent] = useState('');
   const [convertedContent, setConvertedContent] = useState('');
@@ -40,7 +38,6 @@ const LessonPreview = ({previewContent}) => {
   useEffect(() => {
     const query = window.location.search;
     if (query) {
-      const encodedContent = new URLSearchParams(query).get('content');
       setContent(previewContent);
     }
   }, []);
@@ -50,12 +47,6 @@ const LessonPreview = ({previewContent}) => {
       setTimeout(() => setCopied(false), 4000);
     }
   }, [copied]);
-
-  useEffect(() => {
-    const encodedContent = encodeContent(content);
-    const generatedLink = generateLink(encodedContent);
-    setLink(generatedLink);
-  }, [content]);
 
   return (
     <Tabs selectedTabClassName="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90 dark:text-gray-300">
