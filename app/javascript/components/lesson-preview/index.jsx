@@ -7,6 +7,7 @@ import Prism from 'prismjs';
 
 import LessonContentInput from './components/lesson-content-input';
 import LessonContentPreview from './components/lesson-content-preview';
+import ShareButton from './components/share-button';
 import axios from '../../src/js/axiosWithCsrf';
 
 const LessonPreview = ({previewContent}) => {
@@ -26,13 +27,6 @@ const LessonPreview = ({previewContent}) => {
       setOnPreviewTab(true);
       Prism.highlightAll();
     }
-  };
-
-  const handleClick = async () => {
-    const response = await axios.post('/lessons/preview', { content });
-    const previewLink = response.data.preview_link;
-
-    navigator.clipboard.writeText(previewLink).then(() => setCopied(true));
   };
 
   useEffect(() => {
@@ -62,13 +56,8 @@ const LessonPreview = ({previewContent}) => {
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
       <div className='flex pt-10 justify-end'>
-        <button
-          type="button"
-          className={`button ${copied ? 'button--secondary' : 'button--primary'}`}
-          onClick={handleClick}
-        >
-          {copied ? 'Copied!' : 'Share'}
-        </button>
+        <ShareButton content={copied ? 'Copied!' : 'Share'} classes={copied ? 'button--secondary' : 'button--primary'}>
+        </ShareButton>
       </div>
     </Tabs>
   );
