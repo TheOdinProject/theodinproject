@@ -5,12 +5,12 @@ module Lessons
     end
 
     def create
-      preview_link = LessonPreview.create(lesson_preview_params)
+      preview_link = LessonPreview.new(lesson_preview_params)
 
-      if preview_link
-        render json: { preview_link: preview_link(preview_link.id) }
+      if preview_link.save
+        render json: { preview_link: lessons_preview_url(uuid: preview_link.id) }, status: :created
       else
-        render json: { error: "Preview can't be created" }
+        render json: { errors: preview_link.errors.full_messages }, status: :unprocessable_entity
       end
     end
 

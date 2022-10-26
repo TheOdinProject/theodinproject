@@ -11,7 +11,7 @@ import ShareButton from './components/share-button';
 import axios from '../../src/js/axiosWithCsrf';
 
 const LessonPreview = ({previewContent}) => {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState(previewContent);
   const [convertedContent, setConvertedContent] = useState('');
   const [copied, setCopied] = useState(false);
   const [link, setLink] = useState(window.location.href);
