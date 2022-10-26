@@ -49,15 +49,12 @@
       <% end %>
     <% end %>
 
-    <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gold text-lg block mt-14' do %>
-      <span class="fab fa-github mr-1"></span>
-      <span> Improve this lesson on GitHub</span>
-    <% end %>
-
-    <%= render 'shared/bottom_cta',
-      button: chat_button,
-      heading: 'Have a question?',
-      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!' %>
+    <div class="pt-10 pb-36">
+      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gold-600 hover:underline' do %>
+        <span class="fab fa-github mr-1"></span>
+        Improve this lesson on GitHub
+      <% end %>
+    </div>
 
     <%= render 'advert' %>
   </div>

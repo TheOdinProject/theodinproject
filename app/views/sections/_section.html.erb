@@ -1,7 +1,7 @@
 <%= render CardComponent.new(classes: 'mb-10') do |card| %>
   <% card.header(classes: 'px-6 pt-4 pb-4 border-b dark:border-gray-700') do %>
     <%= link_to "##{section.title.parameterize}", id: section.title.parameterize, class: 'no-underline scroll-mt-5 inline-block' do %>
-      <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 hover:underline w-fit">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300 hover:underline w-fit">
         <%= section.title %>
       </h3>
     <% end %>

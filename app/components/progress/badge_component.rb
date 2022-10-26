@@ -3,17 +3,20 @@ class Progress::BadgeComponent < ApplicationComponent
 
   delegate :user_signed_in?, :percentage_completed_by_user, to: :helpers
 
-  def initialize(course:, current_user:, url:, show_badge: true, background_color: 'bg-white dark:bg-gray-900')
+  # rubocop:disable Metrics/ParameterLists, Layout/LineLength
+  def initialize(course:, current_user:, url:, show_badge: true, background_color: 'bg-white dark:bg-gray-900', size: :default)
     @course = course
     @current_user = current_user
     @url = url
     @show_badge = show_badge
     @background_color = background_color
+    @size = size
   end
+  # rubocop:enable Metrics/ParameterLists, Layout/LineLength
 
   private
 
-  attr_reader :course, :current_user, :url, :show_badge, :background_color
+  attr_reader :course, :current_user, :url, :show_badge, :background_color, :size
 
   def circumference
     RADIUS * 2 * Math::PI

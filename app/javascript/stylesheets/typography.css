@@ -1,10 +1,6 @@
 @layer base {
   body {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
-  p:not(.lesson-content p) {
-    @apply text-lg tracking-wide;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 

@@ -6,7 +6,7 @@
           <%= render LogoComponent.new(classes: 'block h-15 w-auto') %>
         </div>
 
-        <p class="py-4 hidden lg:block">High quality coding education created by an Open-Source community.</p>
+        <p class="py-8 hidden lg:block text-gray-500 dark:text-gray-400">High quality coding education created by an Open-Source community.</p>
 
         <div class="flex justify-between">
           <%= link_to 'https://github.com/TheOdinProject' do %>
@@ -30,7 +30,7 @@
       <%= render 'shared/footer_cta' %>
     </div>
 
-    <div class="flex lg:flex-row items-center lg:pb-4 gap-y-6 pt-6">
+    <div class="flex lg:flex-row items-center justify-center lg:justify-start lg:pb-4 gap-y-6 pt-6">
       <div class="flex items-center space-x-0 gap-x-8 gap-y-3 flex-wrap justify-center md:block md:space-x-10">
         <%= link_to 'About', about_path, class: 'hover:text-gray-500 dark:hover:text-gray-400' %>
         <%= link_to 'FAQ', faq_path, class: 'hover:text-gray-500 dark:hover:text-gray-400', data: { test_id: 'faq-link' } %>

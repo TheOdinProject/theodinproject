@@ -20,7 +20,7 @@
   }
 
   .lesson-note {
-    @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700;
+    @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700 rounded;
   }
 
   .lesson-note > *:first-child {
@@ -46,6 +46,10 @@
 
   .lesson-content > section:first-child > h3 {
     @apply mt-0;
+  }
+
+  .lesson-content a[href^="http"] {
+    @apply hover:no-underline;
   }
 
   .lesson-content section[id] {
