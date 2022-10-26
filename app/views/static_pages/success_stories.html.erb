@@ -10,7 +10,7 @@
         <% card.header do %>
           <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <div class="w-20 h-20 rounded-full overflow-hidden">
-              <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: 'w-full' %>
+              <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: 'w-full shadow-inner aspect-auto' %>
             </div>
             <div class="flex flex-col text-center sm:text-left">
               <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'text-gold' %></p>
@@ -19,7 +19,7 @@
           </div>
         <% end %>
         <% card.body do %>
-          <p class="dark:text-gray-300 dark:antialiased"><%= story.story_content %></p>
+          <div class="prose prose-gray dark:prose-invert max-w-none dark:antialiased"><%= story.story_content.html_safe %></div>
         <% end %>
       <% end %>
     <% end %>

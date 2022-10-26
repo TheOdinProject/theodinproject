@@ -12,7 +12,7 @@ module ButtonHelper
   end
 
   def curriculum_button
-    link_to 'View Curriculum', paths_path, class: 'button button--primary'
+    link_to 'View curriculum', paths_path, class: 'button button--primary text-base'
   end
 
   def contribute_button

@@ -3,11 +3,11 @@
     <%= image_tag @belief[:image_path], alt: @belief[:image_alt], class: 'w-20 h-20' %>
   </div>
 
-  <div class="sm:col-span-10 text-center sm:text-left space-y-4">
-    <h3 class="pt-10 sm:pt-0 text-xl font-semibold">
+  <div class="sm:col-span-10 text-center sm:text-left space-y-3">
+    <h3 class="pt-10 sm:pt-0 text-lg font-semibold">
       <%= @belief[:title] %>
     </h3>
-    <p>
+    <p class="prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-400">
       <%= @belief[:description] %>
     </p>
   </div>

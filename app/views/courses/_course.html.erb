@@ -8,19 +8,20 @@
     <% end %>
 
     <div class="flex flex-col items-center justify-between space-y-5 border-b border-gray-300 dark:border-gray-600 pb-4 md:flex-row md:space-y-0">
-      <div class="flex flex-col items-center space-y-4 md:flex-row md:space-x-6 text-center md:space-y-0">
+      <div class="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 text-center md:space-y-0">
         <%= render Progress::BadgeComponent.new(
               course:,
               current_user:,
               url: courses_progress_path(course.id),
               background_color: 'bg-white dark:bg-gray-800',
+              size: :small,
             ) %>
 
         <%= link_to path_course_url(course.path, course), class: 'flex flex-col md:items-start' do %>
-          <h2 id="<%= course.title.parameterize %>" class="font-medium text-lg uppercase md:text-left text-gray-600 dark:text-gray-200">
+          <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <span class="uppercase text-sm text-gray-400"><%= course.lessons.size %> lessons</span>
+          <span class=" text-sm text-gray-400"><%= course.lessons.size %> Lessons</span>
         <% end %>
       </div>
 
@@ -29,6 +30,6 @@
   <% end %>
 
   <% card.body do %>
-     <p class="dark:text-gray-300"><%= course.description %></p>
+     <p class="prose prose-gray dark:prose-invert max-w-none"><%= course.description %></p>
   <% end %>
 <% end %>

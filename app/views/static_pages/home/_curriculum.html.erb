@@ -1,15 +1,15 @@
-<div class="py-10 bg-gray-100 dark:bg-gray-900">
-  <div class="page-container">
-    <h2 class="font-bold text-2xl py-4 text-center">Learn everything you need to know to become a web developer</h2>
+<div class="bg-gray-100 dark:bg-gray-900">
+  <div class="page-container py-20">
+    <h2 class="font-medium text-3xl pb-12 text-center text-gray-800 dark:text-gray-200">Learn everything you need to know</h2>
 
     <div class="flex flex-row flex-wrap">
       <div class="w-full lg:w-5/6 mx-auto">
         <div class="flex flex-row flex-wrap justify-center mb-4">
           <% courses.each do |course| %>
             <%= link_to path_course_path(course.path, course),
-              class: 'w-60 sm:w-64 bg-white dark:bg-gray-800 dark:border dark:border-gray-600 py-6 px-12 flex flex-col items-center text-center hover:shadow-lg m-4 course-badge-tile' do %>
+              class: 'w-60 sm:w-56 bg-white dark:bg-gray-800 dark:border dark:border-gray-700 py-6 px-10 flex flex-col items-center text-center hover:shadow-lg m-4' do %>
               <%= image_tag course.badge_uri, alt: "#{course.title.downcase} badge", class: 'h-20 w-20 sm:h-40 sm:w-40' %>
-              <h4 class="font-bold uppercase text-lg mt-4">
+              <h4 class="font-semibold text-xl mt-4">
                 <%= course.title %>
               </h4>
             <% end %>
@@ -18,8 +18,8 @@
       </div>
     </div>
 
-    <div class="text-center">
-      <%= link_to 'Get Started', paths_url, class: 'button button--secondary' %>
+    <div class="text-center pt-8">
+      <%= link_to 'Explore curriculum', paths_url, class: 'button button--secondary text-base' %>
     </div>
   </div>
 </div>

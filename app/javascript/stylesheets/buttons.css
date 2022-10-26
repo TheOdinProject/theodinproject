@@ -2,9 +2,9 @@
   .button {
     min-width: 100px;
     @apply inline-flex items-center px-6 justify-center py-3 border border-transparent
-    text-base font-medium rounded-md shadow-sm text-white focus:outline-none
+     rounded-md shadow-sm text-white focus:outline-none
     focus:ring-2 focus:ring-offset-1 hover:text-white focus:text-white no-underline
-    cursor-pointer dark:focus:ring-offset-black
+    cursor-pointer dark:focus:ring-offset-black text-sm
   }
 
   .button--disabled {

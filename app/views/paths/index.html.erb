@@ -12,9 +12,9 @@
               <%= image_tag @foundations.badge_uri, alt: "#{@foundations.title} badge", class: 'w-24 h-24' %>
             <% end %>
             <div class="flex items-center flex-col sm:block">
-              <h3 class="text-1xl text-gold-600">START HERE</h3>
+              <h3 class="text-sm text-gold-600">Start here</h3>
               <%= link_to path_path(@foundations), class: 'no-underline' do %>
-                <h2 class="text-3xl font-semibold">Foundations</h2>
+                <h2 class="text-3xl font-medium text-gray-800 dark:text-gray-300">Foundations</h2>
               <% end %>
             </div>
           </div>
@@ -26,8 +26,8 @@
         </div>
       <% end %>
 
-      <% card.body(classes: 'md:pb-0') do %>
-        <p class="leading-normal text-base dark:text-gray-300/90"><%= @foundations.description %></p>
+      <% card.body(classes: 'pt-6 md:pb-0') do %>
+        <p class="prose prose-gray max-w-none text-gray-500 dark:text-gray-400"><%= @foundations.description %></p>
       <% end %>
 
       <% card.footer do |card| %>
@@ -43,7 +43,7 @@
         <div class="w-full border-t border-gray-300"></div>
       </div>
       <div class="relative flex justify-center">
-        <span class="px-3 bg-gray-50 dark:bg-gray-900 text-2xl font-semibold text-gray-800 dark:text-gray-300"> Then choose a learning path:</span>
+        <span class="px-3 bg-gray-50 dark:bg-gray-900 text-2xl font-medium text-gray-800 dark:text-gray-300"> Then choose a learning path:</span>
       </div>
     </div>
 
@@ -57,19 +57,19 @@
             <% end %>
 
             <div class="w-full flex justify-between pt-6">
-              <p class="text-lg text-gold-600">PATH</p>
-              <p class="text-lg text-gray-400"><%= path.courses.size %> Courses</p>
+              <p class=" text-gold-600">PATH</p>
+              <p class=" text-gray-500 dark:text-gray-400"><%= path.courses.size %> Courses</p>
             </div>
           <% end %>
 
           <% card.body(classes: 'flex-grow') do %>
             <%= link_to path_path(path), class: 'no-underline' do %>
-              <h2 class="text-2xl font-semibold pb-4">
+              <h2 class="text-xl font-medium pb-4 text-gray-800 dark:text-gray-200">
                 <%= path.title %>
               </h2>
             <% end %>
 
-            <p class="leading-normal text-base dark:text-gray-300/90">
+            <p class="prose prose-gray max-w-none text-gray-500 dark:text-gray-400">
               <%= path.description %>
             </p>
           <% end %>

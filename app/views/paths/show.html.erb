@@ -6,7 +6,7 @@
     <section class="flex flex-col justify-between items-start space-y-8 mb-12 md:flex-row md:items-center md:space-y-0">
       <div>
         <h1 class="page-heading-title text-left m-0"><%= @path.title %></h1>
-        <p class="text-left max-w-lg lg:max-w-xl text-gray-500 dark:text-gray-400"><%= @path.description %></p>
+        <p class="text-left max-w-lg lg:max-w-xl prose prose-gray dark:text-gray-400"><%= @path.description %></p>
       </div>
 
       <% if current_user&.path != @path %>

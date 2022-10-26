@@ -19,7 +19,7 @@
         <%= render CardComponent.new do |card| %>
           <% card.header do %>
               <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Profile</h3>
-              <span class="block mt-1 text-gray-500 dark:text-gray-400">Profile information will be displayed on your dashboard.</span>
+              <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Profile information will be displayed on your dashboard.</p>
           <% end %>
           <% card.body do %>
             <div class="grid grid-cols-6 gap-6">
@@ -44,7 +44,7 @@
                 <div class="flex items-center">
                   <%= render User::AvatarComponent.new(current_user:, classes: 'w-16') %>
                 </div>
-                  <span class="block text-gray-500 text-sm mt-2 dark:text-gray-400">Avatar can be grabbed from Github or Google when signing in with those services.</span>
+                  <p class="text-sm text-gray-500 mt-2 dark:text-gray-400">Avatar can be grabbed from Github or Google when signing in with those services.</p>
               </div>
             </div>
           <% end %>
@@ -57,7 +57,7 @@
       <%= render CardComponent.new do |card| %>
         <% card.header do %>
           <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Danger Zone</h3>
-            <span class="block mt-1 text-gray-500 dark:text-gray-400">Careful, these actions can not be undone.</span>
+            <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Careful, these actions can not be undone.</p>
         <% end %>
         <% card.body do %>
           <div class="inline-flex flex-col space-y-5">
