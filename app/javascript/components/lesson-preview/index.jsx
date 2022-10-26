@@ -29,6 +29,12 @@ const LessonPreview = ({previewContent}) => {
     }
   };
 
+  const handleShareClick = async () => {
+    const response = await axios.post('/lessons/preview', { content });
+    const previewLink = response.data.preview_link;
+    navigator.clipboard.writeText(previewLink).then(() => setCopied(true));
+  };
+
   useEffect(() => {
     const query = window.location.search;
     if (query) {
@@ -56,7 +62,7 @@ const LessonPreview = ({previewContent}) => {
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
       <div className='flex pt-10 justify-end'>
-        <ShareButton content={copied ? 'Copied!' : 'Share'} classes={copied ? 'button--secondary' : 'button--primary'}>
+        <ShareButton text={copied ? 'Copied!' : 'Share'} classes={copied ? 'button--secondary' : 'button--primary'} onClick={handleShareClick}>
         </ShareButton>
       </div>
     </Tabs>
