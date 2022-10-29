@@ -11,10 +11,8 @@ import ShareButton from './components/share-button';
 import axios from '../../src/js/axiosWithCsrf';
 
 const LessonPreview = ({previewContent}) => {
-  const [content, setContent] = useState(previewContent);
+  const [content, setContent] = useState('');
   const [convertedContent, setConvertedContent] = useState('');
-  const [copied, setCopied] = useState(false);
-  const [link, setLink] = useState(window.location.href);
   const [onPreviewTab, setOnPreviewTab] = useState(false);
 
   const fetchLessonPreview = async () => {
@@ -29,12 +27,6 @@ const LessonPreview = ({previewContent}) => {
     }
   };
 
-  const handleShareClick = async () => {
-    const response = await axios.post('/lessons/preview', { content });
-    const previewLink = response.data.preview_link;
-    navigator.clipboard.writeText(previewLink).then(() => setCopied(true));
-  };
-
   useEffect(() => {
     const query = window.location.search;
     if (query) {
@@ -42,11 +34,7 @@ const LessonPreview = ({previewContent}) => {
     }
   }, []);
 
-  useEffect(() => {
-    if (copied) {
-      setTimeout(() => setCopied(false), 4000);
-    }
-  }, [copied]);
+  const hasContent = content?.length > 0;
 
   return (
     <Tabs selectedTabClassName="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90 dark:text-gray-300">
@@ -62,8 +50,7 @@ const LessonPreview = ({previewContent}) => {
         <LessonContentPreview content={convertedContent} />
       </TabPanel>
       <div className='flex pt-10 justify-end'>
-        <ShareButton text={copied ? 'Copied!' : 'Share'} classes={copied ? 'button--secondary' : 'button--primary'} onClick={handleShareClick}>
-        </ShareButton>
+        {hasContent && <ShareButton content={content} />}
       </div>
     </Tabs>
   );
