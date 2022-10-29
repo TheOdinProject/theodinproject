@@ -9,7 +9,7 @@ import ShareButton from './components/share-button';
 import axios from '../../src/js/axiosWithCsrf';
 
 const LessonPreview = ({ previewContent }) => {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState(previewContent || '');
   const [convertedContent, setConvertedContent] = useState('');
   const [onPreviewTab, setOnPreviewTab] = useState(false);
 
@@ -24,13 +24,6 @@ const LessonPreview = ({ previewContent }) => {
       Prism.highlightAll();
     }
   };
-
-  useEffect(() => {
-    const query = window.location.search;
-    if (query) {
-      setContent(previewContent);
-    }
-  }, []);
 
   const hasContent = content?.length > 0;
 
