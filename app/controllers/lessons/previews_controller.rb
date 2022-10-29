@@ -31,9 +31,5 @@ module Lessons
     def lesson_preview_params
       params.permit(:content)
     end
-
-    def preview_link(lesson_id)
-      lessons_preview_url(uuid: lesson_id)
-    end
   end
 end
