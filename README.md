@@ -50,6 +50,9 @@ The core technologies that the app runs on. This is what you'll need to get the 
 - ESLint
   
 ## Contributing
+
+_Contributing guide link / more detail_
+
 ### Running the App Locally
 If you've done this kind of thing before, see the guide below. You'll need to have all the preqequisites [listed here](##tech-stack) installed. Otherwise, you can find [more detailed instructions on the wiki](https://github.com/TheOdinProject/theodinproject/wiki).
 
@@ -73,6 +76,12 @@ In development, visit `localhost:3000/lookbook` to see a visual collection of ou
 - `bin/dev` will run all the processes you need (Rails server, JavaScript bundling and background workers) to host the app locally
 - `bin/test` will run all linting checks and test suites. Useful for checking your work before making a PR
 - `bin/rails db:seed` will set up courses and lessons in the database, and `bin/rails curriculum:update_content` will import it via API. Run automatically during first time setup via `bin/setup`.
+
+## Infrastruture
+
+- Hosting: Heroku 
+- Error reporting and diagnostics: Sentry
+- CDN: Searching for one
 
 ## Significant Contributors
 _This should be kept, but should it be directly in the README or linked to from here?_
