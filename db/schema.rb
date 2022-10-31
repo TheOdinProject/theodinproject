@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2022_10_21_183414) do
   end
 
   create_table "lesson_previews", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.text "content", default: "", null: false
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
