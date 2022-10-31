@@ -8,8 +8,8 @@ import LessonContentPreview from './components/lesson-content-preview';
 import ShareButton from './components/share-button';
 import axios from '../../src/js/axiosWithCsrf';
 
-const LessonPreview = ({ previewContent }) => {
-  const [content, setContent] = useState(previewContent);
+const LessonPreview = ({ sharedContent }) => {
+  const [content, setContent] = useState(sharedContent);
   const [convertedContent, setConvertedContent] = useState('');
   const [onPreviewTab, setOnPreviewTab] = useState(false);
 
@@ -58,11 +58,11 @@ const LessonPreview = ({ previewContent }) => {
 };
 
 LessonPreview.defaultProps = {
-  previewContent: '',
+  sharedContent: '',
 };
 
 LessonPreview.propTypes = {
-  previewContent: PropTypes.string,
+  sharedContent: PropTypes.string,
 };
 
 export default LessonPreview;
