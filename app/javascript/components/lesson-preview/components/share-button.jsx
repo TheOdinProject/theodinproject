@@ -7,9 +7,9 @@ const ShareButton = ({ content }) => {
 
   useEffect(() => {
     if (copied) {
-      setTimeout(() => setCopied(false), 4000);
+      setCopied(false);
     }
-  }, [copied]);
+  }, [content]);
 
   const handleOnClick = async () => {
     const response = await axios.post('/lessons/preview', { content });
