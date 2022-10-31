@@ -1,11 +1,9 @@
 module Lessons
   class PreviewsController < ApplicationController
-    # GET /lessons/preview
     def show
       @preview = LessonPreview.find_or_initialize_by(id: params[:uuid])
     end
 
-    # POST /lessons/preview
     def create
       preview_link = LessonPreview.new(lesson_preview_params)
 
