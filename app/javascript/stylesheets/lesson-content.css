@@ -23,6 +23,12 @@
     @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700;
   }
 
+  .lesson-note::before {
+    content: "\f016";
+    font-family: "Font Awesome 6 Free";
+    @apply text-gold-700;
+  }
+
   .lesson-note > *:first-child {
     @apply mt-0;
   }
