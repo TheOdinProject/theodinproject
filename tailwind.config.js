@@ -1,5 +1,3 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
   content: [
     './app/**/*.html.erb',
@@ -77,23 +75,6 @@ module.exports = {
           '800': '#503914',
           '900': '#231909'
         },
-        'nav-link-read': 'rgba(74, 74, 74, 0.7)',
-        'nav-link-unread': 'rgba(206, 151, 62, 0.7)',
-        'notification': 'rgba(74, 74, 74, 0.7)',
-        'notification-hover': 'rgba(0, 0, 0, 1)',
-        'new-notification': 'rgba(206, 151, 62, 1)',
-      },
-      height: {
-        '60v': '60vh',
-      },
-      margin: {
-        '-25px': '-25px',
-      },
-      textColor: {
-        primary: '#4a4a4a',
-      },
-      padding: {
-        '2px': '2px',
       },
     },
   },

@@ -2,7 +2,7 @@
 
 <div class="page-container h-screen">
   <h1 class="page-heading-title">Notifications</h1>
-  <ul class="space-y-3">
+  <ul class="space-y-3 max-w-3xl mx-auto">
     <% unless @notifications.empty? %>
       <%= render NotificationComponent.with_collection(@notifications) %>
     <% else %>
