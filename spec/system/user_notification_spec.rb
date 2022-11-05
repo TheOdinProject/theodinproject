@@ -20,7 +20,6 @@ RSpec.describe 'User Notifications', type: :system do
     end
 
     sign_out(admin)
-
     sign_in(submission_owner)
   end
 
@@ -29,7 +28,7 @@ RSpec.describe 'User Notifications', type: :system do
       visit root_path
 
       within(find(:test_id, 'navbar-notification-icon')) do
-        expect(page).to have_selector "span[data-test-id='unread-notifications']"
+        expect(page).to have_selector("span[data-test-id='unread-notifications']")
       end
     end
 
@@ -39,7 +38,7 @@ RSpec.describe 'User Notifications', type: :system do
       find(:test_id, 'navbar-notification-icon').click
 
       within(find(:test_id, "notification-#{submission_owner.notifications.first.id}")) do
-        expect(page).to have_css '.text-nav-link-unread'
+        expect(page).to have_selector('[data-test-id="notification-unread-icon"]')
       end
     end
   end
@@ -49,10 +48,9 @@ RSpec.describe 'User Notifications', type: :system do
       visit root_path
 
       find(:test_id, 'navbar-notification-icon').click
-
       find(:test_id, "notification-#{submission_owner.notifications.first.id}").click
 
-      expect(page).to have_current_path lesson_path(lesson)
+      expect(page).to have_current_path(lesson_path(lesson))
     end
   end
 
@@ -61,7 +59,6 @@ RSpec.describe 'User Notifications', type: :system do
       visit root_path
 
       find(:test_id, 'navbar-notification-icon').click
-
       find(:test_id, "notification-#{submission_owner.notifications.first.id}").click
     end
 
@@ -69,7 +66,7 @@ RSpec.describe 'User Notifications', type: :system do
       visit root_path
 
       within(find(:test_id, 'navbar-notification-icon')) do
-        expect(page).not_to have_selector "span[data-test-id='unread-notifications']"
+        expect(page).not_to have_selector("span[data-test-id='unread-notifications']")
       end
     end
 
@@ -79,7 +76,7 @@ RSpec.describe 'User Notifications', type: :system do
       find(:test_id, 'navbar-notification-icon').click
 
       within(find(:test_id, "notification-#{submission_owner.notifications.first.id}")) do
-        expect(page).to have_css '.text-nav-link-read'
+        expect(page).to have_selector('[data-test-id="notification-read-icon"]')
       end
     end
   end
