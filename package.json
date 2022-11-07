@@ -21,7 +21,7 @@
     "@hotwired/turbo-rails": "^7.2.2",
     "@rails/ujs": "^7.0.4",
     "@rails/webpacker": "5.4.3",
-    "@sentry/browser": "^7.16.0",
+    "@sentry/browser": "^7.17.4",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.7",
