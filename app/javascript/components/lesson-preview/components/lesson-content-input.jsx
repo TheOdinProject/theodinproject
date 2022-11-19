@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LessonContentInput = ({ onChange, content }) => {
+const LessonContentInput = ({onChange, content}) => {
   const handleOnChange = (event) => {
     onChange(event.target.value);
   };
@@ -10,7 +10,7 @@ const LessonContentInput = ({ onChange, content }) => {
     <textarea
       autoFocus
       className="w-full min-h-screen block rounded-md border-gray-300 dark:bg-gray-700/60 dark:focus:ring-2 dark:placeholder-gray-400 dark:border-gray-500 dark:focus:ring-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark-form-input"
-      maxLength={10}
+      maxLength={70000}
       onChange={handleOnChange}
       placeholder="Lesson content..."
       value={content}
