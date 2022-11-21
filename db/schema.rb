@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_17_151628) do
+ActiveRecord::Schema.define(version: 2022_10_21_183414) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", id: :serial, force: :cascade do |t|
@@ -93,6 +94,12 @@ ActiveRecord::Schema.define(version: 2022_09_17_151628) do
     t.index ["lesson_identifier_uuid"], name: "index_lesson_completions_on_lesson_identifier_uuid"
     t.index ["path_id"], name: "index_lesson_completions_on_path_id"
     t.index ["user_id"], name: "index_lesson_completions_on_user_id"
+  end
+
+  create_table "lesson_previews", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "lessons", id: :serial, force: :cascade do |t|
