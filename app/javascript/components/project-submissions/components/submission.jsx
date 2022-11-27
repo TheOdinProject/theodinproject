@@ -37,7 +37,7 @@ const Submission = forwardRef(({
     <div className={submissionItemClassnames} ref={ref} data-test-id="submission-item">
       <div className="flex items-center mb-4 md:mb-0">
         <Like submission={submission} handleLikeToggle={handleLikeToggle} />
-        <p className="font-medium text-lg break-words">
+        <p className="truncate max-w-xs lg:max-w-lg font-medium text-lg break-words">
           <SubmissionTitle
             submission={submission}
             isCurrentUsersSubmission={isCurrentUsersSubmission}
