@@ -24,7 +24,7 @@
     "@sentry/browser": "^7.17.4",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/typography": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10",
     "axios": "^1.1.2",
     "babel-loader": "8",
