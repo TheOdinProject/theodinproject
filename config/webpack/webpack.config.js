@@ -1,5 +1,4 @@
 const { webpackConfig, merge } = require('shakapacker');
-const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');;
@@ -25,12 +24,6 @@ const customConfig = {
   plugins: [
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin(),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      jquery: 'jquery',
-      Popper: ['popper.js', 'default']
-    })
   ],
 }
 

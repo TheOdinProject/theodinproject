@@ -1,42 +1,47 @@
 <%= title(@lesson.title) %>
 
-<div class="page-container lesson">
-
-  <%= render 'lessons/header', lesson: @lesson %>
-
-  <main class="grid grid-cols-12 gap-x-6">
-    <article class="col-span-full xl:col-span-8 xl:col-start-2">
-      <div class="lesson-content max-w-prose mx-auto xl:mx-0 prose prose-lg prose-gold" data-controller="syntax-highlighting">
-        <%= @lesson.content.html_safe %>
-      </div>
-    </article>
-
-     <aside class="col-span-4 col-start-10 hidden xl:block">
-      <div class="sticky top-12 pb-20 lesson-navigation"></div>
-    </aside>
-  </main>
-</div>
-
-<div class="bg-gray-100 text-center odin-dark-bg">
+<div class="bg-white dark:bg-gray-900">
   <div class="page-container">
 
-    <%= render CardComponent.new(classes: "odin-dark-bg-accent") do |card| %>
+    <%= render 'lessons/header', lesson: @lesson %>
+
+    <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
+      <article class="col-span-full xl:col-span-7 xl:col-start-2">
+        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do %>
+          <%= @lesson.content.html_safe %>
+        <% end %>
+      </article>
+
+      <aside class="col-span-3 col-start-10 justify-self-end hidden xl:block">
+        <div class="sticky top-12 pb-20">
+          <h4 class="text-md pb-4 text-gray-700 dark:text-gray-300">Lesson contents</h4>
+          <ul class="flex flex-col text-gray-500 dark:text-gray-400" data-lesson-toc-target="toc"></ul>
+        </div>
+      </aside>
+    </main>
+  </div>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800/30 text-center">
+  <div class="page-container">
+
+    <%= render CardComponent.new do |card| %>
       <% card.body do %>
         <% if user_signed_in? && @lesson.accepts_submission? %>
           <%= react_component(
-            "project-submissions/index",
-            {
-              userId: current_user.id,
-              course: @lesson.course.as_json,
-              lesson: @lesson.as_json,
-              submissions: @project_submissions,
-              allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
-              userSubmission: @user_submission
-            }
-          ) %>
+                'project-submissions/index',
+                {
+                  userId: current_user.id,
+                  course: @lesson.course.as_json,
+                  lesson: @lesson.as_json,
+                  submissions: @project_submissions,
+                  allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
+                  userSubmission: @user_submission
+                }
+              ) %>
         <% elsif @lesson.accepts_submission? %>
           <p class="mb-7">
-            Please <%= link_to 'Log In', login_path, class: 'text-gold' %> or <%= link_to 'Sign Up', sign_up_path, class: 'text-gold', data: {test_id: 'sign_up'} %> to view user submissions for this project!
+            Please <%= link_to 'Sign in', sign_in_path, class: 'text-gold' %> or <%= link_to 'Sign up', sign_up_path, class: 'text-gold', data: {test_id: 'sign_up'} %> to view user submissions for this project!
           </p>
         <% end %>
 
@@ -44,17 +49,12 @@
       <% end %>
     <% end %>
 
-
-    <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gold text-lg block mt-14' do %>
-      <span class="fab fa-github mr-1"></span>
-      <span> Improve this lesson on GitHub</span>
-    <% end %>
-
-    <%= render 'shared/bottom_cta',
-      button: chat_button,
-      heading: 'Have a question?',
-      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!'
-    %>
+    <div class="pt-10 pb-36">
+      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gold-600 hover:underline' do %>
+        <span class="fab fa-github mr-1"></span>
+        Improve this lesson on GitHub
+      <% end %>
+    </div>
 
     <%= render 'advert' %>
   </div>

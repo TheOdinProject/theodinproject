@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_080835) do
+ActiveRecord::Schema.define(version: 2022_10_21_183414) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", id: :serial, force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_07_06_080835) do
     t.string "message", limit: 255
     t.datetime "expires_at", null: false
     t.bigint "user_id"
+    t.string "learn_more_url"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
@@ -92,6 +94,12 @@ ActiveRecord::Schema.define(version: 2022_07_06_080835) do
     t.index ["lesson_identifier_uuid"], name: "index_lesson_completions_on_lesson_identifier_uuid"
     t.index ["path_id"], name: "index_lesson_completions_on_path_id"
     t.index ["user_id"], name: "index_lesson_completions_on_user_id"
+  end
+
+  create_table "lesson_previews", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "lessons", id: :serial, force: :cascade do |t|
@@ -230,15 +238,10 @@ ActiveRecord::Schema.define(version: 2022_07_06_080835) do
     t.datetime "updated_at", null: false
     t.string "username", limit: 255
     t.text "learning_goal"
-    t.string "confirmation_token", limit: 255
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email", limit: 255
     t.boolean "admin", default: false, null: false
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username"

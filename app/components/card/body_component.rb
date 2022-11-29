@@ -1,5 +1,5 @@
 module Card
-  class BodyComponent < ViewComponent::Base
+  class BodyComponent < ApplicationComponent
     def initialize(classes: '')
       @classes = classes
     end

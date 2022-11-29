@@ -1,7 +1,7 @@
 import * as Sentry from '@sentry/browser';
 
 const {
-  SENTRY_DSN, currentUserLoggedIn, currentUserId, currentUserEmail,
+  SENTRY_DSN, currentUserSignedIn, currentUserId, currentUserEmail,
 } = window;
 
 Sentry.init({
@@ -19,7 +19,7 @@ Sentry.init({
 });
 
 Sentry.configureScope((scope) => {
-  if (currentUserLoggedIn) {
+  if (currentUserSignedIn) {
     scope.setUser({
       id: currentUserId,
       email: currentUserEmail,

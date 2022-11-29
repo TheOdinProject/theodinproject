@@ -1,22 +1,23 @@
 <%= title('Dashboard') %>
 
-<div class="container tmp-container-spacer">
-  <div class= 'col-lg-8 offset-lg-2'>
+<div class="page-container">
+  <div class="max-w-3xl mx-auto">
     <h1 class="page-heading-title">Dashboard</h1>
+    <%= render CardComponent.new(classes: 'mb-16') do |card| %>
+      <% card.body do %>
+        <div class="flex items-center flex-col md:flex-row gap-4">
+          <%= render User::AvatarComponent.new(current_user:, classes: 'w-20') %>
+          <h2 class="truncate w-full basis-3/5 text-xl text-center md:text-left md:pl-4 font-medium text-gray-700 dark:text-gray-300" data-test-id="profile_username"><%= current_user.username %></h2>
+          <p data-test-id='learning_goal' class="text-gray-500 dark:text-gray-400"><%= display_dashboard_learning_goal(current_user).html_safe %></p>
+        </div>
+      <% end %>
+    <% end %>
 
-    <div class="card-main profile-card">
-      <%= render User::AvatarComponent.new(current_user: current_user, classes: ' w-24') %>
-      <h2 class="profile-card__username text-2xl pl-4" data-test-id="profile_username"><%= current_user.username %></h2>
-      <p class="profile-card__learning-goal" data-test-id='learning_goal'><%= display_dashboard_learning_goal(current_user).html_safe %></p>
-    </div>
-
-    <div class="skills">
-      <div class="skills__header">
-        <h2 class="skills__title text-2xl">Skills Progress</h2>
+    <div class="mb-24" data-test-id="skills">
+      <div class="text-center mt-0 mb-6 mx-auto">
+        <h2 class="text-gray-700 text-2xl font-medium mb-2 dark:text-gray-300">Skills Progress</h2>
         <% if current_user.path.courses.size > 1 %>
-          <p class="skills__content">
-            The following courses should be taken in order
-          </p>
+          <p class="text-gray-500 dark:text-gray-400">The following courses should be taken in order</p>
         <% end %>
       </div>
 
@@ -26,9 +27,8 @@
     <%= render 'project_submissions', project_submissions: current_user.project_submissions %>
   </div>
 
-   <%= render 'shared/bottom_cta',
+  <%= render 'shared/bottom_cta',
       button: chat_button,
       heading: 'Have a question?',
-      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!'
-    %>
+      sub_heading: 'Chat with our friendly Odin community in our Discord chatrooms!' %>
 </div>

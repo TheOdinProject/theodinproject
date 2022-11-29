@@ -1,8 +1,9 @@
 <%= title('Terms of Use') %>
 
-<div class="content-container">
+<div class="page-container">
   <h1 class="page-heading-title">Terms of Use</h1>
-  <div class="prose-xl prose-gold">
+
+  <%= render ContentContainerComponent.new do %>
     <h3 id="introduction">Introduction</h3>
     <p>This document should be read in conjunction with Thinkful's <a href="https://www.thinkful.com/privacy-policy/">privacy policy</a> and <a href="https://www.thinkful.com/terms-of-service/">terms of service</a>.</p>
 
@@ -56,7 +57,7 @@
     <p>You agree to comply with the above conditions, and acknowledge and agree that The Odin Project has the right, in its sole discretion, to terminate your account or take such other action as we see fit if you breach any of the above conditions or any of the other terms of these Terms of Use. This may include taking court action and/or reporting offending users to the relevant authorities.</p>
 
     <h3 id="reporting-infringements">Reporting Infringements</h3>
-    <p>If you discover any Content on the Platform that you believe infringes your copyright, please report this to us using any of the methods outlined on our Contact Page (http://theodinproject.com/contact).</p>
+    <p>If you discover any Content on the Platform that you believe infringes your copyright, please report this to us by sending an email to <a href="mailto: theodinprojectcontact@gmail.com">theodinprojectcontact@gmail.com</a>.</p>
     <p>Please make sure that you include the following information:</p>
     <p>a statement that you have identified Content on The Odin Project that infringes your copyright or the copyright of a third party on whose behalf you are entitled to act;a description of the copyright work(s) that you claim have been infringed;</p>
     <p>a description of the Content that you claim is infringing and the The Odin Project URL(s) where such Content can be located;</p>
@@ -176,5 +177,5 @@
 
     <h3 id="headings">Headings</h3>
     <p>The headings in this User Agreement are inserted only as a matter of convenience and for reference and in no way define, limit or describe the scope or intent of this User Agreement.</p>
-  </div>
+  <% end %>
 </div>

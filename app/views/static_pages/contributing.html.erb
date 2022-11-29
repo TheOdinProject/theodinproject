@@ -1,16 +1,32 @@
 <%= title('Contributing') %>
 
-<div class="container tmp-container-spacer">
-  <div class="page-intro">
-    <h1 class="page-heading-title">How to Contribute</h1>
-    <p class="page-intro__text">
-      The Odin Project is an Open Source project, built and maintained by volunteers who dedicate their time and skills to making The Odin Project one of the best free education platforms on the web. We are always working on projects to improve Odin and are always looking for people who want to join our growing team of maintainers.</a>
-    </p>
+<section class='page-container'>
+  <div class='grid grid-cols-12'>
+    <div class='col-span-12 md:col-start-3 md:col-span-8 space-y-8'>
+      <div class='text-center'>
+        <h1 class='page-heading-title'>How to Contribute</h1>
+        <p class='max-w-prose mx-auto prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-400'>
+          The Odin Project is an Open Source project, built and maintained by volunteers who dedicate their time
+          and skills to making The Odin Project one of the best free education platforms on the web. We are always
+          working on projects to improve Odin and are always looking for people who want to join our growing team
+          of maintainers.
+        </p>
+      </div>
+
+      <%= render 'static_pages/contributing/contributing_options' %>
+    </div>
   </div>
+</section>
 
-  <%= render 'static_pages/contributing/contributing_options' %>
-</div>
+<section class='bg-gray-100 dark:bg-gray-800'>
+  <div class='page-container'>
+    <div class='grid grid-cols-12'>
+      <div class='col-span-12 md:col-start-3 md:col-span-8'>
+        <h2 class='font-bold text-center mb-16 text-2xl'>Why you should get involved</h2>
+        <%= render(AboutPage::BeliefComponent.with_collection(t('.benefits'))) %>
+      </div>
+    </div>
+  </div>
+</section>
 
-<%= render 'static_pages/contributing/benefits' %>
-
-<%= render "static_pages/contributing/hall_of_fame" %>
+<%= render 'static_pages/contributing/hall_of_fame' %>

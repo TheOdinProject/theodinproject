@@ -1,13 +1,86 @@
 <%= title('Community Expectations') %>
-<% filename = 'app/views/static_pages/dashboard_steps/community_expectations.md' %>
+<div class="page-container">
 
-<div class="gradient pb-1">
-  <div class="col-xl-8 offset-xl-2">
-    <div class="lesson-content">
-      <% f = File.open(filename, 'r:UTF-8') %>
-      <%= MarkdownConverter.new(f.read).as_html.html_safe %>
-      <% f.close %>
-    </div>
-    <%= render "static_pages/dashboard_steps/github_link", filename: filename  %>
-  </div>
+  <%= render ContentContainerComponent.new do %>
+    <h2>Community Expectations</h2>
+
+    <p>
+      The following expectations are important of the culture in our Discord community. They are not rules that are enforced by our moderation team, but they will help you get the most out of your experience in our Discord server.
+    </p>
+
+    <h3>1. Ask detailed and specific questions</h3>
+
+    <p>
+      We encourage questions, so do not worry about asking a “stupid question”. However, it is important that you know <a href="/before_asking" target="_blank">How to Help Yourself Before Asking Others</a> and follow our tips on <a href="/how_to_ask" target="_blank">How to Ask a Technical Question</a>. In addition, to ensure that everyone has the same expectations, below are some specific guidelines on asking questions:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Ask questions in the proper channel.</strong> We have specific channels for every section in our curriculum, so please find the best one to ask your question. While asking questions regarding The Odin Project or our curriculum is allowed in our #odin-general channel, you should seek a more appropriate channel if there is already an active conversation.
+      </li>
+      <li>
+        <strong>Stay online after asking a question.</strong> Most of the time, answers are not simple and straight-forward. Therefore, you should be prepared to stick around and discuss it with those trying to help.
+      </li>
+      <li>
+        <strong>Wait patiently for a response.</strong> Even though our community is fairly active, not all questions will be answered right away. While you are waiting, make sure that you have provided a detailed question and continue trouble-shooting. If your post is getting buried and/or if you have been waiting for an hour, you can direct people to your question.
+      </li>
+      <li>
+        <strong>Do not ask to ask a question.</strong> You have permission to ask questions, provided that it falls within our rules. We know you mean well, but it is somewhat inconsiderate to make people wait for your actual question. For more information, please read <a href="https://dontasktoask.com/" target="_blank">Don't ask to ask, just ask</a>.
+      </li>
+      <li>
+        <strong>Use external services to share code.</strong> Posting small snippets of code is acceptable, but anything longer than a few lines is hard to read and parse. Use <a href="https://codepen.io/" target="_blank">CodePen</a>, <a href="https://replit.com/" target="_blank">Replit</a>, or <a href="https://codesandbox.io/" target="_blank">CodeSandbox</a> to share longer snippets of code. If you want to share a text version of a long error message, use <a href="http://pastebin.com/" target="_blank">Pastebin</a> instead.
+      </li>
+      <li>
+        <strong>Use screenshots to share other relevant information.</strong> When you need to share an image of your terminal window or an error message, use a screenshot tool on your computer. If you are not familiar with this tool, you should research it using your favorite search engine. You should never take a photo of your screen with your phone, as that will provide a lower quality image that can be difficult for others to actually read.
+      </li>
+      <li>
+        <strong>Do not share files that require a user to download it.</strong> It is impossible to tell whether a file contains malware or has some other malicious intent. Therefore, you should never share a file that requires users to download and open it on their own device.
+      </li>
+    </ul>
+
+    <h3>2. Be professional and have good etiquette</h3>
+
+    <p>
+      We expect everyone to handle themselves professionally and treat others respectfully, no matter how old you are or how much experience you have. To ensure that everyone has the same expectations, below are some specific guidelines:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Do not post personal information.</strong> This applies to all sensitive information, as well as <strong>your age</strong>.
+      </li>
+      <li>
+        <strong>Respect that people will have differences of opinion.</strong> Every design or implementation choice carries a trade-off and numerous costs. There is seldom a single right answer.
+      </li>
+      <li>
+        <strong>Be constructive, not destructive.</strong> When providing feedback to another user, make sure you provide constructive feedback rather than feedback that is negative for the sake of being negative. Telling someone that their project is terrible or that they don't know how to write code doesn't provide them any actual help.
+      </li>
+      <li>
+        <strong>Remember the Human.</strong> Behind every username there is a person with feelings, so be kind to everyone! If you wouldn't say it out loud, or wouldn't want someone else saying it to you, don't post it.
+      </li>
+      <li>
+        <strong>Be gracious during misunderstandings.</strong> When misunderstandings happen, choose to be gracious instead of argumentative. Give others the benefit of the doubt during text-based communication because you can not take into account body language, cultural differences, or other contextual cues.
+      </li>
+    </ul>
+
+    <h3>3. Other general community tips</h3>
+
+    <p>
+      As you participate in our community, you will see a few topics that come up fairly regulary, such as the following:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Do not compare time with others.</strong> When people try to compare how much time it takes even to do TOP or even just one project, it tends to lead to feelings of inadequacy or a false sense of accomplishment. Everyone has different life circumstances and project completion expectations, so we discourage comparing time and instead focus on learning the material well.
+      </li>
+      <li>
+        <strong>Guide people to their own answer.</strong> When helping another user, try to steer them in the right direction instead of providing the answer. This tactic helps them build the skills they need to solve future problems. If you would like more tips on helping others, please read <a href="https://github.com/TheOdinProject/blog/wiki/How-to-Help-Others-Solve-Coding-Problems" target="_blank">How to Help Others Solve Coding Problems</a>.
+      </li>
+      <li>
+        <strong>Provide context when sharing a resource.</strong> When posting a link to an article or youtube video, include <strong>why</strong> you are sharing it. Otherwise it will be marked as spam and deleted.
+      </li>
+    </ul>
+  <% end %>
+
+  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_expectations.html.erb' %>
+
 </div>

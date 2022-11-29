@@ -1,13 +1,106 @@
 <%= title('Help Yourself Before Asking Others') %>
-<% filename = 'app/views/static_pages/dashboard_steps/before_asking.md' %>
+<div class="page-container">
 
-<div class="gradient pb-1">
-  <div class="col-xl-8 offset-xl-2">
-    <div class="lesson-content">
-      <% f = File.open(filename, 'r:UTF-8') %>
-      <%= MarkdownConverter.new(f.read).as_html.html_safe %>
-      <% f.close %>
-    </div>
-    <%= render "static_pages/dashboard_steps/github_link", filename: filename  %>
-  </div>
+  <%= render ContentContainerComponent.new do %>
+
+    <h2>Help Yourself Before Asking Others</h2>
+
+    <p>
+      When you are a part of an active community of experienced developers, like our Discord server, it can be tempting to ask for help before doing enough legwork on your own. If this becomes a habit, it will impede your own progress because you'll miss opportunities to strengthen your own troubleshooting skills. These skills are vital to becoming a successful developer, so let's look at some practical tips to help yourself before asking others for help.
+    </p>
+
+    <h3>Adjust Your Expectations</h3>
+
+    <p>
+      Most of our exercises and projects are designed to push you to your limit and force you to do some research on your own. This experience is similar to being assigned to build a new feature in your future job. When you first start on it, you will most likely not know how to complete all of it. Instead of holding on to this unrealistic expectation, adjust your perspective and get comfortable not knowing the entire solution when you begin.
+    </p>
+
+    <h3>Break Down the Problem</h3>
+
+    <p>
+      Break down the problem into small pieces and write it out in pseudo code. If you would like a detailed explanation of this step, read our <a href="lessons/foundations-problem-solving" target="_blank">Problem Solving lesson</a> with this specific problem in mind.
+    </p>
+
+    <h3>Research a Sub-Problem</h3>
+
+    <p>
+      After you have broken your problem down into smaller sub-problems, you should research a sub-problem using your favorite search engine. As an example, you should research “return random item from array in javascript” not “how to create rock paper scissors in javascript”
+    </p>
+
+    <p>
+      If you are not getting helpful search results, read <a href="https://codinginflow.com/google-programming-questions" target="_blank">How to Use Google to Solve Your Programming Questions</a> for tips on how to adjust your search criteria.
+    </p>
+
+    <h3>Examine Error Messages</h3>
+
+    <p>
+      Error messages are designed to help you get to the root of the problem. When you get an error, it is important to look at the entire error message to learn about the error and its location. If you do not understand the error message, copy and paste the most relevant line into your favorite search engine. You can also use the search feature in our Discord server to read how other people may have resolved similar issues. For even more tips, read our <a href="lessons/foundations-understanding-errors" target="_blank">Understanding Errors lesson</a>.
+    </p>
+
+    <h3>Triple Check Terminal Commands</h3>
+
+    <p>
+      If you are following our directions and get an error message or other unexpected output, complete the following trouble-shooting tips:
+    </p>
+
+    <ul>
+      <li>Starting at the beginning, re-read all of our directions.</li>
+      <li>Compare the directions to your terminal history to ensure that you did not skip anything.</li>
+      <li>Copy and paste the exact terminal command from our lesson to prevent typos.</li>
+      <li>Use the command <code>pwd</code> to confirm that you are in the correct directory.</li>
+    </ul>
+
+    <p>
+      If you are not following our directions, research it and confirm that you are using the correct command. You can also research the error message or unexpected output because someone else has probably experienced a similar situation.
+    </p>
+
+    <h3>Review Previous Lessons</h3>
+
+    <p>
+      It can be helpful to review the previous lessons because you might have overlooked something that you can apply to your current task.
+    </p>
+
+    <h3>Check for Typos</h3>
+
+    <p>
+      It is important to check your code for typos, because they can result in a wide variety of weird behavior and error messages. To help prevent typos, use <a href="https://code.visualstudio.com/docs/editor/intellisense" target="_blank">VS Code's IntelliSense</a> to complete methods, parameters, variables, etc.
+    </p>
+
+    <h3>Debug Your Code</h3>
+
+    <p>
+      When your code has unexpected behavior, the most important tool at your disposal is a debugger. This may sound like overkill, but look at all of your variables at every point in your code. Be assured that your code is doing exactly what you instructed it to do. The problem is that you are misunderstanding what you told it to do. Your job is to investigate where the misunderstanding is taking place. For even more information, check out <a href="https://developer.chrome.com/docs/devtools/javascript/" target="_blank">JavaScript's DevTools</a> or <a href="lessons/ruby-debugging#debugging-with-pry-byebug" target="_blank">Ruby's pry-byebug</a>.
+    </p>
+
+    <h3>Read Documentation Thoroughly</h3>
+
+    <p>
+      When you have isolated your problem down to a specific function or method that is producing unexpected results, you should read through its documentation. It is very common to learn that you misunderstood what the function/method does, its return value, or possible side effects.
+    </p>
+
+    <h3>Know When to Take a Break</h3>
+
+    <p>
+      It is time to take a break when you begin to feel tired, frustrated, overwhelmed, etc. At a certain point, persistence can be more detrimental than beneficial.
+    </p>
+
+    <p>
+      In addition, there is a very common phenomenon in programming where new ideas and solutions come to you after you take a break. This may sound crazy (until you've experienced it), so you need to trust us on this. Sometimes it comes to you when you are doing a mundane task, like walking your dog, cooking a meal, folding socks, etc. Sometimes it happens when you get back to your desk and start reviewing the problem and your code.
+    </p>
+
+    <h3>Talk Through Your Code Line By Line</h3>
+
+    <p>
+      The final tip is to explain your code line by line, which is a tried and true technique called <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging" target="_blank">rubber duck debugging</a>. This may sound silly, so you need to trust us on this one too. When you take the time to examine each line of code, especially after taking a break, you'll be amazed how you'll see things that you did not see before!
+    </p>
+
+    <h3>Conclusion</h3>
+
+    <p>
+      Going through each of these tips can take quite a bit of time, but as you get more experience many of these will become part of your development process, which will save you time in the end. If you have not found the root of the problem, after working through each of these tips, it is time to ask others. However, asking others for help is not as simple as it may sound, so please read <a href="/how_to_ask" target="_blank">How to Ask a Technical Question</a>.
+    </p>
+  <% end %>
+
+  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/before_asking.html.erb' %>
+
 </div>

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  if Rails.env.development?
+    mount Lookbook::Engine, at: '/lookbook'
+  end
+
   resource :github_webhooks, only: :create, defaults: { formats: :json }
 
   unauthenticated do
@@ -18,17 +22,17 @@ Rails.application.routes.draw do
     root to: redirect('/dashboard'), as: :authenticated_root
   end
 
-  devise_for :users, controllers: {
-    registrations: 'registrations',
-    omniauth_callbacks: 'omniauth_callbacks',
-  }
+  devise_for(
+    :users,
+    module: 'users',
+    controllers: { passwords: 'users/password_resets' },
+    path_names: { password: 'password_reset' }
+  )
 
   devise_scope :user do
-    get '/login' => 'devise/sessions#new'
-    get '/logout' => 'devise/sessions#destroy', method: :delete
-    get 'sign_up' => 'devise/registrations#new'
-    get 'signup' => 'devise/registrations#new'
-    get '/confirm_email' => 'users#send_confirmation_link'
+    get '/sign_in' => 'users/sessions#new'
+    get '/sign_out' => 'users/sessions#destroy', method: :delete
+    get '/sign_up' => 'users/registrations#new'
   end
 
   namespace :api do
@@ -50,16 +54,18 @@ Rails.application.routes.draw do
 
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
-  resources :users, only: %i[update]
   get 'dashboard' => 'users#show', as: :dashboard
 
   namespace :users do
     resources :paths, only: :create
     resources :progress, only: :destroy
+    resource :profile, only: %i[edit update]
   end
 
   namespace :lessons do
-    resource :preview, only: %i[show create]
+    resource :preview, only: %i[show create] do
+      post :markdown
+    end
     resources :installation_lessons, only: %i[index]
   end
 

@@ -1,15 +1,33 @@
-<%= link_to notification_path(@notification), method: :patch, class: "no-underline px-4 py-4", data: { test_id: "notification-#{@notification.id}" } do %>
-  <li class="bg-white shadow overflow-hidden p-4 sm:rounded-md">
+<%= link_to notification_path(@notification), method: :patch, class: 'no-underline px-4 py-4', data: { test_id: "notification-#{@notification.id}" } do %>
+  <li class="bg-white dark:bg-gray-800 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:ring-inset shadow overflow-hidden p-4 sm:rounded-md">
     <div class="flex">
       <div class="mr-4 flex-shrink-0">
-        <%= notification_read_status_icon %>
+        <% if @notification.read? %>
+          <%= inline_svg_tag(
+                'icons/icon-read-notification.svg',
+                class: 'h-6 w-6 text-gray-400 dark:text-gray-500',
+                aria: true,
+                title: 'read notification',
+                desc: 'an image showing that a notification has been read',
+                data: { test_id: 'notification-read-icon' }
+              ) %>
+        <% else %>
+          <%= inline_svg_tag(
+                'icons/icon-unread-notification.svg',
+                class: 'h-6 w-6 text-gold-600',
+                aria: true,
+                title: 'unread notification',
+                desc: 'an image showing that a notification has not been read',
+                data: { test_id: 'notification-unread-icon' }
+              ) %>
+        <% end %>
       </div>
       <div class="flex-col">
         <div>
-          <p class="text-base font-semibold"><%= @notification.title.titleize %></p>
+          <p class="font-medium text-gray-700 dark:text-gray-300"><%= @notification.title.titleize %></p>
         </div>
         <div>
-          <p class="mt-1 text-base">
+          <p class="mt-1 !text-sm text-gray-500 dark:text-gray-400">
             <%= @notification.message %>
           </p>
         </div>

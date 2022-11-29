@@ -1,5 +1,5 @@
 module Card
-  class HeaderComponent < ViewComponent::Base
+  class HeaderComponent < ApplicationComponent
     def initialize(classes: '')
       @classes = classes
     end

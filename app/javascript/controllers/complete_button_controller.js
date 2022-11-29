@@ -71,7 +71,7 @@ export default class CompleteButton extends Controller {
 
   isLoadingValueChanged(loading) {
     if (loading) {
-      this.element.classList.remove(this.completedClass);
+      this.element.classList.remove(...this.completedClasses);
       this.element.classList.add(this.loadingClass);
       this.element.disabled = true;
     } else {
@@ -88,7 +88,7 @@ export default class CompleteButton extends Controller {
     const buttonText = completed ? 'Lesson Completed' : 'Mark Complete';
 
     if (completed) {
-      this.element.classList.add(this.completedClass);
+      this.element.classList.add(...this.completedClasses);
     }
 
     if (this.hasTextTarget) {

@@ -3,5 +3,6 @@ class Rack::Attack
 
   Rack::Attack.throttle('report_ip', limit: 3, period: 60) do |request|
     request.ip if request.path.ends_with?('/flags') && request.post?
+    request.ip if request.path.ends_with?('/preview') && request.post?
   end
 end

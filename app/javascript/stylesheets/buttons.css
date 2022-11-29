@@ -2,8 +2,9 @@
   .button {
     min-width: 100px;
     @apply inline-flex items-center px-6 justify-center py-3 border border-transparent
-    text-base font-medium rounded-md shadow-sm text-white focus:outline-none
-    focus:ring-2 focus:ring-offset-2 hover:text-white focus:text-white no-underline
+     rounded-md shadow-sm text-white focus:outline-none
+    focus:ring-2 focus:ring-offset-1 hover:text-white focus:text-white no-underline
+    cursor-pointer dark:focus:ring-offset-black text-sm
   }
 
   .button--disabled {
@@ -11,11 +12,11 @@
   }
 
   .button--primary {
-    @apply bg-teal-700 hover:bg-teal-700 focus:ring-teal-600
+    @apply bg-teal-700 hover:bg-teal-800 focus:ring-teal-700
   }
 
   .button--secondary {
-    @apply bg-gold hover:bg-gold-600 focus:ring-gold-400
+    @apply bg-gold-600 hover:bg-gold-700 focus:ring-gold-500
   }
 
   .button--danger {
@@ -23,16 +24,18 @@
   }
 
   .button--gray {
-    @apply bg-gray-300 text-gray-500 hover:text-black focus:ring-gray-300
+    @apply bg-gray-200 text-gray-700 hover:text-gray-700 hover:bg-gray-300 focus:ring-gray-400
+    dark:bg-gray-300 dark:hover:bg-gray-400 focus:text-gray-700 px-4 py-2 dark:hover:text-gray-900
   }
 
   .button--clear {
-    @apply border-gray-300 text-gray-700 hover:text-gray-700 bg-transparent hover:bg-gray-50
-    focus:ring-gray-400 focus:text-gray-700
+    @apply border-gray-300 text-gray-700 hover:text-gray-700 bg-white hover:bg-gray-50
+    focus:ring-gray-400 focus:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-700
+    dark:border-gray-600 dark:focus:ring-gray-600 dark:bg-transparent
   }
 
   .button--dark {
-    @apply bg-gray-700 hover:bg-gray-800 focus:ring-gray-600
+    @apply bg-gray-700 hover:bg-gray-800 focus:ring-gray-600 dark:hover:bg-gray-600
   }
 
   .button--medium {

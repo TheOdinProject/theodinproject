@@ -5,15 +5,15 @@ RSpec.describe ButtonHelper do
     allow(helper).to receive(:resource_name).and_return('user')
   end
 
-  describe '#signup_button' do
+  describe '#sign_up_button' do
     it 'returns a sign up button' do
-      expect(helper.signup_button).to eq('<a class="button button--primary" href="/sign_up">Sign Up</a>')
+      expect(helper.sign_up_button).to eq('<a class="button button--primary" href="/sign_up">Sign up</a>')
     end
   end
 
-  describe '#login_button' do
-    it 'returns a login button' do
-      expect(helper.login_button).to eq('<a class="button button--clear" href="/users/sign_in">Login</a>')
+  describe '#sign_in_button' do
+    it 'returns a sign-in button' do
+      expect(helper.sign_in_button).to eq('<a class="button button--clear" href="/sign_in">Sign in</a>')
     end
   end
 
@@ -27,7 +27,9 @@ RSpec.describe ButtonHelper do
 
   describe '#curriculum_button' do
     it 'returns the curriculum button' do
-      expect(helper.curriculum_button).to eq('<a class="button button--primary" href="/paths">View Curriculum</a>')
+      expect(helper.curriculum_button).to eq(
+        '<a class="button button--primary text-base" href="/paths">View curriculum</a>'
+      )
     end
   end
 

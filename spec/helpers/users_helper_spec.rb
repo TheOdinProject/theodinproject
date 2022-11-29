@@ -14,7 +14,7 @@ RSpec.describe UsersHelper do
 
       it 'returns a link to the users settings page' do
         expect(helper.display_dashboard_learning_goal(user)).to eql(
-          'Set a learning goal in your <a class="profile-card__link" href="/users/edit">settings</a>.'
+          'Set a learning goal in your <a class="profile-card__link" href="/users/profile/edit">settings</a>.'
         )
       end
     end

@@ -5,9 +5,9 @@ module Users
     def destroy
       result = Users::ResetProgress.call(current_user)
       if result.success?
-        redirect_to edit_user_registration_path, notice: 'Success: Your progress has been reset.'
+        redirect_to edit_users_profile_path, notice: 'Success: Your progress has been reset.'
       else
-        redirect_to edit_user_registration_path, notice: 'Failure: Unable to reset your progress.'
+        redirect_to edit_users_profile_path, notice: 'Failure: Unable to reset your progress.'
       end
     end
   end

@@ -51,12 +51,12 @@ const SubmissionsList = ({
           ))}
         </FlipMove>
       ) : (
-        <h2 className="text-center text-xl text-gray-600 font-bold pt-14 pr-0 pb-2 mb-0">
+        <h2 className="text-center text-xl text-gray-600 dark:text-gray-300 font-medium pr-0 pb-10 mb-0">
           No Submissions yet, be the first!
         </h2>
       )}
 
-      { allSubmissionsPath
+      { (allSubmissionsPath && hasSubmissions)
         && (
           <p className="text-center py-6 px-0">
             <span>
@@ -67,7 +67,13 @@ const SubmissionsList = ({
               most liked submissions -
               {' '}
             </span>
-            <a data-test-id="view-all-projects-link" href={allSubmissionsPath}> View full list of solutions</a>
+            <a
+              className="text-gold"
+              data-test-id="view-all-projects-link"
+              href={allSubmissionsPath}
+            >
+              View full list of solutions
+            </a>
           </p>
         )}
     </div>

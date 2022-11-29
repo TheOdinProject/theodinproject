@@ -40,7 +40,7 @@ RSpec.describe 'View all Project Submissions for a Lesson', type: :system do
   context 'when the user is not signed in' do
     let(:lesson) { create(:lesson, :project) }
 
-    it 'redirects the user to the login page' do
+    it 'redirects the user to the sign in page' do
       visit lesson_project_submissions_path(lesson)
 
       expect(page).to have_current_path(new_user_session_path)

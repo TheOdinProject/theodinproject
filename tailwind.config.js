@@ -1,19 +1,28 @@
-const colors = require('tailwindcss/colors')
-
-
 module.exports = {
-  darkMode: 'class', // or 'media' or 'class'
+  content: [
+    './app/**/*.html.erb',
+    './app/components/**/*',
+    './app/components/*.rb',
+    './app/javascript/**/*.js',
+    './app/javascript/components/**/*.jsx',
+    'app/assets/images/icons/*.svg',
+    './config/utility_classes.yml',
+    './app/components/**/*.yml',
+    './app/builders/**/*.rb',
+  ],
+  safelist: [
+    'lesson-note',
+    'lesson-content__panel',
+    'anchor-link',
+    'toc-item-active'
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: '#334155',
             code: {
-              color: theme('colors.pink'),
-              backgroundColor: theme('colors.gray.100'),
-              padding: '3px',
-              'font-weight': 'normal',
               '&:before': {
                 display: 'none',
               },
@@ -24,8 +33,12 @@ module.exports = {
             h3: {
               width: 'fit-content',
               a: {
-                color: '#0f172a',
+                color: theme('colors.gray.800'),
                 'text-decoration': 'none',
+                'font-weight': '600',
+                '&:hover': {
+                  color: theme('colors.gray.800'),
+                }
               },
             },
             details: {
@@ -33,13 +46,19 @@ module.exports = {
                 'font-size': '1.25rem',
                 'margin-bottom': '1.25rem',
                 'font-weight': '600',
+                'cursor': 'pointer',
               },
             }
           },
         },
+        gray: {
+          css: {
+            '--tw-prose-code': theme('colors.pink.700'),
+            '--tw-prose-invert-code': theme('colors.pink.400'),
+          },
+        },
       }),
       colors: {
-        teal:  colors.teal,
         transitionProperty: {
           'stroke-dashoffset': 'stroke-dashoffset'
         },
@@ -56,45 +75,14 @@ module.exports = {
           '800': '#503914',
           '900': '#231909'
         },
-        'nav-link-read': 'rgba(74, 74, 74, 0.7)',
-        'nav-link-unread': 'rgba(206, 151, 62, 0.7)',
-        'notification': 'rgba(74, 74, 74, 0.7)',
-        'notification-hover': 'rgba(0, 0, 0, 1)',
-        'new-notification': 'rgba(206, 151, 62, 1)',
-      },
-      height: {
-        '60v': '60vh',
-      },
-      margin: {
-        '-25px': '-25px',
-      },
-      textColor: {
-        primary: '#4a4a4a',
-      },
-      padding: {
-        '2px': '2px',
       },
     },
-  },
-  purge: {
-    content: [
-      "./app/**/*.html.erb",
-      "./app/components/*.html.erb",
-      "./app/components/*.rb",
-      "./app/javascript/components/**/*.jsx",
-      "app/assets/images/icons/*svg",
-    ],
-    options: {
-      safelist: ['lesson-note', 'lesson-content__panel', 'anchor-link'],
-    }
-  },
-  variants: {
-    extend: {},
   },
   corePlugins: {
     container: false,
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require("@tailwindcss/forms"),
   ],
 }

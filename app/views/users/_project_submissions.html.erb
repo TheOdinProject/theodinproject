@@ -1,15 +1,15 @@
-<div class="user-project-submissions">
-  <h2 class="user-project-submissions__title text-2xl">Project Submissions</h2>
+<div class="mb-12">
+  <h2 class="text-gray-700 text-2xl font-medium text-center mb-4 dark:text-gray-300">Project Submissions</h2>
 
   <% if project_submissions.any? %>
     <%= react_component(
-        "project-submissions/user-project-submissions",
-        {
-          userId: current_user&.id,
-          submissions: project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
-        }
-    ) %>
+          'project-submissions/user-project-submissions',
+          {
+            userId: current_user&.id,
+            submissions: project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
+          }
+        ) %>
   <% else %>
-    <h3 class="user-project-submissions__blank-slate-message text-xl">No submissions yet</h3>
+    <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
   <% end %>
 </div>

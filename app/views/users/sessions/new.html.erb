@@ -1,0 +1,64 @@
+<%= title('Sign in') %>
+
+<div class="bg-gray-50 h-screen dark:bg-gray-900">
+  <div class="page-container">
+
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Sign in to your account</h2>
+      <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
+        Or
+        <%= link_to 'sign up for a new account', sign_up_path, class: 'font-medium text-gold-600 hover:text-gold-500' %>
+      </p>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <%= render CardComponent.new do |card| %>
+        <%= card.body do %>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
+            <div class="space-y-6">
+              <div>
+                <%= form.label :email, 'Email address' %>
+                <%= form.email_field :email, required: false, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div>
+                <%= form.label :password %>
+                <%= form.password_field :password, required: false, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <%= form.check_box :remember_me, checked: true, class: 'form-checkbox text-teal-700 focus:ring-teal-800' %>
+                  <%= form.label :remember_me, class: 'ml-2 block text-sm text-gray-900 mb-0 dark:text-gray-300' %>
+                </div>
+
+                <div class="text-sm">
+                  <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'font-medium text-gray-600 underline dark:text-gray-300' %>
+                </div>
+              </div>
+
+              <div>
+                <%= form.submit 'Sign in', class: 'button button--primary w-full py-2 px-4 text-sm', data: { test_id: 'submit-btn', disable_with: false } %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="mt-6">
+            <div class="relative">
+              <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+              </div>
+              <div class="relative flex justify-center text-sm">
+                <p class="bg-white dark:bg-gray-800 px-2 text-gray-500 dark:text-gray-400">Or continue with</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <%= render(Oauth::ConnectButtonComponent.with_collection(%i[github google], resource_name:)) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
