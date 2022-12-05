@@ -303,9 +303,9 @@ GEM
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.1.3)
+    net-protocol (0.2.0)
       timeout
-    net-smtp (0.3.2)
+    net-smtp (0.3.3)
       net-protocol
     netrc (0.11.0)
     newrelic_rpm (8.12.0)
