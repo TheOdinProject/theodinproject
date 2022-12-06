@@ -14,7 +14,7 @@ module Messages
 
     def content
       "Hey #{username}, your project #{lesson_name} has a broken link in your submission. " \
-        "Please update it by #{submission_deletion_date} so it doesn\'t get removed!"
+        "Please update it by #{submission_deletion_date} so it doesn't get removed!"
     end
 
     def url
