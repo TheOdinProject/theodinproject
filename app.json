@@ -12,7 +12,7 @@
         { "url": "https://github.com/devforce/heroku-buildpack-cleanup" }
       ],
       "addons": [
-        "heroku-postgresql:hobby-dev",
+        "heroku-postgresql:mini",
         {
           "plan": "rediscloud:30",
           "as": "REDIS"
