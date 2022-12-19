@@ -62,7 +62,7 @@
     "sass-loader": "^13.1.0",
     "shakapacker": "6.5.4",
     "stickyfilljs": "^2.1.0",
-    "stimulus-use": "^0.50.0",
+    "stimulus-use": "^0.51.1",
     "stimulus-validation": "^1.0.1-beta.3",
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.2.4",
