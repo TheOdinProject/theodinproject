@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Sign Up', type: :system do
+RSpec.describe 'Sign Up' do
   let!(:default_path) { create(:path, title: 'Foundations', default_path: true) }
 
   before do

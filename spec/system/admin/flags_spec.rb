@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin Flags', type: :system do
+RSpec.describe 'Admin Flags' do
   let!(:flag) { create(:flag, project_submission:) }
   let(:user) { create(:user, admin: true) }
   let(:project_submission) { create(:project_submission, lesson:, user: submission_owner) }

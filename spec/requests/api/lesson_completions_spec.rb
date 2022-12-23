@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Lesson Completions', type: :request do
+RSpec.describe 'Lesson Completions' do
   describe 'GET #index' do
     around do |example|
       ClimateControl.modify(

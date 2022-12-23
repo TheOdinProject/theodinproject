@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LessonPreview, type: :model do
+RSpec.describe LessonPreview do
   it { is_expected.to validate_presence_of(:content) }
   it { is_expected.to validate_length_of(:content).is_at_most(70_000) }
 

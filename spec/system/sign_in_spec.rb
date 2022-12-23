@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Sign in', type: :system do
+RSpec.describe 'Sign in' do
   let!(:user) { create(:user, email: 'odinstudent@example.com') }
 
   context 'when using an email and password' do
