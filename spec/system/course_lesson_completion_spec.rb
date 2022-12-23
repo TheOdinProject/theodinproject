@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Course Lesson Completions', type: :system do
+RSpec.describe 'Course Lesson Completions' do
   let!(:user) { create(:user) }
   let!(:path) { create(:path, default_path: true) }
   let!(:course) { create(:course, path:) }
@@ -28,7 +28,7 @@ RSpec.describe 'Course Lesson Completions', type: :system do
 
       find(:test_id, 'complete-button').click
 
-      expect(page).to have_no_css('.complete-icon-button--completed')
+      expect(page).not_to have_css('.complete-icon-button--completed')
       expect(user.lesson_completions.pluck(:lesson_id)).not_to include(lesson.id)
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe 'Course Lesson Completions', type: :system do
     it 'cannot complete a lesson' do
       visit path_course_path(path, course)
 
-      expect(page).to have_no_css('.complete-icon-button')
+      expect(page).not_to have_css('.complete-icon-button')
     end
   end
 end

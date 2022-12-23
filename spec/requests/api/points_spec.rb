@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Static Pages', type: :request do
+RSpec.describe 'Static Pages' do
   describe 'GET #index' do
     it 'returns all points ordered by the highest amount' do
       highest_points = create(:point, points: 6)

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Redirects', type: :request do
+RSpec.describe 'Redirects' do
   context 'when a request is made to web development 101 paths' do
     it 'redirects the old web development 101 course path to the foundations path' do
       get '/courses/web-development-101'

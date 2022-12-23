@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Static Pages', type: :request do
+RSpec.describe 'Static Pages' do
   describe 'GET #home' do
     it 'renders the home page' do
       get home_path

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Course Progress Badge', type: :system do
+RSpec.describe 'Course Progress Badge' do
   let!(:path) { create(:path, default_path: true) }
   let!(:course) { create(:course, path:) }
   let!(:first_lesson) { create(:lesson, course:) }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProjectSubmission, type: :model do
+RSpec.describe ProjectSubmission do
   subject(:project_submission) { create(:project_submission) }
 
   it { is_expected.to belong_to(:user) }

@@ -20,5 +20,7 @@ RSpec/MultipleExpectations:
 
 RSpec/DescribeClass:
   Exclude:
+    - 'requests/**/*'
+    - 'system/**/*'
     - 'tasks/**/*'
     - 'seeds/**/*'

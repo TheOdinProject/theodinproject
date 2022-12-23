@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Editing a Project Submission on the Dashboard', type: :system do
+RSpec.describe 'Editing a Project Submission on the Dashboard' do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:lesson) { create(:lesson, :project) }

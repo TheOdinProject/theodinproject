@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Navigating Lessons', type: :system do
+RSpec.describe 'Navigating Lessons' do
   let!(:course) { create(:course, path: create(:path, default_path: true)) }
   let!(:section) { create(:section, position: 1, course:) }
   let!(:lesson) { create(:lesson, position: 1, section:) }
@@ -37,7 +37,7 @@ RSpec.describe 'Navigating Lessons', type: :system do
       it 'is not present' do
         visit lesson_path(lesson)
 
-        expect(page).to have_no_selector('[data-test-id="next-lesson-btn"]')
+        expect(page).not_to have_selector('[data-test-id="next-lesson-btn"]')
       end
     end
   end

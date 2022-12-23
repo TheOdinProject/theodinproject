@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Notifications', type: :system do
+RSpec.describe 'User Notifications' do
   let!(:flag) { create(:flag, project_submission:) }
   let(:project_submission) { create(:project_submission, lesson:, user: submission_owner) }
   let(:lesson) { create(:lesson, is_project: true, accepts_submission: true, has_live_preview: true) }

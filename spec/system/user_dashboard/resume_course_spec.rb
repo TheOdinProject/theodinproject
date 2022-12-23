@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Resuming Course from User Dashboard', type: :system do
+RSpec.describe 'Resuming Course from User Dashboard' do
   let!(:default_path) { create(:path, default_path: true) }
   let!(:foundations_course) { create(:course, title: 'Foundations', path: default_path) }
   let!(:incomplete_lesson) { create(:lesson, course: foundations_course) }
