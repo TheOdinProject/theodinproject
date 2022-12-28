@@ -2,7 +2,28 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.6.1'
+# A bundler plugin to enable dual booting. Dual booting is a technique to help smooth out
+# major version upgrades. [ https://github.com/Shopify/bootboot ]
+plugin 'bootboot', '~> 0.1.1'
+
+Plugin.send(:load_plugin, 'bootboot') if Plugin.installed?('bootboot')
+
+if ENV['DEPENDENCIES_NEXT']
+  enable_dual_booting if Plugin.installed?('bootboot')
+
+  # Add any gem you want here, they will be loaded only when running
+  # bundler command prefixed with `DEPENDENCIES_NEXT=1`.
+  gem 'rails', '7.0.4'
+else
+  gem 'rails', '6.1.6.1'
+
+  # TODO: These gems are no longer default in Ruby 3.1 and have to be declared explicity, or Rspec will break.
+  # They can be removed once upgraded to Rails 7.0.1 + as they are properly declared as a dependency in that version
+  # See https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp
+  gem 'net-imap'
+  gem 'net-pop'
+  gem 'net-smtp'
+end
 
 gem 'activeadmin', '~> 2.13'
 gem 'activeadmin_addons', '~> 1.9'
@@ -72,13 +93,6 @@ group :test do
   gem 'vcr', '~> 6.1'
   gem 'webmock', '~> 3.18'
 end
-
-# TODO: These gems are no longer default in Ruby 3.1 and have to be declared explicity, or Rspec will break.
-# They can be removed once upgraded to Rails 7.0.1 + as they are properly declared as a dependency in that version
-# See https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'
 
 # Use Redis for Action Cable
 gem 'redis', '~> 5.0'
