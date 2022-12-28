@@ -19,6 +19,21 @@ executors:
           POSTGRES_PASSWORD: password
           POSTGRES_DB: theodinproject_test
     working_directory: ~/theodinproject
+  rails-next-executor:
+    docker:
+      - image: cimg/ruby:3.1.2-browsers
+        environment:
+          RAILS_ENV: test
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: password
+          DEPENDENCIES_NEXT: 1
+      - image: cimg/redis:6.2.6
+      - image: cimg/postgres:14.2
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: theodinproject_test
+    working_directory: ~/theodinproject
 
 commands:
   build-app:
@@ -78,7 +93,7 @@ jobs:
           command: bin/rails db:seed
 
   tests-next:
-    executor: rails-executor
+    executor: rails-next-executor
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -91,14 +106,14 @@ jobs:
       - run: DEPENDENCIES_NEXT=1 yarn test
       - run: DEPENDENCIES_NEXT=1 bundle exec rspec
   linters-next:
-    executor: rails-executor
+    executor: rails-next-executor
     steps:
       - build-app
       - run: DEPENDENCIES_NEXT=1 bundle exec rubocop
       - run: DEPENDENCIES_NEXT=1 bundle exec erblint --lint-all
       - run: DEPENDENCIES_NEXT=1 yarn run eslint
   seeds-next:
-    executor: rails-executor
+    executor: rails-next-executor
     steps:
       - build-app
       - run:
