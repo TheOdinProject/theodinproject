@@ -99,7 +99,7 @@ describe('submissions list', () => {
       expect(screen.queryByText('foobar')).not.toBeInTheDocument();
     });
 
-    it('does not render no submissions message when array is empty but user submission is provided', () => {
+    it('does not render \'no submissions\' message when array is empty but user submission is provided', () => {
       render(
         <ProjectSubmissionContext.Provider value={{ allSubmissionsPath: '#' }}>
           <SubmissionsList
