@@ -1,12 +1,12 @@
 class AnnouncementComponentPreview < ViewComponent::Preview
   # @param message [String] text "The text to display in the announcement"
   def with_announcment(message: 'Hello!')
-    render(AnnouncementComponent.new(announcement: default_announcment(message:)))
+    render(AnnouncementComponent.new(announcement: default_announcement(message:)))
   end
 
   private
 
-  def default_announcment(**opts)
+  def default_announcement(**opts)
     defaults = {
       expires_at: DateTime.tomorrow,
       user_id: 1,
