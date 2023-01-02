@@ -60,7 +60,7 @@
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
-    "shakapacker": "6.5.4",
+    "shakapacker": "6.5.5",
     "stickyfilljs": "^2.1.0",
     "stimulus-use": "^0.51.1",
     "stimulus-validation": "^1.0.1-beta.3",
