@@ -52,7 +52,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-flip-move": "^3.0.4",
+    "react-flip-move": "^3.0.5",
     "react-hook-form": "7.37.0",
     "react-scrolllock": "^5.0.1",
     "react-tabs": "4.2.1",
