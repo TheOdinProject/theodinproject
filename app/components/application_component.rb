@@ -9,3 +9,5 @@ class ApplicationComponent < ViewComponent::Base
     end.join(' ')
   end
 end
+
+console.log("JEPAJEES")
