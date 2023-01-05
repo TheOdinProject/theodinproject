@@ -42,7 +42,7 @@ gem 'github_api', '~> 0.19'
 gem 'github_webhook', '~> 1.4'
 gem 'inline_svg', '~> 1.8'
 gem 'kramdown', '~> 2.4'
-gem 'newrelic_rpm', '~> 8.13'
+gem 'newrelic_rpm', '~> 8.14'
 gem 'noticed', '~> 1.6'
 gem 'octokit', '~> 6.0'
 gem 'omniauth-github', '~> 2.0'
@@ -67,9 +67,9 @@ gem 'view_component', '~> 2.75'
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
-  gem 'lookbook', '~> 1.1.0'
+  gem 'lookbook', '~> 1.4.5'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.39', require: false
+  gem 'rubocop', '~> 1.42', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
   gem 'rubocop-rspec', '~> 2.16', require: false
