@@ -129,7 +129,7 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    css_parser (1.12.0)
+    css_parser (1.13.0)
       addressable
     cuprite (0.14.3)
       capybara (~> 3.0)
@@ -265,8 +265,8 @@ GEM
     kaminari-core (1.2.2)
     kramdown (2.4.0)
       rexml
-    launchy (2.5.0)
-      addressable (~> 2.7)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     letter_opener (1.8.1)
       launchy (>= 2.2, < 3)
     listen (3.7.1)
@@ -278,7 +278,7 @@ GEM
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lookbook (1.1.1)
+    lookbook (1.4.5)
       actioncable
       activemodel
       css_parser
@@ -304,7 +304,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
-    minitest (5.16.3)
+    minitest (5.17.0)
     msgpack (1.6.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -358,7 +358,7 @@ GEM
     pagy (5.10.1)
       activesupport
     parallel (1.22.1)
-    parser (3.1.3.0)
+    parser (3.2.0.0)
       ast (~> 2.4.1)
     pg (1.4.5)
     public_suffix (5.0.1)
@@ -453,17 +453,17 @@ GEM
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
     rspec-support (3.12.0)
-    rubocop (1.41.1)
+    rubocop (1.42.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.23.0, < 2.0)
+      rubocop-ast (>= 1.24.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.24.0)
+    rubocop-ast (1.24.1)
       parser (>= 3.1.1.0)
     rubocop-performance (1.15.2)
       rubocop (>= 1.7.0, < 2.0)
@@ -540,7 +540,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    unicode-display_width (2.3.0)
+    unicode-display_width (2.4.2)
     vcr (6.1.0)
     view_component (2.80.0)
       activesupport (>= 5.2.0, < 8.0)
@@ -599,11 +599,8 @@ DEPENDENCIES
   kramdown (~> 2.4)
   letter_opener (~> 1.8)
   listen (~> 3.7)
-  lookbook (~> 1.1.0)
-  net-imap
-  net-pop
-  net-smtp
-  newrelic_rpm (~> 8.13)
+  lookbook (~> 1.4.5)
+  newrelic_rpm (~> 8.14)
   noticed (~> 1.6)
   octokit (~> 6.0)
   omniauth-github (~> 2.0)
@@ -619,7 +616,7 @@ DEPENDENCIES
   redis (~> 5.0)
   rspec-rails (~> 6.0)
   rspec-retry (~> 0.6)
-  rubocop (~> 1.39)
+  rubocop (~> 1.42)
   rubocop-performance (~> 1.15)
   rubocop-rails (~> 2.17)
   rubocop-rspec (~> 2.16)
