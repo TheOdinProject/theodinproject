@@ -68,7 +68,7 @@ group :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'rspec-retry', '~> 0.6'
   gem 'shoulda-matchers', '~> 5.2'
-  gem 'simplecov', '~> 0.21', require: false
+  gem 'simplecov', '~> 0.22', require: false
   gem 'vcr', '~> 6.1'
   gem 'webmock', '~> 3.18'
 end
