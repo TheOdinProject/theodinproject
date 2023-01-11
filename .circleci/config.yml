@@ -24,8 +24,6 @@ commands:
   build-app:
     description: Building app
     steps:
-      - checkout
-
       - run: gem install bundler:2.2.33
       - restore_cache:
           name: Restore bundle cache
@@ -52,6 +50,7 @@ jobs:
   tests:
     executor: rails-executor
     steps:
+      - checkout
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
@@ -65,6 +64,7 @@ jobs:
   linters:
     executor: rails-executor
     steps:
+      - checkout
       - build-app
       - run: bundle exec rubocop
       - run: bundle exec erblint --lint-all
@@ -72,6 +72,7 @@ jobs:
   seeds:
     executor: rails-executor
     steps:
+      - checkout
       - build-app
       - run:
           name: Seeds
