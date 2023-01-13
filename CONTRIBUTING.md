@@ -121,7 +121,7 @@ Before attempting to make any changes, be sure to read the following Wiki pages:
 
 ### Check Before Doing Anything
 
-It's important that you look through any open issues or PRs in a repo before attempting to submit a new issue or work on a change, regardless of the complexity. This will help avoid any duplicates from being made, as well as prevent more than one person working on the same thing at the same time.
+It's important that you look through any open [issues](https://github.com/TheOdinProject/theodinproject/issues?page=1&q=is%3Aissue+is%3Aopen) or [PRs](https://github.com/TheOdinProject/theodinproject/pulls) in a repo before attempting to submit a new issue or work on a change, regardless of the complexity. This will help avoid any duplicates from being made, as well as prevent more than one person working on the same thing at the same time.
 
 If your proposal already exists in an open issue or PR, but you feel there are details missing, comment on the issue/PR to let those involved know of those missing details.
 
