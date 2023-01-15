@@ -32,6 +32,8 @@ gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
+# Use Redis for Action Cable
+gem 'redis', '~> 5.0'
 gem 'ruby-progressbar', '~> 1.11'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
@@ -79,6 +81,3 @@ end
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
-
-# Use Redis for Action Cable
-gem 'redis', '~> 5.0'

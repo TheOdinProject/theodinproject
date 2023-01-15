@@ -7,7 +7,7 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: cimg/ruby:3.1.2-browsers
+      - image: cimg/ruby:3.1.3-browsers
         environment:
           RAILS_ENV: test
           POSTGRES_USERNAME: postgres
@@ -79,7 +79,6 @@ jobs:
           command: bin/rails db:seed
 
 workflows:
-  version: 2
   build:
     jobs:
       - tests
