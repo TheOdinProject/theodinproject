@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_21_183414) do
+ActiveRecord::Schema.define(version: 2023_01_15_072941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_10_21_183414) do
     t.datetime "expires_at", null: false
     t.bigint "user_id"
     t.string "learn_more_url"
+    t.index ["expires_at"], name: "index_announcements_on_expires_at"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
