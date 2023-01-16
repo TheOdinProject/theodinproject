@@ -10,16 +10,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
 
-  rescue_from CanCan::AccessDenied do
-    respond_to do |format|
-      format.json { head :forbidden }
-      format.js { head :forbidden }
-      format.html do
-        redirect_to root_url, alert: 'You are not authorized to do that'
-      end
-    end
-  end
-
   def authenticate_admin_user!
     authenticate_user!
 
