@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  color: pink;
+  background-color: yellow;
 
   &:disabled {
     cursor: not-allowed;
