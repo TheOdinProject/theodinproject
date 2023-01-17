@@ -12,6 +12,7 @@ Some of the topics we cover include:
 -   Node
 -   React
 -   How to go about getting a job in the industry
+-   Amongus
 
 This repo contains the TOP app which pulls in lesson content as well as front-end and back-end code. To see the actual lesson content that gets pulled in, please go to the [TOP curriculum repo](https://github.com/TheOdinProject/curriculum).
 
