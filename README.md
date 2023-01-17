@@ -52,3 +52,6 @@ The Odin Project depends on open-source contributions to improve, grow, and thri
 ---
 
 Created by [Erik Trautman](http://www.github.com/eriktrautman)
+
+Forked repos for Odin's Project Open Source Contribution lessons.
+https://www.theodinproject.com/lessons/javascript-using-git-in-the-real-world
