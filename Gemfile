@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.7.1'
+gem 'rails', '7.0.4'
 
 gem 'activeadmin', '~> 2.13'
 gem 'activeadmin_addons', '~> 1.10'
@@ -46,7 +46,6 @@ gem 'view_component', '~> 2.75'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
-  gem 'listen', '~> 3.7'
   gem 'lookbook', '~> 1.5.3'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.50', require: false
@@ -73,10 +72,3 @@ group :test do
   gem 'vcr', '~> 6.1'
   gem 'webmock', '~> 3.18'
 end
-
-# TODO: These gems are no longer default in Ruby 3.1 and have to be declared explicity, or Rspec will break.
-# They can be removed once upgraded to Rails 7.0.1 + as they are properly declared as a dependency in that version
-# See https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp
-gem 'net-imap'
-gem 'net-pop'
-gem 'net-smtp'

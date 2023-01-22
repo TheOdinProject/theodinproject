@@ -1,7 +1,7 @@
 module Notifications
   class DailySummary
     def message
-      "**TOP Summary For #{Date.current.to_s(:long_ordinal)}**\n" \
+      "**TOP Summary For #{Date.current.to_fs(:long_ordinal)}**\n" \
         "#{User.where('created_at >= ?', start_of_day).size} users signed up\n" \
         "#{LessonCompletion.created_today.size} lessons completed\n" \
         "#{ProjectSubmission.created_today.size} project submissions added\n" \
