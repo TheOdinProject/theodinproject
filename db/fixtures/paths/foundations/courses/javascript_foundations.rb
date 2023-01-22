@@ -14,7 +14,7 @@ end
 # +++++++++++++
 course.add_section do |section|
   section.title = 'JavaScript Basics'
-  section.description = "Here we finally dig into JavaScript and learn how to make the web dynamic."
+  section.description = 'Here we finally dig into JavaScript and learn how to make the web dynamic.'
   section.identifier_uuid = '331227f7-c939-4988-b8b9-e140d2ded362'
 
   section.add_lessons(
