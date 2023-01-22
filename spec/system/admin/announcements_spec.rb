@@ -11,7 +11,7 @@ RSpec.describe 'Announcements' do
     before do
       visit new_admin_announcement_path
       fill_in :announcement_message, with: 'Test Message'
-      fill_in :announcement_expires_at, with: 10.days.from_now.to_date.to_s(:db)
+      fill_in :announcement_expires_at, with: 10.days.from_now.to_date.to_fs(:db)
       find_button('Create Announcement').trigger('click')
     end
 
@@ -22,7 +22,7 @@ RSpec.describe 'Announcements' do
 
     it 'displays the announcement date on the index page' do
       visit admin_announcements_path
-      expect(page).to have_content(10.days.from_now.to_date.to_s(:long))
+      expect(page).to have_content(10.days.from_now.to_date.to_fs(:long))
     end
 
     it 'displays the announcement on the users dashboard' do
