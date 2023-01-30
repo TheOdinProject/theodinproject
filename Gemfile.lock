@@ -117,7 +117,7 @@ GEM
       activesupport (>= 6)
       railties (>= 6)
     climate_control (1.2.0)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
     crack (0.4.5)
       rexml
@@ -277,7 +277,7 @@ GEM
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lookbook (1.4.5)
+    lookbook (1.5.1)
       actioncable
       activemodel
       css_parser
@@ -287,7 +287,7 @@ GEM
       railties (>= 5.0)
       redcarpet (~> 3.5)
       rouge (>= 3.26, < 5.0)
-      view_component (~> 2.0)
+      view_component (> 2.0, < 4)
       yard (~> 0.9.25)
       zeitwerk (~> 2.5)
     mail (2.8.0.1)
@@ -416,7 +416,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redcarpet (3.5.1)
+    redcarpet (3.6.0)
     redis (5.0.6)
       redis-client (>= 0.9.0)
     redis-client (0.12.1)
@@ -539,7 +539,7 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
@@ -603,7 +603,7 @@ DEPENDENCIES
   kramdown (~> 2.4)
   letter_opener (~> 1.8)
   listen (~> 3.7)
-  lookbook (~> 1.4.5)
+  lookbook (~> 1.5.1)
   net-imap
   net-pop
   net-smtp
