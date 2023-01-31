@@ -19,7 +19,6 @@ course.add_section do |section|
 
   section.add_lessons(
     ruby_on_rails_lessons.fetch('How this Course Will Work'),
-    ruby_on_rails_lessons.fetch('Preparing for Deployment'),
     ruby_on_rails_lessons.fetch('Installing Rails'),
     ruby_on_rails_lessons.fetch('A Railsy Web Refresher')
   )
@@ -37,8 +36,8 @@ course.add_section do |section|
     ruby_on_rails_lessons.fetch('Routing'),
     ruby_on_rails_lessons.fetch('Controllers'),
     ruby_on_rails_lessons.fetch('Views'),
-    ruby_on_rails_lessons.fetch('Deployment'),
     ruby_on_rails_lessons.fetch('Blog App'),
+    ruby_on_rails_lessons.fetch('Deployment'),
   )
 end
 
