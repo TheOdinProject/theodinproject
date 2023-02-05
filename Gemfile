@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.1.7'
+gem 'rails', '6.1.7.1'
 
 gem 'activeadmin', '~> 2.13'
 gem 'activeadmin_addons', '~> 1.9'
@@ -27,7 +27,7 @@ gem 'octokit', '~> 6.0'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-google-oauth2', '~> 1.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-gem 'pagy', '~> 5.10'
+gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.0'
 gem 'rack-attack', '~> 6.6'
@@ -48,7 +48,7 @@ gem 'view_component', '~> 2.75'
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
-  gem 'lookbook', '~> 1.4.5'
+  gem 'lookbook', '~> 1.5.1'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.43', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
