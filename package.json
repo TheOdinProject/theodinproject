@@ -45,7 +45,7 @@
     "postcss": "^8.4.20",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
-    "postcss-loader": "^7.0.1",
+    "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.3",
     "prismjs": "^1.29.0",
     "prop-types": "^15.8.1",
