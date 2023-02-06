@@ -4,8 +4,8 @@
   <h1 class="page-heading-title text-center">Installation Guides</h1>
   <section class="max-w-xl mx-auto space-y-5">
     <% @lessons.each do |lesson| %>
-      <%= render CardComponent.new(classes: "transistion dark:hover:bg-gray-700 hover:bg-gray-100") do |card| %>
-        <% card.body(classes: "py-4 px-4") do %>
+      <%= render CardComponent.new(classes: 'transistion dark:hover:bg-gray-700 hover:bg-gray-100') do |card| %>
+        <% card.body(classes: 'py-4 px-4') do %>
           <%= link_to lesson_path(lesson) do %>
             <div class="flex items-center gap-3">
               <%= inline_svg 'icons/book.svg', alt: 'lesson icon', class: 'w-6 dark:text-gray-500 text-gray-400 shrink-0', title: 'Lesson' %>
