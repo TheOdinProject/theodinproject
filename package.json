@@ -37,7 +37,7 @@
     "el-transition": "^0.0.7",
     "hint.css": "^2.7.0",
     "humps": "^2.0.1",
-    "js-base64": "^3.7.3",
+    "js-base64": "^3.7.4",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.6.1",
     "notyf": "^3.10.0",
