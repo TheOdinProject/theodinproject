@@ -58,13 +58,6 @@ def node_js_lessons
       github_path: '/nodeJS/express_and_mongoose/express_102_crud_and_mvc.md',
       identifier_uuid: '2b19f45c-536a-412d-8062-2e5c4144b6b6',
     },
-    'Preparing for Deployment' => {
-      title: 'Preparing for Deployment',
-      description: 'Get setup to use Heroku to deploy our web applications',
-      is_project: false,
-      github_path: '/ruby_on_rails/introduction/preparing_for_deployment.md',
-      identifier_uuid: '7eec89f0-5619-4dc7-a8b9-af009d36c288',
-    },
     'Mini Message Board' => {
       title: 'Mini Message Board',
       description: 'We take a break from the main tutorial and create a simple message board.',
@@ -73,6 +66,13 @@ def node_js_lessons
       accepts_submission: true,
       has_live_preview: true,
       identifier_uuid: '0270683a-d1e1-49f1-996e-ab721c251354',
+    },
+    'Deployment' => {
+      title: 'Deployment',
+      description: "There's nothing quite like seeing your application on a real website. We'll show you how it's done.",
+      is_project: false,
+      github_path: '/nodeJS/express_and_mongoose/deployment.md',
+      identifier_uuid: 'e62ccde8-866a-47cf-9a41-e56234f08f84',
     },
     'Express 103: Routes and Controllers' => {
       title: 'Express 103: Routes and Controllers',
