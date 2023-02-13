@@ -1,14 +1,21 @@
-<%= title('Installation Lessons Appendix') %>
+<%= title('Installation Guides') %>
 
-<div class="page-container h-screen">
-  <h1 class="page-heading-title text-center">Installation Lessons Appendix</h1>
-  <ul>
+<div class="page-container min-h-screen">
+  <h1 class="page-heading-title text-center">Installation Guides</h1>
+  <section class="max-w-xl mx-auto space-y-5">
     <% @lessons.each do |lesson| %>
-       <li>
-          <p class="text-1xl text-center m-3 text-gray-600 dark:text-gray-300">
-            <%= link_to lesson.title, lesson_path(lesson), class: 'underline hover:no-underline hover:text-gray-500 dark:hover:text-gray-400' %>
-          </p>
-        </li>
+      <%= render CardComponent.new(classes: 'transistion dark:hover:bg-gray-700 hover:bg-gray-100') do |card| %>
+        <% card.body(classes: 'py-4 px-4') do %>
+          <%= link_to lesson_path(lesson) do %>
+            <div class="flex items-center gap-3">
+              <%= inline_svg 'icons/book.svg', alt: 'lesson icon', class: 'w-6 dark:text-gray-500 text-gray-400 shrink-0', title: 'Lesson' %>
+                <p class="text-gray-600 dark:text-gray-300">
+                  <%= lesson.title %>
+                </p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
-  </ul>
+  </section>
 </div>
