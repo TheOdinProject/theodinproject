@@ -277,7 +277,7 @@ GEM
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lookbook (1.5.1)
+    lookbook (1.5.3)
       actioncable
       activemodel
       css_parser
@@ -320,7 +320,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (8.15.0)
     nio4r (2.5.8)
-    nokogiri (1.14.1)
+    nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     noticed (1.6.0)
@@ -433,7 +433,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rouge (4.0.1)
+    rouge (4.1.0)
     rspec-core (3.12.0)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.2)
@@ -571,7 +571,7 @@ GEM
       nokogiri (~> 1.8)
     yard (0.9.28)
       webrick (~> 1.7.0)
-    zeitwerk (2.6.6)
+    zeitwerk (2.6.7)
 
 PLATFORMS
   ruby
@@ -602,7 +602,7 @@ DEPENDENCIES
   kramdown (~> 2.4)
   letter_opener (~> 1.8)
   listen (~> 3.7)
-  lookbook (~> 1.5.1)
+  lookbook (~> 1.5.3)
   net-imap
   net-pop
   net-smtp
