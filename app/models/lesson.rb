@@ -3,9 +3,6 @@ class Lesson < ApplicationRecord
 
   friendly_id :slug_candidates, use: %i[slugged history finders]
 
-  belongs_to :section
-  has_one :course, through: :section
-  has_one :path, through: :course
   has_one :content, dependent: :destroy
   has_many :project_submissions, dependent: :destroy
   has_many :lesson_completions, dependent: :destroy
@@ -32,11 +29,18 @@ class Lesson < ApplicationRecord
     section.lessons
   end
 
+  # def slug_candidates
+  #   [
+  #     [course.title, title].uniq,
+  #     [course.path_short_title, course.title, title].uniq,
+  #     [course.path_short_title, course.title, title, SecureRandom.hex(2)].uniq
+  #   ]
+  # end
+
   def slug_candidates
     [
-      [course.title, title].uniq,
-      [course.path_short_title, course.title, title].uniq,
-      [course.path_short_title, course.title, title, SecureRandom.hex(2)].uniq
+      [title].uniq,
+      [title, SecureRandom.hex(2)].uniq
     ]
   end
 end

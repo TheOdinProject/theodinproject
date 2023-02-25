@@ -15,9 +15,10 @@
               url: courses_progress_path(course.id),
               background_color: 'bg-white dark:bg-gray-800',
               size: :small,
+              path: @path
             ) %>
 
-        <%= link_to path_course_url(course.path, course), class: 'flex flex-col md:items-start' do %>
+        <%= link_to path_course_url(@path, course), class: 'flex flex-col md:items-start' do %>
           <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200">
             <%= course.title %>
           </h2>
@@ -25,7 +26,7 @@
         <% end %>
       </div>
 
-      <%= link_to 'Open Course', path_course_url(course.path, course), class: 'button button--clear' %>
+      <%= link_to 'Open Course', path_course_url(@path, course), class: 'button button--clear' %>
     </div>
   <% end %>
 

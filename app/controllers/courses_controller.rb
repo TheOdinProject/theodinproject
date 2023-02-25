@@ -1,7 +1,13 @@
 class CoursesController < ApplicationController
   def show
-    @course = course
-    @sections = course.sections.includes(:lessons)
+    @path = Path.friendly.find(params[:path_id])
+    @course = path.courses.friendly.find(params[:id])
+    # Step.find_by(path: params[:path_id], learnable: params[:id], learnable_type: 'Course')
+
+
+    # @course = @step.learnable
+    # @path = @step.path
+    @sections = @course.sections.includes(:lessons)
   end
 
   private

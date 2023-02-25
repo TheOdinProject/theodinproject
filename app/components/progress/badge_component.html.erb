@@ -1,5 +1,5 @@
 <% if user_signed_in? && current_user.started_course?(course) %>
-  <%= link_to path_course_path(course.path, course) do %>
+  <%= link_to path_course_path(path, course) do %>
     <div
       data-controller="progress"
       data-progress-url-value="<%= url %>"
@@ -41,7 +41,7 @@
     </div>
   <% end %>
 <% else %>
-  <%= link_to path_course_path(course.path, course) do %>
+  <%= link_to path_course_path(path, course) do %>
     <div class="shadow-md dark:shadow-none rounded-full flex <%= yass(default_badge: size) %>" data-test-id='default-badge'>
       <%= image_tag badge, alt: "#{course.title} badge", class: 'p-2.5' %>
     </div>

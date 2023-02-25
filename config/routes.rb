@@ -87,6 +87,7 @@ Rails.application.routes.draw do
 
   resources :paths, only: %i[index show] do
     resources :courses, only: :show
+    resources :lessons, only: :show, controller: 'paths/lessons'
   end
 
   resources :notifications, only: %i[index update]
