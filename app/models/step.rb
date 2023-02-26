@@ -1,16 +1,17 @@
 class Step < ApplicationRecord
-  LEARNABLE_TYPES = %w[ Lesson Course ].freeze
+  has_closure_tree
+
+  LEARNABLE_TYPES = %w[ Lesson Section Course ].freeze
 
   delegated_type :learnable, types: LEARNABLE_TYPES
 
   belongs_to :path
-  belongs_to :section, optional: true
 
-  belongs_to :parent, class_name: 'Step', optional: true, inverse_of: :children
-  has_one :parent_course, through: :parent, source: :learnable, source_type: 'Course'
+  # belongs_to :parent, class_name: 'Step', optional: true, inverse_of: :children
+  # has_one :parent_course, through: :parent, source: :learnable, source_type: 'Course'
 
-  has_many :children, class_name: 'Step', foreign_key: :parent_id, dependent: :destroy, inverse_of: :parent
-  has_many :lessons, through: :children, source: :learnable, source_type: "Lesson"
+  # has_many :children, class_name: 'Step', foreign_key: :parent_id, dependent: :destroy, inverse_of: :parent
+  # has_many :lessons, through: :children, source: :learnable, source_type: "Lesson"
 
   scope :ordered, -> { order(position: :asc) }
 

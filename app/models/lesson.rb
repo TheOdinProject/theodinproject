@@ -1,7 +1,12 @@
 class Lesson < ApplicationRecord
+  include Stepable
   extend FriendlyId
 
   friendly_id :slug_candidates, use: %i[slugged history finders]
+
+  has_many :paths, through: :steps, source: :path
+  has_many :sections, through: :parents, source: :learnable, source_type: 'Section'
+  has_many :courses, through: :sections
 
   has_one :content, dependent: :destroy
   has_many :project_submissions, dependent: :destroy
@@ -15,19 +20,11 @@ class Lesson < ApplicationRecord
 
   delegate :body, to: :content
 
-  def position_in_section
-    section_lessons.where('position <= ?', position).count
-  end
-
   def import_content_from_github
     LessonContentImporter.for(self)
   end
 
   private
-
-  def section_lessons
-    section.lessons
-  end
 
   # def slug_candidates
   #   [

@@ -1,14 +1,14 @@
 class Course < ApplicationRecord
+  include Stepable
   extend FriendlyId
 
   friendly_id :title, use: %i[slugged history finders]
 
-  has_many :sections, -> { order(:position) }, dependent: :destroy, inverse_of: :course
+  has_many :paths, through: :steps, source: :path
+  has_many :sections, through: :children, source: :learnable, source_type: 'Section'
   has_many :lessons, through: :sections
 
   validates :position, presence: true
-
-  delegate :short_title, to: :path, prefix: true
 
   scope :badges, -> { Course.where(show_on_homepage: true) }
 

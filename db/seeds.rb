@@ -14,10 +14,10 @@ Rails::Generators.invoke('seed_uuids') if Rails.env.development?
 SeedFu.seed
 
 # GENERATE SUCCESS STORY Content
-load './db/seeds/success_stories.rb'
+# load './db/seeds/success_stories.rb'
 
 # GENERATE test projects
-load './db/seeds/test_project_submissions.rb'
+# load './db/seeds/test_project_submissions.rb'
 
 # GENERATE maintainer users for testing
-load './db/seeds/maintainer_users.rb'
+# load './db/seeds/maintainer_users.rb'

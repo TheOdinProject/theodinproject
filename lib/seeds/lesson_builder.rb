@@ -1,24 +1,21 @@
 module Seeds
   class LessonBuilder
-    def initialize(section, position, attributes, course_step)
-      @section = section
+    def initialize(section_step, position, attributes)
+      puts "section_step #{section_step}"
+      @section_step = section_step
       @position = position
       @attributes = attributes
-      @course_step = course_step
     end
 
-    def self.build(section, position, attributes, course_step)
-      new(section, position, attributes, course_step).build_lesson
+    def self.build(section_step, position, attributes)
+      new(section_step, position, attributes).build_lesson
     end
 
     def build_lesson
-      puts "hello"
-      p course_step
       Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
         step.learnable = lesson
-        step.parent = course_step
-        step.path_id = course_step.path_id
-        step.section_id = section.id
+        step.parent = section_step
+        step.path_id = section_step.path_id
         step.position = position
       end.first
     end
@@ -40,6 +37,6 @@ module Seeds
 
     private
 
-    attr_reader :section, :position, :attributes, :course_step
+    attr_reader :section_step, :position, :attributes
   end
 end

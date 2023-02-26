@@ -30,7 +30,7 @@ module Seeds
     # rubocop:disable Metrics/AbcSize
     def course_step
       # puts "hello"
-      @course_step ||= Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
+      @_course_step ||= Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
         step.learnable = course
         step.path_id = path.id
         step.position = position
@@ -44,7 +44,7 @@ module Seeds
     end
 
     def course
-      @course ||= ::Course.seed(:identifier_uuid) do |course|
+      @_course ||= ::Course.seed(:identifier_uuid) do |course|
         course.identifier_uuid = identifier_uuid
         course.title = title
         course.description = description
