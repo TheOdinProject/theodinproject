@@ -3,11 +3,14 @@ class LessonCompletionsController < ApplicationController
 
   # rubocop: disable Metrics/AbcSize, Metrics/MethodLength
   def create
+    @step = Step.find(params[:lesson_id])
+    lesson = @step.learnable
+
     lesson_completion = current_user.lesson_completions.new(
-      lesson_id: lesson.id,
+      lesson: lesson,
       lesson_identifier_uuid: lesson.identifier_uuid,
-      course_id: lesson.course.id,
-      path_id: lesson.course.path.id,
+      course_id: @step.parent_course,
+      path_id: @step.path,
     )
 
     if lesson_completion.save
@@ -19,7 +22,8 @@ class LessonCompletionsController < ApplicationController
   # rubocop: enable Metrics/AbcSize, Metrics/MethodLength
 
   def destroy
-    lesson_completion = current_user.lesson_completions.find_by(lesson_id: lesson.id)
+    step = Step.find(params[:lesson_id])
+    lesson_completion = current_user.lesson_completions.find_by(lesson: step.learnable)
 
     if lesson_completion.present?
       lesson_completion.destroy
@@ -31,9 +35,9 @@ class LessonCompletionsController < ApplicationController
 
   private
 
-  def lesson
-    @lesson ||= LessonDecorator.new(
-      Lesson.find(params[:lesson_id])
-    )
-  end
+  # def lesson
+  #   @lesson ||= LessonDecorator.new(
+  #     Lesson.find(params[:lesson_id])
+  #   )
+  # end
 end

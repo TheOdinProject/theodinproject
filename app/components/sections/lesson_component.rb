@@ -1,14 +1,15 @@
 module Sections
   class LessonComponent < ApplicationComponent
-    def initialize(lesson:, current_user:, classes: '')
+    def initialize(lesson:, current_user:, path:, classes: '')
       @lesson = lesson
       @current_user = current_user
+      @path = path
       @classes = classes
     end
 
     private
 
-    attr_reader :lesson, :current_user, :classes
+    attr_reader :lesson, :current_user, :classes, :path
 
     def title
       if lesson.is_project?

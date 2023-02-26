@@ -12,8 +12,9 @@ module Seeds
     end
 
     def build_lesson
-      Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
-        step.learnable = lesson
+      @section_step.children.seed(:learnable_id, :learnable_type, :path_id) do |step|
+        step.learnable_id = lesson.id
+        step.learnable_type = 'Lesson'
         step.parent = section_step
         step.path_id = section_step.path_id
         step.position = position

@@ -24,7 +24,8 @@ module Seeds
 
     def build_section
       @_section_step ||= @course_step.children.seed(:learnable_id, :learnable_type, :path_id) do |step|
-        step.learnable = section
+        step.learnable_id = section.id
+        step.learnable_type = 'Section'
         step.path_id = @course_step.path_id
         step.position = position
         step.parent = @course_step
@@ -52,6 +53,11 @@ module Seeds
     private
 
     attr_reader :section_step
+
+    def delete_removed_seeds
+      # destroy_removed_seeds(course_step.lessons, seeded_lessons)
+      destroy_removed_seeds(course.sections, seeded_sections.map(&:section))
+    end
 
     def lesson_position
       @@total_seeded_lessons[@course_step.course.identifier_uuid] += 1

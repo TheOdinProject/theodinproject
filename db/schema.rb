@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_15_072941) do
+ActiveRecord::Schema.define(version: 2023_02_25_232734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -54,14 +54,11 @@ ActiveRecord::Schema.define(version: 2023_01_15_072941) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "position", null: false
     t.string "slug"
     t.string "identifier_uuid", default: "", null: false
-    t.integer "path_id"
     t.boolean "show_on_homepage", default: false, null: false
     t.string "badge_uri", null: false
     t.index ["identifier_uuid"], name: "index_courses_on_identifier_uuid", unique: true
-    t.index ["path_id"], name: "index_courses_on_path_id"
     t.index ["slug"], name: "index_courses_on_slug"
   end
 
@@ -114,10 +111,8 @@ ActiveRecord::Schema.define(version: 2023_01_15_072941) do
   create_table "lessons", id: :serial, force: :cascade do |t|
     t.string "title", limit: 255
     t.string "github_path", limit: 255
-    t.integer "position", null: false
     t.text "description"
     t.boolean "is_project", default: false
-    t.integer "section_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
@@ -125,14 +120,9 @@ ActiveRecord::Schema.define(version: 2023_01_15_072941) do
     t.boolean "has_live_preview", default: false, null: false
     t.boolean "choose_path_lesson", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
-    t.bigint "course_id"
     t.boolean "installation_lesson", default: false
-    t.index ["course_id"], name: "index_lessons_on_course_id"
     t.index ["github_path"], name: "index_lessons_on_github_path"
-    t.index ["identifier_uuid", "course_id"], name: "index_lessons_on_identifier_uuid_and_course_id", unique: true
     t.index ["installation_lesson"], name: "index_lessons_on_installation_lesson"
-    t.index ["position"], name: "index_lessons_on_position"
-    t.index ["slug", "section_id"], name: "index_lessons_on_slug_and_section_id", unique: true
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -201,15 +191,34 @@ ActiveRecord::Schema.define(version: 2023_01_15_072941) do
 
   create_table "sections", id: :serial, force: :cascade do |t|
     t.string "title", limit: 255
-    t.integer "position", null: false
-    t.integer "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "identifier_uuid", default: "", null: false
-    t.index ["course_id"], name: "index_sections_on_course_id"
     t.index ["identifier_uuid"], name: "index_sections_on_identifier_uuid", unique: true
-    t.index ["position"], name: "index_sections_on_position"
+  end
+
+  create_table "step_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "step_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "step_desc_idx"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "position", null: false
+    t.bigint "parent_id"
+    t.string "learnable_type", null: false
+    t.bigint "learnable_id", null: false
+    t.bigint "path_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["learnable_type", "learnable_id", "path_id"], name: "index_steps_on_learnable_type_and_learnable_id_and_path_id", unique: true
+    t.index ["learnable_type", "learnable_id"], name: "index_steps_on_learnable"
+    t.index ["parent_id"], name: "index_steps_on_parent_id"
+    t.index ["path_id"], name: "index_steps_on_path_id"
+    t.index ["position"], name: "index_steps_on_position"
   end
 
   create_table "success_stories", id: :serial, force: :cascade do |t|
@@ -274,9 +283,10 @@ ActiveRecord::Schema.define(version: 2023_01_15_072941) do
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
   add_foreign_key "lesson_completions", "lessons", on_delete: :cascade
-  add_foreign_key "lessons", "courses"
   add_foreign_key "path_prerequisites", "paths"
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"
   add_foreign_key "project_submissions", "users"
+  add_foreign_key "steps", "paths"
+  add_foreign_key "steps", "steps", column: "parent_id"
 end

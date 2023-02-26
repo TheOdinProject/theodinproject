@@ -2,6 +2,8 @@ class CoursesController < ApplicationController
   def show
     @path = Path.friendly.find(params[:path_id])
     @course = path.courses.friendly.find(params[:id])
+
+    @path_step = Step.find_by!(path: @path, learnable: @course)
     # Step.find_by(path: params[:path_id], learnable: params[:id], learnable_type: 'Course')
 
 

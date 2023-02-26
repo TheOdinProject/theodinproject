@@ -31,7 +31,8 @@ module Seeds
     def course_step
       # puts "hello"
       @_course_step ||= Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
-        step.learnable = course
+        step.learnable_id = course.id
+        step.learnable_type = 'Course'
         step.path_id = path.id
         step.position = position
       end.first

@@ -11,7 +11,7 @@
   <% card.body(classes: 'py-4 px-4') do %>
     <div class="flex flex-col space-y-3" data-test-id="course-section">
       <% section.lessons.each do |lesson| %>
-        <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
+        <%= render Sections::LessonComponent.new(lesson:, current_user:, path:) %>
       <% end %>
     </div>
   <% end %>

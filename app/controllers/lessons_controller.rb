@@ -1,6 +1,8 @@
 class LessonsController < ApplicationController
   def show
-    @lesson = decorated_lesson
+    @lesson = Lesson.find(params[:id])
+    @path = Path.friendly.find(params[:path_id])
+    @path_step = Step.find_by!(path: @path, learnable: @lesson)
 
     if user_signed_in?
       @project_submissions = public_project_submissions
@@ -26,11 +28,11 @@ class LessonsController < ApplicationController
     ::LessonProjectSubmissionsQuery.new(lesson: @lesson, current_user:, limit: 10)
   end
 
-  def decorated_lesson
-    LessonDecorator.new(lesson)
-  end
+  # def decorated_lesson
+  #   LessonDecorator.new(lesson)
+  # end
 
-  def lesson
-    Lesson.find(params[:id])
-  end
+  # def lesson
+  #   Lesson.find(params[:id])
+  # end
 end
