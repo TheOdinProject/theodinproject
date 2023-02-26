@@ -11,10 +11,10 @@
 end
 
 load './db/fixtures/paths/full_stack_javascript/courses/intermediate_html_css.rb'
-load './db/fixtures/paths/full_stack_javascript/courses/javascript.rb'
-load './db/fixtures/paths/full_stack_javascript/courses/advanced_html_css.rb'
-load './db/fixtures/paths/full_stack_javascript/courses/node_js.rb'
-load './db/fixtures/paths/full_stack_javascript/courses/getting_hired.rb'
+# load './db/fixtures/paths/full_stack_javascript/courses/javascript.rb'
+# load './db/fixtures/paths/full_stack_javascript/courses/advanced_html_css.rb'
+# load './db/fixtures/paths/full_stack_javascript/courses/node_js.rb'
+# load './db/fixtures/paths/full_stack_javascript/courses/getting_hired.rb'
 
 # create path prerequisites
 @path.path.path_prerequisites.find_or_create_by!(prerequisite_id: Path.find_by(title: 'Foundations').id)

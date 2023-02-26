@@ -26,10 +26,6 @@ module ApplicationHelper
     user.progress_for(course).completed?
   end
 
-  def next_lesson_to_complete(course, completed_lessons)
-    NextLesson.new(course, completed_lessons).to_complete
-  end
-
   def unread_notifications?(user)
     user.notifications.any?(&:unread?)
   end

@@ -37,7 +37,10 @@ module Seeds
     end
 
     def delete_removed_courses
-      destroy_removed_seeds(path.courses, seeded_courses.map(&:course))
+      destroy_removed_seeds(
+        persisted_collection: path.courses,
+        seeded_collection: seeded_courses.map(&:course)
+      )
     end
 
     private

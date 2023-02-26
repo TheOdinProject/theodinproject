@@ -9,7 +9,7 @@ class AddStepsTable < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    add_index :steps, [:learnable_type, :learnable_id, :path_id], unique: true
+    add_index :steps, %i[learnable_type learnable_id path_id], unique: true
 
     remove_column :courses, :path_id, :bigint
     remove_column :courses, :position, :integer
@@ -20,6 +20,5 @@ class AddStepsTable < ActiveRecord::Migration[6.1]
     remove_column :lessons, :course_id, :bigint
     remove_column :lessons, :section_id, :bigint
     remove_column :lessons, :position, :integer
-
   end
 end

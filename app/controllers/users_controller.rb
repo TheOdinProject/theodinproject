@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @courses = decorated_path_courses
+    @courses = current_user.path.steps.courses
   end
 
   private

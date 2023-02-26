@@ -16,7 +16,7 @@
     <div class="mb-24" data-test-id="skills">
       <div class="text-center mt-0 mb-6 mx-auto">
         <h2 class="text-gray-700 text-2xl font-medium mb-2 dark:text-gray-300">Skills Progress</h2>
-        <% if current_user.path.courses.size > 1 %>
+        <% if @courses.size > 1 %>
           <p class="text-gray-500 dark:text-gray-400">The following courses should be taken in order</p>
         <% end %>
       </div>

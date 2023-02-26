@@ -6,11 +6,11 @@ class CreateStepHierarchies < ActiveRecord::Migration[6.1]
       t.integer :generations, null: false
     end
 
-    add_index :step_hierarchies, [:ancestor_id, :descendant_id, :generations],
-      unique: true,
-      name: "step_anc_desc_idx"
+    add_index :step_hierarchies, %i[ancestor_id descendant_id generations],
+              unique: true,
+              name: 'step_anc_desc_idx'
 
     add_index :step_hierarchies, [:descendant_id],
-      name: "step_desc_idx"
+              name: 'step_desc_idx'
   end
 end

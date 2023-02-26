@@ -72,22 +72,6 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#next_lesson_to_complete' do
-    let(:course) { instance_double(Course) }
-    let(:lesson_completions) { [lesson_completion] }
-    let(:lesson_completion) { instance_double(LessonCompletion) }
-    let(:next_lesson) { instance_double(NextLesson, to_complete: lesson_to_complete) }
-    let(:lesson_to_complete) { instance_double(Lesson) }
-
-    before do
-      allow(NextLesson).to receive(:new).with(course, lesson_completions).and_return(next_lesson)
-    end
-
-    it 'returns the next lesson the user has to complete' do
-      expect(helper.next_lesson_to_complete(course, lesson_completions)).to eql(lesson_to_complete)
-    end
-  end
-
   describe '#unread_notifications' do
     let!(:user) { create(:user) }
 

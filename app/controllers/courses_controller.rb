@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
     @path_step = Step.find_by!(path: @path, learnable: @course)
     # Step.find_by(path: params[:path_id], learnable: params[:id], learnable_type: 'Course')
 
-
     # @course = @step.learnable
     # @path = @step.path
     @sections = @course.sections.includes(:lessons)

@@ -14,7 +14,7 @@ module Seeds
 
       yield self
       @course = course
-      @course_step = course_step
+      @course_step = build_course_step
     end
 
     def self.build(path, position, &)
@@ -27,8 +27,7 @@ module Seeds
       end
     end
 
-    # rubocop:disable Metrics/AbcSize
-    def course_step
+    def build_course_step
       # puts "hello"
       @_course_step ||= Step.seed(:learnable_id, :learnable_type, :path_id) do |step|
         step.learnable_id = course.id
@@ -37,11 +36,12 @@ module Seeds
         step.position = position
       end.first
     end
-    # rubocop:enable Metrics/AbcSize
 
     def delete_removed_seeds
-      # destroy_removed_seeds(course_step.lessons, seeded_lessons)
-      destroy_removed_seeds(course.sections, seeded_sections.map(&:section))
+      destroy_removed_seeds(
+        persisted_collection: course.sections,
+        seeded_collection: seeded_sections.map(&:section)
+      )
     end
 
     def course
@@ -56,7 +56,7 @@ module Seeds
 
     private
 
-    attr_reader :seeded_sections, :path
+    attr_reader :seeded_sections, :path, :course_step
 
     def section_position
       seeded_sections.size + 1

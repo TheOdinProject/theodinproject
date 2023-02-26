@@ -4,7 +4,7 @@ class Progress::BadgeComponent < ApplicationComponent
   delegate :user_signed_in?, :percentage_completed_by_user, to: :helpers
 
   # rubocop:disable Metrics/ParameterLists, Layout/LineLength
-  def initialize(course:, current_user:, url:, show_badge: true, background_color: 'bg-white dark:bg-gray-900', size: :default, path:)
+  def initialize(course:, current_user:, url:, path:, show_badge: true, background_color: 'bg-white dark:bg-gray-900', size: :default)
     @course = course
     @current_user = current_user
     @url = url

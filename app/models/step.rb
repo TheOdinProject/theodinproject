@@ -1,14 +1,14 @@
 class Step < ApplicationRecord
   has_closure_tree dependent: :destroy
 
-  LEARNABLE_TYPES = %w[ Lesson Section Course ].freeze
+  LEARNABLE_TYPES = %w[Lesson Section Course].freeze
 
   delegated_type :learnable, types: LEARNABLE_TYPES
 
   belongs_to :path
 
   def parent_course
-    ancestors.where(learnable_type: "Course").first.learnable
+    ancestors.where(learnable_type: 'Course').first.learnable
   end
 
   # belongs_to :parent, class_name: 'Step', optional: true, inverse_of: :children
@@ -20,12 +20,18 @@ class Step < ApplicationRecord
   scope :ordered, -> { order(position: :asc) }
 
   def previous
-    parent.children.where("position < ?", position).last
+    parent.children.where('position < ?', position).last
   end
-  alias_method :previous?, :previous
+  alias previous? previous
 
   def next
-   @next ||= parent.children.where("position > ?", position).first
+    @next ||= parent.children.where('position > ?', position).first
   end
-  alias_method :next?, :next
+  alias next? next
+
+  def next_lesson_for(_course, completed_lessons)
+    completed_course_lessons = completed_lessons.where(id: leaves.ids)
+    completed_steps
+    remainingleaves.select { |step| completed_course_lessons.ids.include?(step.learnable.id) }
+  end
 end

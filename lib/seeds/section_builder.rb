@@ -11,18 +11,16 @@ module Seeds
     def initialize(course_step, position)
       @course_step = course_step
       @position = position
-      @seeded_lessons = []
 
       yield self
-      @section_step = build_section
-      p "section_step -- #{section_step}"
+      @section_step = build_section_step
     end
 
     def self.build(course_step, position, &)
       new(course_step, position, &)
     end
 
-    def build_section
+    def build_section_step
       @_section_step ||= @course_step.children.seed(:learnable_id, :learnable_type, :path_id) do |step|
         step.learnable_id = section.id
         step.learnable_type = 'Section'
@@ -33,12 +31,8 @@ module Seeds
     end
 
     def add_lessons(*lessons)
-      p "add_lessons"
-      p "section_step #{build_section}"
       @add_lessons ||= lessons.map do |lesson|
-        LessonBuilder.build(build_section, lesson_position, lesson).tap do |seeded_lesson|
-          seeded_lessons.push(seeded_lesson)
-        end
+        LessonBuilder.build(build_section_step, lesson_position, lesson)
       end
     end
 
@@ -55,8 +49,7 @@ module Seeds
     attr_reader :section_step
 
     def delete_removed_seeds
-      # destroy_removed_seeds(course_step.lessons, seeded_lessons)
-      destroy_removed_seeds(course.sections, seeded_sections.map(&:section))
+      destroy_removed_seeds(persisted_collection: course.sections, seeded_collection: seeded_sections.map(&:section))
     end
 
     def lesson_position

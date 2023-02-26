@@ -32,7 +32,7 @@
                 'project-submissions/index',
                 {
                   userId: current_user.id,
-                  course: @lesson.course.as_json,
+                  course: @path_step.parent_course.as_json,
                   lesson: @lesson.as_json,
                   submissions: @project_submissions,
                   allSubmissionsPath: lesson_project_submissions_path(@lesson.id),

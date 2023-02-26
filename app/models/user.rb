@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def started_course?(course)
-    lesson_completions.exists?(course_id: course.id)
+    lesson_completions.exists?(lesson_id: course.lesson_ids)
   end
 
   def on_path?(path)
