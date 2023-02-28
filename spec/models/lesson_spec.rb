@@ -120,4 +120,22 @@ RSpec.describe Lesson do
       expect(LessonContentImporter).to have_received(:for).with(lesson)
     end
   end
+
+  describe '#display_title' do
+    context 'when lesson is a project' do
+      it 'returns the project title' do
+        lesson = build_stubbed(:lesson, is_project: true, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Project: Ruby Basics')
+      end
+    end
+
+    context 'when lesson is not a project' do
+      it 'returns the normal lesson title' do
+        lesson = build_stubbed(:lesson, is_project: false, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Ruby Basics')
+      end
+    end
+  end
 end

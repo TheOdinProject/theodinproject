@@ -31,4 +31,27 @@ RSpec.describe Course do
       expect(user).to have_received(:progress_for).with(course)
     end
   end
+
+  describe '#next_lesson' do
+    context 'when there is a next lesson' do
+      it 'returns the next lesson' do
+        course = create(:course)
+        section = create(:section, course:)
+        lesson_one = create(:lesson, position: 1, section:)
+        lesson_two = create(:lesson, position: 2, section:)
+
+        expect(course.next_lesson(lesson_one)).to eql(lesson_two)
+      end
+    end
+
+    context 'when there is no next lesson' do
+      it 'returns nothing' do
+        course = create(:course)
+        section = create(:section, course:)
+        lesson_one = create(:lesson, position: 1, section:)
+
+        expect(course.next_lesson(lesson_one)).to be_nil
+      end
+    end
+  end
 end

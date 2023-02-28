@@ -9,7 +9,7 @@ module Notifications
     end
 
     def message
-      "#{flagger.username} has flagged a submission on #{project_submission.lesson.title}\n" \
+      "#{flagger.username} has flagged a submission on #{project_submission.lesson.display_title}\n" \
         "Reason: #{reason}\n" \
         "Resolve the flag here: #{admin_flag_url(flag)}"
     end

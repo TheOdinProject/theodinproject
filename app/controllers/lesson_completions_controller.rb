@@ -32,8 +32,6 @@ class LessonCompletionsController < ApplicationController
   private
 
   def lesson
-    @lesson ||= LessonDecorator.new(
-      Lesson.find(params[:lesson_id])
-    )
+    Lesson.find(params[:lesson_id])
   end
 end

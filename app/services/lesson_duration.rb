@@ -29,6 +29,7 @@ class LessonDuration
   end
 
   def previous_lesson
-    FindLesson.new(lesson, lesson.course).previous_lesson
+    course = lesson.course
+    course.lessons.where('lessons.position < ?', lesson.position).last
   end
 end
