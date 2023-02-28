@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   def show
-    @lesson = decorated_lesson
+    @lesson = Lesson.find(params[:id])
 
     if user_signed_in?
       @project_submissions = public_project_submissions
@@ -24,13 +24,5 @@ class LessonsController < ApplicationController
 
   def project_submissions_query
     ::LessonProjectSubmissionsQuery.new(lesson: @lesson, current_user:, limit: 10)
-  end
-
-  def decorated_lesson
-    LessonDecorator.new(lesson)
-  end
-
-  def lesson
-    Lesson.find(params[:id])
   end
 end

@@ -34,7 +34,7 @@ ActiveAdmin.register Flag do
       end
       row :lesson do
         link_to(
-          flag.project_submission.lesson.title,
+          flag.project_submission.lesson.display_title,
           lesson_path(flag.project_submission.lesson),
           target: '_blank', rel: 'noopener'
         )

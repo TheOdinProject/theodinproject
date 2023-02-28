@@ -3,7 +3,7 @@
     <div class="flex items-center gap-3">
       <%= inline_svg "icons/#{icon}.svg", alt: 'lesson icon', class: 'w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0', title: icon_title %>
 
-      <p class="text-gray-800 dark:text-gray-300"><%= title %></p>
+      <p class="text-gray-800 dark:text-gray-300"><%= lesson.display_title %></p>
     </div>
   <% end %>
 

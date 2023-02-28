@@ -26,6 +26,12 @@ class Lesson < ApplicationRecord
     LessonContentImporter.for(self)
   end
 
+  def display_title
+    return "Project: #{title}" if is_project?
+
+    title
+  end
+
   private
 
   def section_lessons

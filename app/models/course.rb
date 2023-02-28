@@ -16,4 +16,8 @@ class Course < ApplicationRecord
   def progress_for(user)
     user.progress_for(self)
   end
+
+  def next_lesson(lesson)
+    lessons.where('lessons.position > ?', lesson.position).first
+  end
 end

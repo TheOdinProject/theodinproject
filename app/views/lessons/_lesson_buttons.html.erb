@@ -14,8 +14,8 @@
         ) %>
   <% end %>
 
-  <% if lesson.next_lesson %>
-    <%= link_to lesson_path(lesson.next_lesson), class: 'button button--secondary font-medium', data: { test_id: 'next-lesson-btn' } do %>
+  <% if course.next_lesson(lesson).present? %>
+    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--secondary font-medium', data: { test_id: 'next-lesson-btn' } do %>
       <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Lesson
     <% end %>
   <% elsif lesson.choose_path_lesson? %>
