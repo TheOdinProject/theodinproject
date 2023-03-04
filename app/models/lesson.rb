@@ -18,10 +18,6 @@ class Lesson < ApplicationRecord
 
   delegate :body, to: :content
 
-  def position_in_section
-    section_lessons.where('position <= ?', position).count
-  end
-
   def import_content_from_github
     LessonContentImporter.for(self)
   end
@@ -33,10 +29,6 @@ class Lesson < ApplicationRecord
   end
 
   private
-
-  def section_lessons
-    section.lessons
-  end
 
   def slug_candidates
     [
