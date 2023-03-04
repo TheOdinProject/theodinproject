@@ -98,20 +98,7 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#position_in_section' do
-    let(:section) { create(:section) }
-    let(:first_lesson) { create(:lesson, position: 1, section:) }
-    let(:second_lesson) { create(:lesson, position: 2, section:) }
-    let(:third_lesson) { create(:lesson, position: 3, section:) }
-
-    it 'returns the position of the lesson in the section' do
-      expect(first_lesson.position_in_section).to be(1)
-      expect(second_lesson.position_in_section).to be(2)
-      expect(third_lesson.position_in_section).to be(3)
-    end
-  end
-
-  describe '#import' do
+  describe '#import_content_from_github' do
     it 'uses the lesson content importer to get lesson content from github' do
       allow(LessonContentImporter).to receive(:for)
 
