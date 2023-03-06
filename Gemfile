@@ -34,7 +34,7 @@ gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
 # Use Redis for Action Cable
 gem 'redis', '~> 5.0'
-gem 'ruby-progressbar', '~> 1.11'
+gem 'ruby-progressbar', '~> 1.13'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.4'
