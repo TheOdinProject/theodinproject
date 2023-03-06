@@ -26,7 +26,7 @@
     "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10",
     "axios": "^1.2.6",
-    "babel-loader": "8",
+    "babel-loader": "9",
     "babel-plugin-prismjs": "^2.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "browserslist": "^4.21.4",
