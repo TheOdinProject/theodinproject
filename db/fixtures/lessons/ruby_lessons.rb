@@ -215,6 +215,20 @@ def ruby_lessons
       has_live_preview: false,
       identifier_uuid: '062acc7a-b1b0-4c9d-a7e8-e08bae7a9c0d',
     },
+    'Time Complexity' => {
+      title: 'Time Complexity',
+      description: 'Learn how to measure how time efficient your code is and how to make it more efficient',
+      is_project: false,
+      github_path: '/ruby/computer_science/time_complexity.md',
+      identifier_uuid: '661275dd-dabf-4ce2-8172-fa71f84fab30',
+    },
+    'Space Complexity' => {
+      title: 'Space Complexity',
+      description: 'Learn how to measure how space efficient your code is and how to make it more efficient',
+      is_project: false,
+      github_path: '/ruby/computer_science/space_complexity.md',
+      identifier_uuid: '8876d425-b190-4d80-a2ec-1c4937830f8b',
+    },
     'Common Data Structures and Algorithms' => {
       title: 'Common Data Structures and Algorithms',
       description: 'Learn why we use different data structures to handle our data and some classic algorithms for searching through them to help solve problems',

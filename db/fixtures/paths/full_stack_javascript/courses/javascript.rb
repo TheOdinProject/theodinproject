@@ -91,6 +91,8 @@ course.add_section do |section|
     javascript_lessons.fetch('A Very Brief Intro to CS'),
     javascript_lessons.fetch('Recursive Methods'),
     javascript_lessons.fetch('Recursion'),
+    javascript_lessons.fetch('Time Complexity'),
+    javascript_lessons.fetch('Space Complexity'),
     javascript_lessons.fetch('Common Data Structures and Algorithms'),
     javascript_lessons.fetch('Linked Lists'),
     javascript_lessons.fetch('Binary Search Trees'),
