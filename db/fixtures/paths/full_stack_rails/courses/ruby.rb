@@ -120,6 +120,8 @@ course.add_section do |section|
     ruby_lessons.fetch('A Very Brief Intro to CS'),
     ruby_lessons.fetch('Recursive Methods'),
     ruby_lessons.fetch('Recursion'),
+    ruby_lessons.fetch('Time Complexity'),
+    ruby_lessons.fetch('Space Complexity'),
     ruby_lessons.fetch('Common Data Structures and Algorithms'),
     ruby_lessons.fetch('Linked Lists'),
     ruby_lessons.fetch('Binary Search Trees'),
