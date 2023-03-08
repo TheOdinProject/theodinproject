@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Profile', type: :system do
+RSpec.describe 'User Profile' do
   let!(:user) do
     create(
       :user,

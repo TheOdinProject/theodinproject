@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Voting on Project Submissions', type: :system do
+RSpec.describe 'Voting on Project Submissions' do
   let(:user) { create(:user) }
   let(:lesson) { create(:lesson, :project) }
 

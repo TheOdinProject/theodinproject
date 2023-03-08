@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Lesson Completions', type: :system do
+RSpec.describe 'Lesson Completions' do
   let!(:user) { create(:user) }
   let!(:lesson) { create(:lesson) }
 

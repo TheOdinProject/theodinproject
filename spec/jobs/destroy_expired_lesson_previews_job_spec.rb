@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DestroyExpiredLessonPreviewsJob, type: :job do
+RSpec.describe DestroyExpiredLessonPreviewsJob do
   subject(:job) { described_class.new }
 
   describe '#perform' do

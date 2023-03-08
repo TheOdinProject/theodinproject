@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Voting on User Submissions on the Dashboard', type: :system do
+RSpec.describe 'Voting on User Submissions on the Dashboard' do
   before do
     user = create(:user)
 

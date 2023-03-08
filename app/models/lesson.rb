@@ -6,6 +6,7 @@ class Lesson < ApplicationRecord
   belongs_to :section
   has_one :course, through: :section
   has_one :path, through: :course
+  has_one :content, dependent: :destroy
   has_many :project_submissions, dependent: :destroy
   has_many :lesson_completions, dependent: :destroy
   has_many :completing_users, through: :lesson_completions, source: :user
@@ -15,19 +16,19 @@ class Lesson < ApplicationRecord
 
   validates :position, presence: true
 
-  def position_in_section
-    section_lessons.where('position <= ?', position).count
-  end
+  delegate :body, to: :content
 
   def import_content_from_github
     LessonContentImporter.for(self)
   end
 
-  private
+  def display_title
+    return "Project: #{title}" if is_project?
 
-  def section_lessons
-    section.lessons
+    title
   end
+
+  private
 
   def slug_candidates
     [

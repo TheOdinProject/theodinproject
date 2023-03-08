@@ -3,15 +3,13 @@ require 'capybara/cuprite'
 Capybara.register_driver(:cuprite) do |app|
   Capybara::Cuprite::Driver.new(
     app,
-    **{
-      window_size: [1200, 1200],
-      browser_options: {},
-      process_timeout: 30,
-      timeout: 60,
-      inspector: true,
-      headless: !ENV['HEADLESS'].in?(%w[n 0 no false]),
-      js_errors: true
-    }
+    window_size: [1200, 1200],
+    browser_options: {},
+    process_timeout: 30,
+    timeout: 60,
+    inspector: true,
+    headless: !ENV['HEADLESS'].in?(%w[n 0 no false]),
+    js_errors: true
   )
 end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'View all Project Submissions for a Lesson', type: :system do
+RSpec.describe 'View all Project Submissions for a Lesson' do
   let(:user) { create(:user) }
 
   context 'when the lesson accepts project submissions' do

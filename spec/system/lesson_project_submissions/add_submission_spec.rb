@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Add a Project Submission', type: :system do
+RSpec.describe 'Add a Project Submission' do
   let(:lesson) { create(:lesson, :project) }
 
   context 'when a user is signed in' do
@@ -22,7 +22,7 @@ RSpec.describe 'Add a Project Submission', type: :system do
         expect(page).to have_content(user.username)
       end
 
-      expect(page).to have_no_button('Add Solution')
+      expect(page).not_to have_button('Add Solution')
     end
 
     context 'when setting a submission as private' do

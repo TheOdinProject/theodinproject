@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DiscardProjectSubmissionJob, type: :job do
+RSpec.describe DiscardProjectSubmissionJob do
   subject(:job) { described_class.new }
 
   describe '#perform' do

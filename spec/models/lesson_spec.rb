@@ -5,6 +5,7 @@ RSpec.describe Lesson do
 
   it { is_expected.to belong_to(:section) }
   it { is_expected.to have_one(:course).through(:section) }
+  it { is_expected.to have_one(:content) }
   it { is_expected.to have_many(:project_submissions) }
   it { is_expected.to have_many(:lesson_completions) }
   it { is_expected.to have_many(:completing_users).through(:lesson_completions) }
@@ -97,26 +98,31 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#position_in_section' do
-    let(:section) { create(:section) }
-    let(:first_lesson) { create(:lesson, position: 1, section:) }
-    let(:second_lesson) { create(:lesson, position: 2, section:) }
-    let(:third_lesson) { create(:lesson, position: 3, section:) }
-
-    it 'returns the position of the lesson in the section' do
-      expect(first_lesson.position_in_section).to be(1)
-      expect(second_lesson.position_in_section).to be(2)
-      expect(third_lesson.position_in_section).to be(3)
-    end
-  end
-
-  describe '#import' do
+  describe '#import_content_from_github' do
     it 'uses the lesson content importer to get lesson content from github' do
       allow(LessonContentImporter).to receive(:for)
 
       lesson.import_content_from_github
 
       expect(LessonContentImporter).to have_received(:for).with(lesson)
+    end
+  end
+
+  describe '#display_title' do
+    context 'when lesson is a project' do
+      it 'returns the project title' do
+        lesson = build_stubbed(:lesson, is_project: true, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Project: Ruby Basics')
+      end
+    end
+
+    context 'when lesson is not a project' do
+      it 'returns the normal lesson title' do
+        lesson = build_stubbed(:lesson, is_project: false, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Ruby Basics')
+      end
     end
   end
 end

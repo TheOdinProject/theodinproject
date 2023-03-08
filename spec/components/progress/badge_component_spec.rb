@@ -33,7 +33,7 @@ RSpec.describe Progress::BadgeComponent, type: :component do
       sign_in(user)
       render_inline(component)
 
-      expect(page).to have_no_css("[data-test-id='progress-badge']")
+      expect(page).not_to have_css("[data-test-id='progress-badge']")
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe Progress::BadgeComponent, type: :component do
       create(:lesson_completion, user:, lesson:, course:)
       render_inline(component)
 
-      expect(page).to have_no_css("[data-test-id='progress-badge']")
+      expect(page).not_to have_css("[data-test-id='progress-badge']")
     end
   end
 end

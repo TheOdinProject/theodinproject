@@ -1,9 +1,10 @@
 class LessonContentImporter
-  attr_reader :lesson
-  private :lesson
+  attr_reader :lesson, :content
+  private :lesson, :content
 
   def initialize(lesson)
     @lesson = lesson
+    @content = lesson.content || lesson.build_content
   end
 
   def self.for(lesson)
@@ -24,7 +25,7 @@ class LessonContentImporter
   end
 
   def import
-    lesson.update!(content: content_converted_to_html) if content_needs_updated?
+    content.update!(body: content_converted_to_html) if content_needs_updated?
   rescue Octokit::Error => e
     log_error(e.message)
   end
@@ -32,7 +33,7 @@ class LessonContentImporter
   private
 
   def content_needs_updated?
-    lesson.content != content_converted_to_html
+    content.body != content_converted_to_html
   end
 
   def content_converted_to_html

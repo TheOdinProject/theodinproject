@@ -7,13 +7,6 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/introduction/how_this_course_will_work.md',
       identifier_uuid: '5e9d7694-e930-4090-ba4e-1ae3b19d513e',
     },
-    'Preparing for Deployment' => {
-      title: 'Preparing for Deployment',
-      description: 'Get setup to use Heroku to deploy our web applications',
-      is_project: false,
-      github_path: '/ruby_on_rails/introduction/preparing_for_deployment.md',
-      identifier_uuid: '78c530bf-f358-4e6c-924d-8767efc37533',
-    },
     'Installing Rails' => {
       title: 'Installing Rails',
       description: 'Get setup for this course by installing Rails.',
@@ -54,7 +47,7 @@ def ruby_on_rails_lessons
     },
     'Deployment' => {
       title: 'Deployment',
-      description: "There's nothing quite like seeing your application on a real website.  We'll show you how it's done.",
+      description: "There's nothing quite like seeing your application on a real website. We'll show you how it's done.",
       is_project: false,
       github_path: '/ruby_on_rails/rails_basics/deployment.md',
       identifier_uuid: '122dffc9-d98e-490e-8e58-e5f7c66909d4',
@@ -122,7 +115,7 @@ def ruby_on_rails_lessons
       identifier_uuid: '3f3fa50c-9223-4178-b86a-6b50caf30896',
     },
     'Sessions, Cookies and Authentication' => {
-      title: 'Sessions Cookies, and Authentication',
+      title: 'Sessions Cookies and Authentication',
       description: "Learn how to store data in the user's browser and how that is used to sign in the user and keep them signed in across requests.",
       is_project: false,
       github_path: '/ruby_on_rails/forms_and_authentication/sessions_cookies_authentication.md',

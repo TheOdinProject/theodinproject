@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'User Reset Progress', type: :system do
+RSpec.describe 'User Reset Progress' do
   let!(:user) { create(:user) }
   let!(:foundations_path) { create(:path, title: 'Foundations', default_path: true) }
   let!(:foundation_course) { create(:course, title: 'Foundations', path: foundations_path) }

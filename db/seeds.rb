@@ -10,6 +10,7 @@ load './db/fixtures/lessons/getting_hired_lessons.rb'
 load './db/fixtures/lessons/node_js_lessons.rb'
 load './db/fixtures/lessons/git_lessons.rb'
 
+Rails::Generators.invoke('seed_uuids') if Rails.env.development?
 SeedFu.seed
 
 # GENERATE SUCCESS STORY Content

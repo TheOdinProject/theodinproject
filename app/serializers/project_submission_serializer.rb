@@ -20,7 +20,7 @@ class ProjectSubmissionSerializer
       user_name: project_submission.user.username,
       user_id: project_submission.user.id,
       lesson_id: lesson.id,
-      lesson_title: lesson.title,
+      lesson_title: lesson.display_title,
       lesson_path: lesson_path(lesson),
       lesson_has_live_preview: lesson.has_live_preview,
       likes: project_submission.votes_for.size,

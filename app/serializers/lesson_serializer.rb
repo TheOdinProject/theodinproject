@@ -10,7 +10,7 @@ class LessonSerializer
 
   def as_json(_options = nil)
     {
-      title: lesson.title,
+      title: lesson.display_title,
       completions: completions.count,
     }
   end

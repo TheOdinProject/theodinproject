@@ -112,7 +112,7 @@ def html_and_css_lessons
       title: 'More CSS Properties',
       description: 'CSS can do quite a lot! Here we cover some more properties you can use to make your sites pop!',
       is_project: false,
-      github_path: '/intermediate_html_css/intermediate_css_concept/more_css_properties.md',
+      github_path: '/intermediate_html_css/intermediate_css_concepts/more_css_properties.md',
       identifier_uuid: 'a5db6aab-f888-40c5-8f84-6867f2c88141'
     },
     'Advanced Selectors' => {
@@ -222,7 +222,7 @@ def html_and_css_lessons
       title: 'Positioning Grid Elements',
       description: 'Learn how to manipulate elements within a grid.',
       is_project: false,
-      github_path: '/intermediate_html_css/grid/positioning_grid_items.md',
+      github_path: '/intermediate_html_css/grid/positioning_grid_elements.md',
       identifier_uuid: '48813f31-ecc6-44c5-8f72-e7e24ae5e702'
     },
     'Advanced Grid Properties' => {

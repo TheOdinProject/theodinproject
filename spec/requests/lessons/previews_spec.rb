@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Preview Pages', type: :request do
+RSpec.describe 'Preview Pages' do
   describe 'GET #show' do
     it 'renders a view' do
       get lessons_preview_path

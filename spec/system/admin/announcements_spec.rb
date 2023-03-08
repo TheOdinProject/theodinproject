@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Announcements', type: :system do
+RSpec.describe 'Announcements' do
   let(:user) { create(:user, admin: true) }
 
   before do

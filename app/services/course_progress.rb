@@ -13,7 +13,7 @@ class CourseProgress
   end
 
   def percentage
-    (100.0 * completed_lessons / total_lessons).to_i
+    (completed_lessons * 100.0 / total_lessons).to_i
   end
 
   private

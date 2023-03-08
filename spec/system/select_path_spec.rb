@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Selecting Paths', type: :system do
+RSpec.describe 'Selecting Paths' do
   let!(:default_path) { create(:path, title: 'Foundations', default_path: true) }
   let!(:rails_path) { create(:path, title: 'Rails') }
   let!(:user) { create(:user, path: default_path) }
