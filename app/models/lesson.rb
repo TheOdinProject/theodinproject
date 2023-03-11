@@ -18,6 +18,12 @@ class Lesson < ApplicationRecord
 
   delegate :body, to: :content
 
+  attribute :completed, :boolean, default: false
+
+  def mark_complete!
+    self.completed = true
+  end
+
   def import_content_from_github
     LessonContentImporter.for(self)
   end

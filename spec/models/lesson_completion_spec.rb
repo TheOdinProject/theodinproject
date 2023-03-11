@@ -5,6 +5,8 @@ RSpec.describe LessonCompletion do
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to belong_to(:lesson) }
+  it { is_expected.to belong_to(:course).optional }
+  it { is_expected.to belong_to(:path).optional }
 
   it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:lesson_id) }
 

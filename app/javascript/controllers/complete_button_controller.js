@@ -29,8 +29,9 @@ export default class CompleteButton extends Controller {
 
     axios({
       method: requestMethod,
-      url: `/lessons/${id}/lesson_completions`,
+      url: `/lessons/${id}/completion`,
       data: decamelizeKeys(params),
+      format: 'json',
     }).then(() => {
       this.onSuccess();
     }).catch(() => {
