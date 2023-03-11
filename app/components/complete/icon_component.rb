@@ -11,8 +11,4 @@ class Complete::IconComponent < ApplicationComponent
   private
 
   attr_reader :lesson, :current_user
-
-  def lesson_completed?
-    @lesson_completed ||= current_user.completed?(lesson)
-  end
 end
