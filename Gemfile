@@ -9,7 +9,7 @@ gem 'activeadmin_addons', '~> 1.9'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
-gem 'bootsnap', '~> 1.15', require: false
+gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'debug', '~> 1.7'
 gem 'devise', '~> 4.9'
