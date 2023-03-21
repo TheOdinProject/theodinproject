@@ -44,4 +44,11 @@ RSpec.describe 'Redirects' do
       end
     end
   end
+
+  describe 'GET #discord' do
+    it 'redirects to the discord invite link' do
+      get '/discord'
+      expect(response).to redirect_to(ODIN_CHAT_URL)
+    end
+  end
 end
