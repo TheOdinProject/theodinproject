@@ -71,7 +71,7 @@
     "webpack-cli": "5",
     "webpack-merge": "5",
     "webpack-remove-empty-scripts": "^1.0.1",
-    "yup": "^0.32.11"
+    "yup": "^1.0.2"
   },
   "browserslist": [
     "defaults"
