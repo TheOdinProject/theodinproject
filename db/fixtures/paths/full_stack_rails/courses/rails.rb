@@ -19,6 +19,8 @@ course.add_section do |section|
 
   section.add_lessons(
     ruby_on_rails_lessons.fetch('How this Course Will Work'),
+    shared_lessons.fetch('Introduction to the Back End'),
+    shared_lessons.fetch('Introduction to Frameworks'),
     ruby_on_rails_lessons.fetch('Installing Rails'),
     ruby_on_rails_lessons.fetch('A Railsy Web Refresher')
   )

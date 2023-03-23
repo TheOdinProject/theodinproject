@@ -153,20 +153,6 @@ course.add_section do |section|
 end
 
 # +++++++++++++++++++++++++++++++
-# SECTION - The Back End
-# +++++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'The Back End'
-  section.description = "Here you'll learn about the back end, where we'll demystify what goes on behind the scenes on a web server."
-  section.identifier_uuid = '1bda637d-2590-4e0e-b988-a74605d09a8a'
-
-  section.add_lessons(
-    foundation_lessons.fetch('Introduction to the Back End'),
-    foundation_lessons.fetch('Introduction to Frameworks'),
-  )
-end
-
-# +++++++++++++++++++++++++++++++
 # SECTION - Conclusion
 # +++++++++++++++++++++++++++++++
 course.add_section do |section|

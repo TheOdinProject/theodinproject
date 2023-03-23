@@ -18,6 +18,8 @@ course.add_section do |section|
   section.identifier_uuid = 'f8ec5b6e-5f36-4164-add9-a6b1ff60e7a2'
 
   section.add_lessons(
+    shared_lessons.fetch('Introduction to the Back End'),
+    shared_lessons.fetch('Introduction to Frameworks'),
     node_js_lessons.fetch('Introduction: What is NodeJs'),
     node_js_lessons.fetch('Getting Started'),
     node_js_lessons.fetch('Debugging Node'),
