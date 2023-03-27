@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '6.1.7.1'
 
 gem 'activeadmin', '~> 2.13'
-gem 'activeadmin_addons', '~> 1.9'
+gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
