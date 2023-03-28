@@ -121,7 +121,7 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
           <h4 data-test-id="course-lesson-title" className="text-xl text-gray-500 dark:text-gray-400">
             {course.title}
             : (
-            {lesson.display_title}
+            {lesson.title}
             )
           </h4>
         </div>
