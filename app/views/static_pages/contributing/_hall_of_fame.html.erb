@@ -13,7 +13,7 @@
       <% members.each do |member| %>
         <div class="col-span-4 sm:col-span-3 md:col-span-2">
           <%= link_to(member[:github_url], target: '_blank', rel: 'noreferrer') do %>
-            <%= image_tag(member[:image], alt: member[:name], class: 'h-full') %>
+            <%= image_tag(member[:image], alt: member[:name]) %>
           <% end %>
         </div>
       <% end %>
