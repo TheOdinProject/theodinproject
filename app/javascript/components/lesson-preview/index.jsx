@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Prism from 'prismjs';
+import mermaid from 'mermaid';
 
 import LessonContentInput from './components/lesson-content-input';
 import LessonContentPreview from './components/lesson-content-preview';
@@ -12,6 +13,7 @@ const LessonPreview = ({ sharedContent }) => {
   const [content, setContent] = useState(sharedContent);
   const [convertedContent, setConvertedContent] = useState('');
   const [onPreviewTab, setOnPreviewTab] = useState(false);
+  mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 
   const fetchLessonPreview = async () => {
     if (onPreviewTab) return;
@@ -22,6 +24,7 @@ const LessonPreview = ({ sharedContent }) => {
       setConvertedContent(response.data.content);
       setOnPreviewTab(true);
       Prism.highlightAll();
+      await mermaid.run();
     }
   };
 
@@ -53,6 +56,7 @@ const LessonPreview = ({ sharedContent }) => {
       <div className="flex pt-10 justify-end">
         {hasContent && <ShareButton content={content} />}
       </div>
+
     </Tabs>
   );
 };

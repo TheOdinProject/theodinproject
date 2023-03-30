@@ -39,6 +39,7 @@
     "humps": "^2.0.1",
     "js-base64": "^3.7.5",
     "lodash": "^4.17.21",
+    "mermaid": "^10.0.2",
     "mini-css-extract-plugin": "^2.6.1",
     "notyf": "^3.10.0",
     "pnp-webpack-plugin": "1",
