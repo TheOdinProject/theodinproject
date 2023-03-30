@@ -24,7 +24,6 @@ import './src/js/analytics';
 import './src/js/axiosWithCsrf';
 import 'controllers';
 import { Turbo } from '@hotwired/turbo-rails';
-import mermaid from 'mermaid';
 
 Rails.start();
 
@@ -34,5 +33,3 @@ const ReactRailsUJS = require('react_ujs');
 ReactRailsUJS.useContext(componentRequireContext);
 
 Turbo.session.drive = false;
-
-mermaid.initialize({ startOnLoad: true, theme: 'dark' });
