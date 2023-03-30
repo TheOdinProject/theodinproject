@@ -56,7 +56,6 @@ const LessonPreview = ({ sharedContent }) => {
       <div className="flex pt-10 justify-end">
         {hasContent && <ShareButton content={content} />}
       </div>
-
     </Tabs>
   );
 };
