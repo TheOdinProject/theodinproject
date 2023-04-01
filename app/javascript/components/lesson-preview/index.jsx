@@ -24,7 +24,7 @@ const LessonPreview = ({ sharedContent }) => {
       setConvertedContent(response.data.content);
       setOnPreviewTab(true);
       Prism.highlightAll();
-      await mermaid.run();
+      mermaid.init();
     }
   };
 
