@@ -187,6 +187,20 @@ def javascript_lessons
       has_live_preview: false,
       identifier_uuid: 'eaf37749-a971-4bd4-af79-6e166e55346a',
     },
+    'Time Complexity' => {
+      title: 'Time Complexity',
+      description: 'Learn how to measure how time efficient your code is and how to make it more efficient',
+      is_project: false,
+      github_path: '/javascript/computer_science/time_complexity.md',
+      identifier_uuid: '8eb8c99d-64c9-4cfa-bcd6-31718f699920',
+    },
+    'Space Complexity' => {
+      title: 'Space Complexity',
+      description: 'Learn how to measure how space efficient your code is and how to make it more efficient',
+      is_project: false,
+      github_path: '/javascript/computer_science/space_complexity.md',
+      identifier_uuid: '759b5d1f-aff8-486d-af94-f413e0d4bd95',
+    },
     'Common Data Structures and Algorithms' => {
       title: 'Common Data Structures and Algorithms',
       description: 'Learn why we use different data structures to handle our data and some classic algorithms for searching through them to help solve problems',

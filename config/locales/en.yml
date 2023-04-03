@@ -149,8 +149,8 @@ en:
             image: https://avatars1.githubusercontent.com/u/20132181?v=3&s=400
             github_url: https://github.com/RobPando
           - name: Ryan
-            image: https://avatars3.githubusercontent.com/u/20901017?v=3&s=400
-            github_url: https://github.com/ryanford-frontend
+            image: hall_of_fame_images/ryan.jpg
+            github_url: https://github.com/ryanford
     faq:
       items:
         - question: 'Who is The Odin Project for?'

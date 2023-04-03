@@ -5,14 +5,14 @@ source 'https://rubygems.org'
 gem 'rails', '6.1.7.1'
 
 gem 'activeadmin', '~> 2.13'
-gem 'activeadmin_addons', '~> 1.9'
+gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
-gem 'bootsnap', '~> 1.15', require: false
+gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'debug', '~> 1.7'
-gem 'devise', '~> 4.8'
+gem 'devise', '~> 4.9'
 gem 'discard', '~> 1.2'
 gem 'discordrb-webhooks', '~> 3.4'
 gem 'dry-initializer', '~> 3.1'
@@ -23,36 +23,36 @@ gem 'inline_svg', '~> 1.8'
 gem 'kramdown', '~> 2.4'
 gem 'newrelic_rpm', '~> 8.14'
 gem 'noticed', '~> 1.6'
-gem 'octokit', '~> 6.0'
 gem 'omniauth-github', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 1.1.1'
+gem 'octokit', '~> 6.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4'
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.1'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
 # Use Redis for Action Cable
 gem 'redis', '~> 5.0'
-gem 'ruby-progressbar', '~> 1.11'
+gem 'ruby-progressbar', '~> 1.13'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.4'
 gem 'sentry-ruby', '~> 5.5'
-gem 'sentry-sidekiq', '~> 5.7'
-gem 'shakapacker', '6.5.5'
+gem 'sentry-sidekiq', '~> 5.8'
+gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
-gem 'turbo-rails', '~> 1.3'
+gem 'turbo-rails', '~> 1.4'
 gem 'view_component', '~> 2.75'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.7'
-  gem 'lookbook', '~> 1.5.1'
+  gem 'lookbook', '~> 1.5.3'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.43', require: false
-  gem 'rubocop-performance', '~> 1.15', require: false
-  gem 'rubocop-rails', '~> 2.17', require: false
+  gem 'rubocop', '~> 1.48', require: false
+  gem 'rubocop-performance', '~> 1.16', require: false
+  gem 'rubocop-rails', '~> 2.18', require: false
   gem 'rubocop-rspec', '~> 2.16', require: false
   gem 'web-console', '~> 4.2'
 end

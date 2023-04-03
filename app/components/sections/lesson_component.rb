@@ -10,14 +10,6 @@ module Sections
 
     attr_reader :lesson, :current_user, :classes
 
-    def title
-      if lesson.is_project?
-        "Project: #{lesson.title}"
-      else
-        lesson.title
-      end
-    end
-
     def icon
       if lesson.is_project?
         'wrench-screwdriver'

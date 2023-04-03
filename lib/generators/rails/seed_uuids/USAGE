@@ -1,0 +1,5 @@
+Description:
+bin/rails generate seed_uuids
+
+This will replace "create_uuid" in the seeds file with a real uuid
+

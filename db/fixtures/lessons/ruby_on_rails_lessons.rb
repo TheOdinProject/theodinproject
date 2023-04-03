@@ -115,7 +115,7 @@ def ruby_on_rails_lessons
       identifier_uuid: '3f3fa50c-9223-4178-b86a-6b50caf30896',
     },
     'Sessions, Cookies and Authentication' => {
-      title: 'Sessions Cookies, and Authentication',
+      title: 'Sessions Cookies and Authentication',
       description: "Learn how to store data in the user's browser and how that is used to sign in the user and keep them signed in across requests.",
       is_project: false,
       github_path: '/ruby_on_rails/forms_and_authentication/sessions_cookies_authentication.md',

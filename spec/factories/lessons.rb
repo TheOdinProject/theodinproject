@@ -12,6 +12,18 @@ FactoryBot.define do
       has_live_preview { true }
     end
 
+    trait :complete do
+      after(:create) do |lesson|
+        lesson.completed = true
+      end
+    end
+
+    trait :incomplete do
+      after(:create) do |lesson|
+        lesson.completed = false
+      end
+    end
+
     after(:create) do |lesson|
       if lesson.content.blank?
         create(:content, lesson:)

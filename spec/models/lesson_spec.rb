@@ -98,26 +98,57 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#position_in_section' do
-    let(:section) { create(:section) }
-    let(:first_lesson) { create(:lesson, position: 1, section:) }
-    let(:second_lesson) { create(:lesson, position: 2, section:) }
-    let(:third_lesson) { create(:lesson, position: 3, section:) }
+  describe '#completed' do
+    it 'return false by default' do
+      expect(lesson.completed).to be(false)
+    end
 
-    it 'returns the position of the lesson in the section' do
-      expect(first_lesson.position_in_section).to be(1)
-      expect(second_lesson.position_in_section).to be(2)
-      expect(third_lesson.position_in_section).to be(3)
+    context 'when the lesson has been completed' do
+      it 'returns true' do
+        lesson.completed = true
+        expect(lesson).to be_completed
+      end
+    end
+
+    context 'when the lesson has been not been completed' do
+      it 'returns false' do
+        lesson.completed = false
+        expect(lesson).not_to be_completed
+      end
     end
   end
 
-  describe '#import' do
+  describe '#mark_complete!' do
+    it 'marks the lesson as completed' do
+      expect { lesson.mark_complete! }.to change { lesson.completed }.from(false).to(true)
+    end
+  end
+
+  describe '#import_content_from_github' do
     it 'uses the lesson content importer to get lesson content from github' do
       allow(LessonContentImporter).to receive(:for)
 
       lesson.import_content_from_github
 
       expect(LessonContentImporter).to have_received(:for).with(lesson)
+    end
+  end
+
+  describe '#display_title' do
+    context 'when lesson is a project' do
+      it 'returns the project title' do
+        lesson = build_stubbed(:lesson, is_project: true, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Project: Ruby Basics')
+      end
+    end
+
+    context 'when lesson is not a project' do
+      it 'returns the normal lesson title' do
+        lesson = build_stubbed(:lesson, is_project: false, title: 'Ruby Basics')
+
+        expect(lesson.display_title).to eql('Ruby Basics')
+      end
     end
   end
 end

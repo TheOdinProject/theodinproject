@@ -18,19 +18,23 @@ class Lesson < ApplicationRecord
 
   delegate :body, to: :content
 
-  def position_in_section
-    section_lessons.where('position <= ?', position).count
+  attribute :completed, :boolean, default: false
+
+  def mark_complete!
+    self.completed = true
   end
 
   def import_content_from_github
     LessonContentImporter.for(self)
   end
 
-  private
+  def display_title
+    return "Project: #{title}" if is_project?
 
-  def section_lessons
-    section.lessons
+    title
   end
+
+  private
 
   def slug_candidates
     [

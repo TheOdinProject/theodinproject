@@ -66,7 +66,8 @@ Rails.application.routes.draw do
     resource :preview, only: %i[show create] do
       post :markdown
     end
-    resources :installation_lessons, only: %i[index]
+
+    resources :installation_guides, only: :index
   end
 
   namespace :courses do
@@ -75,9 +76,7 @@ Rails.application.routes.draw do
 
   resources :lessons, only: :show do
     resources :project_submissions, only: %i[index], controller: 'lessons/project_submissions'
-
-    resources :lesson_completions, only: %i[create], as: 'completions'
-    delete 'lesson_completions' => 'lesson_completions#destroy', as: 'lesson_completions'
+    resource :completion, only: %i[create destroy], controller: 'lessons/completions'
   end
 
   resources :project_submissions do
