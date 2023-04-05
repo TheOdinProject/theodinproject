@@ -6,14 +6,14 @@ module Lessons
     def create
       lesson = Lesson.find(params[:lesson_id])
 
-      lesson_completion = current_user.lesson_completions.new(
+      lesson_completion = current_user.lesson_completions.find_or_create_by(
         lesson:,
         lesson_identifier_uuid: lesson.identifier_uuid,
         course: lesson.course,
         path: lesson.course.path,
       )
 
-      if lesson_completion.save!
+      if lesson_completion
         render json: lesson_completion, status: :created
       else
         render json: { errors: lesson_completion.errors.full_messages }, status: :unprocessable_entity
