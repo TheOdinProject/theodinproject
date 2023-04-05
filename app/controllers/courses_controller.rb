@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :set_cache_control_header_to_no_store
+
   def show
     @path = Path.find(params[:path_id])
     @course = @path.courses.friendly.find(params[:id])

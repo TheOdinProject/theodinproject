@@ -45,6 +45,10 @@ class ApplicationController < ActionController::Base
     Sentry.set_user(id: current_user.id, email: current_user.email)
   end
 
+  def set_cache_control_header_to_no_store
+    response.cache_control.replace(no_store: true)
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
 
