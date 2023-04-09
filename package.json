@@ -36,7 +36,6 @@
     "css-minimizer-webpack-plugin": "^4.2.2",
     "el-transition": "^0.0.7",
     "hint.css": "^2.7.0",
-    "humps": "^2.0.1",
     "js-base64": "^3.7.5",
     "lodash": "^4.17.21",
     "mermaid": "^9.4.3",

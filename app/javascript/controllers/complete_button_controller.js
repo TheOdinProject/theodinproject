@@ -1,6 +1,5 @@
 /* eslint class-methods-use-this: ["error", { "exceptMethods": ["emitUpdateProgressEvent"] }] */
 import { Controller } from '@hotwired/stimulus';
-import { decamelizeKeys } from 'humps';
 import { Notyf } from 'notyf';
 import axios from '../src/js/axiosWithCsrf';
 
@@ -30,7 +29,6 @@ export default class CompleteButton extends Controller {
     axios({
       method: requestMethod,
       url: `/lessons/${id}/completion`,
-      data: decamelizeKeys(params),
       format: 'json',
     }).then(() => {
       this.onSuccess();
