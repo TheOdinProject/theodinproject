@@ -28,7 +28,7 @@ gem 'omniauth-google-oauth2', '~> 1.1.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4'
-gem 'puma', '~> 6.1'
+gem 'puma', '~> 6.2'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
 # Use Redis for Action Cable
