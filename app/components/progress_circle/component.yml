@@ -1,12 +1,9 @@
 text:
   default: 'text-xs sm:text-sm'
   small: 'text-xs p-2'
-outer_badge:
+container_size:
   default: 'h-24 w-24 sm:h-28 sm:w-28'
   small: 'h-24 w-24'
-inner_badge:
+icon_size:
   default: 'w-20 h-20 sm:p-2 sm:w-24 sm:h-24'
   small: 'w-24 h-24 p-3'
-default_badge:
-  default: 'w-24 h-24 sm:w-28 sm:h-28'
-  small: 'w-24 h-24'

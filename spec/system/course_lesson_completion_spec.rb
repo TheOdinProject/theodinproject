@@ -5,31 +5,28 @@ RSpec.describe 'Course Lesson Completions' do
   let!(:path) { create(:path, default_path: true) }
   let!(:course) { create(:course, path:) }
   let!(:section) { create(:section, course:) }
-  let!(:lesson) { create(:lesson, section:) }
 
   context 'when user is signed in' do
     before do
+      create(:lesson, section:)
+
       sign_in(user)
       visit path_course_path(path, course)
     end
 
-    it 'can complete a lesson' do
+    it 'completes a lesson' do
       find(:test_id, 'complete-button').click
 
-      expect(page).to have_css('.complete-icon-button--completed')
-      expect(user.lesson_completions.pluck(:lesson_id)).to include(lesson.id)
+      expect(page).to have_css('[data-complete="true"]')
     end
 
-    it 'can change a completed lesson to incomplete' do
+    it 'changes a completed lesson to incomplete' do
       find(:test_id, 'complete-button').click
 
-      expect(page).to have_css('.complete-icon-button--completed')
-      expect(user.lesson_completions.pluck(:lesson_id)).to include(lesson.id)
+      expect(page).to have_css('[data-complete="true"]')
 
       find(:test_id, 'complete-button').click
-
-      expect(page).not_to have_css('.complete-icon-button--completed')
-      expect(user.lesson_completions.pluck(:lesson_id)).not_to include(lesson.id)
+      expect(page).to have_css('[data-complete="false"]')
     end
   end
 
@@ -37,7 +34,7 @@ RSpec.describe 'Course Lesson Completions' do
     it 'cannot complete a lesson' do
       visit path_course_path(path, course)
 
-      expect(page).not_to have_css('.complete-icon-button')
+      expect(page).not_to have_css('[data-test_id="complete-button"]')
     end
   end
 end

@@ -9,9 +9,7 @@ RSpec.describe Complete::IconComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_css(
-      ".complete-icon-button[data-complete-button-is-completed-value='true']"
-    )
+    expect(page).to have_css('[data-complete="true"]')
   end
 
   it 'renders the icon button with lesson incomplete state' do
@@ -20,8 +18,6 @@ RSpec.describe Complete::IconComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_css(
-      ".complete-icon-button[data-complete-button-is-completed-value='false']"
-    )
+    expect(page).to have_css('[data-complete="false"]')
   end
 end

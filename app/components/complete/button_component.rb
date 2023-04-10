@@ -1,18 +1,10 @@
 class Complete::ButtonComponent < ApplicationComponent
-  def initialize(lesson:, current_user:)
+  def initialize(lesson:, animate: false)
     @lesson = lesson
-    @current_user = current_user
+    @animate = animate
   end
 
   private
 
-  attr_reader :lesson, :current_user
-
-  def text
-    lesson_completed? ? 'Lesson Completed' : 'Mark Complete'
-  end
-
-  def lesson_completed?
-    @lesson_completed ||= current_user.completed?(lesson)
-  end
+  attr_reader :lesson, :animate
 end

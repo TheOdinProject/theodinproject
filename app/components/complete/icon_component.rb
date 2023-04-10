@@ -1,7 +1,8 @@
 class Complete::IconComponent < ApplicationComponent
-  def initialize(lesson:, current_user:)
+  def initialize(lesson:, current_user:, animate: false)
     @lesson = lesson
     @current_user = current_user
+    @animate = animate
   end
 
   def render?
@@ -10,5 +11,11 @@ class Complete::IconComponent < ApplicationComponent
 
   private
 
-  attr_reader :lesson, :current_user
+  attr_reader :lesson, :current_user, :animate
+
+  def animation_class
+    return unless animate
+
+    'pulse-once'
+  end
 end

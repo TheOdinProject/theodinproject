@@ -118,9 +118,16 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#mark_complete!' do
+  describe '#complete!' do
     it 'marks the lesson as completed' do
-      expect { lesson.mark_complete! }.to change { lesson.completed }.from(false).to(true)
+      expect { lesson.complete! }.to change { lesson.completed }.from(false).to(true)
+    end
+  end
+
+  describe '#incomplete!' do
+    it 'marks the lesson as incomplete' do
+      lesson.completed = true
+      expect { lesson.incomplete! }.to change { lesson.completed }.from(true).to(false)
     end
   end
 

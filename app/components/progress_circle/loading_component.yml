@@ -1,0 +1,3 @@
+container_size:
+  default: 'h-24 w-24 sm:h-28 sm:w-28'
+  small: 'h-24 w-24'

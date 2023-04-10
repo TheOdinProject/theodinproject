@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Complete::ButtonComponent, type: :component do
-  let(:lesson) { create(:lesson, id: 1002) }
-  let(:user) { create(:user) }
-
   it 'renders the button with the lesson complete state' do
-    create(:lesson_completion, lesson:, user:)
-    component = described_class.new(lesson:, current_user: user)
+    lesson = create(:lesson, :complete)
+    component = described_class.new(lesson:)
 
     render_inline(component)
 
@@ -14,7 +11,8 @@ RSpec.describe Complete::ButtonComponent, type: :component do
   end
 
   it 'renders the button with lesson incomplete state' do
-    component = described_class.new(lesson:, current_user: user)
+    lesson = create(:lesson, :incomplete)
+    component = described_class.new(lesson:)
 
     render_inline(component)
 
