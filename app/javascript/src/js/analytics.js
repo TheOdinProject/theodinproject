@@ -43,14 +43,6 @@ window.addEventListener('DOMContentLoaded', () => {
     _gaq.push(['_trackEvent', 'sign-up_buttons', 'sign_up', 'main_sign-up_button', 1]);
   });
 
-  // Fire an event whenever an ad is clicked
-  document.querySelectorAll('[href^="https://www.thinkful.com/?utm_source=odin"]').forEach((ad) => {
-    ad.addEventListener('click', (e) => {
-      adId = e.target.closest('[href^="https://www.thinkful.com/?utm_source=odin"]').dataset['adId']
-      _gaq.push(['_trackEvent', 'ad', 'click', adId, 1]);
-    });
-  });
-
   // Fire an event when a lesson is marked either complete or incomplete
   document.querySelectorAll('[data-complete-button-is-completed-value]').forEach((complete) => {
     complete.addEventListener('click', () => {
