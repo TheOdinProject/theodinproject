@@ -20,7 +20,6 @@ import 'regenerator-runtime/runtime';
 import 'hint.css/hint.min.css';
 import 'notyf/notyf.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import './src/js/analytics';
 import './src/js/axiosWithCsrf';
 import 'controllers';
 import { Turbo } from '@hotwired/turbo-rails';
