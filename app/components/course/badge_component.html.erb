@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <%= link_to path_course_path(course.path, course), data: { turbo_frame: '_top' } do %>
+    <%= tag.turbo_frame(id: dom_id(course, 'progress'), src: courses_progress_path(course.id, **option_params), loading: :lazy) do %>
+      <%= render ProgressCircle::LoadingComponent.new(size:) %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to path_course_path(course.path, course) do %>
+    <div class="shadow-md dark:shadow-none rounded-full flex <%= yass(default_badge: size) %>" data-test-id='default-badge'>
+      <%= image_tag badge, alt: "#{course.title} badge", class: 'p-2.5' %>
+    </div>
+  <% end %>
+<% end %>

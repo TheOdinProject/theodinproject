@@ -1,13 +1,7 @@
 <div class="flex items-center justify-between flex-col py-8 text-center border-b dark:border-gray-600 md:flex-row md:text-left">
   <div class="flex items-center flex-col md:flex-row gap-6">
-    <div class=''>
-      <%= render Progress::BadgeComponent.new(
-            course:,
-            current_user:,
-            url: courses_progress_path(course.id),
-            show_badge: false,
-            size: :small,
-          ) %>
+    <div>
+      <%= render Course::BadgeComponent.new(course:, options: { size: :small, show_badge: false }) %>
     </div>
 
     <div>

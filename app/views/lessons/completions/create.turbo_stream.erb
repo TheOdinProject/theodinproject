@@ -8,3 +8,7 @@
     <%= render Complete::ButtonComponent.new(lesson: @lesson, animate: true) %>
   <% end %>
 <% end %>
+
+<%= turbo_stream.update dom_id(@lesson.course, "progress") do %>
+  <%= render ProgressCircle::Component.new(percentage: @lesson.course.progress_for(current_user).percentage) %>
+<% end %>

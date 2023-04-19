@@ -1,4 +1,4 @@
-<%= turbo_stream.update "theme_switcher"  do %>
+<%= turbo_stream.update "theme_switcher" do %>
   <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: current_user ? :default : :icon_only) %>
 <% end %>
 
