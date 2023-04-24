@@ -39,7 +39,7 @@
     "js-base64": "^3.7.5",
     "lodash": "^4.17.21",
     "mermaid": "^9.4.3",
-    "mini-css-extract-plugin": "^2.6.1",
+    "mini-css-extract-plugin": "^2.7.5",
     "notyf": "^3.10.0",
     "pnp-webpack-plugin": "1",
     "postcss": "^8.4.20",
