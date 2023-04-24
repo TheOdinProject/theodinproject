@@ -25,6 +25,14 @@ RSpec.describe 'Static Pages' do
     end
   end
 
+  describe 'GET #privacy-policy' do
+    it 'renders the privacy policy page' do
+      get privacy_policy_path
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe 'GET #success stories' do
     it 'renders the success stories page' do
       get success_stories_path

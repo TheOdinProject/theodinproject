@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get 'faq' => 'static_pages#faq'
   get 'contributing' => 'static_pages#contributing'
   get 'terms_of_use' => 'static_pages#terms_of_use'
+  get 'privacy-policy' => 'static_pages#privacy_policy'
   get 'success_stories' => 'static_pages#success_stories'
   get 'community_rules' => 'static_pages#community_rules'
   get 'community_expectations' => 'static_pages#community_expectations'
