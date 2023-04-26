@@ -20,8 +20,12 @@ class Lesson < ApplicationRecord
 
   attribute :completed, :boolean, default: false
 
-  def mark_complete!
+  def complete!
     self.completed = true
+  end
+
+  def incomplete!
+    self.completed = false
   end
 
   def import_content_from_github
