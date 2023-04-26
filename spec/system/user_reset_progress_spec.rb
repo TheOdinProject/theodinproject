@@ -22,7 +22,7 @@ RSpec.describe 'User Reset Progress' do
   it 'resets progress' do
     expect(user.lesson_completions.count).to eq(2)
     within(find(:test_id, 'skills')) do
-      expect(find(:test_id, 'progress-badge')).to have_text('100%')
+      expect(find(:test_id, 'progress-circle')).to have_text('100%')
       expect(find(:test_id, 'rails-open-btn')).to have_text('Open')
     end
 
@@ -34,7 +34,7 @@ RSpec.describe 'User Reset Progress' do
 
     expect(user.lesson_completions.count).to eq(0)
     within(find(:test_id, 'skills')) do
-      expect(find(:test_id, 'default-badge')).to have_text('')
+      expect(find(:test_id, 'progress-circle')).to have_text('0%')
       expect(find(:test_id, 'foundations-start-btn')).to have_text('Start')
     end
   end
