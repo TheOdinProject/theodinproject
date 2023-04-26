@@ -18,7 +18,6 @@ import Rails from '@rails/ujs';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import 'hint.css/hint.min.css';
-import 'notyf/notyf.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './src/js/axiosWithCsrf';
 import 'controllers';

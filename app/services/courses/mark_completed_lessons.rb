@@ -13,7 +13,7 @@ module Courses
       lessons.each do |lesson|
         next if completed_lesson_ids.exclude?(lesson.id)
 
-        lesson.mark_complete!
+        lesson.complete!
       end
     end
 
