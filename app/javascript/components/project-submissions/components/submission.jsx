@@ -84,7 +84,7 @@ const Submission = forwardRef(({
           )
           : (
             <button
-              className="submissions-flag text-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hint--top"
+              className="submissions-flag text-gray-300 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 hint--top-left"
               aria-label="Report submission"
               type="button"
               data-test-id="flag-btn"
