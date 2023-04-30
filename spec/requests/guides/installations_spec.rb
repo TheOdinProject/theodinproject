@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Installation Guides' do
   describe 'GET #index' do
     it 'renders the installation guides index' do
-      get lessons_installation_guides_path
+      get guides_installations_path
 
       expect(response).to have_http_status(:ok)
     end

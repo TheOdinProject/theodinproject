@@ -53,6 +53,18 @@ Rails.application.routes.draw do
   get 'how_to_ask' => 'static_pages#how_to_ask'
   get 'sitemap' => 'sitemap#index', defaults: { format: 'xml' }
 
+  namespace :guides do
+    resources :installations, only: :index
+    resource :community, only: :show, controller: 'community' do
+      collection do
+        get :before_asking
+        get :how_to_ask
+        get :expectations
+        get :rules
+      end
+    end
+  end
+
   # failure route if github information returns invalid
   get '/auth/failure' => 'omniauth_callbacks#failure'
   get 'dashboard' => 'users#show', as: :dashboard
