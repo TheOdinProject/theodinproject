@@ -1,7 +1,7 @@
 def node_js_lessons
   {
-    'Introduction: What is NodeJs' => {
-      title: 'Introduction: What is NodeJs',
+    'Introduction: What is NodeJS' => {
+      title: 'Introduction: What is NodeJS',
       description: 'Lets take a look at what Node is, and what it means to write code for a server.',
       is_project: false,
       github_path: '/nodeJS/introduction_to_nodeJS/introduction_what_is_nodeJS.md',
