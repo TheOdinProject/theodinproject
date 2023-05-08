@@ -244,12 +244,23 @@ def foundation_lessons
       accepts_submission: true,
       has_live_preview: true,
     },
-    'CSS Foundations' => {
-      title: 'CSS Foundations',
-      description: 'Make your HTML prettier with CSS.',
-      is_project: false,
-      github_path: '/foundations/html_css/css-foundations.md',
-      identifier_uuid: 'ea39c3c3-1699-4fae-8cce-df9746480ff2',
+    'Intro to HTML and CSS' => {
+      title: 'Intro to HTML and CSS',
+      description: 'Applying CSS to your site.',
+      github_path: '/foundations/html_css/intro-to-html-css.md',
+      identifier_uuid: '698f41d7-3cf1-4381-a790-6ad54086aaa2',
+    },
+    'Intro to CSS' => {
+      title: 'Intro to CSS',
+      description: 'Use CSS selectors to pick elements to style.',
+      github_path: '/foundations/html_css/intro-to-css.md',
+      identifier_uuid: '62411617-6ac6-44f9-86c8-6817203cf6ca',
+    },
+    'The Cascade' => {
+      title: 'The Cascade',
+      description: 'Use the cascade to apply styles by specificity.',
+      github_path: '/foundations/html_css/the-cascade.md',
+      identifier_uuid: '01b246d0-ebac-4d71-a6ad-d63798e8f65d',
     },
     'Inspecting HTML and CSS' => {
       title: 'Inspecting HTML and CSS',
