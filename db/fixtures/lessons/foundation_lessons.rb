@@ -244,12 +244,6 @@ def foundation_lessons
       accepts_submission: true,
       has_live_preview: true,
     },
-    'Intro to HTML and CSS' => {
-      title: 'Intro to HTML and CSS',
-      description: 'Applying CSS to your site.',
-      github_path: '/foundations/html_css/intro-to-html-css.md',
-      identifier_uuid: '698f41d7-3cf1-4381-a790-6ad54086aaa2',
-    },
     'Intro to CSS' => {
       title: 'Intro to CSS',
       description: 'Use CSS selectors to pick elements to style.',
