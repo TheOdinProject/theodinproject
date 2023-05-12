@@ -197,7 +197,7 @@ def foundation_lessons
       title: 'Introduction to HTML and CSS',
       description: 'Get started by learning about HTML and CSS, the building blocks of everything on the web.',
       is_project: false,
-      github_path: '/foundations/html_css/intro-to-html-css.md',
+      github_path: '/foundations/html_css/html-foundations/intro-to-html-css.md',
       identifier_uuid: '1e460bf6-5a8c-481f-a3f7-04e0dd938fac',
     },
     'HTML Boilerplate' => {
