@@ -247,13 +247,13 @@ def foundation_lessons
     'Intro to CSS' => {
       title: 'Intro to CSS',
       description: 'Use CSS selectors to pick elements to style.',
-      github_path: '/foundations/html_css/intro-to-css.md',
+      github_path: '/foundations/html_css/css-foundations/intro-to-css.md',
       identifier_uuid: '62411617-6ac6-44f9-86c8-6817203cf6ca',
     },
     'The Cascade' => {
       title: 'The Cascade',
       description: 'Use the cascade to apply styles by specificity.',
-      github_path: '/foundations/html_css/the-cascade.md',
+      github_path: '/foundations/html_css/css-foundations/the-cascade.md',
       identifier_uuid: '01b246d0-ebac-4d71-a6ad-d63798e8f65d',
     },
     'Inspecting HTML and CSS' => {
