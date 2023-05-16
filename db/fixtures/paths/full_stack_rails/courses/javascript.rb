@@ -19,7 +19,6 @@ course.add_section do |section|
   section.add_lessons(
     javascript_lessons.fetch('How this course will work'),
     javascript_lessons.fetch('A quick review'),
-    javascript_lessons.fetch('Linting'),
   )
 end
 
@@ -55,6 +54,7 @@ course.add_section do |section|
   section.identifier_uuid = '68a977d9-1ad5-4516-964b-c58703f19d50'
 
   section.add_lessons(
+    javascript_lessons.fetch('Linting'),
     javascript_lessons.fetch('Dynamic User Interface Interactions'),
     javascript_lessons.fetch('Form Validation with JavaScript'),
     javascript_lessons.fetch('What is ES6?'),
