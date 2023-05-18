@@ -5,7 +5,7 @@
     <h1 class="page-heading-title">All Paths</h1>
 
     <%= render CardComponent.new do |card| %>
-      <% card.header(classes: 'md:pb-6 md:border-b border-gray-200 dark:border-gray-600') do %>
+      <% card.with_header(classes: 'md:pb-6 md:border-b border-gray-200 dark:border-gray-600') do %>
         <div class=" flex justify-between items-center flex-col sm:flex-row space-y-4 sm:space-y-0">
           <div class="flex flex-col space-y-5 sm:space-x-6 sm:space-y-0 sm:flex-row items-center">
             <%= link_to path_path(@foundations), class: 'p-2 dark:bg-gray-700/50 rounded-full' do %>
@@ -26,11 +26,11 @@
         </div>
       <% end %>
 
-      <% card.body(classes: 'pt-6 md:pb-0') do %>
+      <% card.with_body(classes: 'pt-6 md:pb-0') do %>
         <p class="prose prose-gray max-w-none text-gray-500 dark:text-gray-400"><%= @foundations.description %></p>
       <% end %>
 
-      <% card.footer do |card| %>
+      <% card.with_footer do |card| %>
         <div class="flex space-x-6 justify-center sm:items-center sm:justify-start md:hidden">
           <%= render Paths::SelectButtonComponent.new(current_user:, path: @foundations, classes: 'px-10') %>
           <%= render Paths::ViewButtonComponent.new(current_user:, path: @foundations, classes: 'px-10') %>
@@ -51,7 +51,7 @@
       <% @fullstack_paths.each do |path| %>
 
         <%= render CardComponent.new(classes: 'flex flex-col') do |card| %>
-          <% card.header(classes: 'flex flex-col justify-between items-center') do %>
+          <% card.with_header(classes: 'flex flex-col justify-between items-center') do %>
             <%= link_to path_path(path), class: 'p-2 dark:bg-gray-700/50 rounded-full' do %>
               <%= image_tag path.badge_uri, alt: "#{path.title} badge", class: 'w-24 h-24' %>
             <% end %>
@@ -62,7 +62,7 @@
             </div>
           <% end %>
 
-          <% card.body(classes: 'flex-grow') do %>
+          <% card.with_body(classes: 'flex-grow') do %>
             <%= link_to path_path(path), class: 'no-underline' do %>
               <h2 class="text-xl font-medium pb-4 text-gray-800 dark:text-gray-200">
                 <%= path.title %>
@@ -74,7 +74,7 @@
             </p>
           <% end %>
 
-          <% card.footer do %>
+          <% card.with_footer do %>
             <div class="flex space-x-6 items-center justify-center sm:justify-start">
               <%= render Paths::SelectButtonComponent.new(current_user:, path:, classes: 'px-10 lg:px-12') %>
               <%= render Paths::ViewButtonComponent.new(current_user:, path:, classes: 'px-10 lg:px-12') %>

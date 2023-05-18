@@ -17,11 +17,11 @@
 
       <%= form_with model: current_user, url: users_profile_path, builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
         <%= render CardComponent.new do |card| %>
-          <% card.header do %>
+          <% card.with_header do %>
               <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Profile</h3>
               <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Profile information will be displayed on your dashboard.</p>
           <% end %>
-          <% card.body do %>
+          <% card.with_body do %>
             <div class="grid grid-cols-6 gap-6">
 
               <div class="col-span-6 sm:col-span-3">
@@ -48,18 +48,18 @@
               </div>
             </div>
           <% end %>
-          <% card.footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40') do %>
+          <% card.with_footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40') do %>
             <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { test_id: 'save-profile-btn', disable_with: false } %>
           <% end %>
         <% end %>
       <% end %>
 
       <%= render CardComponent.new do |card| %>
-        <% card.header do %>
+        <% card.with_header do %>
           <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Danger Zone</h3>
             <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Careful, these actions can not be undone.</p>
         <% end %>
-        <% card.body do %>
+        <% card.with_body do %>
           <div class="inline-flex flex-col space-y-5">
             <%= link_to users_progress_path(current_user), class: 'button button--clear px-3 py-2 text-sm', data: { confirm: 'Are you sure?', test_id: 'user-reset-progress-link' }, method: :delete do %>
               <%= inline_svg_tag 'icons/refresh.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-red-700 dark:text-red-500', aria: true, title: 'Reset icon' %>
