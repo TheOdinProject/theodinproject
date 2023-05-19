@@ -260,7 +260,7 @@ def foundation_lessons
       title: 'Inspecting HTML and CSS',
       description: 'Use your browser to inspect and debug your HTML and CSS.',
       is_project: false,
-      github_path: '/foundations/html_css/inspecting-html-and-css/inspecting-html-and-css.md',
+      github_path: '/foundations/html_css/css-foundations/inspecting-html-and-css.md',
       identifier_uuid: 'd1741ff8-bf1f-4400-9c5e-8b23241bc50a',
     },
     'The Box Model' => {
