@@ -18,10 +18,10 @@
       <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
         <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { method: :put }, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
           <%= render CardComponent.new do |card| %>
-            <% card.header do %>
+            <% card.with_header do %>
               <h3 class="text-xl leading-6 font-medium text-gray-700 dark:text-gray-200">Change your password</h3>
             <% end %>
-            <% card.body do %>
+            <% card.with_body do %>
               <div class="grid grid-cols-6 gap-6 grid-flow-row">
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :current_password %>
@@ -39,7 +39,7 @@
                 </div>
               </div>
             <% end %>
-            <% card.footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40') do %>
+            <% card.with_footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40') do %>
               <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { disable_with: false } %>
             <% end %>
           <% end %>

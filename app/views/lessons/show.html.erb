@@ -26,7 +26,7 @@
   <div class="page-container">
 
     <%= render CardComponent.new do |card| %>
-      <% card.body do %>
+      <% card.with_body do %>
         <% if user_signed_in? && @lesson.accepts_submission? %>
           <%= react_component(
                 'project-submissions/index',

@@ -4,21 +4,21 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
-        <% card.body(classes: 'text-center') do %>
+        <% card.with_body(classes: 'text-center') do %>
           <p class="font-bold text-2xl"><%= User.count %></p>
           <p class="text-gray-500 dark:text-gray-400">Learners</p>
         <% end %>
       <% end %>
 
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
-        <% card.body(classes: 'text-center') do %>
+        <% card.with_body(classes: 'text-center') do %>
           <p class="font-bold text-2xl">5000+</p>
           <p class="text-gray-500 dark:text-gray-400">Contributors</p>
         <% end %>
       <% end %>
 
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
-        <% card.body(classes: 'text-center') do %>
+        <% card.with_body(classes: 'text-center') do %>
           <p class="font-bold text-2xl">2013</p>
           <p class="text-gray-500 dark:text-gray-400">Founded</p>
         <% end %>
@@ -26,10 +26,10 @@
 
       <div class="col-span-3 lg:col-span-2">
         <%= render CardComponent.new(classes: 'h-full') do |card| %>
-          <% card.header do %>
+          <% card.with_header do %>
             <h3 class="font-bold text-2xl">Origin of The Odin Project</h3>
           <% end %>
-          <% card.body(classes: 'prose prose-gray max-w-none dark:prose-invert text-gray-500 dark:text-gray-300') do %>
+          <% card.with_body(classes: 'prose prose-gray max-w-none dark:prose-invert text-gray-500 dark:text-gray-300') do %>
             <p>The Odin Project provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.</p>
             <p>Erik Trautman founded The Odin Project in 2013. Currently it is maintained and continually improved by a team of volunteers, many of whom learned to code with us. Many find success from Odin Project&apos;s curriculum because of its hands-on approach with learning and emphasis on building projects. The curriculum is meticulously curated to ensure the content is up-to-date.</p>
           <% end %>
@@ -38,11 +38,11 @@
 
       <div class="col-span-3 lg:col-span-1">
         <%= render CardComponent.new do |card| %>
-          <% card.header(classes: 'flex items-center') do %>
+          <% card.with_header(classes: 'flex items-center') do %>
             <a href="https://www.github.com/theodinproject" target="_blank"><i class="fab fa-github fa-2x"></i></a>
             <h3 class="font-bold text-2xl inline-block ml-4">Open Source</h3>
           <% end %>
-          <% card.body(classes: 'prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-300') do %>
+          <% card.with_body(classes: 'prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-300') do %>
             <p>This website and the curriculum it hosts are completely open source. That means anyone can work on new features or fix existing bugs on the website. This also extends to the curriculum itself, anyone can work on new lessons, add new resources and improve existing lessons.</p>
             <p>The Odin project would not be possible without the hard work of contributors from all across the world. If you're interested in helping us make Odin better please find out <a href="<%= contributing_path %>">how to contribute.</a></p>
           <% end %>

@@ -1,5 +1,5 @@
 <%= render CardComponent.new(classes: 'mb-16 relative') do |card| %>
-  <% card.header do %>
+  <% card.with_header do %>
     <% if user_signed_in? && course_completed_by_user?(course, current_user) %>
       <div class="absolute top-0 left-0 bg-teal-700 text-teal-50 w-full text-center py-1 font-semibold rounded-t-md">
         Completed <i class="far fa-check-circle"></i>
@@ -22,7 +22,7 @@
     </div>
   <% end %>
 
-  <% card.body do %>
+  <% card.with_body do %>
      <p class="prose prose-gray dark:prose-invert max-w-none"><%= course.description %></p>
   <% end %>
 <% end %>
