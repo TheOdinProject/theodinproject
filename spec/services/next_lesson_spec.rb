@@ -10,7 +10,7 @@ RSpec.describe NextLesson do
 
   describe '#to_complete' do
     context 'when there are incomplete lessons after the most recently completed lesson' do
-      let(:lesson_completions) { [create(:lesson_completion, lesson: lesson_one)] }
+      let(:lesson_completions) { create_list(:lesson_completion, 1, lesson: lesson_one) }
 
       it 'returns the next incomplete lesson in the course' do
         expect(next_lesson.to_complete).to eq(lesson_two)
@@ -18,7 +18,7 @@ RSpec.describe NextLesson do
     end
 
     context 'when there are no incomplete lessons after the most recently completed lesson' do
-      let(:lesson_completions) { [create(:lesson_completion, lesson: lesson_three)] }
+      let(:lesson_completions) { create_list(:lesson_completion, 1, lesson: lesson_three) }
 
       it 'returns the first incomplete lesson remaining in the course' do
         expect(next_lesson.to_complete).to eq(lesson_one)

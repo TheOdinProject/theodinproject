@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :lesson_completion do
-    association :user, factory: :user
-    association :lesson, factory: :lesson
+    association :user
+    association :lesson
   end
 end
