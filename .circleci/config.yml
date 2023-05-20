@@ -7,7 +7,7 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: cimg/ruby:3.1.4-browsers
+      - image: cimg/ruby:3.2.2-browsers
         environment:
           RAILS_ENV: test
           POSTGRES_USERNAME: postgres
@@ -24,7 +24,7 @@ commands:
   build-app:
     description: Building app
     steps:
-      - run: gem install bundler:2.2.33
+      - run: gem install bundler:2.4.13
       - restore_cache:
           name: Restore bundle cache
           key: theodinproject-bundle-{{ checksum "Gemfile.lock" }}
