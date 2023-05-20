@@ -31,7 +31,6 @@ gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.2'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
-# Use Redis for Action Cable
 gem 'redis', '~> 5.0'
 gem 'ruby-progressbar', '~> 1.13'
 gem 'sass-rails', '~> 6.0'
@@ -66,6 +65,7 @@ group :test do
   gem 'cuprite', '~> 0.14'
   gem 'erb_lint', '~> 0.4', require: false
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'faraday-retry', '~> 2.0'
   gem 'rspec-retry', '~> 0.6'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22', require: false
