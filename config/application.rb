@@ -11,6 +11,15 @@ module Theodinproject
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # ** Please read carefully **
+    # Change the format of the cache entry.
+    # Changing this to Rails 7.0 means that all new cache entries added to the cache
+    # will have a different format that is not supported by Rails 6.1 applications.
+    # Only remove this value after your application is fully deployed to Rails 7.0
+    # and you have no plans to rollback.
+
+    config.active_support.cache_format_version = 6.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
