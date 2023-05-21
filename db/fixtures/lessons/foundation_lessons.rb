@@ -309,7 +309,7 @@ def foundation_lessons
       title: 'Landing Page',
       description: 'Build a complete landing page from a given web design.',
       is_project: true,
-      github_path: '/foundations/html_css/project/html-css-foundations-project.md',
+      github_path: '/foundations/html_css/flexbox/project-landing-page.md',
       accepts_submission: true,
       has_live_preview: true,
       identifier_uuid: '22e0c585-c146-4dab-9dc0-17a20f0ecbc5',
