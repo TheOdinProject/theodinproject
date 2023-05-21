@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   browser-tools: circleci/browser-tools@1.4.1
+  ruby: circleci/ruby@2.0.1
 
 executors:
   rails-executor:
@@ -60,7 +61,7 @@ jobs:
           name: Check install
       - build-app
       - run: yarn test
-      - run: bundle exec rspec
+      - ruby/rspec-test
   linters:
     executor: rails-executor
     steps:
