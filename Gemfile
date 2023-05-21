@@ -66,6 +66,7 @@ group :test do
   gem 'erb_lint', '~> 0.4', require: false
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faraday-retry', '~> 2.0'
+  gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22', require: false
