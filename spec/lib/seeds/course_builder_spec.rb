@@ -11,7 +11,7 @@ RSpec.describe Seeds::CourseBuilder do
     end
   end
 
-  let(:path) { create(:path, id: 100) }
+  let(:path) { create(:path) }
   let(:position) { 1 }
 
   describe '.build' do
