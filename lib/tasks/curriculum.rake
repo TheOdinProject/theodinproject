@@ -14,6 +14,9 @@ namespace :curriculum do
         lesson.import_content_from_github
         progressbar.increment
       end
+
+      # Fetch content from curriculum dynamically
+      DynamicContentImporter.import_all
     end
 
     desc 'Verify that all lessons have content'
