@@ -232,6 +232,7 @@ ActiveAdmin.setup do |config|
 
   config.namespace :admin do |admin|
     admin.build_menu :utility_navigation do |menu|
+      menu.add label: 'Sidekiq', url: '/sidekiq'
       menu.add label: 'Feature Flags', url: '/admin/feature_flags'
       admin.add_logout_button_to_menu menu
     end
