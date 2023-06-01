@@ -230,6 +230,13 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
 
+  config.namespace :admin do |admin|
+    admin.build_menu :utility_navigation do |menu|
+      menu.add label: 'Feature Flags', url: '/admin/feature_flags'
+      admin.add_logout_button_to_menu menu
+    end
+  end
+
   # == Download Links
   #
   # You can disable download links on resource listing pages,

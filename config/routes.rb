@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
+    mount Flipper::UI.app(Flipper) => 'admin/feature_flags', as: :admin_feature_flags
   end
 
   if Rails.env.development?
