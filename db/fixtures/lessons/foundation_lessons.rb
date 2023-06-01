@@ -267,14 +267,14 @@ def foundation_lessons
       title: 'The Box Model',
       description: 'Learn about the box model, a foundational CSS concept.',
       is_project: false,
-      github_path: '/foundations/html_css/the-box-model/the-box-model.md',
+      github_path: '/foundations/html_css/css-foundations/the-box-model.md',
       identifier_uuid: '4a558775-ba50-4ce0-bdb9-e27b3f24699c',
     },
     'Block and Inline' => {
       title: 'Block and Inline',
       description: 'Learn about two common CSS display modes.',
       is_project: false,
-      github_path: '/foundations/html_css/block-and-inline.md',
+      github_path: '/foundations/html_css/css-foundations/block-and-inline.md',
       identifier_uuid: '25874e5c-2485-4e62-aaa5-5d6cf65b6b52',
     },
     'Introduction' => {
