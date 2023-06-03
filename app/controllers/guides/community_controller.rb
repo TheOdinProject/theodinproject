@@ -1,7 +1,9 @@
 module Guides
   class CommunityController < ApplicationController
+    Guide = Data.define(:title, :path)
+
     def show
-      @guides = guides.map { |title, path| OpenStruct.new(title:, path:) } # rubocop:disable Style/OpenStructUse
+      @guides = guides.map { |title, path| Guide.new(title:, path:) }
     end
 
     private
