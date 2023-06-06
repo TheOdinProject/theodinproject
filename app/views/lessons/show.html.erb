@@ -24,20 +24,15 @@
 
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
   <div class="page-container">
-
     <%= render CardComponent.new do |card| %>
       <% card.with_body do %>
         <% if user_signed_in? && @lesson.accepts_submission? %>
-          <%= react_component(
-                'project-submissions/index',
-                {
-                  userId: current_user.id,
-                  course: @lesson.course.as_json,
-                  lesson: @lesson.as_json,
-                  submissions: @project_submissions,
-                  allSubmissionsPath: lesson_project_submissions_path(@lesson.id),
-                  userSubmission: @user_submission
-                }
+          <%= render(
+                'lessons/project_submissions',
+                  lesson: @lesson,
+                  project_submissions: @project_submissions,
+                  user_submission: @user_submission,
+                  limit: 10
               ) %>
         <% elsif @lesson.accepts_submission? %>
           <p class="mb-7">
