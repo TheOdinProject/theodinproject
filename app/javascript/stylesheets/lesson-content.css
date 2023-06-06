@@ -27,6 +27,38 @@
     @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700 rounded;
   }
 
+  .lesson-note > h4::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: large;
+    content: "\f249";
+    @apply mr-2 text-gold dark:text-gold-700;
+  }
+
+  .lesson-note--extra {
+    @apply border-purple-600 dark:border-purple-400;
+  }
+
+  .lesson-note--extra > h4::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: large;
+    content: "\f0eb";
+    @apply mr-2 text-purple-600 dark:text-purple-400;
+  }
+
+  .lesson-note--warning {
+    @apply border-red-600 dark:border-red-400;
+  }
+
+  .lesson-note--warning > h4::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: large;
+    content: "\f06a";
+    @apply mr-2 text-red-600 dark:text-red-400;
+  }
+
   .lesson-note > *:first-child {
     @apply mt-0;
   }
