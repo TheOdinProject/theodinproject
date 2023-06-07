@@ -1,0 +1,26 @@
+<% if Feature.enabled?(:v2_project_submissions, current_user) %>
+  <%= turbo_frame_tag 'submissions-list', src: lesson_v2_project_submissions_path(lesson, limit: 10)  do %>
+    <div class="flex justify-center h-">
+      <%= inline_svg_tag 'icons/spinner.svg', class: 'animate-spin h-12 w-12 text-gray-400 dark:text-gray-300', aria: true, title: 'dismiss', desc: 'dismiss icon' %>
+    </div>
+  <% end %>
+
+  <div>
+    <p class="text-center py-6 px-0">
+      <span> Showing <%= limit %> most liked submissions -
+      <%= link_to 'View full list of solutions', lesson_v2_project_submissions_path(lesson), class: 'text-gold', data: { test_id: 'view-all-projects-link' } %>
+    </p>
+  </div>
+<% else %>
+  <%= react_component(
+        'project-submissions/index',
+        {
+          userId: current_user.id,
+          course: lesson.course.as_json,
+          lesson: lesson.as_json,
+          submissions: project_submissions,
+          allSubmissionsPath: lesson_project_submissions_path(lesson.id),
+          userSubmission: user_submission
+        }
+      ) %>
+<% end %>
