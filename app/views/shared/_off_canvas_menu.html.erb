@@ -1,13 +1,14 @@
 <div
-  data-controller="mobile-menu"
-  data-mobile-menu-target="container"
+  data-controller="visibility"
+  data-visibility-target="content"
+  data-visibility-visible-value="false"
   class="fixed inset-0 flex z-40 hidden lg:hidden off-canvas-menu"
   role="dialog"
   aria-modal="true">
 
   <div
-    data-mobile-menu-target="menuOverlay"
-    data-action="click->mobile-menu#close"
+    data-visibility-target="content"
+    data-action="click->visibility#off"
     class="fixed inset-0 bg-gray-600 bg-opacity-75 dark:bg-black dark:bg-opacity-60 hidden"
     aria-hidden="true"
     data-transition-enter="transition-opacity ease-linear duration-200"
@@ -19,7 +20,7 @@
   </div>
 
     <div
-      data-mobile-menu-target="menu"
+      data-visibility-target="content"
       class="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-none hidden dark:bg-gray-800"
       data-transition-enter="transition ease-in-out duration-200 transform"
       data-transition-enter-start="-translate-x-full"
@@ -29,16 +30,15 @@
       data-transition-leave-end="-translate-x-full">
 
       <div
-        data-mobile-menu-target="closeButton"
+        data-visibility-target="content"
         class="absolute top-2 right-2 -mr-12 pt-3 hidden"
-        data-action="click->mobile-menu#close"
         data-transition-enter="transition ease-in-out duration-200"
         data-transition-enter-start="transform opacity-0"
         data-transition-enter-end="transform opacity-100"
         data-transition-leave="transition ease-in duration-200"
         data-transition-leave-start="transform opacity-100"
         data-transition-leave-end="transform opacity-0">
-        <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+        <button type="button" data-action="click->visibility#off" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
           <span class="sr-only">Close sidebar</span>
           <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
