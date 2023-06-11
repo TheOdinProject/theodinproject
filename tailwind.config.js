@@ -12,6 +12,8 @@ module.exports = {
   ],
   safelist: [
     'lesson-note',
+    'lesson-note--tip',
+    'lesson-note--warning',
     'lesson-content__panel',
     'anchor-link',
     'toc-item-active'
