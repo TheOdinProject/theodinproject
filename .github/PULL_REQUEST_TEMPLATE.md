@@ -25,12 +25,9 @@ Closes #XXXXX
 ## Pull Request Requirements
 <!-- Replace the whitespace between the square brackets with an 'x', e.g. [x]. After you create the PR, they will become checkboxes that you can click on. -->
 -   [ ] I have thoroughly read and understand [The Odin Project Contributing Guide](https://github.com/TheOdinProject/theodinproject/blob/main/CONTRIBUTING.md)
--   [ ] The title of this PR follows the `keyword: brief description of change` format, using one of the following keywords:
-  - `Feature` - adds new or amends existing user-facing behavior
-  - `Chore` - changes that have no user-facing value, refactors, dependency bumps, etc
-  - `Fix` - bug fixes
+-   [ ] The title of this PR follows the `location of change: brief description of change` format, e.g. `Intro to HTML and CSS lesson: Fix link text`
 -   [ ] The `Because` section summarizes the reason for this PR
 -   [ ] The `This PR` section has a bullet point list describing the changes in this PR
--   [ ] I have verified all tests and linters pass after making these changes.
 -   [ ] If this PR addresses an open issue, it is linked in the `Issue` section
--   [ ] If applicable, this PR includes new or updated automated tests
+-   [ ] If any lesson files are included in this PR, they have been previewed with the [Markdown preview tool](https://www.theodinproject.com/lessons/preview) to ensure it is formatted correctly
+-   [ ] If any lesson files are included in this PR, they follow the [Layout Style Guide](https://github.com/TheOdinProject/curriculum/blob/main/LAYOUT_STYLE_GUIDE.md)
