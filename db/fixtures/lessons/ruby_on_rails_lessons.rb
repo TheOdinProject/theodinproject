@@ -1,7 +1,7 @@
 def ruby_on_rails_lessons
   {
-    'How this Course Will Work' => {
-      title: 'How this Course Will Work',
+    'How This Course Will Work' => {
+      title: 'How This Course Will Work',
       description: "Let's get acquainted with what this will look like from here on out.",
       is_project: false,
       github_path: '/ruby_on_rails/introduction/how_this_course_will_work.md',
@@ -183,8 +183,8 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/apis/apis_and_building_your_own.md',
       identifier_uuid: 'd3fcb7b6-ba98-4c81-87cc-7eae3f17c990',
     },
-    'Working With External APIs' => {
-      title: 'Working With External APIs',
+    'Working with External APIs' => {
+      title: 'Working with External APIs',
       description: "Lots of the power of APIs comes from interfacing with third-party applications, which we'll cover in this lesson.",
       is_project: false,
       github_path: '/ruby_on_rails/apis/working_with_external_apis.md',

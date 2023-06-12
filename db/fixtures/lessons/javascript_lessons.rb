@@ -1,21 +1,21 @@
 def javascript_lessons
   {
-    'How this course will work' => {
-      title: 'How this course will work',
+    'How This Course Will Work' => {
+      title: 'How This Course Will Work',
       description: 'How this course will work',
       is_project: false,
       github_path: '/javascript/introduction/how_this_course_will_work.md',
       identifier_uuid: '93d2a049-0f6c-4da8-b346-d477c1e7a000',
     },
-    'A quick review' => {
-      title: 'A quick review',
+    'A Quick Review' => {
+      title: 'A Quick Review',
       description: 'A quick review',
       is_project: false,
       github_path: '/javascript/introduction/a_quick_review.md',
       identifier_uuid: '428d54c7-3324-4ee2-afaf-08e1c373b314',
     },
-    'Organizing your JavaScript Code Introduction' => {
-      title: 'Organizing your JavaScript Code Introduction',
+    'Organizing Your Javascript Code Introduction' => {
+      title: 'Organizing Your Javascript Code Introduction',
       description: 'introduction',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/organizing_your_javascript_code_introduction.md',
@@ -292,15 +292,15 @@ def javascript_lessons
       github_path: '/javascript/finishing_up_with_javascript/conclusion.md',
       identifier_uuid: '4b881c82-4cba-4090-a819-17aac12ccb46',
     },
-    'Using Ruby on Rails For Your Back End' => {
-      title: 'Using Ruby on Rails For Your Back End',
+    'Using Ruby on Rails for Your Back End' => {
+      title: 'Using Ruby on Rails for Your Back End',
       description: "You've got experience working with APIs, now it's time to treat your app like one.",
       is_project: false,
       github_path: '/javascript/javascript_and_the_backend/using_rails_for_your_backend.md',
       identifier_uuid: 'a7c364d4-c890-4b56-be03-f1091d56ded6',
     },
-    'Using BaaS For Your Back End' => {
-      title: 'Using BaaS For Your Back End',
+    'Using BaaS for Your Back End' => {
+      title: 'Using BaaS for Your Back End',
       description: "You've got experience working with APIs, now it's time to treat your app like one.",
       is_project: false,
       github_path: '/javascript/javascript_and_the_backend/using_baas_for_your_backend.md',

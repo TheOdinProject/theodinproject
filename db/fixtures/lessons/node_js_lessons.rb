@@ -1,7 +1,7 @@
 def node_js_lessons
   {
-    'Introduction: What is NodeJS' => {
-      title: 'Introduction: What is NodeJS',
+    'Introduction: What is NodeJS?' => {
+      title: 'Introduction: What is NodeJS?',
       description: 'Lets take a look at what Node is, and what it means to write code for a server.',
       is_project: false,
       github_path: '/nodeJS/introduction_to_nodeJS/introduction_what_is_nodeJS.md',
@@ -129,8 +129,8 @@ def node_js_lessons
       has_live_preview: true,
       identifier_uuid: 'dc36f70d-cc3b-47c5-958f-0c09ca61ca78',
     },
-    'API basics' => {
-      title: 'API basics',
+    'API Basics' => {
+      title: 'API Basics',
       description: 'You already know most of what you need to create robust APIs. This lesson fills in the blanks for you.',
       is_project: false,
       github_path: '/nodeJS/apis/api_basics.md',
@@ -159,8 +159,8 @@ def node_js_lessons
       github_path: '/nodeJS/testing_express/testing_routes_and_controllers.md',
       identifier_uuid: '5942067c-e52e-4bff-98e1-11f5e9c52b33',
     },
-    'Testing database operations' => {
-      title: 'Testing database operations',
+    'Testing Database Operations' => {
+      title: 'Testing Database Operations',
       description: 'we learn how to use mongodb-memory-server to write tests for routes that manipulate a database',
       is_project: false,
       github_path: '/nodeJS/testing_express/testing_database_operations.md',
