@@ -18,7 +18,7 @@ course.add_section do |section|
   section.identifier_uuid = 'e8d47281-55b2-4cc1-9679-a46d99fa2287'
 
   section.add_lessons(
-    ruby_on_rails_lessons.fetch('How this Course Will Work'),
+    ruby_on_rails_lessons.fetch('How This Course Will Work'),
     shared_lessons.fetch('Introduction to the Back End'),
     shared_lessons.fetch('Introduction to Frameworks'),
     ruby_on_rails_lessons.fetch('Installing Rails'),
@@ -117,7 +117,7 @@ course.add_section do |section|
 
   section.add_lessons(
     ruby_on_rails_lessons.fetch('APIs and Building Your Own'),
-    ruby_on_rails_lessons.fetch('Working With External APIs'),
+    ruby_on_rails_lessons.fetch('Working with External APIs'),
     ruby_on_rails_lessons.fetch('Kittens API'),
     ruby_on_rails_lessons.fetch('Flickr API'),
   )

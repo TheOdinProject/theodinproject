@@ -18,7 +18,7 @@ course.add_section do |section|
   section.identifier_uuid = 'a5854f3d-8171-47d1-b53f-e325de67aca4'
 
   section.add_lessons(
-    ruby_lessons.fetch('How this Course Will Work'),
+    ruby_lessons.fetch('How This Course Will Work'),
     ruby_lessons.fetch('Installing Ruby'),
   )
 end
