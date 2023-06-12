@@ -21,7 +21,7 @@ import 'hint.css/hint.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './src/js/axiosWithCsrf';
 import 'controllers';
-import { Turbo } from '@hotwired/turbo-rails';
+import '@hotwired/turbo-rails';
 
 Rails.start();
 
@@ -29,5 +29,7 @@ const componentRequireContext = require.context('./components', true);
 const ReactRailsUJS = require('react_ujs');
 
 ReactRailsUJS.useContext(componentRequireContext);
-
-Turbo.session.drive = false;
+ReactRailsUJS.handleEvent('turbo:load', ReactRailsUJS.handleMount);
+ReactRailsUJS.handleEvent('turbo:before-render', ReactRailsUJS.handleUnmount);
+ReactRailsUJS.handleEvent('turbo:frame-load', ReactRailsUJS.handleMount);
+ReactRailsUJS.handleEvent('turbo:frame-render', ReactRailsUJS.handleUnmount);
