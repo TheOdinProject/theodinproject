@@ -1,15 +1,26 @@
-<div class="pt-6" data-controller="reveal" data-reveal-toggle-classes-value='["-rotate-180", "rotate-0"]'>
+<div class="pt-6" data-controller="visibility">
   <dt class="text-lg">
-    <button type="button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false" data-action="click->reveal#toggle" data-test-id="faq-question">
+    <button
+      data-controller="css-toggle"
+      data-css-toggle-from-class="rotate-0"
+      data-css-toggle-to-class="-rotate-180"
+      type="button"
+      class="text-left w-full flex justify-between items-start text-gray-400"
+      aria-controls="faq-0"
+      aria-expanded="false"
+      data-action="click->visibility#toggle click->css-toggle#toggle"
+      data-test-id="faq-question">
+
       <h3 class="font-semibold text-gray-900 bold m-0 p-1 text-xl dark:text-gray-300">
         <%= item.fetch(:question) %>
       </h3>
+
       <span class="ml-6 h-7 flex items-center">
-        <%= inline_svg_tag 'icons/icon-chevron-down.svg', class: 'rotate-0 h-6 w-6 transform', data: { reveal_target: 'icon' } %>
+        <%= inline_svg_tag 'icons/icon-chevron-down.svg', class: 'rotate-0 h-6 w-6 transform', data: { css_toggle_target: 'element' } %>
       </span>
     </button>
   </dt>
-  <dd class="mt-4 pr-8 hidden max-w-none prose prose-gray-500 prose-a:text-gold-600 dark:prose-invert dark:antialiased" data-reveal-target="content" data-test-id="faq-answer">
+  <dd class="mt-4 pr-8 hidden max-w-none prose prose-gray-500 prose-a:text-gold-600 dark:prose-invert dark:antialiased" data-visibility-target="content" data-test-id="faq-answer">
     <%= item.fetch(:answer).html_safe %>
   </dd>
 </div>
