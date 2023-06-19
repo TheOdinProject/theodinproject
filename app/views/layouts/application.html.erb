@@ -28,6 +28,7 @@
     <%= stylesheet_pack_tag 'application' %>
 
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= render 'shared/analytics' %>
   </head>
 
   <body class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
@@ -38,6 +39,5 @@
     <%= yield %>
 
     <%= render 'shared/footer' %>
-    <%= render 'shared/analytics' %>
   </body>
 </html>
