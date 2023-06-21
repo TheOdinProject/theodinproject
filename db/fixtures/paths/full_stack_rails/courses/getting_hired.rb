@@ -22,7 +22,7 @@ course.add_section do |section|
     getting_hired_lessons.fetch('Strategy'),
     getting_hired_lessons.fetch('It Starts with YOU'),
     getting_hired_lessons.fetch('What Companies Want'),
-    getting_hired_lessons.fetch('What You Can Do To Prepare'),
+    getting_hired_lessons.fetch('What You Can Do to Prepare'),
     getting_hired_lessons.fetch('Building Your Personal Website'),
   )
 end

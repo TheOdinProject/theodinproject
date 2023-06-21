@@ -1,7 +1,7 @@
 def ruby_lessons
   {
-    'How this Course Will Work' => {
-      title: 'How this Course Will Work',
+    'How This Course Will Work' => {
+      title: 'How This Course Will Work',
       description: "It's time to get acquainted with what this will look like from here on out.",
       is_project: false,
       github_path: '/ruby/introduction/how_this_course_will_work.md',

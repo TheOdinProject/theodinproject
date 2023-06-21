@@ -28,8 +28,8 @@ def getting_hired_lessons
       github_path: '/getting_hired/preparing_for_job_search/what_companies_want.md',
       identifier_uuid: 'c93d5c3a-38b2-477c-86bd-62168a14aafe',
     },
-    'What You Can Do To Prepare' => {
-      title: 'What You Can Do To Prepare',
+    'What You Can Do to Prepare' => {
+      title: 'What You Can Do to Prepare',
       description: 'There are many things you can do ahead of time to prepare for your job hunt that will greatly help your odds of getting hired.',
       is_project: false,
       github_path: '/getting_hired/preparing_for_job_search/what_you_can_do_to_prepare.md',

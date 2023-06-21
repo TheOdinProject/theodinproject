@@ -1,7 +1,7 @@
 def foundation_lessons
   {
-    'How this Course Will Work' => {
-      title: 'How this Course Will Work',
+    'How This Course Will Work' => {
+      title: 'How This Course Will Work',
       description: 'Before you dive in, get familiar with the lay of the land up ahead.',
       is_project: false,
       github_path: '/foundations/introduction/how_this_course_will_work.md',
@@ -73,8 +73,8 @@ def foundation_lessons
       github_path: '/foundations/installations/command_line_basics.md',
       identifier_uuid: '3136c43f-e64d-4f92-bcb7-c7ed193c91e9',
     },
-    'Setting Up Git' => {
-      title: 'Setting Up Git',
+    'Setting up Git' => {
+      title: 'Setting up Git',
       description: 'The Source Code Ambulance',
       is_project: false,
       github_path: '/foundations/installations/setting_up_git.md',

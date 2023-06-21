@@ -15,6 +15,10 @@ export default class LessonTocController extends Controller {
     });
   }
 
+  disconnect() {
+    this.tocTarget.innerHTML = '';
+  }
+
   tocItemObserver() {
     return (
       new IntersectionObserver((entries) => {

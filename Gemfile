@@ -31,7 +31,7 @@ gem 'omniauth-google-oauth2', '~> 1.1.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4'
-gem 'puma', '~> 6.2'
+gem 'puma', '~> 6.3'
 gem 'rack-attack', '~> 6.6'
 gem 'react-rails', '~> 2.6'
 gem 'redis', '~> 5.0'
@@ -44,13 +44,13 @@ gem 'sentry-sidekiq', '~> 5.8'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
 gem 'turbo-rails', '~> 1.4'
-gem 'view_component', '~> 3.0'
+gem 'view_component', '~> 3.1'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
-  gem 'lookbook', '~> 2.0.3'
+  gem 'lookbook', '~> 2.0.5'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.50', require: false
+  gem 'rubocop', '~> 1.52', require: false
   gem 'rubocop-performance', '~> 1.18', require: false
   gem 'rubocop-rails', '~> 2.18', require: false
   gem 'rubocop-rspec', '~> 2.20', require: false
@@ -63,12 +63,12 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 3.38'
+  gem 'capybara', '~> 3.39'
   gem 'climate_control', '~> 1.2'
   gem 'cuprite', '~> 0.14'
   gem 'erb_lint', '~> 0.4', require: false
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'faraday-retry', '~> 2.0'
+  gem 'faraday-retry', '~> 2.2'
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
   gem 'shoulda-matchers', '~> 5.3'

@@ -24,10 +24,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <%= stylesheet_link_tag 'application_stylesheet', media: 'all' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application_stylesheet', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= render 'shared/analytics' %>
   </head>
 
   <body class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
@@ -38,6 +39,5 @@
     <%= yield %>
 
     <%= render 'shared/footer' %>
-    <%= render 'shared/analytics' %>
   </body>
 </html>

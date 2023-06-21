@@ -20,7 +20,7 @@ course.add_section do |section|
   section.add_lessons(
     shared_lessons.fetch('Introduction to the Back End'),
     shared_lessons.fetch('Introduction to Frameworks'),
-    node_js_lessons.fetch('Introduction: What is NodeJS'),
+    node_js_lessons.fetch('Introduction: What is NodeJS?'),
     node_js_lessons.fetch('Getting Started'),
     node_js_lessons.fetch('Debugging Node'),
     node_js_lessons.fetch('Basic Informational Site'),
@@ -85,7 +85,7 @@ course.add_section do |section|
   section.identifier_uuid = 'b94b517d-fd55-4fd2-9d54-38f6f709cfe5'
 
   section.add_lessons(
-    node_js_lessons.fetch('API basics'),
+    node_js_lessons.fetch('API Basics'),
     node_js_lessons.fetch('API Security'),
     node_js_lessons.fetch('Blog API'),
   )
@@ -101,7 +101,7 @@ course.add_section do |section|
 
   section.add_lessons(
     node_js_lessons.fetch('Testing Routes and Controllers'),
-    node_js_lessons.fetch('Testing database operations'),
+    node_js_lessons.fetch('Testing Database Operations'),
   )
 end
 

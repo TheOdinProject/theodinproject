@@ -17,8 +17,8 @@ course.add_section do |section|
   section.identifier_uuid = 'a96a48d1-4e38-4f47-a90d-e260569c9ab5'
 
   section.add_lessons(
-    javascript_lessons.fetch('How this course will work'),
-    javascript_lessons.fetch('A quick review'),
+    javascript_lessons.fetch('How This Course Will Work'),
+    javascript_lessons.fetch('A Quick Review'),
   )
 end
 
@@ -26,12 +26,12 @@ end
 # SECTION - Organizing your JavaScript Code
 # +++++++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Organizing your JavaScript Code'
+  section.title = 'Organizing Your Javascript Code'
   section.description = 'This series digs in to the things you need to write larger and larger applications with JavaScript. This is where it gets real!'
   section.identifier_uuid = 'd0be5e66-0acc-4c62-8993-8d50e5af15a0'
 
   section.add_lessons(
-    javascript_lessons.fetch('Organizing your JavaScript Code Introduction'),
+    javascript_lessons.fetch('Organizing Your Javascript Code Introduction'),
     javascript_lessons.fetch('Objects and Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
@@ -127,7 +127,7 @@ course.add_section do |section|
   section.identifier_uuid = '490be3db-7c28-43d8-a530-328a0ba8188b'
 
   section.add_lessons(
-    javascript_lessons.fetch('Using Ruby on Rails For Your Back End'),
+    javascript_lessons.fetch('Using Ruby on Rails for Your Back End'),
     javascript_lessons.fetch("Where's Waldo (A Photo Tagging App)"),
   )
 end
