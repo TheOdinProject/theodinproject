@@ -89,6 +89,9 @@
     "webpack-dev-server": "^4.15.0"
   },
   "jest": {
+    "roots": [
+      "app/javascript"
+    ],
     "clearMocks": true,
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [
