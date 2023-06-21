@@ -15,7 +15,7 @@ class ProjectSubmission < ApplicationRecord
   validates :live_preview_url, url: true, allow_blank: true
   validate :live_preview_allowed
   validates :repo_url, presence: { message: 'Required' }
-  validates :user_id, uniqueness: { scope: :lesson_id }
+  validates :user_id, uniqueness: { scope: :lesson_id, message: 'You have already submitted a project for this lesson' }
 
   scope :only_public, -> { where(is_public: true) }
   scope :not_removed_by_admin, -> { where(discarded_at: nil) }

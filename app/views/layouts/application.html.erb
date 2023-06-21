@@ -36,6 +36,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flash', flash: flash if flash.any? %>
 
+    <%= turbo_frame_tag 'modal' %>
     <%= yield %>
 
     <%= render 'shared/footer' %>

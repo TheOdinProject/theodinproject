@@ -1,0 +1,54 @@
+<%= turbo_frame_tag 'modal' do %>
+  <div
+    class="relative z-10"
+    aria-labelledby="modal-title"
+    role="dialog"
+    data-visibility-visible-value="true"
+    aria-modal="true"
+    data-controller="modal"
+    data-action="turbo:submit-end->modal#submitEnd keydown.esc->modal#close">
+
+    <div
+      class="fixed inset-0 bg-gray-500/75 dark:bg-black/70 transition-opacity"
+      data-modal-target="transitionable"
+      data-transition-enter="ease-out duration-300"
+      data-transition-enter-start="opacity-0"
+      data-transition-enter-end="opacity-100"
+      data-transition-leave="ease-in duration200"
+      data-transition-leave-start="opacity-100"
+      data-transition-leave-end="opacity-0">
+    </div>
+
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+        <div
+          class="relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
+          data-modal-target="transitionable"
+          data-transition-enter="ease-out duration-300"
+          data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"
+          data-transition-leave="ease-in duration-200"
+          data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"
+          data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+
+          <div class="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+            <button type="button" data-action="click->visibility#off click->modal#close" class="rounded-md bg-white dark:bg-gray-800 text-gray-400 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500">
+              <span class="sr-only">Close</span>
+              <%= inline_svg_tag 'icons/x.svg', class: 'h-6 w-6', aria: true, title: 'close', desc: 'close button' %>
+            </button>
+          </div>
+
+          <div class="border-b border-gray-200 dark:border-gray-600 pb-5">
+            <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-300"><%= title %></h3>
+          </div>
+
+          <div class="flex">
+            <%= content %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

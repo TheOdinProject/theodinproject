@@ -4,6 +4,10 @@ module ProjectSubmissions
       @item = item
     end
 
+    def render?
+      item.present?
+    end
+
     private
 
     attr_reader :item

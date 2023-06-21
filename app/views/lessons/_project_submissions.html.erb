@@ -1,6 +1,6 @@
 <% if Feature.enabled?(:v2_project_submissions, current_user) %>
-  <%= turbo_frame_tag 'submissions-list', src: lesson_v2_project_submissions_path(lesson, limit: 10)  do %>
-    <div class="flex justify-center h-">
+  <%= turbo_frame_tag dom_id(@lesson, 'project-submissions'), src: lesson_v2_project_submissions_path(lesson, limit: 10)  do %>
+    <div class="flex justify-center">
       <%= inline_svg_tag 'icons/spinner.svg', class: 'animate-spin h-12 w-12 text-gray-400 dark:text-gray-300', aria: true, title: 'dismiss', desc: 'dismiss icon' %>
     </div>
   <% end %>

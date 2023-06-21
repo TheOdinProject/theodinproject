@@ -16,7 +16,11 @@ RSpec.describe ProjectSubmission do
   it { is_expected.to allow_value('https://www.github.com/fff').for(:live_preview_url) }
   it { is_expected.not_to allow_value('not_a_url').for(:live_preview_url) }
 
-  it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:lesson_id) }
+  it do
+    expect(project_submission).to validate_uniqueness_of(:user_id)
+      .scoped_to(:lesson_id)
+      .with_message('You have already submitted a project for this lesson')
+  end
 
   context 'when live preview is not allowed' do
     subject(:project_submission) do

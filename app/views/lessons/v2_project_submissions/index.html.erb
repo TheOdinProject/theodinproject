@@ -8,7 +8,7 @@
     <% end %>
   </div>
 
-<%= turbo_frame_tag 'submissions-list' do %>
+<%= turbo_frame_tag dom_id(@lesson, 'project-submissions') do %>
   <div class="mb-8 text-left">
 
     <header class="flex flex-col space-y-6 justify-between items-center pb-8 text-center md:space-y-0 md:text-left md:flex-row">
@@ -18,11 +18,15 @@
           <%= @lesson.course.title %> : (<%= @lesson.title %>)
         </h4>
       </div>
+      <% if @current_user_submission.nil? %>
+        <%= link_to 'Add solution', new_lesson_v2_project_submission_path(@lesson), id: 'add-submission-button', class: 'button button--primary', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' } %>
+      <% end %>
     </header>
 
-    <div data-test-id="submissions-list">
+    <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list' } do %>
+      <%= render ProjectSubmissions::ItemComponent.new(item: @current_user_submission) %>
       <%= render ProjectSubmissions::ItemComponent.with_collection(@project_submissions) %>
-    </div>
+    <% end %>
   </div>
 <% end %>
 

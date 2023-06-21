@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "submissions-list" do %>
+  <%= render ProjectSubmissions::ItemComponent.new(item: @project_submission) %>
+<% end %>
+
+<%= turbo_stream.remove "add-submission-button" %>
