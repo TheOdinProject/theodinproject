@@ -1,0 +1,1 @@
+<input name="user[username]" type="hidden" value="0" autocomplete="off" /><input class=" h-4 w-4 border-gray-300 rounded" type="checkbox" value="1" name="user[username]" id="user_username" />

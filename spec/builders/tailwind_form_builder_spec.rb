@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# To update all snapshots run: `UPDATE_SNAPSHOTS=true rspec spec/builders/tailwind_form_builder_spec.rb`
+
 class TestHelper < ActionView::Base
   include Classy::Yaml::Helpers
   include InlineSvg::ActionView::Helpers
@@ -12,35 +14,20 @@ RSpec.describe TailwindFormBuilder do
 
   describe '#text_field' do
     it 'returns a tailwind styled text field' do
-      expected_html = <<~HTML
-        <div class="mt-1 relative rounded-md shadow-sm">
-        <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600" type="text" name="user[username]" id="user_username" />
-        </div>
-        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-      HTML
-
-      expect(builder.text_field(:username)).to eq(expected_html.delete("\n"))
+      expect(builder.text_field(:username)).to match_snapshot('tailwind_form_builder/text_field')
     end
 
     context 'when the options contains classes' do
       it 'append the class to the text field' do
-        expected_html = <<~HTML
-          <div class="mt-1 relative rounded-md shadow-sm">
-          <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 test-class" type="text" name="user[username]" id="user_username" />
-          </div>
-          <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-        HTML
-
-        expect(builder.text_field(:username, { class: 'test-class' })).to eql(expected_html.delete("\n"))
+        expect(builder.text_field(:username, { class: 'test-class' }))
+          .to match_snapshot('tailwind_form_builder/text_field_with_class')
       end
     end
 
     context 'when the field has errors' do
-      before do
-        user.errors.add(:username, 'is invalid')
-      end
-
       it 'returns the error message' do
+        user.errors.add(:username, 'is invalid')
+
         expect(builder.text_field(:username)).to include('is invalid')
       end
     end
@@ -48,22 +35,13 @@ RSpec.describe TailwindFormBuilder do
 
   describe '#email_field' do
     it 'returns a tailwind styled email field' do
-      expected_html = <<~HTML
-        <div class="mt-1 relative rounded-md shadow-sm">
-        <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600" type="email" value="" name="user[email]" id="user_email" />
-        </div>
-        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-      HTML
-
-      expect(builder.email_field(:email)).to eql(expected_html.delete("\n"))
+      expect(builder.email_field(:email)).to match_snapshot('tailwind_form_builder/email_field')
     end
 
     context 'when the field has errors' do
-      before do
-        user.errors.add(:email, 'is invalid')
-      end
-
       it 'includes the error message' do
+        user.errors.add(:email, 'is invalid')
+
         expect(builder.email_field(:email)).to include('is invalid')
       end
     end
@@ -71,22 +49,12 @@ RSpec.describe TailwindFormBuilder do
 
   describe '#password_field' do
     it 'returns a tailwind styled password field' do
-      expected_html = <<~HTML
-        <div class="mt-1 relative rounded-md shadow-sm">
-        <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600" type="password" name="user[password]" id="user_password" />
-        </div>
-        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-      HTML
-
-      expect(builder.password_field(:password)).to eql(expected_html.delete("\n"))
+      expect(builder.password_field(:password)).to match_snapshot('tailwind_form_builder/password_field')
     end
 
     context 'when the field has errors' do
-      before do
-        user.errors.add(:password, 'is invalid')
-      end
-
       it 'includes the error message' do
+        user.errors.add(:password, 'is invalid')
         expect(builder.password_field(:password)).to include('is invalid')
       end
     end
@@ -94,20 +62,13 @@ RSpec.describe TailwindFormBuilder do
 
   describe '#text_area' do
     it 'returns a tailwind styled text area' do
-      expected_html = <<~HTML
-        <div class="mt-1 relative rounded-md shadow-sm"><textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600" name="user[username]" id="user_username">
-        </textarea></div><div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-      HTML
-
-      expect(builder.text_area(:username)).to eql(expected_html.strip)
+      expect(builder.text_area(:username)).to match_snapshot('tailwind_form_builder/text_area')
     end
 
     context 'when the text area has errors' do
-      before do
-        user.errors.add(:username, 'is invalid')
-      end
-
       it 'includes the error message' do
+        user.errors.add(:username, 'is invalid')
+
         expect(builder.text_area(:username)).to include('is invalid')
       end
     end
@@ -115,21 +76,13 @@ RSpec.describe TailwindFormBuilder do
 
   describe '#label' do
     it 'returns a tailwind styled label' do
-      expected_html = <<~HTML
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_username">Some Text</label>
-      HTML
-
-      expect(builder.label(:username, 'Some Text')).to eql(expected_html.strip)
+      expect(builder.label(:username, 'Some Text')).to match_snapshot('tailwind_form_builder/label')
     end
   end
 
   describe '#check_box' do
     it 'returns a tailwind styled check box' do
-      expected_html = <<~HTML
-        <input name="user[username]" type="hidden" value="0" autocomplete="off" /><input class=" h-4 w-4 border-gray-300 rounded" type="checkbox" value="1" name="user[username]" id="user_username" />
-      HTML
-
-      expect(builder.check_box(:username)).to eql(expected_html.strip)
+      expect(builder.check_box(:username)).to match_snapshot('tailwind_form_builder/check_box')
     end
   end
 end
