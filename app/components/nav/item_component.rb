@@ -1,10 +1,10 @@
 class Nav::ItemComponent < ApplicationComponent
-  def initialize(path:, text:, test_id:, icon_path: nil, mobile: false)
+  def initialize(path:, text:, test_id:, icon_path: nil, options: {})
     @path = path
     @text = text
     @test_id = test_id
     @icon_path = icon_path
-    @mobile = mobile
+    @options = options
   end
 
   def active?
@@ -13,5 +13,13 @@ class Nav::ItemComponent < ApplicationComponent
 
   private
 
-  attr_reader :path, :text, :test_id, :icon_path, :mobile
+  attr_reader :path, :text, :test_id, :icon_path, :options
+
+  def http_method
+    options.fetch(:method, :get)
+  end
+
+  def mobile?
+    options.fetch(:mobile, false)
+  end
 end
