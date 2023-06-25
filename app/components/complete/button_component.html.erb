@@ -1,5 +1,5 @@
 
-<div data-turbo="true" id="complete-button" class="flex items-center justify-center">
+<div id="complete-button" class="flex items-center justify-center">
   <% if lesson.completed? %>
     <%= button_to lesson_completion_path(lesson.id), form_class: 'w-full h-full', method: :delete, data: { test_id: 'complete-button' }, class: 'button button--primary h-[54px] sm:h-full w-full md:w-60 hover:bg-teal-700' do %>
       <span class="flex items-center">
