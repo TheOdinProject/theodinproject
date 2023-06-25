@@ -1,4 +1,4 @@
-<%= tag.turbo_frame(id: dom_id(lesson, 'complete-button'), data: { turbo: true, controller: 'complete' }) do %>
+<%= tag.turbo_frame(id: dom_id(lesson, 'complete-button'), data: { controller: 'complete' }) do %>
   <% if lesson.completed? %>
     <%= link_to lesson_completion_path(lesson.id, icon_only: true), data: { turbo_method: :delete, complete: @lesson.completed?, test_id: 'complete-button', action: 'click->complete#updateProgress' } do %>
       <%= inline_svg_tag 'icons/checkmark-circle-solid.svg', class: "h-7 sm:h-8 text-teal-600 #{animation_class}", aria: true, title: 'check', desc: 'checkmark icon' %>
