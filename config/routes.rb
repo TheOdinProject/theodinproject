@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/sign_in' => 'users/sessions#new'
-    get '/sign_out' => 'users/sessions#destroy', method: :delete
+    delete '/sign_out' => 'users/sessions#destroy'
     get '/sign_up' => 'users/registrations#new'
   end
 

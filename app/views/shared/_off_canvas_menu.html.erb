@@ -53,31 +53,31 @@
         <nav aria-label="Sidebar" class="mt-3">
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
-              <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard', icon_path: 'icons/home.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: notifications_path, text: 'Notifications', test_id: 'nav-notifications', icon_path: 'icons/bell.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard', icon_path: 'icons/home.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: notifications_path, text: 'Notifications', test_id: 'nav-notifications', icon_path: 'icons/bell.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
             <% else %>
-              <%= render Nav::ItemComponent.new(path: root_path, text: 'Home', test_id: 'nav-home', icon_path: 'icons/home.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about', icon_path: 'icons/information.svg', mobile: true) %>
-              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: root_path, text: 'Home', test_id: 'nav-home', icon_path: 'icons/home.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about', icon_path: 'icons/information.svg', options: { mobile: true }) %>
+              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
             <% end %>
           </div>
           <hr class="border-t border-gray-200 my-4" aria-hidden="true">
           <div class="px-2 space-y-1">
             <% if user_signed_in? %>
-              <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', options: { mobile: true }) %>
                <%= turbo_frame_tag 'theme_switcher_mobile' do %>
                 <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
               <% end %>
-              <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', options: { method: :delete, mobile: true }) %>
             <% else %>
-              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', options: { mobile: true }) %>
               <%= turbo_frame_tag 'theme_switcher_mobile' do %>
                 <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
               <% end %>
-              <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', mobile: true) %>
+              <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', options: { mobile: true }) %>
             <% end %>
           </div>
         </nav>
