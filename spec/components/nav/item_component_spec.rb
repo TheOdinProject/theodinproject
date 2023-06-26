@@ -8,7 +8,7 @@ RSpec.describe Nav::ItemComponent, type: :component do
         text: 'Home',
         test_id: 'nav-home',
         icon_path: 'icons/home.svg',
-        mobile: true
+        options: { mobile: true }
       )
 
       render_inline(component)
@@ -25,12 +25,28 @@ RSpec.describe Nav::ItemComponent, type: :component do
         text: 'Home',
         test_id: 'nav-home',
         icon_path: nil,
-        mobile: false
       )
 
       render_inline(component)
 
       expect(page).to have_link('Home', href: '/home')
+    end
+  end
+
+  context 'when nav item uses a different http request' do
+    it 'includes the different http request' do
+      component = described_class.new(
+        path: '/sign_out',
+        text: 'Sign out',
+        test_id: 'nav-sign-out',
+        icon_path: nil,
+        options: { method: :delete }
+      )
+
+      render_inline(component)
+
+      expect(page).to have_link('Sign out', href: '/sign_out')
+      expect(page.find_link('Sign out')['data-turbo-method']).to eq('delete')
     end
   end
 end
