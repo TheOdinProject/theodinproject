@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>We're sorry, but something went wrong (500)</title>
+    <title>Server error (500) | The Odin Project</title>
     <style type="text/css">
+      html {
+        height: 100%;
+      }
       body {
-        background-color: #fff;
-        color: rgb(75 85 99);
         text-align: center;
-        font-family: arial, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        margin: 0;
       }
       main {
         display: grid;
         place-items: center;
-        padding: 1.5rem 6rem;
-      }
-      @media (min-width: 640px) {
-        main {
-          padding-top: 8rem;
-          padding-bottom: 8rem;
-        }
-      }
-      @media (min-width: 1024px) {
-        main {
-          padding-left: 2rem;
-          padding-right: 2rem;
-        }
-      }
-      p {
-        font-size: 1rem;
-        font-weight: 600;
-        line-height: 1.5rem;
-        margin-top: 1.5rem;
+        padding: 0rem 3rem;
+        min-height: 100%;
       }
       h1 {
         margin-top: 1rem;
-        font-size: 1.875rem;
+        font-size: 3rem;
+        color: #111827;
         line-height: 2.25rem;
         font-weight: 700;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .description {
+        line-height: 1.75rem;
+        margin-top: 1.5rem;
+        color: rgb(75, 85, 99);
       }
       .highlight {
         color: rgb(169 121 43);
@@ -71,12 +66,12 @@
   </head>
 
   <body>
-    <!-- This file lives in public/422.html -->
+    <!-- This file lives in public/500.html -->
     <main>
       <div>
         <p class="highlight">500</p>
-        <h1>We're sorry, but something went wrong.</h1>
-        <p>Thats all we know.</p>
+        <h1 >Server error</h1>
+        <p class="description">We're sorry, but something went wrong.</p>
         <div class="container">
           <a href="/home" class="button">Go back home</a>
           <a href="https://github.com/TheOdinProject/theodinproject/issues/new/choose" class="highlight">Report an issue on GitHub <span aria-hidden="true">&rarr;</span></a>
