@@ -1,25 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>We're sorry, but something went wrong (500)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
+  <head>
+    <title>Server error (500) | The Odin Project</title>
+    <style type="text/css">
+      html {
+        height: 100%;
+      }
+      body {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        margin: 0;
+      }
+      main {
+        display: grid;
+        place-items: center;
+        padding: 0rem 3rem;
+        min-height: 100%;
+      }
+      h1 {
+        margin-top: 1rem;
+        font-size: 3rem;
+        color: #111827;
+        line-height: 2.25rem;
+        font-weight: 700;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .description {
+        line-height: 1.75rem;
+        margin-top: 1.5rem;
+        color: rgb(75, 85, 99);
+      }
+      .highlight {
+        color: rgb(169 121 43);
+      }
+      .button {
+        border-radius: 0.375rem;
+        background-color: rgb(15 118 110);
+        padding: 0.875rem 0.625rem;
+        color: white;
+        outline-style: solid;
+      }
+      .button:hover {
+        background-color: rgb(17 94 89);
+      }
+      .button:focus-visible {
+        outline-style: solid;
+        outline-width: 2px;
+        outline-offset: 2px;
+        outline-color: rgb(17 94 89);
+      }
+      div.container {
+        margin-top: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1.5rem;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
 
-<body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <h1>We're sorry, but something went wrong.</h1>
-  </div>
-</body>
+  <body>
+    <!-- This file lives in public/500.html -->
+    <main>
+      <div>
+        <p class="highlight">500</p>
+        <h1 >Server error</h1>
+        <p class="description">We're sorry, but something went wrong.</p>
+        <div class="container">
+          <a href="/home" class="button">Go back home</a>
+          <a href="https://github.com/TheOdinProject/theodinproject/issues/new/choose" class="highlight">Report an issue on GitHub <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
