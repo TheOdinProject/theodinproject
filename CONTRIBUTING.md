@@ -48,7 +48,7 @@ The labels that get applied to issues and PRs in our repos have specific meaning
 ### Type Labels
 * **Accessibility**: Involves an accessibility feature or requires accessibility review
 * **Bug**: Involves something that isn't working as intended
-* **Chore**: Involves changes with no user-facing value, to the build process/internal tooling, refactors, etc. 
+* **Chore**: Involves changes with no user-facing value, to the build process/internal tooling, refactors, etc.
 * **Documentation**: Involves an update to the documentation
 * **Duplicate**: This issue/PR already exists
 * **Easy Fix**: Involves a minor fix such as grammar, syntax, etc.
@@ -61,7 +61,7 @@ The labels that get applied to issues and PRs in our repos have specific meaning
 
 ## How to Contribute
 
-**Simple Issues and Changes**: These don't have an overall significant impact on our repos. You can just open an issue or a PR in the appropriate repo rather than needing to bring it up on our Discord server. Simple issues and changes can include:
+**Simple Issues and Changes**: These don't have an overall significant impact on our repos. You can just open an issue or a PR in the appropriate repo. Simple issues and changes can include:
 
 * Typo or grammar fixes - "I noticed that this sentence in this lesson is using incorrect grammar."
 * Simple syntax errors - "This line of code is missing a closing element tag."
@@ -86,7 +86,7 @@ If you're new to contributing to open-source, or if you just want to make a real
 While working on an existing or a new lesson, you must follow our [Layout Style Guide](https://github.com/TheOdinProject/curriculum/blob/main/LAYOUT_STYLE_GUIDE.md) to ensure the layout and formatting is consistent across our curriculum.
 
 Before submitting a PR for an existing or a new lesson, you must use our [Lesson Preview Tool](https://www.theodinproject.com/lessons/preview) to ensure the lesson Markdown is correctly formatted and rendering properly.
-  
+
 <hr>
 
 #### [TOP Website Repo](https://github.com/TheOdinProject/theodinproject)
@@ -149,6 +149,10 @@ If you would like to work on an existing issue in a repo:
    * The title of the issue must follow the format described in the issue template.
    * If you would like to be assigned the issue you are creating, complete the applicable checkbox in the issue template. Note that this does not guarantee that you will be assigned the issue, but rather it lets maintainers know that you are interested.
    * The more information you are able to provide in your issue, the better.
+   * Ensure you create the issue in the right repo; some of the repos are:
+      * The [curriculum](https://github.com/TheOdinProject/curriculum/issues/new/choose) repo, for changes to the actual content of lessons.
+      * The [theodinproject](https://github.com/TheOdinProject/theodinproject/issues/new/choose) repo, for changes to the TOP website.
+      * The exercise repos: [javascript](https://github.com/TheOdinProject/javascript-exercises/issues/new/choose), [css](https://github.com/TheOdinProject/css-exercises/issues/new/choose), and [ruby](https://github.com/TheOdinProject/ruby-exercises/issues/new/choose)
 
 ### Setting Up Your Local Clone
 
@@ -163,7 +167,7 @@ Before you begin working on anything, make sure you follow these steps in order 
     git clone git@github.com:<your username>/<repo name>.git
     # Otherwise for HTTPS:
     git clone https://github.com/<your username>/<repo name>.git
-    
+
     # An example:
     git clone git@github.com:Odinson/css-exercises.git
     ```
@@ -175,7 +179,7 @@ Before you begin working on anything, make sure you follow these steps in order 
     git remote add upstream git@github.com:TheOdinProject/<repo name>.git
     # Otherwise for HTTPS:
     git remote add upstream https://github.com/TheOdinProject/<repo name>.git
-    
+
     # An example:
     git remote add upstream https://github.com/TheOdinProject/css-exercises.git
     ```
@@ -188,7 +192,7 @@ Once you have the repo forked and cloned, and the upstream remote has been set, 
 
     ```bash
     git checkout -b <your branch name>
-    
+
     # Some examples:
     git checkout -b flex_exercise_hints
     git checkout -b knowledge_check_updates
@@ -199,7 +203,7 @@ Once you have the repo forked and cloned, and the upstream remote has been set, 
 
    ```bash
    git commit -m "<your commit message>"
-   
+
    # An example:
    git commit -m "Update solution files"
    ```
@@ -210,7 +214,7 @@ Once you have the repo forked and cloned, and the upstream remote has been set, 
 
     ```bash
     git push origin <your branch name>
-    
+
     # An example:
     git push origin flex_exercises
     ```
@@ -219,9 +223,9 @@ Once you have the repo forked and cloned, and the upstream remote has been set, 
 
 1. After pushing your changes, go to your forked repo on GitHub and click the "Compare & pull request" button. If you have multiples of this button, be sure you click the one for the correct branch.
    * If you don't see this button, you can click the branch dropdown menu and then select the branch you just pushed from your local clone:
-   
+
       ![GitHub branch dropdown menu](https://user-images.githubusercontent.com/70952936/150646139-bc080c64-db57-4776-8db1-6525b7b47be2.jpg)
-   
+
    * Once you have switched to the correct branch on GitHub, click the "Contribute" dropdown and then click the "Open pull request" button.
 
 2. **Read the PR template in its entirety before filling it out and submitting a PR**. Not filling out the template correctly will delay a PR getting merged.
@@ -237,4 +241,4 @@ Once you have the repo forked and cloned, and the upstream remote has been set, 
       ![Reviewers section of GitHub's sidebar](https://user-images.githubusercontent.com/70952936/150647064-4fdd59d1-82a4-4f18-894d-0e43a5ee0ffb.jpg)
 
 ## Further Help
-Please let us know if you require any further help with any of the steps in this guide in our [suggestions-bugs Discord channel](https://discord.com/channels/505093832157691914/1010231881033330819).
+Please let us know if you require any further help with any of the steps in this guide by creating an issue in the relevant repository. If you need help with creating an issue [GitHub has a guide on how to do so](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). For questions not covered by this guide you can also join our [Discord](https://discord.com/invite/fbFCkYabZB).
