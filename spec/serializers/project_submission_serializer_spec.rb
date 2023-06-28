@@ -16,8 +16,8 @@ RSpec.describe ProjectSubmissionSerializer do
   end
 
   let(:current_user) { create(:user) }
-  let(:user) { create(:user, id: 123, username: 'A USERNAME') }
-  let(:lesson) { create(:lesson, id: 12, title: 'A LESSON TITLE', has_live_preview: true) }
+  let(:user) { create(:user, username: 'A USERNAME') }
+  let(:lesson) { create(:lesson, title: 'A LESSON TITLE', has_live_preview: true) }
 
   describe '#as_json' do
     let(:serialized_project_submission) do
@@ -27,8 +27,8 @@ RSpec.describe ProjectSubmissionSerializer do
         live_preview_url: 'https://www.livepreviewurl.com/path',
         is_public: false,
         user_name: 'A USERNAME',
-        user_id: 123,
-        lesson_id: 12,
+        user_id: user.id,
+        lesson_id: lesson.id,
         lesson_title: 'A LESSON TITLE',
         lesson_path: "/lessons/#{lesson.slug}",
         lesson_has_live_preview: true,
