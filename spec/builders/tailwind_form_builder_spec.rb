@@ -17,6 +17,13 @@ RSpec.describe TailwindFormBuilder do
       expect(builder.text_field(:username)).to match_snapshot('tailwind_form_builder/text_field')
     end
 
+    context 'when the text field includes a leading icon' do
+      it 'returns a tailwind styled text field' do
+        expect(builder.text_field(:username, leading_icon: true))
+          .to match_snapshot('tailwind_form_builder/text_field_with_leading_icon')
+      end
+    end
+
     context 'when the options contains classes' do
       it 'append the class to the text field' do
         expect(builder.text_field(:username, { class: 'test-class' }))
