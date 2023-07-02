@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= content_for(:title) || 'Your Career in Web Development Starts Here | The Odin Project' %>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application_stylesheet', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+  </head>
+  <body class="text-center h-screen m-0">
+    <main class="grid place-items-center py-12 min-h-screen">
+      <div>
+        <%= yield%>
+      </div>
+    </main>
+  </body>
+</html>
