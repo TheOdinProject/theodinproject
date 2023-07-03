@@ -21,7 +21,7 @@ RSpec.describe 'Error Pages' do
 
     it 'returns the correct page' do
       get '/422'
-      expect(response.body).to include('The change you wanted was rejected. Maybe you tried to change something you didn\'t have access to')
+      expect(response.body).to include('The change you wanted was rejected. Maybe you tried to change something')
     end
   end
 
