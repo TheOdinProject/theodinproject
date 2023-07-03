@@ -24,7 +24,7 @@
   }
 
   .lesson-note {
-    @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700 rounded;
+    @apply bg-gray-200 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700 rounded;
   }
 
   .lesson-note > h4::before {
