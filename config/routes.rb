@@ -90,7 +90,7 @@ Rails.application.routes.draw do
 
   resources :lessons, only: :show do
     resources :project_submissions, only: %i[index], controller: 'lessons/project_submissions'
-    resources :v2_project_submissions, only: %i[index new create], controller: 'lessons/v2_project_submissions'
+    resources :v2_project_submissions, controller: 'lessons/v2_project_submissions'
     resource :completion, only: %i[create destroy], controller: 'lessons/completions'
   end
 
