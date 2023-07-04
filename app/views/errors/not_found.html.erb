@@ -1,10 +1,12 @@
-<div class="bg-blue-400 dark:bg-gray-900 h-screen">
+<%= title('Page not found (404)') %>
+
+<div class="bg-blue-400 dark:bg-gray-900 h-screen w-screen">
   <div class="grid grid-cols-12">
     <div class="col-span-12 lg:col-span-10 lg:col-start-2">
       <div class="text-center pt-12">
         <h1 class="text-white text-3xl lg:text-4xl font-semibold pb-6 dark:text-gray-200">Looks like you're lost, Odinite!</h1>
-        <p class="text-gray-100 dark:text-gray-400">While you're here, maybe take a second to learn about <%= link_to 'HTTP status codes', 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes', class: 'text-white font-bold underline' %></p>
-        <p class="text-gray-100 dark:text-gray-400">Or just head back to <%= link_to 'theodinproject.com', home_path, class: 'text-gold-800 dark:text-gold-600 font-bold underline' %></p>
+        <p class="text-gray-100 dark:text-gray-400">While you're here, maybe take a second to learn about <%= link_to 'HTTP status codes', 'https://en.wikipedia.org/wiki/List_of_HTTP_status_codes', class: 'text-slate-800 hover:text-slate-700 font-bold underline' %></p>
+        <p class="text-gray-100 dark:text-gray-400">Or just <%= link_to 'head back home', root_path, class: 'text-slate-800 hover:text-slate-700 font-bold underline' %></p>
       </div>
 
       <div class="h-[60vh]">
