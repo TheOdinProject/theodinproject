@@ -1,15 +1,18 @@
 module ProjectSubmissions
   class ItemComponent < ApplicationComponent
-    def initialize(item:)
-      @item = item
+    with_collection_parameter :project_submission
+
+    def initialize(project_submission:, current_user:)
+      @project_submission = project_submission
+      @current_user = current_user
     end
 
     def render?
-      item.present?
+      project_submission.present?
     end
 
     private
 
-    attr_reader :item
+    attr_reader :project_submission, :current_user
   end
 end

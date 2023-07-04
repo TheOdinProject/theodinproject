@@ -24,8 +24,8 @@
     </header>
 
     <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list' } do %>
-      <%= render ProjectSubmissions::ItemComponent.new(item: @current_user_submission) %>
-      <%= render ProjectSubmissions::ItemComponent.with_collection(@project_submissions) %>
+      <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) %>
+      <%= render ProjectSubmissions::ItemComponent.with_collection(@project_submissions, current_user:) %>
     <% end %>
   </div>
 <% end %>
