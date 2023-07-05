@@ -1,9 +1,15 @@
 class MediaCardComponent < ApplicationComponent
   with_collection_parameter :media
   
-  renders_one :image, Media::ImageComponent
-  renders_one :title, Media::TitleComponent
-  renders_one :description, Media::DescriptionComponent
+  renders_one :image, -> do
+   Media::ImageComponent.new(media: @media)
+  end
+  renders_one :title, -> do
+    Media::TitleComponent.new(media: @media)
+  end
+  renders_one :description, -> do 
+    Media::DescriptionComponent.new(media: @media)
+  end
 
   def initialize(media:, classes: '')
     @media = media
