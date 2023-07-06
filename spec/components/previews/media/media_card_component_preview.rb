@@ -1,4 +1,4 @@
-module AboutPage
+module Media
   # @label Media Cards
   class MediaCardComponentPreview < ViewComponent::Preview
     def with_about_page_collection
