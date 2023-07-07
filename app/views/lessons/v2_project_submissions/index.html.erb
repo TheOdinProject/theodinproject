@@ -19,7 +19,9 @@
         </h4>
       </div>
       <% if @current_user_submission.nil? %>
-        <%= link_to 'Add solution', new_lesson_v2_project_submission_path(@lesson), id: 'add-submission-button', class: 'button button--primary', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' } %>
+        <div id="add-submission-button">
+          <%= render 'lessons/v2_project_submissions/add_button', lesson: @lesson %>
+        </div>
       <% end %>
     </header>
 

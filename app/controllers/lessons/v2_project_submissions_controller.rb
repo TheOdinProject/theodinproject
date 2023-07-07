@@ -46,7 +46,9 @@ module Lessons
       @project_submission = current_user.project_submissions.find(params[:id])
       @project_submission.destroy
 
-      render turbo_stream: turbo_stream.remove(@project_submission)
+      respond_to do |format|
+        format.turbo_stream
+      end
     end
 
     private
