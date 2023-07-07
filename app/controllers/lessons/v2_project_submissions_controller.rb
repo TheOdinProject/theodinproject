@@ -33,7 +33,7 @@ module Lessons
       @project_submission = current_user.project_submissions.find(params[:id])
 
       respond_to do |format|
-        if @project_submission.update!(project_submission_params)
+        if @project_submission.update(project_submission_params)
           format.html { redirect_to lesson_path(@lesson), notice: 'Project updated' }
           format.turbo_stream
         else
