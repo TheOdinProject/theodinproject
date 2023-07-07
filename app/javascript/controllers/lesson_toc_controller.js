@@ -16,6 +16,10 @@ export default class LessonTocController extends Controller {
   }
 
   disconnect() {
+    this.lessonContentTarget.querySelectorAll('section[id]').forEach((section) => {
+      this.tocItemObserver().unobserve(section);
+    });
+
     this.tocTarget.innerHTML = '';
   }
 

@@ -2,7 +2,7 @@
   .button {
     min-width: 100px;
     @apply inline-flex items-center px-6 justify-center py-3 border border-transparent
-     rounded-md shadow-sm text-white focus:outline-none
+    rounded-md shadow-sm text-white focus:outline-none
     focus:ring-2 focus:ring-offset-1 hover:text-white focus:text-white no-underline
     cursor-pointer dark:focus:ring-offset-black text-sm
   }
@@ -26,6 +26,12 @@
   .button--gray {
     @apply bg-gray-200 text-gray-700 hover:text-gray-700 hover:bg-gray-300 focus:ring-gray-400
     dark:bg-gray-300 dark:hover:bg-gray-400 focus:text-gray-700 px-4 py-2 dark:hover:text-gray-900
+  }
+
+  .button--white {
+    @apply bg-white rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset
+    ring-gray-300 hover:bg-gray-50 hover:text-gray-900
+    dark:bg-white/10  dark:text-white dark:hover:bg-white/20 dark:ring-transparent;
   }
 
   .button--clear {

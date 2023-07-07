@@ -31,6 +31,11 @@ module Pages
         self
       end
 
+      def v2_make_private
+        choose 'project_submission_is_public_false'
+        self
+      end
+
       def submit
         find(:test_id, 'submit-btn').click
         self

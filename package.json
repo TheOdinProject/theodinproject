@@ -19,7 +19,7 @@
     "@hotwired/stimulus": "^3.2.0",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.3.0",
-    "@rails/ujs": "^7.0.4",
+    "@rails/ujs": "^7.0.5",
     "@sentry/browser": "^7.38.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.3",
@@ -57,7 +57,7 @@
     "react_ujs": "^2.6.2",
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.63.4",
-    "sass-loader": "^13.3.1",
+    "sass-loader": "^13.3.2",
     "shakapacker": "6.6",
     "stickyfilljs": "^2.1.0",
     "stimulus-use": "^0.51.3",
@@ -89,6 +89,9 @@
     "webpack-dev-server": "^4.15.0"
   },
   "jest": {
+    "roots": [
+      "app/javascript"
+    ],
     "clearMocks": true,
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [

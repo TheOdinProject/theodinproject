@@ -44,15 +44,15 @@ gem 'sentry-sidekiq', '~> 5.8'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
 gem 'turbo-rails', '~> 1.4'
-gem 'view_component', '~> 3.1'
+gem 'view_component', '~> 3.2'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.0.5'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.52', require: false
+  gem 'rubocop', '~> 1.53', require: false
   gem 'rubocop-performance', '~> 1.18', require: false
-  gem 'rubocop-rails', '~> 2.18', require: false
+  gem 'rubocop-rails', '~> 2.20', require: false
   gem 'rubocop-rspec', '~> 2.20', require: false
   gem 'web-console', '~> 4.2'
 end
@@ -71,8 +71,9 @@ group :test do
   gem 'faraday-retry', '~> 2.2'
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
+  gem 'rspec-snapshot', '~> 2.0'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22', require: false
-  gem 'vcr', '~> 6.1'
+  gem 'vcr', '~> 6.2'
   gem 'webmock', '~> 3.18'
 end

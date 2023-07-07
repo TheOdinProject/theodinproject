@@ -1,8 +1,14 @@
 class TailwindFormBuilder < ActionView::Helpers::FormBuilder
-  def text_field(attribute, options = {})
-    default_opts = { class: classes_for(attribute, options) }
+  def text_field(attribute, options = {}, &)
+    if options[:leading_icon]
+      default_opts = { class: "#{classes_for(attribute, options)} pl-10" }
 
-    text_layout(attribute) { super(attribute, options.merge(default_opts)) } + attribute_error_message(attribute)
+      text_layout(attribute) { leading_icon(&) + super(attribute, options.merge(default_opts)) }
+    else
+      default_opts = { class: classes_for(attribute, options) }
+
+      text_layout(attribute) { super(attribute, options.merge(default_opts)) }
+    end + attribute_error_message(attribute)
   end
 
   def email_field(attribute, options = {})
@@ -44,7 +50,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def text_layout(attribute)
-    @template.content_tag :div, class: 'mt-1 relative rounded-md shadow-sm' do
+    @template.content_tag :div, class: 'mt-2 relative rounded-md shadow-sm' do
       yield + attribute_error_icon(attribute)
     end
   end
@@ -61,6 +67,10 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
         desc: 'Error icon'
       )
     end
+  end
+
+  def leading_icon(&)
+    @template.content_tag(:div, class: 'pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3', &)
   end
 
   def attribute_error_message(attribute)
