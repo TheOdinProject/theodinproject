@@ -1,8 +1,7 @@
 class Media::ImageComponent < ApplicationComponent
-
   def initialize(media:, classes: '')
-      @media = media
-      @classes = classes
+    @media = media
+    @classes = classes
   end
 
   private
