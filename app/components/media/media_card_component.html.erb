@@ -1,0 +1,7 @@
+<div class="sm:grid sm:grid-cols-12 sm:gap-x-6 pb-14 <%= classes %>">
+  <%= render(Media::ImageComponent.new(media: @media)) %>
+  <div class="sm:col-span-10 text-center sm:text-left space-y-3">
+    <%= render(Media::TitleComponent.new(media: @media)) %>
+    <%= render(Media::DescriptionComponent.new(media: @media)) %>
+  </div>
+</div>
