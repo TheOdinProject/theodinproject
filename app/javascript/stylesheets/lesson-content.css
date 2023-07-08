@@ -79,7 +79,11 @@
   }
 
   .lesson-content a[href^="http"] {
-    @apply hover:no-underline;
+    @apply no-underline hover:underline;
+  }
+
+  .lesson-content h3 > a {
+    color:inherit !important;
   }
 
   .lesson-content section[id] {
