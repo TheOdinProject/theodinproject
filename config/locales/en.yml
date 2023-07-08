@@ -34,7 +34,7 @@ en:
     about:
         beliefs:
         - title: A full roadmap to becoming a developer
-          description: Our free, comprehensive curriculum will take you from zero to full stack developer.
+          description: Our free, comprehensive curriculum will equip you to be a full stack developer, no matter your current experience level.
           image_path: about_page/img-education.svg
           image_alt: book icon
         - title: Learn by doing
@@ -45,7 +45,7 @@ en:
           description: The maintainers of the curriculum run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
           image_path: about_page/img-people.svg
           image_alt: people icon
-        - title: Fully open source
+        - title: Open source and community driven
           description: You can deepen your understanding and improve your GitHub skills by contributing to our open source curriculum and helping others in our Discord community.
           image_path: about_page/img-opensource.svg
           image_alt: open source icon
