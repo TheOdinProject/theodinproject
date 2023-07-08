@@ -34,10 +34,10 @@ en:
     about:
         beliefs:
         - title: A full roadmap to becoming a developer
-      Our free comprehensive curriculum will take you from zero to full stack developer.
+          description: Our free, comprehensive curriculum will take you from zero to full stack developer.
           image_path: about_page/img-education.svg
           image_alt: book icon
-       - title: Learn by doing
+        - title: Learn by doing
           description: The most effective learning happens while building projects, so we have strategically placed them throughout our curriculum. These projects will make a strong portfolio for you to showcase on your resume.
           image_path: about_page/img-build.svg
           image_alt: keyboard icon
