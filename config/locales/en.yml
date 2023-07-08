@@ -33,7 +33,7 @@ en:
   static_pages:
     about:
         beliefs:
-        - title: Our lessons build upon each other
+        - title: A full roadmap to becoming a developer
       Our free comprehensive curriculum will take you from zero to full stack developer.
           image_path: about_page/img-education.svg
           image_alt: book icon
