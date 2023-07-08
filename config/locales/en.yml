@@ -45,7 +45,7 @@ en:
           description: The maintainers of the curriculum run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
           image_path: about_page/img-people.svg
           image_alt: people icon
-        - title: Learn more by giving back
+        - title: Fully open source
           description: You can deepen your understanding and improve your GitHub skills by contributing to our open source curriculum and helping others in our Discord community.
           image_path: about_page/img-opensource.svg
           image_alt: open source icon
