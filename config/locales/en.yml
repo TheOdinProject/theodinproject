@@ -34,7 +34,7 @@ en:
     about:
         beliefs:
         - title: Our lessons build upon each other
-          description: For the best experience, complete all of our lessons and projects in order. Everyone should start with our Foundations path and then complete one of our full-stack paths.
+      Our free comprehensive curriculum will take you from zero to full stack developer.
           image_path: about_page/img-education.svg
           image_alt: book icon
         - title: Our curriculum is project-based
