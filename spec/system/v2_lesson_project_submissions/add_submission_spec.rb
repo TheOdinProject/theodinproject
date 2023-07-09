@@ -35,7 +35,7 @@ RSpec.describe 'Add a Project Submission' do
         form = Pages::ProjectSubmissions::Form.new.open.fill_in
 
         form.v2_make_private
-        click_on 'Save'
+        form.submit
 
         within(:test_id, 'submissions-list') do
           page.driver.refresh
