@@ -79,7 +79,7 @@
   }
 
   .lesson-content a[href^="http"] {
-    @apply no-underline hover:underline;
+    @apply hover:no-underline;
   }
 
   .lesson-content h3 > a {
