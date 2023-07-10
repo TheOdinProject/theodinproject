@@ -192,7 +192,7 @@ en:
             <p>We don't provide a certificate for course completion. Employers will be much more impressed with your amazing personal portfolio of projects, many of which you'll hopefully have built with inspiration from The Odin Project.</p>
         - question: 'Do you have a Code of Conduct?'
           answer: |
-            <p>You can read our code of conduct <a href='https://github.com/TheOdinProject/.github/blob/main/CODE_OF_CONDUCT.md'>here</a></p>
+            <p>You can read our <a href='https://github.com/TheOdinProject/.github/blob/main/CODE_OF_CONDUCT.md'>Code of Conduct on GitHub</a>.</p>
         - question: 'Can I use this curriculum to teach?'
           answer: |
             <p>The Odin Project is licensed under two pieces: the curriculum and the main website.  The main website is a fully open-source project <a href='https://github.com/TheOdinProject/theodinproject/blob/main/license.txt'>under an MIT license</a>, so you can use the code for whatever you want.  The curriculum is currently licensed under a <a href='https://github.com/TheOdinProject/curriculum/blob/main/license.md'>Creative Commons license</a> which restricts it to noncommercial use without prior authorization.</p>
