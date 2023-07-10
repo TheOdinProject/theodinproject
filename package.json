@@ -20,7 +20,7 @@
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/ujs": "^7.0.5",
-    "@sentry/browser": "^7.38.0",
+    "@sentry/browser": "^7.57.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
