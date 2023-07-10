@@ -99,7 +99,7 @@ Rails.application.routes.draw do
   end
 
   resources :project_submissions do
-    resources :flags, only: %i[create], controller: 'project_submissions/flags'
+    resources :flags, only: %i[new create], controller: 'project_submissions/flags'
     resources :likes, controller: 'project_submissions/likes'
   end
 

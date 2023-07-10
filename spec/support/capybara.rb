@@ -1,7 +1,5 @@
-Capybara.default_max_wait_time = 2
-
+Capybara.default_max_wait_time = 5
 Capybara.default_normalize_ws = true
-
 Capybara.save_path = File.expand_path(ENV.fetch('CAPYBARA_ARTIFACTS', './tmp/capybara'))
 
 Capybara.configure do |config|
@@ -28,4 +26,12 @@ Capybara.add_selector(:test_project_submission) do
   xpath do |num|
     ".//div[@data-test-id='submission-item'][#{num}]"
   end
+end
+
+def wait_for_turbo_frame(selector = 'turbo-frame', timeout = nil)
+  if has_selector?("#{selector}[busy]", visible: true, wait: 0.25.seconds)
+    has_no_selector?("#{selector}[busy]", wait: timeout.presence || 5.seconds)
+  end
+
+  yield if block_given?
 end

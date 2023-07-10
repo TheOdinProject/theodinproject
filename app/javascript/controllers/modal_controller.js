@@ -12,7 +12,6 @@ export default class ModalController extends Controller {
 
   close() {
     Promise.all(this.transitionableTargets.map((element) => leave(element))).then(() => {
-      this.element.parentElement.removeAttribute('src');
       this.element.remove();
       this.unlockScroll();
     });
