@@ -101,6 +101,7 @@ Rails.application.routes.draw do
   resources :project_submissions do
     resources :flags, only: %i[new create], controller: 'project_submissions/flags'
     resources :likes, controller: 'project_submissions/likes'
+    resource :v2_like, only: %i[create destroy], controller: 'project_submissions/v2_likes'
   end
 
   resources :paths, only: %i[index show] do
