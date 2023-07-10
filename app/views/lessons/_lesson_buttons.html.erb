@@ -1,5 +1,5 @@
 <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
-  <%= link_to path_course_path(course.path, course), class: 'button button--clear font-medium', data: { test_id: 'view-course-btn' } do %>
+  <%= link_to path_course_path(course.path, course), class: 'button button--clear px-4 font-medium', data: { test_id: 'view-course-btn' } do %>
     <i class="pr-2 text-lg far fa-map"></i>View Course
   <% end %>
 
@@ -15,7 +15,7 @@
   <% end %>
 
   <% if course.next_lesson(lesson).present? %>
-    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--clear font-medium', data: { test_id: 'next-lesson-btn' } do %>
+    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--clear px-4 font-medium', data: { test_id: 'next-lesson-btn' } do %>
       <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Lesson
     <% end %>
   <% elsif lesson.choose_path_lesson? %>
