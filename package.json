@@ -57,7 +57,7 @@
     "react_ujs": "^2.6.2",
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.63.4",
-    "sass-loader": "^13.3.1",
+    "sass-loader": "^13.3.2",
     "shakapacker": "6.6",
     "stickyfilljs": "^2.1.0",
     "stimulus-use": "^0.51.3",
