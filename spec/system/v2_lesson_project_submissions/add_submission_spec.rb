@@ -32,11 +32,9 @@ RSpec.describe 'Add a Project Submission' do
 
     context 'when setting a submission as private' do
       it 'will display the submission for the submission owner but not for other users' do
-        wait_for_turbo_frame("project-submissions_lesson_#{lesson.id}") do
-          form = Pages::ProjectSubmissions::Form.new.open.fill_in
-          form.v2_make_private
-          form.submit
-        end
+        form = Pages::ProjectSubmissions::Form.new.open.fill_in
+        form.v2_make_private
+        form.submit
 
         within(:test_id, 'submissions-list') do
           page.driver.refresh

@@ -1,6 +1,7 @@
 Capybara.default_max_wait_time = 5
 Capybara.default_normalize_ws = true
 Capybara.save_path = File.expand_path(ENV.fetch('CAPYBARA_ARTIFACTS', './tmp/capybara'))
+Capybara.disable_animation = true
 
 Capybara.configure do |config|
   config.test_id = 'data-test'
