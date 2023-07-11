@@ -1,14 +1,9 @@
-<%= turbo_frame_tag project_submission do %>
+<div id="<%= dom_id(project_submission) %>" data-id="<%= project_submission.id %>" data-sort-target="item" data-sort-code="<%= sort_code %>">
   <div data-test-id="submission-item" class="relative py-6 border-solid border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
 
     <div class="flex items-center mb-4 md:mb-0">
-
-      <button class="text-gray-300 mr-4 flex items-center hint--top" data-test-id="like-btn" aria-label="Like submission">
-        <span class="mr-1" data-test-id="number-of-likes"><%= project_submission.votes_for.size %></span>
-        <%= inline_svg_tag 'icons/heart.svg', class: 'h-5 w-5', aria: true, title: 'heart', desc: 'heart icon' %>
-      </button>
-
-      <p class="truncate max-w-xs lg:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
+      <%= render ProjectSubmissions::LikeComponent.new(project_submission) %>
+      <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
     </div>
 
     <div class="flex flex-col md:flex-row md:items-center">
@@ -49,7 +44,6 @@
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
-<% end %>
+</div>

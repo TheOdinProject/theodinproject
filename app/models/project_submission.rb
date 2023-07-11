@@ -22,6 +22,20 @@ class ProjectSubmission < ApplicationRecord
   scope :created_today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
   scope :discardable, -> { not_removed_by_admin.where('discard_at <= ?', Time.zone.now) }
 
+  attribute :liked, :boolean, default: false
+
+  def like!(user = nil)
+    liked_by(user) if user
+
+    self.liked = true
+  end
+
+  def unlike!(user = nil)
+    unliked_by(user) if user
+
+    self.liked = false
+  end
+
   private
 
   def live_preview_allowed
