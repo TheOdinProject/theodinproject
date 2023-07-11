@@ -23,6 +23,12 @@ export default class ModalController extends Controller {
     }
   }
 
+  onKeydown(event) {
+    if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
   lockScroll() {
     document.body.classList.add('overflow-hidden', 'pr-4');
   }
