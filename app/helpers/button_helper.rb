@@ -20,6 +20,6 @@ module ButtonHelper
   end
 
   def chat_button
-    link_to 'Open Discord', ODIN_CHAT_URL, class: 'button button--secondary', target: '_blank', rel: 'noreferrer'
+    link_to 'Open Discord', ODIN_CHAT_URL, class: 'button button--clear px-4', target: '_blank', rel: 'noreferrer'
   end
 end
