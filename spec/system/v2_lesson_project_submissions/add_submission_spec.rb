@@ -41,7 +41,7 @@ RSpec.describe 'Add a Project Submission' do
           expect(page).to have_content(user.username)
         end
 
-        expect(page).not_to have_content('Add submission')
+        expect(page).not_to have_content('Add solution')
 
         using_session('another_user') do
           sign_in(another_user)

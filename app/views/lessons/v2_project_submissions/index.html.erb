@@ -18,11 +18,12 @@
           <%= @lesson.course.title %> : (<%= @lesson.title %>)
         </h4>
       </div>
-      <% if @current_user_submission.nil? %>
-        <div id="add-submission-button">
+
+      <div id="add-submission-button">
+        <% if @current_user_submission.nil? %>
           <%= render 'lessons/v2_project_submissions/add_button', lesson: @lesson %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </header>
 
     <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', controller: 'sort' } do %>

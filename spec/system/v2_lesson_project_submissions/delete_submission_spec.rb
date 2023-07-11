@@ -31,7 +31,7 @@ RSpec.describe 'Deleting a Project Submission' do
       end
     end
 
-    expect(page).to have_content('Add submission')
+    expect(page).to have_content('Add solution')
 
     within(:test_id, 'submissions-list') do
       expect(page).not_to have_content(user.username)
