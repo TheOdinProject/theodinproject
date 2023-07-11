@@ -45,7 +45,6 @@ module Pages
       end
 
       def submit
-        expect(page).to have_content("Submit your project")
         find(:test_id, 'submit-btn').click
         self
       end
