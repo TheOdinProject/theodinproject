@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.0.5'
 
-gem 'activeadmin', '~> 2.13'
+gem 'activeadmin', '~> 2.14'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.14'
