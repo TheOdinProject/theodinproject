@@ -1,5 +1,5 @@
 <% if current_user.present? %>
- <%= button_to path_url(path), method: :get, class: "button button--clear #{classes}" do %>
+ <%= button_to path_url(path), method: :get, class: "button button--secondary #{classes}" do %>
     View
   <% end %>
 <% else %>

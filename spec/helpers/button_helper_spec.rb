@@ -13,14 +13,14 @@ RSpec.describe ButtonHelper do
 
   describe '#sign_in_button' do
     it 'returns a sign-in button' do
-      expect(helper.sign_in_button).to eq('<a class="button button--clear" href="/sign_in">Sign in</a>')
+      expect(helper.sign_in_button).to eq('<a class="button button--secondary" href="/sign_in">Sign in</a>')
     end
   end
 
   describe '#create_new_account_button' do
     it 'returns a create new account button' do
       expect(helper.create_new_account_button).to eq(
-        '<a class="button button--clear" href="/users/sign_up">Create new account</a>'
+        '<a class="button button--secondary" href="/users/sign_up">Create new account</a>'
       )
     end
   end
@@ -42,7 +42,7 @@ RSpec.describe ButtonHelper do
   describe '#chat_button' do
     let(:chat_button) do
       # rubocop:disable Layout/LineLength
-      '<a class="button button--clear px-4" target="_blank" rel="noreferrer" href="https://discord.gg/fbFCkYabZB">Open Discord</a>'
+      '<a class="button button--secondary px-4" target="_blank" rel="noreferrer" href="https://discord.gg/fbFCkYabZB">Open Discord</a>'
       # rubocop:enable Layout/LineLength
     end
 

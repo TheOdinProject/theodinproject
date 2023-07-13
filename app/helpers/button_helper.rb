@@ -4,11 +4,11 @@ module ButtonHelper
   end
 
   def sign_in_button
-    link_to 'Sign in', sign_in_path, class: 'button button--clear'
+    link_to 'Sign in', sign_in_path, class: 'button button--secondary'
   end
 
   def create_new_account_button
-    link_to 'Create new account', new_registration_path(resource_name), class: 'button button--clear'
+    link_to 'Create new account', new_registration_path(resource_name), class: 'button button--secondary'
   end
 
   def curriculum_button
@@ -20,6 +20,6 @@ module ButtonHelper
   end
 
   def chat_button
-    link_to 'Open Discord', ODIN_CHAT_URL, class: 'button button--clear px-4', target: '_blank', rel: 'noreferrer'
+    link_to 'Open Discord', ODIN_CHAT_URL, class: 'button button--secondary px-4', target: '_blank', rel: 'noreferrer'
   end
 end
