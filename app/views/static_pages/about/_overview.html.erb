@@ -39,7 +39,7 @@
       <div class="col-span-3 lg:col-span-1">
         <%= render CardComponent.new do |card| %>
           <% card.with_header(classes: 'flex items-center') do %>
-            <a href="https://www.github.com/theodinproject" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.github.com/theodinproject" target="_blank" aria-label="View The Odin Project on GitHub"><i class="fab fa-github fa-2x"></i></a>
             <h3 class="font-bold text-2xl inline-block ml-4">Open Source</h3>
           <% end %>
           <% card.with_body(classes: 'prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-300') do %>
