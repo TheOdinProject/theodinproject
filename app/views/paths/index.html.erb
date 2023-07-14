@@ -12,7 +12,6 @@
               <%= image_tag @foundations.badge_uri, alt: "#{@foundations.title} badge", class: 'w-24 h-24' %>
             <% end %>
             <div class="flex items-center flex-col sm:block">
-              <h3 class="text-sm text-gold-600">Start here</h3>
               <%= link_to path_path(@foundations), class: 'no-underline' do %>
                 <h2 class="text-3xl font-medium text-gray-800 dark:text-gray-300">Foundations</h2>
               <% end %>
@@ -57,7 +56,7 @@
             <% end %>
 
             <div class="w-full flex justify-between pt-6">
-              <p class=" text-gold-600">PATH</p>
+              <p>PATH</p>
               <p class=" text-gray-500 dark:text-gray-400"><%= path.courses.size %> Courses</p>
             </div>
           <% end %>
