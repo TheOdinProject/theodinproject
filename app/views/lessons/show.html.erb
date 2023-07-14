@@ -7,7 +7,7 @@
 
     <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
       <article class="col-span-full xl:col-span-7 xl:col-start-2">
-        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do %>
+        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }, current_user:) do %>
           <%= @lesson.body.html_safe %>
         <% end %>
       </article>
