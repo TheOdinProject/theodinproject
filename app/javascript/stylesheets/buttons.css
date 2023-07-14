@@ -16,7 +16,9 @@
   }
 
   .button--secondary {
-    @apply bg-gold-600 hover:bg-gold-700 focus:ring-gold-500
+    @apply border-gray-300 text-gray-700 hover:text-gray-700 bg-white hover:bg-gray-50
+    focus:ring-gray-400 focus:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-700
+    dark:border-gray-600 dark:focus:ring-gray-600 dark:bg-transparent
   }
 
   .button--danger {
@@ -32,12 +34,6 @@
     @apply bg-white rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset
     ring-gray-300 hover:bg-gray-50 hover:text-gray-900
     dark:bg-white/10  dark:text-white dark:hover:bg-white/20 dark:ring-transparent;
-  }
-
-  .button--clear {
-    @apply border-gray-300 text-gray-700 hover:text-gray-700 bg-white hover:bg-gray-50
-    focus:ring-gray-400 focus:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-700
-    dark:border-gray-600 dark:focus:ring-gray-600 dark:bg-transparent
   }
 
   .button--dark {

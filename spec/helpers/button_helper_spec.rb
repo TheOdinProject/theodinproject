@@ -28,7 +28,7 @@ RSpec.describe ButtonHelper do
   describe '#chat_button' do
     let(:chat_button) do
       # rubocop:disable Layout/LineLength
-      '<a class="button button--clear px-4" target="_blank" rel="noreferrer" href="https://discord.gg/fbFCkYabZB">Open Discord</a>'
+      '<a class="button button--secondary px-4" target="_blank" rel="noreferrer" href="https://discord.gg/fbFCkYabZB">Open Discord</a>'
       # rubocop:enable Layout/LineLength
     end
 
