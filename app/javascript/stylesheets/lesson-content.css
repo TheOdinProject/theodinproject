@@ -78,7 +78,7 @@
     @apply mt-0;
   }
 
-  .lesson-content a[href^="http"] {
+  .lesson-content a {
     @apply hover:no-underline;
   }
 
