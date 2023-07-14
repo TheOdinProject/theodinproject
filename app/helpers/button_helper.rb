@@ -2,7 +2,7 @@ module ButtonHelper
   def sign_up_button
     link_to 'Sign up', sign_up_path, class: 'button button--primary'
   end
-  
+
   def curriculum_button
     link_to 'View curriculum', paths_path, class: 'button button--primary text-base'
   end
