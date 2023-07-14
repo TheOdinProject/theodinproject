@@ -1,4 +1,5 @@
 ---
+glob: "**/app/**/*.{html,turbo_stream,js}{+*,}.erb"
 exclude:
   - '*vendor/*'
   - '*app/views/svg/*'
