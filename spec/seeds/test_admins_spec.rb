@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Generating Maintainer Users' do
+RSpec.describe 'Generating Test Admins' do
   subject { described_class.as_json(course, between_dates) }
 
   context 'when development environment' do
@@ -8,8 +8,8 @@ RSpec.describe 'Generating Maintainer Users' do
       allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new('development'))
     end
 
-    it 'creates maintainer users' do
-      load './db/seeds/maintainer_users.rb'
+    it 'creates test admins' do
+      load './db/seeds/test_admins.rb'
       expect(User.count).to be > 1
     end
   end
@@ -23,8 +23,8 @@ RSpec.describe 'Generating Maintainer Users' do
       end
     end
 
-    it 'creates maintainer users' do
-      load './db/seeds/maintainer_users.rb'
+    it 'creates test admins' do
+      load './db/seeds/test_admins.rb'
       expect(User.count).to be > 1
     end
   end
@@ -34,8 +34,8 @@ RSpec.describe 'Generating Maintainer Users' do
       allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new('production'))
     end
 
-    it 'does not create any maintainer users' do
-      load './db/seeds/maintainer_users.rb'
+    it 'does not create any test admins' do
+      load './db/seeds/test_admins.rb'
       expect(User.count).to eq(0)
     end
   end
