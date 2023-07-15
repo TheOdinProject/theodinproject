@@ -4,7 +4,7 @@
     <div class="flex justify-between">
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
-          <%= link_to root_path, class: 'logo' do %>
+          <%= link_to root_path, class: 'logo', 'aria-label': 'Return back home' do %>
             <%= image_tag 'icons/odin-icon.svg', alt: 'Odin Logo', class: 'block lg:hidden h-12 w-auto' %>
           <% end %>
 
@@ -15,7 +15,7 @@
       <div class="hidden md:ml-6 md:flex sm:items-center">
         <% if user_signed_in? %>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-             <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard') %>
+            <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard') %>
             <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
             <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
           </div>
@@ -27,7 +27,9 @@
               <% end %>
             <%= inline_svg_tag 'icons/bell.svg', class: 'h-6 w-6', aria: true, title: 'Notifications icon' %>
           <% end %>
-
+          <%= turbo_frame_tag 'theme_switcher', class: 'flex items-center justify-center' do %>
+            <%= render Theme::SwitcherComponent.new(current_theme:, type: :icon_only) %>
+          <% end %>
           <%= render User::ProfileDropdownComponent.new(current_user:) %>
         <% else %>
           <div class="hidden md:ml-6 md:flex sm:space-x-8">
@@ -35,10 +37,10 @@
           <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about') %>
           <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
           <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in') %>
-          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4 text-sm', data: { test_id: 'nav-sign-up' } %>
-          <%= turbo_frame_tag 'theme_switcher', class: 'flex items-center justify-center' do %>
+          <%= turbo_frame_tag 'theme_switcher', class: 'flex items-center justify-center w-6' do %>
             <%= render Theme::SwitcherComponent.new(current_theme:, type: :icon_only) %>
           <% end %>
+          <%= link_to 'Get Started', sign_up_path, class: 'button button--primary md:px-2 md:py-2 lg:px-4 text-sm', data: { test_id: 'nav-sign-up' } %>
         </div>
 
         <% end %>

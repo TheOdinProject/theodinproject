@@ -18,12 +18,15 @@
           <%= @lesson.course.title %> : (<%= @lesson.title %>)
         </h4>
       </div>
-      <% if @current_user_submission.nil? %>
-        <%= link_to 'Add solution', new_lesson_v2_project_submission_path(@lesson), id: 'add-submission-button', class: 'button button--primary', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' } %>
-      <% end %>
+
+      <div id="add-submission-button">
+        <% if @current_user_submission.nil? %>
+          <%= render 'lessons/v2_project_submissions/add_button', lesson: @lesson %>
+        <% end %>
+      </div>
     </header>
 
-    <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list' } do %>
+    <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', controller: 'sort' } do %>
       <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) %>
       <%= render ProjectSubmissions::ItemComponent.with_collection(@project_submissions, current_user:) %>
     <% end %>

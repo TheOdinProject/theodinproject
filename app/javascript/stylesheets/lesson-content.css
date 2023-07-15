@@ -82,6 +82,10 @@
     @apply hover:no-underline;
   }
 
+  .lesson-content h3 > a {
+    color:inherit !important;
+  }
+
   .lesson-content section[id] {
     scroll-margin-top: 40px;
   }

@@ -1,14 +1,9 @@
-<%= turbo_frame_tag project_submission do %>
+<div id="<%= dom_id(project_submission) %>" data-id="<%= project_submission.id %>" data-sort-target="item" data-sort-code="<%= sort_code %>">
   <div data-test-id="submission-item" class="relative py-6 border-solid border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
 
     <div class="flex items-center mb-4 md:mb-0">
-
-      <button class="text-gray-300 mr-4 flex items-center hint--top" data-test-id="like-btn" aria-label="Like submission">
-        <span class="mr-1" data-test-id="number-of-likes"><%= project_submission.votes_for.size %></span>
-        <%= inline_svg_tag 'icons/heart.svg', class: 'h-5 w-5', aria: true, title: 'heart', desc: 'heart icon' %>
-      </button>
-
-      <p class="truncate max-w-xs lg:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
+      <%= render ProjectSubmissions::LikeComponent.new(project_submission) %>
+      <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
     </div>
 
     <div class="flex flex-col md:flex-row md:items-center">
@@ -16,11 +11,9 @@
       <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mt-5 md:mt-0 md:mr-4', data: { test_id: 'live-preview-btn' } %>
 
       <div class="relative flex-none" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
-        <button type="button" data-action="click->visibility#toggle" data-test-id="submission-action-menu-btn" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
+        <button type="button" data-action="click->visibility#toggle" data-test-id="submission-action-menu-btn" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">
           <span class="sr-only">Open options</span>
-          <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
-          </svg>
+          <%= inline_svg_tag 'icons/ellipsis-vertical.svg', aria: true, title: 'open menu', desc: 'open menu icon' %>
         </button>
 
         <div
@@ -31,22 +24,26 @@
           data-transition-leave="transition ease-in duration-75"
           data-transition-leave-start="transform opacity-100 scale-100"
           data-transition-leave-end="transform opacity-10 scale-95"
-          class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
+          class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white dark:bg-gray-700 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-300/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
 
           <% if project_submission.user == current_user %>
-            <%= link_to edit_lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 group flex items-center px-4 py-2 text-sm', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'edit-submission'} do %>
-              <%= inline_svg_tag 'icons/pencil-square.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500', aria: true, title: 'edit', desc: 'edit icon' %>
+            <%= link_to edit_lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'edit-submission', action: 'click->visibility#off'} do %>
+              <%= inline_svg_tag 'icons/pencil-square.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
               Edit
             <% end %>
 
-            <%= link_to lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 group flex items-center px-4 py-2 text-sm', role: 'menuitem', tabindex: '-1', data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone.', test_id: 'delete-submission' } do %>
-              <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500', aria: true, title: 'edit', desc: 'edit icon' %>
+            <%= link_to lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone.', test_id: 'delete-submission' } do %>
+              <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
               Delete
+            <% end %>
+          <% else %>
+            <%= link_to new_project_submission_flag_path(project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'report-submission', action: 'click->visibility#off' } do %>
+              <%= inline_svg_tag 'icons/flag.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
+              Report
             <% end %>
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
-<% end %>
+</div>

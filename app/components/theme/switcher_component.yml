@@ -4,7 +4,7 @@ link:
   mobile: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 text-base font-medium py-2 px-2 dark:hover:bg-gray-700/60 dark:hover:text-gray-200'
   icon_only: 'py-2 px-3'
 icon:
-  base: 'h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400'
+  base: 'h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-300'
   default: 'mr-3'
   mobile: 'mr-4 h-6 w-6'
-  icon_only: 'text-gray-500 group-hover:text-gray-700'
+  icon_only: 'text-gray-400 group-hover:text-gray-700'

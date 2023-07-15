@@ -12,7 +12,7 @@
       <% if current_user&.path != @path %>
         <%= button_to 'Select Path', users_paths_path(path_id: @path.id), class: 'button button--secondary', remote: false, method: :post, data: { disable_with: 'Selecting...', test_id: "#{@path.title.downcase}-select-path-btn" } %>
       <% else %>
-        <span class="button button--clear dark:bg-gray-700 hover:bg-transparent cursor-default">Selected Path</span>
+        <span class="button button--secondary dark:bg-gray-700 hover:bg-transparent cursor-default">Selected Path</span>
       <% end %>
     </section>
 
@@ -21,7 +21,7 @@
     <% unless user_signed_in? %>
       <p class="text-center path-description">
         <%= render 'shared/bottom_cta',
-          button: sign_in_or_view_curriculum_button,
+          button: sign_up_or_view_curriculum_button,
           heading: 'Start learning for free now!',
           sub_heading: '' %>
       </p>

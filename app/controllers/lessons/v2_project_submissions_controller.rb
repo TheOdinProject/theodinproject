@@ -5,7 +5,7 @@ module Lessons
 
     def index
       @current_user_submission = current_user.project_submissions.find_by(lesson: @lesson)
-      @pagy, @project_submissions = pagy(project_submissions_query.public_submissions, items: params.fetch(:limit, 15))
+      @pagy, @project_submissions = pagy_array(project_submissions_query, items: params.fetch(:limit, 15))
     end
 
     def new
@@ -33,7 +33,7 @@ module Lessons
       @project_submission = current_user.project_submissions.find(params[:id])
 
       respond_to do |format|
-        if @project_submission.update!(project_submission_params)
+        if @project_submission.update(project_submission_params)
           format.html { redirect_to lesson_path(@lesson), notice: 'Project updated' }
           format.turbo_stream
         else
@@ -46,7 +46,9 @@ module Lessons
       @project_submission = current_user.project_submissions.find(params[:id])
       @project_submission.destroy
 
-      render turbo_stream: turbo_stream.remove(@project_submission)
+      respond_to do |format|
+        format.turbo_stream
+      end
     end
 
     private
@@ -55,6 +57,11 @@ module Lessons
       @project_submissions_query ||= ::LessonProjectSubmissionsQuery.new(
         lesson: @lesson,
         current_user:
+      )
+
+      ProjectSubmissions::MarkLiked.call(
+        user: current_user,
+        project_submissions: @project_submissions_query.public_submissions
       )
     end
 
