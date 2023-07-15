@@ -134,23 +134,23 @@ end
 # SECTION - React JS
 # ++++++++++++++++++
 course.add_section do |section|
-  section.title = 'React JS'
+  section.title = 'React JS (OLD)'
   section.description = 'In this section you will learn the basics of the most popular frontend framework, React JS.'
   section.identifier_uuid = 'cc1904b4-98d7-41a9-8ef1-a22200be9d63'
 
   section.add_lessons(
-    react_lessons.fetch('React Introduction'),
-    react_lessons.fetch('State and Props'),
-    react_lessons.fetch('Handle Inputs and Render Lists'),
-    react_lessons.fetch('CV Application'),
-    react_lessons.fetch('Lifecycle Methods'),
-    react_lessons.fetch('Hooks'),
-    react_lessons.fetch('Memory Card'),
-    react_lessons.fetch('Router'),
-    react_lessons.fetch('React Testing Part 1'),
-    react_lessons.fetch('React Testing Part 2'),
-    react_lessons.fetch('Shopping Cart'),
-    react_lessons.fetch('Advanced Concepts'),
+    react_lessons.fetch('React Introduction (OLD)'),
+    react_lessons.fetch('State and Props (OLD)'),
+    react_lessons.fetch('Handle Inputs and Render Lists (OLD)'),
+    react_lessons.fetch('CV Application (OLD)'),
+    react_lessons.fetch('Lifecycle Methods (OLD)'),
+    react_lessons.fetch('Hooks (OLD)'),
+    react_lessons.fetch('Memory Card (OLD)'),
+    react_lessons.fetch('Router (OLD)'),
+    react_lessons.fetch('React Testing Part 1 (OLD)'),
+    react_lessons.fetch('React Testing Part 2 (OLD)'),
+    react_lessons.fetch('Shopping Cart (OLD)'),
+    react_lessons.fetch('Advanced Concepts (OLD)'),
   )
 end
 
@@ -158,13 +158,13 @@ end
 # SECTION - JavaScript and the Backend
 # ++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'JavaScript and the Backend'
+  section.title = 'JavaScript and the Backend (OLD)'
   section.description = "A real web app needs a back end in order to persist its data and do sensitive operations. Here you'll learn how to outsource your backend to a Backend-as-a-Service company like Firebase."
   section.identifier_uuid = 'f9b2f981-7f7e-4058-9053-03fe199cc06c'
 
   section.add_lessons(
-    javascript_lessons.fetch('Using BaaS for Your Back End'),
-    javascript_lessons.fetch("Where's Waldo (A Photo Tagging App)"),
+    javascript_lessons.fetch('Using BaaS for Your Back End (OLD)'),
+    javascript_lessons.fetch("Where's Waldo (A Photo Tagging App) (OLD)"),
   )
 end
 
@@ -172,13 +172,13 @@ end
 # SECTION - Finishing Up with JavaScript
 # ++++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Finishing Up with JavaScript'
+  section.title = 'Finishing Up with JavaScript (OLD)'
   section.description = "You've learned everything you need and all that remains to do is apply that knowledge to a worthy task. In this section you will be working on your capstone project so you can show off your range of skills."
   section.identifier_uuid = 'b0761d75-2a9a-4c33-b02a-1d072b75889f'
 
   section.add_lessons(
-    javascript_lessons.fetch('JavaScript Final Project'),
-    javascript_lessons.fetch('Conclusion'),
+    javascript_lessons.fetch('JavaScript Final Project (OLD)'),
+    javascript_lessons.fetch('Conclusion (OLD)'),
   )
 end
 
