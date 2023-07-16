@@ -6,21 +6,7 @@ course = @path.add_course do |course|
   course.description = "With the foundational knowledge you've learned, you're almost ready to take on the rest of the curriculum. All that's left is to get a quick introduction to the backend and then a little help in choosing your future with TOP."
   course.identifier_uuid = '7307ca83-e4cf-4789-b957-d4bdcfe3e200'
   course.show_on_homepage = true
-  course.badge_uri = ''
-end
-
-# +++++++++++++
-# SECTION - The Backend
-# +++++++++++++
-course.add_section do |section|
-  section.title = 'The Backend'
-  section.description = "Here you'll learn about the back end, where we'll demystify what goes on behind the scenes on a web server."
-  section.identifier_uuid = '1bda637d-2590-4e0e-b988-a74605d09a8a'
-
-  section.add_lessons(
-    foundation_lessons.fetch('Introduction to the Back End'),
-    foundation_lessons.fetch('Introduction to Frameworks'),
-  )
+  course.badge_uri = 'badge-foundations.svg'
 end
 
 # +++++++++++++++++++++++

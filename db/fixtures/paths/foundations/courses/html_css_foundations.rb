@@ -38,7 +38,8 @@ course.add_section do |section|
   section.identifier_uuid = 'd2476929-d71b-4b25-969b-8f7da6a40c94'
 
   section.add_lessons(
-    foundation_lessons.fetch('CSS Foundations'),
+    foundation_lessons.fetch('Intro to CSS'),
+    foundation_lessons.fetch('The Cascade'),
     foundation_lessons.fetch('Inspecting HTML and CSS'),
     foundation_lessons.fetch('The Box Model'),
     foundation_lessons.fetch('Block and Inline'),

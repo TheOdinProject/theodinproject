@@ -6,7 +6,7 @@ course = @path.add_course do |course|
   course.description = "Whether you're experienced in programming or totally new to it, this is where everyone should start with The Odin Project. You'll learn about the mindset and conduct one needs to be a successful professional, some required installations for doing this curriculum, and some of the workflow habits you'll use throughout the curriculum and beyond."
   course.identifier_uuid = '6eb953fc-de6f-4b00-ac1f-dfd0b438814e'
   course.show_on_homepage = true
-  course.badge_uri = ''
+  course.badge_uri = 'badge-foundations.svg'
 end
 
 # +++++++++++++
