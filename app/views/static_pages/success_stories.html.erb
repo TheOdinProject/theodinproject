@@ -13,7 +13,7 @@
               <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: 'w-full shadow-inner aspect-auto' %>
             </div>
             <div class="flex flex-col text-center sm:text-left">
-              <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'text-gold' %></p>
+              <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %></p>
               <p class="text-gray-500 dark:text-gray-400"><%= story.job_title %></p>
             </div>
           </div>
