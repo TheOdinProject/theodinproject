@@ -18,7 +18,7 @@ course.add_section do |section|
   section.identifier_uuid = '472bf0bc-2667-4206-84ea-43498b1d67f9'
 
   section.add_lessons(
-    foundation_lessons.fetch('How this Course Will Work'),
+    foundation_lessons.fetch('How This Course Will Work'),
     foundation_lessons.fetch('Introduction to Web Development'),
     foundation_lessons.fetch('Motivation and Mindset'),
     foundation_lessons.fetch('Asking For Help'),
@@ -41,7 +41,7 @@ course.add_section do |section|
     foundation_lessons.fetch('Installations'),
     foundation_lessons.fetch('Text Editors'),
     foundation_lessons.fetch('Command Line Basics'),
-    foundation_lessons.fetch('Setting Up Git'),
+    foundation_lessons.fetch('Setting up Git'),
   )
 end
 
