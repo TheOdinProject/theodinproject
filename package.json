@@ -31,7 +31,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "browserslist": "^4.21.7",
     "compression-webpack-plugin": "10",
-    "core-js": "^3.30.2",
+    "core-js": "^3.31.1",
     "css-loader": "^6.7.3",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "el-transition": "^0.0.7",
