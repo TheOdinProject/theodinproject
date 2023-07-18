@@ -1,14 +1,14 @@
 <% if params[:icon_only] %>
-  <%= turbo_stream.replace dom_id(@lesson, "complete-button") do %>
+  <%= turbo_stream.replace dom_id(@lesson, 'complete-button') do %>
     <% @lesson.completed? %>
-    <%= render Complete::IconComponent.new(lesson: @lesson, current_user: current_user, animate: true) %>
+    <%= render Complete::IconComponent.new(lesson: @lesson, current_user:, animate: true) %>
   <% end %>
 <% else %>
-  <%= turbo_stream.replace "complete-button" do %>
+  <%= turbo_stream.replace 'complete-button' do %>
     <%= render Complete::ButtonComponent.new(lesson: @lesson, animate: true) %>
   <% end %>
 <% end %>
 
-<%= turbo_stream.update dom_id(@lesson.course, "progress") do %>
+<%= turbo_stream.update dom_id(@lesson.course, 'progress') do %>
   <%= render ProgressCircle::Component.new(percentage: @lesson.course.progress_for(current_user).percentage) %>
 <% end %>

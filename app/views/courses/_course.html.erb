@@ -11,10 +11,10 @@
       <div class="flex flex-col items-center space-y-4 md:flex-row md:space-x-4 text-center md:space-y-0">
         <%= render Course::BadgeComponent.new(course:, options: { show_badge: true, background_color: 'bg-white dark:bg-gray-800', size: :small }) %>
         <%= link_to path_course_url(course.path, course), class: 'flex flex-col md:items-start' do %>
-          <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200">
+          <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-900 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <span class=" text-sm text-gray-400"><%= course.lessons.size %> Lessons</span>
+          <span class=" text-sm text-gray-500"><%= course.lessons.size %> Lessons</span>
         <% end %>
       </div>
 
