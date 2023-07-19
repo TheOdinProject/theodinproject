@@ -1,8 +1,8 @@
 <section class="bg-white dark:bg-gray-900">
-  <div class='page-container space-y-10'>
+  <div class='space-y-10 page-container'>
     <div>
-      <h3 class="text-center font-bold text-2xl pb-3">Hall of Fame</h3>
-      <p class="text-center max-w-prose mx-auto text-gray-500 dark:text-gray-400">
+      <h2 class="pb-3 text-2xl font-bold text-center">Hall of Fame</h2>
+      <p class="mx-auto text-center text-gray-500 max-w-prose dark:text-gray-400">
         The Hall of Fame members are the hardworking devs who have built
         The Odin Project into the site that you see before you now.
       </p>
@@ -19,7 +19,7 @@
       <% end %>
     </div>
 
-    <div class="text-center no-underline hover:underline py-6">
+    <div class="py-6 text-center no-underline hover:underline">
       <%= link_to 'View All Contributors',
           github_link('theodinproject/graphs/contributors'),
           class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300',
