@@ -1,5 +1,9 @@
 # rubocop:disable Lint/MissingCopEnableDirective, Metrics/BlockLength
 Rails.application.routes.draw do
+  match '/404' => 'errors#not_found', via: :all
+  match '422' => 'errors#unprocessable_entity', via: :all
+  match '500' => 'errors#internal_server_error', via: :all
+
   draw(:redirects)
   ActiveAdmin.routes(self)
 
@@ -90,13 +94,14 @@ Rails.application.routes.draw do
 
   resources :lessons, only: :show do
     resources :project_submissions, only: %i[index], controller: 'lessons/project_submissions'
-    resources :v2_project_submissions, only: %i[index new create], controller: 'lessons/v2_project_submissions'
+    resources :v2_project_submissions, controller: 'lessons/v2_project_submissions'
     resource :completion, only: %i[create destroy], controller: 'lessons/completions'
   end
 
   resources :project_submissions do
-    resources :flags, only: %i[create], controller: 'project_submissions/flags'
+    resources :flags, only: %i[new create], controller: 'project_submissions/flags'
     resources :likes, controller: 'project_submissions/likes'
+    resource :v2_like, only: %i[create destroy], controller: 'project_submissions/v2_likes'
   end
 
   resources :paths, only: %i[index show] do
@@ -105,6 +110,4 @@ Rails.application.routes.draw do
 
   resources :notifications, only: %i[index update]
   resource :themes, only: :update
-
-  match '/404' => 'errors#not_found', via: %i[get post patch delete]
 end

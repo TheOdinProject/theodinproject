@@ -1,9 +1,7 @@
-<%= turbo_stream.update "theme_switcher" do %>
-  <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: current_user ? :default : :icon_only) %>
+<%= turbo_stream.update 'theme_switcher' do %>
+  <%= render Theme::SwitcherComponent.new(current_theme:, type: :icon_only) %>
 <% end %>
 
-<%= turbo_stream.update "theme_switcher_mobile" do %>
-  <%= render Theme::SwitcherComponent.new(current_theme: current_theme, type: :mobile) %>
+<%= turbo_stream.update 'theme_switcher_mobile' do %>
+  <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
 <% end %>
-
-

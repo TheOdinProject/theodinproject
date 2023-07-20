@@ -20,5 +20,5 @@ load './db/seeds/success_stories.rb'
 # GENERATE test projects
 load './db/seeds/test_project_submissions.rb'
 
-# GENERATE maintainer users for testing
-load './db/seeds/maintainer_users.rb'
+# GENERATE accounts with admin privileges for testing
+load './db/seeds/test_admins.rb'

@@ -105,6 +105,20 @@ course.add_section do |section|
   )
 end
 
+# +++++++++++++++++++++++++
+# SECTION - Full Stack Projects
+# +++++++++++++++++++++++++
+course.add_section do |section|
+  section.title = 'Full Stack Projects'
+  section.description = 'Full Stack Projects'
+  section.identifier_uuid = '4e08c6d2-e0ad-4e3c-812b-ae793cc6bfd8'
+
+  section.add_lessons(
+    react_lessons.fetch('Where\'s Waldo (A Photo Tagging App)'),
+    react_lessons.fetch('Messaging App'),
+  )
+end
+
 # +++++++++++++++++++++++
 # SECTION - FINAL PROJECT
 # +++++++++++++++++++++++

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.0.5'
 
-gem 'activeadmin', '~> 2.13'
+gem 'activeadmin', '~> 2.14'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'acts_as_votable', '~> 0.14'
@@ -40,7 +40,7 @@ gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.4'
 gem 'sentry-ruby', '~> 5.9'
-gem 'sentry-sidekiq', '~> 5.8'
+gem 'sentry-sidekiq', '~> 5.10'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
 gem 'turbo-rails', '~> 1.4'
@@ -74,6 +74,6 @@ group :test do
   gem 'rspec-snapshot', '~> 2.0'
   gem 'shoulda-matchers', '~> 5.3'
   gem 'simplecov', '~> 0.22', require: false
-  gem 'vcr', '~> 6.1'
+  gem 'vcr', '~> 6.2'
   gem 'webmock', '~> 3.18'
 end

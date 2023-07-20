@@ -12,7 +12,6 @@ export default class ModalController extends Controller {
 
   close() {
     Promise.all(this.transitionableTargets.map((element) => leave(element))).then(() => {
-      this.element.parentElement.removeAttribute('src');
       this.element.remove();
       this.unlockScroll();
     });
@@ -20,6 +19,12 @@ export default class ModalController extends Controller {
 
   submitEnd(event) {
     if (event.detail.success) {
+      this.close();
+    }
+  }
+
+  onKeydown(event) {
+    if (event.key === 'Escape') {
       this.close();
     }
   }

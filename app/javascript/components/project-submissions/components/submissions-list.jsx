@@ -68,7 +68,8 @@ const SubmissionsList = ({
               {' '}
             </span>
             <a
-              className="text-gold"
+              className="underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400
+               dark:hover:text-gray-300"
               data-test-id="view-all-projects-link"
               href={allSubmissionsPath}
             >
