@@ -1,5 +1,7 @@
 <%= turbo_stream.prepend 'submissions-list' do %>
-  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:) %>
+  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:) do |component| %>
+    <%= component.with_title(title: current_user.username, url: dashboard_path) %>
+  <% end %>
 <% end %>
 
 <%= turbo_stream.remove 'project-solutions-blank-state' %>

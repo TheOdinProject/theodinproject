@@ -78,6 +78,7 @@ Rails.application.routes.draw do
     resources :paths, only: :create
     resources :progress, only: :destroy
     resource :profile, only: %i[edit update]
+    resources :project_submissions, only: %i[edit update]
   end
 
   namespace :lessons do
