@@ -9,12 +9,14 @@
           <% end %>
         </div>
 
-        <div>
-          <%= form.label :live_preview_url, 'Live preview (optional)' %>
-          <%= form.text_field :live_preview_url, leading_icon: true, placeholder: 'http://example.com', class: 'text-sm', data: { test_id: 'live-preview-url-field' } do %>
-            <%= inline_svg_tag 'icons/link.svg', class: 'h-5 w-5 text-gray-400', aria: true, title: 'Project live preview', desc: 'Link icon' %>
-          <% end %>
-        </div>
+        <% if project_submission.lesson.has_live_preview? %>
+          <div>
+            <%= form.label :live_preview_url, 'Live preview (optional)' %>
+            <%= form.text_field :live_preview_url, leading_icon: true, placeholder: 'http://example.com', class: 'text-sm', data: { test_id: 'live-preview-url-field' } do %>
+              <%= inline_svg_tag 'icons/link.svg', class: 'h-5 w-5 text-gray-400', aria: true, title: 'Project live preview', desc: 'Link icon' %>
+            <% end %>
+          </div>
+        <% end %>
 
         <fieldset class="mt-2">
           <legend class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Privacy</legend>
