@@ -10,34 +10,32 @@ export default class LessonTocController extends Controller {
   connect() {
     this.buildTocItems();
 
+    this.observer = new IntersectionObserver(
+      this.activeSection.bind(this),
+      { rootMargin: '-15% 0px -80% 0px' },
+    );
+
     this.lessonContentTarget.querySelectorAll('section[id]').forEach((section) => {
-      this.tocItemObserver().observe(section);
+      this.observer.observe(section);
     });
   }
 
   disconnect() {
-    this.lessonContentTarget.querySelectorAll('section[id]').forEach((section) => {
-      this.tocItemObserver().unobserve(section);
-    });
-
+    this.observer.disconnect();
     this.tocTarget.innerHTML = '';
   }
 
-  tocItemObserver() {
-    return (
-      new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.getAttribute('id');
-          const tocItem = this.tocTarget.querySelector(`li a[href="#${id}"]`).parentElement;
+  activeSection(entries) {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute('id');
+      const tocItem = this.tocTarget.querySelector(`li a[href="#${id}"]`).parentElement;
 
-          if (entry.intersectionRatio > 0) {
-            tocItem.classList.add('toc-item-active');
-          } else {
-            tocItem.classList.remove('toc-item-active');
-          }
-        });
-      }, { rootMargin: '-15% 0px -80% 0px' })
-    );
+      if (entry.intersectionRatio > 0) {
+        tocItem.classList.add('toc-item-active');
+      } else {
+        tocItem.classList.remove('toc-item-active');
+      }
+    });
   }
 
   buildTocItems() {
