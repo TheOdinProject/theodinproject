@@ -8,7 +8,10 @@
 
     <div class="flex flex-row md:items-center">
       <%= link_to 'View code', project_submission.repo_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'view-code-btn' } %>
-      <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } %>
+
+      <% if project_submission.lesson.has_live_preview? %>
+        <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } %>
+      <% end %>
 
       <div class="flex-none absolute top-7 right-0 md:relative md:top-auto md:right-auto" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
         <button type="button" data-action="click->visibility#toggle" data-test-id="submission-action-menu-btn" class="-m-2.5 block p-2.5 text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100" id="options-menu-0-button" aria-expanded="false" aria-haspopup="true">

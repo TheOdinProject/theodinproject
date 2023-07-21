@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Add a Project Submission' do
-  let(:lesson) { create(:lesson, :project) }
-
   before do
     Flipper.enable(:v2_project_submissions)
   end
@@ -12,6 +10,7 @@ RSpec.describe 'Add a Project Submission' do
   end
 
   context 'when a user is signed in' do
+    let(:lesson) { create(:lesson, :project) }
     let(:user) { create(:user) }
     let(:another_user) { create(:user) }
 
@@ -55,8 +54,33 @@ RSpec.describe 'Add a Project Submission' do
     end
   end
 
+  context 'when lesson does not allow previews' do
+    let(:lesson) { create(:lesson, :project, has_live_preview: false) }
+    let(:user) { create(:user) }
+
+    before do
+      sign_in(user)
+      visit lesson_path(lesson)
+    end
+
+    it 'adds the submission without a preview' do
+      Pages::ProjectSubmissions::Form
+        .new(has_live_preview: false)
+        .open
+        .fill_in
+        .submit
+
+      within(:test_id, 'submissions-list') do
+        expect(page).to have_content(user.username)
+        expect(page).to have_link('View code')
+        expect(page).not_to have_link('Live preview')
+      end
+    end
+  end
+
   context 'when a user is not signed in' do
     it 'they cannot add a project submission' do
+      lesson = create(:lesson, :project)
       visit lesson_path(lesson)
 
       expect(page).not_to have_button('Add Solution')
