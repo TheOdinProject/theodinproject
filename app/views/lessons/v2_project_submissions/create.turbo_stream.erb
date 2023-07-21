@@ -2,4 +2,5 @@
   <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:) %>
 <% end %>
 
+<%= turbo_stream.remove 'project-solutions-blank-state' %>
 <%= turbo_stream.update 'add-submission-button', '' %>
