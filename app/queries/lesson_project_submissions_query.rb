@@ -14,6 +14,7 @@ class LessonProjectSubmissionsQuery
   def public_submissions
     lesson.project_submissions
           .only_public
+          .includes(:user)
           .not_removed_by_admin
           .where.not(user: current_user)
           .order(cached_votes_total: :desc, created_at: :desc)

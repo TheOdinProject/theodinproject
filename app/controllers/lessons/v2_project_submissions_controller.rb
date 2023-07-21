@@ -21,6 +21,8 @@ module Lessons
 
       respond_to do |format|
         if @project_submission.save
+          @project_submission.like!(current_user)
+
           format.html { redirect_to lesson_path(@lesson), notice: 'Project submitted' }
           format.turbo_stream
         else

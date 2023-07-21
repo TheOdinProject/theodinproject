@@ -1,9 +1,9 @@
 <div id="<%= dom_id(project_submission) %>" data-id="<%= project_submission.id %>" data-sort-target="item" data-sort-code="<%= sort_code %>">
   <div data-test-id="submission-item" class="relative py-6 border-solid border-t border-gray-300 flex flex-col md:flex-row justify-between md:items-center">
 
-    <div class="flex items-center mb-6 md:mb-0">
-      <%= render ProjectSubmissions::LikeComponent.new(project_submission) %>
-      <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
+    <div class="flex items-center mb-4 md:mb-0">
+      <%= render ProjectSubmissions::LikeComponent.new(project_submission:, current_users_submission: current_users_submission?) %>
+      <%= title %>
     </div>
 
     <div class="flex flex-row md:items-center">
@@ -30,7 +30,7 @@
           class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white dark:bg-gray-700 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-300/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
 
           <% if project_submission.user == current_user %>
-            <%= link_to edit_lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'edit-submission', action: 'click->visibility#off'} do %>
+            <%= link_to edit_path, class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'edit-submission', action: 'click->visibility#off'} do %>
               <%= inline_svg_tag 'icons/pencil-square.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
               Edit
             <% end %>

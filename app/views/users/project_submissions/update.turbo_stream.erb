@@ -1,0 +1,5 @@
+<%= turbo_stream.replace @project_submission do %>
+  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:, edit_path: edit_users_project_submission_path(@project_submission)) do |component| %>
+    <%= component.with_title(title: @project_submission.lesson.display_title, url: lesson_path(@project_submission.lesson)) %>
+  <% end %>
+<% end %>

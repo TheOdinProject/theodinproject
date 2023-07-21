@@ -24,7 +24,7 @@
       <%= render partial: 'skill', collection: @courses, as: :course %>
     </div>
 
-    <%= render 'project_submissions', project_submissions: current_user.project_submissions %>
+    <%= render 'project_submissions', project_submissions: @project_submissions %>
   </div>
 
   <%= render 'shared/bottom_cta',

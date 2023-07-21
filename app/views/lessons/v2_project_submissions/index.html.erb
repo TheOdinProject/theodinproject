@@ -29,8 +29,15 @@
 
       <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', controller: 'sort' } do %>
         <% if @lesson.project_submissions.any? %>
-          <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) %>
-          <%= render ProjectSubmissions::ItemComponent.with_collection(@project_submissions, current_user:) %>
+          <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) do |component| %>
+            <%= component.with_title(title: current_user.username, url: dashboard_path) %>
+          <% end %>
+
+          <% @project_submissions.each do |project_submission| %>
+            <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:) do |component| %>
+              <%= component.with_title(title: project_submission.user.username) %>
+            <% end %>
+          <% end %>
         <% else %>
           <% render 'lessons/v2_project_submissions/blank_state' %>
         <% end %>
