@@ -2,7 +2,7 @@
 # Course - React
 ########################
 course = @path.add_course do |course|
-  course.title = 'React (NEW)'
+  course.title = 'React'
   course.description = 'Let\'s learn React, the most popular JavaScript library for building user interfaces. Take your frontend skills to a whole new level!'
   course.identifier_uuid = 'f1dffa59-de01-4706-ba26-1e480067d19d'
   course.show_on_homepage = true

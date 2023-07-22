@@ -3,7 +3,7 @@
 ########################
 course = @path.add_course do |course|
   course.title = 'JavaScript'
-  course.description = "Make your websites dynamic and interactive with JavaScript! You'll create features and stand-alone applications. This module includes projects where you will learn how to manipulate the DOM, use object-oriented programming principles, and build single page applications with React."
+  course.description = "Make your websites dynamic and interactive with JavaScript! You'll create features and stand-alone applications. This module includes projects where you will learn how to manipulate the DOM, use object-oriented programming principles, and fetch real-world data using APIs."
   course.identifier_uuid = 'be963a26-8c2a-4af9-ac19-d68b526b5bc5'
   course.badge_uri = 'badge-javascript.svg'
 end
@@ -94,55 +94,16 @@ course.add_section do |section|
   )
 end
 
-# ++++++++++++++++++
-# SECTION - React JS
-# ++++++++++++++++++
-course.add_section do |section|
-  section.title = 'React JS (OLD)'
-  section.description = 'In this section you will learn the basics of the most popular frontend framework, React JS.'
-  section.identifier_uuid = 'bf4a29d2-6420-40bd-8e45-8f7e704a4d39'
-
-  section.add_lessons(
-    react_lessons.fetch('React Introduction (OLD)'),
-    react_lessons.fetch('State and Props (OLD)'),
-    react_lessons.fetch('Handle Inputs and Render Lists (OLD)'),
-    react_lessons.fetch('CV Application (OLD)'),
-    react_lessons.fetch('Lifecycle Methods (OLD)'),
-    react_lessons.fetch('Hooks (OLD)'),
-    react_lessons.fetch('Memory Card (OLD)'),
-    react_lessons.fetch('Router (OLD)'),
-    react_lessons.fetch('React Testing Part 1 (OLD)'),
-    react_lessons.fetch('React Testing Part 2 (OLD)'),
-    react_lessons.fetch('Shopping Cart (OLD)'),
-    react_lessons.fetch('Advanced Concepts (OLD)'),
-  )
-end
-
-# ++++++++++++++++++++++++++++++++++++
-# SECTION - JavaScript and the Backend
-# ++++++++++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'JavaScript and the Backend (OLD)'
-  section.description = "A real web app needs a back end in order to persist its data and do sensitive operations. Here you'll learn how to use ajax to send data requests to your Rails back end."
-  section.identifier_uuid = '490be3db-7c28-43d8-a530-328a0ba8188b'
-
-  section.add_lessons(
-    javascript_lessons.fetch('Using Ruby on Rails for Your Back End (OLD)'),
-    javascript_lessons.fetch("Where's Waldo (A Photo Tagging App) (OLD)"),
-  )
-end
-
 # ++++++++++++++++++++++++++++++++++++++
 # SECTION - Finishing Up with JavaScript
 # ++++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Finishing Up with JavaScript (OLD)'
-  section.description = "You've learned everything you need and all that remains to do is apply that knowledge to a worthy task. In this section you will be working on your capstone project so you can show off your range of skills."
+  section.title = 'Finishing Up with JavaScript'
+  section.description = "You've learned everything you need and all that remains to do is apply that knowledge to a worthy task."
   section.identifier_uuid = 'd3a05406-615d-4645-85f2-0cba667f2749'
 
   section.add_lessons(
-    javascript_lessons.fetch('JavaScript Final Project (OLD)'),
-    javascript_lessons.fetch('Conclusion (OLD)'),
+    javascript_lessons.fetch('Conclusion'),
   )
 end
 

@@ -276,35 +276,12 @@ def javascript_lessons
       has_live_preview: false,
       identifier_uuid: '386dd44a-31dc-45dc-a535-cd5508365c86',
     },
-    'JavaScript Final Project (OLD)' => {
-      title: 'JavaScript Final Project (OLD)',
-      description: "Tie everything you've learned from every course so far into one project where you'll build your favorite website from scratch.",
-      is_project: true,
-      github_path: '/javascript/finishing_up_with_javascript/project_javascript_final.md',
-      accepts_submission: false,
-      has_live_preview: false,
-      identifier_uuid: '8edf8c0e-9197-4660-82c1-e035cdd4b30b',
-    },
-    'Conclusion (OLD)' => {
-      title: 'Conclusion (OLD)',
+    'Conclusion' => {
+      title: 'Conclusion',
       description: 'Well, that was easy, right?',
       is_project: false,
       github_path: '/javascript/finishing_up_with_javascript/conclusion.md',
       identifier_uuid: '4b881c82-4cba-4090-a819-17aac12ccb46',
-    },
-    'Using Ruby on Rails for Your Back End (OLD)' => {
-      title: 'Using Ruby on Rails for Your Back End (OLD)',
-      description: "You've got experience working with APIs, now it's time to treat your app like one.",
-      is_project: false,
-      github_path: '/javascript/javascript_and_the_backend/using_rails_for_your_backend.md',
-      identifier_uuid: 'a7c364d4-c890-4b56-be03-f1091d56ded6',
-    },
-    'Using BaaS for Your Back End (OLD)' => {
-      title: 'Using BaaS for Your Back End (OLD)',
-      description: "You've got experience working with APIs, now it's time to treat your app like one.",
-      is_project: false,
-      github_path: '/javascript/javascript_and_the_backend/using_baas_for_your_backend.md',
-      identifier_uuid: '754d54ae-c5b8-423a-8d1e-a9e0f192afcc',
     },
   }
 end
