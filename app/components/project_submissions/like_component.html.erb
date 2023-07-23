@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(project_submission, :likes) do %>
-  <%= button_to project_submission_v2_like_path(project_submission), method: http_action, disabled: current_users_submission, class: "text-gray-400 mr-4 flex items-center #{'hint--top' unless current_users_submission}", data: { test_id: 'like-submission' }, aria: { label: 'Like submission' } do %>
+  <%= button_to project_submission_v2_like_path(project_submission), method: http_action, disabled: current_users_submission, class: "text-gray-500 dark:text-gray-300 mr-4 flex items-center #{'hint--top' unless current_users_submission}", data: { test_id: 'like-submission' }, aria: { label: 'Like submission' } do %>
     <span class="mr-1" data-test-id="like-count"><%= project_submission.cached_votes_total %></span>
     <%= inline_svg_tag 'icons/heart.svg', class: "h-5 w-5 #{bg_color_class}", aria: true, title: 'heart', desc: 'heart icon' %>
   <% end %>

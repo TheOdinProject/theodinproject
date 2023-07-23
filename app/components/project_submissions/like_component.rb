@@ -16,7 +16,7 @@ module ProjectSubmissions
     def bg_color_class
       return 'text-teal-700' if current_users_submission || project_submission.liked?
 
-      'text-gray-400'
+      ''
     end
   end
 end
