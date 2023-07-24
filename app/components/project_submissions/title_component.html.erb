@@ -1,5 +1,5 @@
 <% if url.present? %>
-  <%= link_to title, url, class: 'truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words hover:text-gray-800', data: { turbo_frame: '_top' } %>
+  <%= link_to title, url, class: 'truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words hover:text-gray-800 dark:hover:text-gray-200', data: { turbo_frame: '_top' } %>
 <% else %>
   <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= title %></p>
 <% end %>
