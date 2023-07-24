@@ -3,16 +3,13 @@ on:
   pull_request:
     types: [labeled]
 
-permissions:
-  contents: read
-
 jobs:
   create-review-app:
     if: ${{ github.event.label.name == 'create-review-app' }}
     runs-on: ubuntu-latest
 
     steps:
-      - uses: fastruby/manage-heroku-review-app@v1.2
+      - uses: KevinMulhern/manage-heroku-review-app@v2
         with:
           action: create
         env:
@@ -31,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: fastruby/manage-heroku-review-app@v1.2
+      - uses: KevinMulhern/manage-heroku-review-app@v2
         with:
           action: destroy
         env:
