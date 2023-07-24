@@ -58,7 +58,7 @@
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.63.4",
     "sass-loader": "^13.3.2",
-    "shakapacker": "6.6",
+    "shakapacker": "7.0",
     "sortablejs": "^1.15.0",
     "stickyfilljs": "^2.1.0",
     "stimulus-use": "^0.51.3",
