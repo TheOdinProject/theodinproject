@@ -41,7 +41,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
     return unless Rails.env.production?
 
     DiscordNotifier.notify(
-      Notifications::FlagSubmission.new(flag)
+      Notifications::FlagSubmission.new(@flag)
     )
   end
 end
