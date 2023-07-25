@@ -28,11 +28,6 @@ module Pages
       end
 
       def make_private
-        find(:test_id, 'is-public-toggle-slider').click
-        self
-      end
-
-      def v2_make_private
         choose 'project_submission_is_public_false'
         self
       end

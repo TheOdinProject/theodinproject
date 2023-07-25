@@ -1,11 +1,11 @@
 <%= turbo_stream.remove @project_submission %>
 
 <%= turbo_stream.update 'add-submission-button' do %>
-  <%= render 'lessons/v2_project_submissions/add_button', lesson: @lesson %>
+  <%= render 'lessons/project_submissions/add_button', lesson: @lesson %>
 <% end %>
 
 <% if @lesson.project_submissions.none? %>
   <%= turbo_stream.append 'submissions-list' do %>
-    <%= render 'lessons/v2_project_submissions/blank_state' %>
+    <%= render 'lessons/project_submissions/blank_state' %>
   <% end %>
 <% end %>

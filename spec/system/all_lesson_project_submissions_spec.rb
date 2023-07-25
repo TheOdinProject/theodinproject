@@ -11,7 +11,9 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
 
       sign_in(user)
       visit lesson_path(lesson)
-      find(:test_id, 'view-all-projects-link').click
+      find(:test_id, 'view-all-projects-link').trigger('click')
+
+      expect(page).to have_current_path(lesson_project_submissions_path(lesson))
 
       within(:test_id, 'submissions-list') do
         expect(page).to have_selector('[data-test-id="submission-item"]', count: 15)

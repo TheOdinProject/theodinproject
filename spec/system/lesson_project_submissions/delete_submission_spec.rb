@@ -7,16 +7,25 @@ RSpec.describe 'Deleting a Project Submission' do
   before do
     sign_in(user)
     visit lesson_path(lesson)
-    Pages::ProjectSubmissions::Form.fill_in_and_submit
+    Pages::ProjectSubmissions::Form.new.open.fill_in.submit
   end
 
-  it 'successfully deletes a submission' do
+  it 'removes a submission' do
+    users_submission = first(:test_id, 'submission-item')
+
     within(:test_id, 'submissions-list') do
       expect(page).to have_content(user.username)
     end
 
-    find(:test_id, 'edit-submission-btn').click
-    Pages::ProjectSubmissions::Form.new.delete
+    within(users_submission) do
+      find(:test_id, 'submission-action-menu-btn').click
+
+      page.accept_confirm do
+        find(:test_id, 'delete-submission').click
+      end
+    end
+
+    expect(page).to have_content('Add solution')
 
     within(:test_id, 'submissions-list') do
       expect(page).not_to have_content(user.username)
