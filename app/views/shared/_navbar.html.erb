@@ -18,6 +18,7 @@
             <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard') %>
             <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
             <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
+            <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support us', test_id: 'nav-support-us') %>
           </div>
 
           <%= link_to notifications_path, class: 'ml-3 bg-white dark:bg-gray-900 p-1 rounded-full text-gray-400 dark:text-gray-300 relative hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500', data: { test_id: 'navbar-notification-icon' } do %>
@@ -36,6 +37,7 @@
           <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
           <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about') %>
           <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
+          <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support us', test_id: 'nav-support-us') %>
           <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in') %>
           <%= turbo_frame_tag 'theme_switcher', class: 'flex items-center justify-center w-6' do %>
             <%= render Theme::SwitcherComponent.new(current_theme:, type: :icon_only) %>
