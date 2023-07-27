@@ -2,7 +2,7 @@ module Notifications
   class FlagSubmission
     include Rails.application.routes.url_helpers
 
-    delegate :flagger, :project_submission, :reason, to: :flag, private: true
+    delegate :flagger, :project_submission, :reason, :extra, to: :flag, private: true
 
     def initialize(flag)
       @flag = flag
@@ -11,6 +11,7 @@ module Notifications
     def message
       "#{flagger.username} has flagged a submission on #{project_submission.lesson.display_title}\n" \
         "Reason: #{reason}\n" \
+        "Extra: #{extra}\n" \
         "Resolve the flag here: #{admin_flag_url(flag)}"
     end
 

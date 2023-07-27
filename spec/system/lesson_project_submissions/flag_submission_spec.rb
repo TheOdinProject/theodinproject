@@ -12,6 +12,11 @@ RSpec.describe 'Flagging a Project Submission' do
 
   it 'successfully flags a submission' do
     submission = first(:test_id, 'submission-item')
+    
+    find(:test_id, 'flag-btn').click
+    find(:test_id, 'flag-reason-inappropriate').click
+    find(:test_id, 'flag-description-field').fill_in(with: 'It contains offensive material')
+    find(:test_id, 'submit-flag-btn').click
 
     wait_for_turbo_frame("project-submissions_lesson_#{lesson.id}") do
       within(submission) do

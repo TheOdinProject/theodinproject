@@ -4,23 +4,23 @@
       <div class=''>
         <div class="space-y-6 pt-4">
           <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :broken %>
+            <%= form.radio_button :reason, :broken, data: { test_id: 'flag-reason-broken'} %>
             <%= form.label :reason, "Link does not work", :class => 'ml-3' %>
           </div>
           <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :insecure %>
+            <%= form.radio_button :reason, :insecure, data: { test_id: 'flag-reason-insecure'} %>
             <%= form.label :reason, "Link is not secure or safe", :class => 'ml-3' %>
           </div>
           <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :spam %>
+            <%= form.radio_button :reason, :spam, data: { test_id: 'flag-reason-spam'} %>
             <%= form.label :reason, "Spam or misleading", :class => 'ml-3' %>
           </div>
           <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :inappropriate %>
+            <%= form.radio_button :reason, :inappropriate, data: { test_id: 'flag-reason-inappropriate'} %>
             <%= form.label :reason, "Inappropriate imagery or language", :class => 'ml-3' %>
           </div>
           <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :other %>
+            <%= form.radio_button :reason, :other, data: { test_id: 'flag-reason-other'} %>
             <%= form.label :reason, "Other", :class => 'ml-3' %>
           </div>
           </div>

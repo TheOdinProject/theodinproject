@@ -9,7 +9,8 @@ RSpec.describe Notifications::FlagSubmission do
       id: 120,
       flagger:,
       project_submission: flagged_submission,
-      reason: 'I find it offensive'
+      reason: 3,
+      extra: 'I find it offensive'
     )
   end
 
@@ -19,7 +20,8 @@ RSpec.describe Notifications::FlagSubmission do
   describe '#message' do
     it 'returns the daily summary message' do
       notification_message = "OdinUser has flagged a submission on #{flagged_submission.lesson.title}\n" \
-                             "Reason: I find it offensive\n" \
+                             "Reason: inappropriate\n" \
+                             "Extra: I find it offensive\n" \
                              'Resolve the flag here: http://localhost:3000/admin/flags/120'
 
       expect(notification.message).to eq notification_message
