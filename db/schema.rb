@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_27_153507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -67,12 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
   create_table "flags", force: :cascade do |t|
     t.integer "flagger_id", null: false
     t.bigint "project_submission_id", null: false
-    t.text "reason", default: "", null: false
+    t.text "extra", default: "", null: false
     t.integer "status", default: 0, null: false
     t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
+    t.integer "reason", default: 4
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
   end

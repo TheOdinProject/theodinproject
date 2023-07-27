@@ -30,7 +30,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
   end
 
   def flag_params
-    params.require(:flag).permit(:reason).merge(flagger: current_user)
+    params.require(:flag).permit(:reason, :extra).merge(flagger: current_user)
   end
 
   def notify_discord_admins
