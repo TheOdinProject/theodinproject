@@ -30,11 +30,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
   end
 
   def flag_params
-    if Feature.enabled?(:v2_project_submissions, current_user)
-      params.require(:flag).permit(:reason).merge(flagger: current_user)
-    else
-      params.permit(:reason).merge(flagger: current_user)
-    end
+    params.require(:flag).permit(:reason).merge(flagger: current_user)
   end
 
   def notify_discord_admins

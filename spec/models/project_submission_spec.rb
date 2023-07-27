@@ -35,10 +35,11 @@ RSpec.describe ProjectSubmission do
   end
 
   describe '.only_public' do
-    it 'returns public project submissions' do
+    it 'returns public project submissions that have not been discarded' do
       public_project_submission_one = create(:project_submission)
       public_project_submission_two = create(:project_submission)
       create(:project_submission, is_public: false)
+      create(:project_submission, discarded_at: Time.zone.today)
 
       expect(described_class.only_public).to contain_exactly(
         public_project_submission_one,
