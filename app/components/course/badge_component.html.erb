@@ -7,7 +7,7 @@
 <% else %>
   <%= link_to path_course_path(course.path, course) do %>
     <div class="shadow-md dark:shadow-none rounded-full flex <%= yass(default_badge: size) %>" data-test-id='default-badge'>
-      <%= image_tag badge, alt: "#{course.title}", class: 'p-2.5' %>
+      <%= image_tag badge, alt: course.title, class: 'p-2.5' %>
     </div>
   <% end %>
 <% end %>
