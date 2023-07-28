@@ -20,7 +20,7 @@ module Seeds
         lesson.section_id = section.id
         lesson.is_project = attributes.fetch(:is_project, false)
         lesson.accepts_submission = attributes.fetch(:accepts_submission, false)
-        lesson.has_live_preview = attributes.fetch(:has_live_preview, false)
+        lesson.previewable = attributes.fetch(:previewable, false)
         lesson.position = position
         lesson.course_id = section.course_id
         lesson.choose_path_lesson = attributes.fetch(:choose_path_lesson, false)

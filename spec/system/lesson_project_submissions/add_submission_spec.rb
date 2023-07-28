@@ -47,7 +47,7 @@ RSpec.describe 'Add a Project Submission' do
   end
 
   context 'when lesson does not allow previews' do
-    let(:lesson) { create(:lesson, :project, has_live_preview: false) }
+    let(:lesson) { create(:lesson, :project, previewable: false) }
     let(:user) { create(:user) }
 
     before do
@@ -57,7 +57,7 @@ RSpec.describe 'Add a Project Submission' do
 
     it 'adds the submission without a preview' do
       Pages::ProjectSubmissions::Form
-        .new(has_live_preview: false)
+        .new(previewable: false)
         .open
         .fill_in
         .submit

@@ -41,7 +41,7 @@ def getting_hired_lessons
       is_project: true,
       github_path: '/getting_hired/preparing_for_job_search/project_portfolio.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '9e9f98a7-43bc-4e2b-9325-f858319604d5',
     },
     'Collecting Job Leads' => {
@@ -64,7 +64,7 @@ def getting_hired_lessons
       is_project: true,
       github_path: '/getting_hired/applying_and_interviewing/project_resume.md',
       accepts_submission: false,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '029f508f-8034-41b2-b330-bba88f0efe3b',
     },
     'Applying for Web Development Jobs' => {

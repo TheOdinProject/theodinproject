@@ -24,7 +24,7 @@ RSpec.describe ProjectSubmission do
 
   context 'when live preview is not allowed' do
     subject(:project_submission) do
-      build(:project_submission, lesson: create(:lesson, has_live_preview: false))
+      build(:project_submission, lesson: create(:lesson, previewable: false))
     end
 
     it do

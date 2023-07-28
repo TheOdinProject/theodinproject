@@ -9,7 +9,7 @@ FactoryBot.define do
     trait :project do
       is_project { true }
       accepts_submission { true }
-      has_live_preview { true }
+      previewable { true }
     end
 
     trait :complete do
