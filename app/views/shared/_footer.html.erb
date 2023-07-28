@@ -1,17 +1,15 @@
 <footer class="bg-white dark:bg-gray-900" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <% if not current_page?(support_us_path) and not current_page?(about_path) %>
+  <% unless current_page?(support_us_path) || current_page?(about_path) %>
   <div class="mx-auto max-w-3xl px-8 pt-8 pb-8 xs:pt-24 lg:px-8">
     <div class="flex flex-col sm:flex-row gap-8 :gap-4">
       <div class="flex-1">
         <h1 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Help us shape the future of tech education!</h1>
         <h2 class="text-sm text-gray-500 dark:text-gray-400">Join us in empowering learners around the globe by supporting The Odin Project!</h2>
-        <a class="block prose-a text-blue-800 dark:text-blue-300 pt-4 font-semibold underline" href="/support_us">Learn more about supporting us.</a>
+        <%= link_to "Learn more about supporting us.", support_us_path, class: "block prose-a text-blue-800 dark:text-blue-300 pt-4 font-semibold underline" %>
       </div>
       <div class="flex-shrink-0 flex items-center">
-        <a class="button button--primary" href="https://opencollective.com/theodinproject/donate" target="_blank">
-          Donate now!
-        </a>
+        <%= link_to "Donate now!", 'https://opencollective.com/theodinproject/donate', class: "button button--primary", target: "_blank"%>
       </div>
     </div>
   </div>
