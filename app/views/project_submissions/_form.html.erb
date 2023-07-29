@@ -9,7 +9,7 @@
           <% end %>
         </div>
 
-        <% if project_submission.lesson.has_live_preview? %>
+        <% if project_submission.lesson.previewable? %>
           <div>
             <%= form.label :live_preview_url, 'Live preview (optional)' %>
             <%= form.text_field :live_preview_url, leading_icon: true, placeholder: 'http://example.com', class: 'text-sm', data: { test_id: 'live-preview-url-field' } do %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_230910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -137,7 +137,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "slug"
     t.boolean "accepts_submission", default: false, null: false
-    t.boolean "has_live_preview", default: false, null: false
+    t.boolean "previewable", default: false, null: false
     t.boolean "choose_path_lesson", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
     t.bigint "course_id"

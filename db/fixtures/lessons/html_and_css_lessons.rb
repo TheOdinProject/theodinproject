@@ -199,7 +199,7 @@ def html_and_css_lessons
       description: 'Learn about how browsers style your HTML.',
       is_project: true,
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       github_path: '/intermediate_html_css/forms/project_sign_up_form.md',
       identifier_uuid: '91ab41f2-9c9d-449a-8461-329a5f7ecb1e'
     },
@@ -244,7 +244,7 @@ def html_and_css_lessons
       description: "Use what you've learned to Complete this project",
       is_project: true,
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       github_path: '/intermediate_html_css/grid/project_admin_dashboard.md',
       identifier_uuid: 'c35f0b7b-4d21-4d26-91e2-4af78519ae5f'
     },
@@ -282,7 +282,7 @@ def html_and_css_lessons
       description: 'Create a fully responsive personal portfolio.',
       is_project: true,
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       github_path: '/advanced_html_css/responsive_design/project_personal_portfolio.md',
       identifier_uuid: 'd99b0c9d-cc6c-44e6-bab0-1c9a83edcfa3'
     },

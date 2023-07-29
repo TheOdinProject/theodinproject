@@ -12,7 +12,7 @@ RSpec.describe Messages::DeadLink do
     )
   end
 
-  let(:lesson) { create(:lesson, title: 'test lesson1', has_live_preview: true) }
+  let(:lesson) { create(:lesson, title: 'test lesson1', previewable: true) }
   let(:user) { create(:user, username: 'testuser1') }
 
   describe '#title' do
