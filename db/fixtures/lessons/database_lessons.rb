@@ -20,7 +20,7 @@ def database_lessons
       is_project: true,
       github_path: '/databases/databases/project_sql_zoo.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'a4baeee4-7bab-47ba-8157-c8f52b204734',
     },
   }

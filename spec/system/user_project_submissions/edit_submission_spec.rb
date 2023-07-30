@@ -18,12 +18,13 @@ RSpec.describe 'Editing a Project Submission on the Dashboard' do
   end
 
   it 'successfully edits a submission' do
-    find(:test_id, 'edit-submission-btn').click
+    sleep 0.1 # it will not open the dropdown without this
+    find(:test_id, 'submission-action-menu-btn').click
+    find(:test_id, 'edit-submission').click
 
     Pages::ProjectSubmissions::Form.new(**edited_field_values).tap do |edit_form|
       edit_form.fill_in
       edit_form.submit
-      edit_form.close
     end
 
     within(:test_id, 'submission-item') do
@@ -31,18 +32,18 @@ RSpec.describe 'Editing a Project Submission on the Dashboard' do
       expect(page.find(:test_id, 'view-code-btn')['href']).to eq('https://github.com/edited-project-repo-url')
       expect(page.find(:test_id, 'live-preview-btn')['href']).to eq('http://edited-live-preview-url.com/')
     end
-  end
 
-  it 'can make the submission private' do
-    find(:test_id, 'edit-submission-btn').click
+    # mark the submission as private
+
+    find(:test_id, 'submission-action-menu-btn').click
+    find(:test_id, 'edit-submission').click
 
     Pages::ProjectSubmissions::Form.new.tap do |form|
       form.make_private
       form.submit
-      form.close
     end
 
-    within(:test_id, 'submissions-list') do
+    within(:test_id, 'user-submissions-list') do
       expect(page).to have_content(lesson.title)
     end
 

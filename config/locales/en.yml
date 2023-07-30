@@ -36,19 +36,15 @@ en:
         - title: A full roadmap to becoming a developer
           description: Our free, comprehensive curriculum will equip you to be a full stack developer, no matter your current experience level.
           image_path: about_page/img-education.svg
-          image_alt: book icon
         - title: Learn by doing
           description: The most effective learning happens while building projects, so we have strategically placed them throughout our curriculum. These projects will make a strong portfolio for you to showcase on your resume.
           image_path: about_page/img-build.svg
-          image_alt: keyboard icon
         - title: Receive support from others
           description: The maintainers of the curriculum run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
           image_path: about_page/img-people.svg
-          image_alt: people icon
         - title: Open source and community driven
           description: You can deepen your understanding and improve your GitHub skills by contributing to our open source curriculum and helping others in our Discord community.
           image_path: about_page/img-opensource.svg
-          image_alt: open source icon
     contributing:
       contributing_options:
         ways_to_contribute:
@@ -73,19 +69,15 @@ en:
         - title: Flexibility
           description: You can work on your own time. It's not 9 to 5 so you can get involved when it's convenient for you.
           image_path: 'contributing/img-clock.svg'
-          image_alt: Clock
         - title: Recognition
           description: Significant Contributors will be listed on this page and on Github.
           image_path: 'contributing/img-exposure.svg'
-          image_alt: Person with Loudspeaker
         - title: Experience
           description: You'll get the chance to work within a team of experienced engineers and to work on new and interesting features that will expand your capabilities.
           image_path: 'contributing/img-job.svg'
-          image_alt: Briefcase
         - title: Impact
           description: The features you work on or the lessons you create will help thousands of students learn life changing skills.
           image_path: 'contributing/img-community.svg'
-          image_alt: Impact
       hall_of_fame:
         members:
           - name: Erik Trautman

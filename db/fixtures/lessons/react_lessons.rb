@@ -76,7 +76,7 @@ def react_lessons
       is_project: true,
       github_path: '/react/states_and_effects/project_cv_application.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'f3b5cee3-a255-4c72-8022-942cbddf0b86',
     },
     'How To Deal With Side Effects' => {
@@ -92,7 +92,7 @@ def react_lessons
       is_project: true,
       github_path: '/react/states_and_effects/project_memory_card.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '87bbed05-daf2-4c45-a549-fc9ecfa2657c',
     },
     'Class Based Components' => {
@@ -157,7 +157,7 @@ def react_lessons
       is_project: true,
       github_path: '/react/the_react_ecosystem/project_shopping_cart.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '60bb8597-19db-4d6f-9eca-059743206de5',
     },
     'Managing State With The Context API' => {
@@ -201,7 +201,7 @@ def react_lessons
       is_project: true,
       github_path: '/react/react_and_the_backend/project_wheres_waldo_a_photo_tagging_app.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '386dd44a-31dc-45dc-a535-cd5508365c86',
     },
     'Messaging App' => {
@@ -210,7 +210,7 @@ def react_lessons
       is_project: true,
       github_path: '/react/react_and_the_backend/project_messaging_app.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '8e0206b5-e189-4ec3-b58b-c7f0afb84570',
     },
     'Conclusion' => {

@@ -87,11 +87,11 @@ course.add_section do |section|
 end
 
 # ++++++++++++++++++++++++++++
-# SECTION - The React Ecocsystem
+# SECTION - The React Ecosystem
 # ++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'The React Ecocsystem'
-  section.description = 'The React Ecocsystem'
+  section.title = 'The React Ecosystem'
+  section.description = 'The React Ecosystem'
   section.identifier_uuid = 'ee3b2ee1-8ced-4ce5-a939-90bb9a47694d'
 
   section.add_lessons(

@@ -98,7 +98,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/basic_ruby_projects/project_caesar_cipher.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '47e7c8ab-0dc8-4d6b-bc23-d9674b174007',
     },
     'Sub Strings' => {
@@ -107,7 +107,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/basic_ruby_projects/project_sub_strings.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '9445341e-1907-4269-b866-446a3a08d3b9',
     },
     'Stock Picker' => {
@@ -116,7 +116,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/basic_ruby_projects/project_stock_picker.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '89096a08-7abf-481b-9464-a82a65872e8e',
     },
     'Bubble Sort' => {
@@ -125,7 +125,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/basic_ruby_projects/project_bubble_sort.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '5b332db6-e7f7-4232-9531-a35096d61c81',
     },
     'Object Oriented Programming' => {
@@ -141,7 +141,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/object_oriented_programming_basics/project_tic_tac_toe.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '49bd96f3-f358-46f2-8e2a-c91d44c2cf85',
     },
     'Mastermind' => {
@@ -150,7 +150,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/object_oriented_programming_basics/project_mastermind.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '0333fa64-534c-4b31-9a3e-8c89d84f7618',
     },
     'Files and Serialization' => {
@@ -166,7 +166,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/files_and_serialization/project_event_manager.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'a47be9ab-7c78-44c2-b098-ec63d82af1cf',
     },
     'Hangman' => {
@@ -175,7 +175,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/files_and_serialization/project_hangman.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '8a5dda78-b387-4a4e-b2af-aed0561ed633',
     },
     'Blocks' => {
@@ -212,7 +212,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/computer_science/project_recursion.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '062acc7a-b1b0-4c9d-a7e8-e08bae7a9c0d',
     },
     'Time Complexity' => {
@@ -242,7 +242,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/computer_science/project_linked_lists.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '93a87bae-96c3-47af-a106-62ded20f12c3',
     },
     'Binary Search Trees' => {
@@ -251,7 +251,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/computer_science/project_binary_search_trees.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '00c3096f-0ab0-49e2-9eef-54afc9182f80',
     },
     'Knights Travails' => {
@@ -260,7 +260,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/computer_science/project_knights_travails.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'fb6c9850-7fc6-4cdb-bf62-804e706788de',
     },
     'Test Driven Development' => {
@@ -283,7 +283,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/testing_ruby_with_rspec/project_connect_four.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '33440cca-8fbf-46fe-9265-67d938fe1d8c',
     },
     'Ruby Final Project' => {
@@ -292,7 +292,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/conclusion/project_ruby_final.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'acf6c3f1-915a-4878-8224-2c5f12b1e43b',
     },
     'Conclusion' => {
@@ -315,7 +315,7 @@ def ruby_lessons
       is_project: true,
       github_path: '/ruby/advanced_ruby/project_custom_enumerables.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'cea1b51e-b97e-11eb-8529-0242ac130003',
     },
   }

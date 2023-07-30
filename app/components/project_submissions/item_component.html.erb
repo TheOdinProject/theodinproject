@@ -1,5 +1,5 @@
-<div id="<%= dom_id(project_submission) %>" data-id="<%= project_submission.id %>" data-sort-target="item" data-sort-code="<%= sort_code %>">
-  <div data-test-id="submission-item" class="relative py-6 border-solid border-t border-gray-300 flex flex-col md:flex-row justify-between md:items-center">
+<div id="<%= dom_id(project_submission) %>" data-id="<%= project_submission.id %>" data-test-id="submission-item" data-sort-target="item" data-sort-code="<%= sort_code %>">
+  <div class="relative py-6 border-solid border-t border-gray-300 flex flex-col md:flex-row justify-between md:items-center">
 
     <div class="flex items-center mb-4 md:mb-0">
       <%= render ProjectSubmissions::LikeComponent.new(project_submission:, current_users_submission: current_users_submission?) %>
@@ -9,7 +9,7 @@
     <div class="flex flex-row md:items-center">
       <%= link_to 'View code', project_submission.repo_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'view-code-btn' } %>
 
-      <% if project_submission.lesson.has_live_preview? %>
+      <% if project_submission.lesson.previewable? %>
         <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } %>
       <% end %>
 
@@ -35,7 +35,7 @@
               Edit
             <% end %>
 
-            <%= link_to lesson_v2_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone.', test_id: 'delete-submission' } do %>
+            <%= link_to lesson_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone.', test_id: 'delete-submission' } do %>
               <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
               Delete
             <% end %>

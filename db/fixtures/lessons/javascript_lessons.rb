@@ -34,7 +34,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/organizing_your_javascript_code/project_library.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '67338e32-0121-44bd-98c2-2f8e6b299adf',
     },
     'Factory Functions and the Module Pattern' => {
@@ -50,7 +50,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/organizing_your_javascript_code/project_tic_tac_toe.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '47798979-cdc8-4c86-a70d-05ffb51d5aac',
     },
     'Classes' => {
@@ -80,7 +80,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/organizing_your_javascript_code/project_restaurant_page.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'a1453e8f-d4e8-44ce-b30e-552c65162ac6',
     },
     'OOP Principles' => {
@@ -96,7 +96,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/organizing_your_javascript_code/project_todo_list.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '5934b09a-ca38-4968-8df1-720456b7af9a',
     },
     'Linting' => {
@@ -161,7 +161,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/asynchronous_javascript_and_apis/project_weather_app.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '5212a020-85ed-4e43-84ec-6b583b57e8cb',
     },
     'A Very Brief Intro to CS' => {
@@ -184,7 +184,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/computer_science/project_recursion.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'eaf37749-a971-4bd4-af79-6e166e55346a',
     },
     'Time Complexity' => {
@@ -214,7 +214,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/computer_science/project_linked_lists.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'd2c7044f-8a4a-4740-a455-e6467bcea25d',
     },
     'Binary Search Trees' => {
@@ -223,7 +223,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/computer_science/project_binary_search_trees.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '6932753f-ca06-458e-af92-1871eaf5e211',
     },
     'Knights Travails' => {
@@ -232,7 +232,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/computer_science/project_knights_travails.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'd4c45487-98b8-4da6-8159-b75f7681b994',
     },
     'Testing Basics' => {
@@ -248,7 +248,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/testing_javascript/project_testing_practice.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '319ce38c-f68b-4bba-b9f7-25df452f0523',
     },
     'More Testing' => {
@@ -264,7 +264,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/testing_javascript/project_battleship.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '62702165-7705-47ba-a308-dd39c561e057',
     },
     "Where's Waldo (A Photo Tagging App) (OLD)" => {
@@ -273,7 +273,7 @@ def javascript_lessons
       is_project: true,
       github_path: '/javascript/javascript_and_the_backend/project_wheres_waldo_a_photo_tagging_app.md',
       accepts_submission: false,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '386dd44a-31dc-45dc-a535-cd5508365c86',
     },
     'Conclusion' => {

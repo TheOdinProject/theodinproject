@@ -2,14 +2,20 @@ class ProjectSubmissions::LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @project_submission = ProjectSubmission.find(params[:submission_id])
+    @project_submission = ProjectSubmission.find(params[:project_submission_id])
+    @project_submission.like!(current_user)
 
-    if params[:is_liked_by_current_user]
-      @project_submission.unliked_by current_user
-    else
-      @project_submission.liked_by current_user
+    respond_to do |format|
+      format.turbo_stream
     end
+  end
 
-    render json: ProjectSubmissionSerializer.as_json(@project_submission, current_user), status: :ok
+  def destroy
+    @project_submission = ProjectSubmission.find(params[:project_submission_id])
+    @project_submission.unlike!(current_user)
+
+    respond_to do |format|
+      format.turbo_stream { render :create }
+    end
   end
 end
