@@ -9,7 +9,10 @@
         <%= link_to 'Learn more about supporting us.', support_us_path, class: 'mt-6 underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %>
       </div>
       <div class="flex-shrink-0 flex items-center">
-        <%= link_to 'Donate now!', 'https://opencollective.com/theodinproject/donate', class: 'button button--primary', target: '_blank' %>
+        <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary', target: '_blank' do %>
+          Donate now!
+          <%= inline_svg_tag 'icons/heart-outline.svg', class: 'h-4 w-4 ml-2', aria: false %>
+        <% end %>
       </div>
     </div>
   </div>
