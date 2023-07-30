@@ -1,17 +1,17 @@
 <footer class="bg-white dark:bg-gray-900" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <% unless current_page?(support_us_path) || current_page?(about_path) %>
-  <div class="mx-auto max-w-3xl px-8 pt-8 pb-8 xs:pt-24 lg:px-8">
-    <div class="flex flex-col sm:flex-row gap-8 :gap-4">
+  <div class="mx-auto max-w-xl px-8 pt-8 pb-8 xs:pt-24 lg:px-8 text-center">
+    <div>
       <div class="flex-1">
-        <h1 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Help us shape the future of tech education!</h1>
-        <h2 class="text-sm text-gray-500 dark:text-gray-400">Join us in empowering learners around the globe by supporting The Odin Project!</h2>
-        <%= link_to 'Learn more about supporting us.', support_us_path, class: 'mt-6 underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %>
+        <h1 class="text-2xl mb-2 font-semibold text-gray-800 dark:text-gray-200">Support us!</h1>
+        <h2 class="text-sm text-gray-500 dark:text-gray-400">The Odin Project is funded by the community. Join us in empowering learners around the globe by supporting The Odin Project!</h2>
       </div>
-      <div class="flex-shrink-0 flex items-center">
-        <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary', target: '_blank' do %>
-          Donate now!
-          <%= inline_svg_tag 'icons/heart-outline.svg', class: 'h-4 w-4 ml-2', aria: false %>
+      <div class="text-center mt-4">
+        <%= link_to 'Learn more', support_us_path, class: 'button button--secondary' %>
+        <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary relative', target: '_blank' do %>
+          <span class="mr-4">Donate now</span>
+          <%= inline_svg_tag 'icons/arrow-right.svg', class: 'absolute right-3 h-4 w-4 ml-2', aria: false %>
         <% end %>
       </div>
     </div>
