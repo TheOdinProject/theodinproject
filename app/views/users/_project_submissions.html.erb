@@ -1,8 +1,7 @@
 <div class="mb-12">
   <h2 class="text-gray-700 text-2xl font-medium text-center mb-4 dark:text-gray-300">Project Submissions</h2>
 
-<% if project_submissions.any? %>
-  <% if Feature.enabled?(:v2_project_submissions, current_user) %>
+  <% if project_submissions.any? %>
     <div data-test-id="user-submissions-list">
       <% project_submissions.each do |project_submission| %>
         <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:, edit_path: edit_users_project_submission_path(project_submission)) do |component| %>
@@ -11,15 +10,6 @@
       <% end %>
     </div>
   <% else %>
-  <%= react_component(
-        'project-submissions/user-project-submissions',
-        {
-          userId: current_user&.id,
-          submissions: project_submissions.map { |submission| ProjectSubmissionSerializer.as_json(submission, current_user) },
-        }
-      ) %>
+    <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
   <% end %>
-<% else %>
-  <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
-<% end %>
 </div>

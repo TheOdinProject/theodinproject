@@ -32,7 +32,7 @@ module ProjectSubmissions
     def edit_path
       return @edit_path if @edit_path.present?
 
-      edit_lesson_v2_project_submission_path(project_submission.lesson, project_submission)
+      edit_lesson_project_submission_path(project_submission.lesson, project_submission)
     end
   end
 end

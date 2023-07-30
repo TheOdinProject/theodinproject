@@ -5,15 +5,10 @@ RSpec.describe 'Liking project submissions' do
   let(:lesson) { create(:lesson, :project) }
 
   before do
-    Flipper.enable(:v2_project_submissions)
     create(:project_submission, lesson:)
 
     sign_in(user)
     visit lesson_path(lesson)
-  end
-
-  after do
-    Flipper.disable(:v2_project_submissions)
   end
 
   it 'you can like another users submission' do

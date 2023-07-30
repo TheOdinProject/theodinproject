@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'project_submission_form', class: 'w-full' do %>
-  <%= form_with url:, model: project_submission, builder: TailwindFormBuilder do |form| %>
+  <%= form_with model:, builder: TailwindFormBuilder do |form| %>
     <div class='divide-y divide-gray-200 dark:divide-gray-600 space-y-6'>
       <div class="space-y-6 pt-4">
         <div>
@@ -9,7 +9,7 @@
           <% end %>
         </div>
 
-        <% if project_submission.lesson.has_live_preview? %>
+        <% if project_submission.lesson.previewable? %>
           <div>
             <%= form.label :live_preview_url, 'Live preview (optional)' %>
             <%= form.text_field :live_preview_url, leading_icon: true, placeholder: 'http://example.com', class: 'text-sm', data: { test_id: 'live-preview-url-field' } do %>

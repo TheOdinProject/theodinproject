@@ -13,18 +13,23 @@ RSpec.describe 'Editing a Project Submission' do
   before do
     sign_in(user)
     visit lesson_path(lesson)
-    Pages::ProjectSubmissions::Form.fill_in_and_submit
+    Pages::ProjectSubmissions::Form.new.open.fill_in.submit
   end
 
   it 'successfully edits a submission' do
-    find(:test_id, 'edit-submission-btn').click
+    users_submission = first(:test_id, 'submission-item')
+
+    within(users_submission) do
+      find(:test_id, 'submission-action-menu-btn').click
+      find(:test_id, 'edit-submission').click
+    end
 
     Pages::ProjectSubmissions::Form.new(**edited_field_values).tap do |form|
       form.fill_in
       form.submit
-      form.close
     end
 
+    # We need to find the user submission again because it is replaced by a turbo stream
     users_submission = first(:test_id, 'submission-item')
 
     within(users_submission) do

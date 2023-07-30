@@ -78,8 +78,8 @@ Rails.application.routes.draw do
   namespace :users do
     resources :paths, only: :create
     resources :progress, only: :destroy
-    resource :profile, only: %i[edit update]
     resources :project_submissions, only: %i[edit update]
+    resource :profile, only: %i[edit update]
   end
 
   namespace :lessons do
@@ -95,15 +95,13 @@ Rails.application.routes.draw do
   end
 
   resources :lessons, only: :show do
-    resources :project_submissions, only: %i[index], controller: 'lessons/project_submissions'
-    resources :v2_project_submissions, controller: 'lessons/v2_project_submissions'
+    resources :project_submissions, controller: 'lessons/project_submissions'
     resource :completion, only: %i[create destroy], controller: 'lessons/completions'
   end
 
   resources :project_submissions do
     resources :flags, only: %i[new create], controller: 'project_submissions/flags'
-    resources :likes, controller: 'project_submissions/likes'
-    resource :v2_like, only: %i[create destroy], controller: 'project_submissions/v2_likes'
+    resource :like, only: %i[create destroy], controller: 'project_submissions/likes'
   end
 
   resources :paths, only: %i[index show] do
