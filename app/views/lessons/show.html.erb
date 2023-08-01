@@ -45,9 +45,17 @@
     <% end %>
 
     <div class="py-10">
-      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300' do %>
+      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
         <span class="fab fa-github mr-1"></span>
         Improve this lesson on GitHub
+      <% end %>
+      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
+        <span class="fas fa-flag mr-1"></span>
+        Report an issue with this lesson
+      <% end %>
+      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
+        <span class="fa-solid fa-book mr-1"></span>
+        Learn how to contribute
       <% end %>
     </div>
   </div>
