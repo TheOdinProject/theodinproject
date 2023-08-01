@@ -44,7 +44,7 @@ gem 'sentry-sidekiq', '~> 5.10'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
 gem 'turbo-rails', '~> 1.4'
-gem 'view_component', '~> 3.2'
+gem 'view_component', '~> 3.5'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
