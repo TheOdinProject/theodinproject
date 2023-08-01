@@ -24,33 +24,61 @@
   }
 
   .lesson-note {
-    @apply bg-gray-50 p-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-700 rounded;
+    @apply bg-gray-50 p-4 my-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-600 rounded;
   }
 
-  .lesson-note > h4::before {
+  .lesson-note > *:first-child::before {
     font-family: "Font Awesome 6 Free";
     content: "\f249";
-    @apply mr-2 text-gold dark:text-gold-700;
+    @apply mr-2 text-gold dark:text-gold-600 font-bold;
+  }
+
+  .lesson-note > *:only-child::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f249";
+    @apply mr-2 -mt-2 text-gold dark:text-gold-600 block font-bold text-2xl;
   }
 
   .lesson-note--tip {
-    @apply border-green-600 dark:border-green-700;
+    @apply border-blue-600 dark:border-blue-500;
   }
 
-  .lesson-note--tip > h4::before {
-    font-family: "Font Awesome 6 Free";
+  .lesson-note--tip > *:first-child::before {
     content: "\f0eb";
-    @apply mr-2 text-green-600 dark:text-green-700;
+    @apply text-blue-600 dark:text-blue-500;
+  }
+
+  .lesson-note--tip > *:only-child::before {
+    content: "\f0eb";
+    @apply text-blue-600 dark:text-blue-500;
   }
 
   .lesson-note--warning {
-    @apply border-red-700 dark:border-red-500;
+    @apply border-orange-500 dark:border-orange-400;
   }
 
-  .lesson-note--warning > h4::before {
-    font-family: "Font Awesome 6 Free";
+  .lesson-note--warning > *:first-child::before {
+    content: "\f071";
+    @apply text-orange-500 dark:text-orange-400;
+  }
+
+  .lesson-note--warning > *:only-child::before {
+    content: "\f071";
+    @apply text-orange-500 dark:text-orange-400;
+  }
+
+  .lesson-note--critical {
+    @apply border-red-600 dark:border-red-500;
+  }
+
+  .lesson-note--critical > *:first-child::before {
     content: "\f06a";
-    @apply mr-2 text-red-700 dark:text-red-500;
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .lesson-note--critical > *:only-child::before {
+    content: "\f06a";
+    @apply text-red-600 dark:text-red-500;
   }
 
   .lesson-note > *:first-child {
