@@ -1,6 +1,6 @@
 class Api::PointsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate, except: %i[index show]
+  before_action :authenticate
 
   def index
     render json: Point.all.order(points: :desc).limit(params[:limit]).offset(params[:offset])
