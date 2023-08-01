@@ -53,3 +53,4 @@ yarn-debug.log*
 
 # Vim Swap File
 .swp
+.vscode/settings.json
