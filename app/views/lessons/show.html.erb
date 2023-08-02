@@ -49,14 +49,15 @@
         <span class="fab fa-github mr-1"></span>
         Improve this lesson on GitHub
       <% end %>
-      <%= link_to github_link + "/curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=%3CLesson%3E%3A+%3CShort+description+of+your+suggestion%3E", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
+      <%= link_to "#{github_link}/curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=%3CLesson%3E%3A+%3CShort+description+of+your+suggestion%3E", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
         <span class="fas fa-flag mr-1"></span>
         Report an issue with this lesson
       <% end %>
-      <%= link_to github_link+"/theodinproject/blob/main/CONTRIBUTING.md", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
+      <%= link_to "#{github_link}/theodinproject/blob/main/CONTRIBUTING.md", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
         <span class="fa-solid fa-book mr-1"></span>
         Learn how to contribute
-      <% end %>
+        <% end %>
+
     </div>
   </div>
 </div>
