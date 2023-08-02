@@ -25,24 +25,24 @@
 <div class="py-10 flex justify-center ">
   <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener',aria: {label: "Improve this lesson on GitHub" }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5' do %>
   <%-# Only display icon with tooltip at mobile width -%>
-  <span class="fab fa-github mr-1 no-underline md:inline-block"></span>
+  <span class="fab fa-github mr-1 no-underline lg:inline-block"></span>
   <%-# Display text at larger viewport widths -%>
-  <span class="hidden md:inline hint--top">
+  <span class="hidden lg:inline hint--top">
     Improve this lesson on GitHub
   </span>
   <% end %>
 
   <%= link_to "#{github_link}/curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=%3CLesson%3E%3A+%3CShort+description+of+your+suggestion%3E", target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Report an issue with this lesson' }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5 relative' do %>
 
-  <span class="fas fa-flag no-underline mr-1 md:inline-block"></span>
+  <span class="fas fa-flag no-underline mr-1 lg:inline-block"></span>
 
-  <span class="hidden md:inline hint--top ">Report an issue with this lesson</span>
+  <span class="hidden lg:inline hint--top ">Report an issue with this lesson</span>
 <% end %>
 
 
   <%= link_to "#{github_link}/theodinproject/blob/main/CONTRIBUTING.md", target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Learn how to contribute' }, class: 'hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5 relative' do %>
-  <span class="fa-solid fa-book mr-1 no-underline md:inline-block"></span>
-  <span class="hidden no-underline md:inline ">
+  <span class="fa-solid fa-book mr-1 no-underline lg:inline-block"></span>
+  <span class="hidden no-underline lg:inline ">
     Learn how to contribute
   </span>
 <% end %>
