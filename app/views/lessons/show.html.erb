@@ -8,7 +8,7 @@
     <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
       <article class="col-span-full xl:col-span-7 xl:col-start-2">
         <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do %>
-          <%= @lesson.body.html_safe %>
+        <%= @lesson.body.html_safe %>
         <% end %>
       </article>
 
@@ -20,6 +20,35 @@
       </aside>
     </main>
   </div>
+</div>
+
+<div class="py-10 flex justify-center ">
+  <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener',aria: {label: "Improve this lesson on GitHub" }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-10' do %>
+  <%-# Only display icon with tooltip at mobile width -%>
+  <span class="fab fa-github mr-1 no-underline md:inline-block"></span>
+  <%-# Display text at larger viewport widths -%>
+  <span class="hidden md:inline hint--top ">
+    Improve this lesson on GitHub
+  </span>
+  <% end %>
+
+  <%= link_to "#{github_link}/curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=%3CLesson%3E%3A+%3CShort+description+of+your+suggestion%3E", target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Report an issue with this lesson' }, class: 'hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-10 relative' do %>
+
+  <span class="fas fa-flag no-underline mr-1 md:inline-block"></span>
+
+  <span class="hidden md:inline hint--top">Report an issue with this lesson</span>
+<% end %>
+
+
+  <%= link_to "#{github_link}/theodinproject/blob/main/CONTRIBUTING.md", target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Learn how to contribute' }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-10 relative' do %>
+  <span class="fa-solid fa-book mr-1 no-underline md:inline-block "></span>
+  <span class="hidden no-underline md:inline ">
+    Learn how to contribute
+  </span>
+<% end %>
+
+
+
 </div>
 
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
@@ -44,20 +73,6 @@
       <% end %>
     <% end %>
 
-    <div class="py-10">
-      <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
-        <span class="fab fa-github mr-1"></span>
-        Improve this lesson on GitHub
-      <% end %>
-      <%= link_to "#{github_link}/curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=%3CLesson%3E%3A+%3CShort+description+of+your+suggestion%3E", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
-        <span class="fas fa-flag mr-1"></span>
-        Report an issue with this lesson
-      <% end %>
-      <%= link_to "#{github_link}/theodinproject/blob/main/CONTRIBUTING.md", target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-3' do %>
-        <span class="fa-solid fa-book mr-1"></span>
-        Learn how to contribute
-        <% end %>
 
-    </div>
   </div>
 </div>
