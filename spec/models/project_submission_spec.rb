@@ -205,4 +205,27 @@ RSpec.describe ProjectSubmission do
       end
     end
   end
+
+  describe '#live_preview_url?' do
+    context 'when a live preview url is not provided' do
+      it 'returns false' do
+        project_submission.live_preview_url = nil
+        expect(project_submission.live_preview_url?).to be false
+      end
+    end
+
+    context 'when a live preview url is provided' do
+      it 'returns true' do
+        project_submission.live_preview_url = 'https://www.test.com'
+        expect(project_submission.live_preview_url?).to be true
+      end
+    end
+
+    context 'when a empty live preview url is provided' do
+      it 'returns false' do
+        project_submission.live_preview_url = ''
+        expect(project_submission.live_preview_url?).to be false
+      end
+    end
+  end
 end
