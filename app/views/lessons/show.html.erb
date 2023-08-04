@@ -7,8 +7,29 @@
 
     <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
       <article class="col-span-full xl:col-span-7 xl:col-start-2">
-        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do %>
+        <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do |component|  %>
         <%= @lesson.body.html_safe %>
+
+        <% component.with_footer do %>
+          <div class="py-10  xl:col-span-7 xl:col-start-2 lg:col-start-3 lg:col-span-7">
+          <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener',aria: {label: "Improve this lesson on GitHub" }, class: 'hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5' do %>
+          <%-# Only display icon with tooltip at mobile width -%>
+          <span class="fab fa-github mr-1 no-underline lg:inline-block "></span>
+          <%-# Display text at larger viewport widths -%>
+          <span class=" lg:inline hint--top">
+            Improve on GitHub
+          </span>
+          <% end %>
+
+          <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Report an issue with this lesson' }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5 ' do %>
+
+          <span class="fas fa-flag no-underline mr-1 lg:inline-block"></span>
+
+          <span class=" lg:inline hint--top ">Report an issue</span>
+          <% end %>
+
+          </div>
+          <% end %>
         <% end %>
       </article>
 
@@ -18,24 +39,6 @@
           <ul class="flex flex-col text-gray-500 dark:text-gray-400" data-lesson-toc-target="toc"></ul>
         </div>
       </aside>
-      <div class="py-10  xl:col-span-7 xl:col-start-2 xl:bg-red-700 lg:bg-blue-700 lg:col-start-3 lg:col-span-7">
-        <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener',aria: {label: "Improve this lesson on GitHub" }, class: 'hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5' do %>
-        <%-# Only display icon with tooltip at mobile width -%>
-        <span class="fab fa-github mr-1 no-underline lg:inline-block "></span>
-        <%-# Display text at larger viewport widths -%>
-        <span class="hidden lg:inline hint--top">
-          Improve on GitHub
-        </span>
-        <% end %>
-
-        <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', aria: { label: 'Report an issue with this lesson' }, class: ' hint--top underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5 ' do %>
-
-        <span class="fas fa-flag no-underline mr-1 lg:inline-block"></span>
-
-        <span class="hidden lg:inline hint--top ">Report an issue</span>
-        <% end %>
-
-      </div>
     </main>
   </div>
 </div>
