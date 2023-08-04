@@ -12,7 +12,7 @@
 
         <% component.with_footer do %>
           <div class="pt-10">
-          <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5' do %>
+          <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
 
           <span class='fab fa-github mr-1'></span>
 
@@ -21,11 +21,11 @@
           </span>
           <% end %>
 
-          <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 px-5' do %>
+          <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
 
           <span class='fas fa-flag mr-1'></span>
 
-          <span>Report an issue/suggestion</span>
+          <span>Report an issue</span>
           <% end %>
 
           </div>
