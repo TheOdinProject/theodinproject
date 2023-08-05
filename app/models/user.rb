@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  acts_as_voter
   before_create :enroll_in_foundations
 
   devise :database_authenticatable, :registerable, :recoverable,
@@ -17,6 +16,7 @@ class User < ApplicationRecord
   has_many :flags, foreign_key: :flagger_id, dependent: :destroy, inverse_of: :flagger
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :announcements, dependent: nil
+  has_many :likes, dependent: :destroy
   belongs_to :path, optional: true
 
   def progress_for(course)

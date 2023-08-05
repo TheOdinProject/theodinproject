@@ -9,10 +9,6 @@ module ProjectSubmissions
 
     attr_reader :project_submission, :current_users_submission
 
-    def http_action
-      project_submission.liked? ? :delete : :post
-    end
-
     def bg_color_class
       return 'text-teal-700 stroke-teal-700' if current_users_submission || project_submission.liked?
 

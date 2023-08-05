@@ -1,11 +1,10 @@
 class ProjectSubmission < ApplicationRecord
   include Discard::Model
+  include Likeable
 
   before_update do
     self.discard_at = nil if repo_url_changed? || live_preview_url_changed?
   end
-
-  acts_as_votable
 
   belongs_to :user
   belongs_to :lesson
@@ -21,20 +20,6 @@ class ProjectSubmission < ApplicationRecord
   scope :not_removed_by_admin, -> { where(discarded_at: nil) }
   scope :created_today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
   scope :discardable, -> { not_removed_by_admin.where(discard_at: ..Time.zone.now) }
-
-  attribute :liked, :boolean, default: false
-
-  def like!(user = nil)
-    liked_by(user) if user
-
-    self.liked = true
-  end
-
-  def unlike!(user = nil)
-    unliked_by(user) if user
-
-    self.liked = false
-  end
 
   private
 

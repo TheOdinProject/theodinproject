@@ -26,7 +26,7 @@ module ProjectSubmissions
     def sort_code
       return CURRENT_USER_SORT_CODE if current_users_submission?
 
-      project_submission.cached_votes_total
+      project_submission.likes_count
     end
 
     def edit_path

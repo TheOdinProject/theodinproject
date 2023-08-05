@@ -16,7 +16,7 @@ class LessonProjectSubmissionsQuery
           .only_public
           .where.not(user: current_user)
           .includes(:user)
-          .order(cached_votes_total: :desc, created_at: :desc)
+          .order(likes_count: :desc, created_at: :desc)
           .limit(limit)
   end
 

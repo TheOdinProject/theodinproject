@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe ProjectSubmission do
   subject(:project_submission) { create(:project_submission) }
 
+  it_behaves_like 'likeable', :project_submission
+
   it { is_expected.to belong_to(:user) }
   it { is_expected.to belong_to(:lesson) }
   it { is_expected.to have_many(:flags) }
@@ -151,57 +153,6 @@ RSpec.describe ProjectSubmission do
         discardable_project_submission.update(is_public: false)
 
         expect(discardable_project_submission.reload.discard_at).to eq(discard_date)
-      end
-    end
-  end
-
-  describe '#liked' do
-    it 'return false by default' do
-      expect(project_submission).not_to be_liked
-    end
-
-    context 'when the project submission is liked' do
-      it 'returns true' do
-        project_submission.liked = true
-        expect(project_submission).to be_liked
-      end
-    end
-
-    context 'when the project submission is not liked' do
-      it 'returns false' do
-        project_submission.liked = false
-        expect(project_submission).not_to be_liked
-      end
-    end
-  end
-
-  describe '#like!' do
-    it 'marks the project submission as liked' do
-      user = create(:user)
-      expect { project_submission.like!(user) }.to change { project_submission.liked }.from(false).to(true)
-    end
-
-    context 'when a user is provided' do
-      it 'creates a like for the user' do
-        expect { project_submission.like!(create(:user)) }.to change { project_submission.votes_for.count }.by(1)
-      end
-    end
-  end
-
-  describe '#unlike!' do
-    it 'marks the project submission as unliked' do
-      user = create(:user)
-      project_submission.liked = true
-      expect { project_submission.unlike!(user) }.to change { project_submission.liked }.from(true).to(false)
-    end
-
-    context 'when a user has been provided' do
-      it 'removes the users like' do
-        user = create(:user)
-
-        project_submission.like!(user)
-
-        expect { project_submission.unlike!(user) }.to change { project_submission.votes_for.count }.by(-1)
       end
     end
   end

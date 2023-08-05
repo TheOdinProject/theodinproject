@@ -5,5 +5,13 @@ FactoryBot.define do
     user
     discard_at { nil }
     lesson { association :lesson, previewable: true }
+
+    trait :liked do
+      after(:create, &:liked!)
+    end
+
+    trait :unliked do
+      after(:create, &:unliked!)
+    end
   end
 end
