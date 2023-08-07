@@ -13,7 +13,7 @@ module ProjectSubmissions
       project_submissions.each do |submission|
         next if liked_submission_ids.exclude?(submission.id)
 
-        submission.like!
+        submission.liked!
       end
     end
 
@@ -22,7 +22,7 @@ module ProjectSubmissions
     attr_reader :user, :project_submissions
 
     def liked_submission_ids
-      @liked_submission_ids ||= user.votes.where(votable: project_submissions).pluck(:votable_id)
+      @liked_submission_ids ||= user.likes.where(likeable: project_submissions).pluck(:likeable_id)
     end
   end
 end

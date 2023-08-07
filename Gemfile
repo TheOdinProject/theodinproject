@@ -7,7 +7,6 @@ gem 'rails', '7.0.6'
 gem 'activeadmin', '~> 3.0'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
-gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
