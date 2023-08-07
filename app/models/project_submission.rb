@@ -36,10 +36,6 @@ class ProjectSubmission < ApplicationRecord
     self.liked = false
   end
 
-  def live_preview_url?
-    live_preview_url.present?
-  end
-
   private
 
   def live_preview_allowed
