@@ -8,27 +8,18 @@
     <main class="grid grid-cols-12 gap-x-6" data-controller="lesson-toc" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
       <article class="col-span-full xl:col-span-7 xl:col-start-2">
         <%= render ContentContainerComponent.new(classes: 'xl:mx-0', data_attributes: { lesson_toc_target: 'lessonContent' }) do |component| %>
-        <%= @lesson.body.html_safe %>
+          <%= @lesson.body.html_safe %>
 
-        <% component.with_footer do %>
-          <div class="pt-10">
-          <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+          <% component.with_footer do %>
+            <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+              <%= inline_svg_tag 'icons/github.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Improve on GitHub', desc: 'Github logo icon' %>
+              <span>Improve on GitHub</span>
+            <% end %>
 
-          <span class='fab fa-github mr-1'></span>
-
-          <span>
-            Improve on GitHub
-          </span>
-          <% end %>
-
-          <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
-
-          <span class='fas fa-flag mr-1'></span>
-
-          <span>Report an issue</span>
-          <% end %>
-
-          </div>
+            <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+              <%= inline_svg_tag 'icons/flag.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Report an issue', desc: 'Report icon' %>
+              <span>Report an issue</span>
+            <% end %>
           <% end %>
         <% end %>
       </article>
@@ -46,24 +37,17 @@
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
   <div class="page-container">
     <%= render CardComponent.new do |card| %>
-    <% card.with_body do %>
-    <% if user_signed_in? && @lesson.accepts_submission? %>
-    <%= render(
-          'lessons/project_submissions',
-                  lesson: @lesson,
-                  project_submissions: @project_submissions,
-                  user_submission: @user_submission,
-                  limit: 10
-        ) %>
-    <% elsif @lesson.accepts_submission? %>
-    <p class="mb-7">
-      Only logged in users can view user submissions for this project
-    </p>
-    <% end %>
+      <% card.with_body do %>
+        <% if user_signed_in? && @lesson.accepts_submission? %>
+          <%= render 'lessons/project_submissions', lesson: @lesson, limit: 10 %>
+        <% elsif @lesson.accepts_submission? %>
+          <p class="mb-7">
+            Only logged in users can view user submissions for this project
+          </p>
+        <% end %>
 
-    <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+        <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+      <% end %>
     <% end %>
-    <% end %>
-
   </div>
 </div>
