@@ -41,7 +41,7 @@
     "mermaid": "^9.4.3",
     "mini-css-extract-plugin": "^2.7.6",
     "pnp-webpack-plugin": "1",
-    "postcss": "^8.4.20",
+    "postcss": "^8.4.27",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
