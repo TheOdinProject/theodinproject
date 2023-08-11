@@ -184,7 +184,7 @@ Before you begin working on anything, make sure you follow these steps in order 
     git remote add upstream https://github.com/TheOdinProject/css-exercises.git
     ```
 
-### Working on an Issue
+### Committing Your Changes
 
 Once you have the repo forked and cloned, and the upstream remote has been set, you can begin working on your issue:
 
