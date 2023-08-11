@@ -16,7 +16,7 @@
       </aside>
 
       <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { method: :put }, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+        <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { method: :put } do |form| %>
           <%= render CardComponent.new do |card| %>
             <% card.with_header do %>
               <h3 class="text-xl leading-6 font-medium text-gray-700 dark:text-gray-200">Change your password</h3>
@@ -25,22 +25,22 @@
               <div class="grid grid-cols-6 gap-6 grid-flow-row">
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :current_password %>
-                  <%= form.password_field :current_password, class: 'dark-form-input', data: { test_id: 'current-password-field', attr: 'form-validation.currentPassword', action: 'blur->form-validation#validate' } %>
+                  <%= form.password_field :current_password, class: 'dark-form-input', data: { test_id: 'current-password-field' } %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :password %>
-                  <%= form.password_field :password, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+                  <%= form.password_field :password, class: 'dark-form-input', data: { test_id: 'password-field' } %>
                 </div>
 
                 <div class="col-span-6 sm:col-span-4">
                   <%= form.label :password_confirmation %>
-                  <%= form.password_field :password_confirmation, class: 'dark-form-input', data: { test_id: 'password-confirmation-field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+                  <%= form.password_field :password_confirmation, class: 'dark-form-input', data: { test_id: 'password-confirmation-field' } %>
                 </div>
               </div>
             <% end %>
             <% card.with_footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40 rounded-b-lg') do %>
-              <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { disable_with: false } %>
+              <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { disable_with: false, test_id: 'save-btn' } %>
             <% end %>
           <% end %>
         <% end %>

@@ -15,7 +15,7 @@
 
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
 
-      <%= form_with model: current_user, url: users_profile_path, builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+      <%= form_with model: current_user, url: users_profile_path, builder: TailwindFormBuilder do |form| %>
         <%= render CardComponent.new do |card| %>
           <% card.with_header do %>
               <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Profile</h3>
@@ -26,12 +26,12 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <%= form.label :username %>
-                <%= form.text_field :username, class: 'dark-form-input', data: { test_id: 'username-field', attr: 'form-validation.username', action: 'blur->form-validation#validate' } %>
+                <%= form.text_field :username, class: 'dark-form-input', data: { test_id: 'username-field' } %>
               </div>
 
               <div class="col-span-6 sm:col-span-4">
                 <%= form.label :email %>
-                <%= form.email_field :email, class: 'dark-form-input', data: { test_id: 'email-field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+                <%= form.email_field :email, class: 'dark-form-input', data: { test_id: 'email-field' } %>
               </div>
 
               <div class="col-span-6 sm:col-span-6">

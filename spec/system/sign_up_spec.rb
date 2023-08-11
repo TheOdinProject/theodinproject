@@ -10,37 +10,27 @@ RSpec.describe 'Sign Up' do
 
   context 'when using email and password to sign up' do
     it 'signs up successfully' do
-      find(:test_id, 'username_field').fill_in(with: 'codesquad64')
-      find(:test_id, 'email_field').fill_in(with: 'codesquad64@gmail.com')
-      find(:test_id, 'password_field').fill_in(with: 'partyparrot128')
-      find(:test_id, 'password_confirmation_field').fill_in(with: 'partyparrot128')
-      find(:test_id, 'submit_btn').click
+      find(:test_id, 'username-field').fill_in(with: 'codesquad64')
+      find(:test_id, 'email-field').fill_in(with: 'codesquad64@gmail.com')
+      find(:test_id, 'password-field').fill_in(with: 'partyparrot128')
+      find(:test_id, 'password-confirmation-field').fill_in(with: 'partyparrot128')
+      find(:test_id, 'submit-btn').click
 
-      expect(find(:test_id, 'profile_username')).to have_content('codesquad64')
+      expect(find(:test_id, 'profile-username')).to have_content('codesquad64')
     end
   end
 
   context 'when invalid' do
     it 'validates the sign up fields' do
-      find(:test_id, 'username_field').fill_in(with: 'c')
-      find(:test_id, 'email_field').fill_in(with: 'codesquad64@')
-      find(:test_id, 'password_field').fill_in(with: 'partyparrot128')
-      find(:test_id, 'password_confirmation_field').fill_in(with: 'partyparrot18')
-      find(:test_id, 'submit_btn').click
+      find(:test_id, 'username-field').fill_in(with: 'c')
+      find(:test_id, 'email-field').fill_in(with: 'email@example.com')
+      find(:test_id, 'password-field').fill_in(with: 'partyparrot128')
+      find(:test_id, 'password-confirmation-field').fill_in(with: 'partyparrot18')
+      find(:test_id, 'submit-btn').click
 
-      expect(page).to have_content('is too short (minimum is 4 characters)')
-      expect(page).to have_content('is not a valid email')
-      expect(page).to have_content('The passwords do not match')
+      expect(page).to have_content('is too short (minimum is 2 characters)')
+      expect(page).to have_content("doesn't match Password")
       expect(page).to have_current_path(sign_up_path)
-    end
-
-    it 're-validates sign up fields and updates UI' do
-      find(:test_id, 'email_field').fill_in(with: 'codesquad64@')
-      expect(page).to have_content('is not a valid email')
-
-      find(:test_id, 'email_field').fill_in(with: 'codesquad64@example.com')
-      find(:test_id, 'username_field').fill_in(with: 'needtotriggerblur')
-      expect(page).not_to have_content('is not a valid email')
     end
   end
 
@@ -55,7 +45,7 @@ RSpec.describe 'Sign Up' do
 
     it 'can sign up with github' do
       find(:test_id, 'github-btn').click
-      expect(find(:test_id, 'profile_username')).to have_content('chrissy shenko')
+      expect(find(:test_id, 'profile-username')).to have_content('chrissy shenko')
     end
 
     context 'when invalid credentials are provided' do
@@ -82,12 +72,12 @@ RSpec.describe 'Sign Up' do
 
         sign_in(user)
         visit dashboard_path
-        expect(find(:test_id, 'learning_goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
 
         sign_out(:user)
         visit new_user_registration_path
         find(:test_id, 'github-btn').click
-        expect(find(:test_id, 'learning_goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
       end
     end
   end
@@ -103,7 +93,7 @@ RSpec.describe 'Sign Up' do
 
     it 'can sign up with google' do
       find(:test_id, 'google-btn').click
-      expect(find(:test_id, 'profile_username')).to have_content('chrissy shenko')
+      expect(find(:test_id, 'profile-username')).to have_content('chrissy shenko')
     end
 
     context 'when user has an existing account with the same email' do
@@ -117,12 +107,12 @@ RSpec.describe 'Sign Up' do
 
         sign_in(user)
         visit dashboard_path
-        expect(find(:test_id, 'learning_goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
 
         sign_out(:user)
         visit new_user_registration_path
         find(:test_id, 'google-btn').click
-        expect(find(:test_id, 'learning_goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
       end
     end
 
