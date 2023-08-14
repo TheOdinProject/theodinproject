@@ -50,7 +50,7 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-tabs": "4.2.1",
+    "react-tabs": "4.3.0",
     "react_ujs": "^2.6.2",
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.63.4",
