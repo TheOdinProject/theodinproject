@@ -188,9 +188,9 @@ GEM
       rake
     flipper (0.28.3)
       concurrent-ruby (< 2)
-    flipper-active_record (0.28.0)
+    flipper-active_record (0.28.3)
       activerecord (>= 4.2, < 8)
-      flipper (~> 0.28.0)
+      flipper (~> 0.28.3)
     flipper-ui (0.28.3)
       erubi (>= 1.0.0, < 2.0.0)
       flipper (~> 0.28.3)
