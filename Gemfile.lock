@@ -128,6 +128,8 @@ GEM
     crass (1.0.6)
     css_parser (1.14.0)
       addressable
+    cssbundling-rails (1.2.0)
+      railties (>= 6.0.0)
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
@@ -584,6 +586,7 @@ DEPENDENCIES
   capybara (~> 3.39)
   classy-yaml (~> 0.8)
   climate_control (~> 1.2)
+  cssbundling-rails (~> 1.2)
   cuprite (~> 0.14)
   debug (~> 1.7)
   devise (~> 4.9)
