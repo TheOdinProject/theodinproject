@@ -56,3 +56,9 @@ yarn-debug.log*
 # Vim Swap File
 .swp
 .vscode/settings.json
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Ruby tool versions
+.tool-versions

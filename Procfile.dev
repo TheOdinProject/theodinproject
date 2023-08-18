@@ -1,3 +1,4 @@
 web: bundle exec puma -C config/puma_development.rb -p 3000
 worker: bundle exec sidekiq
 webpack: bin/webpacker-dev-server
+css: yarn build:css --watch
