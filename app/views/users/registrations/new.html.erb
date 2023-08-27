@@ -13,26 +13,26 @@
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     <%= render CardComponent.new do |card| %>
       <%= card.with_body do %>
-        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll' } do |form| %>
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder do |form| %>
           <div class="space-y-6">
             <div>
               <%= form.label :username %>
-              <%= form.text_field :username, required: true, autofocus: true, class: 'dark-form-input', data: { test_id: 'username_field', attr: 'form-validation.username', action: 'input->form-validation#validate' } %>
+              <%= form.text_field :username, required: true, autofocus: true, class: 'dark-form-input', data: { test_id: 'username-field' } %>
             </div>
 
             <div>
               <%= form.label :email %>
-              <%= form.email_field :email, required: true, value: params[:email], class: 'dark-form-input', data: { test_id: 'email_field', attr: 'form-validation.email', action: 'blur->form-validation#validate' } %>
+              <%= form.email_field :email, required: true, class: 'dark-form-input', data: { test_id: 'email-field' } %>
             </div>
 
             <div>
               <%= form.label :password %>
-              <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password_field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+              <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password-field' } %>
             </div>
 
             <div>
               <%= form.label :password_confirmation %>
-              <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password_confirmation_field', attr: 'form-validation.password_confirmation', action: 'blur->form-validation#validate' } %>
+              <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password-confirmation-field' } %>
             </div>
 
             <div class="text-center">
@@ -40,7 +40,7 @@
             </div>
 
             <div>
-              <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit_btn', disable_with: false } %>
+              <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit-btn', disable_with: false } %>
             </div>
           </div>
         <% end %>

@@ -4,10 +4,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.0.6'
 
-gem 'activeadmin', '~> 2.14'
+gem 'activeadmin', '~> 3.0'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
-gem 'acts_as_votable', '~> 0.14'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
@@ -32,7 +31,7 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'pagy', '~> 6.0'
 gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.3'
-gem 'rack-attack', '~> 6.6'
+gem 'rack-attack', '~> 6.7'
 gem 'react-rails', '~> 2.6'
 gem 'redis', '~> 5.0'
 gem 'ruby-progressbar', '~> 1.13'
@@ -44,16 +43,16 @@ gem 'sentry-sidekiq', '~> 5.10'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 6.5'
 gem 'turbo-rails', '~> 1.4'
-gem 'view_component', '~> 3.2'
+gem 'view_component', '~> 3.5'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.0.5'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.53', require: false
-  gem 'rubocop-performance', '~> 1.18', require: false
+  gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.20', require: false
-  gem 'rubocop-rspec', '~> 2.20', require: false
+  gem 'rubocop-rspec', '~> 2.23', require: false
   gem 'web-console', '~> 4.2'
 end
 

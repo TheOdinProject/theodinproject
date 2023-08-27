@@ -1,0 +1,8 @@
+/* Support Us page, custom CSS */
+#support-us iframe {
+  max-width: 100%;
+}
+
+#support-us .opencollective-banner {
+  margin: auto;
+}

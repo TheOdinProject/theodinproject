@@ -14,16 +14,16 @@
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <%= render CardComponent.new do |card| %>
         <%= card.with_body do %>
-          <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, data: { controller: 'form-validation', action: 'submit->form-validation#validateAll'} do |form| %>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder do |form| %>
             <div class="space-y-6">
               <div>
                 <%= form.label :email, 'Email address' %>
-                <%= form.email_field :email, required: false, class: 'dark-form-input', autofocus: true, data: { test_id: 'email-field', attr: 'form-validation.email', action: 'input->form-validation#validate' } %>
+                <%= form.email_field :email, required: true, class: 'dark-form-input', autofocus: true, data: { test_id: 'email-field' } %>
               </div>
 
               <div>
                 <%= form.label :password %>
-                <%= form.password_field :password, required: false, class: 'dark-form-input', data: { test_id: 'password-field', attr: 'form-validation.password', action: 'blur->form-validation#validate' } %>
+                <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password-field' } %>
               </div>
 
               <div class="flex items-center justify-between">

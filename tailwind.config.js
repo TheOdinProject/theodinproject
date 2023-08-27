@@ -14,6 +14,7 @@ module.exports = {
     'lesson-note',
     'lesson-note--tip',
     'lesson-note--warning',
+    'lesson-note--critical',
     'lesson-content__panel',
     'anchor-link',
     'toc-item-active'

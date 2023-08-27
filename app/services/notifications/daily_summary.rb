@@ -5,7 +5,7 @@ module Notifications
         "#{User.where('created_at >= ?', start_of_day).size} users signed up\n" \
         "#{LessonCompletion.created_today.size} lessons completed\n" \
         "#{ProjectSubmission.created_today.size} project submissions added\n" \
-        "#{Vote.created_today.size} projects liked"
+        "#{Like.created_today.size} projects liked"
     end
 
     def destination

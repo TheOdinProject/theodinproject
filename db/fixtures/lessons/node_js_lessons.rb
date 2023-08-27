@@ -27,7 +27,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/introduction_to_nodeJS/project_basic_informational_site.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'de746d83-dcce-48f0-a0ba-72d117d0ac05',
     },
     'Introduction to MongoDB' => {
@@ -64,7 +64,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/express_and_mongoose/project_mini_message_board.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '0270683a-d1e1-49f1-996e-ab721c251354',
     },
     'Deployment' => {
@@ -94,7 +94,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/express_and_mongoose/project_express_105_forms_and_deployment.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'de07c671-e8c7-47c0-88fe-219b66308bd4',
     },
     'Inventory Application' => {
@@ -103,7 +103,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/express_and_mongoose/project_inventory_application.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '5b7bcdb8-38d5-46ea-846b-c12bfb0290ef',
     },
     'Authentication Basics' => {
@@ -126,7 +126,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/authentication/project_members_only.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'dc36f70d-cc3b-47c5-958f-0c09ca61ca78',
     },
     'API Basics' => {
@@ -149,7 +149,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/apis/project_blog_api.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'ad8a46e7-a42b-420b-804d-afafb0c60d2c',
     },
     'Testing Routes and Controllers' => {
@@ -172,7 +172,7 @@ def node_js_lessons
       is_project: true,
       github_path: '/nodeJS/final_project/project_odin_book.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'c0d6ba51-620e-49e0-8583-924f38754874',
     },
     'Conclusion' => {

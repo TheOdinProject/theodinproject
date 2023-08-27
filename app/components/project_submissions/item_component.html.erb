@@ -9,7 +9,7 @@
     <div class="flex flex-row md:items-center">
       <%= link_to 'View code', project_submission.repo_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'view-code-btn' } %>
 
-      <% if project_submission.lesson.has_live_preview? %>
+      <% if project_submission.lesson.previewable? && project_submission.live_preview_url? %>
         <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } %>
       <% end %>
 

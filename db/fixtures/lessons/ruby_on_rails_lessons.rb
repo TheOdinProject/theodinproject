@@ -13,7 +13,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/introduction/project_installing_rails.md',
       accepts_submission: false,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '9dbd5caa-a77d-4731-8897-542aae2984e3',
       installation_lesson: true,
     },
@@ -58,7 +58,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/rails_basics/project_blog_app.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '00167c46-3d50-410f-947a-729571744920'
     },
     'Active Record Basics' => {
@@ -74,7 +74,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/active_record_basics/project_micro_reddit.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: 'f46373db-e4e2-4aec-866e-b0123fc7928e',
     },
     'The Asset Pipeline' => {
@@ -111,7 +111,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/forms_and_authentication/project_forms.md',
       accepts_submission: true,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '3f3fa50c-9223-4178-b86a-6b50caf30896',
     },
     'Sessions, Cookies and Authentication' => {
@@ -127,7 +127,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/forms_and_authentication/project_members_only.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '038fc7b2-11df-4d95-9cc9-f6006e51ec2d',
     },
     'Active Record Queries' => {
@@ -150,7 +150,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/project_private_events.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '54233186-d525-4647-a001-91049353ecec',
     },
     'Active Record Callbacks' => {
@@ -173,7 +173,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/project_flight_booker.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '52cb7814-24f0-450a-9bf2-39cde4a680da',
     },
     'APIs and Building Your Own' => {
@@ -196,7 +196,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/apis/project_kittens_api.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '5d0433d7-f3f3-46fa-99e7-3bc5893a2599'
     },
     'Flickr API' => {
@@ -205,7 +205,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/apis/project_flickr_api.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '2adcd199-34b4-47e0-875c-0df9ecd61ea9',
     },
     'CSS Bundling' => {
@@ -249,7 +249,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/mailers_advanced_topics/project_sending_confirmation_emails.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'bd6d78b4-cefd-4938-8818-5adfe5620c2b'
     },
     'Advanced Topics' => {
@@ -272,7 +272,7 @@ def ruby_on_rails_lessons
       is_project: true,
       github_path: '/ruby_on_rails/mailers_advanced_topics/project_final.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '3eac603e-c8e7-4ba8-ade0-87c4e3c3de59',
     },
     'Conclusion' => {

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'faq' => 'static_pages#faq'
   get 'contributing' => 'static_pages#contributing'
+  get 'support_us' => 'static_pages#support_us'
   get 'terms_of_use' => 'static_pages#terms_of_use'
   get 'privacy-policy' => 'static_pages#privacy_policy'
   get 'success_stories' => 'static_pages#success_stories'
@@ -100,7 +101,7 @@ Rails.application.routes.draw do
 
   resources :project_submissions do
     resources :flags, only: %i[new create], controller: 'project_submissions/flags'
-    resource :like, only: %i[create destroy], controller: 'project_submissions/likes'
+    resource :like, only: %i[update], controller: 'project_submissions/likes'
   end
 
   resources :paths, only: %i[index show] do
