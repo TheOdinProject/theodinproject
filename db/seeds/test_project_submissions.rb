@@ -12,7 +12,7 @@ if Rails.env.development? || ENV['STAGING']
 
   users.each do |user|
     ProjectSubmission.find_or_create_by(user_id: user.id, lesson_id: Lesson.find_by(title: 'Recipes').id) do |submission|
-      submission.has_live_preview = 'https://www.google.com'
+      submission.live_preview_url = 'https://www.google.com'
       submission.repo_url = 'https://github.com'
     end
   end

@@ -4,11 +4,19 @@
       <div class=''>
         <div class="space-y-5 px-4">
            <% Flag::REASONS.each do |reason| %>
-            <div class="sm:flex my-auto mx-auto items-center text-center">
-              <%= form.radio_button :reason, reason.name, data: { test_id: "flag-reason-#{reason.name}"} %>
-              <%= form.label :reason, reason.description, class: 'ml-3' %>
+           <div class="relative flex items-start">
+              <div class="absolute flex h-6 items-center">
+                <%= form.radio_button :reason, reason.name, data: { test_id: "flag-reason-#{reason.name}"}, class: 'h-4 w-4 border-gray-300 dark:border-gray-500 dark:bg-gray-700/50 dark:checked:bg-gold-600 dark:checked:border-gold-600 dark:focus:ring-offset-gray-800 text-gold-600 focus:ring-gold-600' %>
+              </div>
+              <div class="pl-7 text-sm leading-6">
+                <%= form.label :reason, reason.description, value: reason.name, class: 'ml-3 text-gray-500 dark:text-gray-400' %>
+              </div>
             </div>
-<% end %>
+            <% end %>
+            <div class="mt-4">
+              <%= form.text_area :extra, placeholder: 'Please explain why you are reporting this submission...', rows: 6, data: { test_id: 'flag-description-field' }, autofocus: true %>
+            <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"> Please include as much detail as possible to help us assess and action your report.</p>
+          </div>
         </div>
 
         <div class="mt-5 sm:flex sm:flex-row-reverse pt-4">
