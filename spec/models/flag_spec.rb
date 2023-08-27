@@ -7,8 +7,13 @@ RSpec.describe Flag do
   it { is_expected.to belong_to(:project_submission) }
 
   it { is_expected.to validate_presence_of(:reason) }
-  it { is_expected.to define_enum_for(:reason).with_values(%i[broken insecure spam inappropriate other]) }
   it { is_expected.to define_enum_for(:status).with_values(%i[active resolved]) }
+
+  it do
+    expect(flag)
+      .to define_enum_for(:reason)
+      .with_values(broken: 10, insecure: 20, spam: 30, inappropriate: 40, other: 50)
+  end
 
   it do
     expect(flag).to define_enum_for(:taken_action)

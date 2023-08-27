@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :flag do
     flagger { association :user }
     project_submission
-    reason { 3 }
+    reason { :spam }
     extra { "It's offensive" }
   end
 end
