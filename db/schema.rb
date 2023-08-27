@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_153507) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_230910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -67,13 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_153507) do
   create_table "flags", force: :cascade do |t|
     t.integer "flagger_id", null: false
     t.bigint "project_submission_id", null: false
-    t.text "extra", default: "", null: false
+    t.text "extra", default: ""
     t.integer "status", default: 0, null: false
     t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
-    t.integer "reason", default: 4
+    t.integer "reason", default: 4, null: false
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
   end
@@ -138,7 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_153507) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "slug"
     t.boolean "accepts_submission", default: false, null: false
-    t.boolean "has_live_preview", default: false, null: false
+    t.boolean "previewable", default: false, null: false
     t.boolean "choose_path_lesson", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
     t.bigint "course_id"

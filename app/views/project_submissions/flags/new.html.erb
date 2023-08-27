@@ -2,32 +2,13 @@
   <%= turbo_frame_tag 'flag_form', class: 'w-full' do %>
     <%= form_with model: [@project_submission, @flag], builder: TailwindFormBuilder do |form| %>
       <div class=''>
-        <div class="space-y-6 pt-4">
-          <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :broken, data: { test_id: 'flag-reason-broken'} %>
-            <%= form.label :reason, 'Link does not work', class: 'ml-3' %>
-          </div>
-          <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :insecure, data: { test_id: 'flag-reason-insecure'} %>
-            <%= form.label :reason, 'Link is not secure or safe', class: 'ml-3' %>
-          </div>
-          <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :spam, data: { test_id: 'flag-reason-spam'} %>
-            <%= form.label :reason, 'Spam or misleading', class: 'ml-3' %>
-          </div>
-          <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :inappropriate, data: { test_id: 'flag-reason-inappropriate'} %>
-            <%= form.label :reason, 'Inappropriate imagery or language', class: 'ml-3' %>
-          </div>
-          <div class="sm:flex my-auto mx-auto items-center text-center">
-            <%= form.radio_button :reason, :other, data: { test_id: 'flag-reason-other'} %>
-            <%= form.label :reason, 'Other', class: 'ml-3' %>
-          </div>
-          </div>
-          <div class="mt-4">
-            <%= form.text_area :extra, placeholder: 'Please explain why you are reporting this submission...', rows: 6, data: { test_id: 'flag-description-field' }, autofocus: true %>
-            <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"> Please include as much detail as possible to help us assess and action your report.</p>
-          </div>
+        <div class="space-y-5 px-4">
+           <% Flag::REASONS.each do |reason| %>
+            <div class="sm:flex my-auto mx-auto items-center text-center">
+              <%= form.radio_button :reason, reason.name, data: { test_id: "flag-reason-#{reason.name}"} %>
+              <%= form.label :reason, reason.description, class: 'ml-3' %>
+            </div>
+<% end %>
         </div>
 
         <div class="mt-5 sm:flex sm:flex-row-reverse pt-4">

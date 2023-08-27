@@ -8,7 +8,7 @@ RSpec.describe Messages::DeadLink do
       :flag,
       created_at: Time.zone.local(2021, 8, 1),
       project_submission: create(:project_submission, lesson:, user:),
-      reason: 3,
+      reason: :inappropriate,
       extra: 'I find it offensive'
     )
   end
