@@ -6,7 +6,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
     @flag = @project_submission.flags.new
   end
 
-  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def create
     @flag = @project_submission.flags.new(flag_params)
 
     respond_to do |format|
@@ -14,10 +14,8 @@ class ProjectSubmissions::FlagsController < ApplicationController
         notify_discord_admins
 
         format.html { redirect_to lesson_path(@project_submission.lesson) }
-        format.json { render json: @flag, status: :created }
         format.turbo_stream { flash.now[:notice] = 'Thank you! your report has been submitted.' }
       else
-        format.json { render json: { error: 'Unable to flag project submission' }, status: :unprocessable_entity }
         format.html { render :new, status: :unprocessable_entity }
       end
     end
@@ -34,10 +32,14 @@ class ProjectSubmissions::FlagsController < ApplicationController
   end
 
   def notify_discord_admins
-    return unless Rails.env.production?
+    return unless discord_notifications_enabled?
 
     DiscordNotifier.notify(
       Notifications::FlagSubmission.new(@flag)
     )
+  end
+
+  def discord_notifications_enabled?
+    Rails.env.production? && ENV['STAGING'].blank?
   end
 end
