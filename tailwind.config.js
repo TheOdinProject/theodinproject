@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     './app/**/*.html.erb',
+    './app/**/*.turbo_stream.erb',
     './app/components/**/*',
     './app/components/*.rb',
     './app/javascript/**/*.js',

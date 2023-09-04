@@ -84,7 +84,7 @@ Rails.application.routes.draw do
 
   namespace :lessons do
     resource :preview, only: %i[show create] do
-      post :markdown
+      resource :share, only: %i[create], controller: 'previews/share'
     end
 
     resources :installation_guides, only: :index

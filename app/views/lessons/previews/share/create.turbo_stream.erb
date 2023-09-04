@@ -1,0 +1,18 @@
+<%= turbo_stream.replace 'modal' do %>
+  <%= render ModalComponent.new(title: 'Share preview') do %>
+    <div class="w-full h-14">
+      <div data-controller="clipboard">
+        <div class="relative flex items-center">
+          <%= text_field_tag 'preview_url', lessons_preview_url(uuid: @preview), readonly: true, data: { clipboard_target: 'source' }, class: 'py-1.5 pr-10 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-2 dark:focus:border-transparent' %>
+
+          <div class="absolute inset-y-0 right-0 flex py-1 pr-1">
+            <button class="inline-flex items-center rounded border border-gray-300 px-1 font-sans text-xs text-gray-700 hover:bg-gray-50 focus:ring-gray-400 dark:text-gray-300 dark:hover:bg-gray-700 dark:border-gray-600 dark:focus:ring-gray-600 dark:bg-transparent" data-action="click->clipboard#copy">
+              <%= inline_svg_tag 'icons/clipboard.svg', class: 'h-5 w-5', aria: true, title: 'clipboard', desc: 'clipboard icon' %>
+            </button>
+          </div>
+        </div>
+        <span data-clipboard-target="message" class="hidden text-green-700 dark:text-green-600 text-sm pt-1 float-right">Copied!</span>
+      </div>
+    </div>
+  <% end %>
+<% end %>
