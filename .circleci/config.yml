@@ -62,7 +62,6 @@ jobs:
             chromedriver --version
           name: Check install
       - build-app
-      - run: yarn test
       - ruby/rspec-test
   linters:
     executor: rails-executor

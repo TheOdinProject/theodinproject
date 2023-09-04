@@ -25,7 +25,6 @@ module.exports = function(api) {
           },
           modules: 'commonjs'
         },
-        '@babel/preset-react'
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
@@ -37,13 +36,6 @@ module.exports = function(api) {
           exclude: ['transform-typeof-symbol']
         }
       ],
-      [
-        '@babel/preset-react',
-        {
-          development: isDevelopmentEnv || isTestEnv,
-          useBuiltIns: true
-        }
-      ]
     ].filter(Boolean),
     plugins: [
       '@babel/plugin-transform-destructuring',
@@ -85,12 +77,6 @@ module.exports = function(api) {
           async: false
         }
       ],
-      isProductionEnv && [
-        'babel-plugin-transform-react-remove-prop-types',
-        {
-          removeImport: true
-        }
-      ]
     ].filter(Boolean)
   }
 }
