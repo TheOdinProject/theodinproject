@@ -5,31 +5,11 @@ module Lessons
     end
 
     def create
-      preview_link = LessonPreview.new(lesson_preview_params)
+      @preview = LessonPreview.new(content: params[:markdown])
 
-      if preview_link.save
-        render json: { preview_link: lessons_preview_url(uuid: preview_link.id) }, status: :created
-      else
-        render json: { errors: preview_link.errors.full_messages }, status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream
       end
-    end
-
-    def markdown
-      if content.present?
-        render json: { content: MarkdownConverter.new(params[:content]).as_html }
-      else
-        render json: { content: '<p>Nothing to preview</p>' }
-      end
-    end
-
-    private
-
-    def content
-      params[:content]
-    end
-
-    def lesson_preview_params
-      params.permit(:content)
     end
   end
 end
