@@ -91,10 +91,6 @@ GEM
       ruby2_keywords (>= 0.0.2, < 1.0)
     ast (2.4.2)
     awesome_print (1.9.2)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     barnes (0.0.9)
       multi_json (~> 1)
       statsd-ruby (~> 1.1)
@@ -165,7 +161,6 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
-    execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -399,12 +394,6 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
-    react-rails (2.7.1)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     redcarpet (3.6.0)
     redis (5.0.6)
       redis-client (>= 0.9.0)
@@ -624,7 +613,6 @@ DEPENDENCIES
   rack-attack (~> 6.7)
   rack-mini-profiler
   rails (= 7.0.6)
-  react-rails (~> 2.6)
   redis (~> 5.0)
   rspec-rails (~> 6.0)
   rspec-retry (~> 0.6)

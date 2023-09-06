@@ -24,12 +24,3 @@ import 'controllers';
 import '@hotwired/turbo-rails';
 
 Rails.start();
-
-const componentRequireContext = require.context('./components', true);
-const ReactRailsUJS = require('react_ujs');
-
-ReactRailsUJS.useContext(componentRequireContext);
-ReactRailsUJS.handleEvent('turbo:load', ReactRailsUJS.handleMount);
-ReactRailsUJS.handleEvent('turbo:before-render', ReactRailsUJS.handleUnmount);
-ReactRailsUJS.handleEvent('turbo:frame-load', ReactRailsUJS.handleMount);
-ReactRailsUJS.handleEvent('turbo:frame-render', ReactRailsUJS.handleUnmount);
