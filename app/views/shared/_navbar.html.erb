@@ -17,7 +17,7 @@
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard') %>
             <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
-            <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
+            <%= render Nav::ItemComponent.new(path: discord_path, text: 'Community', test_id: 'nav-community') %>
             <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support us', test_id: 'nav-support-us') %>
           </div>
 
@@ -36,7 +36,7 @@
           <div class="hidden md:ml-6 md:flex sm:space-x-8">
           <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths') %>
           <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about') %>
-          <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community') %>
+          <%= render Nav::ItemComponent.new(path: discord_path, text: 'Community', test_id: 'nav-community') %>
           <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support us', test_id: 'nav-support-us') %>
           <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in') %>
           <%= turbo_frame_tag 'theme_switcher', class: 'flex items-center justify-center w-6' do %>
