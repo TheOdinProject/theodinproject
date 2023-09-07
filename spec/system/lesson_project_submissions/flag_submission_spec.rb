@@ -20,6 +20,7 @@ RSpec.describe 'Flagging a Project Submission' do
       end
     end
 
+    find(:test_id, 'flag-reason-spam').click
     find(:test_id, 'flag-description-field').fill_in(with: 'It contains offensive material')
     find(:test_id, 'submit-btn').click
 

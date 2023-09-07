@@ -67,12 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
   create_table "flags", force: :cascade do |t|
     t.integer "flagger_id", null: false
     t.bigint "project_submission_id", null: false
-    t.text "reason", default: "", null: false
+    t.text "extra", default: ""
     t.integer "status", default: 0, null: false
     t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
+    t.integer "reason", default: 4, null: false
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
   end

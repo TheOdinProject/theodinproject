@@ -10,6 +10,12 @@ RSpec.describe Flag do
   it { is_expected.to define_enum_for(:status).with_values(%i[active resolved]) }
 
   it do
+    expect(flag)
+      .to define_enum_for(:reason)
+      .with_values(broken: 10, insecure: 20, spam: 30, inappropriate: 40, other: 50)
+  end
+
+  it do
     expect(flag).to define_enum_for(:taken_action)
       .with_values(%i[pending dismiss ban removed_project_submission notified_user])
   end
