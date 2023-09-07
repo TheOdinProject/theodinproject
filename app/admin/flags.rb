@@ -21,7 +21,7 @@ ActiveAdmin.register Flag do
     id_column
 
     column :reason do |flag|
-      Flag::REASONS.find { |reason| reason.name.to_s == flag.reason }.description
+      Flag::REASONS.find { |reason| reason.name.to_s == flag.reason }&.description
     end
     column :status
     column :taken_action
@@ -31,7 +31,7 @@ ActiveAdmin.register Flag do
     attributes_table do
       row :flagger
       row :reason do |reason_flag|
-        Flag::REASONS.find { |reason| reason.name.to_s == reason_flag.reason }.description
+        Flag::REASONS.find { |reason| reason.name.to_s == reason_flag.reason }&.description
       end
       row :extra
       row :submission_ower do
