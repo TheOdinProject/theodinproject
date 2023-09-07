@@ -51,4 +51,11 @@ RSpec.describe 'Redirects' do
       expect(response).to redirect_to(ODIN_CHAT_URL)
     end
   end
+
+  describe 'GET /blog' do
+    it 'redirects to the blog page' do
+      get '/blog'
+      expect(response).to redirect_to(ODIN_BLOG_URL)
+    end
+  end
 end
