@@ -11,7 +11,7 @@ success_stories = [
     avatar_path_name: 'olivia.jpg',
     story_content: "<p>Before I found TOP, I was jumping from course to course without really any guidance or community. I wanted to get a real development job and not operating an IT help desk, and I wanted to do it for free.</p> <p>After reading people's success stories on Reddit on how they found a development job, many people praised the curriculum at TOP and how they got a job even before they finished it. I couldn’t believe it! So I decided to give it a shot.</p> <p>The self-paced structure, reading materials, and challenges was easy to understand and made me feel I was in control. I was even able to find a community to help guide and mentor me through the process. About eight months after I started, I got my first development gig - and I didn't even finish the curriculum! Because of TOP, I can call myself a developer.</p>",
     job_title: 'Information Security Engineer',
-    social_media_link: '#',
+    social_media_link: '',
   },
   {
     student_name: 'Cody Loyd',
