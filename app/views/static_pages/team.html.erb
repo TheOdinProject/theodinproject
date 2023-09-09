@@ -1,0 +1,34 @@
+<%= title('Team') %>
+
+<div class="page-container">
+  <div>
+    <h1 class="page-heading-title pb-4">Meet The Team</h1>
+    <p class="pb-4 text-center text-sm sm:text-base mx-auto text-gray-500 dark:text-gray-400">
+      The Odin project is run by a group of dedicated volunteers from around the world.
+    </p>
+    <%= render Team::NavigationComponent.new(
+          roles: [
+            { name: 'Core', url: '#core' },
+            { name: 'Maintainers', url: '#maintainers' },
+            { name: 'Moderators', url: '#moderators' },
+            { name: 'Alumni', url: '#alumni' }
+          ]
+        ) %>
+  </div>
+
+  <div class="max-w-7xl mx-auto pt-10 px-4 sm:pt-12 sm:px-6 lg:px-8">
+    <div class="mt-10 space-y-16">
+      <%= render 'static_pages/team/role', role: 'core', title: 'Core' %>
+      <%= render 'static_pages/team/role', role: 'maintainers', title: 'Maintainers' %>
+      <%= render 'static_pages/team/role', role: 'moderators', title: 'Moderators' %>
+      <%= render 'static_pages/team/alumni', role: 'alumni' %>
+    </div>
+
+      <p class="text-center">
+        <%= render 'shared/bottom_cta',
+          button: contribute_button,
+          heading: 'To all our contributors ❤️',
+          sub_heading: "We've had thousands of contributors outside of the official teams. To them, we extend a special thanks. Each and every contribution has played an important role in improving The Odin Project for the benefit of all learners." %>
+      </p>
+  </div>
+</div>

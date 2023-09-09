@@ -1,0 +1,23 @@
+<li class="rounded-2xl bg-white shadow dark:bg-gray-800 pt-6 p-4 flex flex-col">
+  <%= image_tag team_member.image, alt: '', class: 'mx-auto h-20 w-20 rounded-full' %>
+
+  <div class="text-center pb-6">
+    <h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900 dark:text-white"><%= team_member.name %></h3>
+    <p class="text-sm leading-6 text-gray-500 dark:text-gray-400">Joined <%= team_member.joined %> &centerdot; <%= team_member.location %></p>
+  </div>
+
+  <% if team_member.socials.any? %>
+    <ul
+      aria-label="List of <%= team_member.name %> social links <%= team_member.socials.size %> items"
+      class="mt-auto flex justify-center gap-x-6">
+      <% team_member.socials.each do |social| %>
+        <li>
+          <%= link_to social.url, class: 'text-gray-500 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-100' do %>
+            <span class="sr-only"><%= team_member.name %> on <%= social.name %></span>
+            <%= inline_svg_tag "socials/#{social.name}.svg", class: 'h-5 w-5', aria: true %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</li>

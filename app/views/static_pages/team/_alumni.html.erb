@@ -1,0 +1,14 @@
+<div class="space-y-10" id="alumni">
+  <div>
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white pb-2">Alumni</h2>
+    <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base"><%= t("team_members.#{role}.description") %> </p>
+  </div>
+
+  <ul
+    aria-label="<%= role %> list, <%= t("team_members.#{role}.members").size %> members"
+    class="mx-auto mt-20 grid max-w-2xl grid-cols-3 gap-x-8 gap-y-8 text-center sm:grid-cols-4 md:grid-cols-6 lg:mx-0 lg:max-w-none lg:grid-cols-6 xl:grid-cols-8">
+    <% t("team_members.#{role}.members").each do |team_member| %>
+      <%= render Team::FormerMemberComponent.new(team_member) %>
+    <% end %>
+  </ul>
+</div>
