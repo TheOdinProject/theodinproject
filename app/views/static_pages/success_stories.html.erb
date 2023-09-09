@@ -6,14 +6,32 @@
   <div class="max-w-5xl mx-auto">
 
     <% @success_stories.each do |story| %>
-      <%= render CardComponent.new(classes: 'mb-10') do |card| %>
+      <%= render CardComponent.new(classes: 'mb-10', id: dom_id(story)) do |card| %>
         <% card.with_header do %>
           <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
             <div class="w-20 h-20 rounded-full overflow-hidden">
               <%= image_tag "success_stories/#{story.avatar_path_name}", alt: '', class: 'w-full shadow-inner aspect-auto' %>
             </div>
             <div class="flex flex-col text-center sm:text-left">
-              <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %></p>
+              <div class="flex flex-row gap-2 items-center">
+                <% if story.social_media_link.present? %>
+                  <p class="font-bold"><%= link_to story.student_name, story.social_media_link, class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300' %></p>
+                  <%= link_to story.social_media_link do %>
+                    <%= inline_svg_tag(
+                          'icons/link.svg',
+                          class: 'h-4 w-4 text-gray-400 dark:text-gray-500 hover:text-gray-800 dark:hover:text-gray-300',
+                          title: 'See user site',
+                          aria: true,
+                          desc: "A link that goes to the user's personal site.",
+                          data: { test_id: "social_media_#{story.avatar_path_name}" }
+                        ) %>
+                  <% end %>
+                <% else %>
+                  <p class='font-bold text-gray-600 dark:text-gray-200'>
+                    <%= story.student_name %>
+                  </p>
+                <% end %>
+              </div>
               <p class="text-gray-500 dark:text-gray-400"><%= story.job_title %></p>
             </div>
           </div>
