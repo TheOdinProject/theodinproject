@@ -1,15 +1,4 @@
-<%= link_to(
-      themes_path(theme: other_theme.name),
-      class: yass(link: type),
-      data: {
-        'turbo-method' => :put,
-        'turbo-frame' => '_top',
-        controller: 'theme--switcher',
-        'theme--switcher-current-theme-value' => current_theme.name,
-        'theme--switcher-other-theme-value' => other_theme.name,
-        action: 'click->theme--switcher#toggle'
-      }
-    ) do %>
+<%= link_to themes_path(theme: other_theme.name), class: yass(link: type), data: { turbo_method: :put } do %>
   <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: yass(icon: type), aria: true, title: 'theme icon' %>
   <%= text unless icon_only? %>
 <% end %>

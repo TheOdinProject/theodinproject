@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js' './app/components/**/*.js'",
+    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'",
     "build:css": "npm-run-all --parallel \"build:css:* {@}\" --",
     "build:css:application": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css",
     "build:css:active_admin": "sass ./app/assets/stylesheets/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules --style=compressed"
