@@ -21,7 +21,7 @@
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/request.js": "^0.0.8",
-    "@rails/ujs": "^7.0.5",
+    "@rails/ujs": "^7.0.8",
     "@sentry/browser": "^7.66.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.6",
