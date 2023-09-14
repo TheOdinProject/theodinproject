@@ -5,8 +5,8 @@ module CupriteHelpers
     page.driver.pause
   end
 
-  def debug(*args)
-    page.driver.debug(*args)
+  def debug(*)
+    page.driver.debug(*)
   end
 end
 

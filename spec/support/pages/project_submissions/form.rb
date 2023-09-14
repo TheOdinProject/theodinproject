@@ -8,8 +8,8 @@ module Pages
       option :live_preview_url, default: -> { 'https://myprojectlivepreview.com' }
       option :previewable, default: -> { true }
 
-      def self.fill_in_and_submit(**args)
-        new(**args)
+      def self.fill_in_and_submit(**)
+        new(**)
           .open
           .fill_in
           .submit

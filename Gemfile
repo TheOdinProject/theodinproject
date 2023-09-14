@@ -49,7 +49,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.0.5'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.53', require: false
+  gem 'rubocop', '~> 1.56', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.20', require: false
   gem 'rubocop-rspec', '~> 2.23', require: false
