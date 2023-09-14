@@ -53,10 +53,6 @@ Rails.application.routes.draw do
   get 'terms_of_use' => 'static_pages#terms_of_use'
   get 'privacy-policy' => 'static_pages#privacy_policy'
   get 'success_stories' => 'static_pages#success_stories'
-  get 'community_rules' => 'static_pages#community_rules'
-  get 'community_expectations' => 'static_pages#community_expectations'
-  get 'before_asking' => 'static_pages#before_asking'
-  get 'how_to_ask' => 'static_pages#how_to_ask'
   get 'sitemap' => 'sitemap#index', defaults: { format: 'xml' }
 
   namespace :guides do
@@ -72,7 +68,7 @@ Rails.application.routes.draw do
   end
 
   # failure route if github information returns invalid
-  get '/auth/failure' => 'omniauth_callbacks#failure'
+  get '/auth/failure' => 'users/omniauth_callbacks#failure'
   get 'dashboard' => 'users#show', as: :dashboard
 
   namespace :users do
@@ -86,8 +82,6 @@ Rails.application.routes.draw do
     resource :preview, only: %i[show create] do
       resource :share, only: %i[create], controller: 'previews/share'
     end
-
-    resources :installation_guides, only: :index
   end
 
   namespace :courses do
@@ -95,11 +89,11 @@ Rails.application.routes.draw do
   end
 
   resources :lessons, only: :show do
-    resources :project_submissions, controller: 'lessons/project_submissions'
+    resources :project_submissions, except: :show, controller: 'lessons/project_submissions'
     resource :completion, only: %i[create destroy], controller: 'lessons/completions'
   end
 
-  resources :project_submissions do
+  resources :project_submissions, only: :index do
     resources :flags, only: %i[new create], controller: 'project_submissions/flags'
     resource :like, only: %i[update], controller: 'project_submissions/likes'
   end
