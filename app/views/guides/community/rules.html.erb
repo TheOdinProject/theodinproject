@@ -1,7 +1,7 @@
 <%= title('Community Rules') %>
 
 <div class="page-container">
-  <%= render ContentContainerComponent.new do %>
+  <%= render ContentContainerComponent.new do |component| %>
    <h2>Community Rules</h2>
 
     <p>
@@ -166,9 +166,8 @@
         <li>Any other behavior deemed unacceptable and deserving of a ban by the moderation team, such as displaying a pattern of breaking our rules</li>
       </ul>
     </p>
-
+    <% component.with_footer do %>
+      <%= render 'static_pages/dashboard_steps/github_link' %>
+    <% end %>
   <% end %>
-
-  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_rules.html.erb' %>
-
 </div>
