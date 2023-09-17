@@ -32,9 +32,9 @@ body:
       label: Acceptance criteria
       description: A list of checkbox items that explain the requirements needed to be met to resolve this request.
       placeholder: |
-        1. Create new button components
-        2. Replace all old buttons with the new components
-        3. Remove all styles that are now unused
+        - [ ] Create new button components
+        - [ ] Replace all old buttons with the new components
+        - [ ] Remove all styles that are now unused
     validations:
       required: true
   - type: textarea
