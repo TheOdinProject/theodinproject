@@ -1,7 +1,7 @@
 <%= title('Community Rules') %>
 
 <div class="page-container">
-  <%= render ContentContainerComponent.new do %>
+  <%= render ContentContainerComponent.new do |component| %>
    <h2>Community Rules</h2>
 
     <p>
@@ -167,8 +167,19 @@
       </ul>
     </p>
 
+    <% component.with_footer do %>
+
+      <%= render 'static_pages/dashboard_steps/github_link' %>
+
+    <% end %>
+
   <% end %>
 
-  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_rules.html.erb' %>
+<%# https://github.com/TheOdinProject/theodinproject/issues/new %>
+
+  <%# render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_rules.html.erb' %>
+
+
+
 
 </div>
