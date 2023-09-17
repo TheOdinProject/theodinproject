@@ -1,0 +1,54 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "Feature Request: <brief description of the issue>"
+labels: "Status: Needs Review"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to submit a new feature request to The Odin Project.
+
+        In order to get issues closed in a reasonable amount of time, you must include a baseline of information about the feature/enhancement you are proposing. Please read this template in its entirety before filling it out to ensure that it is filled out correctly.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      description: Please fill out the following checkboxes
+      options:
+        - label: I have thoroughly read and understand [The Odin Project Contributing Guide](https://github.com/TheOdinProject/.github/blob/main/CONTRIBUTING.md)
+          required: true
+        - label: "The title of this issue follows the `Feature Request: brief description of feature request` format, e.g. `Feature Request: Lesson complete button does not update on click`"
+          required: true
+        - label: Would you like to work on this issue?
+          required: false
+  - type: textarea
+    id: chore-report
+    attributes:
+      label: Description of the Feature Request
+      description: |
+        A clear and concise description of what the feature or enhancement is, including how it would be useful/beneficial or what problem(s) it would solve.
+
+        When suggesting an entirely new feature, it can help to provide a statement that follows the "When EVENT occurs, I want SOMETHING to happen, to achieve RESULT" format.
+
+      placeholder: ex "When I visit TOP after a long break, I want a button to be able to reset all of my progress at once, so I can start afresh."
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: A list of checkbox items that explain the requirements needed to be met to resolve this request.
+      placeholder: |
+        - [ ] A theme toggle is present on the dashboard
+        - [ ] Clicking the theme toggle changes between light and dark
+        - [ ] A user's theme choice persists after leaving the website
+    validations:
+      required: true
+  - type: textarea
+    id: additional-comments
+    attributes:
+      label: Additional Comments
+      description: "Anything else you'd like to cover"
+      placeholder: We ❤️ open source
+    validations:
+      required: false
