@@ -42,7 +42,7 @@
     "hint.css": "^2.7.0",
     "js-base64": "^3.7.5",
     "lodash": "^4.17.21",
-    "mermaid": "^9.4.3",
+    "mermaid": "^10.4.0",
     "mini-css-extract-plugin": "^2.7.6",
     "npm-run-all": "^4.1.5",
     "pnp-webpack-plugin": "1",
