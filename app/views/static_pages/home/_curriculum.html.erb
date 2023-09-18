@@ -7,7 +7,7 @@
         <div class="flex flex-row flex-wrap justify-center mb-4">
           <% courses.each do |course| %>
             <%= link_to path_course_path(course.path, course),
-              class: 'w-60 sm:w-56 bg-white dark:bg-gray-800 dark:border dark:border-gray-700 py-6 px-10 flex flex-col items-center text-center hover:shadow-lg m-4' do %>
+              class: 'rounded-2xl w-60 sm:w-56 bg-white dark:bg-gray-800 dark:border dark:border-gray-700 py-6 px-10 flex flex-col items-center text-center hover:shadow-lg m-4' do %>
               <%= image_tag course.badge_uri, alt: '', class: 'h-20 w-20 sm:h-40 sm:w-40' %>
               <h3 class="font-semibold text-xl mt-4">
                 <%= course.title %>
