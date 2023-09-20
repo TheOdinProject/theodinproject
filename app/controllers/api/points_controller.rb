@@ -3,7 +3,7 @@ class Api::PointsController < ApplicationController
   before_action :authenticate
 
   def index
-    render json: Point.all.order(points: :desc).limit(params[:limit]).offset(params[:offset])
+    render json: Point.order(points: :desc).limit(params[:limit]).offset(params[:offset])
   end
 
   def show
