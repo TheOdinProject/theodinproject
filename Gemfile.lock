@@ -349,7 +349,7 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
-    pg (1.5.3)
+    pg (1.5.4)
     public_suffix (5.0.3)
     puma (6.3.1)
       nio4r (~> 2.0)
@@ -616,7 +616,7 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 1.1.1)
   omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 6.0)
-  pg (~> 1.4)
+  pg (~> 1.5)
   puma (~> 6.3)
   rack-attack (~> 6.7)
   rack-mini-profiler
