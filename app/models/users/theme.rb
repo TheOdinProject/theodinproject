@@ -7,16 +7,16 @@ module Users
       %w[dark moon]
     ].freeze
 
-    def self.all
+    def self.default_themes
       DEFAULT_THEMES.map { |name, icon| new(name:, icon:) }
     end
 
     def self.exists?(theme)
-      all.map(&:name).include?(theme)
+      default_themes.map(&:name).include?(theme)
     end
 
     def self.for(value)
-      all.find { |theme| theme.name == value }
+      default_themes.find { |theme| theme.name == value }
     end
 
     attr_reader :name, :icon

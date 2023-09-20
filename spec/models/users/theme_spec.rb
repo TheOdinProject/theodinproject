@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Users::Theme do
-  describe '.all' do
-    it 'returns all the themes' do
-      expect(described_class.all).to contain_exactly(
+  describe '.default_themes' do
+    it 'returns the default themes' do
+      expect(described_class.default_themes).to contain_exactly(
         an_object_having_attributes(name: 'light', icon: 'sun'),
         an_object_having_attributes(name: 'dark', icon: 'moon')
       )
