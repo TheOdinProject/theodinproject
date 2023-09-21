@@ -19,19 +19,17 @@ en:
     core:
       description: "The Core team are long-serving members who have made significant contributions to The Odin Project. They serve as the leadership, responsible for shaping and guiding the direction of the platform."
       members:
-        - name: "Example core member"
-          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          location: "Australia"
-          joined: "2020"
+        - name: "Kevin Mulhern"
+          image: "https://avatars.githubusercontent.com/u/7963776?v=4"
+          location: "Ireland"
+          joined: "2015"
           socials:
             - name: "twitter"
-              url: "https://twitter.com"
+              url: "https://twitter.com/KevinMulhern_"
             - name: "github"
-              url: "https://github.com"
-            - name: "website"
-              url: "https://example.com"
+              url: "https://github.com/KevinMulhern"
             - name: "linkedin"
-              url: "https://linkedin.com"
+              url: "https://www.linkedin.com/in/kevin-mulhern-89532779/"
 
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
