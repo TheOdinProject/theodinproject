@@ -188,13 +188,6 @@ def react_lessons
       github_path: '/react/react_and_the_backend/using_ruby_on_rails_for_your_backend.md',
       identifier_uuid: '38b9fee3-a054-4ea8-9f7d-d8bea597a29b',
     },
-    'Using NodeJS For Your Backend' => {
-      title: 'Using NodeJS For Your Backend',
-      description: 'Using NodeJS For Your Backend',
-      is_project: false,
-      github_path: '/react/react_and_the_backend/using_nodejs_for_your_backend.md',
-      identifier_uuid: '19d6f69d-c7dd-498f-b284-e6d6d44e3c10',
-    },
     'Where\'s Waldo (A Photo Tagging App)' => {
       title: 'Where\'s Waldo (A Photo Tagging App)',
       description: 'Where\'s Waldo (A Photo Tagging App)',
