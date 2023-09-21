@@ -142,7 +142,7 @@ course.add_section do |section|
   section.identifier_uuid = 'e6d0949d-075d-48f6-8d7f-ab066f720cdd'
 
   section.add_lessons(
-    react_lessons.fetch('Conclusion'),
+    react_lessons.fetch('Conclusion (Rails Path)'),
   )
 end
 
