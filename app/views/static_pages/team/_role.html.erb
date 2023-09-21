@@ -1,0 +1,14 @@
+<div class="space-y-10" id="<%= role %>">
+  <div>
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white pb-2"><%= title %></h2>
+    <p class="text-gray-500 dark:text-gray-400 text-sm sm:text-base"><%= t("team_members.#{role}.description") %></p>
+  </div>
+
+  <ul
+    aria-label="<%= role %> team list, <%= t("team_members.#{role}.members").size %> members"
+    class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-4 xl:grid-cols-5 lg:gap-8">
+    <% t("team_members.#{role}.members").each do |team_member| %>
+      <%= render Team::MemberComponent.new(team_member) %>
+    <% end %>
+  </ul>
+</div>
