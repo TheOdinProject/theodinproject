@@ -71,6 +71,6 @@ en:
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
-        - name: "Example alumni member"
-          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          url: "https://example.com"
+        - name: "Erik Trautman (Founder)"
+          image: "https://avatars.githubusercontent.com/u/2977438"
+          url: "https://github.com/eriktrautman"
