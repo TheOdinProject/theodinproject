@@ -206,12 +206,19 @@ def react_lessons
       previewable: true,
       identifier_uuid: '8e0206b5-e189-4ec3-b58b-c7f0afb84570',
     },
-    'Conclusion' => {
+    'Conclusion (Node Path)' => {
       title: 'Conclusion',
       description: 'Conclusion',
       is_project: false,
-      github_path: '/react/conclusion/conclusion.md',
-      identifier_uuid: '8s7d6f5d-4d3d-2d1d-1d2d-3d4d5d6d7d8d',
+      github_path: '/react/conclusion/conclusion_full_stack_javascript.md',
+      identifier_uuid: 'create_uuid',
+    },
+    'Conclusion (Rails Path)' => {
+      title: 'Conclusion',
+      description: 'Conclusion',
+      is_project: false,
+      github_path: '/react/conclusion/conclusion_ruby_on_rails.md',
+      identifier_uuid: 'create_uuid',
     },
   }
 end
