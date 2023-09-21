@@ -138,7 +138,7 @@ end
 # ++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
   section.title = 'Conclusion'
-  section.description = 'Concolusion'
+  section.description = 'Conclusion'
   section.identifier_uuid = 'e6d0949d-075d-48f6-8d7f-ab066f720cdd'
 
   section.add_lessons(
