@@ -49,6 +49,15 @@ en:
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
+        - name: "Fred Love"
+          image: "https://avatars.githubusercontent.com/u/48169481?v=4"
+          location: "Pennsylvania, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/justwavethings"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/fredlove000/"
         - name: "Example Moderator"
           image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
           location: "Netherlands"
