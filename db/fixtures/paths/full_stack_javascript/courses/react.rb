@@ -118,19 +118,6 @@ course.add_section do |section|
   )
 end
 
-# ++++++++++++++++++
-# SECTION - React And The Backend
-# ++++++++++++++++++
-course.add_section do |section|
-  section.title = 'React And The Backend'
-  section.description = 'React And The Backend'
-  section.identifier_uuid = 'da7d4fb4-4fa0-4373-ba5d-e2bfd139b6e5'
-
-  section.add_lessons(
-    react_lessons.fetch('Using NodeJS For Your Backend'),
-  )
-end
-
 # ++++++++++++++++++++++++++++++++++++
 # SECTION - Conclusion
 # ++++++++++++++++++++++++++++++++++++
@@ -140,7 +127,7 @@ course.add_section do |section|
   section.identifier_uuid = '9232bdc3-cd02-4f24-b516-fca708b5198b'
 
   section.add_lessons(
-    react_lessons.fetch('Conclusion'),
+    react_lessons.fetch(`Conclusion (Node Path)`),
   )
 end
 
