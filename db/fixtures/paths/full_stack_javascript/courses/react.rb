@@ -127,7 +127,7 @@ course.add_section do |section|
   section.identifier_uuid = '9232bdc3-cd02-4f24-b516-fca708b5198b'
 
   section.add_lessons(
-    react_lessons.fetch(`Conclusion (Node Path)`),
+    react_lessons.fetch('Conclusion (Node Path)'),
   )
 end
 
