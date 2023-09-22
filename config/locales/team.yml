@@ -132,6 +132,16 @@ en:
               url: "https://github.com/justwavethings"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
+              
+        - name: "Josh Smith"
+          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/JoshDevHub"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
 
 
     alumni:
