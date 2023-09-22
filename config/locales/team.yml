@@ -45,6 +45,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/kevin-mulhern-89532779/"
 
+        - name: "Cody Loyd"
+          image: "https://avatars.githubusercontent.com/u/18574792"
+          location: "USA"
+          joined: "2016"
+          socials:
+            - name: "website"
+              url: "https://codyloyd.com/"
+            - name: "github"
+              url: "https://github.com/codyloyd"
+
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
