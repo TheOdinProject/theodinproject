@@ -45,6 +45,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/kevin-mulhern-89532779/"
 
+        - name: "Josh Smith"
+          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/JoshDevHub"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
