@@ -19,6 +19,20 @@ en:
     core:
       description: "The Core team are long-serving members who have made significant contributions to The Odin Project. They serve as the leadership, responsible for shaping and guiding the direction of the platform."
       members:
+        - name: "Example Moderator"
+          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com"
+            - name: "github"
+              url: "https://github.com"
+            - name: "website"
+              url: "https://example.com"
+            - name: "linkedin"
+              url: "https://linkedin.com"
+
         - name: "Kevin Mulhern"
           image: "https://avatars.githubusercontent.com/u/7963776?v=4"
           location: "Ireland"
@@ -34,6 +48,20 @@ en:
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
+        - name: "Example Maintainer"
+          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com"
+            - name: "github"
+              url: "https://github.com"
+            - name: "website"
+              url: "https://example.com"
+            - name: "linkedin"
+              url: "https://linkedin.com"
+
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
           location: "The Netherlands"
@@ -49,19 +77,10 @@ en:
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
-        - name: "Fred Love"
-          image: "https://avatars.githubusercontent.com/u/48169481?v=4"
-          location: "Pennsylvania, USA"
-          joined: "2023"
-          socials:
-            - name: "github"
-              url: "https://github.com/justwavethings"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/fredlove000/"
         - name: "Example Moderator"
           image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          location: "Netherlands"
-          joined: "2021"
+          location: "USA"
+          joined: "2023"
           socials:
             - name: "twitter"
               url: "https://twitter.com"
@@ -71,6 +90,16 @@ en:
               url: "https://example.com"
             - name: "linkedin"
               url: "https://linkedin.com"
+
+        - name: "Fred Love"
+          image: "https://avatars.githubusercontent.com/u/48169481?v=4"
+          location: "Pennsylvania, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/justwavethings"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/fredlove000/"
 
 
     alumni:

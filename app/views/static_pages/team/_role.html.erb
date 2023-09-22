@@ -7,7 +7,8 @@
   <ul
     aria-label="<%= role %> team list, <%= t("team_members.#{role}.members").size %> members"
     class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3 lg:mx-0 lg:max-w-none lg:grid-cols-4 xl:grid-cols-5 lg:gap-8">
-    <% t("team_members.#{role}.members").each do |team_member| %>
+
+    <% t("team_members.#{role}.members").sort_by { |member| member[:joined] }.each do |team_member| %>
       <%= render Team::MemberComponent.new(team_member) %>
     <% end %>
   </ul>
