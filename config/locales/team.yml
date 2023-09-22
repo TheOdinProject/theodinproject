@@ -19,7 +19,7 @@ en:
     core:
       description: "The Core team are long-serving members who have made significant contributions to The Odin Project. They serve as the leadership, responsible for shaping and guiding the direction of the platform."
       members:
-        - name: "Example Moderator"
+        - name: "Example core member"
           image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
           location: "USA"
           joined: "2023"
