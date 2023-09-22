@@ -73,6 +73,18 @@ en:
               url: "https://github.com/ManonLef"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/manon-vb/"
+        
+        - name: "Zach Meyer"
+          image: "https://avatars.githubusercontent.com/u/34407561?v=4"
+          location: "Florida, USA"
+          joined: "2021"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/hateburn"
+            - name: "github"
+              url: "https://github.com/zachmmeyer"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zachmmeyer/"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
