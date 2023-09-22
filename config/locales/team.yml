@@ -84,6 +84,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/manon-vb/"
         
+        - name: "Zachary Baird"
+          image: "https://avatars.githubusercontent.com/u/30800863"
+          location: "The United States"
+          joined: "2019"
+          socials:
+            - name: "github"
+              url: "https://github.com/ZachBaird"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zach-baird/"
+
         - name: "Zach Meyer"
           image: "https://avatars.githubusercontent.com/u/34407561?v=4"
           location: "Florida, USA"
