@@ -45,15 +45,15 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/kevin-mulhern-89532779/"
 
-        - name: "Josh Smith"
-          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+        - name: "Cody Loyd"
+          image: "https://avatars.githubusercontent.com/u/18574792"
           location: "USA"
-          joined: "2023"
+          joined: "2016"
           socials:
+            - name: "website"
+              url: "https://codyloyd.com/"
             - name: "github"
-              url: "https://github.com/JoshDevHub"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+              url: "https://github.com/codyloyd"
 
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
@@ -83,6 +83,18 @@ en:
               url: "https://github.com/ManonLef"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/manon-vb/"
+        
+        - name: "Zach Meyer"
+          image: "https://avatars.githubusercontent.com/u/34407561?v=4"
+          location: "Florida, USA"
+          joined: "2021"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/hateburn"
+            - name: "github"
+              url: "https://github.com/zachmmeyer"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zachmmeyer/"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
@@ -110,6 +122,16 @@ en:
               url: "https://github.com/justwavethings"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
+              
+        - name: "Josh Smith"
+          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/JoshDevHub"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
 
 
     alumni:
