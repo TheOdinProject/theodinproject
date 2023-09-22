@@ -211,14 +211,14 @@ def react_lessons
       description: 'Conclusion',
       is_project: false,
       github_path: '/react/conclusion/conclusion_full_stack_javascript.md',
-      identifier_uuid: 'create_uuid',
+      identifier_uuid: '773b2921-8811-40b3-8fc8-7f338bf6fd6c',
     },
     'Conclusion (Rails Path)' => {
       title: 'Conclusion',
       description: 'Conclusion',
       is_project: false,
       github_path: '/react/conclusion/conclusion_ruby_on_rails.md',
-      identifier_uuid: 'create_uuid',
+      identifier_uuid: 'b8ef8dbc-6092-406a-a428-0aa13a307994',
     },
   }
 end
