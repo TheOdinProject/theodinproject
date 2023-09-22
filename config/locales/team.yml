@@ -73,6 +73,16 @@ en:
               url: "https://github.com/ManonLef"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/manon-vb/"
+        
+        - name: "Zachary Baird"
+          image: "https://avatars.githubusercontent.com/u/30800863"
+          location: "The United States"
+          joined: "2019"
+          socials:
+            - name: "github"
+              url: "https://github.com/ZachBaird"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zach-baird/"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
