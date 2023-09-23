@@ -71,6 +71,16 @@ en:
               url: "https://example.com"
             - name: "linkedin"
               url: "https://linkedin.com"
+              
+        - name: "MacDaniel Maisel"
+          image: "https://avatars.githubusercontent.com/u/44100935"
+          location: "California"
+          joined: "2022"
+          socials: 
+            - name: "linkedln"
+              url: "https://www.linkedin.com/in/macdaniel-maisel/"
+            - name: "github"
+              url: "https://github.com/linkonsat"
 
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
