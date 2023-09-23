@@ -7,6 +7,13 @@ def getting_hired_lessons
       github_path: '/getting_hired/preparing_for_job_search/how_this_course_will_work.md',
       identifier_uuid: 'f5e4f7ab-a6af-4318-ad5c-6f2be86ffa3f',
     },
+    'Professional Networking' => {
+      title: 'Professional Networking',
+      description: "Developing a professional network can be an important and rewarding process on your web development journey.",
+      is_project: false,
+      github_path: '/getting_hired/preparing_for_job_search/professional_networking.md',
+      identifier_uuid: '7ef83dac-45ed-4136-9523-722b8999e8a2',
+    },
     'Strategy' => {
       title: 'Strategy',
       description: "You will need to develop a coherent strategy for how you'll approach the process or risk wasting time.",
