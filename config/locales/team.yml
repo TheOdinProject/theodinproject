@@ -54,6 +54,18 @@ en:
               url: "https://codyloyd.com/"
             - name: "github"
               url: "https://github.com/codyloyd"
+        
+        - name: "Carlos Diaz"
+          image: "https://avatars.githubusercontent.com/u/34174677"
+          location: "USA"
+          joined: "2017"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/bycdiaz"
+            - name: "github"
+              url: "https://github.com/bycdiaz"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bycdiaz/"
 
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
