@@ -112,6 +112,16 @@ en:
               url: "https://github.com/JoshDevHub"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+                            
+        - name: "Bryan Fines"
+          image: "https://avatars.githubusercontent.com/u/49371751?v=4"
+          location: "Virginia, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/BryanF1nes"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bryan-fines-a44384270/"
 
 
     alumni:
