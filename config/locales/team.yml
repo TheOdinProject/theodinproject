@@ -56,6 +56,16 @@ en:
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
+        - name: "MacDaniel Maisel"
+          image: "https://avatars.githubusercontent.com/u/44100935"
+          location: "California"
+          joined: "2022"
+          socials: 
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/macdaniel-maisel/"
+            - name: "github"
+              url: "https://github.com/linkonsat"
+              
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
           location: "The Netherlands"
