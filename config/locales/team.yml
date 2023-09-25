@@ -19,20 +19,6 @@ en:
     core:
       description: "The Core team are long-serving members who have made significant contributions to The Odin Project. They serve as the leadership, responsible for shaping and guiding the direction of the platform."
       members:
-        - name: "Example core member"
-          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          location: "USA"
-          joined: "2023"
-          socials:
-            - name: "twitter"
-              url: "https://twitter.com"
-            - name: "github"
-              url: "https://github.com"
-            - name: "website"
-              url: "https://example.com"
-            - name: "linkedin"
-              url: "https://linkedin.com"
-
         - name: "Kevin Mulhern"
           image: "https://avatars.githubusercontent.com/u/7963776?v=4"
           location: "Ireland"
@@ -54,24 +40,22 @@ en:
               url: "https://codyloyd.com/"
             - name: "github"
               url: "https://github.com/codyloyd"
+        
+        - name: "Carlos Diaz"
+          image: "https://avatars.githubusercontent.com/u/34174677"
+          location: "Southern California, USA"
+          joined: "2019"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/bycdiaz"
+            - name: "github"
+              url: "https://github.com/bycdiaz"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bycdiaz/"
 
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
-        - name: "Example Maintainer"
-          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          location: "USA"
-          joined: "2023"
-          socials:
-            - name: "twitter"
-              url: "https://twitter.com"
-            - name: "github"
-              url: "https://github.com"
-            - name: "website"
-              url: "https://example.com"
-            - name: "linkedin"
-              url: "https://linkedin.com"
-              
         - name: "MacDaniel Maisel"
           image: "https://avatars.githubusercontent.com/u/44100935"
           location: "California"
@@ -81,7 +65,7 @@ en:
               url: "https://www.linkedin.com/in/macdaniel-maisel/"
             - name: "github"
               url: "https://github.com/linkonsat"
-
+              
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
           location: "The Netherlands"
@@ -119,20 +103,6 @@ en:
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
-        - name: "Example Moderator"
-          image: "https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-          location: "USA"
-          joined: "2023"
-          socials:
-            - name: "twitter"
-              url: "https://twitter.com"
-            - name: "github"
-              url: "https://github.com"
-            - name: "website"
-              url: "https://example.com"
-            - name: "linkedin"
-              url: "https://linkedin.com"
-
         - name: "Fred Love"
           image: "https://avatars.githubusercontent.com/u/48169481?v=4"
           location: "Pennsylvania, USA"
@@ -152,6 +122,16 @@ en:
               url: "https://github.com/JoshDevHub"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+                            
+        - name: "Bryan Fines"
+          image: "https://avatars.githubusercontent.com/u/49371751?v=4"
+          location: "Virginia, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/BryanF1nes"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bryan-fines-a44384270/"
 
 
     alumni:
