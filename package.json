@@ -34,7 +34,7 @@
     "browserslist": "^4.21.7",
     "compression-webpack-plugin": "10",
     "core-js": "^3.31.1",
-    "css-loader": "^6.7.3",
+    "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "cssnano": "^6.0.1",
     "debounce": "^1.2.1",
