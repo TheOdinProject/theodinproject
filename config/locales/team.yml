@@ -65,6 +65,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/austinmason/"
 
+        - name: "Rachel Moser"
+          image: "https://avatars.githubusercontent.com/u/33227096"
+          location: "Illinois, USA"
+          joined: "2020"
+          socials:
+            - name: "github"
+              url: "https://github.com/rlmoser99"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/rlmoser99/"
+
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
