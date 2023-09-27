@@ -40,7 +40,7 @@ en:
               url: "https://codyloyd.com/"
             - name: "github"
               url: "https://github.com/codyloyd"
-        
+
         - name: "Carlos Diaz"
           image: "https://avatars.githubusercontent.com/u/34174677"
           location: "Southern California, USA"
@@ -82,12 +82,12 @@ en:
           image: "https://avatars.githubusercontent.com/u/44100935"
           location: "California"
           joined: "2022"
-          socials: 
+          socials:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/macdaniel-maisel/"
             - name: "github"
               url: "https://github.com/linkonsat"
-              
+
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
           location: "The Netherlands"
@@ -99,7 +99,7 @@ en:
               url: "https://github.com/ManonLef"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/manon-vb/"
-        
+
         - name: "Zachary Baird"
           image: "https://avatars.githubusercontent.com/u/30800863"
           location: "The United States"
@@ -122,6 +122,19 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/zachmmeyer/"
 
+        - name: "Alex Younger"
+          image: "https://avatars.githubusercontent.com/u/61510135?v=4"
+          location: "USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/fortypercenttitanium"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/aywebdev"
+            - name: "website"
+              url: "https://ayweb.dev/"
+
+
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
@@ -134,7 +147,7 @@ en:
               url: "https://github.com/justwavethings"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
-              
+
         - name: "Josh Smith"
           image: "https://avatars.githubusercontent.com/u/88392688?v=4"
           location: "USA"
@@ -144,7 +157,7 @@ en:
               url: "https://github.com/JoshDevHub"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
-                            
+
         - name: "Bryan Fines"
           image: "https://avatars.githubusercontent.com/u/49371751?v=4"
           location: "Virginia, USA"
@@ -166,13 +179,13 @@ en:
         - name: "Arun Kumar Mohan"
           image: "https://avatars.githubusercontent.com/u/7039523?v=4"
           url: "https://github.com/arku"
-          
+
         - name: "Emad Ali"
           image: "https://avatars.githubusercontent.com/u/70924991?v=4"
           url: "https://github.com/Mclilzee"
-          
+
         - name: "Javier Machín"
           image: "https://avatars.githubusercontent.com/u/13190712"
           url: "https://www.javiermachin.com/"
-          
+
 
