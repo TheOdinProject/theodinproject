@@ -10,7 +10,7 @@ gem 'active_material', '~> 1.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
-gem 'cssbundling-rails', '~> 1.2'
+gem 'cssbundling-rails', '~> 1.3'
 gem 'debug', '~> 1.7'
 gem 'devise', '~> 4.9'
 gem 'discard', '~> 1.2'
