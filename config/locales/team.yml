@@ -75,6 +75,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/rlmoser99/"
 
+        - name: "Austin Sullivan"
+          image: "https://avatars.githubusercontent.com/u/7115053"
+          location: "North Carolina, USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/wise-king-sullyman"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/austin-m-sullivan/"
+
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
