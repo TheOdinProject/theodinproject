@@ -144,6 +144,15 @@ en:
             - name: "website"
               url: "https://ayweb.dev/"
 
+        - name: "Eric Olkowski"
+          image: "https://media.licdn.com/dms/image/C4E03AQFbq3xPv9UXhA/profile-displayphoto-shrink_800_800/0/1638902198818?e=1701302400&v=beta&t=U4t5oNe3_bj9LTQn99yw6E_YoEGIIq6fIOBdq_QdXOg"
+          location: "New Jersey, USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/thatblindgeye"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/ericolkowski/"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
