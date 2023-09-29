@@ -39,7 +39,7 @@ def git_lessons
     {
   'Working with Remotes' => {
     title: 'Working with Remotes',
-    description: 'So far, you've been working with remote repositories...',
+    description: "So far, you've been working with remote repositories...",
     is_project: false,
     github_path: 'git/intermediate_git/working_with_remotes.md',
     identifier_uuid: 'create_uuid',
