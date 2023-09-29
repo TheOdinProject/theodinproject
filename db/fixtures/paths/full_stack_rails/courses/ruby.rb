@@ -139,6 +139,7 @@ course.add_section do |section|
 
   section.add_lessons(
     git_lessons.fetch('A Deeper Look at Git'),
+    git_lessons.fetch('Working with Remotes'),
     git_lessons.fetch('Using Git in the Real World'),
   )
 end
