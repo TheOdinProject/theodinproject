@@ -35,5 +35,14 @@ def git_lessons
       github_path: '/git/intermediate_git/using_git_in_the_real_world.md',
       identifier_uuid: 'c8b7ccc1-8a16-4545-9d46-b9091d45c6b4',
     },
+    },
+  'Working with Remotes' => {
+    title: 'Working with Remotes',
+    description: 'So far, you've been working with remote repositories...',
+    is_project: false,
+    github_path: 'git/intermediate_git/working_with_remotes.md',
+    identifier_uuid: 'create_uuid',
+  },
+}
   }
 end
