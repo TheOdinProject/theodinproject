@@ -44,6 +44,6 @@ def git_lessons
     github_path: 'git/intermediate_git/working_with_remotes.md',
     identifier_uuid: 'create_uuid',
   },
-}
+},
   }
 end
