@@ -36,7 +36,6 @@ def git_lessons
       identifier_uuid: 'c8b7ccc1-8a16-4545-9d46-b9091d45c6b4',
     },
 
-    {
   'Working with Remotes' => {
     title: 'Working with Remotes',
     description: "So far, you've been working with remote repositories...",
