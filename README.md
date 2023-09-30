@@ -24,33 +24,3 @@ Our community can be found on the [TOP Discord server](https://discord.gg/fbFCkY
 The Odin Project depends on open-source contributions to improve, grow, and thrive. We welcome contributors of all experience levels and backgrounds to help maintain this awesome curriculum and community. If you would like to contribute to our curriculum, be sure to thoroughly read our [contributing guide](https://github.com/TheOdinProject/theodinproject/blob/main/CONTRIBUTING.md).
 
 __Feel free to also watch [this interactive screencast](https://scrimba.com/scrim/cEggQncE), which will give you an introduction to the repository.__
-
-## Significant Contributors
-
--   [Erik Trautman](https://github.com/eriktrautman)
--   [Afshin Moktari](https://github.com/afshinator)
--   [Josh Gorchov](https://github.com/gorchov)
--   [Joe Sawyer](https://github.com/zkay)
--   [Bill Walker](https://github.com/mach1010)
--   [Neil Gehani](https://github.com/ngehani)
--   [Ian White](http://github.com/Iawhite76)
--   [Nathan Hall](http://github.com/dominathan)
--   [Abby Jones](http://github.com/AbbyJonesDev)
--   [Kevin Mulhern](https://github.com/KevinMulhern)
--   [Arun Kumar](https://github.com/arku)
--   [Cody Loyd](https://github.com/codyloyd)
--   [Austin Mason](https://github.com/CouchofTomato)
--   [Briggs Elsperger](https://github.com/I3uckwheat)
--   [Rhys](https://github.com/105ron)
--   [L. P. Soai-Van](https://github.com/leosoaivan)
--   [Andy Duss](https://github.com/mindovermiles262)
--   [Ada Chiu](https://github.com/adachiu)
--   [Marvin Gay](https://github.com/marvingay)
--   [Rachel Moser](https://github.com/rlmoser99)
--   [Grace Schwartz](https://github.com/CatQueenCodes)
--   [Tatiana Walton](https://github.com/twalton83)
--   [Valera Kushnir](https://github.com/kashura)
-
----
-
-Created by [Erik Trautman](http://www.github.com/eriktrautman)

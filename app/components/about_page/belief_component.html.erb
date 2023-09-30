@@ -8,7 +8,7 @@
       <%= @belief[:title] %>
     </h3>
     <p class="prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-400">
-      <%= @belief[:description] %>
+      <%= @belief[:description].html_safe %>
     </p>
   </div>
 </div>
