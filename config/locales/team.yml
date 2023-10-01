@@ -85,6 +85,18 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/austin-m-sullivan/"
 
+        - name: "Valera Kushnir"
+          image: "https://avatars.githubusercontent.com/u/12993486?v=4"
+          location: "USA"
+          joined: "2021"
+          socials:
+            - name: "website"
+              url: "https://valerakushnir.com"
+            - name: "github"
+              url: "https://github.com/kashura"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/valerakushnir/"
+
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
@@ -210,5 +222,4 @@ en:
         - name: "Cornelius Soon"
           image: "https://avatars.githubusercontent.com/u/16495574?v=4"
           url: "https://github.com/csrail"
-
 

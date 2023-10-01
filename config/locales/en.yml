@@ -40,7 +40,7 @@ en:
           description: The most effective learning happens while building projects, so we have strategically placed them throughout our curriculum. These projects will make a strong portfolio for you to showcase on your resume.
           image_path: about_page/img-build.svg
         - title: Receive support from others
-          description: The maintainers of the curriculum run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
+          description: <a href="/team">The maintainers of the curriculum</a> run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
           image_path: about_page/img-people.svg
         - title: Open source and community driven
           description: You can deepen your understanding and improve your GitHub skills by contributing to our open source curriculum and helping others in our Discord community.
@@ -69,11 +69,8 @@ en:
         - title: Flexibility
           description: You can work on your own time. It's not 9 to 5 so you can get involved when it's convenient for you.
           image_path: 'contributing/img-clock.svg'
-        - title: Recognition
-          description: Significant Contributors will be listed on this page and on Github.
-          image_path: 'contributing/img-exposure.svg'
         - title: Experience
-          description: You'll get the chance to work within a team of experienced engineers and to work on new and interesting features that will expand your capabilities.
+          description: You'll get the chance to work within a <a href="/team">team of experienced engineers</a> and to work on new and interesting features that will expand your capabilities.
           image_path: 'contributing/img-job.svg'
         - title: Impact
           description: The features you work on or the lessons you create will help thousands of students learn life changing skills.
@@ -178,7 +175,7 @@ en:
             <p>However, by <a href='/sign_up'>signing up</a> you are able to check off completed projects and lessons, easily keeping track of your progress.  We don't collect any user data and keep emails to a minimum.</p>
         - question: 'Is The Odin Project free?'
           answer: |
-            <p>Yes! The Odin Project is an open-source project created and maintained by hard working volunteers. To find out how you can help us, please visit our how to <a href="/contributing">contribute page</a>.</p>
+            <p>Yes! The Odin Project is an open-source project created and maintained by <a href="/team">hard working volunteers</a>. To find out how you can help us, please visit our how to <a href="/contributing">contribute page</a>.</p>
         - question: 'Will I get a certificate on completion of the course?'
           answer: |
             <p>We don't provide a certificate for course completion. Employers will be much more impressed with your amazing personal portfolio of projects, many of which you'll hopefully have built with inspiration from The Odin Project.</p>
