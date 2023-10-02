@@ -199,6 +199,15 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/bryan-fines-a44384270/"
 
+        - name: "Emad Ali"
+          image: "https://avatars.githubusercontent.com/u/70924991?v=4"
+          location: "Germany"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/Mclilzee"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/mclilzee"
 
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
@@ -211,10 +220,6 @@ en:
           image: "https://avatars.githubusercontent.com/u/7039523?v=4"
           url: "https://github.com/arku"
 
-        - name: "Emad Ali"
-          image: "https://avatars.githubusercontent.com/u/70924991?v=4"
-          url: "https://github.com/Mclilzee"
-
         - name: "Javier Machín"
           image: "https://avatars.githubusercontent.com/u/13190712"
           url: "https://www.javiermachin.com/"
@@ -222,4 +227,3 @@ en:
         - name: "Cornelius Soon"
           image: "https://avatars.githubusercontent.com/u/16495574?v=4"
           url: "https://github.com/csrail"
-
