@@ -561,7 +561,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.18.1)
+    webmock (3.19.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -644,7 +644,7 @@ DEPENDENCIES
   vcr (~> 6.2)
   view_component (~> 3.5)
   web-console (~> 4.2)
-  webmock (~> 3.18)
+  webmock (~> 3.19)
 
 RUBY VERSION
    ruby 3.2.2p53
