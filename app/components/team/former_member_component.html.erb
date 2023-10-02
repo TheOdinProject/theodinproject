@@ -1,5 +1,5 @@
 <li>
-  <%= image_tag team_member.image, alt: "#{team_member.name} avatar", class: 'mx-auto h-14 w-14 rounded-full' %>
+  <%= image_tag team_member.image, alt: "#{team_member.name} avatar", class: 'object-cover mx-auto h-14 w-14 rounded-full' %>
   <%= link_to team_member.url, class: 'text-gray-900 hover:underline hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-200' do %>
     <h3 class="mt-4 text-sm font-semibold leading-7 tracking-tight"><%= team_member.name %></h3>
   <% end %>
