@@ -351,7 +351,7 @@ GEM
       racc
     pg (1.5.4)
     public_suffix (5.0.3)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -617,7 +617,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 6.0)
   pg (~> 1.5)
-  puma (~> 6.3)
+  puma (~> 6.4)
   rack-attack (~> 6.7)
   rack-mini-profiler
   rails (= 7.0.8)
