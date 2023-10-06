@@ -28,19 +28,24 @@
       </header>
 
       <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', controller: 'sort' } do %>
-        <% if @lesson.project_submissions.any? %>
-          <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) do |component| %>
-            <%= component.with_title(title: current_user.username, url: dashboard_path) %>
-          <% end %>
-
-          <% @project_submissions.each do |project_submission| %>
-            <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:) do |component| %>
-              <%= component.with_title(title: project_submission.user.username) %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <% render 'lessons/project_submissions/blank_state' %>
+        <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) do |component| %>
+          <%= component.with_title(title: current_user.username, url: dashboard_path) %>
         <% end %>
+
+        <% @project_submissions.each do |project_submission| %>
+          <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:) do |component| %>
+            <%= component.with_title(title: project_submission.user.username) %>
+          <% end %>
+        <% end %>
+
+        <div class="p-8 pb-16 hidden only:block">
+          <div class="text-center">
+            <%= inline_svg_tag 'icons/folder-plus.svg', class: 'mx-auto h-12 w-12 text-gray-400 dark:text-gray-500', aria: true, title: 'No solutions', desc: 'No solutions icon' %>
+
+            <h3 class="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-200">No solutions</h3>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Be the first</p>
+          </div>
+        </div>
       <% end %>
     </div>
   <% end %>
