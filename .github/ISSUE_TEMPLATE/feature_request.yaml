@@ -17,7 +17,7 @@ body:
       options:
         - label: I have thoroughly read and understand [The Odin Project Contributing Guide](https://github.com/TheOdinProject/.github/blob/main/CONTRIBUTING.md)
           required: true
-        - label: "The title of this issue follows the `Feature Request: brief description of feature request` format, e.g. `Feature Request: Lesson complete button does not update on click`"
+        - label: "The title of this issue follows the `Feature Request: brief description of feature request` format, e.g. `Feature Request: Add a dark mode to the website`"
           required: true
         - label: Would you like to work on this issue?
           required: false
@@ -30,7 +30,7 @@ body:
 
         When suggesting an entirely new feature, it can help to provide a statement that follows the "When EVENT occurs, I want SOMETHING to happen, to achieve RESULT" format.
 
-      placeholder: ex "When I visit TOP after a long break, I want a button to be able to reset all of my progress at once, so I can start afresh."
+      placeholder: ex "When I visit the TOP website, I want to be able to view it in dark mode, because its easier on my eyes."
     validations:
       required: true
   - type: textarea
