@@ -54,7 +54,7 @@
     "postcss-preset-env": "^8.0.1",
     "prismjs": "^1.29.0",
     "regenerator-runtime": "^0.13.10",
-    "sass": "^1.68.0",
+    "sass": "^1.69.3",
     "sass-loader": "^13.3.2",
     "shakapacker": "6.6",
     "sortablejs": "^1.15.0",
