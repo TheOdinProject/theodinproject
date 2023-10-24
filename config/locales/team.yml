@@ -166,6 +166,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/ericolkowski/"
 
+        - name: "Josh Smith"
+          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/JoshDevHub"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
@@ -178,16 +188,6 @@ en:
               url: "https://github.com/justwavethings"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
-
-        - name: "Josh Smith"
-          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
-          location: "USA"
-          joined: "2023"
-          socials:
-            - name: "github"
-              url: "https://github.com/JoshDevHub"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
 
         - name: "Bryan Fines"
           image: "https://avatars.githubusercontent.com/u/49371751?v=4"
