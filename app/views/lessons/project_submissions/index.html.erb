@@ -13,10 +13,10 @@
 
       <header class="flex flex-col space-y-6 justify-between items-center pb-8 text-center md:space-y-0 md:text-left md:flex-row">
         <div class="flex md:flex-start flex-col space-y-1">
-          <h3 class="text-3xl font-medium text-gray-900 dark:text-gray-200" id="solutions">Solutions:</h3>
+          <h3 class="text-3xl font-medium text-gray-900 dark:text-gray-200" id="solutions"><%= @lesson.display_title %> solutions</h3>
 
           <h4 data-test-id="course-lesson-title" class="text-lg text-gray-500 dark:text-gray-400">
-            <%= @lesson.course.title %> : (<%= @lesson.title %>)
+            <%= @lesson.course.title %> course
           </h4>
         </div>
 
@@ -27,16 +27,18 @@
         </div>
       </header>
 
-      <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', controller: 'sort' } do %>
-        <%= render ProjectSubmissions::ItemComponent.new(project_submission: @current_user_submission, current_user:) do |component| %>
-          <%= component.with_title(title: current_user.username, url: dashboard_path) %>
-        <% end %>
+      <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list' } do %>
+         <div class="py-4 flex justify-end">
+          <%= render "lessons/project_submissions/sort" %>
+        </div>
 
-        <% @project_submissions.each do |project_submission| %>
-          <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:) do |component| %>
-            <%= component.with_title(title: project_submission.user.username) %>
+        <div>
+          <% @project_submissions.each do |project_submission| %>
+            <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:) do |component| %>
+              <%= component.with_title(title: project_submission.user.username) %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
 
         <div class="p-8 pb-16 hidden only:block">
           <div class="text-center">
@@ -51,6 +53,6 @@
   <% end %>
 
   <div class="text-center overflow-x-auto">
-    <%== pagy_nav(@pagy) %>
+    <%== pagy_nav(@pagy, sort: params[:sort], direction: params[:direction]) %>
   </div>
 </div>

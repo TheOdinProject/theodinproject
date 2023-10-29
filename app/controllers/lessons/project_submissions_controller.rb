@@ -1,5 +1,7 @@
 module Lessons
   class ProjectSubmissionsController < ApplicationController
+    include Sortable
+
     before_action :authenticate_user!
     before_action :set_lesson
     before_action :can_add_solution
@@ -57,14 +59,21 @@ module Lessons
     private
 
     def project_submissions_query
-      @project_submissions_query ||= ::LessonProjectSubmissionsQuery.new(
-        lesson: @lesson,
-        current_user:
-      )
+      # @project_submissions_query ||= ::LessonProjectSubmissionsQuery.new(
+      #   lesson: @lesson,
+      #   current_user:
+      # )
+
+      @project_submissions_query ||= @lesson
+        .project_submissions
+        .only_public
+        .includes(:user)
+        .sort_by_params(params[:sort], params[:direction] || "desc")
+
 
       ProjectSubmissions::MarkLiked.call(
         user: current_user,
-        project_submissions: @project_submissions_query.public_submissions
+        project_submissions: @project_submissions_query
       )
     end
 

@@ -1,5 +1,6 @@
 import { Turbo } from '@hotwired/turbo-rails';
 
+
 Turbo.StreamActions.toggle_classes = function toggleClasses() {
   const cssClasses = this.getAttribute('classes').split(' ');
   const id = this.getAttribute('id');

@@ -1,0 +1,9 @@
+
+<%= render ProjectSubmissions::SortComponent.new(
+            lesson: @lesson,
+            options: [
+              { value: "created_at", label: "Newest", direction: "desc"  },
+              { value: "created_at", label: "Oldest", direction: "asc" },
+              { value: "likes_count", label: "Most liked", direction: "desc"}
+            ]
+)%>

@@ -14,7 +14,6 @@ class LessonProjectSubmissionsQuery
   def public_submissions
     lesson.project_submissions
           .only_public
-          .where.not(user: current_user)
           .includes(:user)
           .order(likes_count: :desc, created_at: :desc)
           .limit(limit)
