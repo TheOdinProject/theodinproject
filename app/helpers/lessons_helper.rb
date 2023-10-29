@@ -4,8 +4,13 @@ module LessonsHelper
   end
 
   def github_report_url(lesson)
-    # rubocop:disable Layout/LineLength
-    github_link("curriculum/issues/new?assignees=nil&labels=Status%3A+Needs+Triage&projects=&template=suggestion.yaml&title=#{lesson.title}%3A+%3CShort+description+of+your+suggestion%3E")
-    # rubocop:enable Layout/LineLength
+    params = {
+      labels: 'Status: Needs Triage',
+      template: 'suggestion.yaml',
+      title: "#{lesson.title}: <Short description of your suggestion>",
+      'lesson-link': lesson_url(lesson)
+    }
+
+    github_link("curriculum/issues/new?#{params.to_query}")
   end
 end
