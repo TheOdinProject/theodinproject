@@ -258,6 +258,8 @@ GEM
     kaminari-core (1.2.2)
     kramdown (2.4.0)
       rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
     launchy (2.5.2)
       addressable (~> 2.8)
@@ -608,6 +610,7 @@ DEPENDENCIES
   github_webhook (~> 1.4)
   inline_svg (~> 1.9)
   kramdown (~> 2.4)
+  kramdown-parser-gfm
   letter_opener (~> 1.8)
   lookbook (~> 2.1.1)
   newrelic_rpm (~> 9.3)

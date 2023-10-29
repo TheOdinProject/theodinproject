@@ -126,5 +126,22 @@ RSpec.describe MarkdownConverter do
         expect(described_class.new(markdown).as_html).to eq(html_result)
       end
     end
+
+    context 'when the markdown includes backtick fenced codeblocks' do
+      it 'converts the markdown with appropriate code format' do
+        markdown = <<~MARKDOWN
+          ```ruby
+          puts 'this should work'
+          ```
+        MARKDOWN
+
+        html_result = <<~HTML
+          <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s1">'this should work'</span>
+          </code></pre></div></div>
+        HTML
+
+        expect(described_class.new(markdown).as_html).to eq(html_result)
+      end
+    end
   end
 end
