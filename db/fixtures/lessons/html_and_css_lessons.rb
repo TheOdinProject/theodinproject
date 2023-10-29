@@ -277,13 +277,13 @@ def html_and_css_lessons
       github_path: '/advanced_html_css/responsive_design/media_queries.md',
       identifier_uuid: '61698363-3d2e-4f25-99d5-29ccdefdc856'
     },
-    'Personal Portfolio' => {
-      title: 'Personal Portfolio',
-      description: 'Create a fully responsive personal portfolio.',
+    'Homepage' => {
+      title: 'Homepage',
+      description: 'Create a fully responsive homepage.',
       is_project: true,
       accepts_submission: true,
       previewable: true,
-      github_path: '/advanced_html_css/responsive_design/project_personal_portfolio.md',
+      github_path: '/advanced_html_css/responsive_design/project_homepage.md',
       identifier_uuid: 'd99b0c9d-cc6c-44e6-bab0-1c9a83edcfa3'
     },
   }
