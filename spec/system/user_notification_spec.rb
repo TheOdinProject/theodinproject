@@ -28,7 +28,7 @@ RSpec.describe 'User Notifications' do
       visit root_path
 
       within(find(:test_id, 'navbar-notification-icon')) do
-        expect(page).to have_selector("span[data-test-id='unread-notifications']")
+        expect(page).to have_css("span[data-test-id='unread-notifications']")
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'User Notifications' do
       find(:test_id, 'navbar-notification-icon').click
 
       within(find(:test_id, "notification-#{submission_owner.notifications.first.id}")) do
-        expect(page).to have_selector('[data-test-id="notification-unread-icon"]')
+        expect(page).to have_css('[data-test-id="notification-unread-icon"]')
       end
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe 'User Notifications' do
       visit root_path
 
       within(find(:test_id, 'navbar-notification-icon')) do
-        expect(page).not_to have_selector("span[data-test-id='unread-notifications']")
+        expect(page).not_to have_css("span[data-test-id='unread-notifications']")
       end
     end
 
@@ -76,7 +76,7 @@ RSpec.describe 'User Notifications' do
       find(:test_id, 'navbar-notification-icon').click
 
       within(find(:test_id, "notification-#{submission_owner.notifications.first.id}")) do
-        expect(page).to have_selector('[data-test-id="notification-read-icon"]')
+        expect(page).to have_css('[data-test-id="notification-read-icon"]')
       end
     end
   end

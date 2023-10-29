@@ -13,11 +13,11 @@ RSpec.describe 'Feature Flags' do
 
       visit admin_dashboard_path
       find_by_id('utility_nav').click
-      click_on 'Feature Flags'
-      click_on 'Add Feature'
+      click_link 'Feature Flags'
+      click_link 'Add Feature'
       fill_in 'value', with: 'test_feature'
-      click_on 'Add Feature'
-      click_on 'Fully Enable'
+      click_button 'Add Feature'
+      click_button 'Fully Enable'
 
       visit home_path
       expect(page).to have_content('test feature is enabled')
