@@ -1,15 +1,13 @@
 <div class="mb-12">
   <h2 class="text-gray-700 text-2xl font-medium text-center mb-4 dark:text-gray-300">Project Submissions</h2>
 
-  <% if project_submissions.any? %>
-    <div data-test-id="user-submissions-list">
-      <% project_submissions.each do |project_submission| %>
-        <%= render ProjectSubmissions::ItemComponent.new(project_submission:, current_user:, edit_path: edit_users_project_submission_path(project_submission)) do |component| %>
-          <%= component.with_title(title: project_submission.lesson.display_title, url: lesson_path(project_submission.lesson)) %>
-        <% end %>
-      <% end %>
+  <div class="divide-y" data-test-id="user-submissions-list">
+    <% project_submissions.each do |project_submission| %>
+      <%= render ProjectSubmissions::UserSolutionComponent.new(project_submission:) %>
+    <% end %>
+
+    <div class="hidden only:block">
+      <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
     </div>
-  <% else %>
-    <h3 class="text-gray-500 text-center text-lg dark:text-gray-400">No submissions yet</h3>
-  <% end %>
+  </div>
 </div>
