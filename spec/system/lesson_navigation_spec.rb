@@ -37,7 +37,7 @@ RSpec.describe 'Navigating Lessons' do
       it 'is not present' do
         visit lesson_path(lesson)
 
-        expect(page).not_to have_selector('[data-test-id="next-lesson-btn"]')
+        expect(page).not_to have_css('[data-test-id="next-lesson-btn"]')
       end
     end
   end
