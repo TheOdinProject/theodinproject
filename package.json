@@ -60,7 +60,7 @@
     "sortablejs": "^1.15.0",
     "stimulus-use": "^0.51.3",
     "style-loader": "^3.3.3",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.3.5",
     "terser-webpack-plugin": "5",
     "webpack": "5",
     "webpack-assets-manifest": "5",
