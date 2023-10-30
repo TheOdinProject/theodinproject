@@ -20,4 +20,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.order = 'random'
   config.example_status_persistence_file_path = './spec/examples.txt'
+  config.expect_with :rspec do |expectations|
+    expectations.max_formatted_output_length = nil
+  end
 end
