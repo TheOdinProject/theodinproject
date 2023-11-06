@@ -43,7 +43,7 @@ gem 'sentry-ruby', '~> 5.11'
 gem 'sentry-sidekiq', '~> 5.11'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 7.1'
-gem 'turbo-rails', '~> 1.4'
+gem 'turbo-rails', '~> 1.5'
 gem 'view_component', '~> 3.6'
 
 group :development do
