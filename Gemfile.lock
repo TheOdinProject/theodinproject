@@ -404,9 +404,9 @@ GEM
       activesupport (>= 6.1.5)
       i18n
     redcarpet (3.6.0)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
-    redis-client (0.17.1)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
+    redis-client (0.18.0)
       connection_pool
     regexp_parser (2.8.2)
     reline (0.3.3)
