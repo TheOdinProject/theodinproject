@@ -128,7 +128,7 @@ course.add_section do |section|
   section.identifier_uuid = '941fbec9-aeca-4cad-96fb-da60035b4a27'
 
   section.add_lessons(
-    node_js_lessons.fetch('Odin-Book'),
+    node_js_lessons.fetch('Final-Project'),
     node_js_lessons.fetch('Conclusion'),
   )
 end

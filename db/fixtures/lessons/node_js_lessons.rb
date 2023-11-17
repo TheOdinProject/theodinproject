@@ -166,11 +166,11 @@ def node_js_lessons
       github_path: '/nodeJS/testing_express/testing_database_operations.md',
       identifier_uuid: '8e0e26ea-57c4-4cc6-9d0d-bf8561de9dae',
     },
-    'Odin-Book' => {
-      title: 'Odin-Book',
-      description: "You'll use everything you've learned so far to replicate Facebook!",
+    'Final-Project' => {
+      title: 'Build a social media site',
+      description: "You'll use everything you've learned so far to replicate a social media site!",
       is_project: true,
-      github_path: '/nodeJS/final_project/project_odin_book.md',
+      github_path: '/nodeJS/final_project/project_build_a_social_media_site.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: 'c0d6ba51-620e-49e0-8583-924f38754874',
