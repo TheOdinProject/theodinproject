@@ -1,7 +1,7 @@
 <%= title('Community Expectations') %>
 
 <div class="page-container">
-  <%= render ContentContainerComponent.new do %>
+  <%= render ContentContainerComponent.new do |component| %>
     <h2>Community Expectations</h2>
 
     <p>
@@ -79,8 +79,8 @@
         <strong>Provide context when sharing a resource.</strong> When posting a link to an article or youtube video, include <strong>why</strong> you are sharing it. Otherwise it will be marked as spam and deleted.
       </li>
     </ul>
+    <% component.with_footer do %>
+      <%= render 'static_pages/dashboard_steps/github_link' %>
+    <% end %>
   <% end %>
-
-  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_expectations.html.erb' %>
-
 </div>

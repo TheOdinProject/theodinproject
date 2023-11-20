@@ -7,7 +7,7 @@
       <% card.with_body do %>
         <div class="flex items-center flex-col md:flex-row gap-4">
           <%= render User::AvatarComponent.new(current_user:, classes: 'w-20') %>
-          <h2 class="truncate w-full basis-2/5 text-xl text-center md:text-left md:pl-4 font-medium text-gray-700 dark:text-gray-300" data-test-id="profile_username"><%= current_user.username %></h2>
+          <h2 class="truncate w-full basis-2/5 text-xl text-center md:text-left md:pl-4 font-medium text-gray-700 dark:text-gray-300" data-test-id="profile-username"><%= current_user.username %></h2>
           <%= render User::LearningGoalComponent.new(current_user:) %>
         </div>
       <% end %>
@@ -24,7 +24,7 @@
       <%= render partial: 'skill', collection: @courses, as: :course %>
     </div>
 
-    <%= render 'project_submissions', project_submissions: current_user.project_submissions %>
+    <%= render 'project_submissions', project_submissions: @project_submissions %>
   </div>
 
   <%= render 'shared/bottom_cta',

@@ -2,7 +2,7 @@
 # Course - React
 ########################
 course = @path.add_course do |course|
-  course.title = 'React (NEW)'
+  course.title = 'React'
   course.description = 'Let\'s learn React, the most popular JavaScript library for building user interfaces. Take your frontend skills to a whole new level!'
   course.identifier_uuid = '86fc2405-4623-41d5-9518-4a82511d12c0'
   course.show_on_homepage = false
@@ -87,11 +87,11 @@ course.add_section do |section|
 end
 
 # ++++++++++++++++++++++++++++
-# SECTION - The React Ecocsystem
+# SECTION - The React Ecosystem
 # ++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'The React Ecocsystem'
-  section.description = 'The React Ecocsystem'
+  section.title = 'The React Ecosystem'
+  section.description = 'The React Ecosystem'
   section.identifier_uuid = 'ee3b2ee1-8ced-4ce5-a939-90bb9a47694d'
 
   section.add_lessons(
@@ -138,11 +138,11 @@ end
 # ++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
   section.title = 'Conclusion'
-  section.description = 'Concolusion'
+  section.description = 'Conclusion'
   section.identifier_uuid = 'e6d0949d-075d-48f6-8d7f-ab066f720cdd'
 
   section.add_lessons(
-    react_lessons.fetch('Conclusion'),
+    react_lessons.fetch('Conclusion (Rails Path)'),
   )
 end
 

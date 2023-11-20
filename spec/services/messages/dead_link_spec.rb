@@ -8,11 +8,12 @@ RSpec.describe Messages::DeadLink do
       :flag,
       created_at: Time.zone.local(2021, 8, 1),
       project_submission: create(:project_submission, lesson:, user:),
-      reason: 'I find it offensive'
+      reason: :inappropriate,
+      extra: 'I find it offensive'
     )
   end
 
-  let(:lesson) { create(:lesson, title: 'test lesson1', has_live_preview: true) }
+  let(:lesson) { create(:lesson, title: 'test lesson1', previewable: true) }
   let(:user) { create(:user, username: 'testuser1') }
 
   describe '#title' do

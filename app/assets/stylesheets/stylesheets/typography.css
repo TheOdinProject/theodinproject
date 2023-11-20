@@ -1,0 +1,25 @@
+@layer base {
+  body {
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .page-heading-title {
+    @apply text-3xl text-gray-800 font-semibold pb-10 text-center mx-auto dark:text-gray-200;
+  }
+
+  .anchor-link {
+    @apply text-gray-300 dark:text-gray-100 flex relative items-center;
+  }
+
+  .anchor-link:hover {
+    @apply dark:text-gray-200;
+  }
+
+  .anchor-link:hover:before {
+    content: "\f0c1";
+    font-family: "Font Awesome 5 Free";
+    @apply text-gray-500 dark:text-gray-300 text-xs absolute -left-5 font-semibold hidden sm:block;
+  }
+}

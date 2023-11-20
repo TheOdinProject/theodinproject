@@ -39,26 +39,26 @@ RSpec.describe 'User Profile' do
     end
 
     context 'with invalid profile details' do
-      it 'validates edit name & email' do
-        find(:test_id, 'username-field').fill_in(with: 'zz')
-        find(:test_id, 'email-field').fill_in(with: 'zz')
+      it 'validates edit username & email' do
+        find(:test_id, 'username-field').fill_in(with: 'z')
+        find(:test_id, 'email-field').fill_in(with: '')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).to have_content('is not a valid email')
-        expect(page).to have_content('is too short (minimum is 4 characters)')
+        expect(page).to have_content('is too short (minimum is 2 characters)')
+        expect(page).to have_content("can't be blank")
       end
 
-      it 're-validates and removes the error once a field is corrected' do
-        find(:test_id, 'username-field').fill_in(with: 'zz')
-        find(:test_id, 'email-field').fill_in(with: 'zz')
+      it 'successfully submits and and removes the error when fields are corrected' do
+        find(:test_id, 'username-field').fill_in(with: 'Barry')
+        find(:test_id, 'email-field').fill_in(with: '')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).to have_content('is not a valid email')
+        expect(page).to have_content("can't be blank")
 
         find(:test_id, 'email-field').fill_in(with: 'valid@example.com')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).not_to have_content('is not a valid email')
+        expect(page).not_to have_content("can't be blank")
       end
     end
   end
@@ -81,15 +81,16 @@ RSpec.describe 'User Profile' do
   end
 
   describe 'changing password' do
-    it 'validates change password' do
+    it 'validates password fields' do
       click_link 'Password'
+
       find(:test_id, 'current-password-field').fill_in(with: 'password')
       find(:test_id, 'password-field').fill_in(with: 'yo')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'sup')
-      find('body').click
+      find(:test_id, 'save-btn').click
 
       expect(page).to have_content('is too short (minimum is 6 characters)')
-      expect(page).to have_content('The passwords do not match')
+      expect(page).to have_content("doesn't match Password")
     end
   end
 end

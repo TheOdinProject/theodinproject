@@ -9,7 +9,7 @@ class Theme::SwitcherComponent < ApplicationComponent
   end
 
   def other_theme
-    Users::Theme.all.find { |other_theme| other_theme.name != current_theme.name }
+    Users::Theme.default_themes.find { |other_theme| other_theme.name != current_theme.name }
   end
 
   def icon_only?

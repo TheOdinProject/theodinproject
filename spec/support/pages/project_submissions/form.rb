@@ -6,9 +6,10 @@ module Pages
 
       option :repo_url, default: -> { 'https://github.com/myname/my-project' }
       option :live_preview_url, default: -> { 'https://myprojectlivepreview.com' }
+      option :previewable, default: -> { true }
 
-      def self.fill_in_and_submit(**args)
-        new(**args)
+      def self.fill_in_and_submit(**)
+        new(**)
           .open
           .fill_in
           .submit
@@ -22,16 +23,11 @@ module Pages
 
       def fill_in
         find(:test_id, 'repo-url-field').fill_in(with: @repo_url)
-        find(:test_id, 'live-preview-url-field').fill_in(with: @live_preview_url)
+        find(:test_id, 'live-preview-url-field').fill_in(with: @live_preview_url) if @previewable
         self
       end
 
       def make_private
-        find(:test_id, 'is-public-toggle-slider').click
-        self
-      end
-
-      def v2_make_private
         choose 'project_submission_is_public_false'
         self
       end

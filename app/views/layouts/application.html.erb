@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="<%= current_theme.name %>">
+<html lang="en" id="root-element" class="<%= current_theme.name %>">
   <head>
     <% content_for :error_tracking do %>
       <%= render 'layouts/error_tracking' %>
@@ -24,8 +24,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <%= stylesheet_link_tag 'application_stylesheet', media: 'all', 'data-turbo-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
     <%= render 'shared/analytics' %>

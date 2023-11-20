@@ -5,22 +5,22 @@
       data-css-toggle-from-class="rotate-0"
       data-css-toggle-to-class="-rotate-180"
       type="button"
-      class="text-left w-full flex justify-between items-start text-gray-400"
+      class="flex items-start justify-between w-full text-left text-gray-400"
       aria-controls="faq-0"
       aria-expanded="false"
       data-action="click->visibility#toggle click->css-toggle#toggle"
       data-test-id="faq-question">
 
-      <h3 class="font-semibold text-gray-900 bold m-0 p-1 text-xl dark:text-gray-300">
+      <h2 class="p-1 m-0 text-xl font-semibold text-gray-900 bold dark:text-gray-300">
         <%= item.fetch(:question) %>
-      </h3>
+      </h2>
 
-      <span class="ml-6 h-7 flex items-center">
+      <span class="flex items-center ml-6 h-7">
         <%= inline_svg_tag 'icons/icon-chevron-down.svg', class: 'rotate-0 h-6 w-6 transform', data: { css_toggle_target: 'element' } %>
       </span>
     </button>
   </dt>
-  <dd class="mt-4 pr-8 hidden max-w-none prose prose-gray-500 dark:prose-invert dark:antialiased" data-visibility-target="content" data-test-id="faq-answer">
+  <dd class="hidden pr-8 mt-4 prose max-w-none prose-gray-500 dark:prose-invert dark:antialiased" data-visibility-target="content" data-test-id="faq-answer">
     <%= item.fetch(:answer).html_safe %>
   </dd>
 </div>

@@ -1,12 +1,12 @@
 <%= title('Community Rules') %>
 
 <div class="page-container">
-  <%= render ContentContainerComponent.new do %>
+  <%= render ContentContainerComponent.new do |component| %>
    <h2>Community Rules</h2>
 
     <p>
-      Our Discord server is a very active community of people from all over the world and is moderated by a team of volunteers. Our moderation team has 3 different <a href="https://github.com/TheOdinProject/top-meta/blob/main/about/discord-roles.md" target="_blank">roles</a>: Core, Maintainer, and Moderator.
-    </p>
+      Our Discord server is a very active community of people from all over the world and is moderated
+      by <%= link_to 'a team of volunteers', team_path(anchor: 'moderators') %>.</p>
 
     <p>
       Our moderation team is committed to providing a friendly, safe and welcoming environment for all, regardless of level of experience, gender identity and expression, sexual orientation, disability, neurodivergence, personal appearance, body, race, ethnicity, age, religion, nationality, or other similar characteristic.
@@ -166,9 +166,8 @@
         <li>Any other behavior deemed unacceptable and deserving of a ban by the moderation team, such as displaying a pattern of breaking our rules</li>
       </ul>
     </p>
-
+    <% component.with_footer do %>
+      <%= render 'static_pages/dashboard_steps/github_link' %>
+    <% end %>
   <% end %>
-
-  <%= render 'static_pages/dashboard_steps/github_link', filename: 'app/views/static_pages/community_rules.html.erb' %>
-
 </div>

@@ -21,7 +21,9 @@ RSpec.describe ButtonHelper do
 
   describe '#contribute_button' do
     it 'returns a contribute button' do
-      expect(helper.contribute_button).to eq('<a class="button button--primary" href="/contributing">Contribute</a>')
+      expect(helper.contribute_button).to eq(
+        '<a class="button button--primary" href="/contributing">Learn how to contribute</a>'
+      )
     end
   end
 

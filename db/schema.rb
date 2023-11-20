@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -67,12 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
   create_table "flags", force: :cascade do |t|
     t.integer "flagger_id", null: false
     t.bigint "project_submission_id", null: false
-    t.text "reason", default: "", null: false
+    t.text "extra", default: ""
     t.integer "status", default: 0, null: false
     t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
+    t.integer "reason", default: 4, null: false
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
   end
@@ -137,7 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "slug"
     t.boolean "accepts_submission", default: false, null: false
-    t.boolean "has_live_preview", default: false, null: false
+    t.boolean "previewable", default: false, null: false
     t.boolean "choose_path_lesson", default: false, null: false
     t.string "identifier_uuid", default: "", null: false
     t.bigint "course_id"
@@ -148,6 +149,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
     t.index ["installation_lesson"], name: "index_lessons_on_installation_lesson"
     t.index ["position"], name: "index_lessons_on_position"
     t.index ["slug", "section_id"], name: "index_lessons_on_slug_and_section_id", unique: true
+  end
+
+  create_table "likes", id: :serial, force: :cascade do |t|
+    t.string "likeable_type", null: false
+    t.integer "likeable_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
+    t.index ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
+    t.index ["user_id", "likeable_id", "likeable_type"], name: "index_likes_on_user_id_and_likeable_id_and_likeable_type", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -204,7 +216,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.boolean "is_public", default: true, null: false
-    t.integer "cached_votes_total", default: 0
+    t.integer "likes_count", default: 0
     t.datetime "discarded_at", precision: nil
     t.datetime "discard_at", precision: nil
     t.index ["discarded_at"], name: "index_project_submissions_on_discarded_at"
@@ -270,26 +282,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_27_165350) do
     t.index ["username"], name: "index_users_on_username"
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
-
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
   add_foreign_key "lesson_completions", "lessons", on_delete: :cascade
   add_foreign_key "lessons", "courses"
+  add_foreign_key "likes", "users"
   add_foreign_key "path_prerequisites", "paths"
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"

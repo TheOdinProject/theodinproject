@@ -1,19 +1,18 @@
 module ProjectSubmissions
   class LikeComponent < ApplicationComponent
-    def initialize(project_submission)
+    def initialize(project_submission:, current_users_submission: false)
       @project_submission = project_submission
+      @current_users_submission = current_users_submission
     end
 
     private
 
-    attr_reader :project_submission
-
-    def http_action
-      project_submission.liked? ? :delete : :post
-    end
+    attr_reader :project_submission, :current_users_submission
 
     def bg_color_class
-      project_submission.liked? ? 'text-teal-700' : 'text-gray-400'
+      return 'text-teal-700 stroke-teal-700' if current_users_submission || project_submission.liked?
+
+      'stroke-gray-500 stroke-2 text-transparent'
     end
   end
 end

@@ -29,9 +29,18 @@
           <% card.with_header do %>
             <h3 class="font-bold text-2xl">Origin of The Odin Project</h3>
           <% end %>
+
           <% card.with_body(classes: 'prose prose-gray max-w-none dark:prose-invert text-gray-500 dark:text-gray-300') do %>
-            <p>The Odin Project provides a free open source coding curriculum that can be taken entirely online. Since its inception, it has helped many students get hired as developers and has assisted countless others in learning enough programming to work on their own personal projects.</p>
-            <p>Erik Trautman founded The Odin Project in 2013. Currently it is maintained and continually improved by a team of volunteers, many of whom learned to code with us. Many find success from Odin Project&apos;s curriculum because of its hands-on approach with learning and emphasis on building projects. The curriculum is meticulously curated to ensure the content is up-to-date.</p>
+            <p>
+              The Odin Project provides a free open source coding curriculum that can be taken entirely online.
+              Since its inception, it has helped many students get hired as developers and has assisted countless
+              others in learning enough programming to work on their own personal projects.
+            </p>
+            <p>
+              Erik Trautman founded The Odin Project in 2013. Currently it is maintained and continually improved
+              by a <%= link_to 'team of volunteers', team_path %> many of whom learned to code with us. Many find
+              success from Odin Project&apos;s curriculum because of its hands-on approach with learning and emphasis
+              on building projects. The curriculum is meticulously curated to ensure the content is up-to-date.</p>
           <% end %>
         <% end %>
       </div>
@@ -44,7 +53,7 @@
           <% end %>
           <% card.with_body(classes: 'prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-300') do %>
             <p>This website and the curriculum it hosts are completely open source. That means anyone can work on new features or fix existing bugs on the website. This also extends to the curriculum itself, anyone can work on new lessons, add new resources and improve existing lessons.</p>
-            <p>The Odin project would not be possible without the hard work of contributors from all across the world. If you're interested in helping us make Odin better please find out <a href="<%= contributing_path %>">how to contribute.</a></p>
+            <p>The Odin Project would not be possible without the hard work of contributors from all across the world. If you're interested in helping us make The Odin Project better, please find out <a href="<%= contributing_path %>">how to contribute.</a></p>
           <% end %>
         <% end %>
       </div>

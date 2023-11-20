@@ -1,6 +1,23 @@
 <footer class="bg-white dark:bg-gray-900" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
+  <% unless current_page?(support_us_path) || current_page?(about_path) %>
+  <div class="mx-auto max-w-xl px-8 pt-8 pb-8 xs:pt-24 lg:px-8 text-center">
+    <div>
+      <div class="flex-1 my-6">
+        <h1 class="text-2xl mb-4 font-semibold text-gray-800 dark:text-gray-200">Support us!</h1>
+        <h2 class="text-sm text-gray-500 dark:text-gray-400">The Odin Project is funded by the community. Join us in empowering learners around the globe by supporting The Odin Project!</h2>
+      </div>
+      <div class="mt-4 flex justify-center space-x-4">
+        <%= link_to 'Learn more', support_us_path, class: 'button button--secondary' %>
+        <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary relative', target: '_blank' do %>
+          <span class="mr-4">Donate now</span>
+          <%= inline_svg_tag 'icons/arrow-right.svg', class: 'absolute right-3 h-4 w-4 ml-2', aria: false %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="mx-auto max-w-7xl px-6 pb-8 pt-8 sm:pt-12 lg:px-8">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
 
       <div class="space-y-6">
@@ -12,22 +29,22 @@
         <div class="flex space-x-6">
           <%= link_to 'https://github.com/TheOdinProject', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
             <span class="sr-only">GitHub</span>
-            <%= inline_svg_tag 'socials/github.svg', class: 'h-6 w-6', aria: true, title: 'GitHub', desc: 'GitHub logo' %>
+            <%= inline_svg_tag 'socials/github.svg', class: 'h-6 w-6 fill-current hover:fill-black dark:hover:fill-white transition duration-500', aria: true, title: 'GitHub', desc: 'GitHub logo' %>
           <% end %>
 
           <%= link_to ODIN_CHAT_URL, class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
             <span class="sr-only">Discord</span>
-            <%= inline_svg_tag 'socials/discord.svg', class: 'h-6 w-6', aria: true, title: 'Discord', desc: 'Discord logo' %>
+            <%= inline_svg_tag 'socials/discord.svg', class: 'h-6 w-6 fill-current hover:fill-[#7289d9] transition duration-500', aria: true, title: 'Discord', desc: 'Discord logo' %>
           <% end %>
 
           <%= link_to 'https://www.facebook.com/theodinproject/', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
             <span class="sr-only">Facebook</span>
-            <%= inline_svg_tag 'socials/facebook.svg', class: 'h-6 w-6', aria: true, title: 'Facebook', desc: 'Facebook logo' %>
+            <%= inline_svg_tag 'socials/facebook.svg', class: 'h-6 w-6 fill-current hover:fill-[#4267B2] transition duration-500', aria: true, title: 'Facebook', desc: 'Facebook logo' %>
           <% end %>
 
           <%= link_to 'https://twitter.com/TheOdinProject', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
             <span class="sr-only">Twitter</span>
-            <%= inline_svg_tag 'socials/twitter.svg', class: 'h-6 w-6', aria: true, title: 'Twitter', desc: 'Twitter logo' %>
+            <%= inline_svg_tag 'socials/twitter.svg', class: 'h-6 w-6 fill-current hover:fill-[#1DA1F2] transition duration-500', aria: true, title: 'Twitter', desc: 'Twitter logo' %>
           <% end %>
         </div>
       </div>
@@ -38,7 +55,8 @@
             <h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">About us</h3>
             <ul role="list" class="mt-4 space-y-3">
               <li><%= link_to 'About', about_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
-              <li><%= link_to 'Blog', ODIN_BLOG_URL, target: '_blank', rel: 'noreferrer', class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
+              <li><%= link_to 'Team', team_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
+              <li><%= link_to 'Blog', blog_path, target: '_blank', rel: 'noreferrer', class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
               <li><%= link_to 'Success Stories', success_stories_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
             </ul>
           </div>

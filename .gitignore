@@ -47,9 +47,18 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.yarn/
+.yarnrc.yml
 
 # Spec example persistence / failure tracking
 /spec/examples.txt
 
 # Vim Swap File
 .swp
+.vscode/settings.json
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Ruby tool versions
+.tool-versions

@@ -1,11 +1,10 @@
 $am-theme-primary: #cc9543;
 $am-theme-accent: #4a4a4a;
 
-@import 'activeadmin_addons/all';
-@import 'activeadmin_addons/material';
+@import 'activeadmin_addons/src/stylesheets/all';
 
-@import "active_admin/mixins";
-@import "active_material";
+@import "@activeadmin/activeadmin/src/scss/mixins";
+@import "active_material/src/stylesheets/active_material";
 
 input[type="submit"] {
   &:disabled {

@@ -1,0 +1,9 @@
+<div id="preview-container">
+  <%= render ContentContainerComponent.new(classes: 'pt-6') do %>
+    <% if markdown.present? %>
+      <%= MarkdownConverter.new(markdown).as_html.html_safe %>
+    <% else %>
+      <p>Nothing to preview yet!</p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,3 @@
+<%= turbo_stream.replace 'preview-container' do %>
+  <%= render 'lessons/previews/markdown_preview', markdown: @preview.content %>
+<% end %>

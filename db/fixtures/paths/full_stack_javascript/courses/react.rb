@@ -2,7 +2,7 @@
 # Course - React
 ########################
 course = @path.add_course do |course|
-  course.title = 'React (NEW)'
+  course.title = 'React'
   course.description = 'Let\'s learn React, the most popular JavaScript library for building user interfaces. Take your frontend skills to a whole new level!'
   course.identifier_uuid = 'f1dffa59-de01-4706-ba26-1e480067d19d'
   course.show_on_homepage = true
@@ -87,11 +87,11 @@ course.add_section do |section|
 end
 
 # ++++++++++++++++++++++++++++
-# SECTION - The React Ecocsystem
+# SECTION - The React Ecosystem
 # ++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'The React Ecocsystem'
-  section.description = 'The React Ecocsystem'
+  section.title = 'The React Ecosystem'
+  section.description = 'The React Ecosystem'
   section.identifier_uuid = '8d644340-1fde-40bd-8a86-a967d5baf6bc'
 
   section.add_lessons(
@@ -118,29 +118,16 @@ course.add_section do |section|
   )
 end
 
-# ++++++++++++++++++
-# SECTION - React And The Backend
-# ++++++++++++++++++
-course.add_section do |section|
-  section.title = 'React And The Backend'
-  section.description = 'React And The Backend'
-  section.identifier_uuid = 'da7d4fb4-4fa0-4373-ba5d-e2bfd139b6e5'
-
-  section.add_lessons(
-    react_lessons.fetch('Using NodeJS For Your Backend'),
-  )
-end
-
 # ++++++++++++++++++++++++++++++++++++
 # SECTION - Conclusion
 # ++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
   section.title = 'Conclusion'
-  section.description = 'Concolusion'
+  section.description = 'Conclusion'
   section.identifier_uuid = '9232bdc3-cd02-4f24-b516-fca708b5198b'
 
   section.add_lessons(
-    react_lessons.fetch('Conclusion'),
+    react_lessons.fetch('Conclusion (Node Path)'),
   )
 end
 

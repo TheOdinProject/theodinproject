@@ -11,14 +11,18 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
   end
 
   it 'successfully deletes a submission' do
-    within(:test_id, 'submissions-list') do
+    sleep 0.1 # it will not open the dropdown without this
+    within(:test_id, 'user-submissions-list') do
       expect(page).to have_content(lesson.title)
     end
 
-    find(:test_id, 'edit-submission-btn').click
-    Pages::ProjectSubmissions::Form.new.delete
+    find(:test_id, 'submission-action-menu-btn').click
 
-    within(:test_id, 'submissions-list') do
+    page.accept_confirm do
+      find(:test_id, 'delete-submission').click
+    end
+
+    within(:test_id, 'user-submissions-list') do
       expect(page).not_to have_content(lesson.title)
     end
   end

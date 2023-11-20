@@ -20,6 +20,7 @@ course.add_section do |section|
 
   section.add_lessons(
     getting_hired_lessons.fetch('How This Course Will Work'),
+    getting_hired_lessons.fetch('Professional Networking'),
     getting_hired_lessons.fetch('Strategy'),
     getting_hired_lessons.fetch('It Starts with YOU'),
     getting_hired_lessons.fetch('What Companies Want'),

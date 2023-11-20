@@ -15,7 +15,7 @@ RSpec.describe Seeds::LessonBuilder do
       github_path: '/github/lesson_path',
       is_project: true,
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
     }
   end
 
@@ -59,11 +59,11 @@ RSpec.describe Seeds::LessonBuilder do
       expect(lesson.accepts_submission).to be(true)
     end
 
-    it 'builds a lesson with a true has_live_preview attribute' do
+    it 'builds a lesson with a true previewable attribute' do
       lesson_builder
 
       lesson = Lesson.find_by(identifier_uuid: 'lesson_uuid')
-      expect(lesson.has_live_preview).to be(true)
+      expect(lesson.previewable).to be(true)
     end
 
     context 'when optional attributes are not present' do
@@ -90,11 +90,11 @@ RSpec.describe Seeds::LessonBuilder do
         expect(lesson.accepts_submission).to be(false)
       end
 
-      it 'builds a lesson with a false has_live_preview attribute' do
+      it 'builds a lesson with a false previewable attribute' do
         lesson_builder
 
         lesson = Lesson.find_by(identifier_uuid: 'lesson_uuid')
-        expect(lesson.has_live_preview).to be(false)
+        expect(lesson.previewable).to be(false)
       end
     end
 

@@ -1,0 +1,14 @@
+/* Entry point for your PostCSS build */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import './stylesheets/buttons.css';
+@import './stylesheets/layout.css';
+@import './stylesheets/typography.css';
+@import './stylesheets/buttons.css';
+@import './stylesheets/lesson-content.css';
+@import './stylesheets/prism-theme.css';
+@import './stylesheets/pagy.css';
+@import './stylesheets/animations.css';
+@import './stylesheets/static-pages.css';

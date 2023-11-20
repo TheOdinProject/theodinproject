@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(@course, 'progress') do %>
   <%= render ProgressCircle::Component.new(percentage: @percentage, options: @progress_options) do |component| %>
     <%= component.with_icon do %>
-      <%= inline_svg(params.fetch(:badge_path, 'icons/odin-icon.svg'), alt: "#{@course.title} badge", class: 'bg-inherit rounded-full') %>
+      <%= inline_svg(params.fetch(:badge_path, 'icons/odin-icon.svg'), alt: @course.title, class: 'bg-inherit rounded-full') %>
     <% end %>
   <% end %>
 <% end %>

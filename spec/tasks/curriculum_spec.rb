@@ -4,6 +4,8 @@ require 'rake'
 describe ':curriculum' do
   before do
     allow($stdout).to receive(:write)
+    Rake.application.rake_require 'tasks/curriculum'
+    Rake::Task.define_task(:environment)
   end
 
   describe 'curriculum:update_content' do

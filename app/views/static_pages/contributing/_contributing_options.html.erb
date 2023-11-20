@@ -1,15 +1,15 @@
 <div>
-  <h3 class="text-center font-semibold text-xl mb-8">There are two main ways you can contribute:</h3>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <h2 class="mb-8 text-xl font-semibold text-center">There are two main ways you can contribute:</h2>
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
     <% contributions = t('.ways_to_contribute') %>
     <% contributions.each do |contribution| %>
       <%= render CardComponent.new(classes: 'flex flex-col flex-between h-full border-t-8 border-t-gold-600 dark:border-t-gold-700') do |card| %>
         <% card.with_header do %>
-          <h3 class="font-medium text-center text-xl"><%= contribution[:title] %></h3>
+          <h3 class="text-xl font-medium text-center"><%= contribution[:title] %></h3>
         <% end %>
 
         <% card.with_body(classes: 'pt-4') do %>
-          <p class="prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-300/70"><%= contribution[:description] %></p>
+          <p class="prose text-gray-500 prose-gray dark:prose-invert dark:text-gray-300/70"><%= contribution[:description] %></p>
         <% end %>
 
         <% card.with_footer(classes: 'text-center mt-auto') do %>

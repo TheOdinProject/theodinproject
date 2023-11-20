@@ -4,15 +4,15 @@
       <h2 class="font-medium text-3xl text-gray-800 dark:text-gray-200">Success Stories</h2>
     </div>
 
-    <div class="max-w-7xl mx-auto mt-8 sm:mt-16 flex flex-nowrap xl:flex-wrap flex-col xl:flex-row items-center">
+    <div class="max-w-7xl mx-auto mt-8 sm:mt-16 flex flex-nowrap xl:flex-wrap flex-col xl:flex-row items-center xl:items-start">
       <% @success_stories.each do |story| %>
       <div class="px-6 sm:px-0 max-w-xl xl:max-w-none xl:w-1/2 flex pb-9">
         <div class="w-16 sm:w-24 text-center pt-4 sm:flex justify-center">
-          <%= image_tag "success_stories/#{story.avatar_path_name}", alt: "#{story.student_name}'s avatar", class: 'w-12 h-12 rounded-full shadow-inner' %>
+          <%= image_tag "success_stories/#{story.avatar_path_name}", alt: '', class: 'w-12 h-12 rounded-full shadow-inner' %>
         </div>
 
         <div class="flex-1">
-            <p><%= link_to story.student_name, story.social_media_link, class: 'underline hover:no-underline text-gray-900 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-300' %></p>
+            <p><%= link_to story.student_name, success_stories_path(story, anchor: dom_id(story)), class: 'underline hover:no-underline text-gray-900 hover:text-gray-700 dark:text-gray-200 dark:hover:text-gray-300' %></p>
           <div class="text-lg"><%= story.story_content.truncate_words(30).html_safe %></div>
         </div>
       </div>

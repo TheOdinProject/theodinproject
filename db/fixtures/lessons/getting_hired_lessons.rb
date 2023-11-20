@@ -7,6 +7,13 @@ def getting_hired_lessons
       github_path: '/getting_hired/preparing_for_job_search/how_this_course_will_work.md',
       identifier_uuid: 'f5e4f7ab-a6af-4318-ad5c-6f2be86ffa3f',
     },
+    'Professional Networking' => {
+      title: 'Professional Networking',
+      description: 'Developing a professional network can be an important and rewarding process on your web development journey.',
+      is_project: false,
+      github_path: '/getting_hired/preparing_for_job_search/professional_networking.md',
+      identifier_uuid: '7ef83dac-45ed-4136-9523-722b8999e8a2',
+    },
     'Strategy' => {
       title: 'Strategy',
       description: "You will need to develop a coherent strategy for how you'll approach the process or risk wasting time.",
@@ -41,7 +48,7 @@ def getting_hired_lessons
       is_project: true,
       github_path: '/getting_hired/preparing_for_job_search/project_portfolio.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '9e9f98a7-43bc-4e2b-9325-f858319604d5',
     },
     'Collecting Job Leads' => {
@@ -64,7 +71,7 @@ def getting_hired_lessons
       is_project: true,
       github_path: '/getting_hired/applying_and_interviewing/project_resume.md',
       accepts_submission: false,
-      has_live_preview: false,
+      previewable: false,
       identifier_uuid: '029f508f-8034-41b2-b330-bba88f0efe3b',
     },
     'Applying for Web Development Jobs' => {

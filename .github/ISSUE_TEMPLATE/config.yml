@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Curriculum content
+    url: https://github.com/TheOdinProject/curriculum
+    about: "This repository is for the underlying website. For changes to the content of TOP check out the curriculum repository"
+  - name: 💡 Ideas, Feature Requests and Questions
+    url: https://github.com/TheOdinProject/theodinproject/discussions
+    about: "Have an idea? Think a feature should be added? Open a discussion here"
+  - name: 💬 Join the Discord Community
+    url: https://discord.gg/fbFCkYabZB
+    about: "Outside of GitHub, the Odin community lives on Discord. Join our server here"

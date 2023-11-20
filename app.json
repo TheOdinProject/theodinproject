@@ -13,10 +13,7 @@
       ],
       "addons": [
         "heroku-postgresql:mini",
-        {
-          "plan": "rediscloud:30",
-          "as": "REDIS"
-        }
+        "heroku-redis:mini"
       ],
       "env": {
         "STAGING": {

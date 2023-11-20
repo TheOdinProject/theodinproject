@@ -129,7 +129,7 @@ def foundation_lessons
       is_project: true,
       github_path: '/foundations/javascript_basics/project_rock_paper_scissors.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '5cc2b83d-8024-4e07-82a0-38687b75c300',
     },
     'Clean Code' => {
@@ -152,7 +152,7 @@ def foundation_lessons
       is_project: true,
       github_path: '/foundations/javascript_basics/project_etch_a_sketch.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: 'fa9a5eea-a42c-4f89-9d53-6e1b8634d6ff',
     },
     'Fundamentals Part 5' => {
@@ -168,7 +168,7 @@ def foundation_lessons
       is_project: true,
       github_path: '/foundations/javascript_basics/project_calculator.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '2aa09e04-cbfa-4b48-97a6-140a760eda08',
     },
     'Introduction to the Back End' => {
@@ -242,7 +242,7 @@ def foundation_lessons
       github_path: '/foundations/html_css/html-foundations/project-recipes.md',
       identifier_uuid: '3c8ad955-4f4e-4555-86bc-98503e1b785d',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
     },
     'Intro to CSS' => {
       title: 'Intro to CSS',
@@ -311,7 +311,7 @@ def foundation_lessons
       is_project: true,
       github_path: '/foundations/html_css/flexbox/project-landing-page.md',
       accepts_submission: true,
-      has_live_preview: true,
+      previewable: true,
       identifier_uuid: '22e0c585-c146-4dab-9dc0-17a20f0ecbc5',
     },
     'DOM Manipulation and Events' => {

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'ESLint' => false, 'Jest' => false }
+results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'ESLint' => false }
 puts "\n== Running linters =="
 puts 'Rubocop:'
 results['Rubocop'] = system 'bundle exec rubocop'
@@ -14,8 +14,6 @@ results['ESLint'] = system 'yarn eslint'
 puts "\n== Running specs =="
 puts 'Rspec:'
 results['RSpec'] = system 'bundle exec rspec'
-puts 'Jest:'
-results['Jest'] = system 'yarn test'
 
 puts "\n== Final Results =="
 puts results.map {|k,v| "#{k.ljust(7)} #{v == true ? '✅' : '❌' }" }

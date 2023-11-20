@@ -3,12 +3,12 @@ class CardComponent < ApplicationComponent
   renders_one :body, Card::BodyComponent
   renders_one :footer, Card::FooterComponent
 
-  def initialize(classes: '', data_attributes: {})
+  def initialize(classes: '', id: '')
     @classes = classes
-    @data_attributes = data_attributes
+    @id = id
   end
 
   private
 
-  attr_reader :classes, :data_attributes
+  attr_reader :classes, :id
 end

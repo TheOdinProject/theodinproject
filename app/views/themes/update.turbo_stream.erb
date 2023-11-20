@@ -1,7 +1,10 @@
+
+<%= turbo_stream_action_tag 'toggle_classes', id: 'root-element', classes: [@previous_theme, @new_theme] %>
+
 <%= turbo_stream.update 'theme_switcher' do %>
-  <%= render Theme::SwitcherComponent.new(current_theme:, type: :icon_only) %>
+  <%= render Theme::SwitcherComponent.new(current_theme: @new_theme, type: :icon_only) %>
 <% end %>
 
 <%= turbo_stream.update 'theme_switcher_mobile' do %>
-  <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
+  <%= render Theme::SwitcherComponent.new(current_theme: @new_theme, type: :mobile) %>
 <% end %>

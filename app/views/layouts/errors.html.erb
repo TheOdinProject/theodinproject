@@ -5,8 +5,7 @@
       <%= content_for(:title) || 'Your Career in Web Development Starts Here | The Odin Project' %>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'application_stylesheet', media: 'all' %>
-    <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
   </head>
   <body class="text-center h-screen m-0">

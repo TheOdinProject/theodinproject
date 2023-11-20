@@ -1,16 +1,24 @@
 class ThemesController < ApplicationController
+  before_action :cache_previous_theme
+
   def update
-    theme = params[:theme]
+    @new_theme = Users::Theme.for(params[:theme])
 
-    if Users::Theme.exists?(theme)
-      change_current_theme(theme)
+    respond_to do |format|
+      if @new_theme.present?
+        change_current_theme(params[:theme])
 
-      respond_to do |format|
-        format.html { redirect_back(fallback_location: root_path) }
         format.turbo_stream
+      else
+        flash.now[:alert] = "Sorry, we can't find that theme."
+        format.turbo_stream { render turbo_stream: turbo_stream.update('flash-messages', partial: 'shared/flash') }
       end
-    else
-      redirect_back(fallback_location: root_path, alert: "Sorry, we can't find that theme.", status: :see_other)
     end
+  end
+
+  private
+
+  def cache_previous_theme
+    @previous_theme = current_theme
   end
 end

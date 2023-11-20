@@ -1,0 +1,242 @@
+
+# -- Active team member attributes --
+# name - required
+# image - required
+# location - required
+# joined - required
+# github - optional
+# twitter - optional
+# linkedin - optional
+# website - optional
+
+# -- Alumni attributes --
+# name - required
+# image - required
+# url - required
+
+en:
+  team_members:
+    core:
+      description: "The Core team are long-serving members who have made significant contributions to The Odin Project. They serve as the leadership, responsible for shaping and guiding the direction of the platform."
+      members:
+        - name: "Kevin Mulhern"
+          image: "https://avatars.githubusercontent.com/u/7963776?v=4"
+          location: "Ireland"
+          joined: "2015"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/KevinMulhern_"
+            - name: "github"
+              url: "https://github.com/KevinMulhern"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/kevin-mulhern-89532779/"
+
+        - name: "Cody Loyd"
+          image: "https://avatars.githubusercontent.com/u/18574792"
+          location: "USA"
+          joined: "2016"
+          socials:
+            - name: "website"
+              url: "https://codyloyd.com/"
+            - name: "github"
+              url: "https://github.com/codyloyd"
+
+        - name: "Carlos Diaz"
+          image: "https://avatars.githubusercontent.com/u/34174677"
+          location: "Southern California, USA"
+          joined: "2019"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/bycdiaz"
+            - name: "github"
+              url: "https://github.com/bycdiaz"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bycdiaz/"
+
+        - name: "Austin Mason"
+          image: "https://avatars.githubusercontent.com/u/12649577"
+          location: "United Kingdom"
+          joined: "2016"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/Austin_Mason"
+            - name: "github"
+              url: "https://github.com/CouchofTomato"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/austinmason/"
+
+        - name: "Rachel Moser"
+          image: "https://avatars.githubusercontent.com/u/33227096"
+          location: "Illinois, USA"
+          joined: "2020"
+          socials:
+            - name: "github"
+              url: "https://github.com/rlmoser99"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/rlmoser99/"
+
+        - name: "Austin Sullivan"
+          image: "https://avatars.githubusercontent.com/u/7115053"
+          location: "North Carolina, USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/wise-king-sullyman"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/austin-m-sullivan/"
+
+        - name: "Valera Kushnir"
+          image: "https://avatars.githubusercontent.com/u/12993486?v=4"
+          location: "USA"
+          joined: "2021"
+          socials:
+            - name: "website"
+              url: "https://valerakushnir.com"
+            - name: "github"
+              url: "https://github.com/kashura"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/valerakushnir/"
+
+    maintainers:
+      description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
+      members:
+        - name: "MacDaniel Maisel"
+          image: "https://avatars.githubusercontent.com/u/44100935"
+          location: "California"
+          joined: "2022"
+          socials:
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/macdaniel-maisel/"
+            - name: "github"
+              url: "https://github.com/linkonsat"
+
+        - name: "Manon Voorbrood"
+          image: "https://avatars.githubusercontent.com/u/81025586"
+          location: "The Netherlands"
+          joined: "2022"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/Manon_Lef"
+            - name: "github"
+              url: "https://github.com/ManonLef"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/manon-vb/"
+
+        - name: "Zachary Baird"
+          image: "https://avatars.githubusercontent.com/u/30800863"
+          location: "The United States"
+          joined: "2019"
+          socials:
+            - name: "github"
+              url: "https://github.com/ZachBaird"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zach-baird/"
+
+        - name: "Zach Meyer"
+          image: "https://avatars.githubusercontent.com/u/34407561?v=4"
+          location: "Florida, USA"
+          joined: "2021"
+          socials:
+            - name: "twitter"
+              url: "https://twitter.com/hateburn"
+            - name: "github"
+              url: "https://github.com/zachmmeyer"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/zachmmeyer/"
+
+        - name: "Alex Younger"
+          image: "https://avatars.githubusercontent.com/u/61510135?v=4"
+          location: "USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/fortypercenttitanium"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/aywebdev"
+            - name: "website"
+              url: "https://ayweb.dev/"
+
+        - name: "Eric Olkowski"
+          image: "https://media.licdn.com/dms/image/C4E03AQFbq3xPv9UXhA/profile-displayphoto-shrink_800_800/0/1638902198818?e=1701302400&v=beta&t=U4t5oNe3_bj9LTQn99yw6E_YoEGIIq6fIOBdq_QdXOg"
+          location: "New Jersey, USA"
+          joined: "2021"
+          socials:
+            - name: "github"
+              url: "https://github.com/thatblindgeye"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/ericolkowski/"
+
+        - name: "Josh Smith"
+          image: "https://avatars.githubusercontent.com/u/88392688?v=4"
+          location: "USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/JoshDevHub"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
+
+        - name: "Chook"
+          image: "https://avatars.githubusercontent.com/u/58506115?v=4"
+          location: "Australia"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/ChargrilledChook"
+
+    moderators:
+      description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
+      members:
+        - name: "Fred Love"
+          image: "https://avatars.githubusercontent.com/u/48169481?v=4"
+          location: "Pennsylvania, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/justwavethings"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/fredlove000/"
+
+        - name: "Bryan Fines"
+          image: "https://avatars.githubusercontent.com/u/49371751?v=4"
+          location: "Virginia, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/BryanF1nes"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/bryan-fines-a44384270/"
+
+        - name: "Emad Ali"
+          image: "https://avatars.githubusercontent.com/u/70924991?v=4"
+          location: "Germany"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/Mclilzee"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/mclilzee"
+
+    alumni:
+      description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
+      members:
+        - name: "Erik Trautman (Founder)"
+          image: "https://avatars.githubusercontent.com/u/2977438"
+          url: "https://github.com/eriktrautman"
+
+        - name: "Arun Kumar Mohan"
+          image: "https://avatars.githubusercontent.com/u/7039523?v=4"
+          url: "https://github.com/arku"
+
+        - name: "Javier Machín"
+          image: "https://avatars.githubusercontent.com/u/13190712"
+          url: "https://www.javiermachin.com/"
+
+        - name: "Cornelius Soon"
+          image: "https://avatars.githubusercontent.com/u/16495574?v=4"
+          url: "https://github.com/csrail"
+
+        - name: "Ada Chiu"
+          image: "https://scontent.fbhd1-1.fna.fbcdn.net/v/t39.30808-6/329125450_1262623538007028_3894297793740278569_n.jpg?stp=cp1_dst-jpg_e15_fr_q65&_nc_cat=103&ccb=1-7&_nc_sid=58b1ad&efg=eyJpIjoidCJ9&_nc_ohc=wJjTzlFw4fkAX_bd7Dq&_nc_oc=AQnTlknYADl3dldgt5qMZjmKLIuPNC3iJAmLtA5PSLY9sEZ2sEFNMqnlGo8seP_6DWM&_nc_ht=scontent.fbhd1-1.fna&oh=00_AfBK48vUdLiN4WNDt1Qe99Cixdck3nM_7CpLWiazY87dEA&oe=651ED362"
+          url: "https://avatars.githubusercontent.com/u/13413986?v=4"
+

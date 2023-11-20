@@ -1,0 +1,47 @@
+name: Chore
+description: Suggest non-user facing changes, such as refactors, simplfications, etc
+title: "Chore: <brief description of the issue>"
+labels: "Status: Needs Review, Type: Chore"
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to submit a chore to The Odin Project. In order to get issues closed in a reasonable amount of time, you must include a baseline of information about the chore in question.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      description: Please fill out the following checkboxes
+      options:
+        - label: I have thoroughly read and understand [The Odin Project Contributing Guide](https://github.com/TheOdinProject/.github/blob/main/CONTRIBUTING.md)
+          required: true
+        - label: "The title of this issue follows the `Chore: brief description of chore` format, e.g. `Chore: Lesson complete button does not update on click`"
+          required: true
+        - label: Would you like to work on this issue?
+          required: false
+  - type: textarea
+    id: chore-report
+    attributes:
+      label: Chore description
+      description: A clear and concise description of what the chore is.
+      placeholder: ex 'Refactor some buttons to use button components'
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: A list of checkbox items that explain the requirements needed to be met to resolve this request.
+      placeholder: |
+        - [ ] Create new button components
+        - [ ] Replace all old buttons with the new components
+        - [ ] Remove all styles that are now unused
+    validations:
+      required: true
+  - type: textarea
+    id: additional-comments
+    attributes:
+      label: Additional Comments
+      description: "Anything else you'd like to cover"
+      placeholder: We ❤️ open source
+    validations:
+      required: false

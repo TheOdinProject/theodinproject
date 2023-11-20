@@ -14,7 +14,7 @@ RSpec.describe ContentContainerComponent, type: :component do
 
     render_inline(component) { 'Some riveting content' }
 
-    expect(page).to have_selector('.some-class')
+    expect(page).to have_css('.some-class')
   end
 
   it 'renders content with data attributes' do
@@ -22,6 +22,6 @@ RSpec.describe ContentContainerComponent, type: :component do
 
     render_inline(component) { 'Some riveting content' }
 
-    expect(page).to have_selector("[data-some-attribute='some-value']")
+    expect(page).to have_css("[data-some-attribute='some-value']")
   end
 end

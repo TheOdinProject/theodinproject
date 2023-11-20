@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     './app/**/*.html.erb',
+    './app/**/*.turbo_stream.erb',
     './app/components/**/*',
     './app/components/*.rb',
     './app/javascript/**/*.js',
@@ -14,6 +15,7 @@ module.exports = {
     'lesson-note',
     'lesson-note--tip',
     'lesson-note--warning',
+    'lesson-note--critical',
     'lesson-content__panel',
     'anchor-link',
     'toc-item-active'

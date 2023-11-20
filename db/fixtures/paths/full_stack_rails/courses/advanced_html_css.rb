@@ -56,7 +56,7 @@ course.add_section do |section|
     html_and_css_lessons.fetch('Natural Responsiveness'),
     html_and_css_lessons.fetch('Responsive Images'),
     html_and_css_lessons.fetch('Media Queries'),
-    html_and_css_lessons.fetch('Personal Portfolio'),
+    html_and_css_lessons.fetch('Homepage'),
   )
 end
 

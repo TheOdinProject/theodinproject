@@ -17,5 +17,6 @@ module Theodinproject
     # the framework and any gems in your application.
     config.exceptions_app = routes
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
+    config.assets.css_compressor = nil
   end
 end
