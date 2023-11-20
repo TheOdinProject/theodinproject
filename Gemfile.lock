@@ -165,10 +165,10 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
-    factory_bot (6.2.1)
+    factory_bot (6.4.0)
       activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
+    factory_bot_rails (6.4.0)
+      factory_bot (~> 6.4)
       railties (>= 5.0.0)
     faraday (2.7.11)
       base64
@@ -313,7 +313,7 @@ GEM
     newrelic_rpm (9.6.0)
       base64
     nio4r (2.5.9)
-    nokogiri (1.15.4)
+    nokogiri (1.15.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     noticed (1.6.3)
@@ -602,7 +602,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.8)
   dry-initializer (~> 3.1)
   erb_lint (~> 0.5)
-  factory_bot_rails (~> 6.2)
+  factory_bot_rails (~> 6.4)
   faraday-retry (~> 2.2)
   flipper (~> 1.0)
   flipper-active_record (~> 1.0)
