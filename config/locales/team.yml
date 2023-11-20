@@ -176,6 +176,14 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
 
+        - name: "Chook"
+          image: "https://avatars.githubusercontent.com/u/58506115?v=4"
+          location: "Australia"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/ChargrilledChook"
+
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
