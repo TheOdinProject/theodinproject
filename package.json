@@ -50,7 +50,7 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
-    "postcss-preset-env": "^8.0.1",
+    "postcss-preset-env": "^9.3.0",
     "prismjs": "^1.29.0",
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.69.5",
