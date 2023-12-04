@@ -67,7 +67,7 @@ group :test do
   gem 'climate_control', '~> 1.2'
   gem 'cuprite', '~> 0.14'
   gem 'erb_lint', '~> 0.5', require: false
-  gem 'factory_bot_rails', '~> 6.2'
+  gem 'factory_bot_rails', '~> 6.4'
   gem 'faraday-retry', '~> 2.2'
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
