@@ -1,13 +1,10 @@
 <div class="mb-8 text-left" data-controller="tabs" data-tabs-index='0' data-tabs-active-class="!bg-gray-50" data-tabs-inactive-class="hidden">
 
-  <header class="flex flex-col space-y-6 justify-between items-center pb-8 text-center md:space-y-0 md:text-left md:flex-row">
-    <div class="flex md:flex-start flex-col space-y-1">
+  <header class="flex space-y-6 justify-between items-center pb-8 text-center md:space-y-0 md:text-left md:flex-row">
+    <div class="flex flex-row justify-between space-y-1 w-full items-center">
       <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-200" id="solutions">Project solutions</h3>
 
-      <span class="isolate inline-flex rounded-md shadow-sm pt-4">
-        <button type="button" data-tabs-target='tab' data-action="tabs#change" class="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">Your solution</button>
-         <button type="button" data-tabs-target='tab' data-action="tabs#change" class="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">Community solutions</button>
-      </span>
+       <%= link_to "View all solutions", lesson_project_submissions_path(lesson), class: "relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10" %>
     </div>
   </header>
 

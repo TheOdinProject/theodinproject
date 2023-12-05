@@ -32,7 +32,7 @@
     <!-- Active: "bg-gray-50", Not Active: "" -->
 
     <% options.each do |option| %>
-      <%= link_to lesson_project_submissions_path(lesson, sort: option.fetch(:value), direction: option.fetch(:direction)), class: "block px-3 py-1 text-sm leading-6 text-gray-900", role: "menuitem", tabindex: "-1", data: { turbo_frame: 'submissions-list', turbo_action: "advance" } do %>
+      <%= link_to lesson_project_submissions_path(lesson, sort: option.fetch(:value), direction: option.fetch(:direction)), class: "block px-3 py-1 text-sm leading-6 text-gray-900", role: "menuitem", tabindex: "-1", data: { turbo_frame: 'submissions-list' } do %>
         <%= option.fetch(:label) %>
       <% end %>
     <% end %>
