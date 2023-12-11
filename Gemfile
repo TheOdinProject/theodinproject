@@ -50,7 +50,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.2.0'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.56', require: false
+  gem 'rubocop', '~> 1.58', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.22', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false
