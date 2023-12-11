@@ -29,7 +29,7 @@
     "autoprefixer": "^10.4.15",
     "babel-loader": "9",
     "babel-plugin-prismjs": "^2.1.0",
-    "browserslist": "^4.22.1",
+    "browserslist": "^4.22.2",
     "compression-webpack-plugin": "10",
     "core-js": "^3.31.1",
     "css-loader": "^6.8.1",
