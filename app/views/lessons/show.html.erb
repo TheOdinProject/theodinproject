@@ -11,9 +11,9 @@
           <%= @lesson.body.html_safe %>
 
           <% component.with_footer do %>
-            <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+            <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
               <%= inline_svg_tag 'icons/github.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Improve on GitHub', desc: 'Github logo icon' %>
-              <span>Improve on GitHub</span>
+              <span class: 'underline hover:no-underline'>Improve on GitHub</span>
             <% end %>
 
             <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
