@@ -1,5 +1,5 @@
 <div class="relative" data-controller="visibility" data-action="visibility:click:outside->visibility#off">
-  <button data-action="click->visibility#toggle" type="button" class="flex items-center gap-x-1 font-medium leading-6 text-gray-800 dark:text-white" id="sort-menu-button" aria-expanded="false" aria-haspopup="true">
+  <button data-action="click->visibility#toggle" type="button" class="flex items-center text-sm gap-x-1 font-medium leading-6 text-gray-800 dark:text-white" id="sort-menu-button" aria-expanded="false" aria-haspopup="true">
     Sort by
     <svg class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
       <path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd" />
@@ -32,7 +32,7 @@
     <!-- Active: "bg-gray-50", Not Active: "" -->
 
     <% options.each do |option| %>
-      <%= link_to lesson_project_submissions_path(lesson, sort: option.fetch(:value), direction: option.fetch(:direction)), class: "block px-3 py-1 text-sm leading-6 text-gray-900", role: "menuitem", tabindex: "-1", data: { turbo_frame: 'submissions-list' } do %>
+      <%= link_to lesson_project_submissions_path(lesson, sort: option.fetch(:value), direction: option.fetch(:direction)), class: "block px-3 py-1 text-sm leading-6 text-gray-900 #{'bg-gray-50' if option.fetch(:value) == selected}", role: "menuitem", tabindex: "-1", data: { turbo_frame: 'submissions-list', turbo_action: "advance" } do %>
         <%= option.fetch(:label) %>
       <% end %>
     <% end %>

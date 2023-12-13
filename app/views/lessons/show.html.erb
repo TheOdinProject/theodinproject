@@ -11,7 +11,6 @@
           <%= @lesson.body.html_safe %>
 
 
-
           <% component.with_footer do %>
             <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
               <%= inline_svg_tag 'icons/github.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Improve on GitHub', desc: 'Github logo icon' %>
@@ -25,9 +24,6 @@
           <% end %>
         <% end %>
 
-           <div class="mt-10 pt-3 border-t-2">
-          <%= render 'lessons/project_submissions', lesson: @lesson, limit: 10 %>
-          </div>
 
       </article>
 
@@ -38,6 +34,14 @@
         </div>
       </aside>
     </main>
+
+    <% if user_signed_in? && @lesson.accepts_submission? %>
+      <div class="pt-8 mt-8 border-t border-zinc-900/5 dark:border-white/5 grid grid-cols-12">
+        <div class="bg-gray-50 dark:border-white/5 rounded-lg p-4 my-10 shadow-md dark:bg-gray-800 col-span-full lg:col-span-8 lg:col-start-3 xl:col-span-7 xl:col-start-2">
+          <%= render 'lessons/project_submissions', lesson: @lesson, limit: 10 %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -45,14 +49,6 @@
   <div class="page-container">
     <%= render CardComponent.new do |card| %>
       <% card.with_body do %>
-        <% if user_signed_in? && @lesson.accepts_submission? %>
-          <%= render 'lessons/project_submissions', lesson: @lesson, limit: 10 %>
-        <% elsif @lesson.accepts_submission? %>
-          <p class="mb-7">
-            Only logged in users can view user submissions for this project
-          </p>
-        <% end %>
-
         <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
       <% end %>
     <% end %>

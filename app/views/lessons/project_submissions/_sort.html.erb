@@ -1,6 +1,7 @@
 
 <%= render ProjectSubmissions::SortComponent.new(
             lesson: @lesson,
+            selected: params[:sort],
             options: [
               { value: "created_at", label: "Newest", direction: "desc"  },
               { value: "created_at", label: "Oldest", direction: "asc" },

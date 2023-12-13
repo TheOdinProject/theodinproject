@@ -1,18 +1,18 @@
 <% if project_submission.present? %>
-  <div class="relative block w-full rounded-lg border border-solid border-gray-200 px-4">
+  <div class="relative block w-full rounded-lg border border-gray-200 dark:border-gray-700 px-4">
     <%= render ProjectSubmissions::ItemComponent.new(project_submission: project_submission, current_user:) do |component| %>
       <%= component.with_title(title: "Your #{lesson.title.downcase} project solution") %>
     <% end %>
   </div>
 
 <% else %>
-  <%= link_to new_lesson_project_submission_path(lesson), class: 'relative block w-full rounded-lg border-2 border-dashed border-gray-300 p-6 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' }  do %>
+  <%= link_to new_lesson_project_submission_path(lesson), class: 'relative block w-full rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-400 p-6 text-center hover:border-gray-400 dark:hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' }  do %>
 
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-auto h-12 w-12 text-gray-400">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
 
-    <span class="mt-2 block text-sm font-semibold text-gray-900">Add your solution</span>
+    <span class="mt-2 block text-sm font-semibold text-gray-900 dark:text-gray-300">Add your solution</span>
 
   <% end %>
 <% end %>
