@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_31_013215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -38,6 +38,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
     t.string "learn_more_url"
     t.index ["expires_at"], name: "index_announcements_on_expires_at"
     t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bookmarks_on_lesson_id"
+    t.index ["user_id", "lesson_id"], name: "index_bookmarks_on_user_id_and_lesson_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -283,6 +293,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
   end
 
   add_foreign_key "announcements", "users"
+  add_foreign_key "bookmarks", "lessons"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"

@@ -77,6 +77,7 @@ Rails.application.routes.draw do
     resources :progress, only: :destroy
     resources :project_submissions, only: %i[edit update]
     resource :profile, only: %i[edit update]
+    resources :bookmarks, only: %i[index new create destroy]
   end
 
   namespace :lessons do

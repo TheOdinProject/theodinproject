@@ -1,0 +1,5 @@
+<%= turbo_stream.replace 'bookmark-button' do %>
+  <%= render Bookmarks::ButtonComponent.new(lesson: @lesson, current_user:, bookmark: nil) %>
+<% end %>
+
+<%= turbo_stream.update 'flash-messages', partial: 'shared/flash' %>
