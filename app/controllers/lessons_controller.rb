@@ -16,6 +16,7 @@ class LessonsController < ApplicationController
   end
 
   def set_bookmark
+    return unless current_user
     return unless Feature.enabled?(:bookmarks, current_user)
 
     @bookmark = current_user.bookmarks.find_by(lesson_id: @lesson.id)
