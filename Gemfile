@@ -11,7 +11,7 @@ gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'cssbundling-rails', '~> 1.3'
-gem 'debug', '~> 1.7'
+gem 'debug', '~> 1.9'
 gem 'devise', '~> 4.9'
 gem 'discard', '~> 1.3'
 gem 'discordrb-webhooks', '~> 3.5'
