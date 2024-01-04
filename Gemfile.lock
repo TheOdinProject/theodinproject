@@ -559,7 +559,7 @@ GEM
     unicode-display_width (2.5.0)
     vcr (6.2.0)
     version_gem (1.1.2)
-    view_component (3.6.0)
+    view_component (3.9.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -652,7 +652,7 @@ DEPENDENCIES
   simplecov (~> 0.22)
   turbo-rails (~> 1.5)
   vcr (~> 6.2)
-  view_component (~> 3.6)
+  view_component (~> 3.9)
   web-console (~> 4.2)
   webmock (~> 3.19)
 
