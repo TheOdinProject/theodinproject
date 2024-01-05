@@ -4139,10 +4139,10 @@ heap@^0.2.6:
   resolved "https://registry.yarnpkg.com/heap/-/heap-0.2.7.tgz#1e6adf711d3f27ce35a81fe3b7bd576c2260a8fc"
   integrity sha512-2bsegYkkHO+h/9MGbn6KWcE45cHZgPANo5LXF7EvWdT0yT2EguSVO1nDgU5c8+ZOPwp2vMNa7YFsJhVcDR9Sdg==
 
-hint.css@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/hint.css/-/hint.css-2.7.0.tgz#2f7f9cd8fb07745de9800547e36a0c82ee9aedaf"
-  integrity sha512-kNtr/oXTOFA+qYLFAHY1dKVKZuAbavCPB22+w9kaFzqjB9ZLSFJyksxrVsJCphQiQxAYLazXZdrOaGLRe0hZMA==
+hint.css@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/hint.css/-/hint.css-3.0.0.tgz#9f3a071d7b66d41f723c529a7878a3e0c23eb0ff"
+  integrity sha512-UoJ+yLO2kEcfsm/XMU1suAIR0sxCq4HO22pw4okJQo5TQDlA2BrJ57Eaxh4eT+9PDInIDTRm9TVzzbHHWEqASQ==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"

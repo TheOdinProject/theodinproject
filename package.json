@@ -37,7 +37,7 @@
     "cssnano": "^6.0.1",
     "debounce": "^1.2.1",
     "el-transition": "^0.0.7",
-    "hint.css": "^2.7.0",
+    "hint.css": "^3.0.0",
     "js-base64": "^3.7.5",
     "lodash": "^4.17.21",
     "mermaid": "^9.4.3",
