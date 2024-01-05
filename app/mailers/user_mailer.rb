@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def send_welcome_email_to(user)
     @user = user
-    
+
     mail(
       subject: 'Getting started with The Odin Project',
       to: user.email,

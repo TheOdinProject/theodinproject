@@ -10,12 +10,12 @@ RSpec.describe UserMailer do
       expect(welcome_email.from).to eql(['contact@theodinproject.com'])
     end
 
-    it 'includes an attachment' do
-      expect(welcome_email.attachments.count).to eq(1)
+    it 'includes a image' do
+      expect(welcome_email).to have_css 'img'
     end
 
     it 'renders the correct attachment' do
-      expect(welcome_email.attachments[0].filename).to eql('logo.svg')
+      expect(welcome_email).to have_css("img[src*='logo']")
     end
 
     it 'renders the correct subject' do
