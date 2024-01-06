@@ -290,5 +290,14 @@ def javascript_lessons
       github_path: '/javascript/computer_science/hash_map_data_structure.md',
       identifier_uuid: 'create-uuid'
     },
+    'HashMap Project' => {
+      title: 'HashMap Project',
+      description: 'Build your very first hash map data structure from scratch',
+      is_project: true,
+      github_path: '/javascript/computer_science/project_hash_map.md',
+      accepts_submission: true,
+      previewable: false,
+      identifier_uuid: 'create-uuid'
+    },
   }
 end
