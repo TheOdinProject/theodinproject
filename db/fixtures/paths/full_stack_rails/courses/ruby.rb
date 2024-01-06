@@ -124,6 +124,8 @@ course.add_section do |section|
     ruby_lessons.fetch('Space Complexity'),
     ruby_lessons.fetch('Common Data Structures and Algorithms'),
     ruby_lessons.fetch('Linked Lists'),
+    ruby_lessons.fetch('HashMap Project'),
+    ruby_lessons.fetch('Binary Search Trees'),
     ruby_lessons.fetch('Binary Search Trees'),
     ruby_lessons.fetch('Knights Travails'),
   )
