@@ -95,6 +95,8 @@ course.add_section do |section|
     javascript_lessons.fetch('Space Complexity'),
     javascript_lessons.fetch('Common Data Structures and Algorithms'),
     javascript_lessons.fetch('Linked Lists'),
+    javascript_lessons.fetch('HashMap'),
+    javascript_lessons.fetch('HashMap Project'),
     javascript_lessons.fetch('Binary Search Trees'),
     javascript_lessons.fetch('Knights Travails'),
   )
