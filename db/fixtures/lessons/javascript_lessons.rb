@@ -283,5 +283,12 @@ def javascript_lessons
       github_path: '/javascript/finishing_up_with_javascript/conclusion.md',
       identifier_uuid: '4b881c82-4cba-4090-a819-17aac12ccb46',
     },
+    'HashMap' => {
+      title: 'HashMap',
+      description: 'Learn how a hash map works, to save and retrieve data',
+      is_project: false,
+      github_path: '/javascript/computer_science/hash_map_data_structure.md',
+      identifier_uuid: 'create-uuid'
+    },
   }
 end
