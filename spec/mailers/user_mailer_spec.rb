@@ -10,11 +10,7 @@ RSpec.describe UserMailer do
       expect(welcome_email.from).to eql(['contact@theodinproject.com'])
     end
 
-    it 'includes a image' do
-      expect(welcome_email).to have_css 'img'
-    end
-
-    it 'renders the correct attachment' do
+    it 'renders The Odin Project logo' do
       expect(welcome_email).to have_css("img[src*='logo']")
     end
 
