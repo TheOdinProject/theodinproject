@@ -318,15 +318,15 @@ def ruby_lessons
       previewable: false,
       identifier_uuid: 'cea1b51e-b97e-11eb-8529-0242ac130003',
     },
-    'HashMap' => {
-      title: 'HashMap',
+    'HashMap Data Structure' => {
+      title: 'HashMap Data Structure',
       description: 'Learn how a hash map works, to save and retrieve data',
       is_project: false,
       github_path: '/ruby/computer_science/hash_map_data_structure.md',
       identifier_uuid: 'create-uuid'
     },
-    'HashMap Project' => {
-      title: 'HashMap Project',
+    'HashMap' => {
+      title: 'HashMap',
       description: 'Build your very first hash map data structure from scratch',
       is_project: true,
       github_path: '/ruby/computer_science/project_hash_map.md',
