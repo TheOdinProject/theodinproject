@@ -323,7 +323,7 @@ def ruby_lessons
       description: 'Learn how a hash map works, to save and retrieve data',
       is_project: false,
       github_path: '/ruby/computer_science/hash_map_data_structure.md',
-      identifier_uuid: 'create-uuid'
+      identifier_uuid: 'cdd4796c-4eed-498c-91a1-a673ba2c4cb8'
     },
     'HashMap' => {
       title: 'HashMap',
@@ -332,7 +332,7 @@ def ruby_lessons
       github_path: '/ruby/computer_science/project_hash_map.md',
       accepts_submission: true,
       previewable: false,
-      identifier_uuid: 'create-uuid'
+      identifier_uuid: '20b01618-5437-40c4-a362-8b5f51421b4d'
     },
   }
 end

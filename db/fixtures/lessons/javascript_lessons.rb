@@ -288,7 +288,7 @@ def javascript_lessons
       description: 'Learn how a hash map works, to save and retrieve data',
       is_project: false,
       github_path: '/javascript/computer_science/hash_map_data_structure.md',
-      identifier_uuid: 'create-uuid'
+      identifier_uuid: '7ab99479-0200-471f-8432-4a0f2df039b5'
     },
     'HashMap' => {
       title: 'HashMap',
@@ -297,7 +297,7 @@ def javascript_lessons
       github_path: '/javascript/computer_science/project_hash_map.md',
       accepts_submission: true,
       previewable: false,
-      identifier_uuid: 'create-uuid'
+      identifier_uuid: '90f1f539-fc40-46b2-91db-8c664934f5c4'
     },
   }
 end
