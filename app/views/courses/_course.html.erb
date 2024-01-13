@@ -14,7 +14,7 @@
           <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-900 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <span class=" text-sm text-gray-500"><%= course.lessons.size %> Lessons</span>
+          <span class=" text-sm text-gray-500"><%= lesson_count_for_course(course) %> | <%= project_count_for_course(course) %></span>
         <% end %>
       </div>
 
