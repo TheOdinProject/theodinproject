@@ -1,5 +1,5 @@
-<div class="flex flex-col justify-between max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
-  <%= link_to path_course_path(course.path, course), class: 'button button--secondary px-4 py-2 font-medium', data: { test_id: 'view-course-btn' } do %>
+<div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
+  <%= link_to path_course_path(course.path, course), class: 'button button--secondary px-4 font-medium', data: { test_id: 'view-course-btn' } do %>
     <%= inline_svg_tag 'icons/academic-cap.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'View course', desc: 'Go to course page' %>
     View Course
   <% end %>
@@ -16,7 +16,7 @@
   <% end %>
 
   <% if course.next_lesson(lesson).present? %>
-    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--secondary px-4 py-2 font-medium', data: { test_id: 'next-lesson-btn' } do %>
+    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--secondary px-4 font-medium', data: { test_id: 'next-lesson-btn' } do %>
       <%= inline_svg_tag 'icons/arrow-right-circle.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Next lesson', desc: 'Go to next lesson' %>
       Next Lesson
     <% end %>

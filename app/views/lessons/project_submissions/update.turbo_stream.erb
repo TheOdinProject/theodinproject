@@ -1,3 +1,5 @@
 <%= turbo_stream.replace @project_submission do %>
-  <%= render ProjectSubmissions::UserSolutionComponent.new(project_submission: @project_submission) %>
+  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:) do |component| %>
+    <%= component.with_title(title: current_user.username, url: dashboard_path) %>
+  <% end %>
 <% end %>

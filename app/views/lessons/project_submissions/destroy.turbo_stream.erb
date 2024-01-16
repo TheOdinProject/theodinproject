@@ -1,1 +1,5 @@
 <%= turbo_stream.remove @project_submission %>
+
+<%= turbo_stream.update 'add-submission-button' do %>
+  <%= render 'lessons/project_submissions/add_button', lesson: @lesson %>
+<% end %>

@@ -1,3 +1,7 @@
-<%= turbo_stream.update 'project-solution' do %>
-  <%= render 'lessons/project_solution', project_submission: @project_submission, lesson: @lesson %>
+<%= turbo_stream.prepend 'submissions-list' do %>
+  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission, current_user:) do |component| %>
+    <%= component.with_title(title: current_user.username, url: dashboard_path) %>
+  <% end %>
 <% end %>
+
+<%= turbo_stream.update 'add-submission-button', '' %>

@@ -16,10 +16,6 @@ export default class VisibilityController extends Controller {
     useClickOutside(this);
   }
 
-  disconnect() {
-    this.contentTargets.forEach((element) => element.classList.toggle('hidden', true));
-  }
-
   on() {
     this.visibleValue = true;
   }
