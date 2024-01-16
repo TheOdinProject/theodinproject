@@ -21,6 +21,15 @@ class ProjectSubmission < ApplicationRecord
   scope :created_today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
   scope :discardable, -> { not_removed_by_admin.where(discard_at: ..Time.zone.now) }
 
+  def self.sort_by_params(column, direction = 'desc')
+    sortable_column = column.presence_in(sortable_columns) || 'created_at'
+    order(sortable_column => direction)
+  end
+
+  def self.sortable_columns
+    %w[created_at likes_count]
+  end
+
   private
 
   def live_preview_allowed

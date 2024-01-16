@@ -46,7 +46,7 @@ RSpec.describe Seeds::CourseBuilder do
 
         expect { course_builder }
           .to change { existing_course.reload.title }.from('Development 101').to('Foundations')
-                                                     .and change { existing_course.position }.from(2).to(1)
+          .and change { existing_course.position }.from(2).to(1)
       end
     end
   end

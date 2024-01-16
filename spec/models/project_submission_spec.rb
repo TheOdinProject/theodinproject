@@ -124,6 +124,56 @@ RSpec.describe ProjectSubmission do
     end
   end
 
+  describe '.sort_by_params' do
+    context "when sorting by 'created_at'" do
+      it 'returns a list of project submissions sorted by created_at desc' do
+        newest = create(:project_submission, created_at: 1.day.ago)
+        last_week = create(:project_submission, created_at: 1.week.ago)
+        oldest = create(:project_submission, created_at: 2.weeks.ago)
+
+        expect(described_class.sort_by_params('created_at')).to eq(
+          [newest, last_week, oldest]
+        )
+      end
+    end
+
+    context "when sorting by 'created_at' asc" do
+      it 'returns a list of project submissions sorted by created_at ascending' do
+        newest = create(:project_submission, created_at: 1.day.ago)
+        last_week = create(:project_submission, created_at: 1.week.ago)
+        oldest = create(:project_submission, created_at: 2.weeks.ago)
+
+        expect(described_class.sort_by_params('created_at', 'asc')).to eq(
+          [oldest, last_week, newest]
+        )
+      end
+    end
+
+    context "when sorting by 'likes_count'" do
+      it 'returns a list of project submissions sorted by likes_count' do
+        most_likes = create(:project_submission, likes_count: 10)
+        some_likes = create(:project_submission, likes_count: 5)
+        no_likes = create(:project_submission, likes_count: 0)
+
+        expect(described_class.sort_by_params('likes_count')).to eq(
+          [most_likes, some_likes, no_likes]
+        )
+      end
+    end
+
+    context 'when sort column is not allowed' do
+      it 'defaults to sorting by created_at' do
+        newest = create(:project_submission, created_at: 1.day.ago)
+        last_week = create(:project_submission, created_at: 1.week.ago)
+        oldest = create(:project_submission, created_at: 2.weeks.ago)
+
+        expect(described_class.sort_by_params('updated_at')).to eq(
+          [newest, last_week, oldest]
+        )
+      end
+    end
+  end
+
   describe '.before_update callback' do
     let(:discardable_project_submission) { create(:project_submission, discard_at: discard_date) }
     let(:discard_date) { DateTime.new(2021, 9, 1) }
@@ -154,6 +204,12 @@ RSpec.describe ProjectSubmission do
 
         expect(discardable_project_submission.reload.discard_at).to eq(discard_date)
       end
+    end
+  end
+
+  describe '#sortable_columns' do
+    it 'returns an array of sortable columns' do
+      expect(described_class.sortable_columns).to eq(%w[created_at likes_count])
     end
   end
 end
