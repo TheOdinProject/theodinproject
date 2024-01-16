@@ -5,7 +5,8 @@ RSpec.describe Users::Theme do
     it 'returns the default themes' do
       expect(described_class.default_themes).to contain_exactly(
         an_object_having_attributes(name: 'light', icon: 'sun'),
-        an_object_having_attributes(name: 'dark', icon: 'moon')
+        an_object_having_attributes(name: 'dark', icon: 'moon'),
+        an_object_having_attributes(name: 'system', icon: 'system')
       )
     end
   end
@@ -40,6 +41,12 @@ RSpec.describe Users::Theme do
     context 'when the theme is dark' do
       it 'returns true' do
         expect(described_class.new(name: 'dark', icon: 'moon')).to be_dark_mode
+      end
+    end
+
+    context 'when the theme is system default' do
+      it 'returns true' do
+        expect(described_class.new(name: 'system', icon: 'system')).to be_system_mode
       end
     end
 

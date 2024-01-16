@@ -8,10 +8,6 @@ class Theme::SwitcherComponent < ApplicationComponent
     "#{current_theme.name.capitalize} mode"
   end
 
-  def other_theme
-    Users::Theme.default_themes.find { |other_theme| other_theme.name != current_theme.name }
-  end
-
   def icon_only?
     type == :icon_only
   end
