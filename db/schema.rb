@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_16_224504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -219,9 +219,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
     t.integer "likes_count", default: 0
     t.datetime "discarded_at", precision: nil
     t.datetime "discard_at", precision: nil
+    t.index ["created_at"], name: "index_project_submissions_on_created_at"
     t.index ["discarded_at"], name: "index_project_submissions_on_discarded_at"
     t.index ["is_public"], name: "index_project_submissions_on_is_public"
     t.index ["lesson_id"], name: "index_project_submissions_on_lesson_id"
+    t.index ["likes_count"], name: "index_project_submissions_on_likes_count"
     t.index ["user_id", "lesson_id"], name: "index_project_submissions_on_user_id_and_lesson_id", unique: true, where: "(discarded_at IS NULL)"
     t.index ["user_id"], name: "index_project_submissions_on_user_id"
   end
