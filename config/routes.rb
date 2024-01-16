@@ -75,7 +75,6 @@ Rails.application.routes.draw do
   namespace :users do
     resources :paths, only: :create
     resources :progress, only: :destroy
-    resources :project_submissions, only: %i[edit update]
     resource :profile, only: %i[edit update]
   end
 
