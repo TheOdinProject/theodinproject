@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :lesson_completions, dependent: :destroy
   has_many :completed_lessons, through: :lesson_completions, source: :lesson
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_lessons, through: :bookmarks, source: :lesson
   has_many :project_submissions, dependent: :destroy
   has_many :user_providers, dependent: :destroy
   has_many :flags, foreign_key: :flagger_id, dependent: :destroy, inverse_of: :flagger

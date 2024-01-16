@@ -17,6 +17,8 @@ RSpec.describe User do
   it { is_expected.to have_many(:notifications) }
   it { is_expected.to have_many(:likes).dependent(:destroy) }
   it { is_expected.to belong_to(:path).optional(true) }
+  it { is_expected.to have_many(:bookmarks).dependent(:destroy) }
+  it { is_expected.to have_many(:bookmarked_lessons).through(:bookmarks).source(:lesson) }
 
   context 'when user is created' do
     let!(:default_path) { create(:path, default_path: true) }

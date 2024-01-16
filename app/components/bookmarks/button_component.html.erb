@@ -1,0 +1,10 @@
+<div class="flex items-center justify-center" id="bookmark-button">
+  <%= button_to create_or_destroy_path,
+                form_class: 'w-full h-full',
+                method: bookmarked? ? :delete : :post,
+                data: { test_id: 'bookmark-button' },
+                params: { lesson_id: lesson.id },
+                class: 'button button--secondary h-[54px] sm:h-full w-full hover:bg-teal-700' do %>
+    <span class="flex items-center"><i class='<%= icon %>'></i></span>
+  <% end %>
+</div>
