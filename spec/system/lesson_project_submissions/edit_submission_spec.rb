@@ -17,7 +17,9 @@ RSpec.describe 'Editing a Project Submission' do
   end
 
   it 'successfully edits a submission' do
-    within(:test_id, 'current-user-solution') do
+    users_submission = first(:test_id, 'submission-item')
+
+    within(users_submission) do
       find(:test_id, 'submission-action-menu-btn').click
       find(:test_id, 'edit-submission').click
     end
@@ -27,10 +29,13 @@ RSpec.describe 'Editing a Project Submission' do
       form.submit
     end
 
-    within(:test_id, 'current-user-solution') do
-      expect(page).to have_content(lesson.title)
-      expect(find(:test_id, 'view-code-btn')['href']).to eq('https://github.com/edited-project-repo-url')
-      expect(find(:test_id, 'live-preview-btn')['href']).to eq('http://edited-live-preview-url.com/')
+    # We need to find the user submission again because it is replaced by a turbo stream
+    users_submission = first(:test_id, 'submission-item')
+
+    within(users_submission) do
+      expect(users_submission).to have_content(user.username)
+      expect(users_submission.find(:test_id, 'view-code-btn')['href']).to eq('https://github.com/edited-project-repo-url')
+      expect(users_submission.find(:test_id, 'live-preview-btn')['href']).to eq('http://edited-live-preview-url.com/')
     end
   end
 end

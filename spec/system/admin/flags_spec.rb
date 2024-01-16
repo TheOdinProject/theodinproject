@@ -48,8 +48,8 @@ RSpec.describe 'Admin Flags' do
       expect(page).to have_content('Success: Submission has been removed.')
     end
 
-    it 'removes the submission' do
-      visit lesson_project_submissions_path(lesson)
+    it 'removes the submission from the lesson page' do
+      visit lesson_path(lesson)
 
       within(:test_id, 'submissions-list') do
         expect(page).not_to have_content(submission_owner.username)
@@ -82,8 +82,8 @@ RSpec.describe 'Admin Flags' do
       expect(find(:test_id, 'notify-broken-link-btn')).to be_disabled
     end
 
-    it 'removes the submission' do
-      visit lesson_project_submissions_path(lesson)
+    it 'removes the submission from the lesson' do
+      visit lesson_path(lesson)
 
       within(:test_id, 'submissions-list') do
         expect(page).not_to have_content(submission_owner.username)

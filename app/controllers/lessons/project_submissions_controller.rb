@@ -1,20 +1,12 @@
 module Lessons
   class ProjectSubmissionsController < ApplicationController
-    include Sortable
-
     before_action :authenticate_user!
     before_action :set_lesson
     before_action :can_add_solution
 
     def index
-      project_submissions = @lesson
-        .project_submissions
-        .only_public
-        .includes(:user)
-        .sort_by_params(sort_column_for(ProjectSubmission), sort_direction)
-
-      @pagy, @project_submissions = pagy_array(project_submissions, items: params.fetch(:limit, 15))
-      mark_liked_project_submissions
+      @current_user_submission = current_user.project_submissions.find_by(lesson: @lesson)
+      @pagy, @project_submissions = pagy_array(project_submissions_query, items: params.fetch(:limit, 15))
     end
 
     def new
@@ -64,10 +56,15 @@ module Lessons
 
     private
 
-    def mark_liked_project_submissions
+    def project_submissions_query
+      @project_submissions_query ||= ::LessonProjectSubmissionsQuery.new(
+        lesson: @lesson,
+        current_user:
+      )
+
       ProjectSubmissions::MarkLiked.call(
         user: current_user,
-        project_submissions: @project_submissions
+        project_submissions: @project_submissions_query.public_submissions
       )
     end
 

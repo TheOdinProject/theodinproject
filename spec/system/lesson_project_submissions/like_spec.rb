@@ -9,7 +9,7 @@ RSpec.describe 'Liking project submissions' do
       create(:project_submission, lesson:)
 
       sign_in(user)
-      visit lesson_project_submissions_path(lesson)
+      visit lesson_path(lesson)
     end
 
     it 'you can like and unlike another users submission' do
@@ -33,7 +33,7 @@ RSpec.describe 'Liking project submissions' do
       create(:project_submission, lesson:, likes_count: 10)
 
       sign_in(user)
-      visit lesson_project_submissions_path(lesson)
+      visit lesson_path(lesson)
     end
 
     it 'you can like and unlike another users submission' do
