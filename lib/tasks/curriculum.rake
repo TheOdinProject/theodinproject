@@ -35,10 +35,7 @@ namespace :curriculum do
       Rails.logger.info 'Indexing content...'
 
       Lesson.find_each do |lesson|
-        puts "https://www.theodinproject.com/lessons/" + lesson.slug
-        # tokens = (lesson.title + " ") * 5 + lesson.body
-        # tokenize tokens
-        return
+        tokens = tokenize(((lesson.title + ' ') * 5) + lesson.body)
       end
     end
   end
@@ -53,7 +50,5 @@ def tokenize(html_content)
     word_count[word.downcase] += 1
   end
 
-  sorted_count = word_count.sort_by { |word, count| count }
-
-  sorted_count.each { |word, count| puts "#{word}: #{count}" }
+  word_count
 end
