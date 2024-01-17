@@ -4,7 +4,7 @@ class CreateWordFrequencies < ActiveRecord::Migration[6.0]
       t.string :word, null: false
       t.float :tf, null: false
       t.float :idf, null: false
-      t.belong_to :lesson, foreign_key: true, null: false
+      t.belongs_to :lesson, foreign_key: true, null: false
     end
   end
 end
