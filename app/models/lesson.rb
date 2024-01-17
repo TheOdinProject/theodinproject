@@ -10,7 +10,7 @@ class Lesson < ApplicationRecord
   has_many :project_submissions, dependent: :destroy
   has_many :lesson_completions, dependent: :destroy
   has_many :completing_users, through: :lesson_completions, source: :user
-  has_many :word_frequencies
+  has_many :word_frequency
 
   scope :most_recent_updated_at, -> { maximum(:updated_at) }
   scope :installation_lessons, -> { where(installation_lesson: true) }
