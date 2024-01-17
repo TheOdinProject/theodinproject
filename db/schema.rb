@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_18_004950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -282,6 +282,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  create_table "word_frequencies", force: :cascade do |t|
+    t.string "word", null: false
+    t.float "tf", null: false
+    t.float "idf", null: false
+    t.bigint "lesson_id", null: false
+    t.index ["lesson_id"], name: "index_word_frequencies_on_lesson_id"
+  end
+
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "project_submissions"
@@ -293,4 +301,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"
   add_foreign_key "project_submissions", "users"
+  add_foreign_key "word_frequencies", "lessons"
 end
