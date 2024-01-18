@@ -1,8 +1,8 @@
 namespace :curriculum do
   desc 'Grab Latest Lesson Content from Github'
   task update_content: :environment do
-    # Rake::Task['curriculum:content:import'].invoke
-    # Rake::Task['curriculum:content:verify'].invoke
+    Rake::Task['curriculum:content:import'].invoke
+    Rake::Task['curriculum:content:verify'].invoke
     Rake::Task['curriculum:content:index'].invoke
   end
 
