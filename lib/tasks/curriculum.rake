@@ -33,12 +33,11 @@ namespace :curriculum do
 
     task index: :environment do
       Rails.logger.info 'Indexing content for searching...'
-
       progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
+
       total_word_count = Hash.new(0)
       lesson_word_count = {}
       Lesson.find_each do |lesson|
-        progressbar.increment
         tokens = tokenize lesson
         lesson_word_count[lesson.id] = tokens
 
@@ -49,6 +48,7 @@ namespace :curriculum do
 
       total_lessons = Lesson.count
       Lesson.find_each do |lesson|
+        progressbar.increment
         word_count = lesson_word_count[lesson.id]
         word_count.each do |word, tf|
           total_words = lesson
