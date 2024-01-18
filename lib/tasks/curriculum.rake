@@ -59,9 +59,10 @@ namespace :curriculum do
 end
 
 def tokenize(lesson, total_word_count)
-  doc = Nokogiri::HTML5.parse(lesson.body)
-  doc.css('code').remove
-  text = ((lesson.title + ' ') * 5) + doc.text
+  # doc = Nokogiri::HTML5.parse(lesson.body)
+  # doc.css('code').remove
+  # text = ((lesson.title + ' ') * 5) + doc.text
+  text = lesson.title
   word_count = Hash.new(0)
   words = text.scan(/\b\w+\b/)
 
