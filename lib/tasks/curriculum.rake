@@ -32,21 +32,27 @@ namespace :curriculum do
     end
 
     task index: :environment do
-      Rails.logger.info 'Indexing content...'
-      df_map = Hash.new(0)
-      tf_map = {}
+      Rails.logger.info 'Indexing content for searching...'
+
+      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
+      total_word_count = Hash.new(0)
+      lesson_word_count = {}
       Lesson.find_each do |lesson|
+        progressbar.increment
         tokens = tokenize lesson
-        tf_map[lesson.id] = tokens
+        lesson_word_count[lesson.id] = tokens
+
         tokens.each do |word, _|
-          df_map[word.downcase] += 1
+          total_word_count[word.downcase] += 1
         end
       end
 
       total_lessons = Lesson.count
       Lesson.find_each do |lesson|
-        tf_map[lesson.id].each do |word, tf|
-          tf_idf = tf * (df_map[word] / total_lessons)
+        word_count = lesson_word_count[lesson.id]
+        word_count.each do |word, tf|
+          total_words = lesson
+          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / total_lessons.to_f)
           lesson.word_frequencies.create(word:, tf_idf:)
         end
       end
@@ -65,10 +71,5 @@ def tokenize(lesson)
     word_count[word.downcase] += 1
   end
 
-  total_words_count = word_count.length.to_f
-
-  word_count.map do |word, count|
-    tf = count / total_words_count
-    [word, tf]
-  end
+  word_count
 end
