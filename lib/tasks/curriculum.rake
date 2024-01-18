@@ -33,42 +33,45 @@ namespace :curriculum do
 
     task index: :environment do
       Rails.logger.info 'Indexing content for searching...'
-      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
-
       total_word_count = Hash.new(0)
       lesson_word_count = {}
-      Lesson.find_each do |lesson|
-        tokens = tokenize lesson
-        lesson_word_count[lesson.id] = tokens
+      word_frequencies = []
 
-        tokens.each do |word, _|
-          total_word_count[word.downcase] += 1
-        end
+      Lesson.find_each do |lesson|
+        tokens = tokenize(lesson, total_word_count)
+        lesson_word_count[lesson.id] = tokens
       end
 
-      total_lessons = Lesson.count
+      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
+
       Lesson.find_each do |lesson|
         progressbar.increment
         word_count = lesson_word_count[lesson.id]
         word_count.each do |word, tf|
           total_words = lesson
-          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / total_lessons.to_f)
-          lesson.word_frequencies.create(word:, tf_idf:)
+          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
+          word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
         end
       end
+
+      WordFrequency.insert_all(word_frequencies)
     end
   end
 end
 
-def tokenize(lesson)
-  doc = Nokogiri::HTML(lesson.title)
+def tokenize(lesson, total_word_count)
+  doc = Nokogiri::HTML(lesson.body)
   # doc.xpath('code').each { |node| node.remove }
-  text = doc.text
+  text = ((lesson.title + ' ') * 5) + doc.text
   word_count = Hash.new(0)
   words = text.scan(/\b\w+\b/)
 
   words.each do |word|
-    word_count[word.downcase] += 1
+    word = word.downcase
+    word_count[word] += 1
+    if word_count[word] == 1
+      total_word_count[word] += 1
+    end
   end
 
   word_count
