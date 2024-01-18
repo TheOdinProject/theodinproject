@@ -44,12 +44,11 @@ namespace :curriculum do
       end
 
       progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
-      Lesson.find_each do |lesson|
+      word_frequencies.each |lesson_id, word_count|
         progressbar.increment
-        word_count = lesson_word_count[lesson.id]
         word_count.each do |word, tf|
           tf_idf = (tf.to_f / word_count.length.to_f) * Math.log((1 + Lesson.count.to_f) / (1 + total_word_count[word].to_f))
-          word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
+          word_frequencies << { lesson_id: lesson_id, word:, tf_idf: }
         end
       end
 
