@@ -46,15 +46,18 @@ namespace :curriculum do
         lesson_word_count[lesson.id] = tokens
       end
 
-      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
-      Lesson.find_each do |lesson|
-        progressbar.increment
-        word_count = lesson_word_count[lesson.id]
-        word_count.each do |word, tf|
-          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
-          word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
-        end
+      total_word_count.each do |word, count|
+        puts word + ' => ' + count.to_s
       end
+      # progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
+      # Lesson.find_each do |lesson|
+      #   progressbar.increment
+      #   word_count = lesson_word_count[lesson.id]
+      #   word_count.each do |word, tf|
+      #     tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
+      #     word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
+      #   end
+      # end
 
       # WordFrequency.insert_all(word_frequencies)
     end
@@ -62,7 +65,9 @@ namespace :curriculum do
 end
 
 def tokenize(lesson, total_word_count, stop_words)
-  text = ((lesson.title + ' ') * 5) + Nokogiri::HTML5.parse(lesson.body)
+  doc = Nokogiri::HTML5.parse(lesson.body)
+  doc.css('code').remove
+  text = ((lesson.title + ' ') * 5) + doc.text
   word_count = Hash.new(0)
   words = text.scan(/\b\w+\b/)
 
