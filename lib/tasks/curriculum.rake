@@ -31,24 +31,25 @@ namespace :curriculum do
       Rails.logger.info 'Lesson content verified.'
     end
 
+    desc 'Index documents for searching'
     task index: :environment do
       Rails.logger.info 'Indexing content for searching...'
 
       total_word_count = Hash.new(0)
       lesson_word_count = {}
-      word_frequencies = []
 
       Lesson.find_each do |lesson|
         tokens = tokenize(lesson, total_word_count)
         lesson_word_count[lesson.id] = tokens
       end
 
+      word_frequencies = []
       progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
-      word_frequencies.each |lesson_id, word_count|
+      lesson_word_count.each do |lesson_id, word_count|
         progressbar.increment
         word_count.each do |word, tf|
           tf_idf = (tf.to_f / word_count.length.to_f) * Math.log((1 + Lesson.count.to_f) / (1 + total_word_count[word].to_f))
-          word_frequencies << { lesson_id: lesson_id, word:, tf_idf: }
+          word_frequencies << { lesson_id:, word:, tf_idf: }
         end
       end
 
