@@ -34,7 +34,7 @@ namespace :curriculum do
     task index: :environment do
       Rails.logger.info 'Indexing content...'
       df_map = Hash.new(0)
-      tf_map = Hash.new(0)
+      tf_map = {}
       Lesson.find_each do |lesson|
         tokens = tokenize lesson
         tf_map[lesson.id] = tokens
@@ -43,12 +43,12 @@ namespace :curriculum do
         end
       end
 
-      puts Lesson.length
+      total_lessons = Lesson.count
       Lesson.find_each do |lesson|
-        tf_map[lesson.id].each do |_word, tf|
-          tf_idf = tf * 1
+        tf_map[lesson.id].each do |word, tf|
+          tf_idf = tf * (df_map[word] / total_lessons)
+          lesson.word_frequencies.create(word:, tf_idf:)
         end
-        # lesson.word_frequencies.create(word: 'test', tf: 0.75, idf: 1.25)
       end
     end
   end
