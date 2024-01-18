@@ -1,12 +1,13 @@
 require 'nokogiri'
 
 class SearchIndexer
-  def self.index_frequencies()
+  def self.index_frequencies
     total_word_count = Hash.new(0)
     lesson_word_count = {}
 
     Lesson.find_each do |lesson|
-      tokens = tokenize(lesson, total_word_count)
+      text = extract_lesson_document(lesson)
+      tokens = tokenize(text, total_word_count)
       lesson_word_count[lesson.id] = tokens
     end
 
@@ -23,16 +24,9 @@ class SearchIndexer
     WordFrequency.insert_all(word_frequencies)
   end
 
-  private
-
-  def self.tokenize(lesson, total_word_count)
-    # doc = Nokogiri::HTML5.parse(lesson.body)
-    # doc.css('code').remove
-    # text = ((lesson.title + ' ') * 5) + doc.text
-    text = lesson.title
+  def self.tokenize(text, total_word_count)
     word_count = Hash.new(0)
     words = text.scan(/\b\w+\b/)
-
     words.each do |word|
       word = word.downcase
       word_count[word] += 1
@@ -42,5 +36,12 @@ class SearchIndexer
     end
 
     word_count
+  end
+
+  def self.extract_lesson_document(lesson)
+    # doc = Nokogiri::HTML5.parse(lesson.body)
+    # doc.css('code').remove
+    # text = ((lesson.title + ' ') * 5) + doc.text
+    text = lesson.title
   end
 end
