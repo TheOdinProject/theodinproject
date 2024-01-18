@@ -61,7 +61,7 @@ namespace :curriculum do
         progressbar.increment
         word_count = lesson_word_count[lesson.id]
         word_count.each do |word, tf|
-          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
+          tf_idf = (tf.to_f / word_count.length.to_f) * ((Lesson.count.to_f / 1) + total_word_count[word].to_f)
           word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
         end
       end
