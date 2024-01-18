@@ -30,10 +30,9 @@ class SearchIndexer
   end
 
   def self.extract_lesson_document(lesson)
-    # doc = Nokogiri::HTML5.parse(lesson.body)
-    # doc.css('code').remove
-    # text = ((lesson.title + ' ') * 5) + doc.text
-    lesson.title
+    doc = Nokogiri::HTML5.parse(lesson.body)
+    doc.css('code').remove
+    ((lesson.title + ' ') * 5) + doc.text
   end
 
   def self.extract_word_frequencies(lessons_word_count, total_word_count, total_documents)
