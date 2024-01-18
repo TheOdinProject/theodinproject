@@ -11,7 +11,9 @@ class Api::SearchController < ApplicationController
                  .order('total_tf_idf DESC')
                  .limit(10)
                  .map(&:lesson_id)
-    lessons = Lesson.where(id: lesson_ids).index_by(&:id).values_at(*lesson_ids)
+    lessons = Lesson.where(id: lesson_ids).index_by(&:id).values_at(*lesson_ids).map do |lesson|
+      { url: 'https://www.theodinproject.com/lessons/' + lesson.slug, title: lesson.title, desc: lesson.description }
+    end
     render json: lessons
   end
 
