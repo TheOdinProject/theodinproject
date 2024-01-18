@@ -284,8 +284,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_004950) do
 
   create_table "word_frequencies", force: :cascade do |t|
     t.string "word", null: false
-    t.float "tf", null: false
-    t.float "idf", null: false
+    t.float "tf_idf", null: false
     t.bigint "lesson_id", null: false
     t.index ["lesson_id"], name: "index_word_frequencies_on_lesson_id"
   end
