@@ -35,7 +35,7 @@ namespace :curriculum do
       Rails.logger.info 'Indexing content for searching...'
 
       stop_words = %w[
-        a an and are as at be by for from has he in is it its of on that the to was were with
+        a an and are as at be by for from has he in is it its of on that the to was were with there then how
       ]
       total_word_count = Hash.new(0)
       lesson_word_count = {}
@@ -46,20 +46,20 @@ namespace :curriculum do
         lesson_word_count[lesson.id] = tokens
       end
 
-      total_word_count.each do |word, count|
-        puts word + ' => ' + count.to_s
-      end
-      # progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
-      # Lesson.find_each do |lesson|
-      #   progressbar.increment
-      #   word_count = lesson_word_count[lesson.id]
-      #   word_count.each do |word, tf|
-      #     tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
-      #     word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
-      #   end
+      # total_word_count.each do |word, count|
+      #   puts word + ' => ' + count.to_s
       # end
+      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
+      Lesson.find_each do |lesson|
+        progressbar.increment
+        word_count = lesson_word_count[lesson.id]
+        word_count.each do |word, tf|
+          tf_idf = (tf.to_f / word_count.length.to_f) * (total_word_count[word].to_f / Lesson.count.to_f)
+          word_frequencies << { lesson_id: lesson.id, word:, tf_idf: }
+        end
+      end
 
-      # WordFrequency.insert_all(word_frequencies)
+      WordFrequency.insert_all(word_frequencies)
     end
   end
 end
@@ -72,9 +72,9 @@ def tokenize(lesson, total_word_count, stop_words)
   words = text.scan(/\b\w+\b/)
 
   words.each do |word|
+    word = word.downcase
     next if stop_words.include? word
 
-    word = word.downcase
     word_count[word] += 1
     if word_count[word] == 1
       total_word_count[word] += 1
