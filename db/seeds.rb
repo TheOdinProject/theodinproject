@@ -22,3 +22,8 @@ load './db/seeds/test_project_submissions.rb'
 
 # GENERATE accounts with admin privileges for testing
 load './db/seeds/test_admins.rb'
+
+# UPDATES projects_count and lessons_count after db is seeded
+Course.find_each do |course|
+  course.update(projects_count: course.lessons.where(is_project: true).count, lessons_count: course.lessons.where(is_project: false).count)
+end

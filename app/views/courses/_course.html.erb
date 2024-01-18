@@ -14,7 +14,18 @@
           <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-900 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <span class=" text-sm text-gray-500"><%= course.lessons.size %> Lessons</span>
+          <div class="flex gap-3 mt-1">
+            <div class="flex items-center">
+              <%= inline_svg 'icons/book.svg', alt: 'lesson icon', class: 'mr-1 w-6 h-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0' %>
+
+              <span class="text-sm text-gray-500"><%= pluralize(course.lessons_count, 'Lesson') %></span>
+            </div>
+            <div class="flex items-center">
+              <%= inline_svg 'icons/wrench-screwdriver.svg', alt: 'lesson icon', class: 'mr-1 w-5 h-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0' %>
+
+              <span class="text-sm text-gray-500"><%= pluralize(course.projects_count, 'Project') %></span>
+            </div>
+          </div>
         <% end %>
       </div>
 

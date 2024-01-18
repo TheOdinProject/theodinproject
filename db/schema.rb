@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_17_115443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_091337) do
     t.integer "path_id"
     t.boolean "show_on_homepage", default: false, null: false
     t.string "badge_uri", null: false
+    t.integer "lessons_count", default: 0
+    t.integer "projects_count", default: 0
     t.index ["identifier_uuid"], name: "index_courses_on_identifier_uuid", unique: true
     t.index ["path_id"], name: "index_courses_on_path_id"
     t.index ["slug"], name: "index_courses_on_slug"
