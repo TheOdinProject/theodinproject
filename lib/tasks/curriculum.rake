@@ -3,9 +3,9 @@ require 'nokogiri'
 namespace :curriculum do
   desc 'Grab Latest Lesson Content from Github'
   task update_content: :environment do
-    Rake::Task['curriculum:content:import'].invoke
-    Rake::Task['curriculum:content:verify'].invoke
-    # Rake::Task['curriculum:content:index'].invoke
+    # Rake::Task['curriculum:content:import'].invoke
+    # Rake::Task['curriculum:content:verify'].invoke
+    Rake::Task['curriculum:content:index'].invoke
   end
 
   namespace :content do
@@ -33,21 +33,31 @@ namespace :curriculum do
 
     task index: :environment do
       Rails.logger.info 'Indexing content...'
-
+      df_map = Hash.new(0)
+      tf_map = Hash.new(0)
       Lesson.find_each do |lesson|
-        tokens = tokenize(((lesson.title + ' ') * 5) + lesson.body)
-        tokens.each do |word, count|
-          puts word, count
-
-          # lesson.word_frequencies.create(word: 'test', tf: 0.75, idf: 1.25)
+        tokens = tokenize lesson
+        tf_map[lesson.id] = tokens
+        tokens.each do |word, _|
+          df_map[word.downcase] += 1
         end
+      end
+
+      puts Lesson.length
+      Lesson.find_each do |lesson|
+        tf_map[lesson.id].each do |_word, tf|
+          tf_idf = tf * 1
+        end
+        # lesson.word_frequencies.create(word: 'test', tf: 0.75, idf: 1.25)
       end
     end
   end
 end
 
-def tokenize(html_content)
-  text = Nokogiri::HTML(html_content).text
+def tokenize(lesson)
+  doc = Nokogiri::HTML(lesson.title)
+  # doc.xpath('code').each { |node| node.remove }
+  text = doc.text
   word_count = Hash.new(0)
   words = text.scan(/\b\w+\b/)
 
@@ -56,9 +66,9 @@ def tokenize(html_content)
   end
 
   total_words_count = word_count.length.to_f
+
   word_count.map do |word, count|
     tf = count / total_words_count
-
-    [word, count]
+    [word, tf]
   end
 end
