@@ -35,8 +35,12 @@ namespace :curriculum do
       Rails.logger.info 'Indexing content...'
 
       Lesson.find_each do |lesson|
-        # tokens = tokenize(((lesson.title + ' ') * 5) + lesson.body)
-        lesson.word_frequencies.create(word: 'test', tf: 0.75, idf: 1.25)
+        tokens = tokenize(((lesson.title + ' ') * 5) + lesson.body)
+        tokens.each do |word, count|
+          puts word, count
+
+          # lesson.word_frequencies.create(word: 'test', tf: 0.75, idf: 1.25)
+        end
       end
     end
   end
@@ -51,5 +55,10 @@ def tokenize(html_content)
     word_count[word.downcase] += 1
   end
 
-  word_count
+  total_words_count = word_count.length.to_f
+  word_count.map do |word, count|
+    tf = count / total_words_count
+
+    [word, count]
+  end
 end
