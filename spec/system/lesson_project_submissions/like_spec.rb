@@ -21,9 +21,6 @@ RSpec.describe 'Liking project submissions' do
       within(:test_project_submission, 1) do
         expect(find(:test_id, 'like-count')).to have_content('0')
 
-        policy = SubmissionVotePolicy.new(user)
-        puts policy.allowed?
-
         find(:test_id, 'like-submission').click
         expect(find(:test_id, 'like-count')).to have_content('1')
 
