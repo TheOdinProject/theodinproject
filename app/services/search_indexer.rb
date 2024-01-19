@@ -31,7 +31,6 @@ class SearchIndexer
 
   def self.extract_lesson_document(lesson)
     doc = Nokogiri::HTML5.parse(lesson.body)
-    doc.css('code').remove
     ((lesson.title + ' ') * 5) + doc.text
   end
 
