@@ -36,7 +36,7 @@ class SearchIndexer
 
   def self.extract_word_frequencies(lessons_word_count, total_word_count, total_documents)
     word_frequencies = []
-    progressbar = ProgressBar.create total: total_documents, format: '%t: |%w%i| 2/2 Completed: %c %a %e'
+    progressbar = ProgressBar.create total: total_documents, format: '%t: |%w%i| Completed: %c %a %e'
     lessons_word_count.each do |lesson_id, word_count|
       word_count.each do |word, tf|
         tf_idf = (tf.to_f / word_count.length.to_f) * Math.log((1 + total_documents.to_f) / (1 + total_word_count[word].to_f))

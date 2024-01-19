@@ -3,13 +3,12 @@ namespace :curriculum do
   task update_content: :environment do
     Rake::Task['curriculum:content:import'].invoke
     Rake::Task['curriculum:content:verify'].invoke
-    Rake::Task['curriculum:content:index'].invoke
   end
 
   namespace :content do
     desc 'Import all lessons content from GitHub'
     task import: :environment do
-      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| 1/2 Completed: %c %a %e'
+      progressbar = ProgressBar.create total: Lesson.count, format: '%t: |%w%i| Completed: %c %a %e'
 
       Lesson.find_each do |lesson|
         lesson.import_content_from_github
@@ -27,12 +26,6 @@ namespace :curriculum do
       end
 
       Rails.logger.info 'Lesson content verified.'
-    end
-
-    desc 'Index documents for searching'
-    task index: :environment do
-      Rails.logger.info 'Indexing content for searching...'
-      SearchIndexer.index_frequencies
     end
   end
 end
