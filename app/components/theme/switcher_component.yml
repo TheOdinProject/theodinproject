@@ -1,5 +1,5 @@
 link:
-  base: 'text-gray-700 group flex items-center text-sm dark:text-gray-300'
+  base: 'text-gray-600 group flex items-center dark:text-gray-300'
   default: 'py-2 px-3'
   mobile: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 text-base font-medium py-2 px-2 dark:hover:bg-gray-700/60 dark:hover:text-gray-200'
   icon_only: 'py-2 px-3'

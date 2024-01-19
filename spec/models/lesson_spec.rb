@@ -81,12 +81,12 @@ RSpec.describe Lesson do
       end
     end
 
-    context 'when three or more lessons share the same slug canidates' do
+    context 'when three or more lessons share the same slug candidates' do
       before do
         allow(SecureRandom).to receive(:hex).with(2).and_return('1234')
       end
 
-      it 'returns default slug canidate post fixed with the random hex' do
+      it 'returns default slug candidate post fixed with the random hex' do
         path = create(:path, short_title: 'path title')
         course = create(:course, title: 'course title', path:)
         create(:lesson, title: 'lesson title', course:)

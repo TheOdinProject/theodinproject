@@ -40,6 +40,7 @@ course.add_section do |section|
     javascript_lessons.fetch('ES6 Modules'),
     javascript_lessons.fetch('Webpack'),
     javascript_lessons.fetch('Restaurant Page'),
+    javascript_lessons.fetch('JSON'),
     javascript_lessons.fetch('OOP Principles'),
     javascript_lessons.fetch('Todo List'),
   )
@@ -70,7 +71,6 @@ course.add_section do |section|
   section.identifier_uuid = 'c26cc657-9d04-4d12-bc2e-1c8206696da7'
 
   section.add_lessons(
-    javascript_lessons.fetch('JSON'),
     javascript_lessons.fetch('Asynchronous Code'),
     javascript_lessons.fetch('Working with APIs'),
     javascript_lessons.fetch('Async and Await'),
