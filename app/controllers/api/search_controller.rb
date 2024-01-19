@@ -11,13 +11,18 @@ class Api::SearchController < ApplicationController
                  .order('total_tf_idf DESC')
                  .map(&:lesson_id)
 
-    lessons = Lesson.where(id: lesson_ids)
-                    .index_by(&:id)
-                    .values_at(*lesson_ids)
-                    .map do |lesson|
-      { url: 'https://www.theodinproject.com/lessons/' + lesson.slug, title: lesson.title, desc: lesson.description }
+    uuid = Set.new
+    lessons_hash = {}
+    lessons = Lesson
+              .where(id: lesson_ids)
+              .each do |lesson|
+      unless uuid.include?(lesson.title)
+        lessons_hash[lesson.id] = { url: 'https://www.theodinproject.com/lessons/' + lesson.slug, title: lesson.title, desc: lesson.description }
+        uuid.add(lesson.title)
+      end
     end
-    render json: lessons
+
+    render json: lesson_ids.map { |id| lessons_hash[id] }.compact
   end
 
   private
