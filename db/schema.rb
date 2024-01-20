@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_18_004950) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_20_154950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -224,6 +224,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_004950) do
     t.index ["lesson_id"], name: "index_project_submissions_on_lesson_id"
     t.index ["user_id", "lesson_id"], name: "index_project_submissions_on_user_id_and_lesson_id", unique: true, where: "(discarded_at IS NULL)"
     t.index ["user_id"], name: "index_project_submissions_on_user_id"
+  end
+
+  create_table "search_records", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "url", null: false
   end
 
   create_table "sections", id: :serial, force: :cascade do |t|
