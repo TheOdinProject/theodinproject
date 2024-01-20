@@ -39,11 +39,10 @@ class TfIdfService
   end
 
   def calculate_tf_idf_score(key, word)
-    tf_table = @tf_table[key]
-
+    tf_table = @tf_table[key][:tf_map]
     total_tf = tf_table.length
-    tf = tf_table[:tf_map][word]
+    tf = tf_table[word]
     df = @df_table[word]
-    (tf.to_f / total_tf) * Math.log((1 + @total_documents.to_f) / (1 + df))
+    ((tf.to_f / total_tf) * Math.log((1 + @total_documents.to_f) / (1 + df)))
   end
 end
