@@ -1,5 +1,5 @@
-class WordFrequency < ApplicationRecord
-  belongs_to :lesson
+class TfIdf < ApplicationRecord
+  belongs_to :search_record
 
   validates :word, presence: true
   validates :tf_idf, presence: true
