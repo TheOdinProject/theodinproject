@@ -11,41 +11,7 @@ class SearchIndexer
       lessons_word_count[lesson.id] = tokens
     end
 
-    word_frequencies = extract_word_frequencies(lessons_word_count, total_word_count, Lesson.count)
-    WordFrequency.insert_all(word_frequencies)
-  end
-
-  def self.tokenize(text, total_word_count)
-    word_count = Hash.new(0)
-    words = text.scan(/\b\w+\b/)
-    words.each do |word|
-      word = word.downcase
-      word_count[word] += 1
-      if word_count[word] == 1
-        total_word_count[word] += 1
-      end
-    end
-
-    word_count
-  end
-
-  def self.extract_lesson_document(lesson)
-    doc = Nokogiri::HTML5.parse(lesson.body)
-    lesson.title + lesson.description + doc.text
-  end
-
-  def self.extract_word_frequencies(lessons_word_count, total_word_count, total_documents)
-    word_frequencies = []
-    progressbar = ProgressBar.create total: total_documents, format: '%t: |%w%i| Completed: %c %a %e'
-    lessons_word_count.each do |lesson_id, word_count|
-      word_count.each do |word, tf|
-        tf_idf = (tf.to_f / word_count.length.to_f) * Math.log((1 + total_documents.to_f) / (1 + total_word_count[word].to_f))
-        word_frequencies << { lesson_id:, word:, tf_idf: }
-      end
-
-      progressbar.increment
-    end
-
-    word_frequencies
+    tf_idf_listtract_word_frequencies(lessons_word_count, total_word_count, Lesson.count)
+    WordFrequency.insert_all(tf_idf_list)
   end
 end
