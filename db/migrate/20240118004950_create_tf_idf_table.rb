@@ -1,4 +1,4 @@
-class TfIdfTable < ActiveRecord::Migration[7.0]
+class CreateTfIdfTable < ActiveRecord::Migration[7.0]
   def change
     create_table :tf_idf_table do |t|
       t.string :word, null: false
