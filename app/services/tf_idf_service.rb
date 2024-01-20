@@ -18,14 +18,14 @@ class TfIdfService
             ])
   end
 
-  def populate_table(key, title, text)
-    unless @tf_table.key?(key) && @tf_table[key].key?(title)
+  def populate_table(url, title, text)
+    unless @tf_table.key?(url) && @tf_table[url].key?(title)
       @total_documents += 1
-      tokenize(key, title, text)
+      tokenize(url, title, text)
     end
   end
 
-  def tokenize(key, title, text)
+  def tokenize(url, title, text)
     tf_map = Hash.new(0)
     words = text.scan(/\b\w+\b/)
     words.each do |word|
@@ -36,25 +36,25 @@ class TfIdfService
       @df_table[word] += 1 if tf_map[word] == 1
     end
 
-    @tf_table[key] = { title:, tf_map: }
+    @tf_table[url] = { title:, tf_map: }
   end
 
   def tf_idf_list
     tf_idf_list = []
-    @tf_table.each do |key, record|
+    @tf_table.each do |url, record|
       tf_idf = []
       record[:tf_map].each_key do |word|
-        tf_idf_score = calculate_tf_idf_score(key, word)
+        tf_idf_score = calculate_tf_idf_score(url, word)
         tf_idf << [word, tf_idf_score]
       end
 
-      tf_idf_list << { key:, title: record[:title], tf_idf: }
+      tf_idf_list << { url:, title: record[:title], tf_idf: }
     end
     tf_idf_list
   end
 
-  def calculate_tf_idf_score(key, word)
-    tf_table = @tf_table[key][:tf_map]
+  def calculate_tf_idf_score(url, word)
+    tf_table = @tf_table[url][:tf_map]
     total_tf = tf_table.length
     tf = tf_table[word]
     df = @df_table[word]
