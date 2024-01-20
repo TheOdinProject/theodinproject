@@ -21,11 +21,11 @@ class SearchIndexer
     tf_idf_list = @tf_idf.tf_idf_list
     progressbar = ProgressBar.create total: tf_idf_list.length, format: '%t: |%w%i| Completed: %c %a %e'
     tf_idf_list.each do |list|
-      search_record = SearchRecord.find_or_initialize_by(url: list[:url], title: list[:title])
-      search_record.save if search_record.new_record?
-      list[:tf_idf].each do |word, score|
-        search_record.tf_idf.create(word:, tf_idf: score)
+      search_record = SearchRecord.find_or_create_by(url: list[:url], title: list[:title])
+      bulk_records = list[:tf_idf].map do |word, score|
+        { search_record_id: search_record.id, word:, tf_idf: score }
       end
+      TfIdf.upsert_all(bulk_records, unique_by: %i[search_record_id word])
       progressbar.increment
     end
   end
