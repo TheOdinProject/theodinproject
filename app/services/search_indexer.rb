@@ -5,38 +5,54 @@ require 'uri'
 class SearchIndexer
   def initialize(tf_idf_service)
     @tf_idf = tf_idf_service
-    @external_links = []
+    @external_links = {}
   end
 
   def index_frequencies
     Lesson.find_each do |lesson|
       record = parse_lesson(lesson)
-      @tf_idf.populate_table("https://www.theodinproject.com/lessons/#{record[:url]}", record[:title], record[:text])
+      @tf_idf.populate_table(record[:url], record[:title], record[:text])
     end
 
-    count = 0
-    @tf_idf.tf_idf_list.each do |list|
-      count += list[:tf_idf].length
-    end
+    populate_database
+  end
 
-    puts count.length
+  def populate_database
+    tf_idf_list = @tf_idf.tf_idf_list
+    progressbar = ProgressBar.create total: tf_idf_list.length, format: '%t: |%w%i| Completed: %c %a %e'
+    tf_idf_list.each do |list|
+      search_record = SearchRecord.find_or_initialize_by(url: list[:url], title: list[:title])
+      search_record.save if search_record.new_record?
+      list[:tf_idf].each do |word, score|
+        search_record.tf_idf.create(word:, tf_idf: score)
+      end
+      progressbar.increment
+    end
   end
 
   def parse_lesson(lesson)
     doc = Nokogiri::HTML5.parse(lesson.body)
-    doc.css('a[href]:not(.anchor-link)').each do |link|
-      @external_links << [link[:href], link.text]
+    doc.css('a[href]').each do |link|
+      href = link[:href]
+      next unless href.start_with?('http')
+
+      @external_links[url: href] = link.text
     end
 
     { url: "https://www.theodinproject.com/lessons/#{lesson.slug}", title: lesson.title, text: doc.text }
   end
 
   def parse_external_links
+    progressbar = ProgressBar.create total: @external_links.length, format: '%t: |%w%i| Completed: %c %a %e'
     @external_links.each do |url, title|
       uri = URI.parse(url)
       response = Net::HTTP.get_response(uri)
-      text = Nokogiri::HTML5.parse(response.body).text
-      @tf_idf.populate_table(url, title, text)
+      next unless response.is_a?(Net::HTTPSuccess)
+
+      @tf_idf.populate_table(url, title, Nokogiri::HTML5.parse(response.body).text)
+      progressbar.increment
+    rescue StandardError => _e
+      puts "Error: #{url}"
     end
   end
 end
