@@ -1,6 +1,7 @@
 require 'nokogiri'
 
 class SearchIndexer
+  @@external_links = []
   def self.index_frequencies
     tf_idf = TfIdfService.new
     Lesson.find_each do |lesson|
@@ -12,12 +13,14 @@ class SearchIndexer
     tf_idf.tf_idf_list.each do |list|
       count += list[:tf_idf].length
     end
-
-    puts count
   end
 
   def self.parse_lesson(lesson)
-    text = Nokogiri::HTML5.parse(lesson.body).text
-    { url: "https://www.theodinproject.com/lessons/#{lesson.slug}", title: lesson.title, text: }
+    doc = Nokogiri::HTML5.parse(lesson.body)
+    doc.css('a[href]:not(.anchor-link)').each do |link|
+      @@external_links << [link[:href], link.text]
+    end
+
+    { url: "https://www.theodinproject.com/lessons/#{lesson.slug}", title: lesson.title, text: doc.text }
   end
 end
