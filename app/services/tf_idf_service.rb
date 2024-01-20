@@ -30,7 +30,7 @@ class TfIdfService
       tf_idf = []
       record[:tf_map].each_key do |word|
         tf_idf_score = calculate_tf_idf_score(key, word)
-        tf_idf << [word:, tf_idf_score:]
+        tf_idf << [word, tf_idf_score]
       end
 
       tf_idf_list << { key:, title: record[:title], tf_idf: }
