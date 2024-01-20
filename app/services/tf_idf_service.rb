@@ -1,11 +1,12 @@
 class TfIdfService
   def initialize
-    @stop_words = @df_table = Hash.new(0)
+    @stop_words = stop_words
+    @df_table = Hash.new(0)
     @tf_table = {}
     @total_documents = 0
   end
 
-  def self.stop_words
+  def stop_words
     Set.new(%w[
               a an and are as at be by for from has he in is it its of on that the to was were will with I you your
               yours him his she her hers they them their theirs we us our ours this these those who whom whose what
