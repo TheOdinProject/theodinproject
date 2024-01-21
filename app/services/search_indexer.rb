@@ -9,7 +9,7 @@ class SearchIndexer
   def index_frequencies
     Lesson.find_each do |lesson|
       record = parse_lesson(lesson)
-      @tf_idf.populate_table(record)
+      @tf_idf.populate_table(lesson.id, record)
     end
 
     populate_database
@@ -17,12 +17,12 @@ class SearchIndexer
 
   def populate_database
     list = @tf_idf.list
-    progressbar = ProgressBar.create total: tf_idf_list.length, format: '%t: |%w%i| Completed: %c %a %e'
+    progressbar = ProgressBar.create total: list.length, format: '%t: |%w%i| Completed: %c %a %e'
     list.each do |lesson_id, tf_idf|
       bulk_records = tf_idf.map do |word, score|
         { lesson_id:, word:, score: }
       end
-      TfIdf.upsert_all(bulk_records, unique_by: %i[search_record_id word])
+      TfIdf.upsert_all(bulk_records, unique_by: %i[lesson_id word])
       progressbar.increment
     end
   end

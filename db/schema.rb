@@ -226,11 +226,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_161214) do
     t.index ["user_id"], name: "index_project_submissions_on_user_id"
   end
 
-  create_table "search_records", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "url", null: false
-  end
-
   create_table "sections", id: :serial, force: :cascade do |t|
     t.string "title", limit: 255
     t.integer "position", null: false
@@ -256,9 +251,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_161214) do
 
   create_table "tf_idfs", force: :cascade do |t|
     t.string "word", null: false
-    t.float "tf_idf", null: false
-    t.bigint "search_record_id", null: false
-    t.index ["search_record_id"], name: "index_tf_idfs_on_search_record_id"
+    t.float "score", null: false
+    t.bigint "lesson_id", null: false
+    t.index ["lesson_id", "word"], name: "index_tf_idfs_on_lesson_id_and_word", unique: true
+    t.index ["lesson_id"], name: "index_tf_idfs_on_lesson_id"
   end
 
   create_table "user_providers", id: :serial, force: :cascade do |t|
@@ -305,5 +301,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_161214) do
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"
   add_foreign_key "project_submissions", "users"
-  add_foreign_key "tf_idfs", "search_records"
+  add_foreign_key "tf_idfs", "lessons"
 end
