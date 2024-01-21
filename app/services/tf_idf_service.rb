@@ -10,9 +10,9 @@ class TfIdfService
     @tf_list << [lesson_id, tf_table]
   end
 
-  def tokenize(_record)
+  def tokenize(record)
     tf_table = Hash.new(0)
-    words = text.scan(/\b\w+\b/)
+    words = "#{record[:title]} #{record[:desc]} #{record[:text]}".scan(/\b\w+\b/)
     words.each do |word|
       word = word.downcase
       tf_table[word] += 1
