@@ -217,6 +217,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/mclilzee"
 
+        - name: "Antoni Sobolewski"
+          image: "https://avatars.githubusercontent.com/u/95084627?v=4"
+          location: "Poland"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/scheals"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/antonisobolewski/"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
@@ -239,4 +249,3 @@ en:
         - name: "Ada Chiu"
           image: "https://avatars.githubusercontent.com/u/13413986?v=4"
           url: "https://x.com/adachiu_design?s=21&t=7GZYEoXo0zA059kKCNhTdA"
-
