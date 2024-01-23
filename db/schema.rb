@@ -59,8 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_17_115443) do
     t.integer "path_id"
     t.boolean "show_on_homepage", default: false, null: false
     t.string "badge_uri", null: false
-    t.integer "lessons_count", default: 0
-    t.integer "projects_count", default: 0
+    t.integer "lessons_count", default: 0, null: false
+    t.integer "projects_count", default: 0, null: false
     t.index ["identifier_uuid"], name: "index_courses_on_identifier_uuid", unique: true
     t.index ["path_id"], name: "index_courses_on_path_id"
     t.index ["slug"], name: "index_courses_on_slug"
