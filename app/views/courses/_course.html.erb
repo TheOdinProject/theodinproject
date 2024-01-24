@@ -14,16 +14,16 @@
           <h2 id="<%= course.title.parameterize %>" class="font-medium text-xl md:text-left text-gray-900 dark:text-gray-200">
             <%= course.title %>
           </h2>
-          <div class="flex space-x-3 mt-2 sm:mt-1.5 sm:justify-center text-gray-500 dark:text-gray-400">
+          <div class="flex space-x-3 mt-2 sm:mt-1.5 justify-center text-gray-500 dark:text-gray-400">
             <div class="flex items-center space-x-1">
               <%= inline_svg 'icons/book.svg', alt: 'lesson icon', class: 'w-6 h-6' %>
 
-              <span class="text-sm text-gray-500"><%= pluralize(course.lessons_count, 'Lesson') %></span>
+              <span class="text-sm"><%= pluralize(course.lessons_count, 'Lesson') %></span>
             </div>
             <div class="flex items-center space-x-1">
               <%= inline_svg 'icons/wrench-screwdriver.svg', alt: 'lesson icon', class: 'w-6 h-6' %>
 
-              <span class="text-sm text-gray-500"><%= pluralize(course.projects_count, 'Project') %></span>
+              <span class="text-sm"><%= pluralize(course.projects_count, 'Project') %></span>
             </div>
           </div>
         <% end %>
