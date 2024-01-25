@@ -4,14 +4,14 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.0.8'
 
-gem 'activeadmin', '~> 3.0'
+gem 'activeadmin', '~> 3.2'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'cssbundling-rails', '~> 1.3'
-gem 'debug', '~> 1.7'
+gem 'debug', '~> 1.9'
 gem 'devise', '~> 4.9'
 gem 'discard', '~> 1.3'
 gem 'discordrb-webhooks', '~> 3.5'
@@ -24,9 +24,9 @@ gem 'github_webhook', '~> 1.4'
 gem 'inline_svg', '~> 1.9'
 gem 'kramdown', '~> 2.4'
 gem 'kramdown-parser-gfm'
-gem 'newrelic_rpm', '~> 9.6'
+gem 'newrelic_rpm', '~> 9.7'
 gem 'noticed', '~> 1.6'
-gem 'octokit', '~> 7.2'
+gem 'octokit', '~> 8.0'
 gem 'omniauth-github', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 1.1.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
@@ -38,19 +38,19 @@ gem 'redis', '~> 5.0'
 gem 'ruby-progressbar', '~> 1.13'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
-gem 'sentry-rails', '~> 5.13'
-gem 'sentry-ruby', '~> 5.13'
-gem 'sentry-sidekiq', '~> 5.13'
+gem 'sentry-rails', '~> 5.16'
+gem 'sentry-ruby', '~> 5.16'
+gem 'sentry-sidekiq', '~> 5.16'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 7.2'
 gem 'turbo-rails', '~> 1.5'
-gem 'view_component', '~> 3.6'
+gem 'view_component', '~> 3.10'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.2.0'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.56', require: false
+  gem 'rubocop', '~> 1.59', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.22', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false

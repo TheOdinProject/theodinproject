@@ -157,7 +157,7 @@ en:
               url: "https://ayweb.dev/"
 
         - name: "Eric Olkowski"
-          image: "https://media.licdn.com/dms/image/C4E03AQFbq3xPv9UXhA/profile-displayphoto-shrink_800_800/0/1638902198818?e=1701302400&v=beta&t=U4t5oNe3_bj9LTQn99yw6E_YoEGIIq6fIOBdq_QdXOg"
+          image: "https://media.licdn.com/dms/image/C4E03AQFbq3xPv9UXhA/profile-displayphoto-shrink_800_800/0/1638902199372?e=1706745600&v=beta&t=MKyPsyn7krSpY5FRLwzjnhahnDpsTTrnxTkWW8QxbKw"
           location: "New Jersey, USA"
           joined: "2021"
           socials:
@@ -217,6 +217,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/mclilzee"
 
+        - name: "Antoni Sobolewski"
+          image: "https://avatars.githubusercontent.com/u/95084627?v=4"
+          location: "Poland"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/scheals"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/antonisobolewski/"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
@@ -237,6 +247,5 @@ en:
           url: "https://github.com/csrail"
 
         - name: "Ada Chiu"
-          image: "https://scontent.fbhd1-1.fna.fbcdn.net/v/t39.30808-6/329125450_1262623538007028_3894297793740278569_n.jpg?stp=cp1_dst-jpg_e15_fr_q65&_nc_cat=103&ccb=1-7&_nc_sid=58b1ad&efg=eyJpIjoidCJ9&_nc_ohc=wJjTzlFw4fkAX_bd7Dq&_nc_oc=AQnTlknYADl3dldgt5qMZjmKLIuPNC3iJAmLtA5PSLY9sEZ2sEFNMqnlGo8seP_6DWM&_nc_ht=scontent.fbhd1-1.fna&oh=00_AfBK48vUdLiN4WNDt1Qe99Cixdck3nM_7CpLWiazY87dEA&oe=651ED362"
-          url: "https://avatars.githubusercontent.com/u/13413986?v=4"
-
+          image: "https://avatars.githubusercontent.com/u/13413986?v=4"
+          url: "https://x.com/adachiu_design?s=21&t=7GZYEoXo0zA059kKCNhTdA"

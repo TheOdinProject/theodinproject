@@ -99,7 +99,6 @@ Before submitting a PR to our website repo, you must run the following tests in 
   rubocop
   yarn eslint
   rspec
-  yarn test
   ```
 
 <hr>

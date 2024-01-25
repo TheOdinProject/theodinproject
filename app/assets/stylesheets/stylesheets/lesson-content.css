@@ -125,4 +125,8 @@
   .toc-item-active {
     @apply text-gray-800 bg-gray-100 dark:bg-gray-700/40 dark:text-gray-300 border-l-2 !border-gold-600;
   }
+
+  .inline-img {
+    @apply inline m-auto;
+  }
 }

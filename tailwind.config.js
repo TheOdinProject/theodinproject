@@ -18,7 +18,8 @@ module.exports = {
     'lesson-note--critical',
     'lesson-content__panel',
     'anchor-link',
-    'toc-item-active'
+    'toc-item-active',
+    'inline-img'
   ],
   darkMode: 'class',
   theme: {

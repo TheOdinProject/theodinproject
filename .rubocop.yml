@@ -52,6 +52,10 @@ Layout/EmptyLinesAroundAttributeAccessor:
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
