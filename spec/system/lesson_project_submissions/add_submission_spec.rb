@@ -12,31 +12,40 @@ RSpec.describe 'Add a Project Submission' do
     end
 
     it 'successfully adds a submission' do
-      form = Pages::ProjectSubmissions::Form.new.open.fill_in.submit
-
-      within(:test_id, 'submissions-list') do
-        expect(page).to have_content(user.username)
+      within(:test_id, 'current-user-solution') do
+        expect(page).to have_content('Submit your solution')
+        expect(page).not_to have_content(lesson.title)
       end
 
-      expect(page).not_to have_button('Add Solution')
+      Pages::ProjectSubmissions::Form.new.open.fill_in.submit
+
+      within(:test_id, 'current-user-solution') do
+        expect(page).to have_content(lesson.title)
+        expect(page).not_to have_content('Submit your solution')
+      end
     end
 
     context 'when setting a submission as private' do
-      it 'will display the submission for the submission owner but not for other users' do
+      it 'will display the submission for its owner but not for other users' do
         form = Pages::ProjectSubmissions::Form.new.open.fill_in
         form.make_private
         form.submit
 
-        within(:test_id, 'submissions-list') do
-          page.driver.refresh
-          expect(page).to have_content(user.username)
+        within(:test_id, 'current-user-solution') do
+          expect(page).to have_content(lesson.title)
+          expect(page).not_to have_content('Submit your solution')
         end
 
-        expect(page).not_to have_content('Add solution')
+        click_link('View community solutions')
+
+        within(:test_id, 'submissions-list') do
+          page.driver.refresh
+          expect(page).not_to have_content(user.username)
+        end
 
         using_session('another_user') do
           sign_in(another_user)
-          visit lesson_path(lesson)
+          visit lesson_project_submissions_path(lesson)
 
           within(:test_id, 'submissions-list') do
             expect(page).not_to have_content(user.username)
@@ -62,8 +71,8 @@ RSpec.describe 'Add a Project Submission' do
         .fill_in
         .submit
 
-      within(:test_id, 'submissions-list') do
-        expect(page).to have_content(user.username)
+      within(:test_id, 'current-user-solution') do
+        expect(page).to have_content(lesson.title)
         expect(page).to have_link('View code')
         expect(page).not_to have_link('Live preview')
       end
@@ -75,7 +84,7 @@ RSpec.describe 'Add a Project Submission' do
       lesson = create(:lesson, :project)
       visit lesson_path(lesson)
 
-      expect(page).not_to have_button('Add Solution')
+      expect(page).not_to have_content('Submit your solution')
     end
   end
 end

@@ -83,6 +83,13 @@ def javascript_lessons
       previewable: true,
       identifier_uuid: 'a1453e8f-d4e8-44ce-b30e-552c65162ac6',
     },
+    'JSON' => {
+      title: 'JSON',
+      description: 'JSON',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/json.md',
+      identifier_uuid: 'ae0d44bf-60b7-4644-b61e-216a4a6b271b',
+    },
     'OOP Principles' => {
       title: 'OOP Principles',
       description: 'OOP Principles',
@@ -126,13 +133,6 @@ def javascript_lessons
       is_project: false,
       github_path: '/javascript/javascript_in_the_real_world/what_is_es6.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
-    },
-    'JSON' => {
-      title: 'JSON',
-      description: 'JSON',
-      is_project: false,
-      github_path: '/javascript/asynchronous_javascript_and_apis/json.md',
-      identifier_uuid: 'ae0d44bf-60b7-4644-b61e-216a4a6b271b',
     },
     'Asynchronous Code' => {
       title: 'Asynchronous Code',
@@ -282,6 +282,22 @@ def javascript_lessons
       is_project: false,
       github_path: '/javascript/finishing_up_with_javascript/conclusion.md',
       identifier_uuid: '4b881c82-4cba-4090-a819-17aac12ccb46',
+    },
+    'HashMap Data Structure' => {
+      title: 'HashMap Data Structure',
+      description: 'Learn how a hash map works, to save and retrieve data',
+      is_project: false,
+      github_path: '/javascript/computer_science/hash_map_data_structure.md',
+      identifier_uuid: '7ab99479-0200-471f-8432-4a0f2df039b5'
+    },
+    'HashMap' => {
+      title: 'HashMap',
+      description: 'Build your very first hash map data structure from scratch',
+      is_project: true,
+      github_path: '/javascript/computer_science/project_hash_map.md',
+      accepts_submission: true,
+      previewable: false,
+      identifier_uuid: '90f1f539-fc40-46b2-91db-8c664934f5c4'
     },
   }
 end
