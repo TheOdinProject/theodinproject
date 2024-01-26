@@ -64,17 +64,15 @@ RSpec.describe 'Liking project submissions' do
     end
   end
 
-  context 'when submission has no likes and user is too young' do
+  context 'when submission has no likes and user is duplicate' do
     let(:user) { create(:user) }
+    let(:another_user) { create(:user) }
 
     before do
       create(:project_submission, lesson:)
 
-      sign_in(user)
-
-      visit lesson_path(user_lesson)
-      Pages::ProjectSubmissions::Form.new.open.fill_in.submit
-
+      sign_in(another_user) # Sets last sign in ip to localhost
+      sign_in(user) # Sets current ip to localhost
       visit lesson_project_submissions_path(lesson)
     end
 
@@ -89,7 +87,7 @@ RSpec.describe 'Liking project submissions' do
   end
 
   context 'when submission has no likes and user has no submissions' do
-    let(:user) { create(:user, created_at: 15.days.ago) }
+    let(:user) { create(:user) }
 
     before do
       create(:project_submission, lesson:)
@@ -98,12 +96,12 @@ RSpec.describe 'Liking project submissions' do
       visit lesson_project_submissions_path(lesson)
     end
 
-    it 'cannot like the submission' do
+    it 'can like the submission' do
       within(:test_project_submission, 1) do
         expect(find(:test_id, 'like-count')).to have_content('0')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('0')
+        expect(find(:test_id, 'like-count')).to have_content('1')
       end
     end
   end
