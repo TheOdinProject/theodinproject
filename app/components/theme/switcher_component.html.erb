@@ -1,11 +1,13 @@
 <div class="relative <% mobile? ? 'dark:hover:bg-gray-700/60 dark:hover:text-gray-200' : '' %>" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
   <% if mobile? %>
-    <div>
-      <button data-action="click->visibility#toggle" class="text-gray-600 group flex items-center dark:text-gray-300 py-2 px-3 text-base font-medium dark:text-gray-300 hover:text-gray-900" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-        <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: yass(icon: type), aria: true, title: 'theme icon' %>
-        <%= current_theme.name.capitalize %>
-      </button>
-    </div>
+    <%= render MobileThemeSwitcherComponent.new(
+          selected: { value: current_theme.name },
+          options: [
+            { value: 'light', label: 'Light Mode', default: true },
+            { value: 'dark', label: 'Dark Mode', default: false },
+            { value: 'system', label: 'System Mode', default: false }
+          ]
+        ) %>
   <% else %>
     <div>
       <button type="button" data-action="click->visibility#toggle" class="text-gray-600 group flex items-center dark:text-gray-300 py-2 px-3" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -28,19 +30,11 @@
     aria-orientation="vertical"
     aria-labelledby="user-menu-button"
     tabindex="-1">
-    <%= link_to themes_path(theme: 'dark'), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put } do %>
-      <%= inline_svg_tag "icons/moon.svg", class: 'icons/sign-out.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', aria: true, title: 'Sign out icon', aria: true, title: 'theme icon' %>
-      Dark Mode
-    <% end %>
-
-    <%= link_to themes_path(theme: 'light'), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put } do %>
-      <%= inline_svg_tag "icons/sun.svg", class: 'icons/sign-out.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', aria: true, title: 'Sign out icon', aria: true, title: 'theme icon' %>
-      Light Mode
-    <% end %>
-
-    <%= link_to themes_path(theme: 'system'), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'handle-theme' } do %>
-      <%= inline_svg_tag "icons/system.svg", class: 'icons/sign-out.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', aria: true, title: 'Sign out icon', aria: true, title: 'theme icon' %>
-      System
+    <% Users::Theme.default_themes.each do |theme| %>
+      <%= link_to themes_path(theme: theme.name), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'theme-switcher' } do %>
+        <%= inline_svg_tag "icons/#{theme.icon}.svg", class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', title: "#{theme.name} mode option", aria: true %>
+        <%= "#{theme.name.capitalize} mode" %>
+      <% end %>
     <% end %>
   </div>
 </div>

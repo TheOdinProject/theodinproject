@@ -5,7 +5,7 @@ module Users
     DEFAULT_THEMES = [
       %w[light sun],
       %w[dark moon],
-      %w[system system]
+      %w[system computer-desktop]
     ].freeze
 
     def self.default_themes
@@ -24,6 +24,11 @@ module Users
       name
     end
 
+    def initialize(name:, icon:)
+      @name = name
+      @icon = icon
+    end
+
     def dark_mode?
       name == 'dark'
     end
@@ -33,10 +38,5 @@ module Users
     end
 
     attr_reader :name, :icon
-
-    def initialize(name:, icon:)
-      @name = name
-      @icon = icon
-    end
   end
 end
