@@ -72,7 +72,7 @@ group :test do
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
   gem 'rspec-snapshot', '~> 2.0'
-  gem 'shoulda-matchers', '~> 5.3'
+  gem 'shoulda-matchers', '~> 6.1'
   gem 'simplecov', '~> 0.22', require: false
   gem 'vcr', '~> 6.2'
   gem 'webmock', '~> 3.19'
