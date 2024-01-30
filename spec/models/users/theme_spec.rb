@@ -6,7 +6,7 @@ RSpec.describe Users::Theme do
       expect(described_class.default_themes).to contain_exactly(
         an_object_having_attributes(name: 'light', icon: 'sun'),
         an_object_having_attributes(name: 'dark', icon: 'moon'),
-        an_object_having_attributes(name: 'system', icon: 'system')
+        an_object_having_attributes(name: 'system', icon: 'computer-desktop')
       )
     end
   end

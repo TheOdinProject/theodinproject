@@ -1,10 +1,10 @@
 <div data-controller="visibility" data-action="visibility:click:outside->visibility#off" class="flex items-center space-x-2 w-full">
-  <div class="flex w-max">
+  <div class="flex w-full dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700/60">
     <span class="text-gray-600 px-2 py-2 text-base font-medium dark:text-gray-300">
-      <%= inline_svg_tag "icons/#{icon}.svg", class: 'w-6 h-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-200 dark:group-hover:text-gray-200', aria: true, title: "Select icon" %>
+      <%= inline_svg_tag "icons/#{icon}.svg", class: 'w-6 h-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-200 dark:group-hover:text-gray-200', aria: true, title: 'Select icon' %>
     </span>
     <button type="button" data-action="click->visibility#toggle" datclassa-test-id="sort-select" class="relative px-2 py-2 " aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
-      <span class=" "><%= text %></span>
+      <span class="text-gray-600 hover:text-gray-900 group flex items-center text-base font-medium dark:text-gray-300 dark:hover:text-gray-200"><%= text %></span>
     </button>
 
    <ul
