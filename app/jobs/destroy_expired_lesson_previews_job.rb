@@ -1,7 +1,4 @@
-class DestroyExpiredLessonPreviewsJob
-  include Sidekiq::Worker
-  sidekiq_options retry: 1, dead: false
-
+class DestroyExpiredLessonPreviewsJob < ApplicationJob
   def perform
     LessonPreview.expired.each(&:destroy)
   end

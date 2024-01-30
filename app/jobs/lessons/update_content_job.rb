@@ -1,8 +1,5 @@
 module Lessons
-  class UpdateContentJob
-    include Sidekiq::Worker
-    sidekiq_options retry: 1, dead: false
-
+  class UpdateContentJob < ApplicationJob
     def perform(github_paths)
       lessons = Lesson.where(github_path: github_paths)
 

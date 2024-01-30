@@ -1,7 +1,4 @@
-class DiscardProjectSubmissionJob
-  include Sidekiq::Worker
-  sidekiq_options retry: 1, dead: false
-
+class DiscardProjectSubmissionJob < ApplicationJob
   def perform
     ProjectSubmission.discardable.each(&:discard!)
   end
