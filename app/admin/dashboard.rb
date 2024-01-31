@@ -2,7 +2,7 @@ ActiveAdmin.register_page 'Dashboard' do
   menu priority: 1, label: proc { I18n.t('active_admin.dashboard') }
 
   page_action :reseed, method: :post do
-    Lessons::ImportAllContentJob.perform_async
+    Lessons::ImportAllContentJob.perform_later
     redirect_to admin_dashboard_path, notice: 'Curriculum lesson import job running 🐢 Track the progress at /sidekiq'
   end
 
