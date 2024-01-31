@@ -18,5 +18,6 @@ module Theodinproject
     config.exceptions_app = routes
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
     config.assets.css_compressor = nil
+    config.active_job.queue_adapter = :sidekiq
   end
 end
