@@ -8,6 +8,11 @@ module Users
       %w[system computer-desktop]
     ].freeze
 
+    def initialize(name:, icon:)
+      @name = name
+      @icon = icon
+    end
+
     def self.default_themes
       DEFAULT_THEMES.map { |name, icon| new(name:, icon:) }
     end
@@ -22,11 +27,6 @@ module Users
 
     def to_s
       name
-    end
-
-    def initialize(name:, icon:)
-      @name = name
-      @icon = icon
     end
 
     def dark_mode?

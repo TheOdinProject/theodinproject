@@ -1,40 +1,38 @@
-<div class="relative <% mobile? ? 'dark:hover:bg-gray-700/60 dark:hover:text-gray-200' : '' %>" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
-  <% if mobile? %>
-    <%= render MobileThemeSwitcherComponent.new(
-          selected: { value: current_theme.name },
-          options: [
-            { value: 'light', label: 'Light Mode', default: true },
-            { value: 'dark', label: 'Dark Mode', default: false },
-            { value: 'system', label: 'System Mode', default: false }
-          ]
-        ) %>
-  <% else %>
+<% if mobile? %>
+  <%= render Theme::MobileThemeSwitcherComponent.new(
+        selected: { value: current_theme.name },
+        options: Users::Theme.default_themes.map do |theme|
+          { value: theme.name.downcase, label: "#{theme.name.capitalize} Mode"}
+        end
+      ) %>
+<% else %>
+  <div class="relative" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
     <div>
       <button type="button" data-action="click->visibility#toggle" class="text-gray-600 group flex items-center dark:text-gray-300 py-2 px-3" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
         <span class="sr-only">Open user menu</span>
           <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: yass(icon: type), aria: true, title: 'theme icon' %>
       </button>
     </div>
-  <% end %>
 
-  <div
-    data-visibility-target="content"
-    data-transition-enter="transition ease-out duration-200"
-    data-transition-enter-start="transform opacity-0 scale-95"
-    data-transition-enter-end="transform opacity-100 scale-100"
-    data-transition-leave="transition ease-in duration-75"
-    data-transition-leave-start="transform opacity-100 scale-100"
-    data-transition-leave-end="transform opacity-10 scale-95"
-    class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-    role="menu"
-    aria-orientation="vertical"
-    aria-labelledby="user-menu-button"
-    tabindex="-1">
-    <% Users::Theme.default_themes.each do |theme| %>
-      <%= link_to themes_path(theme: theme.name), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'theme-switcher' } do %>
-        <%= inline_svg_tag "icons/#{theme.icon}.svg", class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', title: "#{theme.name} mode option", aria: true %>
-        <%= "#{theme.name.capitalize} mode" %>
+    <div
+      data-visibility-target="content"
+      data-transition-enter="transition ease-out duration-200"
+      data-transition-enter-start="transform opacity-0 scale-95"
+      data-transition-enter-end="transform opacity-100 scale-100"
+      data-transition-leave="transition ease-in duration-75"
+      data-transition-leave-start="transform opacity-100 scale-100"
+      data-transition-leave-end="transform opacity-10 scale-95"
+      class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="user-menu-button"
+      tabindex="-1">
+      <% Users::Theme.default_themes.each do |theme| %>
+        <%= link_to themes_path(theme: theme.name), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'theme-switcher' } do %>
+          <%= inline_svg_tag "icons/#{theme.icon}.svg", class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', title: "#{theme.name} mode option", aria: true %>
+          <%= "#{theme.name.capitalize} mode" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

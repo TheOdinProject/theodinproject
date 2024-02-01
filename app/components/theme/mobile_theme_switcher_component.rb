@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MobileThemeSwitcherComponent < ApplicationComponent
+class Theme::MobileThemeSwitcherComponent < ApplicationComponent
   def initialize(options:, selected: {})
     @options = options
     @selected = selected
@@ -26,7 +26,7 @@ class MobileThemeSwitcherComponent < ApplicationComponent
   attr_reader :options, :selected
 
   def selected?(option)
-    return option[:default] if selected.compact.empty?
+    return option[:light] if selected.compact.empty?
 
     option[:value] == params[:theme]
   end
