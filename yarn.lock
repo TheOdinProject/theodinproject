@@ -1943,10 +1943,10 @@ active_material@^2.0.2:
   dependencies:
     "@fontsource/roboto" "^4.5.3"
 
-activeadmin_addons@^2.0.0-beta.2:
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/activeadmin_addons/-/activeadmin_addons-2.0.0-beta.2.tgz#3ae20cbfd2247d181dab44dbca0f6a2a28baea85"
-  integrity sha512-Ewel937fd2J1CNYczMMt5oCtrbABKwEQXfgIHgq30gX13k92XOUsAA6c5Yn6bYKqlLLQ2tMEIPXK9FhuI1JWlA==
+activeadmin_addons@^2.0.0-beta.3:
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/activeadmin_addons/-/activeadmin_addons-2.0.0-beta.3.tgz#c149622c7d0c8573823cdbb15af04cf712307ddf"
+  integrity sha512-lMbYc/QooxGedr1ftaWv19LXmCTThv7f0GT0PvX7Oszv8DbjoNx1g3904y1oAo9R0GkpyCAcMw1Kb6c4j95dqA==
   dependencies:
     jquery-datetimepicker "^2.5.21"
     lodash.merge "^4.6.2"
