@@ -1,5 +1,5 @@
 <% if mobile? %>
-  <%= render Theme::MobileSwitcherComponent.new(current_theme: current_theme) %>
+  <%= render Theme::MobileSwitcherComponent.new(current_theme:) %>
 <% else %>
   <div class="relative" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
     <div>
@@ -23,7 +23,7 @@
       aria-labelledby="user-menu-button"
       tabindex="-1">
       <% Users::Theme.default_themes.each do |theme| %>
-        <%= link_to themes_path(theme: theme.name), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'theme-switcher', 'theme-switcher-theme-value': "#{current_theme}" } do %>
+        <%= link_to themes_path(theme: theme.name), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { turbo_method: :put, controller: 'theme-switcher', 'theme-switcher-theme-value': current_theme.to_s } do %>
           <%= inline_svg_tag "icons/#{theme.icon}.svg", class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400', title: "#{theme.name} mode option", aria: true %>
           <%= "#{theme.name.capitalize} mode" %>
         <% end %>
