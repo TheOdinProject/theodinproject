@@ -1,6 +1,10 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class ThemeSwitcherController extends Controller {
+  static values = {
+    theme: String,
+  };
+
   connect() {
     const userThemePreference = this.getUserThemePreference();
     this.updateTheme(userThemePreference);
@@ -9,39 +13,22 @@ export default class ThemeSwitcherController extends Controller {
   }
 
   updateTheme(userThemePreference) {
-    const rootElement = this.getRootElement();
-
     if (!['light', 'dark'].includes(userThemePreference)) {
       const userSystemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      this.setUserTheme(rootElement, userSystemTheme);
+      this.setUserTheme(userSystemTheme);
     } else {
-      this.setUserTheme(rootElement, userThemePreference);
+      this.setUserTheme(userThemePreference);
     }
   }
 
   getUserThemePreference() {
-    this.name = 'theme';
-    const cookies = document.cookie.split(';');
-    let themePreference = null;
-
-    cookies.forEach((cookie) => {
-      const trimmedCookie = cookie.trim();
-      if (trimmedCookie.startsWith(`${this.name}=`)) {
-        themePreference = trimmedCookie.substring(this.name.length + 1);
-      }
-    });
-
-    return themePreference;
+    return this.themeValue;
   }
 
   // eslint-disable-next-line class-methods-use-this
-  setUserTheme(rootElement, theme) {
+  setUserTheme(theme) {
+    const rootElement = document.getElementById('root-element');
     rootElement.removeAttribute('class');
     rootElement.classList.add(theme);
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  getRootElement() {
-    return document.getElementById('root-element');
   }
 }
