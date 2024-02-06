@@ -130,9 +130,9 @@ GEM
       addressable
     cssbundling-rails (1.3.3)
       railties (>= 6.0.0)
-    cuprite (0.14.3)
+    cuprite (0.15)
       capybara (~> 3.0)
-      ferrum (~> 0.13.0)
+      ferrum (~> 0.14.0)
     date (3.3.3)
     debug (1.9.1)
       irb (~> 1.10)
@@ -175,7 +175,7 @@ GEM
       net-http
     faraday-retry (2.2.0)
       faraday (~> 2.0)
-    ferrum (0.13)
+    ferrum (0.14)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
@@ -412,7 +412,7 @@ GEM
       redis-client (>= 0.17.0)
     redis-client (0.19.1)
       connection_pool
-    regexp_parser (2.8.3)
+    regexp_parser (2.9.0)
     reline (0.4.1)
       io-console (~> 0.5)
     require_all (3.0.0)
@@ -599,7 +599,7 @@ DEPENDENCIES
   classy-yaml (~> 0.8)
   climate_control (~> 1.2)
   cssbundling-rails (~> 1.3)
-  cuprite (~> 0.14)
+  cuprite (~> 0.15)
   debug (~> 1.9)
   devise (~> 4.9)
   discard (~> 1.3)
