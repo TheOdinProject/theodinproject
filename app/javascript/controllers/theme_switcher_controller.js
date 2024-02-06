@@ -1,34 +1,49 @@
 import { Controller } from '@hotwired/stimulus';
+import { put } from '@rails/request.js';
 
 export default class ThemeSwitcherController extends Controller {
   static values = {
-    theme: String,
+    currentTheme: String,
+    url: String,
   };
 
   connect() {
-    const userThemePreference = this.getUserThemePreference();
+    const userThemePreference = this.currentThemeValue;
+
     this.updateTheme(userThemePreference);
-    window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', () => this.updateTheme(userThemePreference));
+    this.addThemeChangeListener(userThemePreference);
   }
 
-  updateTheme(userThemePreference) {
-    if (!['light', 'dark'].includes(userThemePreference)) {
-      const userSystemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      this.setUserTheme(userSystemTheme);
-    } else {
-      this.setUserTheme(userThemePreference);
-    }
+  addThemeChangeListener(userThemePreference) {
+    const themeChangeHandler = () => this.updateTheme(userThemePreference);
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', themeChangeHandler);
   }
 
-  getUserThemePreference() {
-    return this.themeValue;
+  async handleThemeChangeRequest(event) {
+    const { theme } = event.currentTarget.dataset;
+
+    await this.updateThemeAndSendRequest(theme);
+  }
+
+  async updateThemeAndSendRequest(theme) {
+    this.updateTheme(theme);
+    await put(this.urlValue, { body: JSON.stringify({ theme }) });
+  }
+
+  updateTheme(theme) {
+    const validThemes = ['light', 'dark'];
+    const userSystemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const selectedTheme = validThemes.includes(theme) ? theme : userSystemTheme;
+
+    this.setUserTheme(selectedTheme);
   }
 
   // eslint-disable-next-line class-methods-use-this
   setUserTheme(theme) {
     const rootElement = document.getElementById('root-element');
-    rootElement.removeAttribute('class');
+    const availableThemes = ['system', 'light', 'dark'];
+
+    availableThemes.forEach((t) => rootElement.classList.remove(t));
     rootElement.classList.add(theme);
   }
 }
