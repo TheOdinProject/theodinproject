@@ -18,6 +18,6 @@ export default class SharePreviewController extends Controller {
   }
 
   toggleButton() {
-    this.buttonTargets.forEach((button) => button.classList.toggle('hidden', this.inputTarget.value.length === 0));
+    this.buttonTarget.classList.toggle('hidden', this.inputTarget.value.length === 0);
   }
 }
