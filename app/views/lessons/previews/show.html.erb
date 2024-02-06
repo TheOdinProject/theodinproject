@@ -18,13 +18,13 @@
               </button>
             </div>
             <div class="flex items-center mb-3">
-              <%= button_to lessons_preview_path, class: 'button button--secondary py-2 px-3', method: :get do %>
-                <%= inline_svg_tag 'icons/trash.svg', class: 'h-3 w-3 mr-2', aria: true, title: 'clear', desc: 'clear icon' %>
-                Clear
-              <% end %>
-              <%= button_to '#', class: 'hidden button button--secondary py-2 px-3 ml-2', method: :get, data: { share_preview_target: 'button', action: 'share-preview#share' } do %>
+              <%= button_to '#', class: 'hidden button button--secondary py-2 px-3', method: :get, data: { share_preview_target: 'button', action: 'share-preview#share' } do %>
                 <%= inline_svg_tag 'icons/share.svg', class: 'h-3 w-3 mr-2', aria: true, title: 'share', desc: 'share icon' %>
                 Share
+              <% end %>
+              <%= button_to lessons_preview_path, class: 'button button--secondary py-2 px-3 ml-2', method: :get do %>
+                <%= inline_svg_tag 'icons/trash.svg', class: 'h-3 w-3 mr-2', aria: true, title: 'clear', desc: 'clear icon' %>
+                Clear
               <% end %>
             </div>
           </div>
