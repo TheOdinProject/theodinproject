@@ -1,5 +1,5 @@
 module AdminV2
-  class DashboardController < ApplicationController
+  class DashboardController < AdminV2::BaseController
     def show; end
   end
 end
