@@ -81,16 +81,16 @@ def foundation_lessons
       identifier_uuid: '8a13a21d-453e-4492-8240-58a2c8d9596f',
       installation_lesson: true,
     },
-    'Fundamentals Part 1' => {
-      title: 'Fundamentals Part 1',
-      description: "You'll get a chance to start picking up the programming fundamentals you need to make your webpages dynamic",
+    'Variables and operators' => {
+      title: 'Variables and operators',
+      description: "In this lesson we learn about variables and operators.",
       is_project: false,
       github_path: '/foundations/javascript_basics/fundamentals-1.md',
       identifier_uuid: '94b3cc9b-75f8-4738-aa5c-fc50fa51e335',
     },
-    'Fundamentals Part 2' => {
-      title: 'Fundamentals Part 2',
-      description: 'Continues where Fundamentals 2 leaves off!',
+    'Data types and conditionals' => {
+      title: 'Data types and conditionals',
+      description: 'In this lesson we learn about basic data types and conditionals.',
       is_project: false,
       github_path: '/foundations/javascript_basics/fundamentals-2.md',
       identifier_uuid: '06069c6b-8278-4023-be4f-336156621ba3',
@@ -102,9 +102,9 @@ def foundation_lessons
       github_path: '/foundations/javascript_basics/javascript_developer_tools.md',
       identifier_uuid: '60494609-9c68-4ddb-8b3b-96dc8afd876c',
     },
-    'Fundamentals Part 3' => {
-      title: 'Fundamentals Part 3',
-      description: 'Part 3 of our JS fundamentals course.',
+    'Function basics' => {
+      title: 'Function basics',
+      description: 'In this lesson we will explore the basics of functions.',
       is_project: false,
       github_path: '/foundations/javascript_basics/fundamentals-3.md',
       identifier_uuid: 'a5836067-c3c3-47fb-9cef-02de0d00fa3b',
@@ -139,9 +139,9 @@ def foundation_lessons
       github_path: '/foundations/javascript_basics/clean_code.md',
       identifier_uuid: 'e341018d-424e-40ac-b6cf-59fcdd422446',
     },
-    'Fundamentals Part 4' => {
-      title: 'Fundamentals Part 4',
-      description: 'Part 4 of our JS fundamentals course.',
+    'Arrays and loops' => {
+      title: 'Arrays and loops',
+      description: 'In this lesson we learn about arrays and loops.',
       is_project: false,
       github_path: '/foundations/javascript_basics/fundamentals-4.md',
       identifier_uuid: '336b3336-c589-4e61-876f-1c0e60617da4',
@@ -155,9 +155,9 @@ def foundation_lessons
       previewable: true,
       identifier_uuid: 'fa9a5eea-a42c-4f89-9d53-6e1b8634d6ff',
     },
-    'Fundamentals Part 5' => {
-      title: 'Fundamentals Part 5',
-      description: 'Part 5 of our JS fundamentals course.',
+    'Object basics' => {
+      title: 'Object basics',
+      description: 'In this lesson we learn the basics of dealing with objects.',
       is_project: false,
       github_path: '/foundations/javascript_basics/fundamentals-5.md',
       identifier_uuid: 'd85b729e-237e-4850-a6a8-44d84ecc6f52',
