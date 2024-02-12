@@ -83,7 +83,7 @@ def foundation_lessons
     },
     'Variables and operators' => {
       title: 'Variables and operators',
-      description: "In this lesson we learn about variables and operators.",
+      description: 'In this lesson we learn about variables and operators.',
       is_project: false,
       github_path: '/foundations/javascript_basics/variables_and_operators.md',
       identifier_uuid: '94b3cc9b-75f8-4738-aa5c-fc50fa51e335',
