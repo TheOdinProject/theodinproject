@@ -1,7 +1,6 @@
 module ProjectSubmissions
   class ItemComponent < ApplicationComponent
     with_collection_parameter :project_submission
-    renders_one :title, ProjectSubmissions::TitleComponent
 
     def initialize(project_submission:)
       @project_submission = project_submission

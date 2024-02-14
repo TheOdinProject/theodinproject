@@ -3,7 +3,7 @@
 
     <div class="flex items-center mb-4 md:mb-0">
       <%= render ProjectSubmissions::LikeComponent.new(project_submission:) %>
-      <%= title %>
+      <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
     </div>
 
     <div class="flex flex-row md:items-center">
