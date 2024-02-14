@@ -1,5 +1,3 @@
 <%= turbo_stream.replace @project_submission do %>
-  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission) do |component| %>
-    <%= component.with_title(title: @project_submission.user.username) %>
-  <% end %>
+  <%= render ProjectSubmissions::ItemComponent.new(project_submission: @project_submission) %>
 <% end %>

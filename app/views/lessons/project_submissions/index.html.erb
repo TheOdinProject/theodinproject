@@ -41,9 +41,7 @@
 
             <div class="divide-y">
               <% @project_submissions.each do |project_submission| %>
-                <%= render ProjectSubmissions::ItemComponent.new(project_submission:) do |component| %>
-                  <%= component.with_title(title: project_submission.user.username) %>
-                <% end %>
+                <%= render ProjectSubmissions::ItemComponent.new(project_submission:) %>
               <% end %>
             </div>
 
