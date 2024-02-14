@@ -51,7 +51,7 @@
     "postcss-loader": "^7.3.4",
     "postcss-preset-env": "^9.3.0",
     "prismjs": "^1.29.0",
-    "regenerator-runtime": "^0.14.0",
+    "regenerator-runtime": "^0.14.1",
     "sass": "^1.70.0",
     "sass-loader": "^13.3.3",
     "shakapacker": "6.6",
