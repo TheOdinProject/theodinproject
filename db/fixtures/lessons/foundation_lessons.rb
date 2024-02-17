@@ -81,15 +81,15 @@ def foundation_lessons
       identifier_uuid: '8a13a21d-453e-4492-8240-58a2c8d9596f',
       installation_lesson: true,
     },
-    'Variables and operators' => {
-      title: 'Variables and operators',
+    'Variables and Operators' => {
+      title: 'Variables and Operators',
       description: 'In this lesson we learn about variables and operators.',
       is_project: false,
       github_path: '/foundations/javascript_basics/variables_and_operators.md',
       identifier_uuid: '94b3cc9b-75f8-4738-aa5c-fc50fa51e335',
     },
-    'Data types and conditionals' => {
-      title: 'Data types and conditionals',
+    'Data Types and Conditionals' => {
+      title: 'Data Types and Conditionals',
       description: 'In this lesson we learn about basic data types and conditionals.',
       is_project: false,
       github_path: '/foundations/javascript_basics/data_types_and_conditionals.md',
@@ -102,8 +102,8 @@ def foundation_lessons
       github_path: '/foundations/javascript_basics/javascript_developer_tools.md',
       identifier_uuid: '60494609-9c68-4ddb-8b3b-96dc8afd876c',
     },
-    'Function basics' => {
-      title: 'Function basics',
+    'Function Basics' => {
+      title: 'Function Basics',
       description: 'In this lesson we will explore the basics of functions.',
       is_project: false,
       github_path: '/foundations/javascript_basics/function_basics.md',
@@ -139,8 +139,8 @@ def foundation_lessons
       github_path: '/foundations/javascript_basics/clean_code.md',
       identifier_uuid: 'e341018d-424e-40ac-b6cf-59fcdd422446',
     },
-    'Arrays and loops' => {
-      title: 'Arrays and loops',
+    'Arrays and Loops' => {
+      title: 'Arrays and Loops',
       description: 'In this lesson we learn about arrays and loops.',
       is_project: false,
       github_path: '/foundations/javascript_basics/arrays_and_loops.md',
@@ -155,8 +155,8 @@ def foundation_lessons
       previewable: true,
       identifier_uuid: 'fa9a5eea-a42c-4f89-9d53-6e1b8634d6ff',
     },
-    'Object basics' => {
-      title: 'Object basics',
+    'Object Basics' => {
+      title: 'Object Basics',
       description: 'In this lesson we learn the basics of dealing with objects.',
       is_project: false,
       github_path: '/foundations/javascript_basics/object_basics.md',
