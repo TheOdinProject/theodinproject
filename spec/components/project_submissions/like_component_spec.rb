@@ -10,6 +10,15 @@ RSpec.describe ProjectSubmissions::LikeComponent, type: :component do
 
       expect(page).to have_css('.stroke-teal-700')
     end
+
+    it 'renders an "unlike" tooltip' do
+      project_submission = create(:project_submission, :liked)
+      component = described_class.new(project_submission:)
+
+      render_inline(component)
+
+      expect(page).to have_css('[aria-label="Unlike solution"]')
+    end
   end
 
   context 'when the the project submission is unliked' do
@@ -20,6 +29,15 @@ RSpec.describe ProjectSubmissions::LikeComponent, type: :component do
       render_inline(component)
 
       expect(page).to have_css('.stroke-gray-500')
+    end
+
+    it 'renders a "like" tooltip' do
+      project_submission = create(:project_submission, :unliked)
+      component = described_class.new(project_submission:)
+
+      render_inline(component)
+
+      expect(page).to have_css('[aria-label="Like solution"]')
     end
   end
 

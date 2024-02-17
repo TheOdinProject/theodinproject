@@ -14,5 +14,11 @@ module ProjectSubmissions
 
       'stroke-gray-500 stroke-2 text-transparent'
     end
+
+    def tooltip_text
+      return 'Unlike solution' if current_users_submission || project_submission.liked?
+
+      'Like solution'
+    end
   end
 end
