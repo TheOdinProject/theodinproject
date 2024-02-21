@@ -18,7 +18,7 @@
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@hotwired/stimulus": "^3.2.0",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
-    "@hotwired/turbo-rails": "^7.3.0",
+    "@hotwired/turbo-rails": "^8.0.2",
     "@rails/request.js": "^0.0.9",
     "@sentry/browser": "^7.84.0",
     "@stimulus/polyfills": "^2.0.0",
