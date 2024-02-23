@@ -80,13 +80,25 @@ RSpec.describe MarkdownConverter do
     end
 
     context 'when the markdown contains images' do
-      it 'wraps images in links' do
+      it 'wraps images in links when alt attr is valid string' do
         markdown = <<~MARKDOWN
           ![an image](https://example.com/image.jpeg)
         MARKDOWN
 
         html_result = <<~HTML
           <p><a href="https://example.com/image.jpeg" target="_blank" rel="noopener noreferrer"><img src="https://example.com/image.jpeg" alt="an image" /></a></p>
+        HTML
+
+        expect(described_class.new(markdown).as_html).to eq(html_result)
+      end
+
+      it 'does not wrap images in links when alt attr is empty string' do
+        markdown = <<~MARKDOWN
+          ![](https://example.com/image.jpeg){: alt=""}
+        MARKDOWN
+
+        html_result = <<~HTML
+          <p><img src="https://example.com/image.jpeg" alt="" /></p>
         HTML
 
         expect(described_class.new(markdown).as_html).to eq(html_result)
