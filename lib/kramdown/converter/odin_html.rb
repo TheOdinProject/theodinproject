@@ -8,8 +8,7 @@ module Kramdown
       EXTERNAL_LINK_ATTRIBUTES = { target: '_blank', rel: 'noopener noreferrer' }.freeze
 
       def convert_img(element, _indent)
-        
-        return super if @stack.last.type == :a or element.attr['alt'] == ""
+        return super if @stack.last.type == :a || element.attr['alt'] == ''
 
         attributes = { href: element.attr['src'] }.merge(EXTERNAL_LINK_ATTRIBUTES)
         %(<a#{html_attributes(attributes)}>#{super}</a>)
