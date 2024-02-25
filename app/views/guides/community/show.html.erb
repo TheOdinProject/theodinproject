@@ -5,7 +5,7 @@
   <section class="max-w-xl mx-auto space-y-5">
     <% @guides.each do |guide| %>
       <%= render CardComponent.new(classes: 'transistion dark:hover:bg-gray-700 hover:bg-gray-100') do |card| %>
-        <% card.with_body(classes: 'p-0') do %>
+        <% card.with_body(classes: 'px-0 py-0') do %>
           <%= link_to guide.path, class: 'p-4 block' do %>
             <div class="flex items-center gap-3">
               <%= inline_svg 'icons/book.svg', alt: 'lesson icon', class: 'w-6 dark:text-gray-500 text-gray-400 shrink-0', title: 'Guide' %>
