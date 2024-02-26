@@ -409,9 +409,9 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
-    redis (5.0.8)
+    redis (5.1.0)
       redis-client (>= 0.17.0)
-    redis-client (0.19.1)
+    redis-client (0.20.0)
       connection_pool
     regexp_parser (2.9.0)
     reline (0.4.1)
@@ -632,7 +632,7 @@ DEPENDENCIES
   rack-attack (~> 6.7)
   rack-mini-profiler
   rails (= 7.0.8)
-  redis (~> 5.0)
+  redis (~> 5.1)
   rspec-rails (~> 6.1)
   rspec-retry (~> 0.6)
   rspec-snapshot (~> 2.0)
