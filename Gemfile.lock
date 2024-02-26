@@ -560,7 +560,7 @@ GEM
     uri (0.13.0)
     vcr (6.2.0)
     version_gem (1.1.2)
-    view_component (3.10.0)
+    view_component (3.11.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -653,7 +653,7 @@ DEPENDENCIES
   simplecov (~> 0.22)
   turbo-rails (~> 2.0)
   vcr (~> 6.2)
-  view_component (~> 3.10)
+  view_component (~> 3.11)
   web-console (~> 4.2)
   webmock (~> 3.19)
 
