@@ -234,6 +234,15 @@ en:
               url: "https://github.com/scheals"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/antonisobolewski/"
+        - name: "Benjamin Aguirre"
+          image: "https://avatars.githubusercontent.com/u/114883353?v=4"
+          location: "Illinois, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/Baguirre03"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/ben-aguirre/"
 
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
