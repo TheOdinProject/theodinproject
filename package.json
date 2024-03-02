@@ -34,7 +34,7 @@
     "core-js": "^3.35.1",
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
-    "cssnano": "^6.0.1",
+    "cssnano": "^6.0.5",
     "debounce": "^1.2.1",
     "el-transition": "^0.0.7",
     "hint.css": "^3.0.0",
