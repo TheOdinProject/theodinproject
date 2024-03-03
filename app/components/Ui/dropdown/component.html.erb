@@ -1,0 +1,24 @@
+<div class="ml-3 relative" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">
+  <div>
+    <%= trigger_button %>
+  </div>
+
+  <div
+    data-visibility-target="content"
+    data-transition-enter="transition ease-out duration-200"
+    data-transition-enter-start="transform opacity-0 scale-95"
+    data-transition-enter-end="transform opacity-100 scale-100"
+    data-transition-leave="transition ease-in duration-75"
+    data-transition-leave-start="transform opacity-100 scale-100"
+    data-transition-leave-end="transform opacity-10 scale-95"
+    class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="user-menu-button"
+    tabindex="-1">
+
+    <% items.each do |item| %>
+      <%= item %>
+    <% end %>
+  </div>
+</div>

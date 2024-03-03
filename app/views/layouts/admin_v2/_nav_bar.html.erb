@@ -1,0 +1,44 @@
+<div class="sticky top-0 z-40 lg:mx-auto">
+
+  <div class="flex h-16 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:shadow-none" data-controller="open-menu" data-open-menu-visibility-outlet=".off-canvas-menu">
+
+    <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" data-action="open-menu#open">
+      <span class="sr-only">Open sidebar</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+
+    <!-- Profile dropdown -->
+    <div class="flex flex-1 items-center justify-end">
+      <%= render Ui::Dropdown::Component.new do |dropdown| %>
+        <% dropdown.with_trigger_button do %>
+          <div class="-m-1.5 flex items-center p-1.5" data-test-id="admin-profile-dropdown">
+            <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
+              <span class="font-semibold text-sm"><%= current_admin_user.initials.upcase %></span>
+            </div>
+
+            <span class="hidden lg:flex lg:items-center">
+              <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true"><%= current_admin_user.name %></span>
+              <%= inline_svg_tag 'icons/chevron-down.svg', class: 'ml-2 h-5 w-5 text-gray-400' %>
+            </span>
+          </div>
+        <% end %>
+
+        <% dropdown.with_item do %>
+          <%= link_to '#', class: "text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
+            <%= inline_svg_tag 'icons/gear-solid.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+            Settings
+          <% end %>
+        <% end %>
+
+        <% dropdown.with_item do %>
+          <%= button_to destroy_admin_user_session_path, class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', method: :delete, data: { test_id: 'admin-sign-out-link' } do %>
+            <%= inline_svg_tag 'icons/sign-out.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+            Sign out
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
