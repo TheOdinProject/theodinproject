@@ -1,0 +1,141 @@
+<%
+nav_links = [
+  { name: 'Dashboard', path: admin_v2_root_path, icon: 'home' },
+  { name: 'Flags', path: '#', icon: 'flag-outline' },
+  { name: 'Announcements', path: '#', icon: 'megaphone' }
+]
+%>
+
+<!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
+<div
+  class="relative z-50 lg:hidden off-canvas-menu"
+  role="dialog"
+  aria-modal="true"
+  data-controller="visibility"
+  data-visibility-target="content"
+  data-visibility-visible-value="false">
+
+  <div
+    class="fixed inset-0 bg-gray-900/80 hidden"
+    data-visibility-target="content"
+    data-action="click->visibility#off"
+    aria-hidden="true"
+    data-transition-enter="transition-opacity ease-linear duration-200"
+    data-transition-enter-start="opacity-0"
+    data-transition-enter-end="opacity-100"
+    data-transition-leave="transition-opacity ease-linear duration-200"
+    data-transition-leave-start="opacity-100"
+    data-transition-leave-end="opacity-0">
+  </div>
+
+  <div class="fixed inset-0 flex">
+
+    <div
+      class="relative mr-16 flex w-full max-w-xs flex-1 hidden"
+      data-visibility-target="content"
+      data-transition-enter="transition ease-in-out duration-200 transform"
+      data-transition-enter-start="-translate-x-full"
+      data-transition-enter-end="translate-x-0"
+      data-transition-leave="transition ease-in-out duration-200 transform"
+      data-transition-leave-start="translate-x-0"
+      data-transition-leave-end="-translate-x-full">
+
+      <div
+        class="absolute left-full top-0 flex w-16 justify-center pt-5"
+        data-visibility-target="content"
+        data-transition-enter="ease-in-out duration-200"
+        data-transition-enter-start="opacity-0"
+        data-transition-enter-end="opacity-100"
+        data-transition-leave="ease-in-out duration-200"
+        data-transition-leave-start="opacity-100"
+        data-transition-leave-end="opacity-0">
+
+        <button type="button" class="-m-2.5 p-2.5" data-action="click->visibility#off">
+          <span class="sr-only">Close sidebar</span>
+          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Sidebar component -->
+      <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
+        <div class="flex h-16 shrink-0 items-center">
+          <%= render LogoComponent.new(classes: 'block h-10 w-auto', path: admin_v2_root_path) %>
+        </div>
+
+        <nav class="flex flex-1 flex-col">
+          <ul role="list" class="flex flex-1 flex-col gap-y-7">
+            <li>
+              <ul role="list" class="-mx-2 space-y-1">
+                <% nav_links.each do |nav_link| %>
+                  <li>
+                    <%= link_to(
+                          nav_link.fetch(:path),
+                          class: [
+                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                            'text-gray-700 hover:text-gray-800 hover:bg-gray-100': !current_page?(nav_link.fetch(:path)),
+                            'bg-gray-100 text-gray-800': current_page?(nav_link.fetch(:path)),
+                          ]
+                        ) do %>
+
+                      <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-800 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-400'}" %>
+                      <%= nav_link.fetch(:name) %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+
+            <li class="mt-auto">
+              <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-gold-700' do %>
+                <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-400 group-hover:text-gold-700' %>
+                Settings
+              <% end %>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Static sidebar for desktop -->
+<div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+  <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
+    <div class="flex h-16 shrink-0 items-center">
+      <%= render LogoComponent.new(classes: 'block h-10 w-auto', path: admin_v2_root_path) %>
+    </div>
+
+    <nav class="flex flex-1 flex-col">
+      <ul role="list" class="flex flex-1 flex-col gap-y-7">
+        <li>
+          <ul role="list" class="-mx-2 space-y-1">
+            <% nav_links.each do |nav_link| %>
+              <li>
+                <%= link_to(
+                      nav_link.fetch(:path),
+                      class: [
+                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                        'text-gray-700 hover:text-gray-800 hover:bg-gray-100': !current_page?(nav_link.fetch(:path)),
+                        'bg-gray-100 text-gray-800': current_page?(nav_link.fetch(:path)),
+                      ]
+                    ) do %>
+                  <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-700 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-400'}" %>
+                  <%= nav_link.fetch(:name) %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+
+        <li class="mt-auto">
+          <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-gold-700' do %>
+            <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-400 group-hover:text-gold-700' %>
+            Settings
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

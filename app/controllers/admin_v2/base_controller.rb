@@ -1,6 +1,8 @@
 # rubocop:disable Rails/ApplicationController
 module AdminV2
   class BaseController < ActionController::Base
+    include CurrentTheme
+
     before_action :authenticate_admin_user!
   end
 end
