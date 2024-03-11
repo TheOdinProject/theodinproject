@@ -79,7 +79,7 @@ nav_links = [
                           ]
                         ) do %>
 
-                      <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-800 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-400'}" %>
+                      <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-800 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-500'}" %>
                       <%= nav_link.fetch(:name) %>
                     <% end %>
                   </li>
@@ -102,9 +102,9 @@ nav_links = [
 
 <!-- Static sidebar for desktop -->
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
-  <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
-    <div class="flex h-16 shrink-0 items-center">
-      <%= render LogoComponent.new(classes: 'block h-10 w-auto', path: admin_v2_root_path) %>
+  <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-gray-50 px-6 pb-4 pt-4">
+    <div class="flex h-12 shrink-0 items-center">
+      <%= render LogoComponent.new(classes: 'block h-12 w-auto', path: admin_v2_root_path) %>
     </div>
 
     <nav class="flex flex-1 flex-col">
@@ -117,11 +117,11 @@ nav_links = [
                       nav_link.fetch(:path),
                       class: [
                         'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                        'text-gray-700 hover:text-gray-800 hover:bg-gray-100': !current_page?(nav_link.fetch(:path)),
-                        'bg-gray-100 text-gray-800': current_page?(nav_link.fetch(:path)),
+                        'text-gray-700 hover:text-gray-800 hover:bg-gray-200': !current_page?(nav_link.fetch(:path)),
+                        'bg-gray-200 text-gray-800': current_page?(nav_link.fetch(:path)),
                       ]
                     ) do %>
-                  <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-700 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-400'}" %>
+                  <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-700 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-500'}" %>
                   <%= nav_link.fetch(:name) %>
                 <% end %>
               </li>
@@ -130,8 +130,8 @@ nav_links = [
         </li>
 
         <li class="mt-auto">
-          <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-gold-700' do %>
-            <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-400 group-hover:text-gold-700' %>
+          <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-200 hover:text-gray-800' do %>
+            <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-800' %>
             Settings
           <% end %>
         </li>
