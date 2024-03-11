@@ -8,7 +8,7 @@ gem 'activeadmin', '~> 3.2'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'barnes', '~> 0.0'
-gem 'bootsnap', '~> 1.16', require: false
+gem 'bootsnap', '~> 1.18', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'debug', '~> 1.9'
