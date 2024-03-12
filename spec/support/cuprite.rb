@@ -24,7 +24,6 @@ Capybara.register_driver(:odin_cuprite) do |app|
 end
 
 Capybara.default_driver = :odin_cuprite
-Capybara.javascript_driver = :odin_cuprite
 
 RSpec.configure do |config|
   config.prepend_before(:each, type: :system) do
