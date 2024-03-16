@@ -295,7 +295,7 @@ def ruby_on_rails_lessons
       description: 'This lesson explains the basics of using Active Record associations to define relationships between models',
       is_project: false,
       github_path: '/ruby_on_rails/active_record_basics/basic_associations.md',
-      identifier_uuid: 'create_uuid',
+      identifier_uuid: '4bea2014-62ab-490d-be29-9dda2a52445f',
     },
   }
 end
