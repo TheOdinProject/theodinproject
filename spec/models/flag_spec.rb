@@ -19,4 +19,46 @@ RSpec.describe Flag do
     expect(flag).to define_enum_for(:taken_action)
       .with_values(%i[pending dismiss ban removed_project_submission notified_user])
   end
+
+  describe '.by_status' do
+    context "when status is 'active'" do
+      it 'returns active flags' do
+        active_flag = create(:flag, :active)
+        resolved_flag = create(:flag, :resolved)
+
+        expect(described_class.by_status('active')).to contain_exactly(active_flag)
+      end
+    end
+
+    context "when status is 'resolved'" do
+      it 'returns resolved flags' do
+        resolved_flag = create(:flag, :resolved)
+        active_flag = create(:flag, :active)
+
+        expect(described_class.by_status(:resolved)).to contain_exactly(resolved_flag)
+      end
+    end
+  end
+
+  describe '.count_for' do
+    context "when the given status is 'active'" do
+      it 'returns the count of active flags' do
+        active_flag = create(:flag, :active)
+        another_active_flag = create(:flag, :active)
+        resolved_flag = create(:flag, :resolved)
+
+        expect(described_class.count_for(:active)).to eq(2)
+      end
+    end
+
+    context "when the given status is 'resolved'" do
+      it 'returns the count of resolved flags' do
+        resolved_flag = create(:flag, :resolved)
+        active_flag = create(:flag, :active)
+        another_active_flag = create(:flag, :active)
+
+        expect(described_class.count_for(:resolved)).to eq(1)
+      end
+    end
+  end
 end
