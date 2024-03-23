@@ -27,6 +27,11 @@ RSpec.describe 'Generating Test Admins' do
       load './db/seeds/test_admins.rb'
       expect(User.count).to be > 1
     end
+
+    it 'creates an admin user' do
+      load './db/seeds/test_admins.rb'
+      expect(AdminUser.count).to eq(1)
+    end
   end
 
   context 'when production environment' do
@@ -37,6 +42,11 @@ RSpec.describe 'Generating Test Admins' do
     it 'does not create any test admins' do
       load './db/seeds/test_admins.rb'
       expect(User.count).to eq(0)
+    end
+
+    it 'does not create any test admin users' do
+      load './db/seeds/test_admins.rb'
+      expect(AdminUser.count).to eq(0)
     end
   end
 end

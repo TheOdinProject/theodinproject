@@ -2,7 +2,7 @@
   "plugins": [
     ["prismjs", {
         "languages": ["ruby", "javascript", "css", "markup", "sql", "erb", "jsx", "diff"],
-        "plugins": ["line-numbers"],
+        "plugins": ["line-numbers", "toolbar", "copy-to-clipboard"],
         "css": true
     }]
   ]

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" id="root-element" class="<%= current_theme.name %> h-full bg-white">
+  <head>
+    <% content_for :error_tracking do %>
+      <%= render 'layouts/error_tracking' %>
+    <% end %>
+    <title>
+      <%= content_for(:title) || 'Admin | The Odin Project' %>
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="<%= image_url('og-logo.png') %>">
+
+    <%= csrf_meta_tags %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+  </head>
+
+  <body class="h-full bg-white text-gray-600 dark:bg-gray-900 dark:text-gray-300">
+    <div>
+      <%= render 'layouts/admin_v2/sidebar_nav' %>
+      <div class="lg:pl-72">
+        <%= render 'layouts/admin_v2/nav_bar' %>
+
+        <main class="py-10">
+          <div class="mx-auto px-4 sm:px-6 lg:px-12">
+            <div id="flash-messages">
+              <%= render 'shared/flash', flash: flash if flash.any? %>
+            </div>
+
+            <%= turbo_frame_tag 'modal' %>
+
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

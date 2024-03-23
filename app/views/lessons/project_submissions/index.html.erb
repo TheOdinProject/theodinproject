@@ -39,7 +39,7 @@
         <% card.with_body(classes: 'py-4 px-4') do %>
           <% if @project_submissions.any? %>
 
-            <div class="divide-y">
+            <div class="divide-y" data-controller="autosort" data-autosort-can-sort-value="<%= params[:sort] == 'likes_count' %>">
               <% @project_submissions.each do |project_submission| %>
                 <%= render ProjectSubmissions::ItemComponent.new(project_submission:) %>
               <% end %>

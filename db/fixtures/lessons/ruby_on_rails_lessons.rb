@@ -289,6 +289,13 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/installing_psql.md',
       identifier_uuid: 'b2990a57-ff1f-4b08-a607-2b7bd35fca50',
       installation_lesson: true,
-    }
+    },
+    'Basic Associations' => {
+      title: 'Basic Associations',
+      description: 'This lesson explains the basics of using Active Record associations to define relationships between models',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/basic_associations.md',
+      identifier_uuid: '4bea2014-62ab-490d-be29-9dda2a52445f',
+    },
   }
 end

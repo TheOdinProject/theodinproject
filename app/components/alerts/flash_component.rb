@@ -8,6 +8,7 @@ class Alerts::FlashComponent < ApplicationComponent
     {
       alert: 'icons/exclamation-circle-solid.svg',
       notice: 'icons/checkmark-circle-solid.svg',
+      timedout: 'icons/exclamation-circle-solid.svg'
     }.fetch(type)
   end
 

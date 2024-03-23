@@ -1,1 +1,18 @@
-<h1>Welcome to the Admin V2 Dashboard</h1>
+<div class="sm:flex sm:items-center">
+  <div class="sm:flex-auto">
+    <h1 class="text-xl font-semibold leading-6 text-gray-900">Dashboard</h1>
+  </div>
+</div>
+
+<div class="mt-8">
+  <ul role="list" class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+
+    <%= link_to admin_v2_flags_path do %>
+      <li class="overflow-hidden rounded-lg bg-white px-4 py-5 hover:border-gray-300 border border-gray-200 sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500">Unresolved flags</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900"><%= @active_flags_count %></dd>
+      </li>
+    <% end %>
+
+  </ul>
+</div>

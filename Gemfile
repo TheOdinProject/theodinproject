@@ -8,7 +8,7 @@ gem 'activeadmin', '~> 3.2'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'
 gem 'barnes', '~> 0.0'
-gem 'bootsnap', '~> 1.16', require: false
+gem 'bootsnap', '~> 1.18', require: false
 gem 'classy-yaml', '~> 0.8'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'debug', '~> 1.9'
@@ -38,9 +38,9 @@ gem 'redis', '~> 5.1'
 gem 'ruby-progressbar', '~> 1.13'
 gem 'sass-rails', '~> 6.0'
 gem 'seed-fu', '~> 2.3'
-gem 'sentry-rails', '~> 5.16'
-gem 'sentry-ruby', '~> 5.16'
-gem 'sentry-sidekiq', '~> 5.16'
+gem 'sentry-rails', '~> 5.17'
+gem 'sentry-ruby', '~> 5.17'
+gem 'sentry-sidekiq', '~> 5.17'
 gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 7.2'
 gem 'turbo-rails', '~> 2.0'
@@ -50,7 +50,7 @@ group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'lookbook', '~> 2.2.1'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.59', require: false
+  gem 'rubocop', '~> 1.61', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.22', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false
@@ -58,7 +58,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails', '~> 3.0'
+  gem 'dotenv-rails', '~> 3.1'
   gem 'rspec-rails', '~> 6.1'
 end
 
