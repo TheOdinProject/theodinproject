@@ -28,7 +28,7 @@ RSpec.describe 'User Registrations' do
 
     context 'when on a staging environment' do
       around do |example|
-        ClimateControl.modify(STAGING: 'TRUE') do
+        Dotenv.modify(STAGING: 'TRUE') do
           example.run
         end
       end

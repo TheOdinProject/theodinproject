@@ -30,7 +30,7 @@ RSpec.describe Notifications::FlagSubmission do
 
   describe '#destination' do
     around do |example|
-      ClimateControl.modify(
+      Dotenv.modify(
         DISCORD_FLAGGED_SUBMISSIONS_CHANNEL: 'Flagged Submission Channel'
       ) do
         example.run

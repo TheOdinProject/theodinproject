@@ -16,7 +16,7 @@ RSpec.describe 'Generating Test Admins' do
 
   context 'when staging environment' do
     around do |example|
-      ClimateControl.modify(
+      Dotenv.modify(
         STAGING: 'true'
       ) do
         example.run

@@ -25,7 +25,7 @@ RSpec.describe Notifications::DailySummary do
 
   describe '#destination' do
     around do |example|
-      ClimateControl.modify(
+      Dotenv.modify(
         DISCORD_LESSON_COMPLETION_WEBHOOK_URL: 'Lesson Completion Channel'
       ) do
         example.run
