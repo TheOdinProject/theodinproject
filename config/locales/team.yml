@@ -243,7 +243,15 @@ en:
               url: "https://github.com/Baguirre03"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/ben-aguirre/"
-
+        - name: "Damon Marlow"
+          image: "https://avatars.githubusercontent.com/u/126731021?v=4"
+          location: "United Kingdom"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/damon314159"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/damon-marlow"
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
