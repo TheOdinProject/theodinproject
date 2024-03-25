@@ -302,7 +302,7 @@ def ruby_on_rails_lessons
       description: 'This lesson explains the basics of validating user data in your Rails applications',
       is_project: false,
       github_path: '/ruby_on_rails/active_record_basics/basic_validations.md',
-      identifier_uuid: 'create_uuid',
+      identifier_uuid: '1063f583-493f-4faf-81e6-3faf5ee76c9c',
     }
   }
 end
