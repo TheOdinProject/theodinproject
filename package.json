@@ -9,7 +9,7 @@
     "build:css:active_admin": "sass ./app/assets/stylesheets/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules --style=compressed"
   },
   "dependencies": {
-    "@activeadmin/activeadmin": "^3.1.0",
+    "@activeadmin/activeadmin": "^3.2.0",
     "@babel/core": "7",
     "@babel/eslint-parser": "^7.23.10",
     "@babel/plugin-transform-runtime": "7",
