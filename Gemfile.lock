@@ -310,7 +310,7 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (9.7.0)
+    newrelic_rpm (9.7.1)
     nio4r (2.7.0)
     nokogiri (1.16.3)
       mini_portile2 (~> 2.8.2)
