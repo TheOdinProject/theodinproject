@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@activeadmin/activeadmin@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-3.1.0.tgz#db3d6179ff55668d667c0139f85ed09399d8f6e3"
-  integrity sha512-BWKQGs5H5VHvo47Wje5aNEnir85/TnKL2jqshCsXUhwoFCm3OyqM7Tu2yeS0E2h32QAwbCO9HPLf5hIzVSYJ2A==
+"@activeadmin/activeadmin@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-3.2.0.tgz#6691ba15143f6493f465bf265999f797402aec49"
+  integrity sha512-3TYv5LqEe2HIvGWjGpla984NXlvT2f2KDegWSXt3oneFpHrM5PiAOuoN4N01554kJhOSY4ejaeh6iWtdmgPb7Q==
   dependencies:
     jquery "^3.4.1"
     jquery-ui "^1.12.1"
