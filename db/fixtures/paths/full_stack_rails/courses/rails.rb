@@ -54,6 +54,7 @@ course.add_section do |section|
   section.add_lessons(
     ruby_on_rails_lessons.fetch('Active Record Basics'),
     ruby_on_rails_lessons.fetch('Basic Associations'),
+    ruby_on_rails_lessons.fetch('Basic Validations'),
     ruby_on_rails_lessons.fetch('Micro-Reddit'),
   )
 end

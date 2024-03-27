@@ -297,5 +297,12 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/active_record_basics/basic_associations.md',
       identifier_uuid: '4bea2014-62ab-490d-be29-9dda2a52445f',
     },
+    'Basic Validations' => {
+      title: 'Basic Validations',
+      description: 'This lesson explains the basics of validating user data in your Rails applications',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/basic_validations.md',
+      identifier_uuid: '1063f583-493f-4faf-81e6-3faf5ee76c9c',
+    }
   }
 end
