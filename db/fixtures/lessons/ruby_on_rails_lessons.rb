@@ -303,6 +303,13 @@ def ruby_on_rails_lessons
       is_project: false,
       github_path: '/ruby_on_rails/active_record_basics/basic_validations.md',
       identifier_uuid: '1063f583-493f-4faf-81e6-3faf5ee76c9c',
+    },
+    'Migrations' => {
+      title: 'Migrations',
+      description: 'This lesson explains how migrations are used to change your database schema',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/migrations.md',
+      identifier_uuid: 'f964a585-e24c-444e-a2be-13a5339172d9',
     }
   }
 end
