@@ -25,7 +25,6 @@
           <div class="w-64">
             <%= render SortComponent.new(
                   selected: { value: params[:sort], direction: params[:direction] },
-                  data_attributes: { turbo_frame: 'submissions-list' },
                   options: [
                     { value: 'created_at', label: 'Newest', direction: 'desc', default: true },
                     { value: 'created_at', label: 'Oldest', direction: 'asc', default: false },
