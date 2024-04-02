@@ -1,0 +1,17 @@
+en:
+  flag_actions:
+    - value: dismiss
+      name: Dismiss
+      description: Theres no action to be taken. Mark this flag as dismissed
+
+    - value: ban
+      name: Ban User
+      description: Ban the user who submitted this project and hide all their solutions
+
+    - value: removed_project_submission
+      name: Remove Project Submission
+      description: Remove the project submission from the site
+
+    - value: notified_user
+      name: Send Broken Link Notification
+      description: Send the user who submitted this project a notification asking them to fix the broken link
