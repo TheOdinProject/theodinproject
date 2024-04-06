@@ -9,15 +9,15 @@ RSpec.describe 'Feature Flags' do
 
     it 'allows admins to enable and disable features' do
       visit home_path
-      expect(page).not_to have_content('test feature is enabled')
+      expect(page).to have_no_content('test feature is enabled')
 
       visit admin_dashboard_path
       find_by_id('utility_nav').click
-      click_link 'Feature Flags'
-      click_link 'Add Feature'
+      click_on 'Feature Flags'
+      click_on 'Add Feature'
       fill_in 'value', with: 'test_feature'
-      click_button 'Add Feature'
-      click_button 'Fully Enable'
+      click_on 'Add Feature'
+      click_on 'Fully Enable'
 
       visit home_path
       expect(page).to have_content('test feature is enabled')
