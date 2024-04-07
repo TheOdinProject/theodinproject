@@ -14,7 +14,8 @@ module Theodinproject
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks]) # TODO
+    config.autoload_lib(ignore: %w[assets tasks generators]) # TODO: Check if other lib folders need to be ignored
+    config.add_autoload_paths_to_load_path = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
