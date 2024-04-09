@@ -36,7 +36,7 @@
           </div>
 
           <div data-tabs-target="panel" class="min-h-screen">
-          <%= render 'lessons/previews/markdown_preview', markdown: @preview.content %>
+            <%= render Markdown::PreviewComponent.new(markdown: @preview.content) %>
           </div>
         </div>
       </div>
