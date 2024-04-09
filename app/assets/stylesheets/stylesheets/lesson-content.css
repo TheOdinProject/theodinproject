@@ -102,6 +102,10 @@
     @apply text-current;
   }
 
+  .lesson-content a > img:hover {
+    @apply cursor-zoom-in;
+  }
+
   .lesson-content > section:first-child > h3 {
     @apply mt-0;
   }
