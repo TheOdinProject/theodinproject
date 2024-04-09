@@ -1,6 +1,6 @@
 # The Odin Project Web App Contributing Guide
 
-Thank you for expressing interest in contributing to The Odin Project (TOP) web app! Before continuing through this guide, be sure you've read our [general contributing guide](https://github.com/TheOdinProject/.github/blob/ac0adb6bd151dca53798776783c5604d31e3389e/CONTRIBUTING.md), as it contains information that is important for all of our repos.
+Thank you for expressing interest in contributing to The Odin Project (TOP) web app! Before continuing through this guide, be sure you've read our [general contributing guide](https://github.com/TheOdinProject/.github/blob/main/CONTRIBUTING.md), as it contains information that is important for all of our repos.
 
 This contributing guide assumes you have followed the instructions in our general contributing guide to fork and clone our web app repo.
 
