@@ -102,7 +102,7 @@
     @apply text-current;
   }
 
-  .lesson-content > a > img:hover {
+  .lesson-content a > img:hover {
     @apply cursor-zoom-in;
   }
 
