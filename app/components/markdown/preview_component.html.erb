@@ -1,7 +1,7 @@
 <div id="preview-container">
   <%= render ContentContainerComponent.new(classes: 'pt-6') do %>
     <% if markdown.present? %>
-      <%= sanitize MarkdownConverter.new(markdown).as_html %>
+      <%= sanitize MarkdownConverter.new(markdown).as_html, tags: allowed_tags %>
     <% else %>
       <p>Nothing to preview yet!</p>
     <% end %>
