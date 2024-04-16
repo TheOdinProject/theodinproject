@@ -1,7 +1,7 @@
 {
   "plugins": [
     ["prismjs", {
-        "languages": ["ruby", "javascript", "css", "markup", "sql", "erb", "jsx", "diff", "ejs"],
+        "languages": ["ruby", "javascript", "css", "markup", "sql", "erb", "jsx", "diff", "ejs", "bash", "properties", "json", "yaml"],
         "plugins": ["line-numbers", "toolbar", "copy-to-clipboard"],
         "css": true
     }]
