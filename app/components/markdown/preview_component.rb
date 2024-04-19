@@ -4,7 +4,11 @@ class Markdown::PreviewComponent < ApplicationComponent
   end
 
   def allowed_tags
-    Rails::HTML5::SafeListSanitizer::DEFAULT_ALLOWED_TAGS + %w[details summary]
+    Rails::HTML5::SafeListSanitizer::DEFAULT_ALLOWED_TAGS + %w[details summary section]
+  end
+
+  def allowed_attributes
+    Rails::HTML5::SafeListSanitizer::DEFAULT_ALLOWED_ATTRIBUTES + %w[id]
   end
 
   private
