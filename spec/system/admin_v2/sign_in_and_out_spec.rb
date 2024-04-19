@@ -10,7 +10,9 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
 
         fill_in 'Email', with: admin_user.email
         fill_in 'Password', with: admin_user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(admin_v2_root_path)
       end
@@ -24,7 +26,9 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
 
         fill_in 'Email', with: user.email
         fill_in 'Password', with: user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(new_admin_user_session_path)
       end

@@ -21,7 +21,7 @@ RSpec.describe 'Deleting a Project Submission' do
       end
 
       expect(page).to have_content('Submit your solution')
-      expect(page).not_to have_content(lesson.title)
+      expect(page).to have_no_content(lesson.title)
     end
   end
 end
