@@ -28,7 +28,8 @@ export default class LessonTocController extends Controller {
   activeSection(entries) {
     entries.forEach((entry) => {
       const id = entry.target.getAttribute('id');
-      const tocItem = this.tocTarget.querySelector(`li a[href="#${id}"]`).parentElement;
+      const tocItem = this.tocTarget.querySelector(`li a[href="#${id}"]`)?.parentElement;
+      if (!tocItem) return;
 
       if (entry.intersectionRatio > 0) {
         tocItem.classList.add('toc-item-active');
