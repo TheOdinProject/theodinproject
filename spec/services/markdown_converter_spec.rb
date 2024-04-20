@@ -16,18 +16,18 @@ RSpec.describe MarkdownConverter do
       MARKDOWN
 
       result = <<~HTML
-        <section id="first-section-header">
-          <h3><a href="#first-section-header" class="anchor-link">First section header</a></h3>
+        <section data-title="first-section-header">
+          <h3 id="first-section-header"><a href="#first-section-header" class="anchor-link">First section header</a></h3>
           <p>some content</p>
 
         </section>
-        <section id="second-section-header">
-          <h3><a href="#second-section-header" class="anchor-link">Second section header</a></h3>
+        <section data-title="second-section-header">
+          <h3 id="second-section-header"><a href="#second-section-header" class="anchor-link">Second section header</a></h3>
           <p>some content</p>
 
         </section>
-        <section id="third-section-header">
-          <h3><a href="#third-section-header" class="anchor-link">Third section header</a></h3>
+        <section data-title="third-section-header">
+          <h3 id="third-section-header"><a href="#third-section-header" class="anchor-link">Third section header</a></h3>
           <p>some content</p>
         </section>
       HTML
@@ -46,13 +46,13 @@ RSpec.describe MarkdownConverter do
         MARKDOWN
 
         html_result = <<~HTML
-          <section id="content">
+          <section data-title="content">
             <h1 id="unsectionable-header">Unsectionable Header</h1>
             <p>some content</p>
 
           </section>
-          <section id="sectionable-header">
-            <h3><a href="#sectionable-header" class="anchor-link">Sectionable Header</a></h3>
+          <section data-title="sectionable-header">
+            <h3 id="sectionable-header"><a href="#sectionable-header" class="anchor-link">Sectionable Header</a></h3>
             <p>some content</p>
           </section>
         HTML
@@ -129,8 +129,8 @@ RSpec.describe MarkdownConverter do
         MARKDOWN
 
         html_result = <<~HTML
-          <section id="its-a-header">
-            <h3><a href="#its-a-header" class="anchor-link">It’s a header</a></h3>
+          <section data-title="its-a-header">
+            <h3 id="its-a-header"><a href="#its-a-header" class="anchor-link">It’s a header</a></h3>
             <p>content</p>
           </section>
         HTML

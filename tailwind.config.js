@@ -46,6 +46,11 @@ module.exports = {
                 }
               },
             },
+            h4: {
+              a: {
+                'text-decoration': 'none',
+              },
+            },
             details: {
               summary: {
                 'font-size': '1.25rem',

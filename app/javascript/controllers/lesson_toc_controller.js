@@ -15,7 +15,7 @@ export default class LessonTocController extends Controller {
       { rootMargin: '-15% 0px -80% 0px' },
     );
 
-    this.lessonContentTarget.querySelectorAll('section[id]').forEach((section) => {
+    this.lessonContentTarget.querySelectorAll('section[data-title]').forEach((section) => {
       this.observer.observe(section);
     });
   }
@@ -27,8 +27,8 @@ export default class LessonTocController extends Controller {
 
   activeSection(entries) {
     entries.forEach((entry) => {
-      const id = entry.target.getAttribute('id');
-      const tocItem = this.tocTarget.querySelector(`li a[href="#${id}"]`)?.parentElement;
+      const { title } = entry.target.dataset;
+      const tocItem = this.tocTarget.querySelector(`li a[href="#${title}"]`)?.parentElement;
       if (!tocItem) return;
 
       if (entry.intersectionRatio > 0) {
