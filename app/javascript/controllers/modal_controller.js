@@ -30,10 +30,10 @@ export default class ModalController extends Controller {
   }
 
   lockScroll() {
-    document.body.classList.add('overflow-hidden', 'sm:p-4');
+    document.body.classList.add('overflow-hidden', 'sm:pr-4');
   }
 
   unlockScroll() {
-    document.body.classList.remove('overflow-hidden', 'sm:p-4');
+    document.body.classList.remove('overflow-hidden', 'sm:pr-4');
   }
 }
