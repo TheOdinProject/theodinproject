@@ -16,7 +16,7 @@
                 <h2 class="text-3xl font-medium text-gray-800 dark:text-gray-300">Foundations</h2>
               <% end %>
             </div>
-            <% if current_user.present? and current_user.on_path?(@foundations) %>
+            <% if current_user.present? && current_user.on_path?(@foundations) %>
               <div class="absolute top-3.5 right-3.5 !mt-0 md:static">
                 <%= render Ui::BadgeComponent.new(color: 'green') do %>
                   Selected

@@ -6,6 +6,10 @@ module Paths
       @classes = classes
     end
 
+    def render?
+      current_user.blank? || !current_user.on_path?(path)
+    end
+
     private
 
     attr_reader :current_user, :path, :classes
