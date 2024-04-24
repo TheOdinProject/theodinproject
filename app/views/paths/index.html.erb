@@ -59,7 +59,7 @@
         <%= render CardComponent.new(classes: 'flex flex-col relative') do |card| %>
           <% card.with_header(classes: 'flex flex-col justify-between items-center') do %>
             <div class="absolute top-3.5 right-3.5">
-              <% if current_user.present? and current_user.on_path?(path) %>
+              <% if current_user.present? && current_user.on_path?(path) %>
                 <%= render Ui::BadgeComponent.new(color: 'green') do %>
                   Selected
                 <% end %>
