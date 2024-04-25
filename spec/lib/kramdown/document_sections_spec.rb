@@ -73,6 +73,9 @@ RSpec.describe Kramdown::DocumentSections do
 
           # Third header
           Test third header
+
+          #### Fourth header
+          Test fourth header
         MARKDOWN
 
         expect(described_class.new(markdown).all_sections).to eq([])
