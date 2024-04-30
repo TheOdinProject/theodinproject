@@ -35,6 +35,46 @@ RSpec.describe MarkdownConverter do
       expect(described_class.new(markdown).as_html).to eq(result)
     end
 
+    context 'when level 4 headings are present' do
+      it 'only generates sections from level 3 headings' do
+        markdown = <<~MARKDOWN
+          ### First section header
+          some content
+
+          ### Second section header
+          some content
+
+          #### First subsection header
+          some content
+
+          ### Third section header
+          some content
+        MARKDOWN
+
+        result = <<~HTML
+          <section data-title="first-section-header">
+            <h3 id="first-section-header"><a href="#first-section-header" class="anchor-link">First section header</a></h3>
+            <p>some content</p>
+
+          </section>
+          <section data-title="second-section-header">
+            <h3 id="second-section-header"><a href="#second-section-header" class="anchor-link">Second section header</a></h3>
+            <p>some content</p>
+
+            <h4 id="first-subsection-header"><a href="#first-subsection-header" class="anchor-link">First subsection header</a></h4>
+            <p>some content</p>
+
+          </section>
+          <section data-title="third-section-header">
+            <h3 id="third-section-header"><a href="#third-section-header" class="anchor-link">Third section header</a></h3>
+            <p>some content</p>
+          </section>
+        HTML
+
+        expect(described_class.new(markdown).as_html).to eq(result)
+      end
+    end
+
     context 'when the markdown starts with an unsectionable header' do
       it 'converts the markdown to html with a generic section first' do
         markdown = <<~MARKDOWN
