@@ -31,7 +31,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "browserslist": "^4.22.2",
     "compression-webpack-plugin": "10",
-    "core-js": "^3.35.1",
+    "core-js": "^3.37.0",
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "cssnano": "^6.1.2",
