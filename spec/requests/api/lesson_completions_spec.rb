@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Lesson Completions' do
   describe 'GET #index' do
     around do |example|
-      ClimateControl.modify(
+      Dotenv.modify(
         API_USERNAME: 'development',
         API_PASSWORD: 'qwerty123'
       ) do

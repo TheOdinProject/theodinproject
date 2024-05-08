@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   match '500' => 'errors#internal_server_error', via: :all
 
   draw(:redirects)
+  draw(:admin_v2)
   ActiveAdmin.routes(self)
 
   require 'sidekiq/web'

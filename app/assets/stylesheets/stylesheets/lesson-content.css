@@ -102,6 +102,10 @@
     @apply text-current;
   }
 
+  .lesson-content a > img:hover {
+    @apply cursor-zoom-in;
+  }
+
   .lesson-content > section:first-child > h3 {
     @apply mt-0;
   }
@@ -110,11 +114,11 @@
     @apply hover:no-underline;
   }
 
-  .lesson-content h3 > a {
+  .lesson-content :is(h3, h4) > a {
     color:inherit !important;
   }
 
-  .lesson-content section[id] {
+  .lesson-content :is(h3, h4)[id] {
     scroll-margin-top: 40px;
   }
 

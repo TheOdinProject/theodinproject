@@ -1,6 +1,9 @@
 <%= turbo_frame_tag dom_id(project_submission, :likes) do %>
-  <%= button_to project_submission_like_path(project_submission), method: :put, disabled: current_users_submission, class: "mr-4 flex items-center #{'hint--top' unless current_users_submission}", data: { test_id: 'like-submission' }, aria: { label: 'Like submission' } do %>
-    <span class="mr-1 text-sm text-gray-500 dark:text-gray-300" data-test-id="like-count"><%= project_submission.likes_count %></span>
+  <%= button_to project_submission_like_path(project_submission), method: :put, disabled: current_users_submission, class: "mr-4 flex items-center #{'hint--top' unless current_users_submission}", data: { test_id: 'like-submission' }, aria: { label: tooltip_text } do %>
+    <span class="mr-1 text-sm text-gray-500 dark:text-gray-300" data-project-submissions--item-target="likeCount" data-test-id="like-count">
+      <%= project_submission.likes_count %>
+    </span>
+
     <%= inline_svg_tag 'icons/heart.svg', class: "h-5 w-5 #{bg_color_class}", aria: true, title: 'heart', desc: 'heart icon' %>
   <% end %>
 <% end %>

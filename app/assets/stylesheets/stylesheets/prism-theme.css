@@ -33,6 +33,10 @@ code[class*=language-] {
   white-space: normal
 }
 
+pre.highlight:not(.language-bash) + .toolbar {
+  display: none;
+}
+
 .token.block-comment,
 .token.cdata,
 .token.comment,

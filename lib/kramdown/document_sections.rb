@@ -43,13 +43,11 @@ class Kramdown::DocumentSections < Kramdown::Document
     sections.map.with_index do |section, index|
       next_section = sections[index + 1]
 
-      if next_section.present?
-        Kramdown::ContentSection.new(
-          title: section.title, content: content_between(section.start, next_section.end_of_previous_section)
-        )
-      else
-        Kramdown::ContentSection.new(title: section.title, content: content_between(section.start, END_OF_CONTENT))
-      end
+      section_end = next_section&.end_of_previous_section || END_OF_CONTENT
+
+      Kramdown::ContentSection.new(
+        title: section.title, content: content_between(section.start, section_end)
+      )
     end
   end
 

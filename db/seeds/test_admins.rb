@@ -8,4 +8,9 @@ if Rails.env.development? || ENV['STAGING']
       user.admin = true
     end
   end
+
+  AdminUser.find_or_create_by!(email: 'admin@odin.com') do |admin_user|
+    admin_user.name = 'admin'
+    admin_user.password = 'password123'
+  end
 end

@@ -135,20 +135,20 @@ course.add_section do |section|
   section.identifier_uuid = '331227f7-c939-4988-b8b9-e140d2ded362'
 
   section.add_lessons(
-    foundation_lessons.fetch('Fundamentals Part 1'),
-    foundation_lessons.fetch('Fundamentals Part 2'),
+    foundation_lessons.fetch('Variables and Operators'),
+    foundation_lessons.fetch('Data Types and Conditionals'),
     foundation_lessons.fetch('JavaScript Developer Tools'),
-    foundation_lessons.fetch('Fundamentals Part 3'),
+    foundation_lessons.fetch('Function Basics'),
     foundation_lessons.fetch('Problem Solving'),
     foundation_lessons.fetch('Understanding Errors'),
     foundation_lessons.fetch('Rock Paper Scissors'),
     foundation_lessons.fetch('Clean Code'),
     foundation_lessons.fetch('Installing Node.js'),
-    foundation_lessons.fetch('Fundamentals Part 4'),
+    foundation_lessons.fetch('Arrays and Loops'),
     foundation_lessons.fetch('DOM Manipulation and Events'),
     foundation_lessons.fetch('Revisiting Rock Paper Scissors'),
     foundation_lessons.fetch('Etch-a-Sketch'),
-    foundation_lessons.fetch('Fundamentals Part 5'),
+    foundation_lessons.fetch('Object Basics'),
     foundation_lessons.fetch('Calculator'),
   )
 end

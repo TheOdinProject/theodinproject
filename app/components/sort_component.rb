@@ -1,8 +1,7 @@
 class SortComponent < ApplicationComponent
-  def initialize(options:, selected: {}, data_attributes: {})
+  def initialize(options:, selected: {})
     @options = options
     @selected = selected
-    @data_attributes = data_attributes
   end
 
   def selected_option
@@ -15,7 +14,7 @@ class SortComponent < ApplicationComponent
 
   private
 
-  attr_reader :options, :selected, :data_attributes
+  attr_reader :options, :selected
 
   def selected?(option)
     return option[:default] if selected.compact.empty?

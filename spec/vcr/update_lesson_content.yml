@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 4.20.0
+      - Octokit Ruby Gem 8.0.0
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -20,20 +20,21 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Date:
-      - Wed, 13 Jan 2021 22:30:49 GMT
-      Content-Type:
-      - application/json; charset=utf-8
       Server:
       - GitHub.com
-      Status:
-      - 404 Not Found
+      Date:
+      - Sun, 28 Jan 2024 17:52:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       X-Github-Media-Type:
       - github.v3; format=json
+      X-Github-Api-Version-Selected:
+      - '2022-11-28'
       Access-Control-Expose-Headers:
       - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -43,7 +44,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Xss-Protection:
-      - 1; mode=block
+      - '0'
       Referrer-Policy:
       - origin-when-cross-origin, strict-origin-when-cross-origin
       Content-Security-Policy:
@@ -53,19 +54,21 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '46'
+      - '59'
       X-Ratelimit-Reset:
-      - '1610577694'
+      - '1706467975'
+      X-Ratelimit-Resource:
+      - core
       X-Ratelimit-Used:
-      - '14'
+      - '1'
       Content-Length:
-      - '118'
+      - '112'
       X-Github-Request-Id:
-      - 1260:D17B:24647F9:2AB67C2:5FFF7499
+      - F4FB:A18F2:8998E39:8B5D3C6:65B69477
     body:
       encoding: ASCII-8BIT
-      string: '{"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/repos#get-repository-content"}'
-  recorded_at: Wed, 13 Jan 2021 22:30:49 GMT
+      string: '{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/contents#get-repository-content"}'
+  recorded_at: Sun, 28 Jan 2024 17:52:55 GMT
 - request:
     method: get
     uri: https://api.github.com/repos/theodinproject/curriculum/contents//lesson_two_github_url
@@ -76,7 +79,7 @@ http_interactions:
       Accept:
       - application/vnd.github.v3+json
       User-Agent:
-      - Octokit Ruby Gem 4.20.0
+      - Octokit Ruby Gem 8.0.0
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -86,20 +89,21 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Date:
-      - Wed, 13 Jan 2021 22:30:49 GMT
-      Content-Type:
-      - application/json; charset=utf-8
       Server:
       - GitHub.com
-      Status:
-      - 404 Not Found
+      Date:
+      - Sun, 28 Jan 2024 17:52:55 GMT
+      Content-Type:
+      - application/json; charset=utf-8
       X-Github-Media-Type:
       - github.v3; format=json
+      X-Github-Api-Version-Selected:
+      - '2022-11-28'
       Access-Control-Expose-Headers:
       - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
-        X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
-        X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -109,7 +113,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Xss-Protection:
-      - 1; mode=block
+      - '0'
       Referrer-Policy:
       - origin-when-cross-origin, strict-origin-when-cross-origin
       Content-Security-Policy:
@@ -119,17 +123,19 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '45'
+      - '58'
       X-Ratelimit-Reset:
-      - '1610577694'
+      - '1706467975'
+      X-Ratelimit-Resource:
+      - core
       X-Ratelimit-Used:
-      - '15'
+      - '2'
       Content-Length:
-      - '118'
+      - '112'
       X-Github-Request-Id:
-      - 1261:4D55:AF1BEB:C899B7:5FFF7499
+      - F4FC:2344B8:898DB90:8B4EED5:65B69477
     body:
       encoding: ASCII-8BIT
-      string: '{"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/repos#get-repository-content"}'
-  recorded_at: Wed, 13 Jan 2021 22:30:49 GMT
-recorded_with: VCR 6.0.0
+      string: '{"message":"Not Found","documentation_url":"https://docs.github.com/rest/repos/contents#get-repository-content"}'
+  recorded_at: Sun, 28 Jan 2024 17:52:55 GMT
+recorded_with: VCR 6.2.0

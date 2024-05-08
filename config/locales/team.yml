@@ -89,13 +89,6 @@ en:
           image: "https://avatars.githubusercontent.com/u/12993486?v=4"
           location: "USA"
           joined: "2021"
-          socials:
-            - name: "website"
-              url: "https://valerakushnir.com"
-            - name: "github"
-              url: "https://github.com/kashura"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/valerakushnir/"
 
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
@@ -157,7 +150,7 @@ en:
               url: "https://ayweb.dev/"
 
         - name: "Eric Olkowski"
-          image: "https://media.licdn.com/dms/image/C4E03AQFbq3xPv9UXhA/profile-displayphoto-shrink_800_800/0/1638902199372?e=1706745600&v=beta&t=MKyPsyn7krSpY5FRLwzjnhahnDpsTTrnxTkWW8QxbKw"
+          image: "https://avatars.githubusercontent.com/u/70952936?v=4"
           location: "New Jersey, USA"
           joined: "2021"
           socials:
@@ -183,6 +176,14 @@ en:
           socials:
             - name: "github"
               url: "https://github.com/ChargrilledChook"
+
+        - name: "Mao"
+          image: "https://avatars.githubusercontent.com/u/122839503?v=4"
+          location: "UK"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/MaoShizhong"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
@@ -217,6 +218,33 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/mclilzee"
 
+        - name: "Antoni Sobolewski"
+          image: "https://avatars.githubusercontent.com/u/95084627?v=4"
+          location: "Poland"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/scheals"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/antonisobolewski/"
+        - name: "Benjamin Aguirre"
+          image: "https://avatars.githubusercontent.com/u/114883353?v=4"
+          location: "Illinois, USA"
+          joined: "2023"
+          socials:
+            - name: "github"
+              url: "https://github.com/Baguirre03"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/ben-aguirre/"
+        - name: "Damon Marlow"
+          image: "https://avatars.githubusercontent.com/u/126731021?v=4"
+          location: "United Kingdom"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/damon314159"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/damon-marlow"
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
@@ -239,4 +267,3 @@ en:
         - name: "Ada Chiu"
           image: "https://avatars.githubusercontent.com/u/13413986?v=4"
           url: "https://x.com/adachiu_design?s=21&t=7GZYEoXo0zA059kKCNhTdA"
-

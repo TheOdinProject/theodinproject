@@ -1,6 +1,11 @@
-# rubocop: disable Rails/LexicallyScopedActionFilter
 class Users::RegistrationsController < Devise::RegistrationsController
-  after_action :send_welcome_email, only: [:create]
+  def create
+    super
+
+    if resource.persisted? && ENV['STAGING'].nil?
+      UserMailer.send_welcome_email_to(resource).deliver_later
+    end
+  end
 
   protected
 
@@ -11,17 +16,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_inactive_sign_up_path_for(_resource)
     dashboard_path
   end
-
-  private
-
-  def send_welcome_email
-    return if ENV['STAGING'] && !resource.persisted?
-
-    WelcomeEmailJob.perform_async(resource.id)
-  end
-
-  def production?
-    Rails.env.production? && ENV['STAGING'].blank?
-  end
 end
-# rubocop: enable Rails/LexicallyScopedActionFilter

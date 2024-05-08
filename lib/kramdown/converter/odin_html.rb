@@ -4,11 +4,11 @@ require 'kramdown/converter/html'
 module Kramdown
   module Converter
     module OdinHtml
-      LEVEL_THREE_HEADER = 3
+      HEADER_LEVELS_TO_CONVERT = [3, 4].freeze
       EXTERNAL_LINK_ATTRIBUTES = { target: '_blank', rel: 'noopener noreferrer' }.freeze
 
       def convert_img(element, _indent)
-        return super if @stack.last.type == :a
+        return super if @stack.last.type == :a || element.attr['alt'] == ''
 
         attributes = { href: element.attr['src'] }.merge(EXTERNAL_LINK_ATTRIBUTES)
         %(<a#{html_attributes(attributes)}>#{super}</a>)
@@ -24,11 +24,11 @@ module Kramdown
       end
 
       def convert_header(element, indent)
-        if element.options[:level] == LEVEL_THREE_HEADER
-          section_anchor = "##{generate_id(element.options[:raw_text]).parameterize}"
-          body = "<a#{html_attributes({ href: section_anchor, class: 'anchor-link' })}>#{inner(element, indent)}</a>"
+        if HEADER_LEVELS_TO_CONVERT.include?(element.options[:level])
+          heading_id = generate_id(element.options[:raw_text]).parameterize
+          body = "<a#{html_attributes({ href: "##{heading_id}", class: 'anchor-link' })}>#{inner(element, indent)}</a>"
 
-          format_as_block_html('h3', element.attr, body, indent)
+          format_as_block_html("h#{element.options[:level]}", { id: heading_id }, body, indent)
         else
           super
         end

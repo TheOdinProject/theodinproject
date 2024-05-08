@@ -27,14 +27,14 @@ RSpec.describe Kramdown::DocumentSections do
 
       it 'creates sections that contain the source content' do
         result = <<~SECTIONS.strip
-          <section id='first-header' markdown='1'>### First header
+          <section data-title='first-header' markdown='1'>### First header
           Test first header
 
-          </section><section id='second-header' markdown='1'>### Second header
+          </section><section data-title='second-header' markdown='1'>### Second header
           Test second header
             ### nested header
 
-          </section><section id='third-header' markdown='1'>### Third header
+          </section><section data-title='third-header' markdown='1'>### Third header
           Test third header
           </section>
         SECTIONS
@@ -73,6 +73,9 @@ RSpec.describe Kramdown::DocumentSections do
 
           # Third header
           Test third header
+
+          #### Fourth header
+          Test fourth header
         MARKDOWN
 
         expect(described_class.new(markdown).all_sections).to eq([])

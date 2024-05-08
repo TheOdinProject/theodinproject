@@ -5,7 +5,7 @@
     data-progress-percent-value="<%= percentage %>"
     data-test-id='progress-circle'
     class="inline-flex items-center justify-center group <%= yass(container_size: size) %>">
-    <svg height="100%" width="100%" class="overflow-visible z-30 transform-gpu origin-center -rotate-90" viewBox="0 0 20 20">
+    <svg height="100%" width="100%" class="overflow-visible z-20 transform-gpu origin-center -rotate-90" viewBox="0 0 20 20">
       <circle class="text-gray-200 dark:text-gray-400" stroke-width="1.3" stroke="currentColor" fill="none" r="9" cx="50%" cy="50%" />
       <circle
         class="text-teal-700 dark:text-teal-600 transition-stroke-dashoffset ease-in duration-500"
@@ -19,7 +19,7 @@
         cx="50%"
         cy="50%" />
     </svg>
-    <div class="z-20 absolute group-hover:opacity-0 rounded-full overflow-hidden <%= background_color %> <%= show_icon? %> <%= yass(icon: size) %>">
+    <div class="z-10 absolute group-hover:opacity-0 rounded-full overflow-hidden <%= background_color %> <%= show_icon? %> <%= yass(icon: size) %>">
       <div class="<%= yass(icon_size: size) %>">
         <%= icon %>
       </div>

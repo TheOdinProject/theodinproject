@@ -1,9 +1,17 @@
-<div id="<%= dom_id(project_submission) %>" data-test-id="submission-item">
+<div
+  id="<%= dom_id(project_submission) %>"
+  data-controller="project-submissions--item"
+  data-test-id="submission-item"
+  data-id="<%= project_submission.id %>"
+  data-autosort-target="item"
+  data-project-submissions--item-like-count-value="<%= project_submission.likes_count %>"
+  data-sort-code="<%= project_submission.likes_count %>">
+
   <div class="relative py-6 flex flex-col md:flex-row justify-between md:items-center">
 
     <div class="flex items-center mb-4 md:mb-0">
       <%= render ProjectSubmissions::LikeComponent.new(project_submission:) %>
-      <%= title %>
+      <p class="truncate max-w-xs lgs:max-w-lg font-medium text-lg break-words"><%= project_submission.user.username %></p>
     </div>
 
     <div class="flex flex-row md:items-center">

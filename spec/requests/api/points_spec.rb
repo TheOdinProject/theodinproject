@@ -12,7 +12,7 @@ RSpec.describe 'Static Pages' do
 
     context 'when authenticated' do
       around do |example|
-        ClimateControl.modify(
+        Dotenv.modify(
           ODIN_BOT_ACCESS_TOKEN: 'ODIN_BOT_ACCESS_TOKEN'
         ) do
           example.run
@@ -59,7 +59,7 @@ RSpec.describe 'Static Pages' do
 
     context 'when authenticated' do
       around do |example|
-        ClimateControl.modify(
+        Dotenv.modify(
           ODIN_BOT_ACCESS_TOKEN: 'ODIN_BOT_ACCESS_TOKEN'
         ) do
           example.run
@@ -91,7 +91,7 @@ RSpec.describe 'Static Pages' do
   describe 'GET #create' do
     context 'when authenticated' do
       around do |example|
-        ClimateControl.modify(
+        Dotenv.modify(
           ODIN_BOT_ACCESS_TOKEN: 'ODIN_BOT_ACCESS_TOKEN'
         ) do
           example.run

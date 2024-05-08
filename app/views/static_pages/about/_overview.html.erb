@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
       <%= render CardComponent.new(classes: 'col-span-3 lg:col-span-1') do |card| %>
         <% card.with_body(classes: 'text-center') do %>
-          <p class="font-bold text-2xl"><%= User.count %></p>
+          <p class="font-bold text-2xl"><%= number_with_delimiter(User.count) %></p>
           <p class="text-gray-500 dark:text-gray-400">Learners</p>
         <% end %>
       <% end %>

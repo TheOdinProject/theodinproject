@@ -22,3 +22,6 @@ load './db/seeds/test_project_submissions.rb'
 
 # GENERATE accounts with admin privileges for testing
 load './db/seeds/test_admins.rb'
+
+# GENERATE course lesson and project counts
+load './db/seeds/update_course_counts.rb'

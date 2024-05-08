@@ -289,6 +289,27 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/advanced_forms_and_activerecord/installing_psql.md',
       identifier_uuid: 'b2990a57-ff1f-4b08-a607-2b7bd35fca50',
       installation_lesson: true,
+    },
+    'Basic Associations' => {
+      title: 'Basic Associations',
+      description: 'This lesson explains the basics of using Active Record associations to define relationships between models',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/basic_associations.md',
+      identifier_uuid: '4bea2014-62ab-490d-be29-9dda2a52445f',
+    },
+    'Basic Validations' => {
+      title: 'Basic Validations',
+      description: 'This lesson explains the basics of validating user data in your Rails applications',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/basic_validations.md',
+      identifier_uuid: '1063f583-493f-4faf-81e6-3faf5ee76c9c',
+    },
+    'Migrations' => {
+      title: 'Migrations',
+      description: 'This lesson explains how migrations are used to change your database schema',
+      is_project: false,
+      github_path: '/ruby_on_rails/active_record_basics/migrations.md',
+      identifier_uuid: 'f964a585-e24c-444e-a2be-13a5339172d9',
     }
   }
 end

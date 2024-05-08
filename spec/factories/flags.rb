@@ -4,5 +4,13 @@ FactoryBot.define do
     project_submission
     reason { :spam }
     extra { "It's offensive" }
+
+    trait :active do
+      status { :active }
+    end
+
+    trait :resolved do
+      status { :resolved }
+    end
   end
 end

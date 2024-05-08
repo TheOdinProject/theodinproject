@@ -34,7 +34,7 @@ ActiveAdmin.register Flag do
         Flag::REASONS.find { |reason| reason.name.to_s == reason_flag.reason }&.description
       end
       row :extra
-      row :submission_ower do
+      row :submission_owner do
         flag.project_submission.user.username
       end
       row :lesson do
