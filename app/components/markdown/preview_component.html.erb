@@ -2,6 +2,19 @@
   <%= render ContentContainerComponent.new(classes: 'pt-6') do %>
     <% if markdown.present? %>
       <%= sanitize MarkdownConverter.new(markdown).as_html, tags: allowed_tags, attributes: allowed_attributes %>
+
+      <% if lint.any? %>
+        <div class="lesson-note lesson-note--critical" markdown="1">
+          <h4>The linter has detected issues with this preview</h4>
+          <p>Below are a list of potential issues with your preview. If you intend to create a pull request with this markdown, these warnings may appear later on in the pull request!</p>
+        </div>
+
+        <ul class="list-none">
+          <% for err in @lint_errors %>
+            <li class="m-0"><%= inline_svg_tag 'icons/flag.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-orange-500 dark:text-orange-400 inline', aria: true, title: 'Warning' %><%= err %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% else %>
       <p>Nothing to preview yet!</p>
     <% end %>
