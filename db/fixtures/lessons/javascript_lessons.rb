@@ -83,6 +83,13 @@ def javascript_lessons
       previewable: true,
       identifier_uuid: 'a1453e8f-d4e8-44ce-b30e-552c65162ac6',
     },
+    'Revisiting Webpack' => {
+      title: 'Revisiting Webpack',
+      description: 'Revisiting Webpack',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/revisiting_webpack.md',
+      identifier_uuid: 'create_uuid',
+    },
     'JSON' => {
       title: 'JSON',
       description: 'JSON',
