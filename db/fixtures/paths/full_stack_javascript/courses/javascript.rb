@@ -41,6 +41,7 @@ course.add_section do |section|
     javascript_lessons.fetch('ES6 Modules'),
     javascript_lessons.fetch('Webpack'),
     javascript_lessons.fetch('Restaurant Page'),
+    javascript_lessons.fetch('Revisiting Webpack'),
     javascript_lessons.fetch('JSON'),
     javascript_lessons.fetch('OOP Principles'),
     javascript_lessons.fetch('Todo List'),
