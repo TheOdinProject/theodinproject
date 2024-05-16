@@ -12,6 +12,10 @@ class SubmissionLikePolicy
   private
 
   def no_recent_accounts_with_same_ip?
-    User.where(last_sign_in_ip: @user.current_sign_in_ip).where.not(id: @user.id).none?
+    User
+      .created_after(1.week.ago)
+      .where(last_sign_in_ip: @user.current_sign_in_ip)
+      .where.not(id: @user.id)
+      .none?
   end
 end
