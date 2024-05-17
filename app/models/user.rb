@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   belongs_to :path, optional: true
 
+  scope :created_after, ->(date) { where(arel_table[:created_at].gt(date)) }
+
   def progress_for(course)
     @progress ||= Hash.new { |hash, c| hash[c] = CourseProgress.new(c, self) }
     @progress[course]
