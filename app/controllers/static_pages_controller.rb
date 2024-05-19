@@ -18,4 +18,6 @@ class StaticPagesController < ApplicationController
   def success_stories
     @success_stories = SuccessStory.all
   end
+
+  def interview_survey_test; end
 end
