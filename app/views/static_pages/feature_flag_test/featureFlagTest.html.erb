@@ -1,0 +1,25 @@
+<div id="home-page">
+  <div class="w-full text-center bg-white dark:bg-gray-900 text-">
+    <header class="page-container pb-4">
+      <div class="max-w-4xl mx-auto sm:pt-16">
+        <h1 class="text-4xl sm:text-6xl text-gray-700 dark:text-gray-200 font-medium mx-auto pb-6 tracking-tighter">
+          Your <span class="text-gold-600 dark:text-gold-600">Career in Web Development</span> <span class="block font-medium">Starts Here</span>
+        </h1>
+        <div class="text-gray-600 dark:text-gray-300/80 pb-8 max-w-xl mx-auto">
+          <p class="mb-4 text-xl text-gray-500 dark:text-gray-400">Our full stack curriculum is free and supported by a passionate open source community.</p>
+        </div>
+      </div>
+
+      <%= link_to 'View Full Curriculum', paths_url, class: 'button button--secondary text-base' %>
+    </header>
+    <%= image_tag 'home-isometric.svg', alt: 'home-page-banner', class: 'w-full h-full' %>
+  </div>
+
+
+
+  <% if Rails.env.test? && Feature.enabled?(:test_feature, current_user) %>
+    test feature is enabled
+  <% else %>
+    test feature is disabled
+  <% end %>
+</div>
