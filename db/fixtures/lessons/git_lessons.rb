@@ -40,7 +40,7 @@ def git_lessons
       title: 'Working with Remotes',
       description: "So far, you've been working with remote repositories...",
       is_project: false,
-      github_path: 'git/intermediate_git/working_with_remotes.md',
+      github_path: '/git/intermediate_git/working_with_remotes.md',
       identifier_uuid: '7f8c8015-caa4-426e-9b5c-3b686f466539',
     },
   }
