@@ -44,7 +44,7 @@
     "mini-css-extract-plugin": "^2.8.1",
     "npm-run-all": "^4.1.5",
     "pnp-webpack-plugin": "1",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
