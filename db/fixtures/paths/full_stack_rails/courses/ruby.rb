@@ -73,6 +73,8 @@ course.add_section do |section|
 
   section.add_lessons(
     ruby_lessons.fetch('Object Oriented Programming'),
+    ruby_lessons.fetch('Project Management'),
+    ruby_lessons.fetch('Linting and RuboCop'),
     ruby_lessons.fetch('Tic Tac Toe'),
     ruby_lessons.fetch('Mastermind'),
   )
