@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   get 'terms_of_use' => 'static_pages#terms_of_use'
   get 'privacy-policy' => 'static_pages#privacy_policy'
   get 'success_stories' => 'static_pages#success_stories'
+  get 'interview-survey-test' => 'static_pages#interview_survey_test'
   get 'sitemap' => 'sitemap#index', defaults: { format: 'xml' }
 
   namespace :guides do
