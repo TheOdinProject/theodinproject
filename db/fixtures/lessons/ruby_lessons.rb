@@ -135,6 +135,20 @@ def ruby_lessons
       github_path: '/ruby/object_oriented_programming_basics/object_oriented_programming.md',
       identifier_uuid: '15924a5e-c72d-44f9-8546-78b05b903274',
     },
+    'Project Management' => {
+      title: 'Project Management',
+      description: 'This lesson goes over managing Ruby projects and installing Gems.',
+      is_project: false,
+      github_path: '/ruby/object_oriented_programming_basics/managing_ruby_projects.md',
+      identifier_uuid: 'edfa2f6a-6534-41e9-bc2d-a1253bcc1c41',
+    },
+    'Linting and RuboCop' => {
+      title: 'Linting and RuboCop',
+      description: 'This lesson goes over importance of rules and how to follow them with the help of RuboCop.',
+      is_project: false,
+      github_path: '/ruby/object_oriented_programming_basics/linting_and_rubocop.md',
+      identifier_uuid: 'd0fefa97-3201-474c-9636-3592fb9399d8',
+    },
     'Tic Tac Toe' => {
       title: 'Tic Tac Toe',
       description: "It's time to flex those new muscles a bit by building Tic Tac Toe",
