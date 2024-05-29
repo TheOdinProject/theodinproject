@@ -5,10 +5,10 @@
         <div class="text-gray-600 dark:text-gray-300/80 pb-8 max-w-xl mx-auto">
           <p class="mb-4 text-xl text-gray-500 dark:text-gray-400">Interview Survey Test Feature</p>
           <p class="mb-4 text-xl text-gray-500 dark:text-gray-400">
-            <% if Rails.env.test? && Feature.enabled?(:test_feature, current_user) %>
-    Test feature is enabled
+            <% if Rails.env.test? && Feature.enabled?(:survey_feature, current_user) %>
+    Survey feature is enabled
             <% else %>
-    Test feature is disabled
+    Survey feature is disabled
             <% end %></p>
         </div>
       </div>
