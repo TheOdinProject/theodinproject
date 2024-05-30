@@ -105,4 +105,5 @@ Rails.application.routes.draw do
 
   resources :notifications, only: %i[index update]
   resource :themes, only: :update
+  resources :interview_surveys, only: %i[new create]
 end
