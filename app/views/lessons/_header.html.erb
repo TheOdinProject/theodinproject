@@ -3,9 +3,16 @@
     <%= render Course::BadgeComponent.new(course: lesson.course, options: {show_badge: true }) %>
 
     <div class="text-center xl:text-left">
-      <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 min-w-full" data-test-id="lesson-title-header">
-        <%= lesson.display_title %>
-      </h1>
+      <div class="flex flex-col sm:flex-row items-center gap-0 sm:gap-3">
+        <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200" data-test-id="lesson-title-header">
+          <%= lesson.display_title %>
+        </h1>
+        <% if lesson.recently_added? %>
+          <%= render Ui::BadgeComponent.new(color: 'green') do %>
+            new
+          <% end %>
+        <% end %>
+      </div>
 
       <%= link_to path_course_url(lesson.course.path, lesson.course), class: 'no-underline' do %>
         <h2 class="min-w-full text-lg text-gray-500 dark:text-gray-400" data-test-id="course-title-header">

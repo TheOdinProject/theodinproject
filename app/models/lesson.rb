@@ -20,6 +20,10 @@ class Lesson < ApplicationRecord
 
   attribute :completed, :boolean, default: false
 
+  def recently_added?
+    created_at > 2.weeks.ago.beginning_of_day
+  end
+
   def complete!
     self.completed = true
   end

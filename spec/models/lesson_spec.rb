@@ -118,6 +118,29 @@ RSpec.describe Lesson do
     end
   end
 
+  describe '#recently_added?' do
+    context 'when the lesson was added today' do
+      it 'returns true' do
+        lesson = create(:lesson, created_at: Time.zone.today)
+        expect(lesson.recently_added?).to be(true)
+      end
+    end
+
+    context 'when the lesson was added within last 2 weeks' do
+      it 'returns true' do
+        lesson = create(:lesson, created_at: 2.weeks.ago)
+        expect(lesson.recently_added?).to be(true)
+      end
+    end
+
+    context 'when the lesson was added more than 2 weeks ago' do
+      it 'returns false' do
+        lesson = create(:lesson, created_at: 2.weeks.ago - 1.day)
+        expect(lesson.recently_added?).to be(false)
+      end
+    end
+  end
+
   describe '#complete!' do
     it 'marks the lesson as completed' do
       expect { lesson.complete! }.to change { lesson.completed }.from(false).to(true)
