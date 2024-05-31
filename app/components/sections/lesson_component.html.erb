@@ -4,6 +4,11 @@
       <%= inline_svg "icons/#{icon}.svg", alt: 'lesson icon', class: 'w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0', title: icon_title %>
 
       <p class="text-gray-800 dark:text-gray-300"><%= lesson.display_title %></p>
+      <% if lesson.recently_added? %>
+          <%= render Ui::BadgeComponent.new(color: 'green') do %>
+            new
+          <% end %>
+        <% end %>
     </div>
   <% end %>
 
