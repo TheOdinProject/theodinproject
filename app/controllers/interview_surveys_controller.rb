@@ -6,7 +6,17 @@ class InterviewSurveysController < ApplicationController
   end
 
   def create
-    # puts params[:survey]
-    redirect_to dashboard_path, notice: 'Survey Submitted'
+    @interview_survey = InterviewSurvey.new(interview_survey_params)
+    if @interview_survey.save
+      redirect_to dashboard_path, notice: 'Survey Submitted'
+    else
+      render :new, notice: 'Error Submitting Survey'
+    end
+  end
+
+  private
+
+  def interview_survey_params
+    params.require(:interview_survey).permit(:name)
   end
 end

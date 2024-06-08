@@ -5,7 +5,22 @@
     <h1 class="page-heading-title">Interview Survey</h1>
 
     <div class='max-w-xl mx-auto'>
-      <%# where form will be rendered %>
+        <%= form_with model:InterviewSurvey.new, builder: TailwindFormBuilder do |form| %>
+          <div class='divide-y divide-gray-200 dark:divide-gray-600 space-y-6'>
+            <div class="space-y-6 pt-4">
+              <div>
+                <%= form.label :name, 'Name' %>
+                <%= form.text_field :name, leading_icon: true, autofocus: true, class: 'text-sm', placeholder: 'Your Name' do %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="mt-5 sm:flex sm:flex-row-reverse pt-4">
+              <%= form.submit 'Save', class: 'cursor-pointer inline-flex w-full justify-center rounded-md button--primary px-5 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto' %>
+              <button type="button" data-action="click->modal#close" class="button--white mt-3 inline-flex w-full justify-center sm:mt-0 sm:w-auto">Cancel</button>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
