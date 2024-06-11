@@ -25,3 +25,6 @@ load './db/seeds/test_admins.rb'
 
 # GENERATE course lesson and project counts
 load './db/seeds/update_course_counts.rb'
+
+# ADDS new feature flags to Flipper
+load './db/seeds/feature_flags.rb'
