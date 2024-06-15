@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   match '500' => 'errors#internal_server_error', via: :all
 
   draw(:redirects)
-  draw(:admin_v2)
   ActiveAdmin.routes(self)
 
   require 'sidekiq/web'
@@ -106,4 +105,6 @@ Rails.application.routes.draw do
   resources :notifications, only: %i[index update]
   resource :themes, only: :update
   resources :interview_surveys, only: %i[new create]
+
+  draw(:admin_v2)
 end
