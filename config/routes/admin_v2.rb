@@ -5,4 +5,5 @@ namespace :admin_v2 do
   resource :dashboard, only: :show, controller: :dashboard
 
   resources :flags, only: %i[index show update]
+  resources :announcements
 end

@@ -1,0 +1,77 @@
+<div class="max-w-5xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-5xl">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-900">Announcements</h1>
+      <p class="mt-2 text-sm text-gray-700">Announcements displayed to everyone on the site as a banner.</p>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <span class="isolate inline-flex rounded-md shadow-sm space-x-2">
+      <% %w[active expired].each do |status| %>
+        <%= link_to(
+              "#{Announcement.for_status(status).count} #{status.capitalize}",
+              admin_v2_announcements_path(status:),
+              class: [
+                'relative inline-flex items-center rounded-md px-3 py-2 text-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10',
+                'text-gray-800 bg-gray-100': params.fetch(:status, 'active') == status,
+                'text-gray-600 bg-white': params[:status] && params[:status] != status,
+              ]
+            ) %>
+        <% end %>
+    </span>
+  </div>
+
+  <div class="mt-8 flow-root">
+    <% if @announcements.any? %>
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-5xl px-6">
+        <div class="inline-block min-w-full py-2 align-middle">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead>
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Message</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Created</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Expires</th>
+                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0"><span class="sr-only">Edit</span></th>
+              </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200">
+              <% @announcements.each do |announcement | %>
+                <tr>
+                  <td class=" px-3 py-4 text-xs text-gray-500 max-w-xl">
+                    <%= announcement.message %>
+                  </td>
+
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <span title="<%= announcement.created_at %>">
+                      <%= time_ago_in_words(announcement.created_at) %> ago
+                    </span>
+                  </td>
+
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <span title="<%= announcement.expires_at %>">
+                      <%= announcement.expires_at.strftime('%B %d, %Y') %>
+                    </span>
+                  </td>
+
+                  <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <%= link_to 'Edit', admin_v2_announcement_path(announcement), class: 'underline hover:text-gray-800 hover:no-underline' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <%= render Admin::PaginationComponent.new(pagy: @pagy, resource_name: 'announcements') %>
+        </div>
+      </div>
+
+    <% else %>
+      <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
+        <%= inline_svg_tag 'icons/megaphone.svg', class: 'h-16 w-16 text-gray-400', aria: true %>
+        <p class="text-xl text-gray-500 leading-6"> No <%= params.fetch(:status, 'active') %> announcements found!</p>
+      </div>
+    <% end %>
+  </div>
+</div>
