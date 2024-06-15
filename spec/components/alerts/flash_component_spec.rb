@@ -22,4 +22,12 @@ RSpec.describe Alerts::FlashComponent, type: :component do
       expect(page).to have_content('Success!')
     end
   end
+
+  context 'when the type is dissallowed' do
+    it 'does not render the flash' do
+      component = described_class.new(type: 'timedout', message: 'Timed out')
+
+      expect(render_inline(component).inner_html).to eq('')
+    end
+  end
 end
