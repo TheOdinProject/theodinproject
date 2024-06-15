@@ -192,14 +192,14 @@ RSpec.describe User do
   end
 
   describe '#ban!' do
-    it 'hides the users project submissions' do
+    it "hides the user's project submissions" do
       user = create(:user)
       project_submission = create(:project_submission, user:)
 
       expect { user.ban! }.to change { project_submission.reload.discarded? }.from(false).to(true)
     end
 
-    it 'bans the user' do
+    it 'marks the user as banned' do
       user = create(:user)
 
       expect { user.ban! }.to change { user.reload.banned? }.from(false).to(true)

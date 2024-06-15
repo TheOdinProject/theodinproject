@@ -1,4 +1,4 @@
-class Flags::Actions::Dismiss < Flags::Actions::Action
+class Flags::Actions::Dismiss < Flags::Actions::Base
   def perform
     flag.resolve(action_taken: :dismiss, resolved_by: admin_user)
 

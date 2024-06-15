@@ -1,4 +1,4 @@
-class Flags::Actions::RemoveProjectSubmission < Flags::Actions::Action
+class Flags::Actions::RemoveProjectSubmission < Flags::Actions::Base
   def perform
     ActiveRecord::Base.transaction do
       flag.project_submission.discard

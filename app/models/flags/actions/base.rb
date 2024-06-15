@@ -1,4 +1,4 @@
-class Flags::Actions::Action
+class Flags::Actions::Base
   def initialize(admin_user:, flag:)
     @admin_user = admin_user
     @flag = flag

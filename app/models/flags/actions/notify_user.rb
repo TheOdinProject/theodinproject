@@ -1,4 +1,4 @@
-class Flags::Actions::NotifyUser < Flags::Actions::Action
+class Flags::Actions::NotifyUser < Flags::Actions::Base
   def perform # rubocop:disable Metrics/AbcSize
     ActiveRecord::Base.transaction do
       flag.project_submission.update!(discard_at: 7.days.from_now)

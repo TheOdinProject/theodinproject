@@ -1,4 +1,4 @@
-class Flags::Actions::Ban < Flags::Actions::Action
+class Flags::Actions::Ban < Flags::Actions::Base
   def perform
     flag.project_submission_owner.ban!
     flag.resolve(action_taken: :ban, resolved_by: admin_user)
