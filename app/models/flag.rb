@@ -21,4 +21,5 @@ class Flag < ApplicationRecord
 
   scope :by_status, ->(status) { where(status:) }
   scope :count_for, ->(status) { by_status(status).count }
+  scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 end
