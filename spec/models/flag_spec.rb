@@ -73,4 +73,14 @@ RSpec.describe Flag do
       )
     end
   end
+
+  describe '#resolve' do
+    it 'updates the status and taken_action of the flag' do
+      admin_user = create(:admin_user)
+
+      expect { flag.resolve(action_taken: :dismiss, resolved_by: admin_user) }
+        .to change { flag.status }.from('active').to('resolved')
+        .and change { flag.taken_action }.from('pending').to('dismiss')
+    end
+  end
 end

@@ -44,7 +44,7 @@
 
             <tbody class="divide-y divide-gray-200">
               <% @flags.each do |flag | %>
-                <tr>
+                <tr id="<%= dom_id(flag) %>">
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                     <%= link_to admin_v2_flag_path(flag) do %>
                       <%= flag.flagger.username %>

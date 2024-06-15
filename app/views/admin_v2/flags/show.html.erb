@@ -1,19 +1,22 @@
-<div class="max-w-4xl">
+<div class="max-w-4xl w-full mx-auto">
 
-  <div class="sm:flex items-center justify-between">
-    <div class="sm:flex-auto flex gap-x-2">
+  <div class="flex items-center justify-between">
+    <div>
       <h1 class="text-xl font-semibold leading-6 text-gray-900">Flag #<%= @flag.id %></h1>
-      <span>&middot</span>
-      <span>
+      <div class="pt-3 flex gap-x-2" data-test-id="flag-status">
         <%= render Ui::BadgeComponent.new(color: @flag.resolved? ? 'green' : 'yellow') do %>
           <%= @flag.status.capitalize %>
         <% end %>
-      </span>
+
+        <% if @flag.resolved? %>
+          <%= render Ui::BadgeComponent.new(color: 'gray') do %>
+            <%= t('flag_actions').find { |action| action[:value] == @flag.taken_action }.fetch(:past_tense).capitalize %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="pt-2 sm:pt-0">
-      <%= render 'admin_v2/flags/actions', flag: @flag %>
-    </div>
+    <%= render Flags::ActionButtonComponent.new(flag: @flag) %>
   </div>
 
   <div>
