@@ -1,7 +1,7 @@
 module AdminV2
   class FlagsController < AdminV2::BaseController
     def index
-      @pagy, @flags = pagy(Flag.by_status(params.fetch(:status, 'active')), items: 20)
+      @pagy, @flags = pagy(Flag.by_status(params.fetch(:status, 'active')).ordered_by_most_recent, items: 20)
     end
 
     def show

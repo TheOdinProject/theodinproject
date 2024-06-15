@@ -61,4 +61,16 @@ RSpec.describe Flag do
       end
     end
   end
+
+  describe '.ordered_by_most_recent' do
+    it 'returns flags ordered by most recently created' do
+      created_three_days_ago = create(:flag, created_at: 3.days.ago)
+      created_two_days_ago = create(:flag, created_at: 2.days.ago)
+      created_one_day_ago = create(:flag, created_at: 1.day.ago)
+
+      expect(described_class.ordered_by_most_recent).to eq(
+        [created_one_day_ago, created_two_days_ago, created_three_days_ago]
+      )
+    end
+  end
 end
