@@ -10,8 +10,14 @@ module AdminV2
 
     def update
       @flag = Flag.find(params[:id])
-      flash[:notice] = "Flag #{params[:action_taken]}"
-      redirect_to admin_v2_flag_path(@flag)
+      action = Flags::ActionFactory.for(params[:action_taken])
+      result = action.perform(flag: @flag, admin_user: current_admin_user)
+
+      if result.success?
+        redirect_to admin_v2_flag_path(@flag), notice: result.message
+      else
+        redirect_to admin_v2_flag_path(@flag), alert: result.message
+      end
     end
   end
 end

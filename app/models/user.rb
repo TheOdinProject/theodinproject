@@ -60,6 +60,13 @@ class User < ApplicationRecord
     self.path == path
   end
 
+  def ban!
+    ActiveRecord::Base.transaction do
+      project_submissions.each(&:discard)
+      update!(banned: true)
+    end
+  end
+
   private
 
   def last_lesson_completed
