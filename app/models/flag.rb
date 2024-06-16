@@ -34,4 +34,8 @@ class Flag < ApplicationRecord
       resolved_by_id: resolved_by.id
     )
   end
+
+  def action_taken
+    Flags::Action.for(taken_action)
+  end
 end

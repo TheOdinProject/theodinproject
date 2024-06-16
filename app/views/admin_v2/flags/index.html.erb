@@ -70,7 +70,7 @@
                   </td>
 
                   <% if params[:status] == "resolved" %>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= flag.taken_action %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= flag.action_taken.past_tense %></td>
                   <% end %>
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                     <%= link_to 'View', admin_v2_flag_path(flag), class: 'underline hover:text-gray-800 hover:no-underline' %>
