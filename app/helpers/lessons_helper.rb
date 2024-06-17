@@ -3,6 +3,10 @@ module LessonsHelper
     github_link("curriculum/edit/main#{lesson.github_path}")
   end
 
+  def github_commits_url(lesson)
+    github_link("curriculum/commits/main#{lesson.github_path}")
+  end
+
   def github_report_url(lesson)
     params = {
       labels: 'Status: Needs Triage',
