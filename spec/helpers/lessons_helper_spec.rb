@@ -11,6 +11,16 @@ RSpec.describe LessonsHelper do
     end
   end
 
+  describe '#github_commits_url' do
+    let(:lesson) { create(:lesson) }
+
+    it 'returns the github commits url for the lesson' do
+      expect(helper.github_commits_url(lesson)).to eql(
+        'https://github.com/TheOdinProject/curriculum/commits/main/lesson_course/lesson_title.md'
+      )
+    end
+  end
+
   describe '#github_report_url' do
     let(:course) { create(:course, title: 'Test Course1') }
     let(:lesson) { create(:lesson, title: 'Ruby Basics', course:) }
