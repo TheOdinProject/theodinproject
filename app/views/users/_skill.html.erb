@@ -8,7 +8,7 @@
       <%= link_to path_course_url(course.path, course) do %>
         <h3 class="text-gray-700 font-medium text-lg mb-0 dark:text-gray-300"><%= course.title %></h3>
       <% end %>
-      <p class="text-sm text-gray-500 dark:text-gray-400"><%= course.lessons.size %> lessons</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400"><%= pluralize(course.lessons_count, 'Lesson') %> / <%= pluralize(course.projects_count, 'Project') %></p>
     </div>
   </div>
 
