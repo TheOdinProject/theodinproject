@@ -17,6 +17,12 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     text_layout(attribute) { super(attribute, options.merge(default_opts)) } + attribute_error_message(attribute)
   end
 
+  def date_field(attribute, options = {})
+    default_opts = { class: classes_for(attribute, options) }
+
+    text_layout(attribute) { super(attribute, options.merge(default_opts)) } + attribute_error_message(attribute)
+  end
+
   def password_field(attribute, options = {})
     default_opts = { class: classes_for(attribute, options) }
 

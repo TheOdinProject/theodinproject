@@ -40,4 +40,26 @@ RSpec.describe AnnouncementComponent, type: :component do
       expect(page).not_to have_link('Learn more')
     end
   end
+
+  context 'when the announcement is closeable' do
+    it 'does not render the close button' do
+      announcement = create(:announcement)
+      component = described_class.new(announcement:, closeable: true)
+
+      render_inline(component)
+
+      expect(page).to have_css("[data-test-id='announcement-close-button']")
+    end
+  end
+
+  context 'when the announcement is not closeable' do
+    it 'does not render the close button' do
+      announcement = create(:announcement)
+      component = described_class.new(announcement:, closeable: false)
+
+      render_inline(component)
+
+      expect(page).not_to have_css("[data-test-id='announcement-close-button']")
+    end
+  end
 end
