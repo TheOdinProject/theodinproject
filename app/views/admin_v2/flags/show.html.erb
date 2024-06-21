@@ -1,6 +1,7 @@
-<div class="max-w-4xl w-full mx-auto">
+<div class="max-w-5xl w-full mx-auto">
+  <%= render Ui::BackLinkComponent.new(path: admin_v2_flags_path, name: 'Flags') %>
 
-  <div class="flex items-center justify-between">
+  <div class="flex mt-8 items-center justify-between">
     <div>
       <h1 class="text-xl font-semibold leading-6 text-gray-900">Flag #<%= @flag.id %></h1>
       <div class="pt-3 flex gap-x-2" data-test-id="flag-status">
