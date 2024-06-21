@@ -83,4 +83,12 @@ RSpec.describe Flag do
         .and change { flag.taken_action }.from('pending').to('dismiss')
     end
   end
+
+  describe '#action_taken' do
+    it 'returns a value object for the taken_action' do
+      flag.taken_action = 'dismiss'
+
+      expect(flag.action_taken).to be_a(Flags::Action)
+    end
+  end
 end

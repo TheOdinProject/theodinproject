@@ -3,19 +3,19 @@ en:
     - value: dismiss
       name: Dismiss
       description: Theres no action to be taken. Mark this flag as dismissed
-      past_tense: dismissed
+      past_tense: Dismissed
 
     - value: ban
       name: Ban User
       description: Ban the user who submitted this project and hide all their solutions
-      past_tense: banned
+      past_tense: Banned
 
     - value: removed_project_submission
       name: Remove Project Submission
       description: Remove the project submission from the site
-      past_tense: project submission removed
+      past_tense: Project submission removed
 
     - value: notified_user
       name: Send Broken Link Notification
       description: Send the user who submitted this project a notification asking them to fix the broken link
-      past_tense: notified
+      past_tense: Notified

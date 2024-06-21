@@ -11,7 +11,7 @@
 
         <% if @flag.resolved? %>
           <%= render Ui::BadgeComponent.new(color: 'gray') do %>
-            <%= t('flag_actions').find { |action| action[:value] == @flag.taken_action }.fetch(:past_tense).capitalize %>
+            <%= @flag.action_taken.past_tense %>
           <% end %>
         <% end %>
       </div>

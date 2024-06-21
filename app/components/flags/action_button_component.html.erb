@@ -11,15 +11,15 @@
       <ul data-controller="disable" data-visibility-target="content" class="absolute hidden right-0 z-10 mt-2 sm:w-[500px] origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
         <div class="divide-y divide-gray-200 dark:divide-gray-600 space-y-6">
           <div class="space-y-4 px-4 pt-6">
-            <% t('flag_actions').each do |flag_action| %>
+            <% Flags::Action.each do |flag_action| %>
               <div class="relative flex items-start">
                 <div class="absolute flex h-6 items-center">
-                  <%= form.radio_button :action_taken, flag_action.fetch(:value), class: 'h-4 w-4 border-gray-300 dark:border-gray-500 dark:bg-gray-700/50 dark:checked:bg-gold-600 dark:checked:border-gold-600 dark:focus:ring-offset-gray-800 text-gold-600 focus:ring-gold-600', data: { action: 'click->disable#enable' } %>
+                  <%= form.radio_button :action_taken, flag_action.value, class: 'h-4 w-4 border-gray-300 dark:border-gray-500 dark:bg-gray-700/50 dark:checked:bg-gold-600 dark:checked:border-gold-600 dark:focus:ring-offset-gray-800 text-gold-600 focus:ring-gold-600', data: { action: 'click->disable#enable' } %>
                 </div>
 
                 <div class="pl-7 text-sm leading-6">
-                  <%= form.label :"action_taken_#{flag_action.fetch(:value)}", flag_action.fetch(:name), class: 'font-semibold text-gray-800 dark:text-gray-200' %>
-                  <p class="text-gray-500 dark:text-gray-400 text-xs"><%= flag_action.fetch(:description) %></p>
+                  <%= form.label :"action_taken_#{flag_action.value}", flag_action.name, class: 'font-semibold text-gray-800 dark:text-gray-200' %>
+                  <p class="text-gray-500 dark:text-gray-400 text-xs"><%= flag_action.description %></p>
                 </div>
               </div>
             <% end %>
