@@ -1,0 +1,34 @@
+<%= title('Admin - Set your password') %>
+
+<div class="bg-gray-50 min-h-screen dark:bg-gray-900">
+  <div class="page-container">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Welcome to the team! please set your password</h2>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <%= render CardComponent.new do |card| %>
+        <%= card.with_body do %>
+          <%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }, builder: TailwindFormBuilder do |form| %>
+            <%= form.hidden_field :invitation_token, readonly: true %>
+            <div class="space-y-6">
+              <div>
+                <%= form.label :password %>
+                <%= form.password_field :password, autofocus: true, required: true, data: { test_id: 'password-field' } %>
+              </div>
+
+              <div>
+                <%= form.label :password_confirmation %>
+                <%= form.password_field :password_confirmation, required: true, data: { test_id: 'password-confirmation-field' } %>
+              </div>
+
+              <div>
+                <%= form.submit 'Submit', class: 'button button--primary w-full py-2 px-4 text-sm' %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -22,7 +22,7 @@ RSpec.describe Notifications::FlagSubmission do
       notification_message = "OdinUser has flagged a submission on #{flagged_submission.lesson.title}\n" \
                              "Reason: inappropriate\n" \
                              "Extra: I find it offensive\n" \
-                             'Resolve the flag here: http://localhost:3000/admin/flags/120'
+                             'Resolve the flag here: http://localhost:3001/admin/flags/120'
 
       expect(notification.message).to eq notification_message
     end

@@ -11,6 +11,17 @@ RSpec.describe AdminUser do
   it { is_expected.to validate_confirmation_of(:password) }
   it { is_expected.to validate_length_of(:password).is_at_least(8) }
 
+  describe 'after invitation accepted' do
+    it 'activates the user' do
+      admin_user = create(:admin_user, status: :pending)
+      admin_user.invite!
+
+      expect do
+        admin_user.accept_invitation!
+      end.to change { admin_user.status }.from('pending').to('active')
+    end
+  end
+
   describe '#initials' do
     it 'returns the initials of the admin user' do
       admin_user = build(:admin_user, name: 'John Wick')

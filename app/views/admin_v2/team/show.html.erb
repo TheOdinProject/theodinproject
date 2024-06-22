@@ -1,0 +1,18 @@
+<div class="max-w-5xl w-full mx-auto">
+  <div class="flex items-center max-w-5xl justify-between">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-900">Team</h1>
+    </div>
+
+    <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
+  </div>
+
+  <ul role="list" class="divide-y divide-gray-100 mt-8">
+    <%= turbo_frame_tag 'pending_members' do %>
+       <%= render partial: 'admin_v2/team/member', collection: @pending_team_members, as: :team_member %>
+    <% end %>
+
+    <%= render partial: 'admin_v2/team/member', collection: @active_team_members, as: :team_member %>
+</ul>
+
+</div>
