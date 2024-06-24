@@ -2,11 +2,11 @@
   <div class="sm:flex sm:items-center max-w-5xl">
     <div class="sm:flex-auto">
       <h1 class="text-xl font-semibold leading-6 text-gray-900">Announcements</h1>
-      <p class="mt-2 text-sm text-gray-700">Announcements displayed to everyone on the site as a banner.</p>
+      <p class="mt-2 text-sm text-gray-700">Announcements are displayed to everyone on the site as a banner.</p>
     </div>
   </div>
 
-  <div class="mt-6">
+  <div class="mt-6 flex justify-between">
     <span class="isolate inline-flex rounded-md shadow-sm space-x-2">
       <% %w[active expired].each do |status| %>
         <%= link_to(
@@ -20,11 +20,13 @@
             ) %>
         <% end %>
     </span>
+
+    <%= link_to 'New announcement', new_admin_v2_announcement_path, class: 'button button--primary p-2' %>
   </div>
 
   <div class="mt-8 flow-root">
     <% if @announcements.any? %>
-      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-5xl px-6">
+      <div class="overflow-x-auto">
         <div class="inline-block min-w-full py-2 align-middle">
           <table class="min-w-full divide-y divide-gray-300">
             <thead>
@@ -56,7 +58,7 @@
                   </td>
 
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                    <%= link_to 'Edit', admin_v2_announcement_path(announcement), class: 'underline hover:text-gray-800 hover:no-underline' %>
+                    <%= link_to 'View', admin_v2_announcement_path(announcement), class: 'underline hover:text-gray-800 hover:no-underline' %>
                   </td>
                 </tr>
               <% end %>

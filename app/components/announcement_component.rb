@@ -1,6 +1,7 @@
 class AnnouncementComponent < ApplicationComponent
-  def initialize(announcement:)
+  def initialize(announcement:, closeable: true)
     @announcement = announcement
+    @closeable = closeable
   end
 
   def render?
@@ -9,5 +10,5 @@ class AnnouncementComponent < ApplicationComponent
 
   private
 
-  attr_reader :announcement
+  attr_reader :announcement, :closeable
 end

@@ -54,6 +54,20 @@ RSpec.describe TailwindFormBuilder do
     end
   end
 
+  describe '#date_field' do
+    it 'returns a tailwind styled email field' do
+      expect(builder.date_field(:created_at)).to match_snapshot('tailwind_form_builder/date_field')
+    end
+
+    context 'when the field has errors' do
+      it 'includes the error message' do
+        user.errors.add(:created_at, 'is invalid')
+
+        expect(builder.date_field(:created_at)).to include('is invalid')
+      end
+    end
+  end
+
   describe '#password_field' do
     it 'returns a tailwind styled password field' do
       expect(builder.password_field(:password)).to match_snapshot('tailwind_form_builder/password_field')
