@@ -67,6 +67,13 @@ def javascript_lessons
       github_path: '/javascript/organizing_your_javascript_code/es6_modules.md',
       identifier_uuid: '0169e4d1-e381-49e0-897b-f9364ac10e51',
     },
+    'npm' => {
+      title: 'npm',
+      description: 'npm',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/npm.md',
+      identifier_uuid: 'bec8407e-22fb-4106-8bdf-4f65b29c1365',
+    },
     'Webpack' => {
       title: 'Webpack',
       description: 'Webpack',

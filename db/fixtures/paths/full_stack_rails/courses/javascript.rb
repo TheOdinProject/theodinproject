@@ -38,6 +38,7 @@ course.add_section do |section|
     javascript_lessons.fetch('Tic Tac Toe'),
     javascript_lessons.fetch('Classes'),
     javascript_lessons.fetch('ES6 Modules'),
+    javascript_lessons.fetch('npm'),
     javascript_lessons.fetch('Webpack'),
     javascript_lessons.fetch('Restaurant Page'),
     javascript_lessons.fetch('Revisiting Webpack'),
