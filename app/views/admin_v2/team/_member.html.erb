@@ -1,11 +1,11 @@
 <li class="flex items-center gap-x-4 py-5">
-  <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
+  <div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
     <span class="font-semibold text-sm"><%= team_member.initials.upcase %></span>
   </div>
 
   <div class="min-w-0">
     <div class="flex items-center gap-x-2">
-      <p class="text-sm font-semibold leading-6 text-gray-900"><%= team_member.name %></p>
+      <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
       <% if team_member.pending? %>
         <%= render Ui::BadgeComponent.new(color: 'yellow') do %>
             Pending

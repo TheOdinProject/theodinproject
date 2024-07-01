@@ -1,8 +1,8 @@
 <div class="max-w-5xl w-full mx-auto">
   <div class="sm:flex sm:items-center max-w-5xl">
     <div class="sm:flex-auto">
-      <h1 class="text-xl font-semibold leading-6 text-gray-900">Announcements</h1>
-      <p class="mt-2 text-sm text-gray-700">Announcements are displayed to everyone on the site as a banner.</p>
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Announcements</h1>
+      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Announcements are displayed to everyone on the site as a banner.</p>
     </div>
   </div>
 
@@ -13,9 +13,8 @@
               "#{Announcement.for_status(status).count} #{status.capitalize}",
               admin_v2_announcements_path(status:),
               class: [
-                'relative inline-flex items-center rounded-md px-3 py-2 text-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10',
-                'text-gray-800 bg-gray-100': params.fetch(:status, 'active') == status,
-                'text-gray-600 bg-white': params[:status] && params[:status] != status,
+                'relative inline-flex items-center rounded-md px-3 py-2 text-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10 dark:text-gray-300 dark:ring-gray-700 dark:hover:bg-gray-700',
+                'text-gray-800 bg-gray-100 dark:text-gray-300 dark:bg-gray-700': params.fetch(:status, 'active') == status,
               ]
             ) %>
         <% end %>
@@ -28,37 +27,37 @@
     <% if @announcements.any? %>
       <div class="overflow-x-auto">
         <div class="inline-block min-w-full py-2 align-middle">
-          <table class="min-w-full divide-y divide-gray-300">
+          <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
             <thead>
-              <tr>
-                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Message</th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Created</th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Expires</th>
+              <tr class="text-gray-800 dark:text-gray-300">
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-0">Message</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Created</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Expires</th>
                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0"><span class="sr-only">Edit</span></th>
               </tr>
             </thead>
 
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
               <% @announcements.each do |announcement | %>
                 <tr>
-                  <td class=" px-3 py-4 text-xs text-gray-500 max-w-xl">
+                  <td class=" px-3 py-4 text-xs text-gray-500 dark:text-gray-300 max-w-xl">
                     <%= announcement.message %>
                   </td>
 
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
                     <span title="<%= announcement.created_at %>">
                       <%= time_ago_in_words(announcement.created_at) %> ago
                     </span>
                   </td>
 
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
                     <span title="<%= announcement.expires_at %>">
                       <%= announcement.expires_at.strftime('%B %d, %Y') %>
                     </span>
                   </td>
 
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                    <%= link_to 'View', admin_v2_announcement_path(announcement), class: 'underline hover:text-gray-800 hover:no-underline' %>
+                    <%= link_to 'View', admin_v2_announcement_path(announcement), class: 'underline text-gray-800 hover:text-gray-900 hover:no-underline dark:text-gray-300 dark:hover:text-gray-200' %>
                   </td>
                 </tr>
               <% end %>
@@ -71,8 +70,8 @@
 
     <% else %>
       <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
-        <%= inline_svg_tag 'icons/megaphone.svg', class: 'h-16 w-16 text-gray-400', aria: true %>
-        <p class="text-xl text-gray-500 leading-6"> No <%= params.fetch(:status, 'active') %> announcements found!</p>
+        <%= inline_svg_tag 'icons/megaphone.svg', class: 'h-16 w-16 text-gray-400 dark:text-gray-500', aria: true %>
+        <p class="text-xl text-gray-500 dark:text-gray-400 leading-6"> No <%= params.fetch(:status, 'active') %> announcements found!</p>
       </div>
     <% end %>
   </div>
