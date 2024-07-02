@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
 
-  def authenticate_admin_user!
+  def authenticate_active_admin_user!
     authenticate_user!
 
     unless current_user.admin?

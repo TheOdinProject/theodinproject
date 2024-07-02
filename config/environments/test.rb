@@ -40,11 +40,11 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {
     host: ENV.fetch('HOST', 'localhost'),
-    port: ENV.fetch('HOST_PORT', 3000)
+    port: ENV.fetch('HOST_PORT', 3001)
   }
   routes.default_url_options = {
     host: ENV.fetch('HOST', 'localhost'),
-    port: ENV.fetch('HOST_PORT', 3000)
+    port: ENV.fetch('HOST_PORT', 3001)
   }
 
   # Tell Action Mailer not to deliver emails to the real world.

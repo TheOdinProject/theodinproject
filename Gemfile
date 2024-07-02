@@ -13,6 +13,7 @@ gem 'classy-yaml', '~> 1.2'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'debug', '~> 1.9'
 gem 'devise', '~> 4.9'
+gem 'devise_invitable', '~> 2.0'
 gem 'discard', '~> 1.3'
 gem 'discordrb-webhooks', '~> 3.5'
 gem 'dry-initializer', '~> 3.1'
@@ -64,6 +65,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.40'
+  gem 'capybara-email', '~> 3.0'
   gem 'cuprite', '~> 0.15'
   gem 'erb_lint', '~> 0.5', require: false
   gem 'factory_bot_rails', '~> 6.4'

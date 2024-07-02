@@ -6,4 +6,5 @@ namespace :admin_v2 do
 
   resources :flags, only: %i[index show update]
   resources :announcements
+  resource :team, only: :show, controller: :team
 end
