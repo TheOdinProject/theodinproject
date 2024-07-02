@@ -30,6 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            reset_password_token:
+              blank: "The password reset link you have used is no longer active or invalid. Password reset links only work one time. <a class='underline text-blue-600 dark:text-blue-400 hover:no-underline' href='/users/password_reset/new'>Please reset your password again.</a>"
+              invalid: "The password reset link you have used is no longer active or invalid. Password reset links only work one time. <a class='underline text-blue-600 dark:text-blue-400 hover:no-underline' href='/users/password_reset/new'>Please reset your password again.</a>"
+        admin_user:
+          attributes:
+            reset_password_token:
+              blank: "The password reset link you have used is no longer active or invalid. Password reset links only work one time Please ask a team member to reset your password again."
+              invalid: "The password reset link you have used is no longer active or invalid. Password reset links only work one time. Please ask a team member to reset your password again."
+
   static_pages:
     about:
         beliefs:
