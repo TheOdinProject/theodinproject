@@ -3,7 +3,7 @@
 
   <div class="flex mt-8 flex-col sm:flex-row items-center justify-between">
     <div class="flex gap-x-2">
-      <h1 class="text-xl font-semibold leading-6 text-gray-900">Announcement #<%= @announcement.id %></h1>
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-200">Announcement #<%= @announcement.id %></h1>
       <%= render Ui::BadgeComponent.new(color: @announcement.active? ? 'green' : 'yellow') do %>
         <%= @announcement.status.capitalize %>
       <% end %>
@@ -16,21 +16,21 @@
   </div>
 
    <div>
-    <div class="mt-6 border-t border-gray-100">
-      <dl class="divide-y divide-gray-100">
+    <div class="mt-6 border-t border-gray-100 dark:border-gray-700">
+      <dl class="divide-y divide-gray-100 dark:divide-gray-700">
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Message</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @announcement.message %> </dd>
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Message</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @announcement.message %> </dd>
         </div>
 
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Learn more link</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @announcement.learn_more_url %></dd>
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Learn more link</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @announcement.learn_more_url %></dd>
         </div>
 
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Created</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Created</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0">
             <span title="<%= @announcement.created_at %>">
               <%= time_ago_in_words(@announcement.created_at) %> ago
             </span>
@@ -38,8 +38,8 @@
         </div>
 
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">Expires</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Expires</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-200 sm:col-span-2 sm:mt-0">
             <span title="<%= @announcement.expires_at %>">
               <%= @announcement.expires_at.strftime('%B %d, %Y') %>
             </span>
@@ -48,7 +48,7 @@
       </dl>
     </div>
 
-    <p class="text-sm font-medium leading-6 text-gray-900 py-4">Preview</p>
+    <p class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200 py-4">Preview</p>
     <%= render AnnouncementComponent.new(announcement: @announcement, closeable: false) %>
   </div>
 </div>

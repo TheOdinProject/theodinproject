@@ -10,7 +10,7 @@ class Ui::BadgeComponent < ApplicationComponent
     when 'green'
       'bg-green-50 text-green-700 ring-green-600/20'
     else
-      'bg-gray-50 text-ray-700 ring-gray-600/20'
+      'bg-gray-50 text-gray-700 ring-gray-600/20'
     end
   end
 
