@@ -11,4 +11,8 @@ namespace :admin_v2 do
   resources :team_members do
     resources :password_resets, only: %i[create], controller: 'team_members/password_resets'
   end
+
+  resource :profile, only: %i[edit update], controller: :profile do
+    resource :password, only: %i[update], controller: 'profile/password'
+  end
 end
