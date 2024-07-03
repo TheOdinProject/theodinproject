@@ -3,7 +3,7 @@
     <span class="font-semibold text-sm"><%= team_member.initials.upcase %></span>
   </div>
 
-  <div class="min-w-0">
+  <div class="min-w-0 w-full flex items-center justify-between">
     <div class="flex items-center gap-x-2">
       <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
       <% if team_member.pending? %>
@@ -13,5 +13,17 @@
       <% end %>
     </div>
 
+    <%= render Ui::Dropdown::Component.new do |dropdown| %>
+      <% dropdown.with_trigger_button do %>
+        <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
+      <% end %>
+
+      <% dropdown.with_item do %>
+        <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: "text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
+          <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+          Send password reset email
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </li>

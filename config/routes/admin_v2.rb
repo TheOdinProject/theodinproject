@@ -7,4 +7,8 @@ namespace :admin_v2 do
   resources :flags, only: %i[index show update]
   resources :announcements
   resource :team, only: :show, controller: :team
+
+  resources :team_members do
+    resources :password_resets, only: %i[create], controller: 'team_members/password_resets'
+  end
 end
