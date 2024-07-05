@@ -3,7 +3,6 @@ class AdminUser < ApplicationRecord
          password_length: 8..128
 
   validates :name, presence: true, uniqueness: true
-  validates :password, presence: true
 
   enum status: { pending: 'pending', active: 'active', deactivated: 'deactivated' }
 

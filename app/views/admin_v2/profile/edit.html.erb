@@ -1,0 +1,68 @@
+<%= title('Settings') %>
+
+<div class="max-w-5xl w-full mx-auto">
+  <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+
+    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+
+      <%= form_with model: @admin_user, url: admin_v2_profile_path, scope: :profile, builder: TailwindFormBuilder do |form| %>
+        <%= render CardComponent.new(classes: '!shadow-none border border-gray-200 dark:border-gray-800') do |card| %>
+          <% card.with_header do %>
+            <h3 class="text-xl leading-6 text-gray-800 dark:text-gray-200">Update your profile</h3>
+          <% end %>
+
+          <% card.with_body do %>
+            <div class="grid grid-cols-6 gap-6">
+
+              <div class="col-span-6 sm:col-span-3">
+                <%= form.label :name %>
+                <%= form.text_field :name, class: 'text-sm' %>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <%= form.label :email %>
+                <%= form.email_field :email, class: 'text-sm' %>
+              </div>
+            </div>
+          <% end %>
+
+          <% card.with_footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40 rounded-b-lg') do %>
+            <%= form.submit 'Save', class: 'button button--primary py-2 px-4' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9 mt-10">
+      <%= form_with model: @admin_user, url: admin_v2_profile_password_path, builder: TailwindFormBuilder do |form| %>
+        <%= render CardComponent.new(classes: '!shadow-none border border-gray-200 dark:border-gray-800') do |card| %>
+          <% card.with_header do %>
+            <h3 class="text-xl leading-6 text-gray-800 dark:text-gray-200">Change your password</h3>
+          <% end %>
+          <% card.with_body do %>
+            <div class="grid grid-cols-6 gap-6 grid-flow-row">
+              <div class="col-span-6 sm:col-span-4">
+                <%= form.label :current_password %>
+                <%= form.password_field :current_password, class: 'text-sm' %>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <%= form.label :password %>
+                <%= form.password_field :password, class: 'text-sm' %>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <%= form.label :password_confirmation %>
+                <%= form.password_field :password_confirmation, class: 'text-sm' %>
+              </div>
+            </div>
+          <% end %>
+
+          <% card.with_footer(classes: 'px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40 rounded-b-lg') do %>
+            <%= form.submit 'Save', class: 'button button--primary py-2 px-4', data: { disable_with: false } %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
