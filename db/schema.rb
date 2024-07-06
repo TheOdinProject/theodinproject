@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_26_164023) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_04_102438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -55,6 +55,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_26_164023) do
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
     t.enum "status", default: "pending", null: false, enum_type: "status"
+    t.datetime "deactivated_at"
+    t.bigint "deactivated_by_id"
+    t.index ["deactivated_by_id"], name: "index_admin_users_on_deactivated_by_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_admin_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_admin_users_on_invited_by_id"
@@ -320,6 +323,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_26_164023) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "admin_users", "admin_users", column: "deactivated_by_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "project_submissions"

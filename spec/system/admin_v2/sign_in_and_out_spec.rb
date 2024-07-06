@@ -29,6 +29,21 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
         expect(page).to have_current_path(new_admin_user_session_path)
       end
     end
+
+    context 'when the admin is deactivated' do
+      it 'does not sign the admin in' do
+        admin_user = create(:admin_user, status: :deactivated)
+
+        visit admin_v2_root_path
+
+        fill_in 'Email', with: admin_user.email
+        fill_in 'Password', with: admin_user.password
+        click_button 'Sign in'
+
+        expect(page).to have_current_path(new_admin_user_session_path)
+        expect(page).to have_content('Your account is deactivated')
+      end
+    end
   end
 
   describe 'sign out' do
