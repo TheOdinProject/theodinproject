@@ -1,4 +1,4 @@
-<li class="flex items-center gap-x-4 py-5">
+<li class="flex items-center gap-x-4 py-5" id="<%= dom_id(team_member) %>">
   <div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
     <span class="font-semibold text-sm"><%= team_member.initials.upcase %></span>
   </div>
@@ -22,6 +22,15 @@
         <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: "text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
           <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
           Send password reset email
+        <% end %>
+      <% end %>
+
+      <% if team_member.active? %>
+        <% dropdown.with_item do %>
+          <%= link_to admin_v2_team_member_deactivations_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: "text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
+            <%= inline_svg_tag 'icons/user-minus.svg', class: 'mr-3 h-6 w-6 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
+            Deactivate
+          <% end %>
         <% end %>
       <% end %>
     <% end %>

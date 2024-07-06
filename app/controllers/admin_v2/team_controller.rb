@@ -3,6 +3,7 @@ module AdminV2
     def show
       @pending_team_members = AdminUser.pending
       @active_team_members = AdminUser.active
+      @deactivated_team_members = AdminUser.deactivated
     end
   end
 end
