@@ -12,7 +12,7 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
         fill_in 'Password', with: admin_user.password
         click_button 'Sign in'
 
-        expect(page).to have_current_path(admin_v2_root_path)
+        expect(page).to have_current_path(admin_v2_dashboard_path)
       end
     end
 
