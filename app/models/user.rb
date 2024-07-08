@@ -20,6 +20,7 @@ class User < ApplicationRecord
   belongs_to :path, optional: true
 
   scope :created_after, ->(date) { where(arel_table[:created_at].gt(date)) }
+  scope :signed_up_on, ->(date) { where(created_at: date.all_day) }
 
   def progress_for(course)
     @progress ||= Hash.new { |hash, c| hash[c] = CourseProgress.new(c, self) }

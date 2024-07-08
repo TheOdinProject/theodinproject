@@ -27,6 +27,17 @@ RSpec.describe User do
     end
   end
 
+  describe '.signed_up_on' do
+    it 'returns users who signed up on a given date' do
+      user_signed_up_yesterday = create(:user, created_at: Time.zone.yesterday)
+      create(:user, created_at: Time.zone.today)
+      create(:user, created_at: Time.zone.tomorrow)
+      create(:user, created_at: Time.zone.yesterday - 1.day)
+
+      expect(described_class.signed_up_on(Time.zone.yesterday)).to contain_exactly(user_signed_up_yesterday)
+    end
+  end
+
   describe '#progress_for' do
     let(:course) { build_stubbed(:course) }
     let(:course_progress) { instance_double(CourseProgress) }

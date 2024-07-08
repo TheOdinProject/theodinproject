@@ -18,7 +18,7 @@ class ProjectSubmission < ApplicationRecord
 
   scope :only_public, -> { where(is_public: true, discarded_at: nil) }
   scope :not_removed_by_admin, -> { where(discarded_at: nil) }
-  scope :created_today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
+  scope :submitted_on, ->(date) { where(created_at: date.all_day) }
   scope :discardable, -> { not_removed_by_admin.where(discard_at: ..Time.zone.now) }
 
   def self.sort_by_params(column, direction = 'desc')

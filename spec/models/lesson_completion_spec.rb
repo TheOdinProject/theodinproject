@@ -10,12 +10,14 @@ RSpec.describe LessonCompletion do
 
   it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:lesson_id) }
 
-  describe '.created_today' do
-    it 'returns lessons completed today' do
-      lesson_completed_today = create(:lesson_completion, created_at: Time.zone.today)
-      create(:lesson_completion, created_at: Time.zone.today - 2.days)
+  describe '.created_on' do
+    it 'returns lessons completions created on the given date' do
+      lesson_completed_yesterday = create(:lesson_completion, created_at: Time.zone.yesterday)
+      create(:lesson_completion, created_at: Time.zone.today)
+      create(:lesson_completion, created_at: Time.zone.tomorrow)
+      create(:lesson_completion, created_at: Time.zone.yesterday - 1.day)
 
-      expect(described_class.created_today).to contain_exactly(lesson_completed_today)
+      expect(described_class.completed_on(Time.zone.yesterday)).to contain_exactly(lesson_completed_yesterday)
     end
   end
 end

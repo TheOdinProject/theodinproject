@@ -62,19 +62,16 @@ RSpec.describe ProjectSubmission do
     end
   end
 
-  describe '.created_today' do
-    it 'returns projects submission created today' do
-      project_submission_created_today = create(
-        :project_submission,
-        created_at: Time.zone.today
-      )
+  describe '.submitted_on' do
+    it 'returns project submissions submitted on a given date' do
+      project_submission_submitted_yesterday = create(:project_submission, created_at: Time.zone.yesterday)
+      create(:project_submission, created_at: Time.zone.today)
+      create(:project_submission, created_at: Time.zone.tomorrow)
+      create(:project_submission, created_at: Time.zone.yesterday - 1.day)
 
-      project_submission_not_not_created_today = create(
-        :project_submission,
-        created_at: Time.zone.today - 2.days
+      expect(described_class.submitted_on(Time.zone.yesterday)).to contain_exactly(
+        project_submission_submitted_yesterday
       )
-
-      expect(described_class.created_today).to contain_exactly(project_submission_created_today)
     end
   end
 

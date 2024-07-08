@@ -1,11 +1,11 @@
 module Notifications
   class DailySummary
     def message
-      "**TOP Summary For #{Date.current.to_fs(:long_ordinal)}**\n" \
-        "#{User.where('created_at >= ?', start_of_day).size} users signed up\n" \
-        "#{LessonCompletion.created_today.size} lessons completed\n" \
-        "#{ProjectSubmission.created_today.size} project submissions added\n" \
-        "#{Like.created_today.size} projects liked"
+      "**TOP Summary For #{Date.yesterday.to_fs(:long_ordinal)} (UTC)**\n" \
+        "#{user_sign_up_count} users signed up\n" \
+        "#{lesson_completion_count} lessons completed\n" \
+        "#{project_submission_count} project submissions added\n" \
+        "#{project_like_count} projects liked"
     end
 
     def destination
@@ -16,8 +16,20 @@ module Notifications
 
     attr_reader :course
 
-    def start_of_day
-      Time.zone.now.beginning_of_day
+    def user_sign_up_count
+      User.signed_up_on(Time.zone.yesterday).count
+    end
+
+    def lesson_completion_count
+      LessonCompletion.completed_on(Time.zone.yesterday).count
+    end
+
+    def project_submission_count
+      ProjectSubmission.submitted_on(Time.zone.yesterday).count
+    end
+
+    def project_like_count
+      Like.liked_on(Time.zone.yesterday).count
     end
   end
 end
