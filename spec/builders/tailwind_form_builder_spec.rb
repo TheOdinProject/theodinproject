@@ -55,7 +55,7 @@ RSpec.describe TailwindFormBuilder do
   end
 
   describe '#date_field' do
-    it 'returns a tailwind styled email field' do
+    it 'returns a tailwind styled date field' do
       expect(builder.date_field(:created_at)).to match_snapshot('tailwind_form_builder/date_field')
     end
 

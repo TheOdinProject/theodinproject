@@ -16,4 +16,8 @@ namespace :admin_v2 do
   resource :profile, only: %i[edit update], controller: :profile do
     resource :password, only: %i[update], controller: 'profile/password'
   end
+
+  namespace :reports do
+    resource :lesson_completions, only: :show
+  end
 end

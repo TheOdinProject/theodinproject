@@ -1,0 +1,4 @@
+refresh_materialized_views:
+  cron: "every 5 minutes"
+  class: 'RefreshMaterializedViewsJob'
+  queue: default

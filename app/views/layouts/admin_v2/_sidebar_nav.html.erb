@@ -4,6 +4,9 @@ nav_links = [
   { name: 'Flags', path: admin_v2_flags_path, icon: 'flag-outline' },
   { name: 'Announcements', path: admin_v2_announcements_path, icon: 'megaphone' },
   { name: 'Team', path: admin_v2_team_path, icon: 'user-group' },
+  { name: 'Analytics', icon: 'chart-bar', nested_nav_links: [
+    { name: 'Lesson completions', path: admin_v2_reports_lesson_completions_path },
+  ]}
 ]
 %>
 
@@ -67,30 +70,11 @@ nav_links = [
 
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
-            <li>
-              <ul role="list" class="-mx-2 space-y-1">
-                <% nav_links.each do |nav_link| %>
-                  <li>
-                    <%= link_to(
-                          nav_link.fetch(:path),
-                          class: [
-                            'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                            'text-gray-700 hover:text-gray-800 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700/50': !current_page?(nav_link.fetch(:path)),
-                            'bg-gray-100 dark:bg-gray-700/50 text-gray-800 dark:text-gray-200': current_page?(nav_link.fetch(:path)),
-                          ]
-                        ) do %>
-
-                      <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-500'}" %>
-                      <%= nav_link.fetch(:name) %>
-                    <% end %>
-                  </li>
-                <% end %>
-              </ul>
-            </li>
+            <%= render 'layouts/admin_v2/nav_links', nav_links: %>
 
             <li class="mt-auto">
-              <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-gold-700' do %>
-                <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-400 group-hover:text-gold-700' %>
+              <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200' do %>
+                <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-800 dark:text-gray-400 dark:group-hover:text-gray-200' %>
                 Settings
               <% end %>
             </li>
@@ -110,25 +94,7 @@ nav_links = [
 
     <nav class="flex flex-1 flex-col">
       <ul role="list" class="flex flex-1 flex-col gap-y-7">
-        <li>
-          <ul role="list" class="-mx-2 space-y-1">
-            <% nav_links.each do |nav_link| %>
-              <li>
-                <%= link_to(
-                      nav_link.fetch(:path),
-                      class: [
-                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
-                        'text-gray-700 hover:text-gray-800 hover:bg-gray-200 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700/50': !current_page?(nav_link.fetch(:path)),
-                        'bg-gray-200 text-gray-800 dark:bg-gray-700/50 dark:text-gray-200': current_page?(nav_link.fetch(:path)),
-                      ]
-                    ) do %>
-                  <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-700 dark:text-gray-300 dark:group-hover:text-gray-200 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-500'}" %>
-                  <%= nav_link.fetch(:name) %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </li>
+        <%= render 'layouts/admin_v2/nav_links', nav_links: %>
 
         <li class="mt-auto">
           <%= link_to edit_admin_v2_profile_path, class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200' do %>

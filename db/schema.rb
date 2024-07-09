@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_04_102438) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_05_122456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -335,4 +335,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_04_102438) do
   add_foreign_key "path_prerequisites", "paths", column: "prerequisite_id"
   add_foreign_key "project_submissions", "lessons"
   add_foreign_key "project_submissions", "users"
+
+  create_view "all_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
+      SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date)) AS id,
+      (lesson_completions.created_at)::date AS date,
+      count(*) AS completions_count
+     FROM lesson_completions
+    GROUP BY ((lesson_completions.created_at)::date)
+    ORDER BY ((lesson_completions.created_at)::date);
+  SQL
 end
