@@ -27,6 +27,10 @@
     @apply bg-gray-50 p-4 my-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-600 rounded;
   }
 
+  .lesson-note > h4:has(.anchor-link:hover)::before {
+    @apply invisible;
+  }
+
   .lesson-note > *:first-child::before {
     font-family: "Font Awesome 6 Free";
     content: "\f249";
