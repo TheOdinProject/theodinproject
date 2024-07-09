@@ -20,6 +20,6 @@
   .anchor-link:hover:before {
     content: "\f0c1";
     font-family: "Font Awesome 5 Free";
-    @apply text-gray-500 dark:text-gray-300 text-xs absolute -left-5 top-1/2 -translate-y-1/2 font-semibold hidden sm:block;
+    @apply text-gray-500 dark:text-gray-300 text-xs absolute -left-[22px] top-1/2 -translate-y-1/2 font-semibold hidden sm:block;
   }
 }
