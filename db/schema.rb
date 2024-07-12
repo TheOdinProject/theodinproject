@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_05_122456) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_09_052504) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
@@ -57,12 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_05_122456) do
     t.enum "status", default: "pending", null: false, enum_type: "status"
     t.datetime "deactivated_at"
     t.bigint "deactivated_by_id"
+    t.datetime "reactivated_at"
+    t.bigint "reactivated_by_id"
     t.index ["deactivated_by_id"], name: "index_admin_users_on_deactivated_by_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_admin_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_admin_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_admin_users_on_invited_by"
     t.index ["name"], name: "index_admin_users_on_name", unique: true
+    t.index ["reactivated_by_id"], name: "index_admin_users_on_reactivated_by_id"
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
@@ -324,6 +326,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_05_122456) do
   end
 
   add_foreign_key "admin_users", "admin_users", column: "deactivated_by_id"
+  add_foreign_key "admin_users", "admin_users", column: "reactivated_by_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "project_submissions"

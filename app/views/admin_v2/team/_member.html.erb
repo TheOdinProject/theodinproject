@@ -13,23 +13,34 @@
       <% end %>
     </div>
 
-    <%= render Ui::Dropdown::Component.new do |dropdown| %>
-      <% dropdown.with_trigger_button do %>
-        <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
-      <% end %>
-
-      <% dropdown.with_item do %>
-        <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: "text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
-          <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-6 w-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
-          Send password reset email
+    <% unless team_member == current_admin_user %>
+      <%= render Ui::Dropdown::Component.new do |dropdown| %>
+        <% dropdown.with_trigger_button do %>
+          <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
         <% end %>
-      <% end %>
 
-      <% if team_member.active? %>
-        <% dropdown.with_item do %>
-          <%= link_to admin_v2_team_member_deactivations_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: "text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm #{'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300' if current_page?(edit_users_profile_path)}" do %>
-            <%= inline_svg_tag 'icons/user-minus.svg', class: 'mr-3 h-6 w-6 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
-            Deactivate
+        <% if team_member.active? %>
+          <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+              Send password reset email
+            <% end %>
+          <% end %>
+
+          <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_member_deactivations_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: 'text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/user-minus.svg', class: 'mr-3 h-5 w-5 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
+              Deactivate
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <% if team_member.deactivated? %>
+          <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_member_reactivation_path(team_member_id: team_member), data: { turbo_method: :put, turbo_frame: '_top' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/user-plus.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+              Reactivate
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

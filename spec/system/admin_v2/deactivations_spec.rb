@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Admin V2 team members deactivations' do
   it 'deactivates a team member' do
     admin = create(:admin_user, status: :active)
-    other_admin = create(:admin_user, status: :active)
+    other_admin = create(:admin_user, status: :active, email: 'otheradmin@odin.com', password: 'password')
 
     sign_in(admin)
 
@@ -17,6 +17,17 @@ RSpec.describe 'Admin V2 team members deactivations' do
 
     within('#deactivated_members') do
       expect(page).to have_content(other_admin.name)
+    end
+
+    using_session('other_admin') do
+      visit new_admin_user_session_path
+
+      fill_in 'Email', with: other_admin.email
+      fill_in 'Password', with: other_admin.password
+      click_button 'Sign in'
+
+      expect(page).to have_current_path(new_admin_user_session_path)
+      expect(page).to have_content('Your account is deactivated')
     end
   end
 end

@@ -99,4 +99,44 @@ RSpec.describe AdminUser do
       end
     end
   end
+
+  describe '#reactivate!' do
+    it 'reactivates the admin' do
+      admin = build(:admin_user, status: :deactivated)
+      activator = build(:admin_user)
+
+      expect do
+        admin.reactivate!(activator:)
+      end.to change { admin.status }.from('deactivated').to('active')
+    end
+
+    it 'sets the reactivator' do
+      admin = build(:admin_user, status: :deactivated)
+      activator = build(:admin_user)
+
+      expect do
+        admin.reactivate!(activator:)
+      end.to change { admin.reactivated_by }.from(nil).to(activator)
+    end
+
+    it 'sets the reactivated_at timestamp' do
+      admin = build(:admin_user, status: :deactivated)
+      activator = build(:admin_user)
+
+      freeze_time do
+        expect do
+          admin.reactivate!(activator:)
+        end.to change { admin.reactivated_at }.from(nil).to(Time.current)
+      end
+    end
+
+    context 'when the admin is already active' do
+      it 'does not reactivate the admin' do
+        admin = build(:admin_user, status: :active)
+        activator = build(:admin_user)
+
+        expect { admin.reactivate!(activator:) }.not_to change { admin.status }
+      end
+    end
+  end
 end
