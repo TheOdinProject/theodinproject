@@ -6,11 +6,17 @@ RSpec.describe RefreshMaterializedViewsJob do
   describe '#perform' do
     before do
       allow(Reports::AllLessonCompletionsDayStat).to receive(:refresh)
+      allow(Reports::PathLessonCompletionsDayStat).to receive(:refresh)
     end
 
     it 'refreshes all lesson completions day stats' do
       job.perform
       expect(Reports::AllLessonCompletionsDayStat).to have_received(:refresh)
+    end
+
+    it 'refreshes path lesson completions day stats' do
+      job.perform
+      expect(Reports::PathLessonCompletionsDayStat).to have_received(:refresh)
     end
   end
 end

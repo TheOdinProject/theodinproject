@@ -1,12 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Path do
-  subject { described_class.new }
+  subject(:path) { described_class.new }
 
   it { is_expected.to have_many(:users) }
   it { is_expected.to have_many(:courses).order(:position) }
+  it { is_expected.to have_many(:lessons).through(:courses) }
   it { is_expected.to have_many(:path_prerequisites).dependent(:destroy) }
   it { is_expected.to have_many(:prerequisites).through(:path_prerequisites).source(:prerequisite) }
+
+  it do
+    expect(path).to have_many(:lesson_completion_stats).class_name('Reports::PathLessonCompletionsDayStat')
+      .dependent(:destroy)
+  end
 
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:description) }

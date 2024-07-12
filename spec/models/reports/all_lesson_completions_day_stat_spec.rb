@@ -48,7 +48,7 @@ RSpec.describe Reports::AllLessonCompletionsDayStat do
   end
 
   describe '.earliest_date' do
-    it 'returns the earliest lesson completion month stat' do
+    it 'returns the earliest lesson completions day stat' do
       create(:lesson_completion, created_at: Time.utc(2022, 1, 1))
       create(:lesson_completion, created_at: Time.utc(2022, 2, 1))
       create(:lesson_completion, created_at: Time.utc(2022, 3, 1))
@@ -60,13 +60,14 @@ RSpec.describe Reports::AllLessonCompletionsDayStat do
 
     context 'when there are no lesson completions' do
       it 'defaults to today' do
+        described_class.refresh
         expect(described_class.earliest_date).to eq(Time.zone.today)
       end
     end
   end
 
   describe '.latest_date' do
-    it 'returns the earliest lesson completion month stat' do
+    it 'returns the earliest lesson completions day stat' do
       create(:lesson_completion, created_at: Time.utc(2022, 1, 1))
       create(:lesson_completion, created_at: Time.utc(2022, 2, 1))
       create(:lesson_completion, created_at: Time.utc(2022, 3, 1))
@@ -78,6 +79,7 @@ RSpec.describe Reports::AllLessonCompletionsDayStat do
 
     context 'when there are no lesson completions' do
       it 'defaults to today' do
+        described_class.refresh
         expect(described_class.latest_date).to eq(Time.zone.today)
       end
     end
