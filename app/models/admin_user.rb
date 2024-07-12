@@ -3,6 +3,7 @@ class AdminUser < ApplicationRecord
          password_length: 8..128
 
   belongs_to :deactivated_by, class_name: 'AdminUser', optional: true
+  belongs_to :reactivated_by, class_name: 'AdminUser', optional: true
 
   validates :name, presence: true, uniqueness: true
 
@@ -26,6 +27,12 @@ class AdminUser < ApplicationRecord
     return unless active?
 
     update!(status: :deactivated, deactivated_by: deactivator, deactivated_at: Time.current)
+  end
+
+  def reactivate!(activator:)
+    return unless deactivated?
+
+    update!(status: :active, reactivated_by: activator, reactivated_at: Time.current)
   end
 
   private

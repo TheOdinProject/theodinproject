@@ -7,7 +7,7 @@
     <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
   </div>
 
-  <ul role="list" class="divide-y divide-gray-100 dark:divide-gray-800 mt-8">
+  <ul role="list" id="active_members" class="divide-y divide-gray-100 dark:divide-gray-800 mt-8">
     <%= turbo_frame_tag 'pending_members' do %>
        <%= render partial: 'admin_v2/team/member', collection: @pending_team_members, as: :team_member %>
     <% end %>
@@ -15,13 +15,15 @@
     <%= render partial: 'admin_v2/team/member', collection: @active_team_members, as: :team_member %>
   </ul>
 
-   <div class="border-b border-gray-200 dark:border-gray-800 pb-5 mt-10">
-      <h3 class="text-base font-semibold leading-6 text-gray-800 dark:text-gray-300">Deactivated team members</h3>
-  </div>
-  <ul>
-    <%= turbo_frame_tag 'deactivated_members' do %>
-      <%= render partial: 'admin_v2/team/member', collection: @deactivated_team_members, as: :team_member %>
-    <% end %>
-  </ul>
+  <% if @deactivated_team_members.any? %>
+    <div class="border-b border-gray-200 dark:border-gray-800 pb-5 mt-10">
+      <h3 class="text-base font-semibold leading-6 text-gray-800 dark:text-gray-300">Deactivated</h3>
+    </div>
 
+    <ul>
+      <%= turbo_frame_tag 'deactivated_members' do %>
+        <%= render partial: 'admin_v2/team/member', collection: @deactivated_team_members, as: :team_member %>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
