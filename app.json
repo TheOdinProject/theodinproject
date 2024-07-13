@@ -13,7 +13,11 @@
       ],
       "addons": [
         "heroku-postgresql:mini",
-        "heroku-redis:mini"
+        "heroku-redis:mini",
+        {
+          "plan": "heroku-redis:minis",
+          "as": "REDIS_FOR_RACK_ATTACK"
+        }
       ],
       "env": {
         "STAGING": {
