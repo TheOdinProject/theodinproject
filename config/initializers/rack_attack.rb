@@ -1,4 +1,8 @@
 class Rack::Attack
+  Rack::Attack.enabled = ENV['ENABLE_RACK_ATTACK'] || Rails.env.production?
+
+  Rack::Attack.cache.store = Redis.new(url: ENV['REDIS_FOR_RACK_ATTACK_URL']) if ENV['REDIS_FOR_RACK_ATTACK_URL']
+
   ### Throttle Spammy Clients ###
 
   # If any single client IP is making tons of requests, then they're
