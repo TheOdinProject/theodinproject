@@ -56,7 +56,7 @@
     "prismjs": "^1.29.0",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.70.0",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^14.2.1",
     "shakapacker": "6.6",
     "sortablejs": "^1.15.0",
     "stimulus-use": "^0.51.3",
