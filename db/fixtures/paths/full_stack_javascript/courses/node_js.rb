@@ -3,7 +3,7 @@
 #######################
 course = @path.add_course do |course|
   course.title = 'NodeJS'
-  course.description = "Take your JavaScript skills to the server-side! Learn how to fully craft your site's backend using Express, the most popular back-end JavaScript framework! You will also learn how to use a non-relational database, MongoDB."
+  course.description = "Take your JavaScript skills to the server-side! Learn how to fully craft your site's backend using Express, the most popular back-end JavaScript framework! You will also learn how to use a relational database, PostgreSQL."
   course.identifier_uuid = '1a2c27d8-258a-4d9e-97a4-83a4c2a03b64'
   course.show_on_homepage = true
   course.badge_uri = 'badge-nodejs.svg'
@@ -24,39 +24,28 @@ course.add_section do |section|
     node_js_lessons.fetch('Getting Started'),
     node_js_lessons.fetch('Debugging Node'),
     node_js_lessons.fetch('Basic Informational Site'),
-  )
-end
-
-# ++++++++++++++++++++++++++++++++
-# SECTION - MongoDB
-# ++++++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'MongoDB'
-  section.description = "In this section you'll learn about creating and querying a MongoDB database, as well as the differences between relational databases and a NoSQL option like MongoDB."
-  section.identifier_uuid = '8cbb031e-1e58-11ec-9621-0242ac130002'
-
-  section.add_lessons(
-    node_js_lessons.fetch('Introduction to MongoDB'),
+    node_js_lessons.fetch('Environment Variables'),
   )
 end
 
 # +++++++++++++++++++++++++++
-# SECTION - Express & Mongoose
+# SECTION - Express
 # +++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Express & Mongoose'
-  section.description = 'Here we finally get to Express, the most popular back-end JavaScript framework, and learn to build applications with MongoDB using Mongoose.'
-  section.identifier_uuid = '667788c1-67b9-4ed1-9b72-c5e8bc6f9009'
+  section.title = 'Express'
+  section.description = 'Here we finally get to Express, the most popular back-end JavaScript framework, and learn to build applications with a PostgreSQL database.'
+  section.identifier_uuid = '3b803529-86ca-4812-8339-7f9ad6ab91cf'
 
   section.add_lessons(
     node_js_lessons.fetch('Introduction to Express'),
-    node_js_lessons.fetch('Express 101'),
-    node_js_lessons.fetch('Express 102: CRUD and MVC'),
+    node_js_lessons.fetch('Routes'),
+    node_js_lessons.fetch('Controllers'),
+    node_js_lessons.fetch('Views'),
     node_js_lessons.fetch('Mini Message Board'),
     node_js_lessons.fetch('Deployment'),
-    node_js_lessons.fetch('Express 103: Routes and Controllers'),
-    node_js_lessons.fetch('Express 104: View Templates'),
-    node_js_lessons.fetch('Express 105: Forms and Deployment'),
+    node_js_lessons.fetch('Forms and Data Handling'),
+    node_js_lessons.fetch('Installing PostgreSQL'),
+    node_js_lessons.fetch('Using PostgreSQL'),
     node_js_lessons.fetch('Inventory Application'),
   )
 end
@@ -73,6 +62,20 @@ course.add_section do |section|
     node_js_lessons.fetch('Authentication Basics'),
     node_js_lessons.fetch('Security Configuration'),
     node_js_lessons.fetch('Members Only'),
+  )
+end
+
+# +++++++++++++++++++++++++++
+# SECTION - ORMs
+# +++++++++++++++++++++++++++
+course.add_section do |section|
+  section.title = 'ORMs'
+  section.description = 'We learn about object relational mappers (ORMs) and Prisma ORM.'
+  section.identifier_uuid = '5b368bc6-e85a-407f-b11d-cca313791ae2'
+
+  section.add_lessons(
+    node_js_lessons.fetch('Prisma ORM'),
+    node_js_lessons.fetch('File Uploader'),
   )
 end
 
