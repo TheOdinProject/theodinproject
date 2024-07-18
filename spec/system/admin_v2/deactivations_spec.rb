@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin V2 team members deactivations' do
+RSpec.describe 'Admin V2 team member deactivation' do
   it 'deactivates a team member' do
     admin = create(:admin_user, status: :active)
     other_admin = create(:admin_user, status: :active, email: 'otheradmin@odin.com', password: 'password')

@@ -1,8 +1,8 @@
 module AdminV2
-  class TeamMembers::DeactivationsController < AdminV2::BaseController
+  class TeamMembers::DeactivationController < AdminV2::BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-    def create
+    def update
       team_member = AdminUser.find(params[:team_member_id])
 
       team_member.deactivate!(deactivator: current_admin_user)

@@ -10,7 +10,7 @@ namespace :admin_v2 do
 
   resources :team_members do
     resources :password_resets, only: %i[create], controller: 'team_members/password_resets'
-    resources :deactivations, only: %i[create], controller: 'team_members/deactivations'
+    resource :deactivation, only: %i[update], controller: 'team_members/deactivation'
     resource :reactivation, only: %i[update], controller: 'team_members/reactivation'
   end
 
