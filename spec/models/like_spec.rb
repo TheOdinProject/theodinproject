@@ -9,15 +9,16 @@ RSpec.describe Like do
   it { is_expected.to validate_presence_of(:likeable_type) }
   it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(%i[likeable_id likeable_type]) }
 
-  describe '.created_today' do
-    it 'returns likes created today' do
-      first_like_created_today = create(:like, created_at: Time.zone.today)
-      second_like_created_today = create(:like, created_at: Time.zone.today)
-      like_not_created_today = create(:like, created_at: Time.zone.today - 2.days)
+  describe '.liked_on' do
+    it 'returns likes created on a given date' do
+      first_like_created_yesterday = create(:like, created_at: Time.zone.yesterday)
+      second_like_created_yesterday = create(:like, created_at: Time.zone.yesterday)
+      create(:like, created_at: Time.zone.today)
+      create(:like, created_at: Time.zone.tomorrow)
 
-      expect(described_class.created_today).to contain_exactly(
-        first_like_created_today,
-        second_like_created_today
+      expect(described_class.liked_on(Time.zone.yesterday)).to contain_exactly(
+        first_like_created_yesterday,
+        second_like_created_yesterday
       )
     end
   end

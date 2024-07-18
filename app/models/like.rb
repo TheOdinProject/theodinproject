@@ -5,5 +5,5 @@ class Like < ApplicationRecord
   validates :user_id, uniqueness: { scope: %i[likeable_id likeable_type] }
   validates :likeable_type, presence: true
 
-  scope :created_today, -> { where('created_at >= ?', Time.zone.now.beginning_of_day) }
+  scope :liked_on, ->(date) { where(created_at: date.all_day) }
 end
