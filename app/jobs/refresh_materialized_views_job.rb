@@ -3,7 +3,8 @@ class RefreshMaterializedViewsJob < ApplicationJob
 
   def perform
     [
-      Reports::AllLessonCompletionsDayStat
+      Reports::AllLessonCompletionsDayStat,
+      Reports::PathLessonCompletionsDayStat
     ].each(&:refresh)
   end
 end

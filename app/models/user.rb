@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :announcements, dependent: nil
   has_many :likes, dependent: :destroy
-  belongs_to :path, optional: true
+
+  belongs_to :path, optional: true, counter_cache: true
 
   scope :created_after, ->(date) { where(arel_table[:created_at].gt(date)) }
 

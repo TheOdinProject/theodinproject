@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_09_052504) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_13_134127) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -239,6 +239,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_09_052504) do
     t.string "identifier_uuid", default: "", null: false
     t.string "short_title"
     t.string "badge_uri", null: false
+    t.integer "users_count", default: 0
     t.index ["identifier_uuid"], name: "index_paths_on_identifier_uuid", unique: true
     t.index ["slug"], name: "index_paths_on_slug", unique: true
   end
@@ -346,5 +347,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_09_052504) do
      FROM lesson_completions
     GROUP BY ((lesson_completions.created_at)::date)
     ORDER BY ((lesson_completions.created_at)::date);
+  SQL
+  create_view "path_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
+      SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date) DESC) AS id,
+      lesson_completions.path_id,
+      lesson_completions.lesson_id,
+      lesson_completions.course_id,
+      lessons."position" AS lesson_position,
+      courses."position" AS course_position,
+      (lesson_completions.created_at)::date AS date,
+      lessons.title AS lesson_title,
+      count(*) AS completions_count
+     FROM ((lesson_completions
+       JOIN lessons ON ((lesson_completions.lesson_id = lessons.id)))
+       JOIN courses ON ((lesson_completions.course_id = courses.id)))
+    GROUP BY ((lesson_completions.created_at)::date), lesson_completions.path_id, lesson_completions.lesson_id, lessons.title, lesson_completions.course_id, lessons."position", courses."position"
+    ORDER BY ((lesson_completions.created_at)::date) DESC;
   SQL
 end

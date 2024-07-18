@@ -7,36 +7,25 @@ export default class ChartController extends Controller {
   static values = {
     type: String,
     data: Object,
+    options: Object,
   };
 
   connect() {
     this.chart = new Chart(
       this.element,
       {
-        type: 'line',
+        type: this.typeValue,
         data: this.dataValue,
         plugins: [twColorsPlugin(twConfig)],
         options: {
           maintainAspectRatio: false,
           responsive: true,
-          scales: {
-            y: {
-              type: 'linear',
-              ticks: {
-                precision: 0,
-              },
-            },
-            x: {
-              grid: {
-                display: false,
-              },
-            },
-          },
           plugins: {
             legend: {
               display: false,
             },
           },
+          ...this.optionsValue,
         },
       },
     );

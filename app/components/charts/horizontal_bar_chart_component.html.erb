@@ -1,8 +1,8 @@
- <div class="w-full h-full">
+ <div class="w-full h-full relative p-0" style="height: <%= height %>px;">
     <canvas
       class="chart"
       data-controller="chart"
-      data-chart-type-value="line"
+      data-chart-type-value="bar"
       data-chart-data-value="<%= data.to_json %>"
       data-chart-options-value="<%= options.to_json %>">
     </canvas>
