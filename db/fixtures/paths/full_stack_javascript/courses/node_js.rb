@@ -60,7 +60,6 @@ course.add_section do |section|
 
   section.add_lessons(
     node_js_lessons.fetch('Authentication Basics'),
-    node_js_lessons.fetch('Security Configuration'),
     node_js_lessons.fetch('Members Only'),
   )
 end

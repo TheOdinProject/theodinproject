@@ -134,13 +134,6 @@ def node_js_lessons
       github_path: '/nodeJS/authentication/authentication_basics.md',
       identifier_uuid: '1f8942fc-b694-4ff6-9787-75e972c7da9c',
     },
-    'Security Configuration' => {
-      title: 'Security Configuration',
-      description: 'We learn how to use configuration modules to secure our apps',
-      is_project: false,
-      github_path: '/nodeJS/authentication/security_configuration.md',
-      identifier_uuid: 'a310c4f1-bec5-4c2e-bb52-a89772a67ed4',
-    },
     'Members Only' => {
       title: 'Members Only',
       description: "We create a private online clubhouse to practice using the auth strategies we've learned",
