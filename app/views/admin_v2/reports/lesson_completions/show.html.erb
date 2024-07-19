@@ -16,7 +16,7 @@
     <% end %>
 
     <span class="isolate inline-flex rounded-md space-x-2 mt-6 sm:mt-0">
-      <% %w[day month].each do |period| %>
+      <% %w[day month year].each do |period| %>
         <%= link_to(
               period.capitalize,
               request.params.merge(period:),
@@ -31,19 +31,15 @@
   <%= turbo_frame_tag 'lesson_completion_stats', class: 'block mt-4 h-80' do %>
     <%= render Charts::LineChartComponent.new(
           labels: @lesson_completions_stats.keys.map { |date| date.to_fs(:"graph_#{params.fetch(:period, 'day')}") },
+          display_x_labels: params.fetch('display_x_labels', true),
           datasets: [
             {
               label: 'Lesson completions',
               data: @lesson_completions_stats.values,
               fill: true,
-              backgroundColor: 'emerald-200',
-              borderColor: 'emerald-700',
-              borderWidth: '2',
-              radius: '3',
-              pointBorderColor: 'emerald-700',
-              pointBorderWidth: '2',
-              pointHoverRadius: '3',
-              pointHoverBackgroundColor: 'emerald-700'
+              backgroundColor: 'blue-200',
+              borderColor: 'blue-600',
+              borderWidth: 2
             }
           ],
         ) %>

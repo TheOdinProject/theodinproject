@@ -38,6 +38,19 @@ RSpec.describe User do
     end
   end
 
+  describe '.banned' do
+    it 'returns banned users' do
+      first_banned_user = create(:user, banned: true)
+      second_banned_user = create(:user, banned: true)
+      create(:user, banned: false)
+      create(:user, banned: false)
+
+      expect(described_class.banned).to contain_exactly(
+        first_banned_user, second_banned_user
+      )
+    end
+  end
+
   describe '#progress_for' do
     let(:course) { build_stubbed(:course) }
     let(:course_progress) { instance_double(CourseProgress) }

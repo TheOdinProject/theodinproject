@@ -2651,6 +2651,11 @@ chart.js@^4.4.3:
   dependencies:
     "@kurkle/color" "^0.3.0"
 
+chartjs-plugin-crosshair@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-crosshair/-/chartjs-plugin-crosshair-2.0.0.tgz#17ba6b33b8123fc8a3ccb10c9e5069ec67fd255f"
+  integrity sha512-Vs6strRvYpzL92v40r/rAWhh+7au8VnfyC/m2ZHXcXeLEWeFjDgMvXjWdX+eARhbgHQo+uGIKyq9fmkS79GIyQ==
+
 chartjs-plugin-tailwindcss-colors@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/chartjs-plugin-tailwindcss-colors/-/chartjs-plugin-tailwindcss-colors-0.2.2.tgz#659132a5a97a80b3d25d227d375a42b100cb4902"
