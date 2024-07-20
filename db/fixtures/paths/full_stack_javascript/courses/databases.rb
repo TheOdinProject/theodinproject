@@ -5,7 +5,6 @@ course = @path.add_course do |course|
   course.title = 'Databases'
   course.description = 'Databases are used to organize and capture large amounts of data, typically by inputting, storing, retrieving and managing the information. This course will focus on relational databases, which are widely used to store data and SQL, the language used to query the database.'
   course.identifier_uuid = '8179728b-8401-4653-9839-5843c99cad7d'
-  course.show_on_homepage = true
   course.badge_uri = 'badge-database.svg'
 end
 
