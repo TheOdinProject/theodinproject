@@ -19,6 +19,15 @@
           <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
         <% end %>
 
+        <% if team_member.pending? %>
+         <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_member_resend_invitation_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+              Resend invite
+            <% end %>
+          <% end %>
+        <% end %>
+
         <% if team_member.active? %>
           <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_frame: '_top' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
