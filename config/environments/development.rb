@@ -65,6 +65,12 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  config.active_record.encryption = {
+    primary_key: 'C697JaYLcwzaSkxtmnedQad2Tl369h4P',
+    deterministic_key: '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w',
+    key_derivation_salt: 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'
+  }
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 

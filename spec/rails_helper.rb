@@ -11,6 +11,9 @@ require 'rspec/rails'
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration[6.0].maintain_test_schema!
 
+require 'dotenv'
+Dotenv.load('.env.test')
+
 RSpec.configure do |config|
   SeedFu.quiet = true
 

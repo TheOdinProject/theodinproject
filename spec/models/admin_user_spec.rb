@@ -3,23 +3,15 @@ require 'rails_helper'
 RSpec.describe AdminUser do
   subject { create(:admin_user) }
 
+  it_behaves_like 'authenticatable_with_two_factor', :admin_user
+  it_behaves_like 'two_factor_authenticatable'
+
   it { is_expected.to belong_to(:deactivated_by).class_name('AdminUser').optional }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_uniqueness_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_length_of(:password).is_at_least(8) }
-
-  describe 'after invitation accepted' do
-    it 'activates the user' do
-      admin_user = create(:admin_user, status: :pending)
-      admin_user.invite!
-
-      expect do
-        admin_user.accept_invitation!
-      end.to change { admin_user.status }.from('pending').to('active')
-    end
-  end
 
   describe '#initials' do
     it 'returns the initials of the admin user' do
@@ -57,6 +49,16 @@ RSpec.describe AdminUser do
         admin = create(:admin_user, status: :deactivated)
         expect(admin.inactive_message).to eq(:deactivated)
       end
+    end
+  end
+
+  describe '#activate!' do
+    it 'activates the admin' do
+      admin = build(:admin_user, status: :pending)
+
+      expect do
+        admin.activate!
+      end.to change { admin.status }.from('pending').to('active')
     end
   end
 
@@ -107,7 +109,7 @@ RSpec.describe AdminUser do
 
       expect do
         admin.reactivate!(activator:)
-      end.to change { admin.status }.from('deactivated').to('active')
+      end.to change { admin.status }.from('deactivated').to('pending')
     end
 
     it 'sets the reactivator' do
@@ -137,6 +139,26 @@ RSpec.describe AdminUser do
 
         expect { admin.reactivate!(activator:) }.not_to change { admin.status }
       end
+    end
+  end
+
+  describe '#enable_two_factor!' do
+    it 'activates the admin' do
+      admin = build(:admin_user, status: :pending)
+
+      expect do
+        admin.enable_two_factor!
+      end.to change { admin.status }.from('pending').to('active')
+    end
+  end
+
+  describe '#reset_two_factor!' do
+    it 'sets the admin to pending' do
+      admin = build(:admin_user, status: :active)
+
+      expect do
+        admin.reset_two_factor!
+      end.to change { admin.status }.from('active').to('pending')
     end
   end
 end

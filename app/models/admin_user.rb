@@ -1,5 +1,8 @@
 class AdminUser < ApplicationRecord
-  devise :invitable, :database_authenticatable, :recoverable, :trackable, :timeoutable, :validatable,
+  include TwoFactorAuthenticatable
+
+  devise :two_factor_authenticatable
+  devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
 
   belongs_to :deactivated_by, class_name: 'AdminUser', optional: true
@@ -8,8 +11,6 @@ class AdminUser < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   enum status: { pending: 'pending', active: 'active', deactivated: 'deactivated' }
-
-  after_invitation_accepted :activate!
 
   def initials
     name.split.map(&:first).join
@@ -23,6 +24,10 @@ class AdminUser < ApplicationRecord
     deactivated? ? :deactivated : super
   end
 
+  def activate!
+    update!(status: :active)
+  end
+
   def deactivate!(deactivator:)
     return unless active?
 
@@ -32,12 +37,22 @@ class AdminUser < ApplicationRecord
   def reactivate!(activator:)
     return unless deactivated?
 
-    update!(status: :active, reactivated_by: activator, reactivated_at: Time.current)
+    update!(status: :pending, reactivated_by: activator, reactivated_at: Time.current)
+  end
+
+  def enable_two_factor!
+    super && activate!
+  end
+
+  def reset_two_factor!
+    super && pending!
   end
 
   private
 
-  def activate!
-    update!(status: :active)
+  def pending!
+    return if pending?
+
+    update!(status: :pending)
   end
 end

@@ -50,7 +50,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   private
 
   def classes_for(attribute, options)
-    state = @object.errors[attribute].present? ? :invalid : :valid
+    state = @object && @object.errors[attribute].present? ? :invalid : :valid
 
     [@template.yass(text_field: state), options[:class]].compact.join(' ')
   end
@@ -62,7 +62,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def attribute_error_icon(attribute)
-    return if @object.errors[attribute].blank?
+    return if @object.blank? || @object.errors[attribute].blank?
 
     @template.content_tag :div, class: 'absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none' do
       @template.inline_svg_tag(
@@ -80,6 +80,8 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def attribute_error_message(attribute)
+    return if @object.blank?
+
     state = @object.errors[attribute].present? ? :visible : :hidden
 
     @template.content_tag :div, class: @template.yass(error_field: state) do

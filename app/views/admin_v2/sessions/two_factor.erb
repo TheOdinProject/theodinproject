@@ -1,0 +1,29 @@
+<%= title('Admin - Two factor authentication') %>
+
+<div class="bg-gray-50 min-h-screen dark:bg-gray-900">
+  <div class="page-container">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Two factor authentication</h2>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <%= render CardComponent.new do |card| %>
+        <%= card.with_body do %>
+          <%= form_for resource, as: resource_name, url: session_path(resource_name), builder: TailwindFormBuilder, method: :post do |form| %>
+            <div class="space-y-6">
+              <div>
+
+                <%= form.label :otp_attempt, "Authentication code" %>
+                <%= form.text_field :otp_attempt, autofocus: true, required: true %>
+              </div>
+
+              <div>
+                <%= form.submit 'Sign in', class: 'button button--primary w-full py-2 px-4 text-sm' %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

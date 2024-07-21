@@ -30,6 +30,24 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
       end
     end
 
+    context 'when two factor authentication is enabled' do
+      it 'prompts the user to enter a one time password and signs them in' do
+        admin_user = create(:admin_user, :with_otp)
+
+        visit admin_v2_root_path
+
+        fill_in 'Email', with: admin_user.email
+        fill_in 'Password', with: admin_user.password
+        click_button 'Sign in'
+
+        expect(page).to have_content('Two factor authentication')
+        fill_in 'Authentication code', with: otp_code_for(admin_user)
+        click_button 'Sign in'
+
+        expect(page).to have_current_path(admin_v2_dashboard_path)
+      end
+    end
+
     context 'when the admin is deactivated' do
       it 'does not sign the admin in' do
         admin_user = create(:admin_user, status: :deactivated)
