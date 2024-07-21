@@ -31,6 +31,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "browserslist": "^4.22.2",
     "chart.js": "^4.4.3",
+    "chartjs-plugin-crosshair": "^2.0.0",
     "chartjs-plugin-tailwindcss-colors": "^0.2.2",
     "compression-webpack-plugin": "10",
     "core-js": "^3.37.0",

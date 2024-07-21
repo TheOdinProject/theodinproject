@@ -1,9 +1,9 @@
 module AdminV2
-  class Reports::LessonCompletionsController < AdminV2::BaseController
-    before_action :set_date_range, only: :show
+  class Reports::UsersController < AdminV2::BaseController
+    before_action :set_date_range, only: :index
 
-    def show
-      @lesson_completions_stats = ::Reports::AllLessonCompletionsDayStat
+    def index
+      @sign_up_stats = ::Reports::UserSignUpsDayStat
         .for_date_range(@start, @end)
         .group_by_period(params.fetch(:period, 'day'))
     end
@@ -11,7 +11,7 @@ module AdminV2
     private
 
     def set_date_range
-      @earliest = ::Reports::AllLessonCompletionsDayStat.earliest_date
+      @earliest = ::Reports::UserSignUpsDayStat.earliest_date
       @latest = default_end_date
 
       @start = Date.parse(params.fetch(:start, default_start_date))

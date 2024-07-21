@@ -7,6 +7,7 @@ nav_links = [
   {
     name: 'Analytics', icon: 'chart-bar', nested_nav_links: [
       { name: 'Lesson completions', path: admin_v2_reports_lesson_completions_path },
+      { name: 'Users', path: admin_v2_reports_users_path },
     ].concat(Path.order_by_position.flat_map { |path| { name: "#{path.title} path", path: admin_v2_reports_path_path(path) } })
   }
 ]

@@ -22,5 +22,6 @@ namespace :admin_v2 do
   namespace :reports do
     resource :lesson_completions, only: :show
     resources :paths, only: :show
+    resources :users, only: :index
   end
 end

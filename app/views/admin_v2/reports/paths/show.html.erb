@@ -8,19 +8,19 @@
 
     <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
       <dt class="truncate text-sm font-medium text-gray-500 dark:text-gray-300"><%= 'Enrolment'.pluralize(@path.users_count) %></dt>
-      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= number_with_delimiter(@path.users_count) %></dd>
+      <dd class="mt-1 text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= number_with_delimiter(@path.users_count) %></dd>
     </li>
 
     <% if @path.courses.many? %>
       <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500 dark:text-gray-300"><%= 'Courses' %></dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @path.courses.count %></dd>
+        <dd class="mt-1 text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @path.courses.count %></dd>
       </li>
     <% end %>
 
     <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
       <dt class="truncate text-sm font-medium text-gray-500 dark:text-gray-300"><%= 'Lesson'.pluralize(@path.lessons.count) %></dt>
-      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @path.lessons.count %></dd>
+      <dd class="mt-1 text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @path.lessons.count %></dd>
     </li>
 
   </ul>
@@ -59,8 +59,10 @@
                 label: 'Lesson completions',
                 data: @path_lesson_completions.map(&:count),
                 borderColor: 'emerald-600',
-                backgroundColor: 'emerald-300',
+                backgroundColor: 'emerald-200',
                 borderWidth: 1,
+                barThickness: 20,
+                borderRadius: 4
               }
             ],
           ) %>

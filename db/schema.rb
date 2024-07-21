@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_13_134127) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_19_045454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -363,5 +363,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_134127) do
        JOIN courses ON ((lesson_completions.course_id = courses.id)))
     GROUP BY ((lesson_completions.created_at)::date), lesson_completions.path_id, lesson_completions.lesson_id, lessons.title, lesson_completions.course_id, lessons."position", courses."position"
     ORDER BY ((lesson_completions.created_at)::date) DESC;
+  SQL
+  create_view "user_sign_ups_day_stats", materialized: true, sql_definition: <<-SQL
+      SELECT row_number() OVER (ORDER BY ((users.created_at)::date)) AS id,
+      (users.created_at)::date AS date,
+      count(*) AS sign_ups_count
+     FROM users
+    GROUP BY ((users.created_at)::date)
+    ORDER BY ((users.created_at)::date);
   SQL
 end

@@ -1,8 +1,9 @@
 class Charts::LineChartComponent < ApplicationComponent
-  def initialize(labels:, datasets:, options: {})
+  def initialize(labels:, datasets:, options: {}, display_x_labels: true)
     @labels = labels
     @datasets = datasets
     @options = options
+    @display_x_labels = ActiveModel::Type::Boolean.new.cast(display_x_labels)
   end
 
   def data
@@ -14,13 +15,16 @@ class Charts::LineChartComponent < ApplicationComponent
 
   def options # rubocop:disable Metrics/MethodLength
     {
+      hover: {
+        intersect: false
+      },
       scales: {
         y: {
           type: 'linear',
           ticks: { precision: 0 },
         },
         x: {
-          grid: { display: false },
+          display: display_x_labels,
         },
       },
     }.merge(@options)
@@ -28,5 +32,5 @@ class Charts::LineChartComponent < ApplicationComponent
 
   private
 
-  attr_reader :labels, :datasets
+  attr_reader :labels, :datasets, :display_x_labels
 end

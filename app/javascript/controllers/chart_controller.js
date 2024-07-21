@@ -1,5 +1,6 @@
 import { Controller } from '@hotwired/stimulus';
-import Chart from 'chart.js/auto';
+
+import { Chart } from 'chart.js/auto';
 import twColorsPlugin from 'chartjs-plugin-tailwindcss-colors';
 import twConfig from '../../../tailwind.config';
 
@@ -16,7 +17,7 @@ export default class ChartController extends Controller {
       {
         type: this.typeValue,
         data: this.dataValue,
-        plugins: [twColorsPlugin(twConfig)],
+        plugins: [twColorsPlugin(twConfig), ...this.chartTypePlugins()],
         options: {
           maintainAspectRatio: false,
           responsive: true,
@@ -24,6 +25,7 @@ export default class ChartController extends Controller {
             legend: {
               display: false,
             },
+            ...this.chartTypePluginOptions(),
           },
           ...this.optionsValue,
         },
@@ -33,5 +35,16 @@ export default class ChartController extends Controller {
 
   disconnect() {
     this.chart.destroy();
+  }
+
+  // private
+
+  /* eslint-disable class-methods-use-this */
+  chartTypePlugins() {
+    return [];
+  }
+
+  chartTypePluginOptions() {
+    return {};
   }
 }
