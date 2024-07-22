@@ -1496,11 +1496,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@fontsource/roboto@^4.5.3":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-4.5.8.tgz#56347764786079838faf43f0eeda22dd7328437f"
-  integrity sha512-CnD7zLItIzt86q4Sj3kZUiLcBk1dSk81qcqgMGaZe7SQ1P8hFNxhMl5AZthK1zrDM5m74VVhaOpuMGIL4gagaA==
-
 "@fortawesome/fontawesome-free@^6.5.1":
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.5.1.tgz#55cc8410abf1003b726324661ce5b0d1c10de258"
@@ -2149,12 +2144,10 @@ acorn@^8.7.1, acorn@^8.8.2, acorn@^8.9.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.10.0.tgz#8be5b3907a67221a81ab23c7889c4c5526b62ec5"
   integrity sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==
 
-active_material@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/active_material/-/active_material-2.0.2.tgz#fa12141586db18e1ae5f0c5807efbdaad3313b38"
-  integrity sha512-HNvBukIPkc8FuPDzB87bubQkoNKLCmkw8P0jctqZ7OvXj2tSg9AcrCSavKtC9PrwYpn739Yq3AJmJ+J0RJ3MGA==
-  dependencies:
-    "@fontsource/roboto" "^4.5.3"
+active_material@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/active_material/-/active_material-2.1.1.tgz#66508ff800e7b581455ef1517584eb882ecaedce"
+  integrity sha512-FGsHc56y2YCgU9NJjw2FU6uOyV0FaKu160tshJefNn+/f/yhKqq7xuTWEXvOEpWhI6nLaUFq6EU8NCY42JjKXQ==
 
 activeadmin_addons@^2.0.0-beta.3:
   version "2.0.0-beta.3"
