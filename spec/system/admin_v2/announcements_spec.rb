@@ -57,7 +57,10 @@ RSpec.describe 'Announcements' do
       expect(page).to have_content('Test Message')
 
       visit admin_v2_announcement_path(announcement)
-      click_link('Delete')
+
+      accept_confirm do
+        click_link('Delete')
+      end
 
       expect(page).to have_current_path(admin_v2_announcements_path)
       expect(page).not_to have_content('Test Message')
