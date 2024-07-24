@@ -1,5 +1,6 @@
 class AdminV2::InvitationsController < Devise::InvitationsController
   before_action :configure_permitted_parameters
+  after_action :create_invited_activity, only: :create
 
   def create
     self.resource = invite_resource
@@ -23,5 +24,11 @@ class AdminV2::InvitationsController < Devise::InvitationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:invite, keys: %i[name email])
+  end
+
+  def create_invited_activity
+    return unless @invited_admin_user
+
+    @invited_admin_user.create_activity(key: 'admin_user.invited', owner: current_admin_user)
   end
 end
