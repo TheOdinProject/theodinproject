@@ -29,6 +29,10 @@ class AdminV2::InvitationsController < Devise::InvitationsController
   def create_invited_activity
     return unless @invited_admin_user
 
-    @invited_admin_user.create_activity(key: 'admin_user.invited', owner: current_admin_user)
+    @invited_admin_user.create_activity(
+      key: 'admin_user.invited',
+      owner: current_admin_user,
+      params: { name: @invited_admin_user.name }
+    )
   end
 end
