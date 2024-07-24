@@ -21,6 +21,7 @@ class Charts::LineChartComponent < ApplicationComponent
       scales: {
         y: {
           type: 'linear',
+          beginAtZero: true,
           ticks: { precision: 0 },
         },
         x: {
