@@ -6,6 +6,7 @@ namespace :admin_v2 do
 
   resources :flags, only: %i[index show update]
   resources :announcements
+  resource :two_factor_authentication, only: %i[new create], controller: :two_factor_authentication
   resource :team, only: :show, controller: :team
 
   resources :team_members do
@@ -13,6 +14,7 @@ namespace :admin_v2 do
     resource :resend_invitation, only: %i[create], controller: 'team_members/resend_invitation'
     resource :deactivation, only: %i[update], controller: 'team_members/deactivation'
     resource :reactivation, only: %i[update], controller: 'team_members/reactivation'
+    resource :two_factor_reset, only: %i[update], controller: 'team_members/two_factor_reset'
   end
 
   resource :profile, only: %i[edit update], controller: :profile do

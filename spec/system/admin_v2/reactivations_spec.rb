@@ -28,7 +28,15 @@ RSpec.describe 'Admin V2 team members reactivations' do
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
       click_button('Submit')
 
+      expect(page).to have_current_path(new_admin_v2_two_factor_authentication_path)
+
+      freeze_time do
+        find(:test_id, 'otp-code-field').fill_in(with: otp_code_for(deactivated_admin.reload))
+        click_button('Confirm')
+      end
+
       expect(page).to have_current_path(admin_v2_dashboard_path)
+      expect(page).to have_content('Successfully enabled two factor authentication')
     end
   end
 end

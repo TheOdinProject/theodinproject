@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_19_045454) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_20_081643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_19_045454) do
     t.bigint "deactivated_by_id"
     t.datetime "reactivated_at"
     t.bigint "reactivated_by_id"
+    t.string "otp_secret"
+    t.integer "consumed_timestep"
+    t.boolean "otp_required_for_login", default: false
     t.index ["deactivated_by_id"], name: "index_admin_users_on_deactivated_by_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_admin_users_on_invitation_token", unique: true

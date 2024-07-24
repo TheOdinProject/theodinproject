@@ -8,9 +8,9 @@ class TestHelper < ActionView::Base
 end
 
 RSpec.describe TailwindFormBuilder do
-  subject(:builder) { described_class.new(:user, user, TestHelper.new(nil, [], nil), {}) }
+  subject(:builder) { described_class.new(:user, form_object, TestHelper.new(nil, [], nil), {}) }
 
-  let(:user) { User.new }
+  let(:form_object) { User.new }
 
   describe '#text_field' do
     it 'returns a tailwind styled text field' do
@@ -33,9 +33,18 @@ RSpec.describe TailwindFormBuilder do
 
     context 'when the field has errors' do
       it 'returns the error message' do
-        user.errors.add(:username, 'is invalid')
+        form_object.errors.add(:username, 'is invalid')
 
         expect(builder.text_field(:username)).to include('is invalid')
+      end
+    end
+
+    context 'when the form does not have an object' do
+      let(:form_object) { nil }
+
+      it 'returns the text field' do
+        expect(builder.text_field(:username))
+          .to match_snapshot('tailwind_form_builder/text_field_with_no_object')
       end
     end
   end
@@ -47,9 +56,18 @@ RSpec.describe TailwindFormBuilder do
 
     context 'when the field has errors' do
       it 'includes the error message' do
-        user.errors.add(:email, 'is invalid')
+        form_object.errors.add(:email, 'is invalid')
 
         expect(builder.email_field(:email)).to include('is invalid')
+      end
+    end
+
+    context 'when the form does not have an object' do
+      let(:form_object) { nil }
+
+      it 'returns the email field' do
+        expect(builder.email_field(:email))
+          .to match_snapshot('tailwind_form_builder/email_field_with_no_object')
       end
     end
   end
@@ -61,9 +79,18 @@ RSpec.describe TailwindFormBuilder do
 
     context 'when the field has errors' do
       it 'includes the error message' do
-        user.errors.add(:created_at, 'is invalid')
+        form_object.errors.add(:created_at, 'is invalid')
 
         expect(builder.date_field(:created_at)).to include('is invalid')
+      end
+    end
+
+    context 'when the form does not have an object' do
+      let(:form_object) { nil }
+
+      it 'returns the date field' do
+        expect(builder.date_field(:created_at))
+          .to match_snapshot('tailwind_form_builder/date_field_with_no_object')
       end
     end
   end
@@ -75,8 +102,17 @@ RSpec.describe TailwindFormBuilder do
 
     context 'when the field has errors' do
       it 'includes the error message' do
-        user.errors.add(:password, 'is invalid')
+        form_object.errors.add(:password, 'is invalid')
         expect(builder.password_field(:password)).to include('is invalid')
+      end
+    end
+
+    context 'when the form does not have an object' do
+      let(:form_object) { nil }
+
+      it 'returns the password field' do
+        expect(builder.password_field(:password))
+          .to match_snapshot('tailwind_form_builder/password_field_with_no_object')
       end
     end
   end
@@ -88,9 +124,18 @@ RSpec.describe TailwindFormBuilder do
 
     context 'when the text area has errors' do
       it 'includes the error message' do
-        user.errors.add(:username, 'is invalid')
+        form_object.errors.add(:username, 'is invalid')
 
         expect(builder.text_area(:username)).to include('is invalid')
+      end
+    end
+
+    context 'when the form does not have an object' do
+      let(:form_object) { nil }
+
+      it 'returns the text area' do
+        expect(builder.text_area(:username))
+          .to match_snapshot('tailwind_form_builder/text_area_with_no_object')
       end
     end
   end
