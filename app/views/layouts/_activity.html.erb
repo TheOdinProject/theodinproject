@@ -1,0 +1,27 @@
+<li class="group">
+  <div class="relative pb-8">
+    <span class="absolute group-last:hidden left-4 top-4 -ml-px h-full w-0.5 bg-gray-200 dark:bg-gray-700" aria-hidden="true"></span>
+
+    <div class="relative flex space-x-3">
+      <div>
+        <div class="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center ring-white">
+          <span class="font-semibold text-sm"><%= activity.owner.initials.upcase %></span>
+        </div>
+      </div>
+
+      <div class="flex min-w-0 flex-1 space-x-2 pt-1.5">
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          <%= yield %>
+        </p>
+
+        <span>&middot;</span>
+
+        <div class="whitespace-nowrap text-right text-sm text-gray-500 dark:text-gray-400">
+          <time datetime="<%= activity.created_at.to_fs(:db) %>" title="<%= activity.created_at.to_fs(:db) %>">
+            <%= time_ago_in_words(activity.created_at) %> ago
+          </time>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

@@ -15,7 +15,7 @@ RSpec.describe 'Admin V2 team member deactivation' do
       click_link('Deactivate')
     end
 
-    within('#deactivated_members') do
+    within('#deactivated_team_members') do
       expect(page).to have_content(other_admin.name)
     end
 

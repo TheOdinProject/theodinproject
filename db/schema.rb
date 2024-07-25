@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_20_081643) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_23_092601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,25 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_20_081643) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string "trackable_type"
+    t.bigint "trackable_id"
+    t.string "owner_type"
+    t.bigint "owner_id"
+    t.string "key"
+    t.jsonb "parameters", default: {}, null: false
+    t.string "recipient_type"
+    t.bigint "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
+    t.index ["owner_type", "owner_id"], name: "index_activities_on_owner"
+    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
+    t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient"
+    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -55,13 +74,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_20_081643) do
     t.integer "invitations_count", default: 0
     t.enum "status", default: "pending", null: false, enum_type: "status"
     t.datetime "deactivated_at"
-    t.bigint "deactivated_by_id"
     t.datetime "reactivated_at"
     t.bigint "reactivated_by_id"
     t.string "otp_secret"
     t.integer "consumed_timestep"
     t.boolean "otp_required_for_login", default: false
-    t.index ["deactivated_by_id"], name: "index_admin_users_on_deactivated_by_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_admin_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_admin_users_on_invited_by_id"
@@ -329,7 +346,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_20_081643) do
     t.index ["username"], name: "index_users_on_username"
   end
 
-  add_foreign_key "admin_users", "admin_users", column: "deactivated_by_id"
   add_foreign_key "admin_users", "admin_users", column: "reactivated_by_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"

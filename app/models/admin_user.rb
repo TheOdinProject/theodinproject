@@ -1,16 +1,19 @@
 class AdminUser < ApplicationRecord
   include TwoFactorAuthenticatable
+  include PublicActivity::Model
 
   devise :two_factor_authenticatable
+
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
 
-  belongs_to :deactivated_by, class_name: 'AdminUser', optional: true
   belongs_to :reactivated_by, class_name: 'AdminUser', optional: true
 
   validates :name, presence: true, uniqueness: true
 
   enum status: { pending: 'pending', active: 'active', deactivated: 'deactivated' }
+
+  scope :ordered, -> { order(created_at: :desc) }
 
   def initials
     name.split.map(&:first).join
@@ -28,10 +31,10 @@ class AdminUser < ApplicationRecord
     update!(status: :active)
   end
 
-  def deactivate!(deactivator:)
+  def deactivate!
     return unless active?
 
-    update!(status: :deactivated, deactivated_by: deactivator, deactivated_at: Time.current)
+    update!(status: :deactivated, deactivated_at: Time.current)
   end
 
   def reactivate!(activator:)

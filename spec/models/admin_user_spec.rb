@@ -6,12 +6,21 @@ RSpec.describe AdminUser do
   it_behaves_like 'authenticatable_with_two_factor', :admin_user
   it_behaves_like 'two_factor_authenticatable'
 
-  it { is_expected.to belong_to(:deactivated_by).class_name('AdminUser').optional }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_uniqueness_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_length_of(:password).is_at_least(8) }
+
+  describe '.ordered' do
+    it 'orders the admin users by created_at descending' do
+      admin_created_today = create(:admin_user)
+      admin_created_last_week = create(:admin_user, created_at: 1.week.ago)
+      admin_created_yesterday = create(:admin_user, created_at: 1.day.ago)
+
+      expect(described_class.ordered).to eq([admin_created_today, admin_created_yesterday, admin_created_last_week])
+    end
+  end
 
   describe '#initials' do
     it 'returns the initials of the admin user' do
@@ -65,29 +74,18 @@ RSpec.describe AdminUser do
   describe '#deactivate!' do
     it 'deactivates the admin' do
       admin = build(:admin_user, status: :active)
-      deactivator = build(:admin_user)
 
       expect do
-        admin.deactivate!(deactivator:)
+        admin.deactivate!
       end.to change { admin.status }.from('active').to('deactivated')
-    end
-
-    it 'sets the deactivator' do
-      admin = build(:admin_user, status: :active)
-      deactivator = build(:admin_user)
-
-      expect do
-        admin.deactivate!(deactivator:)
-      end.to change { admin.deactivated_by }.from(nil).to(deactivator)
     end
 
     it 'sets the deactivated_at timestamp' do
       admin = build(:admin_user, status: :active)
-      deactivator = build(:admin_user)
 
       freeze_time do
         expect do
-          admin.deactivate!(deactivator:)
+          admin.deactivate!
         end.to change { admin.deactivated_at }.from(nil).to(Time.current)
       end
     end
@@ -95,9 +93,8 @@ RSpec.describe AdminUser do
     context 'when the admin is already deactivated' do
       it 'does not deactivate the admin' do
         admin = build(:admin_user, status: :deactivated)
-        deactivator = build(:admin_user)
 
-        expect { admin.deactivate!(deactivator:) }.not_to change { admin.status }
+        expect { admin.deactivate! }.not_to change { admin.status }
       end
     end
   end
