@@ -8,7 +8,7 @@
       <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
       <% if team_member.pending? %>
         <%= render Ui::BadgeComponent.new(color: 'yellow') do %>
-            Pending
+          Pending
         <% end %>
       <% end %>
     </div>
@@ -20,10 +20,18 @@
         <% end %>
 
         <% if team_member.pending? %>
+
          <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_resend_invitation_path(team_member), data: { turbo_method: :post, turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
               Resend invite
+            <% end %>
+          <% end %>
+
+          <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_member_path(team_member), data: { turbo_method: :delete, turbo_frame: '_top', turbo_confirm: 'Are you sure?' }, class: 'text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-5 w-5 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
+              Remove
             <% end %>
           <% end %>
         <% end %>

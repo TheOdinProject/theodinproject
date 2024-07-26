@@ -1,9 +1,8 @@
 class AdminUser < ApplicationRecord
   include TwoFactorAuthenticatable
-  include PublicActivity::Model
+  include PublicActivity::Common
 
   devise :two_factor_authenticatable
-
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
 
@@ -32,7 +31,7 @@ class AdminUser < ApplicationRecord
   end
 
   def deactivate!
-    return unless active?
+    return unless active? || reactivated?
 
     update!(status: :deactivated, deactivated_at: Time.current)
   end
@@ -51,7 +50,21 @@ class AdminUser < ApplicationRecord
     super && pending!
   end
 
+  def remove!
+    return unless pending?
+
+    if reactivated?
+      deactivate!
+    else
+      destroy
+    end
+  end
+
   private
+
+  def reactivated?
+    reactivated_at.present?
+  end
 
   def pending!
     return if pending?
