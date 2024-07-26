@@ -1,10 +1,10 @@
-class GithubWebhooksController < ApplicationController
+class Github::WebhooksController < ApplicationController
   include GithubWebhook::Processor
 
   skip_before_action :verify_authenticity_token
 
   def github_push(payload)
-    event = ::GithubPushEventAdaptor.new(payload)
+    event = ::Github::PushEvent.new(payload)
 
     Lessons::UpdateContentJob.perform_later(event.modified_urls) if event.merged_to_main?
   end

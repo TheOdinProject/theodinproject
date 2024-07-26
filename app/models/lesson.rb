@@ -33,7 +33,7 @@ class Lesson < ApplicationRecord
   end
 
   def import_content_from_github
-    LessonContentImporter.for(self)
+    Github::LessonContentImporter.for(self)
   end
 
   def display_title

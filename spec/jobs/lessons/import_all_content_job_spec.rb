@@ -5,13 +5,13 @@ RSpec.describe Lessons::ImportAllContentJob do
 
   describe '#perform' do
     before do
-      allow(LessonContentImporter).to receive(:import_all)
+      allow(Github::LessonContentImporter).to receive(:import_all)
     end
 
     it 'delegates to the lesson content importer service' do
       job.perform
 
-      expect(LessonContentImporter).to have_received(:import_all)
+      expect(Github::LessonContentImporter).to have_received(:import_all)
     end
   end
 end
