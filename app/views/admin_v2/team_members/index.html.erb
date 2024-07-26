@@ -1,0 +1,40 @@
+<div class="max-w-5xl w-full mx-auto">
+
+  <div class="border-b border-gray-200 dark:border-gray-700 pb-5 mt-8">
+    <div class="flex items-center max-w-5xl justify-between">
+      <div class="sm:flex-auto">
+        <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-200">Team</h1>
+        <p class="mt-1 truncate text-sm text-gray-500 dark:text-gray-300">Manage team members</p>
+      </div>
+
+      <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
+
+      <%= render Ui::Dropdown::Component.new do |dropdown| %>
+        <% dropdown.with_trigger_button do %>
+          <%= inline_svg_tag 'icons/ellipsis-vertical.svg', class: 'h-6 w-6', aria: true %>
+        <% end %>
+
+          <% dropdown.with_item do %>
+            <%= link_to admin_v2_team_activities_path, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              Activity log
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <ul role="list" id="team_members" class="divide-y divide-gray-100 dark:divide-gray-800 mt-2">
+    <%= render partial: 'admin_v2/team_members/member', collection: @pending_team_members, as: :team_member %>
+    <%= render partial: 'admin_v2/team_members/member', collection: @active_team_members, as: :team_member %>
+  </ul>
+
+  <% if @deactivated_team_members.any? %>
+    <div class=" mt-10">
+      <h3 class="text-base font-semibold leading-6 text-gray-800 dark:text-gray-300">Deactivated</h3>
+    </div>
+
+    <ul role="list" id="deactivated_team_members" class="divide-y divide-gray-100 dark:divide-gray-800">
+       <%= render partial: 'admin_v2/team_members/member', collection: @deactivated_team_members, as: :team_member %>
+    </ul>
+  <% end %>
+</div>
