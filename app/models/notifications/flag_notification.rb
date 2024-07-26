@@ -1,4 +1,4 @@
-class FlagNotification < Noticed::Base
+class Notifications::FlagNotification < Noticed::Base
   deliver_by :database, format: :to_database
 
   def to_database

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FlagNotification do
+RSpec.describe Notifications::FlagNotification do
   subject(:flag_notification) { described_class }
 
   let(:flag) { create(:flag) }

@@ -16,7 +16,7 @@ class Flags::Actions::NotifyUser < Flags::Actions::Base
   private
 
   def send_notification
-    FlagNotification.with(
+    Notifications::FlagNotification.with(
       flag:,
       title: message.title,
       message: message.content,
