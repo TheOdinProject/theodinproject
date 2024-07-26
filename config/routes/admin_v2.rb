@@ -7,9 +7,6 @@ namespace :admin_v2 do
   resources :flags, only: %i[index show update]
   resources :announcements
   resource :two_factor_authentication, only: %i[new create], controller: :two_factor_authentication
-  resource :team, only: :show, controller: :team do
-    resources :activities, only: :index, controller: 'team/activities'
-  end
 
   resources :team_members do
     resources :password_resets, only: %i[create], controller: 'team_members/password_resets'
@@ -17,7 +14,12 @@ namespace :admin_v2 do
     resource :deactivation, only: %i[update], controller: 'team_members/deactivation'
     resource :reactivation, only: %i[update], controller: 'team_members/reactivation'
     resource :two_factor_reset, only: %i[update], controller: 'team_members/two_factor_reset'
+
+    collection do
+      resources :activities, only: :index, controller: 'team_members/activities', as: :team_activities
+    end
   end
+  get 'team' => 'team_members#index', as: :team
 
   resource :profile, only: %i[edit update], controller: :profile do
     resource :password, only: %i[update], controller: 'profile/password'

@@ -1,5 +1,11 @@
 module AdminV2
   class TeamMembersController < AdminV2::BaseController
+    def index
+      @pending_team_members = AdminUser.pending.ordered
+      @active_team_members = AdminUser.active.ordered
+      @deactivated_team_members = AdminUser.deactivated.ordered
+    end
+
     def destroy # rubocop:disable Metrics/MethodLength
       team_member = AdminUser.find(params[:id])
 

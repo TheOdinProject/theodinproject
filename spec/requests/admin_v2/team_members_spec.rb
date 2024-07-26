@@ -1,6 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe 'Team members' do
+  describe 'GET #index' do
+    context 'when signed in as an admin' do
+      it 'renders the team members page' do
+        sign_in(create(:admin_user))
+
+        get admin_v2_team_path
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when not signed in as an admin' do
+      it 'redirects to the admin sign in page' do
+        sign_in(create(:user))
+
+        get admin_v2_team_path
+
+        expect(response).to redirect_to(new_admin_user_session_path)
+      end
+    end
+  end
+
   describe 'DELETE #destroy' do
     context 'when signed in as an admin and the team member is pending' do
       it 'deletes the team member' do
