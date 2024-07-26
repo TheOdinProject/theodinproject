@@ -18,7 +18,7 @@ module Admin
           flag.resolved!
           flag.update!(resolved_by_id: admin.id)
 
-          FlagNotification
+          Notifications::FlagNotification
             .with(flag:, title: message.title, message: message.content, url: message.url)
             .deliver_later(flag.project_submission.user)
 

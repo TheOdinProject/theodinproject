@@ -13,11 +13,11 @@ RSpec.describe Flags::Actions::NotifyUser do
 
       it 'creates a dead link notification' do
         deadlink_notification = Messages::DeadLink.new(flag)
-        allow(FlagNotification).to receive(:with).and_call_original
+        allow(Notifications::FlagNotification).to receive(:with).and_call_original
 
         described_class.perform(admin_user:, flag:)
 
-        expect(FlagNotification).to have_received(:with).with(
+        expect(Notifications::FlagNotification).to have_received(:with).with(
           flag:,
           title: deadlink_notification.title,
           message: deadlink_notification.content,
