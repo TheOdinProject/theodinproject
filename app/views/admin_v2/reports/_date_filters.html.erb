@@ -1,0 +1,18 @@
+<div class="flex flex-col sm:flex-row justify-between mt-6 sm:items-center max-w-">
+  <%= form_with url:, method: :get, data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit' } do |form| %>
+    <%= form.hidden_field :period, value: params[:period] if params[:period].present? %>
+
+    <div class="flex gap-x-2 items-center">
+      <%= render Forms::DatePickerComponent.new(name: :start, value: @start, min: @earliest, max: @end) %>
+      <span class="mt-2">-</span>
+      <%= render Forms::DatePickerComponent.new(name: :end, value: @end, min: @start, max: @latest) %>
+    </div>
+  <% end %>
+
+  <%= form_with url:, method: :get, html: {class: 'w-full max-w-40' }, builder: TailwindFormBuilder, data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit' } do |form| %>
+    <%= form.hidden_field :start, value: params[:start] if params[:start].present? %>
+    <%= form.hidden_field :end, value: params[:end] if params[:end].present? %>
+
+    <%= form.select :period, options_for_select(Reports::Period.all.map(&:as_option), selected: params[:period]), {}, { class: 'text-sm' } %>
+  <% end %>
+</div>
