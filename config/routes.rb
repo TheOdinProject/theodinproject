@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     mount Lookbook::Engine, at: '/lookbook'
   end
 
-  resource :github_webhooks, only: :create, defaults: { formats: :json }
-
   unauthenticated do
     root 'static_pages#home'
   end
@@ -39,6 +37,10 @@ Rails.application.routes.draw do
     get '/sign_in' => 'users/sessions#new'
     delete '/sign_out' => 'users/sessions#destroy'
     get '/sign_up' => 'users/registrations#new'
+  end
+
+  namespace :github do
+    resource :webhooks, only: :create, defaults: { formats: :json }
   end
 
   namespace :api do

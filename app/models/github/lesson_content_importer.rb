@@ -1,4 +1,4 @@
-class LessonContentImporter
+class Github::LessonContentImporter
   attr_reader :lesson, :content
   private :lesson, :content
 

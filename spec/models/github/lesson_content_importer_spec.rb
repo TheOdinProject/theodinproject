@@ -1,11 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe LessonContentImporter do
+RSpec.describe Github::LessonContentImporter do
   subject(:importer) { described_class.new(lesson) }
 
   let(:lesson) do
-    create(:lesson, title: 'Ruby Basics', github_path: '/ruby_basics/variables',
-                    content: create(:content, body: lesson_content))
+    create(
+      :lesson,
+      title: 'Ruby Basics',
+      github_path: '/ruby_basics/variables',
+      content: create(:content, body: lesson_content)
+    )
   end
 
   let(:lesson_content) { "<p>Hello World</p>\n" }
