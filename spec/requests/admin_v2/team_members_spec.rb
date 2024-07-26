@@ -26,7 +26,7 @@ RSpec.describe 'Team members' do
   describe 'DELETE #destroy' do
     context 'when signed in as an admin and the team member is pending' do
       it 'deletes the team member' do
-        pending_admin = create(:admin_user, status: :pending)
+        pending_admin = create(:admin_user, :pending)
 
         sign_in(create(:admin_user))
 
@@ -40,7 +40,7 @@ RSpec.describe 'Team members' do
 
     context 'when signed in as an admin and the team member is not pending' do
       it 'does not delete the team member' do
-        active_admin = create(:admin_user, status: :active)
+        active_admin = create(:admin_user, :activated)
 
         sign_in(create(:admin_user))
 

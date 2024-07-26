@@ -7,6 +7,7 @@ module AdminV2
 
     before_action :authenticate_admin_user!
     before_action :ensure_two_factor_enabled, if: :current_admin_user
+    before_action :set_current_admin_user
 
     private
 
@@ -20,7 +21,11 @@ module AdminV2
     end
 
     def two_factor_setup_required?
-      current_admin_user.pending? && !current_admin_user.two_factor_enabled?
+      current_admin_user.awaiting_activation? && !current_admin_user.two_factor_enabled?
+    end
+
+    def set_current_admin_user
+      Current.admin_user = current_admin_user
     end
   end
 end

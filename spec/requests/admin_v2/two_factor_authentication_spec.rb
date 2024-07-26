@@ -30,7 +30,7 @@ RSpec.describe 'Two factor authentication' do
   describe 'POST #create' do
     context 'when the otp code is valid' do
       it 'enables two factor authentication for the admin' do
-        admin = create(:admin_user, otp_required_for_login: false)
+        admin = create(:admin_user, :pending, otp_required_for_login: false)
         allow(admin).to receive(:validate_and_consume_otp!).and_return(true)
 
         sign_in(admin)

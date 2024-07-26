@@ -5,7 +5,7 @@ RSpec.describe 'Resend team member invite' do
     context 'when signed in as an admin and the team member is pending' do
       it 'sends another invitation email to the team member' do
         admin = create(:admin_user)
-        pending_admin = create(:admin_user, status: :pending, email: 'pending@odin.com')
+        pending_admin = create(:admin_user, :pending, email: 'pending@odin.com')
         sign_in(admin)
 
         expect do
@@ -22,7 +22,7 @@ RSpec.describe 'Resend team member invite' do
     context 'when signed in as an admin and the team member is not pending' do
       it 'does not send the team member another invite' do
         admin = create(:admin_user)
-        active_admin = create(:admin_user, status: :active, email: 'active@odin.com')
+        active_admin = create(:admin_user, :activated, email: 'active@odin.com')
 
         sign_in(admin)
 

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.0.8.1'
 
+gem 'aasm', '~> 5.3'
 gem 'activeadmin', '~> 3.2'
 gem 'activeadmin_addons', '~> 1.10'
 gem 'active_material', '~> 1.5'

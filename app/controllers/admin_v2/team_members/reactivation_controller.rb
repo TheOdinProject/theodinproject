@@ -5,7 +5,7 @@ module AdminV2
     def update
       team_member = AdminUser.find(params[:team_member_id])
 
-      team_member.reactivate!(activator: current_admin_user)
+      team_member.reactivate!
       team_member.reset_two_factor!
       team_member.invite!(current_admin_user)
 

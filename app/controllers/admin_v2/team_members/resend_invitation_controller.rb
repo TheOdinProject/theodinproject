@@ -5,7 +5,7 @@ module AdminV2
     def create
       team_member = AdminUser.find(params[:team_member_id])
 
-      if team_member.pending?
+      if team_member.awaiting_activation?
         team_member.invite!(current_admin_user)
         redirect_to admin_v2_team_path, notice: "Invite sent to #{team_member.name}"
       else

@@ -12,6 +12,6 @@ if Rails.env.development? || ENV['STAGING']
   AdminUser.find_or_create_by!(email: 'admin@odin.com') do |admin_user|
     admin_user.name = 'admin'
     admin_user.password = 'password123'
-    admin_user.status = 'active'
+    admin_user.status = 'activated'
   end
 end
