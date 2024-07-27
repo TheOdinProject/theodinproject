@@ -1,8 +1,16 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 devise_for :admin_users, path: :admin_v2, module: :admin_v2
 
-namespace :admin_v2 do
+namespace :admin_v2 do # rubocop:disable Metrics/BlockLength
   root to: 'dashboard#show'
   resource :dashboard, only: :show, controller: :dashboard
+
+  authenticate :admin_user do
+    mount Sidekiq::Web => '/sidekiq'
+    mount Flipper::UI.app(Flipper) => '/feature_flags', as: :feature_flags
+  end
 
   resources :flags, only: %i[index show update]
   resources :announcements
