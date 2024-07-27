@@ -47,6 +47,12 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     super(attribute, options.merge(default_opts), checked_value, unchecked_value)
   end
 
+  def select(attribute, choices, options = {}, html_options = {})
+    default_opts = { class: "#{@template.yass(select: :base)} #{html_options[:class]}" }
+
+    super(attribute, choices, options, html_options.merge(default_opts))
+  end
+
   private
 
   def classes_for(attribute, options)

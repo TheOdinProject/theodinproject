@@ -151,4 +151,12 @@ RSpec.describe TailwindFormBuilder do
       expect(builder.check_box(:username)).to match_snapshot('tailwind_form_builder/check_box')
     end
   end
+
+  describe '#select' do
+    it 'returns a tailwind styled select' do
+      expect(
+        builder.select(:username, [['choice one', 'a'], ['choice two', 'b']], {}, { class: 'text-sm' })
+      ).to match_snapshot('tailwind_form_builder/select')
+    end
+  end
 end
