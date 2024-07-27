@@ -40,7 +40,7 @@ RSpec.describe AdminUser do
       subject { create(:admin_user, :pending) }
 
       it { is_expected.to allow_transition_to(:activated) }
-      it { is_expected.not_to allow_transition_to(:deactivated) }
+      it { is_expected.to allow_transition_to(:deactivated) }
       it { is_expected.not_to allow_transition_to(:pending_reactivation) }
     end
 
@@ -190,14 +190,14 @@ RSpec.describe AdminUser do
       end
     end
 
-    context 'when the admin is pending reactivation' do
+    context 'when the admin has previously accepted an invite' do
       it 'deactivates the admin' do
-        admin = create(:admin_user, :pending_reactivation)
-        expect { admin.remove! }.to change { admin.reload.status }.from('pending_reactivation').to('deactivated')
+        admin = create(:admin_user, :pending, invitation_accepted_at: 10.days.ago)
+        expect { admin.remove! }.to change { admin.reload.status }.from('pending').to('deactivated')
       end
     end
 
-    context 'when the admin is not pending reactivation' do
+    context 'when the admin has not accepted their invite' do
       it 'destroys the admin' do
         admin = create(:admin_user, :pending)
 

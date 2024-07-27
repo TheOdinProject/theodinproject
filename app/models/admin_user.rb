@@ -32,7 +32,7 @@ class AdminUser < ApplicationRecord
     end
 
     event :deactivate do
-      transitions from: %i[activated pending_reactivation], to: :deactivated
+      transitions from: %i[activated pending_reactivation pending], to: :deactivated
     end
 
     event :reactivate do
@@ -63,7 +63,7 @@ class AdminUser < ApplicationRecord
   def remove!
     return unless awaiting_activation?
 
-    if pending_reactivation?
+    if invitation_accepted?
       deactivate!
     else
       destroy!

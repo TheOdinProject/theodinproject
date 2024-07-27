@@ -11,6 +11,7 @@ RSpec.describe 'Team member two factor reset' do
         expect do
           put admin_v2_team_member_two_factor_reset_path(team_member_id: other_admin.id)
         end.to change { other_admin.reload.otp_secret }.to(nil)
+          .and change { other_admin.reload.status }.from('activated').to('pending')
 
         expect(response).to redirect_to(admin_v2_team_path)
       end
