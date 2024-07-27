@@ -5,13 +5,13 @@ RSpec.describe 'Team member deactivation' do
     context 'when signed in as an admin and the team member exists' do
       it 'deactivates the team member' do
         admin = create(:admin_user)
-        active_admin = create(:admin_user, status: :active)
+        active_admin = create(:admin_user, :activated)
 
         sign_in(admin)
 
         expect do
           put admin_v2_team_member_deactivation_path(team_member_id: active_admin.id)
-        end.to change { active_admin.reload.status }.from('active').to('deactivated')
+        end.to change { active_admin.reload.status }.from('activated').to('deactivated')
 
         expect(response).to redirect_to(admin_v2_team_path)
       end

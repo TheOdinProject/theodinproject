@@ -50,7 +50,7 @@ RSpec.describe 'Admin V2 Sign in and sign out' do
 
     context 'when the admin is deactivated' do
       it 'does not sign the admin in' do
-        admin_user = create(:admin_user, status: :deactivated)
+        admin_user = create(:admin_user, :deactivated)
 
         visit admin_v2_root_path
 

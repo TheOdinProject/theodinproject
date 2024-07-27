@@ -5,20 +5,20 @@ RSpec.describe 'Team member reactivation' do
     context 'when signed in as an admin and the team member exists' do
       it 'reactivates the team member' do
         admin = create(:admin_user)
-        deactivated_admin = create(:admin_user, status: :deactivated)
+        deactivated_admin = create(:admin_user, :deactivated)
 
         sign_in(admin)
 
         expect do
           put admin_v2_team_member_reactivation_path(team_member_id: deactivated_admin.id)
-        end.to change { deactivated_admin.reload.status }.from('deactivated').to('pending')
+        end.to change { deactivated_admin.reload.status }.from('deactivated').to('pending_reactivation')
 
         expect(response).to redirect_to(admin_v2_team_path)
       end
 
       it 'resets the admins two factor credentials' do
         admin = create(:admin_user)
-        deactivated_admin = create(:admin_user, status: :deactivated, otp_secret: 'secret')
+        deactivated_admin = create(:admin_user, :deactivated, otp_secret: 'secret')
         sign_in(admin)
 
         expect do
@@ -28,7 +28,7 @@ RSpec.describe 'Team member reactivation' do
 
       it 'sends an invitation email to the team member' do
         admin = create(:admin_user)
-        deactivated_admin = create(:admin_user, status: :deactivated, email: 'deactivated@odin.com')
+        deactivated_admin = create(:admin_user, :deactivated, email: 'deactivated@odin.com')
         sign_in(admin)
 
         expect do

@@ -6,7 +6,7 @@
   <div class="min-w-0 w-full flex items-center justify-between">
     <div class="flex items-center gap-x-2">
       <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
-      <% if team_member.pending? %>
+      <% if team_member.awaiting_activation? %>
         <%= render Ui::BadgeComponent.new(color: 'yellow') do %>
           Pending
         <% end %>
@@ -19,9 +19,9 @@
           <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
         <% end %>
 
-        <% if team_member.pending? %>
+        <% if team_member.awaiting_activation? %>
 
-         <% dropdown.with_item do %>
+          <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_resend_invitation_path(team_member), data: { turbo_method: :post, turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
               Resend invite
@@ -36,7 +36,7 @@
           <% end %>
         <% end %>
 
-        <% if team_member.active? %>
+        <% if team_member.activated? %>
           <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_password_resets_path(team_member), data: { turbo_method: :post, turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Admin V2 team members reactivations' do
   it 'deactivates a team member' do
-    admin = create(:admin_user, status: :active)
-    deactivated_admin = create(:admin_user, status: :deactivated, email: 'deactivated@admin.com')
+    admin = create(:admin_user, :activated)
+    deactivated_admin = create(:admin_user, :deactivated, email: 'deactivated@admin.com')
 
     sign_in(admin)
 

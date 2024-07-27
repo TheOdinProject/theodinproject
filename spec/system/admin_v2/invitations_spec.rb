@@ -41,7 +41,7 @@ RSpec.describe 'Admin v2 invitations' do
   end
 
   it 'does not allow access if two factor authentication is not enabled' do
-    sign_in(create(:admin_user, status: :active))
+    sign_in(create(:admin_user, :activated))
 
     # Create a new invitation
     visit admin_v2_team_path

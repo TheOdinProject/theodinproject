@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_23_092601) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_26_181456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
-  create_enum "status", ["pending", "active", "deactivated"]
+  create_enum "admin_user_status", ["pending", "activated", "deactivated", "pending_reactivation"]
 
   create_table "active_admin_comments", id: :serial, force: :cascade do |t|
     t.string "namespace"
@@ -72,7 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_23_092601) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
-    t.enum "status", default: "pending", null: false, enum_type: "status"
+    t.enum "status", default: "pending", null: false, enum_type: "admin_user_status"
     t.datetime "deactivated_at"
     t.datetime "reactivated_at"
     t.bigint "reactivated_by_id"

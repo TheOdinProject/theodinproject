@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.shared_examples 'authenticatable_with_two_factor' do |factory|
-  let(:record) { create(factory) }
+  let(:record) { create(factory, :pending) }
 
   describe '#generate_two_factor_secret_if_missing!' do
     context 'when the otp secret is not present' do
