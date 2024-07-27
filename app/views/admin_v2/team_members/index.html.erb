@@ -7,19 +7,21 @@
         <p class="mt-1 truncate text-sm text-gray-500 dark:text-gray-300">Manage team members</p>
       </div>
 
-      <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
+      <div class="flex items-center">
+        <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
 
-      <%= render Ui::Dropdown::Component.new do |dropdown| %>
-        <% dropdown.with_trigger_button do %>
-          <%= inline_svg_tag 'icons/ellipsis-vertical.svg', class: 'h-6 w-6', aria: true %>
-        <% end %>
-
-          <% dropdown.with_item do %>
-            <%= link_to admin_v2_team_activities_path, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
-              Activity log
-            <% end %>
+        <%= render Ui::Dropdown::Component.new do |dropdown| %>
+          <% dropdown.with_trigger_button do %>
+            <%= inline_svg_tag 'icons/ellipsis-vertical.svg', class: 'h-6 w-6', aria: true %>
           <% end %>
-      <% end %>
+
+            <% dropdown.with_item do %>
+              <%= link_to admin_v2_team_activities_path, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+                Activity log
+              <% end %>
+            <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 
