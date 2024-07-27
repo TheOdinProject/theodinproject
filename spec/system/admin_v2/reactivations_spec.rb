@@ -12,7 +12,10 @@ RSpec.describe 'Admin V2 team members reactivations' do
 
     within("#admin_user_#{deactivated_admin.id}") do
       find(:test_id, 'dropdown-button').click
-      click_link('Reactivate')
+
+      accept_confirm do
+        click_link('Reactivate')
+      end
     end
 
     within('#team_members') do
