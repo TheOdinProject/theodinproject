@@ -5,6 +5,7 @@ RSpec.describe Flag do
 
   it { is_expected.to belong_to(:flagger) }
   it { is_expected.to belong_to(:project_submission) }
+  it { is_expected.to belong_to(:admin_user).optional }
 
   it { is_expected.to validate_presence_of(:reason) }
   it { is_expected.to define_enum_for(:status).with_values(%i[active resolved]) }
@@ -74,6 +75,33 @@ RSpec.describe Flag do
     end
   end
 
+  describe '#admin_user' do
+    context 'when the flag is resolved and the admin user exists' do
+      it 'returns the admin user' do
+        admin_user = create(:admin_user)
+        flag = create(:flag, :resolved, admin_user:)
+
+        expect(flag.admin_user).to eq(admin_user)
+      end
+    end
+
+    context 'when the flag is resolved and the admin user does not exist' do
+      it 'returns a null admin user' do
+        flag = create(:flag, :resolved)
+
+        expect(flag.admin_user).to be_a(Null::AdminUser)
+      end
+    end
+
+    context 'when the flag is not resolved and the admin user does not exist' do
+      it 'returns a null admin user' do
+        flag = create(:flag)
+
+        expect(flag.admin_user).to be_nil
+      end
+    end
+  end
+
   describe '#resolve' do
     it 'updates the status and taken_action of the flag' do
       admin_user = create(:admin_user)
@@ -81,6 +109,14 @@ RSpec.describe Flag do
       expect { flag.resolve(action_taken: :dismiss, resolved_by: admin_user) }
         .to change { flag.status }.from('active').to('resolved')
         .and change { flag.taken_action }.from('pending').to('dismiss')
+    end
+
+    it 'sets who resolved the flag' do
+      admin_user = create(:admin_user)
+
+      flag.resolve(action_taken: :dismiss, resolved_by: admin_user)
+
+      expect(flag.admin_user).to eq(admin_user)
     end
   end
 

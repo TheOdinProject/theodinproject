@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_26_181456) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_29_171320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -135,6 +135,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_181456) do
     t.datetime "updated_at", null: false
     t.integer "resolved_by_id"
     t.integer "reason", default: 4, null: false
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_flags_on_admin_user_id"
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
   end
@@ -349,6 +351,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_181456) do
   add_foreign_key "admin_users", "admin_users", column: "reactivated_by_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
+  add_foreign_key "flags", "admin_users"
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
   add_foreign_key "lesson_completions", "lessons", on_delete: :cascade

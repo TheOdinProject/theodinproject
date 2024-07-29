@@ -35,6 +35,7 @@
                 <% if params[:status] == "resolved" %>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Action taken</th>
                 <% end %>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Resolved by</th>
                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
                   <span class="sr-only">View</span>
                 </th>
@@ -71,6 +72,11 @@
                   <% if params[:status] == "resolved" %>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.action_taken.past_tense %></td>
                   <% end %>
+
+                  <% if flag.resolved? %>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.admin_user.name %></td>
+                  <% end %>
+
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                     <%= link_to 'View', admin_v2_flag_path(flag), class: 'underline text-gray-800 hover:text-gray-900 hover:no-underline dark:text-gray-300 dark:hover:text-gray-200' %>
                   </td>
