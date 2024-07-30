@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_29_171320) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_30_082143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_29_171320) do
     t.enum "status", default: "pending", null: false, enum_type: "admin_user_status"
     t.datetime "deactivated_at"
     t.datetime "reactivated_at"
-    t.bigint "reactivated_by_id"
     t.string "otp_secret"
     t.integer "consumed_timestep"
     t.boolean "otp_required_for_login", default: false
@@ -84,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_29_171320) do
     t.index ["invited_by_id"], name: "index_admin_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_admin_users_on_invited_by"
     t.index ["name"], name: "index_admin_users_on_name", unique: true
-    t.index ["reactivated_by_id"], name: "index_admin_users_on_reactivated_by_id"
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
@@ -348,7 +346,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_29_171320) do
     t.index ["username"], name: "index_users_on_username"
   end
 
-  add_foreign_key "admin_users", "admin_users", column: "reactivated_by_id"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "admin_users"
