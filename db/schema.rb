@@ -93,6 +93,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_082143) do
     t.datetime "expires_at", precision: nil, null: false
     t.bigint "user_id"
     t.string "learn_more_url"
+    t.bigint "admin_user_id"
+    t.index ["admin_user_id"], name: "index_announcements_on_admin_user_id"
     t.index ["expires_at"], name: "index_announcements_on_expires_at"
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
@@ -346,6 +348,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_082143) do
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "announcements", "admin_users"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "admin_users"

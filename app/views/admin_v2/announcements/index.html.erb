@@ -32,6 +32,7 @@
               <tr class="text-gray-800 dark:text-gray-300">
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-0">Message</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Created</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Created by</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Expires</th>
                 <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0"><span class="sr-only">Edit</span></th>
               </tr>
@@ -48,6 +49,10 @@
                     <span title="<%= announcement.created_at %>">
                       <%= time_ago_in_words(announcement.created_at) %> ago
                     </span>
+                  </td>
+
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                    <%= announcement.created_by.name %>
                   </td>
 
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
