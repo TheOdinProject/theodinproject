@@ -7,7 +7,6 @@ class AdminUser < ApplicationRecord
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
 
-  belongs_to :reactivated_by, class_name: 'AdminUser', optional: true
   has_many :flags, dependent: :nullify
 
   validates :name, presence: true, uniqueness: true
