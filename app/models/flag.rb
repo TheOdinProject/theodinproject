@@ -11,6 +11,7 @@ class Flag < ApplicationRecord
 
   belongs_to :flagger, class_name: 'User'
   belongs_to :project_submission
+  belongs_to :admin_user, optional: true
 
   validates :reason, presence: true
   validates :extra, presence: true, if: -> { reason == 'other' }
@@ -23,6 +24,12 @@ class Flag < ApplicationRecord
   scope :count_for, ->(status) { by_status(status).count }
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
+  def admin_user
+    return Null::AdminUser.new if resolved? && super.nil?
+
+    super
+  end
+
   def project_submission_owner
     project_submission.user
   end
@@ -31,7 +38,7 @@ class Flag < ApplicationRecord
     update(
       status: :resolved,
       taken_action: action_taken,
-      resolved_by_id: resolved_by.id
+      admin_user: resolved_by
     )
   end
 
