@@ -1,4 +1,6 @@
 class Announcement < ApplicationRecord
+  include PublicActivity::Common
+
   belongs_to :user, optional: true
 
   validates :message, presence: true

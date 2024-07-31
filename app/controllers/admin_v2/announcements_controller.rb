@@ -20,6 +20,7 @@ module AdminV2
       @announcement = Announcement.new(announcement_params)
 
       if @announcement.save
+        create_activity(@announcement, 'created')
         redirect_to admin_v2_announcement_path(@announcement)
       else
         render :new, status: :unprocessable_entity
@@ -30,6 +31,7 @@ module AdminV2
       @announcement = Announcement.find(params[:id])
 
       if @announcement.update(announcement_params)
+        create_activity(@announcement, 'updated')
         redirect_to admin_v2_announcement_path(@announcement), notice: 'Announcement updated.'
       else
         render :edit, status: :unprocessable_entity
@@ -48,6 +50,14 @@ module AdminV2
 
     def announcement_params
       params.require(:announcement).permit(:message, :expires_at, :learn_more_url)
+    end
+
+    def create_activity(announcement, key)
+      announcement.create_activity(
+        key: "announcement.#{key}",
+        owner: current_admin_user,
+        parameters: { params: announcement_params.to_h }
+      )
     end
   end
 end
