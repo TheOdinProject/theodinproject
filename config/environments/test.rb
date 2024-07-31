@@ -61,6 +61,12 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
+  config.active_record.encryption = {
+    primary_key: 'C697JaYLcwzaSkxtmnedQad2Tl369h4P',
+    deterministic_key: '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w',
+    key_derivation_salt: 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'
+  }
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
