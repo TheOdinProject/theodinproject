@@ -1,7 +1,9 @@
 module AdminV2
   class AnnouncementsController < AdminV2::BaseController
     def index
-      @pagy, @announcements = pagy(Announcement.for_status(params.fetch(:status, :active)).ordered_by_recent, items: 20)
+      @pagy, @announcements = pagy(Announcement
+        .for_status(params.fetch(:status, :active))
+        .ordered_by_recent, items: 20)
     end
 
     def show
@@ -17,7 +19,7 @@ module AdminV2
     end
 
     def create
-      @announcement = Announcement.new(announcement_params)
+      @announcement = Announcement.new(announcement_params.merge(admin_user: current_admin_user))
 
       if @announcement.save
         redirect_to admin_v2_announcement_path(@announcement)
