@@ -23,7 +23,7 @@ class AdminV2::InvitationsController < Devise::InvitationsController
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:invite, keys: %i[name email])
+    devise_parameter_sanitizer.permit(:invite, keys: %i[name email role])
   end
 
   def create_invited_activity

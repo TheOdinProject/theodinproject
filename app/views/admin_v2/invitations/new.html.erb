@@ -7,9 +7,15 @@
             <%= form.label :name %>
             <%= form.text_field :name, autofocus: true, required: true, class: 'text-sm', placeholder: 'name', data: { test_id: 'name-field' } %>
           </div>
+
           <div>
             <%= form.label :email, 'Email address' %>
-            <%= form.email_field :email, class: 'text-sm', placeholder: 'name@example.com', data: { test_id: 'email-address-field' } %>
+            <%= form.email_field :email, class: 'text-sm', required: true, placeholder: 'name@example.com', data: { test_id: 'email-address-field' } %>
+          </div>
+
+          <div>
+            <%= form.label :role, 'Role', class: 'mb-2' %>
+            <%= form.select :role, options_for_select(AdminUser.roles), { include_blank: 'Select Role' }, required: true, class: 'text-sm', data: { test_id: 'role-field' } %>
           </div>
         </div>
 

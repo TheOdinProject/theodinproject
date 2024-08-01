@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdminUser do
-  subject { create(:admin_user) }
+  subject(:admin_user) { create(:admin_user) }
 
   it_behaves_like 'authenticatable_with_two_factor', :admin_user
   it_behaves_like 'two_factor_authenticatable'
@@ -10,9 +10,27 @@ RSpec.describe AdminUser do
 
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_uniqueness_of(:name) }
+  it { is_expected.to validate_presence_of(:role) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to validate_length_of(:password).is_at_least(8) }
+
+  it do
+    expect(admin_user).to define_enum_for(:status).with_values(
+      {
+        pending: 'pending',
+        activated: 'activated',
+        deactivated: 'deactivated',
+        pending_reactivation: 'pending_reactivation'
+      }
+    ).backed_by_column_of_type(:enum)
+  end
+
+  it do
+    expect(admin_user).to define_enum_for(:role).with_values(
+      { moderator: 'moderator', maintainer: 'maintainer', core: 'core' }
+    ).backed_by_column_of_type(:enum)
+  end
 
   describe '.ordered' do
     it 'orders the admin users by created_at descending' do

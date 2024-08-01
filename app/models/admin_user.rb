@@ -3,6 +3,9 @@ class AdminUser < ApplicationRecord
   include PublicActivity::Common
   include AASM
 
+  enum status: %w[pending activated deactivated pending_reactivation].index_by(&:itself)
+  enum role: %w[moderator maintainer core].index_by(&:itself)
+
   devise :two_factor_authenticatable
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
@@ -10,16 +13,10 @@ class AdminUser < ApplicationRecord
   has_many :flags, dependent: :nullify
 
   validates :name, presence: true, uniqueness: true
+  validates :role, presence: true, inclusion: { in: roles.values }
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :awaiting_activation, -> { pending.or(pending_reactivation) }
-
-  enum status: {
-    pending: 'pending',
-    activated: 'activated',
-    deactivated: 'deactivated',
-    pending_reactivation: 'pending_reactivation'
-  }
 
   aasm column: :status, enum: true, timestamps: true do
     state :pending, initial: true

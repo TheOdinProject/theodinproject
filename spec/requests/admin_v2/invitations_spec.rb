@@ -30,7 +30,7 @@ RSpec.describe 'Invitations' do
 
         expect do
           post admin_user_invitation_path, params: {
-            admin_user: { email: 'test@example.com', name: 'Test' },
+            admin_user: { email: 'test@example.com', name: 'Test', role: 'maintainer' },
             format: :turbo_stream
           }
         end.to change { AdminUser.count }.by(1)
@@ -76,7 +76,7 @@ RSpec.describe 'Invitations' do
   describe 'PUT #update' do
     context 'when the invitation token is valid' do
       it 'signs the new admin in' do
-        token = AdminUser.invite!(email: 'test@example.com', name: 'test').raw_invitation_token
+        token = AdminUser.invite!(email: 'test@example.com', name: 'test', role: 'maintainer').raw_invitation_token
 
         put admin_user_invitation_path, params: {
           admin_user: { password: 'password', password_confirmation: 'password', invitation_token: token },

@@ -13,5 +13,6 @@ if Rails.env.development? || ENV['STAGING']
     admin_user.name = 'admin'
     admin_user.password = 'password123'
     admin_user.status = 'activated'
+    admin_user.role = 'core'
   end
 end
