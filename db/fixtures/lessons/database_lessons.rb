@@ -19,7 +19,7 @@ def database_lessons
       description: 'The best way to learn is by practice, so this project will give you plenty of opportunity to apply your new SQL powers (for good).',
       is_project: true,
       github_path: '/databases/databases/project_sql_zoo.md',
-      accepts_submission: true,
+      accepts_submission: false,
       previewable: false,
       identifier_uuid: 'a4baeee4-7bab-47ba-8157-c8f52b204734',
     },
