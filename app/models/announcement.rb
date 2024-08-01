@@ -1,5 +1,8 @@
 class Announcement < ApplicationRecord
+  include PublicActivity::Common
+
   belongs_to :user, optional: true
+  belongs_to :admin_user, optional: true
 
   validates :message, presence: true
   validates :message, length: { maximum: 100 }
@@ -27,6 +30,10 @@ class Announcement < ApplicationRecord
 
   def active?
     status == :active
+  end
+
+  def created_by
+    admin_user || Null::AdminUser.new
   end
 
   private
