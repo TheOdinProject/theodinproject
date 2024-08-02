@@ -20,6 +20,19 @@ RSpec.describe 'Invitations' do
         expect(response).to redirect_to(new_admin_user_session_path)
       end
     end
+
+    context 'when the admin is not authorized to invite other team members' do
+      it 'redirects to the team page' do
+        admin = create(:admin_user, role: 'moderator')
+
+        sign_in(admin)
+
+        get new_admin_user_invitation_path
+
+        expect(response).to redirect_to(admin_v2_team_path)
+        expect(flash[:alert]).to eq('You are not authorized to perform this action')
+      end
+    end
   end
 
   describe 'POST #create' do
@@ -48,6 +61,21 @@ RSpec.describe 'Invitations' do
         end.not_to change { AdminUser.count }
 
         expect(response).to redirect_to(new_admin_user_session_path)
+      end
+    end
+
+    context 'when the admin is not authorized to invite other team members' do
+      it 'redirects to the team page' do
+        admin = create(:admin_user, role: 'moderator')
+
+        sign_in(admin)
+
+        post admin_user_invitation_path, params: {
+          admin_user: { email: 'test@example.com', name: 'Test' },
+        }
+
+        expect(response).to redirect_to(admin_v2_team_path)
+        expect(flash[:alert]).to eq('You are not authorized to perform this action')
       end
     end
   end

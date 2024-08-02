@@ -10,7 +10,7 @@ RSpec.describe 'Team member reactivation' do
         sign_in(admin)
 
         expect do
-          put admin_v2_team_member_reactivation_path(team_member_id: deactivated_admin.id)
+          put admin_v2_team_member_reactivation_path(deactivated_admin)
         end.to change { deactivated_admin.reload.status }.from('deactivated').to('pending_reactivation')
 
         expect(response).to redirect_to(admin_v2_team_path)
@@ -22,7 +22,7 @@ RSpec.describe 'Team member reactivation' do
         sign_in(admin)
 
         expect do
-          put admin_v2_team_member_reactivation_path(team_member_id: deactivated_admin.id)
+          put admin_v2_team_member_reactivation_path(deactivated_admin)
         end.to change { deactivated_admin.reload.otp_secret }
       end
 
@@ -54,6 +54,21 @@ RSpec.describe 'Team member reactivation' do
       end
     end
 
+    context 'when the admin is not authorized to reactivate other team members' do
+      it 'redirects to the team page' do
+        admin = create(:admin_user, role: 'moderator')
+        deactivated_admin = create(:admin_user, :deactivated)
+        sign_in(admin)
+
+        expect do
+          put admin_v2_team_member_reactivation_path(deactivated_admin)
+        end.not_to change { deactivated_admin.reload.status }
+
+        expect(response).to redirect_to(admin_v2_team_path)
+        expect(flash[:alert]).to eq('You are not authorized to perform this action')
+      end
+    end
+
     context 'when not signed in as an admin' do
       it 'redirects to the admin sign in page' do
         user = create(:user)
@@ -61,7 +76,7 @@ RSpec.describe 'Team member reactivation' do
         sign_in(user)
 
         expect do
-          put admin_v2_team_member_reactivation_path(team_member_id: admin.id)
+          put admin_v2_team_member_reactivation_path(admin)
         end.not_to change { admin.reload.status }
 
         expect(response).to redirect_to(new_admin_user_session_path)

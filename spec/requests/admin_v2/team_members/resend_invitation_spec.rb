@@ -9,7 +9,7 @@ RSpec.describe 'Resend team member invite' do
         sign_in(admin)
 
         expect do
-          post admin_v2_team_member_resend_invitation_path(team_member_id: pending_admin.id)
+          post admin_v2_team_member_resend_invitation_path(pending_admin)
         end.to change { ActionMailer::Base.deliveries.count }
 
         mailer = ActionMailer::Base.deliveries.last
@@ -27,7 +27,7 @@ RSpec.describe 'Resend team member invite' do
         sign_in(admin)
 
         expect do
-          post admin_v2_team_member_resend_invitation_path(team_member_id: active_admin.id)
+          post admin_v2_team_member_resend_invitation_path(active_admin)
         end.not_to change { ActionMailer::Base.deliveries.count }
       end
     end
@@ -54,7 +54,7 @@ RSpec.describe 'Resend team member invite' do
         sign_in(user)
 
         expect do
-          post admin_v2_team_member_resend_invitation_path(team_member_id: admin.id)
+          post admin_v2_team_member_resend_invitation_path(admin)
         end.not_to change { ActionMailer::Base.deliveries.count }
 
         expect(response).to redirect_to(new_admin_user_session_path)

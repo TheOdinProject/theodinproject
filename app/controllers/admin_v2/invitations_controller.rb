@@ -1,4 +1,5 @@
 class AdminV2::InvitationsController < Devise::InvitationsController
+  before_action :authorize_admin, only: %i[new create] # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :configure_permitted_parameters
   after_action :create_invited_activity, only: :create
 
@@ -34,5 +35,11 @@ class AdminV2::InvitationsController < Devise::InvitationsController
       owner: current_admin_user,
       params: { name: @invited_admin_user.name }
     )
+  end
+
+  def authorize_admin
+    return if AdminUserPolicy.new(current_admin_user).invite?
+
+    redirect_to admin_v2_team_path, alert: 'You are not authorized to perform this action'
   end
 end

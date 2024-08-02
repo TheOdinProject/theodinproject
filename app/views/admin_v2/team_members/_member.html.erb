@@ -27,10 +27,12 @@
           <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
         <% end %>
 
-        <% dropdown.with_item do %>
-          <%= link_to edit_admin_v2_team_member_role_path(team_member), data: { turbo_frame: 'modal' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
-            <%= inline_svg_tag 'icons/user-circle.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
-            Change role
+        <% if AdminUserPolicy.new(current_admin_user).change_role? %>
+          <% dropdown.with_item do %>
+            <%= link_to edit_admin_v2_team_member_role_path(team_member), data: { turbo_frame: 'modal' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+              <%= inline_svg_tag 'icons/user-circle.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+              Change role
+            <% end %>
           <% end %>
         <% end %>
 
@@ -58,22 +60,27 @@
             <% end %>
           <% end %>
 
-          <% dropdown.with_item do %>
-            <%= link_to admin_v2_team_member_two_factor_reset_path(team_member), data: { turbo_method: :put, turbo_frame: '_top', turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
-              <%= inline_svg_tag 'icons/arrow-path.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
-              Reset 2FA
+          <% if AdminUserPolicy.new(current_admin_user).reset_2fa? %>
+            <% dropdown.with_item do %>
+              <%= link_to admin_v2_team_member_two_factor_reset_path(team_member), data: { turbo_method: :put, turbo_frame: '_top', turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+                <%= inline_svg_tag 'icons/arrow-path.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+                Reset 2FA
+              <% end %>
             <% end %>
           <% end %>
 
-          <% dropdown.with_item do %>
-            <%= link_to admin_v2_team_member_deactivation_path(team_member), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
-              <%= inline_svg_tag 'icons/user-minus.svg', class: 'mr-3 h-5 w-5 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
-              Deactivate
+          <% if AdminUserPolicy.new(current_admin_user).deactivate? %>
+            <% dropdown.with_item do %>
+              <%= link_to admin_v2_team_member_deactivation_path(team_member), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'text-red-700 dark:text-red-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+                <%= inline_svg_tag 'icons/user-minus.svg', class: 'mr-3 h-5 w-5 text-red-700 group-hover:text-red-600 dark:text-red-300 dark:group-hover:text-red-400' %>
+                Deactivate
+              <% end %>
             <% end %>
           <% end %>
+
         <% end %>
 
-        <% if team_member.deactivated? %>
+        <% if team_member.deactivated? && AdminUserPolicy.new(current_admin_user).reactivate? %>
           <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_reactivation_path(team_member_id: team_member), data: { turbo_method: :put, turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/user-plus.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
