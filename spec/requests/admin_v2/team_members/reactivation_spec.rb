@@ -38,7 +38,7 @@ RSpec.describe 'Team member reactivation' do
         mailer = ActionMailer::Base.deliveries.last
 
         expect(mailer.to).to eq(['deactivated@odin.com'])
-        expect(mailer.subject).to eq('The Odin Project Admin Invitation')
+        expect(mailer.subject).to eq('Joining The Odin Project Admin Team')
       end
     end
 

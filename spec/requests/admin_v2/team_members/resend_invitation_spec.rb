@@ -15,7 +15,7 @@ RSpec.describe 'Resend team member invite' do
         mailer = ActionMailer::Base.deliveries.last
 
         expect(mailer.to).to eq(['pending@odin.com'])
-        expect(mailer.subject).to eq('The Odin Project Admin Invitation')
+        expect(mailer.subject).to eq('Joining The Odin Project Admin Team')
       end
     end
 
