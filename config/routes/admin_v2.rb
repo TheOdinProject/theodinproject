@@ -21,6 +21,7 @@ namespace :admin_v2 do # rubocop:disable Metrics/BlockLength
     resource :resend_invitation, only: %i[create], controller: 'team_members/resend_invitation'
     resource :deactivation, only: %i[update], controller: 'team_members/deactivation'
     resource :reactivation, only: %i[update], controller: 'team_members/reactivation'
+    resource :role, only: %i[edit update], controller: 'team_members/role'
     resource :two_factor_reset, only: %i[update], controller: 'team_members/two_factor_reset'
 
     collection do

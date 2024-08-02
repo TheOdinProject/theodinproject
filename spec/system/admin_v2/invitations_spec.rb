@@ -11,6 +11,7 @@ RSpec.describe 'Admin v2 invitations' do
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
+    select('core', from: 'Role')
     click_button('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')
@@ -50,6 +51,7 @@ RSpec.describe 'Admin v2 invitations' do
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
+    select('core', from: 'Role')
     click_button('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')

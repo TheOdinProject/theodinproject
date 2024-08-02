@@ -4,6 +4,7 @@ FactoryBot.define do
     sequence(:email) { |n| "admin#{n}@odin.com" }
     password { 'password123' }
     status { :activated }
+    role { :core }
 
     trait :with_otp do
       otp_secret { AdminUser.generate_otp_secret }

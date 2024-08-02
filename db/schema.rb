@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_30_082143) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_01_070241) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "admin_roles", ["moderator", "maintainer", "core"]
   create_enum "admin_user_status", ["pending", "activated", "deactivated", "pending_reactivation"]
 
   create_table "active_admin_comments", id: :serial, force: :cascade do |t|
@@ -78,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_082143) do
     t.string "otp_secret"
     t.integer "consumed_timestep"
     t.boolean "otp_required_for_login", default: false
+    t.enum "role", enum_type: "admin_roles"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_admin_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_admin_users_on_invited_by_id"

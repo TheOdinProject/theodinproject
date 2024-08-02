@@ -4,8 +4,16 @@
   </div>
 
   <div class="min-w-0 w-full flex items-center justify-between">
-    <div class="flex items-center gap-x-2">
-      <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
+    <div class="flex items-end gap-x-4">
+      <div class="flex flex-col">
+        <p class="text-sm font-semibold leading-6 text-gray-800 dark:text-gray-300"><%= team_member.name %></p>
+        <p class="text-xs pt-1 text-gray-600 dark:text-gray-400">
+          <%= team_member.email %>
+          &middot;
+          <%= team_member.role.capitalize %>
+        </p>
+      </div>
+
       <% if team_member.awaiting_activation? %>
         <%= render Ui::BadgeComponent.new(color: 'yellow') do %>
           Pending
@@ -19,8 +27,14 @@
           <%= inline_svg_tag 'icons/ellipsis-horizontal.svg', class: 'h-6 w-6', aria: true %>
         <% end %>
 
-        <% if team_member.awaiting_activation? %>
+        <% dropdown.with_item do %>
+          <%= link_to edit_admin_v2_team_member_role_path(team_member), data: { turbo_frame: 'modal' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
+            <%= inline_svg_tag 'icons/user-circle.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
+            Change role
+          <% end %>
+        <% end %>
 
+        <% if team_member.awaiting_activation? %>
           <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_resend_invitation_path(team_member), data: { turbo_method: :post, turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/envelope.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
@@ -44,7 +58,7 @@
             <% end %>
           <% end %>
 
-           <% dropdown.with_item do %>
+          <% dropdown.with_item do %>
             <%= link_to admin_v2_team_member_two_factor_reset_path(team_member), data: { turbo_method: :put, turbo_frame: '_top', turbo_confirm: 'Are you sure?' }, class: 'text-gray-700 dark:text-gray-300 whitespace-nowrap group flex items-center px-3 py-2 text-sm' do %>
               <%= inline_svg_tag 'icons/arrow-path.svg', class: 'mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400' %>
               Reset 2FA
