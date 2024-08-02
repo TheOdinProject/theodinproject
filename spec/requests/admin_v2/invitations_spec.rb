@@ -55,7 +55,11 @@ RSpec.describe 'Invitations' do
   describe 'GET #edit' do
     context 'with a valid invitation token' do
       it 'renders the accept invitation page' do
-        token = AdminUser.invite!(email: 'test@example.com', skip_invitation: true).raw_invitation_token
+        token = AdminUser.invite!(
+          email: 'test@example.com',
+          role: 'moderator',
+          skip_invitation: true
+        ).raw_invitation_token
 
         get accept_admin_user_invitation_path(invitation_token: token)
         expect(response).to have_http_status(:ok)
@@ -64,7 +68,11 @@ RSpec.describe 'Invitations' do
 
     context 'with an invalid invitation token' do
       it 'redirects to the sign in page' do
-        AdminUser.invite!(email: 'test@example.com', skip_invitation: true).raw_invitation_token
+        AdminUser.invite!(
+          email: 'test@example.com',
+          role: 'moderator',
+          skip_invitation: true
+        ).raw_invitation_token
 
         get accept_admin_user_invitation_path(invitation_token: '17282')
 
@@ -88,7 +96,11 @@ RSpec.describe 'Invitations' do
 
     context 'when the invitation token is not valid' do
       it 'returns an unprocessable entity response' do
-        AdminUser.invite!(email: 'test@example.com', name: 'test').raw_invitation_token
+        AdminUser.invite!(
+          email: 'test@example.com',
+          name: 'test',
+          role: 'maintainer',
+        ).raw_invitation_token
 
         put admin_user_invitation_path, params: {
           admin_user: { password: 'password', password_confirmation: 'password', invitation_token: '123' },
