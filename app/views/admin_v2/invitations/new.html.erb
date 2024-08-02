@@ -15,7 +15,7 @@
 
           <div>
             <%= form.label :role, 'Role', class: 'mb-2' %>
-            <%= form.select :role, options_for_select(AdminUser.roles), { include_blank: 'Select Role' }, required: true, class: 'text-sm', data: { test_id: 'role-field' } %>
+            <%= form.select :role, options_for_select(AdminUser.roles.map { |key, value| [key.humanize, value] }), { include_blank: 'Select Role' }, required: true, class: 'text-sm', data: { test_id: 'role-field' } %>
           </div>
         </div>
 

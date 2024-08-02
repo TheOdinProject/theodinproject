@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin V2 team members reactivations' do
-  it 'deactivates a team member' do
+  it 'reactivates a team member' do
     admin = create(:admin_user, :activated)
     deactivated_admin = create(:admin_user, :deactivated, email: 'deactivated@admin.com')
 
@@ -24,8 +24,8 @@ RSpec.describe 'Admin V2 team members reactivations' do
 
     using_session('deactivated_admin') do
       open_email('deactivated@admin.com')
-      expect(current_email.subject).to match(/The Odin Project Admin Invitation/)
-      current_email.click_link('Accept invitation')
+      expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
+      current_email.click_link('Join the team')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')

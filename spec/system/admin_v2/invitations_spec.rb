@@ -11,7 +11,7 @@ RSpec.describe 'Admin v2 invitations' do
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
-    select('core', from: 'Role')
+    select('Core', from: 'Role')
     click_button('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')
@@ -20,8 +20,8 @@ RSpec.describe 'Admin v2 invitations' do
     # Accept the invitation
     using_session('john') do
       open_email('john@example.com')
-      expect(current_email.subject).to match(/The Odin Project Admin Invitation/)
-      current_email.click_link('Accept invitation')
+      expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
+      current_email.click_link('Join the team')
 
       expect(page).to have_content('Welcome to the team!')
 
@@ -51,7 +51,7 @@ RSpec.describe 'Admin v2 invitations' do
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
-    select('core', from: 'Role')
+    select('Core', from: 'Role')
     click_button('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')
@@ -60,8 +60,8 @@ RSpec.describe 'Admin v2 invitations' do
     # Accept the invitation
     using_session('john') do
       open_email('john@example.com')
-      expect(current_email.subject).to match(/The Odin Project Admin Invitation/)
-      current_email.click_link('Accept invitation')
+      expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
+      current_email.click_link('Join the team')
 
       expect(page).to have_content('Welcome to the team!')
 
