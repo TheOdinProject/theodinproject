@@ -5,14 +5,6 @@ Rails.application.routes.draw do
   match '500' => 'errors#internal_server_error', via: :all
 
   draw(:redirects)
-  ActiveAdmin.routes(self)
-
-  require 'sidekiq/web'
-  require 'sidekiq/cron/web'
-  authenticate :user, ->(user) { user.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
-    mount Flipper::UI.app(Flipper) => 'admin/feature_flags', as: :admin_feature_flags
-  end
 
   if Rails.env.development?
     mount Lookbook::Engine, at: '/lookbook'

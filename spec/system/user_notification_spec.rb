@@ -5,21 +5,19 @@ RSpec.describe 'User Notifications' do
   let(:project_submission) { create(:project_submission, lesson:, user: submission_owner) }
   let(:lesson) { create(:lesson, is_project: true, accepts_submission: true, previewable: true) }
   let(:submission_owner) { create(:user, username: 'Simon Bell', email: 'simon@example.com', password: 'pa55word') }
-  let(:admin) { create(:user, admin: true) }
 
   before do
-    sign_in(admin)
-    visit admin_flags_path
+    sign_in(create(:admin_user))
+    visit admin_v2_flags_path
 
     within("#flag_#{flag.id}") do
-      find('a.resource_id_link').click
+      click_link('View')
     end
 
-    page.accept_confirm do
-      find(:test_id, 'notify-broken-link-btn').click
-    end
+    click_button('Resolve flag')
+    choose('action_taken_notified_user')
+    click_button('Submit')
 
-    sign_out(admin)
     sign_in(submission_owner)
   end
 
