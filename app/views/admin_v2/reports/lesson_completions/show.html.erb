@@ -6,20 +6,27 @@
 
   <%= render 'admin_v2/reports/date_filters', url: admin_v2_reports_lesson_completions_path %>
 
-  <%= turbo_frame_tag 'lesson_completion_stats', class: 'block mt-4 h-80' do %>
-    <%= render Charts::LineChartComponent.new(
-          labels: @lesson_completions_stats.keys.map { |date| date.to_fs(:"graph_#{params.fetch(:period, 'day')}") },
-          display_x_labels: params.fetch('display_x_labels', true),
-          datasets: [
-            {
-              label: 'Lesson completions',
-              data: @lesson_completions_stats.values,
-              fill: true,
-              backgroundColor: 'blue-200',
-              borderColor: 'blue-600',
-              borderWidth: 2
-            }
-          ],
-        ) %>
-  <% end %>
+  <div class="mt-4 group flex flex-col gap-1 rounded-md border p-2 sm:p-3 dark:border-gray-800">
+    <div class="pb-4 flex flex-col gap-y-1">
+      <p class="text-sm font-semibold tracking-tight text-gray-800 dark:text-gray-300">Total lesson completions</p>
+      <p class="block text-lg font-bold text-gray-800 dark:text-gray-300"><%= number_with_delimiter(@lesson_completions_stats.values.sum) %></p>
+    </div>
+
+    <%= turbo_frame_tag 'lesson_completion_stats', class: 'block h-60' do %>
+      <%= render Charts::LineChartComponent.new(
+            labels: @lesson_completions_stats.keys.map { |date| date.to_fs(:"graph_#{params.fetch(:period, 'day')}") },
+            display_x_labels: params.fetch('display_x_labels', true),
+            datasets: [
+              {
+                label: 'Lesson completions',
+                data: @lesson_completions_stats.values,
+                fill: true,
+                backgroundColor: 'blue-200',
+                borderColor: 'blue-600',
+                borderWidth: 2
+              }
+            ],
+          ) %>
+    <% end %>
+  </div>
 </div>
