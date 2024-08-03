@@ -15,6 +15,19 @@ RSpec.describe 'Team member role' do
       end
     end
 
+    context 'when the admin is not authorized to change roles' do
+      it 'redirects to the team page' do
+        admin = create(:admin_user, role: 'maintainer')
+        team_member = create(:admin_user)
+        sign_in(admin)
+
+        get edit_admin_v2_team_member_role_path(team_member)
+
+        expect(response).to redirect_to(admin_v2_team_path)
+        expect(flash[:alert]).to eq('You are not authorized to perform this action')
+      end
+    end
+
     context 'when signed in as an admin and the team member does not exist' do
       it 'renders the edit template' do
         admin = create(:admin_user)
@@ -70,6 +83,22 @@ RSpec.describe 'Team member role' do
 
         expect(response).to redirect_to(admin_v2_team_path)
         expect(flash[:alert]).to eq('Team member not found')
+      end
+    end
+
+    context 'when the admin is not authorized to change roles' do
+      it 'redirects to the team page' do
+        admin = create(:admin_user, role: 'maintainer')
+        other_admin = create(:admin_user)
+        sign_in(admin)
+
+        put admin_v2_team_member_role_path(other_admin), params: {
+          admin_user: { role: 'core' },
+          format: :turbo_stream
+        }
+
+        expect(response).to redirect_to(admin_v2_team_path)
+        expect(flash[:alert]).to eq('You are not authorized to perform this action')
       end
     end
 

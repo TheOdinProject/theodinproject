@@ -1,5 +1,6 @@
 module AdminV2
   class TeamMembers::ReactivationController < AdminV2::BaseController
+    before_action :authorize_admin
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def update
@@ -16,6 +17,12 @@ module AdminV2
 
     def record_not_found
       redirect_to admin_v2_team_path, alert: 'Team member not found'
+    end
+
+    def authorize_admin
+      return if AdminUserPolicy.new(current_admin_user).reactivate?
+
+      redirect_to admin_v2_team_path, alert: 'You are not authorized to perform this action'
     end
   end
 end

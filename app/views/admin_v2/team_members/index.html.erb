@@ -8,7 +8,9 @@
       </div>
 
       <div class="flex items-center">
-        <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
+        <% if AdminUserPolicy.new(current_admin_user).invite? %>
+          <%= link_to 'Invite new member', new_admin_user_invitation_path, class: 'button button--primary p-2', data: { turbo_frame: 'modal' } %>
+        <% end %>
 
         <%= render Ui::Dropdown::Component.new do |dropdown| %>
           <% dropdown.with_trigger_button do %>

@@ -4,7 +4,7 @@
   <div class="page-container">
     <h1 class="page-heading-title">Change admin password</h1>
 
-    <div class='max-w-xl mx-auto'>
+    <div class='max-w-lg mx-auto'>
       <%= render CardComponent.new do |card| %>
         <% card.with_body do %>
           <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :put, class: 'grid grid-cols-6 gap-6 grid-flow-row' } do |form| %>
