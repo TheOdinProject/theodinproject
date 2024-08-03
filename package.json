@@ -5,11 +5,9 @@
   "scripts": {
     "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'",
     "build:css": "npm-run-all --parallel \"build:css:* {@}\" --",
-    "build:css:application": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css",
-    "build:css:active_admin": "sass ./app/assets/stylesheets/active_admin.scss ./app/assets/builds/active_admin.css --no-source-map --load-path=node_modules --style=compressed"
+    "build:css:application": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
   },
   "dependencies": {
-    "@activeadmin/activeadmin": "^3.2.0",
     "@babel/core": "7",
     "@babel/eslint-parser": "^7.23.10",
     "@babel/plugin-transform-runtime": "7",
@@ -24,8 +22,6 @@
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "active_material": "^2.0.2",
-    "activeadmin_addons": "^2.0.0-beta.3",
     "autoprefixer": "^10.4.15",
     "babel-loader": "9",
     "babel-plugin-prismjs": "^2.1.0",
