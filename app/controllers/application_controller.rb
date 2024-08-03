@@ -10,15 +10,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
 
-  def authenticate_active_admin_user!
-    authenticate_user!
-
-    unless current_user.admin?
-      flash[:alert] = 'Unauthorized Access!'
-      redirect_to root_path
-    end
-  end
-
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end
