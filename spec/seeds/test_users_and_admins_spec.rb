@@ -1,16 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe 'Generating Test Admins' do
-  subject { described_class.as_json(course, between_dates) }
-
+RSpec.describe 'Generating test users and admins' do
   context 'when development environment' do
     before do
       allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new('development'))
     end
 
-    it 'creates test admins' do
-      load './db/seeds/test_admins.rb'
+    it 'creates test users' do
+      load './db/seeds/test_users_and_admins.rb'
       expect(User.count).to be > 1
+    end
+
+    it 'creates an admin user' do
+      load './db/seeds/test_users_and_admins.rb'
+      expect(AdminUser.count).to eq(1)
     end
   end
 
@@ -23,13 +26,13 @@ RSpec.describe 'Generating Test Admins' do
       end
     end
 
-    it 'creates test admins' do
-      load './db/seeds/test_admins.rb'
+    it 'creates test users' do
+      load './db/seeds/test_users_and_admins.rb'
       expect(User.count).to be > 1
     end
 
     it 'creates an admin user' do
-      load './db/seeds/test_admins.rb'
+      load './db/seeds/test_users_and_admins.rb'
       expect(AdminUser.count).to eq(1)
     end
   end
@@ -39,13 +42,13 @@ RSpec.describe 'Generating Test Admins' do
       allow(Rails).to receive(:env).and_return(ActiveSupport::StringInquirer.new('production'))
     end
 
-    it 'does not create any test admins' do
-      load './db/seeds/test_admins.rb'
+    it 'does not create any test users' do
+      load './db/seeds/test_users_and_admins.rb'
       expect(User.count).to eq(0)
     end
 
     it 'does not create any test admin users' do
-      load './db/seeds/test_admins.rb'
+      load './db/seeds/test_users_and_admins.rb'
       expect(AdminUser.count).to eq(0)
     end
   end
