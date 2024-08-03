@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/paths/:path_id/courses/:course_id/lessons/:id', to: redirect(Redirectors::NestedLessonRedirector.new)
   get '/discord', to: redirect(ODIN_CHAT_URL)
   get '/blog', to: redirect(ODIN_BLOG_URL), as: :blog
+
+  get '/admin/flags/:id', to: redirect('/admin_v2/flags/%{id}')
 end
