@@ -20,7 +20,7 @@ load './db/seeds/success_stories.rb'
 # GENERATE test projects
 load './db/seeds/test_project_submissions.rb'
 
-# GENERATE accounts users and admin users for testing
+# GENERATE users and admin users for testing
 load './db/seeds/test_users_and_admins.rb'
 
 # GENERATE course lesson and project counts
