@@ -20,18 +20,26 @@
     <h3 class="text-base font-semibold leading-6 text-gray-800 dark:text-gray-300">Reports</h3>
   </div>
 
-  <ul role="list" class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
+  <ul role="list" class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
     <%= link_to admin_v2_reports_lesson_completions_path do %>
       <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 h- dark:hover:border-gray-600 sm:p-6">
-        <dt class="truncate text-sm font-medium text-gray-800 dark:text-gray-300">Lesson completions this week</dt>
-        <%= turbo_frame_tag 'lesson_completion_stats', src: admin_v2_reports_lesson_completions_path(display_x_labels: false), lazy: true, class: 'block h-36' %>
+        <dt class="truncate text-sm font-medium text-gray-800 dark:text-gray-300 pb-2">Lesson completions this week</dt>
+        <%= turbo_frame_tag 'lesson_completion_stats', src: admin_v2_reports_lesson_completions_path(display_x_labels: false), lazy: true, class: 'block h-36' do %>
+          <div class="flex items-center h-full w-full justify-center">
+            <%= inline_svg_tag 'icons/spinner.svg', class: 'h-12 w-12 animate-spin text-gray-400 dark:text-gray-300', aria: true %>
+           </div>
+        <% end %>
       </li>
     <% end %>
 
     <%= link_to admin_v2_reports_users_path do %>
       <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
-        <dt class="truncate text-sm font-medium text-gray-800 dark:text-gray-300">Sign ups this week</dt>
-        <%= turbo_frame_tag 'sign_up_stats', src: admin_v2_reports_users_path(display_x_labels: false), lazy: true, class: 'block h-36' %>
+        <dt class="truncate text-sm font-medium text-gray-800 dark:text-gray-300 pb-2">Sign ups this week</dt>
+        <%= turbo_frame_tag 'sign_up_stats', src: admin_v2_reports_users_path(display_x_labels: false), lazy: true, class: 'block h-36' do %>
+           <div class="flex items-center h-full w-full justify-center">
+            <%= inline_svg_tag 'icons/spinner.svg', class: 'h-12 w-12 animate-spin text-gray-400 dark:text-gray-300', aria: true %>
+           </div>
+        <% end %>
       </li>
     <% end %>
 

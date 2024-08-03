@@ -46,27 +46,33 @@
       <% end %>
     </div>
 
-    <div class="'w-full flex mt-4 h-screen">
-      <%= render Charts::HorizontalBarChartComponent.new(
-            labels: @path_lesson_completions.map(&:lesson_title),
-            options: {
-              animation: {
-                duration: 0
-              }
-            },
-            datasets: [
-              {
-                label: 'Lesson completions',
-                data: @path_lesson_completions.map(&:count),
-                borderColor: 'emerald-600',
-                backgroundColor: 'emerald-200',
-                borderWidth: 1,
-                barThickness: 20,
-                borderRadius: 4
-              }
-            ],
-          ) %>
+    <div class="mt-4 group flex h-full flex-col gap-1 rounded-md border p-2 sm:p-3 dark:border-gray-800">
+      <div class="pb-2 flex flex-col gap-y-1">
+        <p class="text-sm font-semibold tracking-tight text-gray-800 dark:text-gray-300">Total lesson completions</p>
+        <p class="block text-lg font-bold text-gray-800 dark:text-gray-300"><%= number_with_delimiter(@path_lesson_completions.sum(&:count)) %></p>
+      </div>
 
+      <div class="'w-full h-full flex">
+        <%= render Charts::HorizontalBarChartComponent.new(
+              labels: @path_lesson_completions.map(&:lesson_title),
+              options: {
+                animation: {
+                  duration: 0
+                }
+              },
+              datasets: [
+                {
+                  label: 'Lesson completions',
+                  data: @path_lesson_completions.map(&:count),
+                  borderColor: 'emerald-600',
+                  backgroundColor: 'emerald-200',
+                  borderWidth: 1,
+                  barThickness: 20,
+                  borderRadius: 4
+                }
+              ],
+            ) %>
+      </div>
     </div>
   <% end %>
 </div>

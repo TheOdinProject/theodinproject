@@ -23,6 +23,7 @@ class Charts::LineChartComponent < ApplicationComponent
           type: 'linear',
           beginAtZero: true,
           ticks: { precision: 0 },
+          grid: { display: false },
         },
         x: {
           display: display_x_labels,
