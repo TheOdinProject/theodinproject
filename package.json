@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'",
-    "build:css": "npm-run-all --parallel \"build:css:* {@}\" --",
-    "build:css:application": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --postcss"
   },
   "dependencies": {
     "@babel/core": "7",
@@ -33,7 +32,6 @@
     "core-js": "^3.37.0",
     "css-loader": "^6.10.0",
     "css-minimizer-webpack-plugin": "^5.0.1",
-    "cssnano": "^6.1.2",
     "debounce": "^1.2.1",
     "el-transition": "^0.0.7",
     "flatpickr": "^4.6.13",
@@ -42,7 +40,6 @@
     "lodash": "^4.17.21",
     "mermaid": "^9.4.3",
     "mini-css-extract-plugin": "^2.9.0",
-    "npm-run-all": "^4.1.5",
     "pnp-webpack-plugin": "1",
     "postcss": "^8.4.40",
     "postcss-cli": "^11.0.0",
