@@ -10,8 +10,5 @@ module.exports = {
       },
       stage: 3
     }),
-    require('cssnano')({
-      preset: 'default'
-    })
   ]
 }

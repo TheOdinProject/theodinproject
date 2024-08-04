@@ -1,4 +1,3 @@
-/* Entry point for your PostCSS build */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
