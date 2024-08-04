@@ -1,10 +1,5 @@
 # Be sure to restart your server when you modify this file.
 
-# work around for segfault error with sassc that is appearing in CI for us atm - https://github.com/sass/sassc-ruby/issues/197
-Rails.application.config.assets.configure do |env|
-  env.export_concurrent = false
-end
-
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
