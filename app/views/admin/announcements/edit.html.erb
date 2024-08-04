@@ -1,0 +1,17 @@
+<div class="max-w-4xl w-full mx-auto">
+
+  <div class="flex items-center justify-between">
+    <div class="flex gap-x-2">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-200">Announcement #<%= @announcement.id %></h1>
+      <%= render Ui::BadgeComponent.new(color: @announcement.active? ? 'green' : 'yellow') do %>
+        <%= @announcement.status.capitalize %>
+      <% end %>
+    </div>
+  </div>
+
+   <div>
+    <div class="mt-6">
+      <%= render 'admin/announcements/form', announcement: @announcement %>
+    </div>
+  </div>
+</div>

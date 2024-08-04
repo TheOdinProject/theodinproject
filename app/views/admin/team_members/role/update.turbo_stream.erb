@@ -1,0 +1,5 @@
+<%= turbo_stream.replace @team_member do %>
+  <%= render 'admin/team_members/member', team_member: @team_member %>
+<% end %>
+
+<%= turbo_stream.update 'flash-messages', partial: 'shared/flash' %>

@@ -12,7 +12,7 @@ module Notifications
       "#{flagger.username} has flagged a submission on #{project_submission.lesson.display_title}\n" \
         "Reason: #{reason}\n" \
         "Extra: #{extra}\n" \
-        "Resolve the flag here: #{admin_v2_flag_url(flag)}"
+        "Resolve the flag here: #{admin_flag_url(flag)}"
     end
 
     def destination

@@ -101,5 +101,5 @@ Rails.application.routes.draw do
   resource :themes, only: :update
   resources :interview_surveys, only: %i[new create]
 
-  draw(:admin_v2)
+  draw(:admin)
 end

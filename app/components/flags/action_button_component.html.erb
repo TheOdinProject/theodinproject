@@ -1,4 +1,4 @@
-<%= form_with url: admin_v2_flag_path(flag), method: :put do |form| %>
+<%= form_with url: admin_flag_path(flag), method: :put do |form| %>
   <div class="flex gap-x-3 items-center">
     <label id="listbox-label" class="sr-only">Resolve flag</label>
     <div class="relative" data-controller="visibility" data-action="visibility:click:outside->visibility#off">
