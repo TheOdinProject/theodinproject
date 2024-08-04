@@ -3,7 +3,7 @@
     <%= render Course::BadgeComponent.new(course: lesson.course, options: {show_badge: true }) %>
 
     <div class="text-center xl:text-left">
-      <div class="flex flex-col sm:flex-row items-center gap-0 sm:gap-3">
+      <div class="flex flex-col xl:flex-row items-center gap-0 sm:gap-3">
         <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200" data-test-id="lesson-title-header">
           <%= lesson.display_title %>
         </h1>
