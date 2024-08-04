@@ -20,7 +20,11 @@
       When a rule has been broken, the moderators will assume everyone had positive intentions and will try to de-escalate the situation by having a conversation to clarify the expectations of our rules. If you are contacted by our moderation team, please do not take it personally or become argumentative. We realize that we have higher standards than the average Discord server to ensure the safety and wellbeing of our entire community.
     </p>
 
-    <h3 id="do-summary" class="flex items-center"><span class="fa-regular fa-circle-check mr-3 text-lg text-green-700"></span>Do</h3>
+    <h3 id="do-summary" class="flex items-center">
+      <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-3 text-green-700' %>
+      Do
+    </h3>
+
     <ul>
       <li>Discuss topics that are safe and welcoming for everyone</li>
       <li>Ask questions about content or projects in our curriculum</li>
@@ -34,7 +38,10 @@
       <li>Act professionally and treat everyone with respect</li>
     </ul>
 
-    <h3 id="do-not-summary" class="flex items-center"><span class="fa-solid fa-triangle-exclamation mr-3 text-lg text-amber-600"></span> Don't</h3>
+    <h3 id="do-not-summary" class="flex items-center">
+       <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-3 text-amber-600' %>
+      Don't
+    </h3>
     <ul>
       <li>Discuss topics that can be harmful or divisive</li>
       <li>Ask for help on personal projects or homework</li>
@@ -50,55 +57,95 @@
 
     <h3 id="safe-topics">Discuss topics that are safe and welcoming for everyone</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> Discuss topics that are relevant to our curriculum or have an off-topic channel.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      Discuss topics that are relevant to our curriculum or have an off-topic channel.
     </p>
+
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not discuss any unrelated topics that can be divisive or harmful, such as illegal activities, politics, religion, relationships, mental health, medical conditions, medicine, homeopathic or other home remedies, etc.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not discuss any unrelated topics that can be divisive or harmful, such as illegal activities, politics, religion, relationships, mental health, medical conditions, medicine, homeopathic or other home remedies, etc.
     </p>
 
     <h3 id="curriculum-content">Ask questions about content or projects in our curriculum</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> The purpose of this server is to support people when they run into issues doing our curriculum. This allows our volunteers to know the exact scope of your problem and correct any poor advice. In addition, this limited scope helps us identify areas in our curriculum that we need to improve.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      The purpose of this server is to support people when they run into issues doing our curriculum. This allows our volunteers to know the exact scope of your problem and correct any poor advice. In addition, this limited scope helps us identify areas in our curriculum that we need to improve.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not ask for advice/help on homework or personal projects, even if the topic is covered by our curriculum. Instead, research other servers/communities that offer general programming help.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not ask for advice/help on homework or personal projects, even if the topic is covered by our curriculum. Instead, research other servers/communities that offer general programming help.
     </p>
 
     <h3 id="curriculum-tools">Ask questions about the tools recommended in our curriculum</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> This community is run by the same volunteers who maintain the curriculum and they created this server as a way to support people when they run into issues with our recommendations.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      This community is run by the same volunteers who maintain the curriculum and they created this server as a way to support people when they run into issues with our recommendations.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not suggest tools that are outside of the curriculum's recommendations, such as using different operating systems, web browsers, code editors, etc., because our committed volunteers are not equipped to support these additional tools. You are welcome to use them, but do not suggest them to others.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not suggest tools that are outside of the curriculum's recommendations, such as using different operating systems, web browsers, code editors, etc., because our committed volunteers are not equipped to support these additional tools. You are welcome to use them, but do not suggest them to others.
     </p>
 
     <h3 id="public-questions">Ask questions in public channels for anyone to answer</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> Ask questions in public channels because everyone in this community shares the responsibility to answer questions and others can learn from reading the conversation. It is unfair to expect specific people to answer your question.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      Ask questions in public channels because everyone in this community shares the responsibility to answer questions and others can learn from reading the conversation. It is unfair to expect specific people to answer your question.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not send direct messages, friend requests, or ping another user without prior consent.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not send direct messages, friend requests, or ping another user without prior consent.
     </p>
 
     <h3 id="one-channel">Ask your question in only one channel</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> After asking your question in one channel, allow at least 30 minutes for a reply. While you are waiting, make sure that you posted in the most relevant channel, provided a detailed question, and continue trouble-shooting. It is recommended to edit your post with the results of things you have tried. If your post gets buried, you may repost your question, otherwise, you may direct people to your question in a more active channel.
+     <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+     After asking your question in one channel, allow at least 30 minutes for a reply. While you are waiting, make sure that you posted in the most relevant channel, provided a detailed question, and continue trouble-shooting. It is recommended to edit your post with the results of things you have tried. If your post gets buried, you may repost your question, otherwise, you may direct people to your question in a more active channel.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not post the same question in multiple channels.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not post the same question in multiple channels.
     </p>
 
     <h3 id="public-help">Help others by guiding them to the solution in a public 1:1 conversation</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> Our community values guiding a person to the solution because it empowers them with more practical skills to apply the next time they run into a problem.
+     <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      Our community values guiding a person to the solution because it empowers them with more practical skills to apply the next time they run into a problem.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not provide the answer or intrude into a public 1:1 conversation with a different answer. If the guidance is incorrect, you may politely state that there might be some confusion and ask permission to help clarify the issue.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not provide the answer or intrude into a public 1:1 conversation with a different answer. If the guidance is incorrect, you may politely state that there might be some confusion and ask permission to help clarify the issue.
     </p>
 
     <h3 id="detailed-question">Make it easy for others to help you by asking a detailed question</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> Ask detailed questions by following our <a href="/guides/community/how_to_ask" target="_blank">How to Ask Technical Questions</a> guide. Since your post will be fairly long, use shift + enter to add new lines between paragraphs. A detailed question should contain the following elements:
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      Ask detailed questions by following our <a href="/guides/community/how_to_ask" target="_blank">How to Ask Technical Questions</a> guide. Since your post will be fairly long, use shift + enter to add new lines between paragraphs. A detailed question should contain the following elements:
       <ul>
         <li>Link to the lesson/project in the curriculum</li>
         <li>Your current code or pseudo code</li>
@@ -108,7 +155,10 @@
       </ul>
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Avoid asking low effort questions because it puts too much responsibility on others to properly guide you to the answer. For example:
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Avoid asking low effort questions because it puts too much responsibility on others to properly guide you to the answer. For example:
       <ul>
         <li>Not providing enough details or context</li>
         <li>Asking questions that can be easily googled or not doing your own research first</li>
@@ -122,10 +172,16 @@
 
     <h3 id="relevant-resources">Share resources that are relevant to our curriculum</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> When sharing resources that are relevant to our curriculum, add surrounding context, such as where you are in the curriculum, what exactly you found helpful, a code example, etc. Remember that our curriculum is open source, so you are encouraged to make a pull request to add it to the curriculum.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      When sharing resources that are relevant to our curriculum, add surrounding context, such as where you are in the curriculum, what exactly you found helpful, a code example, etc. Remember that our curriculum is open source, so you are encouraged to make a pull request to add it to the curriculum.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> The following resources are not relevant to our curriculum and should not be posted. If you have extraordinary circumstances that you would like to be considered, you are welcome to message ModMail for permission:
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      The following resources are not relevant to our curriculum and should not be posted. If you have extraordinary circumstances that you would like to be considered, you are welcome to message ModMail for permission:
       <ul>
         <li>Link to a resource you created for personal or monetary gain</li>
         <li>Request to have people fill out a survey</li>
@@ -138,18 +194,30 @@
 
     <h3 id="modmail">Report misconduct to ModMail</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> Use Modmail to report misconduct, private harassment by a community member, or if anyone makes you or others feel unsafe, uncomfortable, or unwelcome in our community.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+      Use Modmail to report misconduct, private harassment by a community member, or if anyone makes you or others feel unsafe, uncomfortable, or unwelcome in our community.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> Do not correct or confront another user about their misconduct. We know you mean well, but this will often make the situation worse.
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      Do not correct or confront another user about their misconduct. We know you mean well, but this will often make the situation worse.
     </p>
 
     <h3 id="respect">Act professionally and treat everyone with respect</h3>
     <p>
-      <span class="fa-regular fa-circle-check mr-2 text-green-700"></span> The culture of this community is very similar to the professional workplace messaging apps of our volunteer team. Learning how to respectfully interact with others from around the world will prepare you to interact with your future teammates.
+     <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5 mr-1 text-green-700' %>
+      </span>
+     The culture of this community is very similar to the professional workplace messaging apps of our volunteer team. Learning how to respectfully interact with others from around the world will prepare you to interact with your future teammates.
     </p>
     <p>
-      <span class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></span> We have zero tolerance for disrespect. Therefore, the following behaviors will result in a ban from our server:
+      <span class="inline-flex align-text-top">
+        <%= inline_svg_tag 'icons/exclamation-triangle-solid.svg', class: 'h-5 w-5 mr-1 text-amber-600' %>
+      </span>
+      We have zero tolerance for disrespect. Therefore, the following behaviors will result in a ban from our server:
       <ul>
         <li>Bigotry, such as racism, homophobia, hate speech, etc</li>
         <li>NSFW or other highly offensive images in posts, profile pictures, or username</li>

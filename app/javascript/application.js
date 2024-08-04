@@ -17,7 +17,6 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import 'hint.css/hint.min.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import 'controllers';
 import '@hotwired/turbo-rails';
 import './src/custom_turbo_stream_actions';
