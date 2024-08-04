@@ -1,0 +1,30 @@
+<div class="max-w-2xl w-full mx-auto">
+  <div class="flex items-center max-w-5xl justify-between">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-200">Enable two factor authentication</h1>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <h2 class="font-semibold leading-6 text-gray-800 dark:text-gray-200">1. Scan QR Code</h2>
+    <p class="mt-2 text-sm">Please scan the below QR code using an OTP compatible app (such as 1Password, Google Authenticator or Authy).</p>
+
+    <div class="mt-8">
+      <div class="w-52 h-52 p-2 border  border-gray-200 rounded dark:bg-white">
+        <%= raw qr_code_as_svg(current_admin_user.two_factor_qr_code_uri) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <h2 class="font-semibold leading-6 text-gray-800 dark:text-gray-200">2. Confirm OTP Code</h2>
+    <p class="mt-2 text-sm">Please confirm that your authentication application is working by entering a generated code below.</p>
+
+    <%= form_with url: admin_two_factor_authentication_path, scope: :two_fa, builder: TailwindFormBuilder, method: :post, class: 'mt-6 max-w-xs' do |f| %>
+      <div class="flex items-center gap-x-3">
+        <%= f.text_field :otp_code, required: true, class: 'text-sm', data: { test_id: 'otp-code-field' } %>
+        <%= f.submit 'Confirm', class: 'button button--primary py-2 px-4 text-sm mt-2' %>
+      </div>
+    <% end %>
+  </div>
+</div>

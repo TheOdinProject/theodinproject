@@ -62,7 +62,7 @@ class Rack::Attack
   ### Custom Throttling
 
   throttle('admin/logins/ip', limit: 5, period: 20.seconds) do |req|
-    req.ip if req.path == '/admin_v2/sign_in' && req.post?
+    req.ip if req.path == '/admin/sign_in' && req.post?
   end
 
   Rack::Attack.throttle('report_ip', limit: 3, period: 60) do |request|

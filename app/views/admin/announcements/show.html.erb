@@ -1,0 +1,59 @@
+<div class="max-w-4xl w-full mx-auto">
+  <%= render Ui::BackLinkComponent.new(path: admin_announcements_path, name: 'Announcements') %>
+
+  <div class="flex mt-8 flex-col sm:flex-row items-center justify-between">
+    <div class="flex gap-x-2">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-200">Announcement #<%= @announcement.id %></h1>
+      <%= render Ui::BadgeComponent.new(color: @announcement.active? ? 'green' : 'yellow') do %>
+        <%= @announcement.status.capitalize %>
+      <% end %>
+    </div>
+
+    <div class="flex gap-x-2 mt-4 sm:mt-0">
+      <%= link_to 'Delete', admin_announcement_path(@announcement), data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone'}, class: 'button button--secondary p-1.5 text-red-600 border-red-600 hover:bg-red-600 hover:text-white focus:ring-0' %>
+      <%= link_to 'Edit', edit_admin_announcement_path(@announcement), class: 'button button--secondary p-1.5' %>
+    </div>
+  </div>
+
+   <div>
+    <div class="mt-6 border-t border-gray-100 dark:border-gray-700">
+      <dl class="divide-y divide-gray-100 dark:divide-gray-700">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Message</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @announcement.message %> </dd>
+        </div>
+
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Learn more link</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @announcement.learn_more_url %></dd>
+        </div>
+
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Created</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0">
+            <span title="<%= @announcement.created_at %>">
+              <%= time_ago_in_words(@announcement.created_at) %> ago
+            </span>
+          </dd>
+        </div>
+
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Created by</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @announcement.created_by.name %></dd>
+        </div>
+
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Expires</dt>
+          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-200 sm:col-span-2 sm:mt-0">
+            <span title="<%= @announcement.expires_at %>">
+              <%= @announcement.expires_at.strftime('%B %d, %Y') %>
+            </span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <p class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200 py-4">Preview</p>
+    <%= render AnnouncementComponent.new(announcement: @announcement, closeable: false) %>
+  </div>
+</div>

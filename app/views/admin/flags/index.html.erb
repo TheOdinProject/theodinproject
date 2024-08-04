@@ -1,0 +1,97 @@
+<div class="max-w-5xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-5xl">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Flags</h1>
+      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Student solutions that have been flagged as broken or inappropiate.</p>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <span class="isolate inline-flex rounded-md shadow-sm space-x-2">
+      <% Flag.statuses.each do |status, _| %>
+        <%= link_to(
+              pluralize(Flag.count_for(status), "#{status.capitalize} flag"),
+              admin_flags_path(status:),
+              class: [
+                'relative inline-flex items-center rounded-md px-3 py-2 text-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10 dark:text-gray-300 dark:ring-gray-700 dark:hover:bg-gray-700',
+                'text-gray-800 bg-gray-100 dark:text-gray-300 dark:bg-gray-700': params.fetch(:status, 'active') == status
+              ]
+            ) %>
+      <% end %>
+    </span>
+  </div>
+
+  <div class="mt-8 flow-root">
+    <% if @flags.any? %>
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-5xl px-6">
+        <div class="inline-block min-w-full py-2 align-middle">
+          <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
+            <thead>
+              <tr class="text-gray-800 dark:text-gray-300">
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-0">Flagged by</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold ">Reason</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Status</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Created</th>
+                <% if params[:status] == "resolved" %>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Action taken</th>
+                <% end %>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Resolved by</th>
+                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                  <span class="sr-only">View</span>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+              <% @flags.each do |flag | %>
+                <tr id="<%= dom_id(flag) %>">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                    <%= link_to admin_flag_path(flag) do %>
+                      <%= flag.flagger.username %>
+                    <% end %>
+                  </td>
+
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-300 sm:pl-0">
+                    <%= link_to admin_flag_path(flag) do %>
+                      <%= Flag::REASONS.find { |reason| reason.name.to_s == flag.reason }&.description %>
+                    <% end %>
+                  </td>
+
+                  <td class="whitespace-nowrap px-3 py-4">
+                    <%= render Ui::BadgeComponent.new(color: flag.resolved? ? 'green' : 'yellow') do %>
+                      <%= flag.status.capitalize %>
+                    <% end %>
+                  </td>
+
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                    <span title="<%= flag.created_at %>">
+                      <%= time_ago_in_words(flag.created_at) %> ago
+                    </span>
+                  </td>
+
+                  <% if params[:status] == "resolved" %>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.action_taken.past_tense %></td>
+                  <% end %>
+
+                  <% if flag.resolved? %>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.admin_user.name %></td>
+                  <% end %>
+
+                  <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                    <%= link_to 'View', admin_flag_path(flag), class: 'underline text-gray-800 hover:text-gray-900 hover:no-underline dark:text-gray-300 dark:hover:text-gray-200' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= render Admin::PaginationComponent.new(pagy: @pagy, resource_name: 'flags') %>
+        </div>
+      </div>
+    <% else %>
+      <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
+        <%= inline_svg_tag 'icons/inbox.svg', class: 'h-16 w-16 text-gray-400 dark:text-gray-500', aria: true %>
+        <p class="text-xl text-gray-500 dark:text-gray-400 leading-6"> No <%= params.fetch(:status, 'active') %> flags found!</p>
+      </div>
+    <% end %>
+  </div>
+</div>

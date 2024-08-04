@@ -1,0 +1,19 @@
+<%= render ModalComponent.new(title: "Change role for #{@team_member.name}")  do %>
+  <%= turbo_frame_tag 'edit_role_form', class: 'w-full' do %>
+    <%= form_with model: @team_member, url: admin_team_member_role_path(@team_member), builder: TailwindFormBuilder, class: 'w-full', html: { method: :put } do |form| %>
+      <div class='space-y-6'>
+        <div class="space-y-6 pt-4">
+          <div>
+            <%= form.label :role, 'Role', class: 'mb-2' %>
+            <%= form.select :role, options_for_select(AdminUser.roles.map { |key, value| [key.capitalize, value] }, selected: form.object.role), { prompt: 'Select Role' }, required: true, class: 'text-sm', data: { test_id: 'role-field' } %>
+          </div>
+        </div>
+
+        <div class="mt-5 sm:flex sm:flex-row-reverse pt-4">
+          <%= form.submit 'Change role', class: 'cursor-pointer inline-flex w-full justify-center rounded-md button--primary px-5 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto', data: { test_id: 'submit-btn' } %>
+          <button type="button" data-action="click->modal#close" class="button--white mt-3 inline-flex w-full justify-center sm:mt-0 sm:w-auto">Cancel</button>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -8,7 +8,7 @@ RSpec.describe 'User Notifications' do
 
   before do
     sign_in(create(:admin_user))
-    visit admin_v2_flags_path
+    visit admin_flags_path
 
     within("#flag_#{flag.id}") do
       click_link('View')

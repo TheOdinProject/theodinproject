@@ -1,0 +1,43 @@
+
+<li>
+  <ul role="list" class="-mx-2 space-y-1">
+    <% nav_links.each do |nav_link| %>
+
+      <% if nav_link[:nested_nav_links].present? %>
+        <li data-controller="visibility" data-visibility-visible-value="<%= nav_link[:nested_nav_links].pluck(:path).include?(request.path) %>">
+          <span data-action="click->visibility#toggle" class="cursor-pointer flex justify-between items-center group gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-700 hover:text-gray-800 hover:bg-gray-200 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700/50">
+              <span class="flex items-center gap-x-3">
+                <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: 'h-5 w-5 shrink-0 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200' %>
+                <%= nav_link.fetch(:name) %>
+              </span>
+
+            <%= inline_svg_tag 'icons/chevron-down.svg', class: 'h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-800 dark:text-gray-300 dark:group-hover:text-gray-200' %>
+          </span>
+
+          <ul role="list" class="mt-2 space-y-1 hidden ml-6" data-visibility-target="content">
+            <%= render 'layouts/admin/nav_links', nav_links: nav_link[:nested_nav_links] %>
+          </ul>
+        </li>
+
+      <% else %>
+        <li>
+          <%= link_to(
+                nav_link.fetch(:path),
+                class: [
+                  'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                  'px-4': nav_link[:icon].blank?,
+                  'text-gray-700 hover:text-gray-800 hover:bg-gray-200 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700/50': !current_page?(nav_link.fetch(:path)),
+                  'bg-gray-200 text-gray-800 dark:bg-gray-700/50 dark:text-gray-200': current_page?(nav_link.fetch(:path)),
+                ]
+              ) do %>
+          <% if nav_link[:icon].present? %>
+            <%= inline_svg_tag "icons/#{nav_link.fetch(:icon)}.svg", class: "h-5 w-5 shrink-0 group-hover:text-gray-700 dark:text-gray-300 dark:group-hover:text-gray-200 #{current_page?(nav_link.fetch(:path)) ? 'text-gray-800' : 'text-gray-500'}" %>
+          <% end %>
+
+          <%= nav_link.fetch(:name) %>
+        <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</li>
