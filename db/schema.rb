@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_02_085933) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_05_080849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -135,12 +135,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_02_085933) do
     t.integer "taken_action", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "resolved_by_id"
     t.integer "reason", default: 4, null: false
-    t.bigint "admin_user_id"
-    t.index ["admin_user_id"], name: "index_flags_on_admin_user_id"
+    t.bigint "resolved_by_id"
     t.index ["flagger_id"], name: "index_flags_on_flagger_id"
     t.index ["project_submission_id"], name: "index_flags_on_project_submission_id"
+    t.index ["resolved_by_id"], name: "index_flags_on_resolved_by_id"
   end
 
   create_table "flipper_features", force: :cascade do |t|
@@ -353,7 +352,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_02_085933) do
   add_foreign_key "announcements", "admin_users"
   add_foreign_key "announcements", "users"
   add_foreign_key "contents", "lessons"
-  add_foreign_key "flags", "admin_users"
+  add_foreign_key "flags", "admin_users", column: "resolved_by_id"
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
   add_foreign_key "lesson_completions", "lessons", on_delete: :cascade

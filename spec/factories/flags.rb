@@ -11,6 +11,7 @@ FactoryBot.define do
 
     trait :resolved do
       status { :resolved }
+      resolved_by { association :admin_user }
     end
   end
 end

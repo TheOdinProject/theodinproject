@@ -11,10 +11,11 @@ class Flag < ApplicationRecord
 
   belongs_to :flagger, class_name: 'User'
   belongs_to :project_submission
-  belongs_to :admin_user, optional: true
+  belongs_to :resolved_by, class_name: 'AdminUser', optional: true
 
   validates :reason, presence: true
   validates :extra, presence: true, if: -> { reason == 'other' }
+  validates :resolved_by_id, presence: true, if: -> { status == 'resolved' }
 
   enum reason: REASONS.each_with_object({}) { |reason, hash| hash[reason.name] = reason.value }
   enum status: { active: 0, resolved: 1 }
@@ -24,12 +25,6 @@ class Flag < ApplicationRecord
   scope :count_for, ->(status) { by_status(status).count }
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
-  def admin_user
-    return Null::AdminUser.new if resolved? && super.nil?
-
-    super
-  end
-
   def project_submission_owner
     project_submission.user
   end
@@ -38,7 +33,7 @@ class Flag < ApplicationRecord
     update(
       status: :resolved,
       taken_action: action_taken,
-      admin_user: resolved_by
+      resolved_by:
     )
   end
 
