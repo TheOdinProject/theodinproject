@@ -46,7 +46,7 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^9.5.4",
+    "postcss-preset-env": "^10.0.0",
     "prismjs": "^1.29.0",
     "regenerator-runtime": "^0.14.1",
     "shakapacker": "6.6",
