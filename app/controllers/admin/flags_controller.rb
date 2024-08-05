@@ -10,7 +10,7 @@ module Admin
 
     def update
       @flag = Flag.find(params[:id])
-      action = ::Flags::ActionFactory.for(params[:action_taken])
+      action = Flags::ActionFactory.for(params[:action_taken])
       result = action.perform(flag: @flag, admin_user: current_admin_user)
 
       if result.success?
