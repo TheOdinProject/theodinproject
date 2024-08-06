@@ -6,8 +6,8 @@ RSpec.describe AdminUser do
   it_behaves_like 'authenticatable_with_two_factor', :admin_user
   it_behaves_like 'two_factor_authenticatable'
 
-  it { is_expected.to have_many(:flags).dependent(:nullify).with_foreign_key(:resolved_by_id) }
-  it { is_expected.to have_many(:announcements).dependent(:nullify).with_foreign_key(:created_by_id) }
+  it { is_expected.to have_many(:flags).dependent(:restrict_with_exception).with_foreign_key(:resolved_by_id) }
+  it { is_expected.to have_many(:announcements).dependent(:restrict_with_exception).with_foreign_key(:created_by_id) }
 
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_uniqueness_of(:name) }
