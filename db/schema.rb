@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_05_080849) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_06_054115) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,12 +93,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_05_080849) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "message", limit: 255
     t.datetime "expires_at", precision: nil, null: false
-    t.bigint "user_id"
     t.string "learn_more_url"
-    t.bigint "admin_user_id"
-    t.index ["admin_user_id"], name: "index_announcements_on_admin_user_id"
+    t.bigint "created_by_id", null: false
+    t.index ["created_by_id"], name: "index_announcements_on_created_by_id"
     t.index ["expires_at"], name: "index_announcements_on_expires_at"
-    t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -349,8 +347,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_05_080849) do
     t.index ["username"], name: "index_users_on_username"
   end
 
-  add_foreign_key "announcements", "admin_users"
-  add_foreign_key "announcements", "users"
+  add_foreign_key "announcements", "admin_users", column: "created_by_id"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "admin_users", column: "resolved_by_id"
   add_foreign_key "flags", "project_submissions"

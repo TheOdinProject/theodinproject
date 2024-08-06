@@ -19,7 +19,7 @@ module Admin
     end
 
     def create
-      @announcement = Announcement.new(announcement_params.merge(admin_user: current_admin_user))
+      @announcement = Announcement.new(announcement_params.merge(created_by: current_admin_user))
 
       if @announcement.save
         create_activity(@announcement, 'created')
