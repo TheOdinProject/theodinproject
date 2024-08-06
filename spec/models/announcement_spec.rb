@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Announcement do
-  it { is_expected.to belong_to(:admin_user).optional }
+  it { is_expected.to belong_to(:created_by) }
+
   it { is_expected.to validate_presence_of(:message) }
   it { is_expected.to validate_length_of(:message).is_at_most(100) }
   it { is_expected.to validate_presence_of(:expires_at) }
@@ -108,25 +109,6 @@ RSpec.describe Announcement do
     context 'when the announcement is expired' do
       it 'returns false' do
         expect(build(:announcement, expires_at: 1.day.ago)).not_to be_active
-      end
-    end
-  end
-
-  describe '#created_by' do
-    context 'when the announcement was created by an admin user' do
-      it 'returns the admin user' do
-        admin_user = build_stubbed(:admin_user)
-        announcement = build_stubbed(:announcement, admin_user:)
-
-        expect(announcement.created_by).to eq(admin_user)
-      end
-    end
-
-    context 'when the announcement has no admin user' do
-      it 'returns a null admin user' do
-        announcement = build_stubbed(:announcement)
-
-        expect(announcement.created_by).to be_a(Null::AdminUser)
       end
     end
   end
