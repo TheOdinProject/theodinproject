@@ -70,7 +70,7 @@
                   </td>
 
                   <% if params[:status] == "resolved" %>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.action_taken.past_tense %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300"><%= flag.action_taken_value.past_tense %></td>
                   <% end %>
 
                   <% if flag.resolved? %>

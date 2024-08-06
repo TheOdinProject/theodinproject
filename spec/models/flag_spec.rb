@@ -17,7 +17,7 @@ RSpec.describe Flag do
   end
 
   it do
-    expect(flag).to define_enum_for(:taken_action)
+    expect(flag).to define_enum_for(:action_taken)
       .with_values(%i[pending dismiss ban removed_project_submission notified_user])
   end
 
@@ -94,12 +94,12 @@ RSpec.describe Flag do
   end
 
   describe '#resolve' do
-    it 'updates the status and taken_action of the flag' do
+    it 'updates the status and action taken of the flag' do
       admin_user = create(:admin_user)
 
       expect { flag.resolve(action_taken: :dismiss, resolved_by: admin_user) }
         .to change { flag.status }.from('active').to('resolved')
-        .and change { flag.taken_action }.from('pending').to('dismiss')
+        .and change { flag.action_taken }.from('pending').to('dismiss')
     end
 
     it 'sets who resolved the flag' do
@@ -111,11 +111,11 @@ RSpec.describe Flag do
     end
   end
 
-  describe '#action_taken' do
-    it 'returns a value object for the taken_action' do
-      flag.taken_action = 'dismiss'
+  describe '#action_taken_value' do
+    it 'returns a value object for the action_taken' do
+      flag.action_taken = 'dismiss'
 
-      expect(flag.action_taken).to be_a(Flags::Action)
+      expect(flag.action_taken_value).to be_a(Flags::Action)
     end
   end
 end

@@ -13,7 +13,7 @@ RSpec.describe Flags::Actions::RemoveProjectSubmission do
 
       it "changes the flag action taken to 'removed_project_submission'" do
         expect { described_class.perform(admin_user:, flag:) }
-          .to change { flag.reload.taken_action }.from('pending').to('removed_project_submission')
+          .to change { flag.reload.action_taken }.from('pending').to('removed_project_submission')
       end
 
       it 'resolves the flag' do

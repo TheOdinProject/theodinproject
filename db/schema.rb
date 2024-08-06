@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_06_054115) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_06_061546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_06_054115) do
     t.bigint "project_submission_id", null: false
     t.text "extra", default: ""
     t.integer "status", default: 0, null: false
-    t.integer "taken_action", default: 0, null: false
+    t.integer "action_taken", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "reason", default: 4, null: false
