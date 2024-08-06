@@ -20,6 +20,6 @@ module CurrentTheme
   end
 
   def current_theme
-    @current_theme ||= Users::Theme.for(cookies[:theme])
+    @current_theme ||= Users::Theme.for(cookies[:theme]) || Users::Theme.for('light')
   end
 end
