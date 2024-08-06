@@ -8,7 +8,7 @@ RSpec.describe Flags::Actions::Dismiss do
     context 'when successful' do
       it 'changes the flag action taken to dismissed' do
         expect { described_class.perform(admin_user:, flag:) }
-          .to change { flag.reload.taken_action }.from('pending').to('dismiss')
+          .to change { flag.reload.action_taken }.from('pending').to('dismiss')
       end
 
       it 'resolves the flag' do

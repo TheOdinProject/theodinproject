@@ -27,7 +27,7 @@ RSpec.describe Flags::Actions::NotifyUser do
 
       it "changes the flag action taken to 'notified_user'" do
         expect { described_class.perform(admin_user:, flag:) }
-          .to change { flag.reload.taken_action }.from('pending').to('notified_user')
+          .to change { flag.reload.action_taken }.from('pending').to('notified_user')
       end
 
       it 'resolves the flag' do

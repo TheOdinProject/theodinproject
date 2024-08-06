@@ -19,7 +19,7 @@ class Flag < ApplicationRecord
 
   enum reason: REASONS.each_with_object({}) { |reason, hash| hash[reason.name] = reason.value }
   enum status: { active: 0, resolved: 1 }
-  enum taken_action: { pending: 0, dismiss: 1, ban: 2, removed_project_submission: 3, notified_user: 4 }
+  enum action_taken: { pending: 0, dismiss: 1, ban: 2, removed_project_submission: 3, notified_user: 4 }
 
   scope :by_status, ->(status) { where(status:) }
   scope :count_for, ->(status) { by_status(status).count }
@@ -32,12 +32,12 @@ class Flag < ApplicationRecord
   def resolve(action_taken:, resolved_by:)
     update(
       status: :resolved,
-      taken_action: action_taken,
+      action_taken:,
       resolved_by:
     )
   end
 
-  def action_taken
-    Flags::Action.for(taken_action)
+  def action_taken_value
+    Flags::Action.for(action_taken)
   end
 end

@@ -174,8 +174,8 @@ RSpec.describe User do
 
   describe '#dismissed_flags' do
     it 'returns flags the user has made that have been dismissed' do
-      non_dismissed_flag = create(:flag, flagger: user, taken_action: :ban)
-      dismissed_flag = create(:flag, flagger: user, taken_action: :dismiss)
+      non_dismissed_flag = create(:flag, flagger: user, action_taken: :ban)
+      dismissed_flag = create(:flag, flagger: user, action_taken: :dismiss)
 
       expect(user.dismissed_flags).to contain_exactly(dismissed_flag)
     end

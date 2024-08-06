@@ -52,7 +52,7 @@ class User < ApplicationRecord
   end
 
   def dismissed_flags
-    flags.where(taken_action: :dismiss)
+    flags.where(action_taken: :dismiss)
   end
 
   def started_course?(course)
