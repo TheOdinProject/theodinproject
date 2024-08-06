@@ -5,7 +5,7 @@ RSpec.describe Flag do
 
   it { is_expected.to belong_to(:flagger) }
   it { is_expected.to belong_to(:project_submission) }
-  it { is_expected.to belong_to(:admin_user).optional }
+  it { is_expected.to belong_to(:resolved_by).optional }
 
   it { is_expected.to validate_presence_of(:reason) }
   it { is_expected.to define_enum_for(:status).with_values(%i[active resolved]) }
@@ -19,6 +19,24 @@ RSpec.describe Flag do
   it do
     expect(flag).to define_enum_for(:taken_action)
       .with_values(%i[pending dismiss ban removed_project_submission notified_user])
+  end
+
+  describe '#resolved_by_id' do
+    context 'when the flag is resolved' do
+      it 'validates the presence of resolved_by_id' do
+        flag = build(:flag, :resolved, resolved_by_id: nil)
+
+        expect(flag).to validate_presence_of(:resolved_by_id)
+      end
+    end
+
+    context 'when the flag is not resolved' do
+      it 'does not validate the presence of resolved_by_id' do
+        flag = build(:flag, resolved_by_id: nil)
+
+        expect(flag).not_to validate_presence_of(:resolved_by_id)
+      end
+    end
   end
 
   describe '.by_status' do
@@ -75,33 +93,6 @@ RSpec.describe Flag do
     end
   end
 
-  describe '#admin_user' do
-    context 'when the flag is resolved and the admin user exists' do
-      it 'returns the admin user' do
-        admin_user = create(:admin_user)
-        flag = create(:flag, :resolved, admin_user:)
-
-        expect(flag.admin_user).to eq(admin_user)
-      end
-    end
-
-    context 'when the flag is resolved and the admin user does not exist' do
-      it 'returns a null admin user' do
-        flag = create(:flag, :resolved)
-
-        expect(flag.admin_user).to be_a(Null::AdminUser)
-      end
-    end
-
-    context 'when the flag is not resolved and the admin user does not exist' do
-      it 'returns a null admin user' do
-        flag = create(:flag)
-
-        expect(flag.admin_user).to be_nil
-      end
-    end
-  end
-
   describe '#resolve' do
     it 'updates the status and taken_action of the flag' do
       admin_user = create(:admin_user)
@@ -112,11 +103,11 @@ RSpec.describe Flag do
     end
 
     it 'sets who resolved the flag' do
-      admin_user = create(:admin_user)
+      resolved_by = create(:admin_user)
 
-      flag.resolve(action_taken: :dismiss, resolved_by: admin_user)
+      flag.resolve(action_taken: :dismiss, resolved_by:)
 
-      expect(flag.admin_user).to eq(admin_user)
+      expect(flag.resolved_by).to eq(resolved_by)
     end
   end
 

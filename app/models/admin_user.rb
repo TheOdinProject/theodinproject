@@ -10,7 +10,7 @@ class AdminUser < ApplicationRecord
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,
          password_length: 8..128
 
-  has_many :flags, dependent: :nullify
+  has_many :flags, foreign_key: :resolved_by_id, dependent: :nullify, inverse_of: :resolved_by
 
   validates :name, presence: true, uniqueness: true
   validates :role, presence: true, inclusion: { in: roles.values }

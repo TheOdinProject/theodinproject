@@ -65,7 +65,7 @@
         <% if @flag.resolved? %>
           <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-300">Who resolved the flag?</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @flag.admin_user.name %></dd>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @flag.resolved_by.name %></dd>
           </div>
         <% end %>
       </dl>
