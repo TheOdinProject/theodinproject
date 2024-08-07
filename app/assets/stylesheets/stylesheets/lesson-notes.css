@@ -1,0 +1,60 @@
+@layer components {
+  .lesson-note {
+    @apply bg-gray-50 p-4 my-4 border-l-4 border-gold dark:bg-gray-700/40 dark:border-gold-600 rounded;
+  }
+
+  .lesson-note > h4:has(.anchor-link:hover)::before {
+    @apply invisible;
+  }
+
+  .lesson-note > *:first-child {
+    @apply mt-0;
+  }
+
+  .lesson-note > *:last-child {
+    @apply mb-0;
+  }
+
+  .lesson-note > *:first-child::before {
+    mask-image: url("icons/pencil-square-solid");
+    content:'';
+    @apply h-5 w-5 mr-2 inline-block align-text-bottom bg-gold dark:bg-gold-600;
+  }
+
+  /* Tip note */
+
+  .lesson-note--tip {
+    @apply border-blue-600 dark:border-blue-500;
+  }
+
+  .lesson-note--tip > *:first-child::before {
+    mask-image: url("icons/light-bulb-solid");
+    content:'';
+    @apply h-5 w-5 inline-block align-text-bottom bg-blue-600 dark:bg-blue-500;
+  }
+
+
+  /* Warning note */
+
+  .lesson-note--warning {
+    @apply border-orange-500 dark:border-orange-400;
+  }
+
+  .lesson-note--warning > *:first-child::before {
+    mask-image: url("icons/exclamation-triangle-solid");
+    content:'';
+    @apply h-5 w-5 inline-block align-text-bottom bg-orange-500 dark:bg-orange-400;
+  }
+
+  /* Critical note */
+
+  .lesson-note--critical {
+    @apply border-red-600 dark:border-red-500;
+  }
+
+  .lesson-note--critical > *:first-child::before {
+    mask-image: url("icons/exclamation-circle-solid");
+    content:'';
+    @apply h-5 w-5 inline-block align-text-bottom bg-red-600 dark:bg-red-500;
+  }
+}

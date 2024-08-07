@@ -2,7 +2,10 @@
   <% card.with_header do %>
     <% if user_signed_in? && course_completed_by_user?(course, current_user) %>
       <div class="absolute top-0 left-0 bg-teal-700 text-teal-50 w-full text-center py-1 font-semibold rounded-t-md">
-        Completed <i class="far fa-check-circle"></i>
+        <span class="flex items-center w-full justify-center gap-x-1">
+          Completed
+          <%= inline_svg_tag 'icons/checkmark-circle.svg', class: 'h-5 w-5' %>
+        </span>
       </div>
       <div class="mb-4"></div>
     <% end %>
