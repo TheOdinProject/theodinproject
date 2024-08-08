@@ -65,14 +65,21 @@ def javascript_lessons
       description: 'ES6 Modules',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/es6_modules.md',
-      identifier_uuid: '0169e4d1-e381-49e0-897b-f9364ac10e51',
+      identifier_uuid: 'ab4b6ccf-42e6-429e-a21b-0ef07bbb886e',
+    },
+    'npm' => {
+      title: 'npm',
+      description: 'npm',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/npm.md',
+      identifier_uuid: 'bec8407e-22fb-4106-8bdf-4f65b29c1365',
     },
     'Webpack' => {
       title: 'Webpack',
       description: 'Webpack',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/webpack.md',
-      identifier_uuid: 'eedfa6c8-b041-497d-ab37-565708a1b075',
+      identifier_uuid: '3d7e10dc-6795-471d-937a-f4b50c5872f0',
     },
     'Restaurant Page' => {
       title: 'Restaurant Page',
@@ -82,6 +89,13 @@ def javascript_lessons
       accepts_submission: true,
       previewable: true,
       identifier_uuid: 'a1453e8f-d4e8-44ce-b30e-552c65162ac6',
+    },
+    'Revisiting Webpack' => {
+      title: 'Revisiting Webpack',
+      description: 'Revisiting Webpack',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/revisiting_webpack.md',
+      identifier_uuid: '16848c3e-0320-4c7b-9d0d-3a3f0c902730',
     },
     'JSON' => {
       title: 'JSON',
