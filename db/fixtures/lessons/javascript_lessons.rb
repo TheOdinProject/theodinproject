@@ -65,7 +65,7 @@ def javascript_lessons
       description: 'ES6 Modules',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/es6_modules.md',
-      identifier_uuid: '0169e4d1-e381-49e0-897b-f9364ac10e51',
+      identifier_uuid: 'ab4b6ccf-42e6-429e-a21b-0ef07bbb886e',
     },
     'npm' => {
       title: 'npm',
@@ -79,7 +79,7 @@ def javascript_lessons
       description: 'Webpack',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/webpack.md',
-      identifier_uuid: 'eedfa6c8-b041-497d-ab37-565708a1b075',
+      identifier_uuid: '3d7e10dc-6795-471d-937a-f4b50c5872f0',
     },
     'Restaurant Page' => {
       title: 'Restaurant Page',
