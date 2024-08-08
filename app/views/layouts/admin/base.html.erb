@@ -26,10 +26,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <%= stylesheet_pack_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= stylesheet_link_tag 'application', 'main', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'main', 'data-turbo-track': 'reload', defer: true %>
   </head>
 
   <body class="h-full bg-white text-gray-600 dark:bg-gray-900 dark:text-gray-300">
