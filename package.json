@@ -36,7 +36,6 @@
     "flatpickr": "^4.6.13",
     "hint.css": "^3.0.0",
     "js-base64": "^3.7.5",
-    "lodash": "^4.17.21",
     "mermaid": "^9.4.3",
     "mini-css-extract-plugin": "^2.9.0",
     "pnp-webpack-plugin": "1",
