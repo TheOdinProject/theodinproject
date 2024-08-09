@@ -18,7 +18,7 @@
   }
 
   .anchor-link:hover:before {
-    mask-image: url("icons/link");
+    mask-image: url("/icons/link.svg");
     content:' ';
     @apply h-4 w-4 bg-gray-500 dark:bg-gray-300 absolute -left-[22px] top-1/2 -translate-y-1/2 font-semibold sm:block;
   }
