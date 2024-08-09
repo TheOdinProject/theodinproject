@@ -11,7 +11,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.2",
     "@rails/request.js": "^0.0.9",
-    "@sentry/browser": "^7.108.0",
+    "@sentry/browser": "^8.24.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
