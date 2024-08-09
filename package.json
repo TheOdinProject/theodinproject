@@ -28,7 +28,7 @@
     "esbuild-plugin-prismjs": "^1.0.8",
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
-    "mermaid": "^9.4.3",
+    "mermaid": "^10.9.1",
     "postcss": "^8.4.40",
     "postcss-cli": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
