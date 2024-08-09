@@ -1,30 +1,30 @@
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser'
 
 const {
-  SENTRY_DSN, currentUserSignedIn, currentUserId, currentUserEmail,
-} = window;
+  SENTRY_DSN, currentUserSignedIn, currentUserId, currentUserEmail
+} = window
 
 Sentry.init({
   dsn: SENTRY_DSN,
   environment: 'production',
   allowUrls: [
-    /https?:\/\/(www\.)?theodinproject\.com/,
+    /https?:\/\/(www\.)?theodinproject\.com/
   ],
   ignoreErrors: [
     'Possible side-effect in debug-evaluate',
     'Unexpected end of input',
     'Invalid or unexpected token',
-    'missing ) after argument list',
-  ],
-});
+    'missing ) after argument list'
+  ]
+})
 
 Sentry.configureScope((scope) => {
   if (currentUserSignedIn) {
     scope.setUser({
       id: currentUserId,
-      email: currentUserEmail,
-    });
+      email: currentUserEmail
+    })
   }
-});
+})
 
-window.Sentry = Sentry;
+window.Sentry = Sentry

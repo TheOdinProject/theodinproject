@@ -1,9 +1,9 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus'
 
 export default class OpenMenuController extends Controller {
-  static outlets = ['visibility'];
+  static outlets = ['visibility']
 
-  open() {
-    this.visibilityOutlet.on();
+  open () {
+    this.visibilityOutlet.on()
   }
 }

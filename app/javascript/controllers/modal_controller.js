@@ -1,40 +1,39 @@
-/* eslint-disable class-methods-use-this */
-import { Controller } from '@hotwired/stimulus';
-import { enter, leave } from 'el-transition';
+import { Controller } from '@hotwired/stimulus'
+import { enter, leave } from 'el-transition'
 
 export default class ModalController extends Controller {
-  static targets = ['transitionable'];
+  static targets = ['transitionable']
 
-  connect() {
-    this.lockScroll();
-    this.transitionableTargets.forEach((element) => enter(element));
+  connect () {
+    this.lockScroll()
+    this.transitionableTargets.forEach((element) => enter(element))
   }
 
-  close() {
+  close () {
     Promise.all(this.transitionableTargets.map((element) => leave(element))).then(() => {
-      this.element.parentElement.removeAttribute('src');
-      this.element.remove();
-      this.unlockScroll();
-    });
+      this.element.parentElement.removeAttribute('src')
+      this.element.remove()
+      this.unlockScroll()
+    })
   }
 
-  submitEnd(event) {
+  submitEnd (event) {
     if (event.detail.success) {
-      this.close();
+      this.close()
     }
   }
 
-  onKeydown(event) {
+  onKeydown (event) {
     if (event.key === 'Escape') {
-      this.close();
+      this.close()
     }
   }
 
-  lockScroll() {
-    document.body.classList.add('overflow-hidden', 'sm:pr-[15px]');
+  lockScroll () {
+    document.body.classList.add('overflow-hidden', 'sm:pr-[15px]')
   }
 
-  unlockScroll() {
-    document.body.classList.remove('overflow-hidden', 'sm:pr-[15px]');
+  unlockScroll () {
+    document.body.classList.remove('overflow-hidden', 'sm:pr-[15px]')
   }
 }
