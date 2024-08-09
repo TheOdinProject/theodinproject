@@ -67,7 +67,7 @@ jobs:
       - build-app
       - run: bundle exec rubocop
       - run: bundle exec erblint --lint-all
-      - run: yarn run eslint
+      - run: yarn run lint
   seeds:
     executor: rails-executor
     steps:

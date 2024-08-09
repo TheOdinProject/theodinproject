@@ -1,17 +1,17 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus'
 
-import { Chart } from 'chart.js/auto';
-import twColorsPlugin from 'chartjs-plugin-tailwindcss-colors';
-import twConfig from '../../../tailwind.config';
+import { Chart } from 'chart.js/auto'
+import twColorsPlugin from 'chartjs-plugin-tailwindcss-colors'
+import twConfig from '../../../tailwind.config'
 
 export default class ChartController extends Controller {
   static values = {
     type: String,
     data: Object,
-    options: Object,
-  };
+    options: Object
+  }
 
-  connect() {
+  connect () {
     this.chart = new Chart(
       this.element,
       {
@@ -23,28 +23,27 @@ export default class ChartController extends Controller {
           responsive: true,
           plugins: {
             legend: {
-              display: false,
+              display: false
             },
-            ...this.chartTypePluginOptions(),
+            ...this.chartTypePluginOptions()
           },
-          ...this.optionsValue,
-        },
-      },
-    );
+          ...this.optionsValue
+        }
+      }
+    )
   }
 
-  disconnect() {
-    this.chart.destroy();
+  disconnect () {
+    this.chart.destroy()
   }
 
   // private
 
-  /* eslint-disable class-methods-use-this */
-  chartTypePlugins() {
-    return [];
+  chartTypePlugins () {
+    return []
   }
 
-  chartTypePluginOptions() {
-    return {};
+  chartTypePluginOptions () {
+    return {}
   }
 }

@@ -33,7 +33,7 @@ Before submitting a pull request (PR) to our web app repo, you should run the fo
 
 ```bash
 rubocop
-yarn eslint
+yarn lint
 rspec
 yarn test
 ```
