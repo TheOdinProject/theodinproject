@@ -40,14 +40,6 @@ module.exports = function(api) {
     plugins: [
       '@babel/plugin-transform-destructuring',
       [
-        '@babel/plugin-transform-runtime',
-        {
-          helpers: false,
-          regenerator: true,
-          corejs: false
-        }
-      ],
-      [
         '@babel/plugin-transform-regenerator',
         {
           async: false
@@ -56,3 +48,4 @@ module.exports = function(api) {
     ].filter(Boolean)
   }
 }
+
