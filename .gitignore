@@ -48,7 +48,6 @@
 yarn-debug.log*
 .yarn-integrity
 .yarn/
-.yarnrc.yml
 
 # Spec example persistence / failure tracking
 /spec/examples.txt
