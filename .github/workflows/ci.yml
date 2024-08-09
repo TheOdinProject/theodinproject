@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: [main]
+
+concurrency: ci-${{ github.ref }}
+
+jobs:
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Run linters
+        run: |
+          bin/rubocop --parallel
+          bin/erblint --lint-all
+          yarn run eslint
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15.7
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: theodinproject_test
+          POSTGRES_PASSWORD: "password"
+        ports: ["5432:5432"]
+
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Build assets
+        run: |
+          bin/rails javascript:build
+          bin/rails css:build
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
+        run: |
+          bin/rails db:schema:load
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
+        run: bin/rspec

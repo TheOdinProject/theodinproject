@@ -19,7 +19,7 @@ Our community can be found on the [TOP Discord server](https://discord.gg/fbFCkY
 
 ## Contributing
 
-[![Build Status](https://circleci.com/gh/TheOdinProject/theodinproject.svg?style=svg)](https://app.circleci.com/pipelines/github/TheOdinProject/theodinproject)
+![Build status](https://github.com/TheOdinProject/theodinproject/actions/workflows/ci.yml/badge.svg)
 
 The Odin Project depends on open-source contributions to improve, grow, and thrive. We welcome contributors of all experience levels and backgrounds to help maintain this awesome curriculum and community. If you would like to contribute to our curriculum, be sure to thoroughly read our [contributing guide](https://github.com/TheOdinProject/theodinproject/blob/main/CONTRIBUTING.md).
 
