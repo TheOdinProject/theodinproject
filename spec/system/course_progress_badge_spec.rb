@@ -15,7 +15,7 @@ RSpec.describe 'Course Progress Badge' do
       it 'displays 0% completion' do
         visit path_course_path(path, course)
 
-        within find(:test_id, 'progress-circle') do
+        within :test_id, 'progress-circle' do
           expect(page).to have_content('0%')
         end
       end
@@ -28,7 +28,7 @@ RSpec.describe 'Course Progress Badge' do
         find(:test_id, 'complete-button').click
         visit path_course_path(path, course)
 
-        within find(:test_id, 'progress-circle') do
+        within :test_id, 'progress-circle' do
           expect(page).to have_content('50%')
         end
       end
@@ -44,7 +44,7 @@ RSpec.describe 'Course Progress Badge' do
 
         visit path_course_path(path, course)
 
-        within find(:test_id, 'progress-circle') do
+        within :test_id, 'progress-circle' do
           expect(page).to have_content('100%')
         end
       end
@@ -55,8 +55,8 @@ RSpec.describe 'Course Progress Badge' do
     it 'displays the course badge' do
       visit path_course_path(path, course)
 
-      within find(:test_id, 'default-badge') do
-        expect(page).not_to have_content('0%')
+      within :test_id, 'default-badge' do
+        expect(page).to have_no_content('0%')
       end
     end
   end

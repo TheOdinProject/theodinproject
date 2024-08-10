@@ -17,7 +17,7 @@ module Kramdown
       def convert_a(element, indent)
         if element.attr['href'].starts_with?('http')
           element.attr.merge!(EXTERNAL_LINK_ATTRIBUTES)
-          super(element, indent)
+          super
         else
           super
         end
