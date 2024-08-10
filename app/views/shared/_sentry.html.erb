@@ -1,0 +1,13 @@
+<% if Rails.env.production? %>
+  <script src="https://js.sentry-cdn.com/88c85c7e3b5b4548a663b61da9beea2a.min.js" crossorigin="anonymous"></script>
+
+  <script type='text/javascript'>
+    window.SENTRY_DSN = "<%= ENV['SENTRY_DSN'] %>"
+    window.currentUserSignedIn = "<%= user_signed_in? %>"
+
+    <% if defined?(current_user) && current_user.present? %>
+      window.currentUserId = "<%= current_user.id %>"
+      window.currentUserName = "<%= current_user.username %>"
+    <% end %>
+  </script>
+<% end %>
