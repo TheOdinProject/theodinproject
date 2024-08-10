@@ -82,7 +82,7 @@ RSpec.describe 'User Profile' do
 
   describe 'changing password' do
     it 'validates password fields' do
-      click_link 'Password'
+      click_on 'Password'
 
       find(:test_id, 'current-password-field').fill_in(with: 'password')
       find(:test_id, 'password-field').fill_in(with: 'yo')

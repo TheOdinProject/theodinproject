@@ -11,12 +11,12 @@ RSpec.describe 'User Notifications' do
     visit admin_flags_path
 
     within("#flag_#{flag.id}") do
-      click_link('View')
+      click_on('View')
     end
 
-    click_button('Resolve flag')
+    click_on('Resolve flag')
     choose('action_taken_notified_user')
-    click_button('Submit')
+    click_on('Submit')
 
     sign_in(submission_owner)
   end

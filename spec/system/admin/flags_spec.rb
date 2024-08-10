@@ -11,15 +11,15 @@ RSpec.describe 'Admin flags' do
     visit admin_flags_path
 
     within("#flag_#{flag.id}") do
-      click_link('View')
+      click_on('View')
     end
   end
 
   context 'when dismissing the flag' do
     it 'dismisses the flag' do
-      click_button('Resolve flag')
+      click_on('Resolve flag')
       choose('action_taken_dismiss')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_content('Flag dismissed')
 
@@ -38,9 +38,9 @@ RSpec.describe 'Admin flags' do
 
   context 'when removing the submission' do
     it 'removes the project submission' do
-      click_button('Resolve flag')
+      click_on('Resolve flag')
       choose('action_taken_removed_project_submission')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_content('Project submission removed')
 
@@ -69,9 +69,9 @@ RSpec.describe 'Admin flags' do
 
   context 'when banning the submission owner' do
     it 'bans the project submission owner' do
-      click_button('Resolve flag')
+      click_on('Resolve flag')
       choose('action_taken_ban')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_content('Project submission owner has been banned')
 
@@ -111,9 +111,9 @@ RSpec.describe 'Admin flags' do
 
   context 'when notifying the submission owner of a broken link' do
     it 'gives the admin feedback to let them know the user has been notified' do
-      click_button('Resolve flag')
+      click_on('Resolve flag')
       choose('action_taken_notified_user')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_content('Notification sent')
 

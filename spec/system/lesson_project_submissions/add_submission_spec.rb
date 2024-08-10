@@ -36,7 +36,7 @@ RSpec.describe 'Add a Project Submission' do
           expect(page).to have_no_content('Submit your solution')
         end
 
-        click_link('View community solutions')
+        click_on('View community solutions')
 
         within(:test_id, 'submissions-list') do
           page.driver.refresh
