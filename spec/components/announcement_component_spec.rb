@@ -37,7 +37,7 @@ RSpec.describe AnnouncementComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).not_to have_link('Learn more')
+      expect(page).to have_no_link('Learn more')
     end
   end
 
@@ -59,7 +59,7 @@ RSpec.describe AnnouncementComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).not_to have_css("[data-test-id='announcement-close-button']")
+      expect(page).to have_no_css("[data-test-id='announcement-close-button']")
     end
   end
 end
