@@ -1,7 +1,7 @@
 namespace :heroku do
   desc 'Heroku release task - runs on every code push, runs before postdeploy task'
   task release: :environment do
-    if ActiveRecord::SchemaMigration.table_exists?
+    if ActiveRecord::Base.connection.schema_migration.table_exists?
       Rake::Task['db:migrate'].invoke
       Rake::Task['db:seed'].invoke
       Rake::Task['curriculum:content:import'].invoke
