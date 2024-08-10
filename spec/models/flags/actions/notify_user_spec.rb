@@ -6,7 +6,7 @@ RSpec.describe Flags::Actions::NotifyUser do
 
   describe '#perform' do
     context 'when successful' do
-      it 'will discard the project submission in 7 days' do
+      it 'discards the project submission in 7 days' do
         expect { described_class.perform(admin_user:, flag:) }
           .to change { flag.project_submission.reload.discard_at }.from(nil).to(7.days.from_now.all_day)
       end

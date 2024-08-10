@@ -34,7 +34,7 @@ RSpec.describe 'Course Lesson Completions' do
     it 'cannot complete a lesson' do
       visit path_course_path(path, course)
 
-      expect(page).not_to have_css('[data-test_id="complete-button"]')
+      expect(page).to have_no_css('[data-test_id="complete-button"]')
     end
   end
 end

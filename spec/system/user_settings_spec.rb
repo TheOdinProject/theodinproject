@@ -58,7 +58,7 @@ RSpec.describe 'User Profile' do
         find(:test_id, 'email-field').fill_in(with: 'valid@example.com')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).not_to have_content("can't be blank")
+        expect(page).to have_no_content("can't be blank")
       end
     end
   end
@@ -82,7 +82,7 @@ RSpec.describe 'User Profile' do
 
   describe 'changing password' do
     it 'validates password fields' do
-      click_link 'Password'
+      click_on 'Password'
 
       find(:test_id, 'current-password-field').fill_in(with: 'password')
       find(:test_id, 'password-field').fill_in(with: 'yo')
