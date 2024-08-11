@@ -1,14 +1,14 @@
-import { Controller } from '@hotwired/stimulus';
-import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.css';
+import { Controller } from '@hotwired/stimulus'
+import flatpickr from 'flatpickr'
+import 'flatpickr/dist/flatpickr.css'
 
 export default class DatePicker extends Controller {
   static values = {
     min: String,
-    max: String,
-  };
+    max: String
+  }
 
-  connect() {
+  connect () {
     this.picker = flatpickr(
       this.element,
       {
@@ -17,12 +17,12 @@ export default class DatePicker extends Controller {
         dateFormat: 'Y-m-d',
         defaultDate: this.element.value,
         minDate: this.minValue,
-        maxDate: this.maxValue,
-      },
-    );
+        maxDate: this.maxValue
+      }
+    )
   }
 
-  disconnect() {
-    this.picker.destroy();
+  disconnect () {
+    this.picker.destroy()
   }
 }
