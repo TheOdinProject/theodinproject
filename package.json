@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "eslint": "eslint --max-warnings 0 './app/javascript/**/*.js'",
+    "lint": "standard app/javascript --verbose",
     "build": "node esbuild.config.mjs",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --postcss"
   },
@@ -39,12 +39,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-env": "^7.25.3",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.29.1"
+    "standard": "^17.1.0"
   },
   "packageManager": "yarn@4.4.0"
 }

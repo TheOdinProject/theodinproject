@@ -35,7 +35,7 @@ jobs:
         run: |
           bin/rubocop --parallel
           bin/erblint --lint-all
-          yarn run eslint
+          yarn run lint
 
   tests:
     name: Tests

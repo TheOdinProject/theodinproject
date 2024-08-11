@@ -1,62 +1,61 @@
-import { Controller } from '@hotwired/stimulus';
-import Sortable from 'sortablejs';
-import { useMutation } from 'stimulus-use';
+import { Controller } from '@hotwired/stimulus'
+import Sortable from 'sortablejs'
+import { useMutation } from 'stimulus-use'
 
 export default class extends Controller {
-  static targets = ['item'];
+  static targets = ['item']
 
   static values = {
-    canSort: { type: Boolean, default: false },
-  };
+    canSort: { type: Boolean, default: false }
+  }
 
-  connect() {
+  connect () {
     if (this.canSortValue) {
       this.sortable = Sortable.create(this.element, {
         animation: 300,
         easing: 'cubic-bezier(0.61, 1, 0.88, 1)',
-        disabled: true,
-      });
+        disabled: true
+      })
 
       useMutation(this, {
-        attributes: true, childList: true, subtree: true, attributeFilter: ['data-sort-code'],
-      });
+        attributes: true, childList: true, subtree: true, attributeFilter: ['data-sort-code']
+      })
     }
   }
 
-  mutate(entries) {
+  mutate (entries) {
     entries.forEach((mutation) => {
       if (mutation.type === 'attributes' && mutation.attributeName === 'data-sort-code') {
-        this.sortItems();
+        this.sortItems()
       }
-    });
+    })
   }
 
-  sortItems() {
-    const items = Array.from(this.itemTargets);
+  sortItems () {
+    const items = Array.from(this.itemTargets)
 
-    if (this.itemsAreSorted(items)) return;
+    if (this.itemsAreSorted(items)) return
 
-    const sortedItems = items.sort((a, b) => this.compareItems(a, b)).map((item) => item.dataset.id);
-    this.sortable.sort(sortedItems, true);
+    const sortedItems = items.sort((a, b) => this.compareItems(a, b)).map((item) => item.dataset.id)
+    this.sortable.sort(sortedItems, true)
   }
 
-  itemsAreSorted() {
+  itemsAreSorted () {
     return this.itemSortCodes().every((sortCode, index, items) => {
-      if (index === 0) return true;
-      return sortCode <= items[index - 1];
-    });
+      if (index === 0) return true
+      return sortCode <= items[index - 1]
+    })
   }
 
-  itemSortCodes() {
-    return this.itemTargets.map((item) => this.getSortCode(item));
+  itemSortCodes () {
+    return this.itemTargets.map((item) => this.getSortCode(item))
   }
 
-  /* eslint-disable class-methods-use-this */
-  getSortCode(item) {
-    return parseFloat(item.getAttribute('data-sort-code')) || 0;
+  getSortCode (item) {
+    return parseFloat(item.getAttribute('data-sort-code')) || 0
   }
 
-  compareItems(left, right) {
-    return this.getSortCode(right) - this.getSortCode(left);
+  compareItems (left, right) {
+    return this.getSortCode(right) - this.getSortCode(left)
   }
 }

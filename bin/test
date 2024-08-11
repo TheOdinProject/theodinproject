@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'ESLint' => false }
+results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'Standard' => false }
 puts "\n== Running linters =="
 puts 'Rubocop:'
 results['Rubocop'] = system 'bundle exec rubocop'
@@ -8,8 +8,8 @@ results['Rubocop'] = system 'bundle exec rubocop'
 puts 'Erblint:'
 results['Erblint'] = system 'bundle exec erblint --lint-all'
 
-puts 'ESlint:'
-results['ESLint'] = system 'yarn eslint'
+puts 'Standard JS:'
+results['Standard'] = system 'yarn lintt'
 
 puts "\n== Running specs =="
 puts 'Rspec:'
