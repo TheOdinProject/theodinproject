@@ -29,7 +29,7 @@ jobs:
 
       - name: Install packages
         run: |
-          yarn install --pure-lockfile
+          yarn install
 
       - name: Run linters
         run: |
@@ -70,7 +70,7 @@ jobs:
 
       - name: Install packages
         run: |
-          yarn install --pure-lockfile
+          yarn install
 
       - name: Build assets
         run: |
