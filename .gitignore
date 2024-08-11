@@ -46,7 +46,7 @@
 /node_modules
 
 
-# yarn -
+# yarn - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 .pnp.*
 .yarn/*
 !.yarn/patches

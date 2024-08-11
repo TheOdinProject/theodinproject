@@ -16,6 +16,7 @@ import chokidar from 'chokidar'
 import http from 'http'
 import { setTimeout } from 'timers/promises'
 import { prismjsPlugin } from 'esbuild-plugin-prismjs'
+import { sentryEsbuildPlugin } from '@sentry/esbuild-plugin'
 
 const clients = []
 const entryPoints = ["main.js"]
@@ -32,6 +33,7 @@ const config = {
   entryPoints: entryPoints,
   minify: process.env.RAILS_ENV == "production",
   outdir: path.join(process.cwd(), "app/assets/builds"),
+  sourcemap: process.env.RAILS_ENV != "production",
   plugins: [
     rails(),
     prismjsPlugin({
@@ -58,8 +60,16 @@ const config = {
       ],
       css: true,
     }),
+    sentryEsbuildPlugin({
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      org: "the-odin-project-web-app",
+      project: "the-odin-project",
+      disable: process.env.RAILS_ENV !== "production",
+      sourcemaps: {
+        assets: ["app/assets/builds/*.js", "app/assets/builds/*.js.map"],
+      },
+    }),
   ],
-  sourcemap: process.env.RAILS_ENV != "production"
 }
 
 async function buildAndReload() {

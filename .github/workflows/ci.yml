@@ -73,6 +73,9 @@ jobs:
           yarn install
 
       - name: Build assets
+        env:
+          RAILS_ENV: test
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
           bin/rails javascript:build
           bin/rails css:build
