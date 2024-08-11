@@ -1,5 +1,5 @@
 if Rails.env.development? || ENV['STAGING']
-  ActiveJob::Base.queue_adapter = :inline
+  ActiveJob::Base.queue_adapter = :inline # REVIEW: Does this mutate global config state?
   ActionMailer::Base.delivery_method = :test
   ActionMailer::Base.perform_deliveries = false
 

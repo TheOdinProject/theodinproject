@@ -4,7 +4,8 @@ RSpec.describe Like do
   subject { create(:like) }
 
   it { is_expected.to belong_to(:user) }
-  it { is_expected.to belong_to(:likeable).counter_cache(true) }
+  # TODO: Add back counter_cache(true) once https://github.com/thoughtbot/shoulda-matchers/pull/1632 is merged
+  it { is_expected.to belong_to(:likeable) }
 
   it { is_expected.to validate_presence_of(:likeable_type) }
   it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(%i[likeable_id likeable_type]) }

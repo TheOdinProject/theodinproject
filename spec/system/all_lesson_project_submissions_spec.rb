@@ -27,9 +27,9 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
     end
 
     it 'sorts the solutions' do
-      newest = create(:project_submission, user: create(:user, username: 'newest'), lesson:, created_at: 1.day.ago)
-      other = create(:project_submission, user: create(:user, username: 'other'), lesson:, created_at: 3.days.ago)
-      oldest = create(:project_submission, user: create(:user, username: 'oldest'), lesson:, created_at: 1.week.ago)
+      create(:project_submission, user: create(:user, username: 'newest'), lesson:, created_at: 1.day.ago)
+      create(:project_submission, user: create(:user, username: 'other'), lesson:, created_at: 3.days.ago)
+      create(:project_submission, user: create(:user, username: 'oldest'), lesson:, created_at: 1.week.ago)
 
       sign_in(user)
       visit lesson_project_submissions_path(lesson)
