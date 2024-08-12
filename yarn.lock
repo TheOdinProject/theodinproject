@@ -1938,10 +1938,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debounce@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "debounce@npm:1.2.1"
-  checksum: 10c0/6c9320aa0973fc42050814621a7a8a78146c1975799b5b3cc1becf1f77ba9a5aa583987884230da0842a03f385def452fad5d60db97c3d1c8b824e38a8edf500
+"debounce@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "debounce@npm:2.1.0"
+  checksum: 10c0/15ef40fc5c402053ca5ab1b2c23cf25eb8f2f3246977793846561b0c87321cbb627075897f69bbcffa5a5a7d07c161c9ba0bfcb4a80ee6898844c5b11bf1a76e
   languageName: node
   linkType: hard
 
@@ -5187,7 +5187,7 @@ __metadata:
     chartjs-plugin-crosshair: "npm:^2.0.0"
     chartjs-plugin-tailwindcss-colors: "npm:^0.2.2"
     chokidar: "npm:^3.6.0"
-    debounce: "npm:^1.2.1"
+    debounce: "npm:^2.1.0"
     el-transition: "npm:^0.0.7"
     esbuild: "npm:^0.23.0"
     esbuild-plugin-prismjs: "npm:^1.0.8"
