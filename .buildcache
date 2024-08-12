@@ -1,5 +1,0 @@
-public/packs
-tmp/cache/assets
-~/.cache/yarn
-node_modules
-tmp/cache/bootsnap-load-path-cache
