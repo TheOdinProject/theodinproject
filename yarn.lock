@@ -810,9 +810,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/typography@npm:^0.5.10":
-  version: 0.5.10
-  resolution: "@tailwindcss/typography@npm:0.5.10"
+"@tailwindcss/typography@npm:^0.5.14":
+  version: 0.5.14
+  resolution: "@tailwindcss/typography@npm:0.5.14"
   dependencies:
     lodash.castarray: "npm:^4.4.0"
     lodash.isplainobject: "npm:^4.0.6"
@@ -820,7 +820,7 @@ __metadata:
     postcss-selector-parser: "npm:6.0.10"
   peerDependencies:
     tailwindcss: "*"
-  checksum: 10c0/0fa9c96bf091fb79fdc39a0244027b3891e9205f714197c8196e7ba2305523ce8695d14b912366de9b77d4b1d3a742fb7f9bc9bb633fddc7c7f13374b41075d2
+  checksum: 10c0/98e8309ca6e7a78a4b06530c217a781bed1a8a10375072b678b40b789bfa6e4dc0aeac83a22489ef2bf7ef2fc9a33bdcd3541ae1f4e60c27215bb7e462a31b0b
   languageName: node
   linkType: hard
 
@@ -3700,12 +3700,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jiti@npm:^1.19.1":
-  version: 1.21.0
-  resolution: "jiti@npm:1.21.0"
+"jiti@npm:^1.21.0":
+  version: 1.21.6
+  resolution: "jiti@npm:1.21.6"
   bin:
     jiti: bin/jiti.js
-  checksum: 10c0/7f361219fe6c7a5e440d5f1dba4ab763a5538d2df8708cdc22561cf25ea3e44b837687931fca7cdd8cdd9f567300e90be989dd1321650045012d8f9ed6aab07f
+  checksum: 10c0/05b9ed58cd30d0c3ccd3c98209339e74f50abd9a17e716f65db46b6a35812103f6bde6e134be7124d01745586bca8cc5dae1d0d952267c3ebe55171949c32e56
   languageName: node
   linkType: hard
 
@@ -5180,7 +5180,7 @@ __metadata:
     "@sentry/esbuild-plugin": "npm:^2.22.0"
     "@stimulus/polyfills": "npm:^2.0.0"
     "@tailwindcss/forms": "npm:^0.5.7"
-    "@tailwindcss/typography": "npm:^0.5.10"
+    "@tailwindcss/typography": "npm:^0.5.14"
     autoprefixer: "npm:^10.4.15"
     browserslist: "npm:^4.23.2"
     chart.js: "npm:^4.4.3"
@@ -5200,7 +5200,7 @@ __metadata:
     sortablejs: "npm:^1.15.0"
     standard: "npm:^17.1.0"
     stimulus-use: "npm:^0.51.3"
-    tailwindcss: "npm:^3.4.1"
+    tailwindcss: "npm:^3.4.9"
     tippy.js: "npm:^6.3.7"
   languageName: unknown
   linkType: soft
@@ -5607,9 +5607,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "tailwindcss@npm:3.4.1"
+"tailwindcss@npm:^3.4.9":
+  version: 3.4.9
+  resolution: "tailwindcss@npm:3.4.9"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -5619,7 +5619,7 @@ __metadata:
     fast-glob: "npm:^3.3.0"
     glob-parent: "npm:^6.0.2"
     is-glob: "npm:^4.0.3"
-    jiti: "npm:^1.19.1"
+    jiti: "npm:^1.21.0"
     lilconfig: "npm:^2.1.0"
     micromatch: "npm:^4.0.5"
     normalize-path: "npm:^3.0.0"
@@ -5636,7 +5636,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 10c0/eec3d758f1cd4f51ab3b4c201927c3ecd18e55f8ac94256af60276aaf8d1df78f9dddb5e9fb1e057dfa7cea3c1356add4994cc3d42da9739df874e67047e656f
+  checksum: 10c0/b072028e87dd9dcbf858285681bdb8b5a1ff0b4439b956cc1b7aae4ae288f4d531867dea6ce3a2d974cbbd9699f3552ee515a56d079903fdd1eeae06305f60ba
   languageName: node
   linkType: hard
 
