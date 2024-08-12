@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.2",
+    "@hotwired/turbo-rails": "^8.0.5",
     "@rails/request.js": "^0.0.9",
     "@sentry/esbuild-plugin": "^2.22.0",
     "@stimulus/polyfills": "^2.0.0",
