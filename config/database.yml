@@ -20,7 +20,7 @@ development: &development
 # DO NOT PUT A REAL USERNAME AND PASSWORD IN THIS FILE
 test: &test
   <<: *default
-  database: <%= ENV['POSTGRES_TEST_DB'] || 'theodinproject_test' %>
+  database: theodinproject_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   adapter: postgresql

@@ -44,11 +44,11 @@ jobs:
     services:
       postgres:
         image: postgres:15.7
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: theodinproject_test
-          POSTGRES_PASSWORD: "password"
-        ports: ["5432:5432"]
+          POSTGRES_PASSWORD: postgres
 
       redis:
         image: redis
@@ -82,14 +82,18 @@ jobs:
           bin/rails css:build
 
       - name: Setup test database
+        run: |
+          bundle exec rake parallel:create
+          bundle exec rake parallel:load_schema
+          bundle exec rake parallel:migrate
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
-        run: |
-          bin/rails db:schema:load
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
 
       - name: Run tests
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
-        run: bin/rspec
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
+        run: bundle exec rake parallel:spec
