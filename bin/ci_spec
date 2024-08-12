@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+# This script is used to run tests in parallel in Github Actions.
+# parallel_test test -n 8 --only-group 1,2
+
+CI_RUNNER_PROCESS_COUNT = 2
+
+parallel_tests_is_one_indexed = 1
+node_index = ENV['CI_NODE_INDEX'].to_i
+
+groups = "#{node_index * CI_RUNNER_PROCESS_COUNT + parallel_tests_is_one_indexed },#{node_index * CI_RUNNER_PROCESS_COUNT + parallel_tests_is_one_indexed + 1}"
+
+total_parallelism = CI_RUNNER_PROCESS_COUNT * ENV['CI_NODE_TOTAL'].to_i
+
+exec "bundle exec parallel_test ./spec -t rspec -n #{total_parallelism} --only-group #{groups}"
