@@ -11,9 +11,11 @@
 .pagy-nav-js .page.prev.disabled,
 .pagy-nav-js .page.next.disabled {
   @apply block px-3 py-1 text-gray-500 dark:text-gray-400 font-semibold;
+
   &:hover{
     @apply text-gray-700 dark:text-gray-200;
   }
+
   &:active{
     @apply text-gray-700 dark:text-gray-200;
   }
@@ -24,9 +26,11 @@
 .pagy-nav-js .page.prev.disabled,
 .pagy-nav-js .page.next.disabled {
   @apply text-gray-400 dark:text-gray-700 first-letter:cursor-default;
+
   &:hover {
     @apply text-gray-400 dark:text-gray-700;
   }
+
   &:active {
     @apply text-gray-400 dark:text-gray-700;
   }
@@ -35,9 +39,11 @@
 .pagy-nav .page.active,
 .pagy-nav-js .page.active {
   @apply cursor-default text-gold-500 dark:text-gold-500;
+
   &:hover {
     @apply text-gold-500 dark:text-gold-500;
   }
+
   &:active {
     @apply text-gold-500 dark:text-gold-500;
   }
@@ -53,6 +59,7 @@
   &:hover {
     @apply text-gray-800 dark:text-gray-200;
   }
+
   &:active {
     @apply text-gray-800 dark:text-gray-200;
   }

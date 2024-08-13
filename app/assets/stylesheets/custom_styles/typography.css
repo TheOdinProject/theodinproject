@@ -1,6 +1,6 @@
 @layer base {
   body {
-    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 
@@ -17,9 +17,10 @@
     @apply dark:text-gray-200;
   }
 
-  .anchor-link:hover:before {
+  .anchor-link:hover::before {
     mask-image: url("/icons/link.svg");
     content:' ';
+
     @apply h-4 w-4 bg-gray-500 dark:bg-gray-300 absolute -left-[22px] top-1/2 -translate-y-1/2 font-semibold sm:block;
   }
 }
