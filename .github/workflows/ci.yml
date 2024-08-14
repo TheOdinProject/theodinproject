@@ -64,6 +64,12 @@ jobs:
         image: redis
         ports: ["6379:6379"]
 
+    env:
+      RAILS_ENV: test
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      SKIP_YARN_INSTALL: true
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -84,9 +90,6 @@ jobs:
           yarn install
 
       - name: Build assets
-        env:
-          RAILS_ENV: test
-          SKIP_YARN_INSTALL: true
         run: |
           bin/rails javascript:build
           bin/rails css:build
@@ -96,14 +99,6 @@ jobs:
           bundle exec rake parallel:create
           bundle exec rake parallel:load_schema
           bundle exec rake parallel:migrate
-        env:
-          RAILS_ENV: test
-          POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: postgres
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
-          POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: postgres
         run: ./bin/ci_spec
