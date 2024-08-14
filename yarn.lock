@@ -5576,7 +5576,7 @@ __metadata:
     postcss: "npm:^8.4.41"
     postcss-import: "npm:^16.1.0"
     prismjs: "npm:^1.29.0"
-    sortablejs: "npm:^1.15.0"
+    sortablejs: "npm:^1.15.2"
     standard: "npm:^17.1.0"
     stimulus-use: "npm:^0.52.2"
     stylelint: "npm:^16.8.1"
@@ -5766,10 +5766,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sortablejs@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "sortablejs@npm:1.15.0"
-  checksum: 10c0/de2e99309d6b8f5a521050c391cd3cbeeb5ac66cf91879b4212469cdcee13f6304bfacbfa183d43276deb618f40af6cb6d8a8c90ca3ba82ac28d8d5f5ef81bef
+"sortablejs@npm:^1.15.2":
+  version: 1.15.2
+  resolution: "sortablejs@npm:1.15.2"
+  checksum: 10c0/9b9101f47a46976070f1e7ab45d1850a8754f6e71252506868731292af46a7f1a3add03914fe074cd2a6bdfe8cd6cad149cfa260fe8a53475f5306ae679bf38c
   languageName: node
   linkType: hard
 
