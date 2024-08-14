@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin invitations' do
+  around do |example|
+    perform_enqueued_jobs do
+      example.run
+    end
+  end
+
   it 'invites a new team member' do
     sign_in(create(:admin_user))
 

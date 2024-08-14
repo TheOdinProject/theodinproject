@@ -8,6 +8,11 @@ RSpec.configure do |config|
       next
     end
 
+    if ENV['TEST_ENV_NUMBER']
+      $stdout.puts "\n🚀️️  Parallel tests detected. Skip assets compilation.\n"
+      next
+    end
+
     if has_no_system_tests
       $stdout.puts "\n🚀️️  No system test selected. Skip assets compilation.\n"
       next

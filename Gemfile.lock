@@ -192,6 +192,11 @@ GEM
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
+    flatware (2.3.2)
+      thor (< 2.0)
+    flatware-rspec (2.3.2)
+      flatware (= 2.3.2)
+      rspec (>= 3.6)
     flipper (1.3.0)
       concurrent-ruby (< 2)
     flipper-active_record (1.3.0)
@@ -346,8 +351,6 @@ GEM
     orm_adapter (0.5.0)
     pagy (6.5.0)
     parallel (1.26.1)
-    parallel_tests (4.7.1)
-      parallel
     parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
@@ -613,6 +616,7 @@ DEPENDENCIES
   erb_lint (~> 0.6)
   factory_bot_rails (~> 6.4)
   faraday-retry (~> 2.2)
+  flatware-rspec (~> 2.3)
   flipper (~> 1.2)
   flipper-active_record (~> 1.2)
   flipper-ui (~> 1.3)
@@ -632,7 +636,6 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 1.1.1)
   omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 6.2)
-  parallel_tests (~> 4.7)
   pg (~> 1.5)
   propshaft (~> 0.9)
   public_activity (~> 3.0)

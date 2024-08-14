@@ -68,7 +68,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails', '~> 3.1'
-  gem 'parallel_tests', '~> 4.7'
+  gem 'flatware-rspec', '~> 2.3', require: false
   gem 'rspec-rails', '~> 6.1'
 end
 
