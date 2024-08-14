@@ -12,4 +12,4 @@ groups = "#{node_index * CI_RUNNER_PROCESS_COUNT + parallel_tests_is_one_indexed
 
 total_parallelism = CI_RUNNER_PROCESS_COUNT * ENV['CI_NODE_TOTAL'].to_i
 
-exec "bundle exec parallel_test ./spec -t rspec -n #{total_parallelism} --only-group #{groups}"
+exec "bundle exec flatware rspec ./spec -t rspec -n #{total_parallelism} --only-group #{groups}"

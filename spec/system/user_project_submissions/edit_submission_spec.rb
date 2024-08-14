@@ -27,6 +27,8 @@ RSpec.describe 'Editing a Project Submission on the Dashboard' do
       edit_form.submit
     end
 
+    expect(page).to have_no_content('Update your project')
+
     within(:test_id, 'submission-item') do
       expect(page).to have_content(lesson.title)
       expect(page.find(:test_id, 'view-code-btn')['href']).to eq('https://github.com/edited-project-repo-url')

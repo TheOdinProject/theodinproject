@@ -56,9 +56,6 @@
 !.yarn/versions
 /yarn-error.log
 
-# Spec example persistence / failure tracking
-/spec/examples.txt
-
 # Vim Swap File
 .swp
 .vscode/settings.json

@@ -93,9 +93,8 @@ jobs:
 
       - name: Setup test database
         run: |
-          bundle exec rake parallel:create
-          bundle exec rake parallel:load_schema
-          bundle exec rake parallel:migrate
+          bundle exec flatware fan rake db:test:prepare
+
         env:
           RAILS_ENV: test
           POSTGRES_USERNAME: postgres
