@@ -1,4 +1,4 @@
-class Admin::PaginationComponent < ApplicationComponent
+class PaginationComponent < ApplicationComponent
   def initialize(pagy:, resource_name:)
     @pagy = pagy
     @resource_name = resource_name

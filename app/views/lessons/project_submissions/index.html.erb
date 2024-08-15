@@ -9,7 +9,7 @@
   </div>
 
   <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', turbo_action: :advance } do %>
-    <div class="mb-8 text-left">
+    <div class="mb-4 text-left">
 
       <header class="flex flex-col space-y-6 justify-between items-center text-center md:space-y-0 md:text-left md:flex-row">
         <div class="flex md:flex-start flex-col space-y-1">
@@ -59,7 +59,7 @@
     </div>
 
     <div class="text-center overflow-x-auto">
-      <%== pagy_nav(@pagy, params: { sort: params[:sort], direction: params[:direction] }, link_extra: "data-turbo-frame='_top'") %>
+      <%= render PaginationComponent.new(pagy: @pagy, resource_name: 'Solutions') %>
     </div>
   <% end %>
 </div>
