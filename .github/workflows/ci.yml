@@ -41,18 +41,34 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [4]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1, 2, 3]
     services:
       postgres:
         image: postgres:15.7
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: theodinproject_test
-          POSTGRES_PASSWORD: "password"
-        ports: ["5432:5432"]
+          POSTGRES_PASSWORD: postgres
 
       redis:
         image: redis
         ports: ["6379:6379"]
+
+    env:
+      RAILS_ENV: test
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      SKIP_YARN_INSTALL: true
 
     steps:
       - name: Checkout code
@@ -74,22 +90,15 @@ jobs:
           yarn install
 
       - name: Build assets
-        env:
-          RAILS_ENV: test
-          SKIP_YARN_INSTALL: true
         run: |
           bin/rails javascript:build
           bin/rails css:build
 
       - name: Setup test database
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
         run: |
-          bin/rails db:schema:load
+          bundle exec rake parallel:create
+          bundle exec rake parallel:load_schema
+          bundle exec rake parallel:migrate
 
       - name: Run tests
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:password@localhost:5432/theodinproject_test
-        run: bin/rspec
+        run: ./bin/ci_spec
