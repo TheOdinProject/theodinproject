@@ -1286,7 +1286,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.23.1, browserslist@npm:^4.23.2, browserslist@npm:^4.23.3":
+"browserslist@npm:^4.23.1, browserslist@npm:^4.23.3":
   version: 4.23.3
   resolution: "browserslist@npm:4.23.3"
   dependencies:
@@ -5554,7 +5554,7 @@ __metadata:
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:^0.5.14"
     autoprefixer: "npm:^10.4.20"
-    browserslist: "npm:^4.23.2"
+    browserslist: "npm:^4.23.3"
     chart.js: "npm:^4.4.3"
     chartjs-plugin-crosshair: "npm:^2.0.0"
     chartjs-plugin-tailwindcss-colors: "npm:^0.2.2"

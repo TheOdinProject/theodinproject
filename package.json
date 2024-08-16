@@ -17,7 +17,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.14",
     "autoprefixer": "^10.4.20",
-    "browserslist": "^4.23.2",
+    "browserslist": "^4.23.3",
     "chart.js": "^4.4.3",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chartjs-plugin-tailwindcss-colors": "^0.2.2",
