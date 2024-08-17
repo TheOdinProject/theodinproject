@@ -72,5 +72,25 @@ RSpec.describe Github::LessonContentImporter do
         )
       end
     end
+
+    context 'when there is an unauthorized error with octokit' do
+      before do
+        allow(Octokit).to receive(:contents)
+          .with('theodinproject/curriculum', path: '/ruby_basics/variables')
+          .and_raise(
+            Octokit::Unauthorized.new(
+              method: 'GET',
+              status: '401',
+              body: { error: 'Bad credentials' }
+            )
+          )
+      end
+
+      it 'aborts the lesson import' do
+        expect { importer.import }.to raise_error(
+          SystemExit
+        ).and output("Is your GitHub API token correct? Unauthorized: GET : 401 - Error: Bad credentials\n").to_stderr
+      end
+    end
   end
 end
