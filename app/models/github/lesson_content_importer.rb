@@ -26,8 +26,11 @@ class Github::LessonContentImporter
 
   def import
     content.update!(body: content_converted_to_html) if content_needs_updated?
+  rescue Octokit::Unauthorized => e
+    abort "Is your GitHub API token correct? Unauthorized: #{e.message}"
   rescue Octokit::Error => e
-    log_error(e.message)
+    Rails.logger.error "Failed to import '#{lesson.title}' message: #{e.message}"
+    false
   end
 
   private
@@ -46,10 +49,5 @@ class Github::LessonContentImporter
 
   def github_response
     Octokit.contents('theodinproject/curriculum', path: lesson.github_path)
-  end
-
-  def log_error(message)
-    Rails.logger.error "Failed to import '#{lesson.title}' message: #{message}"
-    false
   end
 end
