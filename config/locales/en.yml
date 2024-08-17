@@ -162,9 +162,8 @@ en:
       items:
         - question: 'Who is The Odin Project for?'
           answer: |
-            <p>The Odin Project is for absolute beginners in the world of web development and those who have tried other resources without success.  In reality, The Odin Project is for anyone who wants to work as a web developer, do freelancing work, build a startup, or just hack together a homepage for yourself.  All the tools you need are here. <strong>You should consider yourself fairly competent with personal computers and open to using a non-Windows based Operating System.</strong></p>
+            <p>The Odin Project is for absolute beginners in the world of web development and those who have tried other resources without success.  In reality, The Odin Project is for anyone who wants to work as a web developer, build a startup, or just hack together a homepage for yourself.  All the tools you need are here. <strong>You should consider yourself fairly competent with personal computers and open to using a non-Windows based Operating System.</strong></p>
             <p>We've built an in-depth curriculum designed to take you 100% of the way to becoming a web developer. Many other resources out there teach you just the basics of programming. With The Odin Project, you'll create your own websites, games, and social media sites.</p>
-            <p>The curriculum has also been designed in a modular fashion, making skimming through lessons a breeze.</p>
         - question: 'What is the goal of The Odin Project?'
           answer:  <p>The goal of The Odin Project is to provide a complete path for students to go from zero programming knowledge to employed as web developers while working with other students and picking up the skills to become self sufficient along the way.</p>
         - question: 'How long does The Odin Project take?'
