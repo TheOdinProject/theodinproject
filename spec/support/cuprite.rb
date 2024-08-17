@@ -15,6 +15,7 @@ Capybara.register_driver(:odin_cuprite) do |app|
     app,
     window_size: [1200, 1200],
     browser_options: {},
+    flatten: false,
     process_timeout: 30,
     timeout: 60,
     inspector: true,
