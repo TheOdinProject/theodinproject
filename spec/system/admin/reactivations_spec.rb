@@ -14,7 +14,7 @@ RSpec.describe 'Admin team members reactivations' do
       find(:test_id, 'dropdown-button').click
 
       accept_confirm do
-        click_link('Reactivate')
+        click_on('Reactivate')
       end
     end
 
@@ -25,17 +25,17 @@ RSpec.describe 'Admin team members reactivations' do
     using_session('deactivated_admin') do
       open_email('deactivated@admin.com')
       expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
-      current_email.click_link('Join the team')
+      current_email.click_on('Join the team')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_current_path(new_admin_two_factor_authentication_path)
 
       freeze_time do
         find(:test_id, 'otp-code-field').fill_in(with: otp_code_for(deactivated_admin.reload))
-        click_button('Confirm')
+        click_on('Confirm')
       end
 
       expect(page).to have_current_path(admin_dashboard_path)

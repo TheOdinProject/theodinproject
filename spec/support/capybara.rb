@@ -6,8 +6,8 @@ Capybara.disable_animation = true
 Capybara.configure do |config|
   config.test_id = 'data-test'
   config.automatic_label_click = true
-  config.server_port = 3001
-  config.app_host = 'http://localhost:3001'
+  config.server_port = 3001 + ENV['TEST_ENV_NUMBER'].to_i
+  config.app_host = "http://localhost:#{config.server_port}"
 end
 
 Capybara.singleton_class.prepend(Module.new do

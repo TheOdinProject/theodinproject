@@ -16,8 +16,9 @@
   }
 
   .lesson-note > *:first-child::before {
-    mask-image: url("icons/pencil-square-solid");
+    mask-image: url("/icons/pencil-square-solid.svg");
     content:'';
+
     @apply h-5 w-5 mr-2 inline-block align-text-bottom bg-gold dark:bg-gold-600;
   }
 
@@ -28,8 +29,9 @@
   }
 
   .lesson-note--tip > *:first-child::before {
-    mask-image: url("icons/light-bulb-solid");
+    mask-image: url("/icons/light-bulb-solid.svg");
     content:'';
+
     @apply h-5 w-5 inline-block align-text-bottom bg-blue-600 dark:bg-blue-500;
   }
 
@@ -41,8 +43,9 @@
   }
 
   .lesson-note--warning > *:first-child::before {
-    mask-image: url("icons/exclamation-triangle-solid");
+    mask-image: url("/icons/exclamation-triangle-solid.svg");
     content:'';
+
     @apply h-5 w-5 inline-block align-text-bottom bg-orange-500 dark:bg-orange-400;
   }
 
@@ -53,8 +56,9 @@
   }
 
   .lesson-note--critical > *:first-child::before {
-    mask-image: url("icons/exclamation-circle-solid");
+    mask-image: url('/icons/exclamation-circle-solid.svg');
     content:'';
+
     @apply h-5 w-5 inline-block align-text-bottom bg-red-600 dark:bg-red-500;
   }
 }

@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["*"]
+  push:
+    branches: [main]
+
+concurrency: ci-${{ github.ref }}
+
+jobs:
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install packages
+        run: |
+          yarn install
+
+      - name: Run linters
+        run: |
+          bin/rubocop --parallel
+          bin/erblint --lint-all
+          yarn run lint
+          yarn run stylelint
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [4]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1, 2, 3]
+    services:
+      postgres:
+        image: postgres:15.7
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+
+    env:
+      RAILS_ENV: test
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      SKIP_YARN_INSTALL: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install packages
+        run: |
+          yarn install
+
+      - name: Build assets
+        run: |
+          bin/rails javascript:build
+          bin/rails css:build
+
+      - name: Setup test database
+        run: |
+          bundle exec rake parallel:create
+          bundle exec rake parallel:load_schema
+          bundle exec rake parallel:migrate
+
+      - name: Run tests
+        run: ./bin/ci_spec

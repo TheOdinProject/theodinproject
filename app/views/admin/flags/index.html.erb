@@ -1,5 +1,5 @@
-<div class="max-w-5xl w-full mx-auto">
-  <div class="sm:flex sm:items-center max-w-5xl">
+<div class="max-w-6xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-6xl">
     <div class="sm:flex-auto">
       <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Flags</h1>
       <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Student solutions that have been flagged as broken or inappropiate.</p>
@@ -23,7 +23,7 @@
 
   <div class="mt-8 flow-root">
     <% if @flags.any? %>
-      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-5xl px-6">
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-6xl px-6">
         <div class="inline-block min-w-full py-2 align-middle">
           <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
             <thead>
@@ -84,8 +84,10 @@
               <% end %>
             </tbody>
           </table>
-          <%= render Admin::PaginationComponent.new(pagy: @pagy, resource_name: 'flags') %>
         </div>
+      </div>
+      <div class="pt-4">
+        <%= render PaginationComponent.new(pagy: @pagy, resource_name: 'flags') %>
       </div>
     <% else %>
       <div class="mt-6 flex flex-col items-center space-y-2 pt-10">

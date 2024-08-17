@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Static Pages' do
+RSpec.describe 'Paths' do
   describe 'GET #path' do
     context 'when path has more than one course' do
       it 'renders the path page' do

@@ -7,19 +7,19 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
     let(:lesson) { create(:lesson, :project) }
 
     it 'paginates the results' do
-      create_list(:project_submission, 20, lesson:)
+      create_list(:project_submission, 25, lesson:) # rubocop:disable FactoryBot/ExcessiveCreateList
 
       sign_in(user)
       visit lesson_path(lesson)
-      click_link('View community solutions')
+      click_on('View community solutions')
 
       expect(page).to have_current_path(lesson_project_submissions_path(lesson))
 
       within(:test_id, 'submissions-list') do
-        expect(page).to have_css('[data-test-id="submission-item"]', count: 15)
+        expect(page).to have_css('[data-test-id="submission-item"]', count: 20)
       end
 
-      click_link('Next')
+      click_on('Next')
 
       within(:test_id, 'submissions-list') do
         expect(page).to have_css('[data-test-id="submission-item"]', count: 5, visible: :all)
@@ -43,7 +43,7 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
       sleep 0.4 # it will not open the dropdown without this
       find(:test_id, 'sort-select').trigger('click')
       expect(page).to have_link('Oldest')
-      click_link('Oldest')
+      click_on('Oldest')
 
       within(:test_id, 'submissions-list') do
         expect(page).to have_text(/oldest.+other.+newest/)

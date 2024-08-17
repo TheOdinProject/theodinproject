@@ -14,7 +14,7 @@ RSpec.describe 'Admin team member deactivation' do
       find(:test_id, 'dropdown-button').click
 
       accept_confirm do
-        click_link('Deactivate')
+        click_on('Deactivate')
       end
     end
 
@@ -27,7 +27,9 @@ RSpec.describe 'Admin team member deactivation' do
 
       fill_in 'Email', with: other_admin.email
       fill_in 'Password', with: other_admin.password
-      click_button 'Sign in'
+      within 'form' do
+        click_on 'Sign in'
+      end
 
       expect(page).to have_current_path(new_admin_user_session_path)
       expect(page).to have_content('Your account is deactivated')

@@ -5,9 +5,8 @@
       Component Previews
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag 'application_stylesheet', media: 'all' %>
-    <%= stylesheet_pack_tag 'application' %>
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= stylesheet_link_tag 'application', 'main', media: 'all', data: { turbo_track: 'reload' } %>
+    <%= javascript_include_tag 'main', defer: true, data: { turbo_track: 'reload' } %>
   </head>
   <body style="padding: 20px">
     <div style="

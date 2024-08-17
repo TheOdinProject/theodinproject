@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::PaginationComponent, type: :component do
+RSpec.describe PaginationComponent, type: :component do
   context 'when there is more than one page' do
     it 'renders the pagination component' do
       with_request_url('/admin/flags') do
@@ -23,8 +23,8 @@ RSpec.describe Admin::PaginationComponent, type: :component do
 
         render_inline(component)
 
-        expect(page).not_to have_content('Previous')
-        expect(page).not_to have_content('Next')
+        expect(page).to have_no_content('Previous')
+        expect(page).to have_no_content('Next')
       end
     end
   end
