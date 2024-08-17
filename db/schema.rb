@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_08_06_175334) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_17_132923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -324,7 +324,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_06_175334) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "username", limit: 255
     t.text "learning_goal"
-    t.boolean "admin", default: false, null: false
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
@@ -347,12 +346,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_06_175334) do
   add_foreign_key "project_submissions", "users"
 
   create_view "all_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date)) AS id,
-      (lesson_completions.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS completions_count
      FROM lesson_completions
-    GROUP BY ((lesson_completions.created_at)::date)
-    ORDER BY ((lesson_completions.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
   create_view "path_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
       SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date) DESC) AS id,
@@ -371,11 +370,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_06_175334) do
     ORDER BY ((lesson_completions.created_at)::date) DESC;
   SQL
   create_view "user_sign_ups_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((users.created_at)::date)) AS id,
-      (users.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS sign_ups_count
      FROM users
-    GROUP BY ((users.created_at)::date)
-    ORDER BY ((users.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
 end
