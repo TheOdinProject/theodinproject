@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::PaginationComponent, type: :component do
+RSpec.describe PaginationComponent, type: :component do
   context 'when there is more than one page' do
     it 'renders the pagination component' do
       with_request_url('/admin/flags') do

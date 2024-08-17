@@ -7,7 +7,7 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
     let(:lesson) { create(:lesson, :project) }
 
     it 'paginates the results' do
-      create_list(:project_submission, 20, lesson:) # rubocop:disable FactoryBot/ExcessiveCreateList
+      create_list(:project_submission, 25, lesson:) # rubocop:disable FactoryBot/ExcessiveCreateList
 
       sign_in(user)
       visit lesson_path(lesson)
@@ -16,7 +16,7 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
       expect(page).to have_current_path(lesson_project_submissions_path(lesson))
 
       within(:test_id, 'submissions-list') do
-        expect(page).to have_css('[data-test-id="submission-item"]', count: 15)
+        expect(page).to have_css('[data-test-id="submission-item"]', count: 20)
       end
 
       click_on('Next')
