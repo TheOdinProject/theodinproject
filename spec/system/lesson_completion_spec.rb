@@ -14,7 +14,7 @@ RSpec.describe 'Lesson Completions' do
       find(:test_id, 'complete-button').click
 
       expect(page).to have_button('Lesson Completed')
-      expect(page).not_to have_button('Mark Complete')
+      expect(page).to have_no_button('Mark Complete')
       expect(user.lesson_completions.pluck(:lesson_id)).to include(lesson.id)
     end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Lesson Completions' do
       find(:test_id, 'complete-button').click
 
       expect(page).to have_button('Mark Complete')
-      expect(page).not_to have_button('Lesson Completed')
+      expect(page).to have_no_button('Lesson Completed')
       expect(user.lesson_completions.pluck(:lesson_id)).not_to include(lesson.id)
     end
   end
@@ -36,8 +36,8 @@ RSpec.describe 'Lesson Completions' do
     it 'cannot complete a lesson' do
       visit lesson_path(lesson)
 
-      expect(page).not_to have_button('Mark Complete')
-      expect(page).not_to have_button('Lesson Completed')
+      expect(page).to have_no_button('Mark Complete')
+      expect(page).to have_no_button('Lesson Completed')
       expect(find(:test_id, 'sign_in_button')).to have_content('Sign in to track progress')
     end
   end

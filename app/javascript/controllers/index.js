@@ -1,15 +1,21 @@
-// Load all the controllers within this directory and all subdirectories.
-// Controller files must be named *_controller.js.
+import { Application } from '@hotwired/stimulus'
+import controllers from './*_controller.js'
+import componentControllers from '../../components/**/*_controller.js'
 
-import { Application } from '@hotwired/stimulus';
-import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers';
+const application = Application.start()
 
-const application = Application.start();
-const context = require.context('controllers', true, /_controller\.js$/);
-const contextComponents = require.context('../../components', true, /_controller\.js$/);
+// Register componentControllers from "../../components/**/*_controller.js"
+componentControllers.forEach((controller) => {
+  application.register(controller.name.replace('..--..--components--', ''), controller.module.default)
+})
 
-application.load(
-  definitionsFromContext(context).concat(
-    definitionsFromContext(contextComponents),
-  ),
-);
+// Register controllers from "./*_controller.js"
+controllers.forEach((controller) => {
+  application.register(controller.name, controller.module.default)
+})
+
+// Configure Stimulus development experience
+application.debug = false
+window.Stimulus = application
+
+export default application

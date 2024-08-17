@@ -52,7 +52,7 @@ RSpec.describe 'Editing a Project Submission on the Dashboard' do
       visit lesson_project_submissions_path(lesson)
 
       within(:test_id, 'submissions-list') do
-        expect(page).not_to have_content(user.username)
+        expect(page).to have_no_content(user.username)
       end
     end
   end

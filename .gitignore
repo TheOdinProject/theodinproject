@@ -44,11 +44,17 @@
 /public/packs
 /public/packs-test
 /node_modules
+
+
+# yarn - https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 /yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-.yarn/
-.yarnrc.yml
 
 # Spec example persistence / failure tracking
 /spec/examples.txt

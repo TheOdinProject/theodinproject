@@ -7,12 +7,12 @@ RSpec.describe 'Admin invitations' do
     # Create a new invitation
     visit admin_team_path
 
-    click_link('Invite new member')
+    click_on('Invite new member')
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
     select('Core', from: 'Role')
-    click_button('Send invite')
+    click_on('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')
     expect(page).to have_content('John Doe')
@@ -21,19 +21,19 @@ RSpec.describe 'Admin invitations' do
     using_session('john') do
       open_email('john@example.com')
       expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
-      current_email.click_link('Join the team')
+      current_email.click_on('Join the team')
 
       expect(page).to have_content('Welcome to the team!')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_current_path(new_admin_two_factor_authentication_path)
 
       freeze_time do
         find(:test_id, 'otp-code-field').fill_in(with: otp_code_for(AdminUser.last))
-        click_button('Confirm')
+        click_on('Confirm')
       end
 
       expect(page).to have_current_path(admin_dashboard_path)
@@ -47,12 +47,12 @@ RSpec.describe 'Admin invitations' do
     # Create a new invitation
     visit admin_team_path
 
-    click_link('Invite new member')
+    click_on('Invite new member')
 
     fill_in('Name', with: 'John Doe')
     fill_in('Email', with: 'john@example.com')
     select('Core', from: 'Role')
-    click_button('Send invite')
+    click_on('Send invite')
 
     expect(page).to have_content('Invitation sent to john@example.com')
     expect(page).to have_content('John Doe')
@@ -61,17 +61,17 @@ RSpec.describe 'Admin invitations' do
     using_session('john') do
       open_email('john@example.com')
       expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
-      current_email.click_link('Join the team')
+      current_email.click_on('Join the team')
 
       expect(page).to have_content('Welcome to the team!')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
-      click_button('Submit')
+      click_on('Submit')
 
       expect(page).to have_current_path(new_admin_two_factor_authentication_path)
 
-      click_link('Dashboard')
+      click_on('Dashboard')
       expect(page).to have_current_path(new_admin_two_factor_authentication_path)
       expect(page).to have_content('Please enable two factor authentication before continuing.')
     end

@@ -2,14 +2,13 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import './stylesheets/buttons.css';
-@import './stylesheets/layout.css';
-@import './stylesheets/typography.css';
-@import './stylesheets/buttons.css';
-@import './stylesheets/lesson-content.css';
-@import './stylesheets/lesson-notes.css';
-@import './stylesheets/prism-theme.css';
-@import './stylesheets/pagy.css';
-@import './stylesheets/animations.css';
-@import './stylesheets/static-pages.css';
-@import './stylesheets/charts.css';
+@import './custom_styles/buttons.css';
+@import './custom_styles/layout.css';
+@import './custom_styles/typography.css';
+@import './custom_styles/buttons.css';
+@import './custom_styles/lesson-content.css';
+@import './custom_styles/lesson-notes.css';
+@import './custom_styles/prism-theme.css';
+@import './custom_styles/animations.css';
+@import './custom_styles/static-pages.css';
+@import './custom_styles/charts.css';

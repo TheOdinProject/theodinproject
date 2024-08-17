@@ -9,12 +9,12 @@ RSpec.describe 'Admin announcements' do
   context 'when creating a new announcement' do
     it 'displays the announcement message and expires at on the index page' do
       visit admin_announcements_path
-      click_link('New announcement')
+      click_on('New announcement')
 
       fill_in :announcement_message, with: 'Test Message'
       fill_in :announcement_learn_more_url, with: 'https://example.com'
       fill_in :announcement_expires_at, with: 10.days.from_now.to_date.to_fs(:db)
-      click_button('Save')
+      click_on('Save')
 
       visit admin_announcements_path
       expect(page).to have_content('Test Message')
@@ -33,10 +33,10 @@ RSpec.describe 'Admin announcements' do
     it 'updates the announcement message' do
       announcement = create(:announcement, message: 'Test Message', expires_at: 10.days.from_now)
       visit admin_announcement_path(announcement)
-      click_link('Edit')
+      click_on('Edit')
 
       fill_in :announcement_message, with: 'Edited test Message'
-      click_button('Save')
+      click_on('Save')
 
       visit admin_announcements_path
       expect(page).to have_content('Edited test Message')
@@ -59,17 +59,17 @@ RSpec.describe 'Admin announcements' do
       visit admin_announcement_path(announcement)
 
       accept_confirm do
-        click_link('Delete')
+        click_on('Delete')
       end
 
       expect(page).to have_current_path(admin_announcements_path)
-      expect(page).not_to have_content('Test Message')
+      expect(page).to have_no_content('Test Message')
 
       using_session('learner') do
         sign_in(create(:user))
 
         visit home_path
-        expect(page).not_to have_content('Test Message')
+        expect(page).to have_no_content('Test Message')
       end
     end
   end

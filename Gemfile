@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '7.0.8.1'
+gem 'rails', '7.1.3.4'
 
 gem 'aasm', '~> 5.3'
 gem 'barnes', '~> 0.0'
@@ -21,17 +21,18 @@ gem 'flipper-active_record', '~> 1.2'
 gem 'flipper-ui', '~> 1.3'
 gem 'friendly_id', '~> 5.5'
 gem 'github_webhook', '~> 1.4'
-gem 'inline_svg', '~> 1.9'
+gem 'jsbundling-rails', '~> 1.3'
 gem 'kramdown', '~> 2.4'
 gem 'kramdown-parser-gfm'
 gem 'newrelic_rpm', '~> 9.7'
 gem 'noticed', '~> 1.6'
-gem 'octokit', '~> 8.1'
+gem 'octokit', '~> 9.1'
 gem 'omniauth-github', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 1.1.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-gem 'pagy', '~> 6.2'
+gem 'pagy', '~> 9.0'
 gem 'pg', '~> 1.5'
+gem 'propshaft', '~> 0.9'
 gem 'public_activity', '~> 3.0'
 gem 'puma', '~> 6.4'
 gem 'rack-attack', '~> 6.7'
@@ -43,15 +44,19 @@ gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.17'
 gem 'sentry-ruby', '~> 5.17'
 gem 'sentry-sidekiq', '~> 5.18'
-gem 'shakapacker', '6.6.0'
 gem 'sidekiq', '~> 7.2'
 gem 'sidekiq-cron', '~> 1.12'
-gem 'sprockets-rails', '~> 3.5'
+gem 'stackprof', '~> 0.2'
+gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 2.0'
 gem 'view_component', '~> 3.12'
 
+# https://github.com/jamesmartin/inline_svg/issues/151
+gem 'inline_svg', '~> 1.9'
+
 group :development do
   gem 'letter_opener', '~> 1.8'
+  gem 'listen', '~> 3.9'
   gem 'lookbook', '~> 2.2.1'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.61', require: false
@@ -63,6 +68,7 @@ end
 
 group :development, :test do
   gem 'dotenv-rails', '~> 3.1'
+  gem 'parallel_tests', '~> 4.7'
   gem 'rspec-rails', '~> 6.1'
 end
 

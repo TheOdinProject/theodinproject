@@ -59,10 +59,10 @@ RSpec.describe Team::MemberComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).not_to have_link('twitter', href: 'https://twitter.com')
-      expect(page).not_to have_link('github', href: 'https://github.com')
-      expect(page).not_to have_link('linkedin', href: 'https://linkedin.com')
-      expect(page).not_to have_link('website', href: 'https://example.com')
+      expect(page).to have_no_link('twitter', href: 'https://twitter.com')
+      expect(page).to have_no_link('github', href: 'https://github.com')
+      expect(page).to have_no_link('linkedin', href: 'https://linkedin.com')
+      expect(page).to have_no_link('website', href: 'https://example.com')
     end
   end
 end

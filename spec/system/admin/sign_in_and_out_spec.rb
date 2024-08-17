@@ -10,7 +10,9 @@ RSpec.describe 'Admin sign in and sign out' do
 
         fill_in 'Email', with: admin_user.email
         fill_in 'Password', with: admin_user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(admin_dashboard_path)
       end
@@ -24,7 +26,9 @@ RSpec.describe 'Admin sign in and sign out' do
 
         fill_in 'Email', with: user.email
         fill_in 'Password', with: user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(new_admin_user_session_path)
       end
@@ -38,11 +42,15 @@ RSpec.describe 'Admin sign in and sign out' do
 
         fill_in 'Email', with: admin_user.email
         fill_in 'Password', with: admin_user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_content('Two factor authentication')
         fill_in 'Authentication code', with: otp_code_for(admin_user)
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(admin_dashboard_path)
       end
@@ -56,7 +64,9 @@ RSpec.describe 'Admin sign in and sign out' do
 
         fill_in 'Email', with: admin_user.email
         fill_in 'Password', with: admin_user.password
-        click_button 'Sign in'
+        within 'form' do
+          click_on 'Sign in'
+        end
 
         expect(page).to have_current_path(new_admin_user_session_path)
         expect(page).to have_content('Your account is deactivated')

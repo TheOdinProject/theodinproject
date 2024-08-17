@@ -16,7 +16,7 @@ module ProjectSubmissions
     end
 
     def tooltip_text
-      return 'Unlike solution' if current_users_submission || project_submission.liked?
+      return 'Unlike solution' if project_submission.liked?
 
       'Like solution'
     end
