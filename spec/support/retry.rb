@@ -6,7 +6,7 @@ if ENV['CI'].present?
     config.display_try_failure_messages = true
 
     config.around :each, type: :system do |ex|
-      ex.run_with_retry retry: 3
+      ex.run_with_retry retry: 2
     end
   end
 end

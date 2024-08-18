@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Team member reactivation' do
   describe 'PUT #update' do
     context 'when signed in as an admin and the team member exists' do
+      before do
+        Mail::TestMailer.deliveries.clear
+      end
+
       it 'reactivates the team member' do
         admin = create(:admin_user)
         deactivated_admin = create(:admin_user, :deactivated)
@@ -31,14 +35,12 @@ RSpec.describe 'Team member reactivation' do
         deactivated_admin = create(:admin_user, :deactivated, email: 'deactivated@odin.com')
         sign_in(admin)
 
-        expect do
-          put admin_team_member_reactivation_path(team_member_id: deactivated_admin.id)
-        end.to change { ActionMailer::Base.deliveries.count }
+        put admin_team_member_reactivation_path(team_member_id: deactivated_admin.id)
 
-        mailer = ActionMailer::Base.deliveries.last
-
-        expect(mailer.to).to eq(['deactivated@odin.com'])
-        expect(mailer.subject).to eq('Joining The Odin Project Admin Team')
+        # rubocop:disable RSpec/NamedSubject
+        expect(subject).to have_sent_email.to(deactivated_admin.email)
+        expect(subject).to have_sent_email.with_subject('Joining The Odin Project Admin Team')
+        # rubocop:enable RSpec/NamedSubject
       end
     end
 

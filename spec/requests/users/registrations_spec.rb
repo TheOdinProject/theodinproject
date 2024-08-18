@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'User Registrations' do
   describe 'POST #create' do
+    before do
+      Mail::TestMailer.deliveries.clear
+    end
+
     around do |example|
       perform_enqueued_jobs do
         example.run
@@ -11,10 +15,11 @@ RSpec.describe 'User Registrations' do
     context 'when the user is valid' do
       it 'sends the welcome email' do
         post user_registration_path(params: { user: attributes_for(:user, email: 'odin@example.com') })
-        mail = ActionMailer::Base.deliveries.last
 
-        expect(mail.to).to eq(['odin@example.com'])
-        expect(mail.subject).to eq('Getting started with The Odin Project')
+        # rubocop:disable RSpec/NamedSubject
+        expect(subject).to have_sent_email.to('odin@example.com')
+        expect(subject).to have_sent_email.with_subject('Getting started with The Odin Project')
+        # rubocop:enable RSpec/NamedSubject
       end
     end
 
@@ -22,7 +27,7 @@ RSpec.describe 'User Registrations' do
       it 'does not send the welcome email' do
         post user_registration_path(params: { user: attributes_for(:user, email: 'odin@') })
 
-        expect(ActionMailer::Base.deliveries).to be_empty
+        expect(subject).not_to have_sent_email # rubocop:disable RSpec/NamedSubject
       end
     end
 
@@ -36,7 +41,7 @@ RSpec.describe 'User Registrations' do
       it 'does not send the welcome email' do
         post user_registration_path(params: { user: attributes_for(:user, email: 'odin@example.com') })
 
-        expect(ActionMailer::Base.deliveries).to be_empty
+        expect(subject).not_to have_sent_email # rubocop:disable RSpec/NamedSubject
       end
     end
   end
