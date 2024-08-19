@@ -4,7 +4,6 @@ FactoryBot.define do
     sequence(:email) { |n| "foo#{n}@bar.com" }
     password { 'foobar' }
     avatar { 'http://github.com/fake-avatar' }
-    admin { false }
     path
   end
 end

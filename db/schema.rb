@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_175334) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_17_132923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -324,7 +324,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_175334) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "username", limit: 255
     t.text "learning_goal"
-    t.boolean "admin", default: false, null: false
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
