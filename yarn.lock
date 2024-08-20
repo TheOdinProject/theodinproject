@@ -1409,9 +1409,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chartjs-plugin-tailwindcss-colors@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "chartjs-plugin-tailwindcss-colors@npm:0.2.2"
+"chartjs-plugin-tailwindcss-colors@npm:^0.2.4":
+  version: 0.2.4
+  resolution: "chartjs-plugin-tailwindcss-colors@npm:0.2.4"
   dependencies:
     color-name: "npm:^2.0.0"
     lodash: "npm:^4.17.21"
@@ -1419,7 +1419,7 @@ __metadata:
   peerDependencies:
     chart.js: ^3.0.0
     tailwindcss: ^3.0.0
-  checksum: 10c0/794d7fa942b5ca5e8581a367abc23a3186dfec48f134c34370433235b693843ad2994de1c1871eff50f5c9205495c300d8a443d43f4685d586fb0ccb37e03ef4
+  checksum: 10c0/949762a47af51877cb8fe68c6d0dd4732be5acfad26e83c1a06075bf75006425ce80e9abac1e79e644a0099f0a521b460824de1d708111b046e9ec53ffedf665
   languageName: node
   linkType: hard
 
@@ -5557,7 +5557,7 @@ __metadata:
     browserslist: "npm:^4.23.3"
     chart.js: "npm:^4.4.3"
     chartjs-plugin-crosshair: "npm:^2.0.0"
-    chartjs-plugin-tailwindcss-colors: "npm:^0.2.2"
+    chartjs-plugin-tailwindcss-colors: "npm:^0.2.4"
     chokidar: "npm:^3.6.0"
     debounce: "npm:^2.1.0"
     el-transition: "npm:^0.0.7"
