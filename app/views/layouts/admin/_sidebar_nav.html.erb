@@ -65,9 +65,7 @@ nav_links = [
 
         <button type="button" class="-m-2.5 p-2.5" data-action="click->visibility#off">
           <span class="sr-only">Close sidebar</span>
-          <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: 'Close menu' %>
         </button>
       </div>
 
