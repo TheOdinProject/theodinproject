@@ -709,26 +709,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/babel-plugin-component-annotate@npm:2.22.0":
-  version: 2.22.0
-  resolution: "@sentry/babel-plugin-component-annotate@npm:2.22.0"
-  checksum: 10c0/b56017d865057e38987497b7b9da794080ef3f284bf292ef3b10f77aac6c746df29d0d6ee4b3de8353a73141441a6315fd21c8a44387a972d5c7469a3a4d93e4
+"@sentry/babel-plugin-component-annotate@npm:2.22.2":
+  version: 2.22.2
+  resolution: "@sentry/babel-plugin-component-annotate@npm:2.22.2"
+  checksum: 10c0/528b6ab481ad989248dfe2ca080a1ff41e21631dcb20f71fb293a3c110c19aeb6efc8338a0c706927c03d49162e0903669e808d1748d95ec2e2d1aeeeb39334f
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:2.22.0":
-  version: 2.22.0
-  resolution: "@sentry/bundler-plugin-core@npm:2.22.0"
+"@sentry/bundler-plugin-core@npm:2.22.2":
+  version: 2.22.2
+  resolution: "@sentry/bundler-plugin-core@npm:2.22.2"
   dependencies:
     "@babel/core": "npm:^7.18.5"
-    "@sentry/babel-plugin-component-annotate": "npm:2.22.0"
+    "@sentry/babel-plugin-component-annotate": "npm:2.22.2"
     "@sentry/cli": "npm:^2.33.1"
     dotenv: "npm:^16.3.1"
     find-up: "npm:^5.0.0"
     glob: "npm:^9.3.2"
     magic-string: "npm:0.30.8"
     unplugin: "npm:1.0.1"
-  checksum: 10c0/b223feb16625b216f9763683fac8703b138cbda4b135fed51341a29f697a58c3aca9bd6f84328d1b76c16d43342ef986d1d570c041548bbcdf0a99d463c917c0
+  checksum: 10c0/e12aa15d2e7d8d06f2e260d63a84fe4e5c68375004d2d9ef6b86675796da056c158538d7f37d91aa81695dbe16663b5c2c9c9c4efa2eacdd4318d5fac16e1e57
   languageName: node
   linkType: hard
 
@@ -818,14 +818,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/esbuild-plugin@npm:^2.22.0":
-  version: 2.22.0
-  resolution: "@sentry/esbuild-plugin@npm:2.22.0"
+"@sentry/esbuild-plugin@npm:^2.22.2":
+  version: 2.22.2
+  resolution: "@sentry/esbuild-plugin@npm:2.22.2"
   dependencies:
-    "@sentry/bundler-plugin-core": "npm:2.22.0"
+    "@sentry/bundler-plugin-core": "npm:2.22.2"
     unplugin: "npm:1.0.1"
     uuid: "npm:^9.0.0"
-  checksum: 10c0/4214c1a4b960b21a80b17f505f49d251c26acd1e50b867a5cff7142177d2c96f3b9d830bdb13a80abf37e3139c63178fc17312a9ba56bb222bb272b00a25d7d4
+  checksum: 10c0/e62483e9eea668a56368129f6d741fd251b74d97ebc0f1985382cac2e02a8b1d381fdf47b545cc5786dd9542380bc7ff8404d912e21c234f6f79031b496e812e
   languageName: node
   linkType: hard
 
@@ -5539,7 +5539,7 @@ __metadata:
     "@hotwired/stimulus": "npm:^3.2.2"
     "@hotwired/turbo-rails": "npm:^8.0.5"
     "@rails/request.js": "npm:^0.0.9"
-    "@sentry/esbuild-plugin": "npm:^2.22.0"
+    "@sentry/esbuild-plugin": "npm:^2.22.2"
     "@stimulus/polyfills": "npm:^2.0.0"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:^0.5.14"
