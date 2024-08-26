@@ -61,7 +61,7 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.61', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
-  gem 'rubocop-rails', '~> 2.25', require: false
+  gem 'rubocop-rails', '~> 2.26', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false
   gem 'web-console', '~> 4.2'
 end
