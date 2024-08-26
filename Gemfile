@@ -57,7 +57,7 @@ gem 'inline_svg', '~> 1.9'
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.9'
-  gem 'lookbook', '~> 2.2.1'
+  gem 'lookbook', '~> 2.3.2'
   gem 'rack-mini-profiler'
   gem 'rubocop', '~> 1.61', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
