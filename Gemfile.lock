@@ -123,7 +123,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.17.1)
+    css_parser (1.19.0)
       addressable
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
@@ -263,7 +263,7 @@ GEM
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    lookbook (2.2.2)
+    lookbook (2.3.2)
       activemodel
       css_parser
       htmlbeautifier (~> 1.3)
@@ -623,7 +623,7 @@ DEPENDENCIES
   kramdown-parser-gfm
   letter_opener (~> 1.8)
   listen (~> 3.9)
-  lookbook (~> 2.2.1)
+  lookbook (~> 2.3.2)
   newrelic_rpm (~> 9.7)
   noticed (~> 1.6)
   octokit (~> 9.1)
