@@ -18,8 +18,8 @@ class Flag < ApplicationRecord
   validates :resolved_by_id, presence: true, if: -> { status == 'resolved' }
 
   enum reason: REASONS.each_with_object({}) { |reason, hash| hash[reason.name] = reason.value }
-  enum status: { active: 0, resolved: 1 }
-  enum action_taken: { pending: 0, dismiss: 1, ban: 2, removed_project_submission: 3, notified_user: 4 }
+  enum :status, { active: 0, resolved: 1 }
+  enum :action_taken, { pending: 0, dismiss: 1, ban: 2, removed_project_submission: 3, notified_user: 4 }
 
   scope :by_status, ->(status) { where(status:) }
   scope :count_for, ->(status) { by_status(status).count }
