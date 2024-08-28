@@ -7,13 +7,13 @@
       <p class="mb-6 text-gray-500">Paste markdown here to check how it will look on the website!</p>
 
       <div>
-        <div data-controller='tabs share-preview' data-share-preview-url-value="<%= lessons_preview_share_path(format: :turbo_stream) %>" data-tabs-index='0' data-tabs-active-class="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90" data-tabs-inactive-class="hidden">
+        <div data-controller='tabs share-preview diagramming' data-share-preview-url-value="<%= lessons_preview_share_path(format: :turbo_stream) %>" data-tabs-index='0' data-tabs-active-class="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90" data-tabs-inactive-class="hidden">
           <div class="flex justify-between">
             <div class="flex items-center mb-3">
               <button data-action="tabs#change" class="text-gray-600 bg-gray-300/50 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none" data-tabs-target='tab'>
                 Write
               </button>
-              <button data-action="tabs#change" class="ml-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none" data-tabs-target='tab'>
+              <button data-action="tabs#change diagramming#connect" class="ml-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none" data-tabs-target='tab'>
                 Preview
               </button>
             </div>
