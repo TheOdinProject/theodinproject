@@ -9,7 +9,7 @@ puts 'Erblint:'
 results['Erblint'] = system 'bundle exec erblint --lint-all'
 
 puts 'Standard JS:'
-results['Standard'] = system 'yarn lint'
+results['Standard'] = system 'yarn lintt'
 
 puts "\n== Running specs =="
 puts 'Rspec:'
