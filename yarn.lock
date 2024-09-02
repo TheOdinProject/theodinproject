@@ -841,14 +841,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:^0.5.7":
-  version: 0.5.7
-  resolution: "@tailwindcss/forms@npm:0.5.7"
+"@tailwindcss/forms@npm:^0.5.8":
+  version: 0.5.8
+  resolution: "@tailwindcss/forms@npm:0.5.8"
   dependencies:
     mini-svg-data-uri: "npm:^1.2.3"
   peerDependencies:
-    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
-  checksum: 10c0/cd29e0c978402ae87a923ae802dcff43f7b050595666cb067321cac2e37a52f61b9d73385cb0a10455548581ddd0d3886815bd6c64a1da06247c0057fa9f4601
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20"
+  checksum: 10c0/c6f95edb6253730d1eed4a6e2aa1cd699f2b39c47963082469133677e8d0495be814f0171c6c440582cf593a7efddc76bac0474e7c7a16b6416b9c03bde189a0
   languageName: node
   linkType: hard
 
@@ -5541,7 +5541,7 @@ __metadata:
     "@rails/request.js": "npm:^0.0.9"
     "@sentry/esbuild-plugin": "npm:^2.22.2"
     "@stimulus/polyfills": "npm:^2.0.0"
-    "@tailwindcss/forms": "npm:^0.5.7"
+    "@tailwindcss/forms": "npm:^0.5.8"
     "@tailwindcss/typography": "npm:^0.5.14"
     autoprefixer: "npm:^10.4.20"
     browserslist: "npm:^4.23.3"
