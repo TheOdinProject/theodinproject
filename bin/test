@@ -3,10 +3,10 @@
 results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'Standard' => false }
 puts "\n== Running linters =="
 puts 'Rubocop:'
-results['Rubocop'] = system 'bundle exec rubocop'
+results['Rubocop'] = system 'bin/rubocop'
 
 puts 'Erblint:'
-results['Erblint'] = system 'bundle exec erblint --lint-all'
+results['Erblint'] = system 'bin/erblint --lint-all'
 
 puts 'Standard JS:'
 results['Standard'] = system 'yarn lint'
