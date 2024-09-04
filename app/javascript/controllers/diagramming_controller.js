@@ -3,7 +3,11 @@ import mermaid from 'mermaid'
 
 export default class DiagrammingController extends Controller {
   connect () {
+    this.render()
+  }
+
+  async render () {
     mermaid.initialize({ startOnLoad: false, theme: 'dark' })
-    mermaid.init()
+    await mermaid.run()
   }
 }
