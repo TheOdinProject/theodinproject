@@ -42,7 +42,7 @@
   ],
   "devDependencies": {
     "standard": "^17.1.0",
-    "stylelint": "^16.8.2",
+    "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1"
   },
   "packageManager": "yarn@4.4.0"
