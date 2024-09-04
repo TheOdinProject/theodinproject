@@ -1,19 +1,28 @@
 #!/usr/bin/env ruby
 
-results = { 'Rubocop' => false, 'Erblint' => false, 'RSpec' => false, 'Standard' => false }
+results = {
+  'Rubocop' => false,
+  'Erblint' => false,
+  'RSpec' => false,
+  'Standard' => false,
+  'Stylelint' => false
+}
 puts "\n== Running linters =="
 puts 'Rubocop:'
-results['Rubocop'] = system 'bundle exec rubocop'
+results['Rubocop'] = system 'bin/rubocop'
 
 puts 'Erblint:'
-results['Erblint'] = system 'bundle exec erblint --lint-all'
+results['Erblint'] = system 'bin/erblint --lint-all'
 
 puts 'Standard JS:'
-results['Standard'] = system 'yarn lintt'
+results['Standard'] = system 'yarn lint'
+
+puts 'Stylelint:'
+results['Stylelint'] = system 'yarn run stylelint'
 
 puts "\n== Running specs =="
 puts 'Rspec:'
-results['RSpec'] = system 'bundle exec rspec'
+results['RSpec'] = system 'bin/rspec'
 
 puts "\n== Final Results =="
 puts results.map {|k,v| "#{k.ljust(7)} #{v == true ? '✅' : '❌' }" }
