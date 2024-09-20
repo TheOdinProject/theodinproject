@@ -702,10 +702,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/request.js@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@rails/request.js@npm:0.0.9"
-  checksum: 10c0/a2a5fe0da8633fdeb6e884718dc9c1a84504cf195ae5c4840d175fec69ab7ab33d0c8f42df3f11cba1a1a37e9a3bbcaf2d12f60dfdf4f0273fe91d500b357a6e
+"@rails/request.js@npm:^0.0.11":
+  version: 0.0.11
+  resolution: "@rails/request.js@npm:0.0.11"
+  checksum: 10c0/983f7278bed81d00f64e44183a4d3e3f98fd9488592da2f6446b1dc5ab89a466d1686722dce16d0c8defb4aba976bb2202885f84ab7bb3256768996f9aaea291
   languageName: node
   linkType: hard
 
@@ -5538,7 +5538,7 @@ __metadata:
   dependencies:
     "@hotwired/stimulus": "npm:^3.2.2"
     "@hotwired/turbo-rails": "npm:^8.0.5"
-    "@rails/request.js": "npm:^0.0.9"
+    "@rails/request.js": "npm:^0.0.11"
     "@sentry/esbuild-plugin": "npm:^2.22.4"
     "@stimulus/polyfills": "npm:^2.0.0"
     "@tailwindcss/forms": "npm:^0.5.8"
