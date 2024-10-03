@@ -34,9 +34,33 @@
 
       <%= link_to 'Open Course', path_course_url(course.path, course), class: 'button button--secondary' %>
     </div>
+    
+    <div class="path-info text-center md:text-left">
+        <pclass="text-sm"Number of Courses: <%= course.path.courses.count %></p>
+        <p class="text-sm">Number of Projects: <%= course.path.projects.count %></p>
+         <p class="text-sm">Progress: <%= current_user.progress_for_course(course) %>% complete</p>
+    </div>
+
   <% end %>
 
   <% card.with_body do %>
      <p class="prose prose-gray dark:prose-invert max-w-none"><%= course.description %></p>
+  
+  <div class="course-details">
+       <h3 class="font-semibold mt-4">What You'll Learn:</h3>
+       <ul>
+         <% course.learning_outcomes.each do |outcome| %>
+           <li><%= outcome %></li>
+         <% end %>
+       </ul>
+       
+       <h3 class="font-semibold mt-4">What You'll Build:</h3>
+       <ul>
+         <% course.projects.each do |project| %>
+           <li><%= project.title %></li>
+         <% end %>
+       </ul>
+     </div>
+
   <% end %>
 <% end %>
