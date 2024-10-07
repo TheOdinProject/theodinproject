@@ -4,8 +4,14 @@ module Users
 
     DEFAULT_THEMES = [
       %w[light sun],
-      %w[dark moon]
+      %w[dark moon],
+      %w[system computer-desktop]
     ].freeze
+
+    def initialize(name:, icon:)
+      @name = name
+      @icon = icon
+    end
 
     def self.default_themes
       DEFAULT_THEMES.map { |name, icon| new(name:, icon:) }
@@ -19,17 +25,6 @@ module Users
       default_themes.find { |theme| theme.name == value }
     end
 
-    attr_reader :name, :icon
-
-    def initialize(name:, icon:)
-      @name = name
-      @icon = icon
-    end
-
-    def <=>(other)
-      name <=> other.name
-    end
-
     def to_s
       name
     end
@@ -37,5 +32,11 @@ module Users
     def dark_mode?
       name == 'dark'
     end
+
+    def system_mode?
+      name == 'system'
+    end
+
+    attr_reader :name, :icon
   end
 end
