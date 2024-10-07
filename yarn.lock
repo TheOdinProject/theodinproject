@@ -2672,9 +2672,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.32.2":
-  version: 7.35.0
-  resolution: "eslint-plugin-react@npm:7.35.0"
+"eslint-plugin-react@npm:^7.36.1":
+  version: 7.37.1
+  resolution: "eslint-plugin-react@npm:7.37.1"
   dependencies:
     array-includes: "npm:^3.1.8"
     array.prototype.findlast: "npm:^1.2.5"
@@ -2696,7 +2696,7 @@ __metadata:
     string.prototype.repeat: "npm:^1.0.0"
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
-  checksum: 10c0/eedcc33de4b2cda91d56ae517a4f771a0c76da9c1e26c95543969012871381e11d4d6cffdf6fa8423036585c289eb3500f3f93fb1d314fb2624e0aa1e463305e
+  checksum: 10c0/13cf55666f16d2ca45b14aad1b0e14741d1817679c86d20aff0bc1e802439a8541f40a42c4c8e3486ffb710f1bcc2f3e56697f2b5f724306a7fca174e1ad6433
   languageName: node
   linkType: hard
 
@@ -5560,7 +5560,7 @@ __metadata:
     postcss-import: "npm:^16.1.0"
     prismjs: "npm:^1.29.0"
     sortablejs: "npm:^1.15.3"
-    standard: "npm:^17.1.0"
+    standard: "npm:^17.1.2"
     stimulus-use: "npm:^0.52.2"
     stylelint: "npm:^16.9.0"
     stylelint-config-standard: "npm:^36.0.1"
@@ -5779,7 +5779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"standard-engine@npm:^15.0.0":
+"standard-engine@npm:^15.1.0":
   version: 15.1.0
   resolution: "standard-engine@npm:15.1.0"
   dependencies:
@@ -5791,9 +5791,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"standard@npm:^17.1.0":
-  version: 17.1.0
-  resolution: "standard@npm:17.1.0"
+"standard@npm:^17.1.2":
+  version: 17.1.2
+  resolution: "standard@npm:17.1.2"
   dependencies:
     eslint: "npm:^8.41.0"
     eslint-config-standard: "npm:17.1.0"
@@ -5801,12 +5801,12 @@ __metadata:
     eslint-plugin-import: "npm:^2.27.5"
     eslint-plugin-n: "npm:^15.7.0"
     eslint-plugin-promise: "npm:^6.1.1"
-    eslint-plugin-react: "npm:^7.32.2"
-    standard-engine: "npm:^15.0.0"
+    eslint-plugin-react: "npm:^7.36.1"
+    standard-engine: "npm:^15.1.0"
     version-guard: "npm:^1.1.1"
   bin:
     standard: bin/cmd.cjs
-  checksum: 10c0/3ee970f41cb44b37f58506c15ab43081f021876cf53b6fc2266818b681a230ca01424449289d238d8f30a924fcf53fe9c3ebec34ff2d9142b0eaf8f12932a24c
+  checksum: 10c0/3036e463c2fdb8f7c76341c81f68262bbf8c0d3c66f554f940733ba05cf7dae3d1df1208a2e568514469b1e761e457e12a5045ff93e57b5f1cf74e6d491bdbbe
   languageName: node
   linkType: hard
 

@@ -41,7 +41,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "standard": "^17.1.0",
+    "standard": "^17.1.2",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1"
   },
