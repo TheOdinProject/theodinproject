@@ -13,7 +13,12 @@
         <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @active_flags_count %></dd>
       </li>
     <% end %>
-
+    <%= link_to admin_announcements_path do %>
+      <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
+        <dt class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">Active announcements</dt>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= @active_announcements_count %></dd>
+      </li>
+    <% end %>
   </ul>
 
   <div class="border-b border-gray-200 dark:border-gray-800 pb-5 mt-6">
