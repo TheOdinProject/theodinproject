@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   devcontainer:
-    image: mcr.microsoft.com/devcontainers/universal:2
+    build: 
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
