@@ -4,7 +4,6 @@ services:
     image: mcr.microsoft.com/devcontainers/universal:2
     volumes:
       - ../..:/workspaces:cached
-    network_mode: service:db
     command: sleep infinity
 
   db:
@@ -16,6 +15,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
+    network_mode: service:devcontainer
+    depends_on:
+      - devcontainer
 
 volumes:
   postgres-data:
