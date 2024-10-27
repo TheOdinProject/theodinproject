@@ -21,5 +21,18 @@ services:
     depends_on:
       - devcontainer
 
+  redis:
+    image: redis:latest
+    command: redis-server
+    volumes:
+      - redis:/var/lib/redis
+      - redis-config:/usr/local/etc/redis/redis.conf
+    network_mode: service:devcontainer
+    depends_on:
+      - devcontainer
+
+
 volumes:
   postgres-data:
+  redis:
+  redis-config:
