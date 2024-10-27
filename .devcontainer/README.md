@@ -1,4 +1,5 @@
-These files enable you to quickly get up and running with The Odin Project in a dev container
+
+These files in `/.devcontainer` let you use services like GitHub Codespaces to quickly get up and running with The Odin Project
 
 You'll still to do some setup after starting your dev container:
 ```bash
@@ -25,4 +26,4 @@ rails db:environment:set RAILS_ENV=development # I think I can set this in the d
 rails db:schema:load
 ```
 
-> Note: If you think some of this could be automated, you're probably right! Open a pull request with those changes that can give other engineers a turbo boost!
+> Note: If you think some of this could be automated, you're probably right. Open a pull request with those changes that can give other engineers a turbo boost!
