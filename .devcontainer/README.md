@@ -15,14 +15,22 @@ bundle install
 # Install required JS dependencies
 yarn install
 
+# Prepare .env
+cp env.sample .env
+
+# Manually update .env with postgres username and password; default is "postgres" for both
+# POSTGRES_USERNAME: 'postgres'
+# POSTGRES_PASSWORD: 'postgres
+
 # Install Chrome (for running tests)
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb -y
-rm ./google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    sudo apt update && \
+    sudo apt install ./google-chrome-stable_current_amd64.deb -y && \
+    rm ./google-chrome-stable_current_amd64.deb
 
 # Set up your database
 rails db:create
-rails db:environment:set RAILS_ENV=development # I think I can set this in the docker-compose
+rails db:environment:set RAILS_ENV=development
 rails db:schema:load
 ```
 
