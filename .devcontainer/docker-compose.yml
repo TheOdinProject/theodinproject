@@ -10,7 +10,6 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USERNAME: postgres
-    postCreateCommand: "bash -i -c '. ./initialSetup.sh'"
 
   db:
     image: postgres:latest
