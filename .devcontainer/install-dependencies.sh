@@ -1,11 +1,8 @@
-# Install ruby-3.3.5 for rvm
-rvm install "ruby-3.3.5"
+# Install ruby-3.3.5 for rbenv
+rbenv install 3.3.5 --verbose
 
-# Remove a tool that will cause build issues
-gem uninstall -i /usr/local/rvm/rubies/ruby-3.3.5/lib/ruby/gems/3.3.0 gem-wrappers
-
-# Install rails
-gem install rails
+# Remove a tool that will cause build issues... is this even a thing if I'm not using rvm?
+# gem uninstall -i /usr/local/rvm/rubies/ruby-3.3.5/lib/ruby/gems/3.3.0 gem-wrappers
 
 # Install required gems
 bundle install
