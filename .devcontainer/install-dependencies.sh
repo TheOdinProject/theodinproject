@@ -1,5 +1,9 @@
 # Install and use ruby 3.3.5 as default; our Docker image uses rvm
-rvm install 3.3.5 --default
+rvm install 3.3.5
+rvm use 3.3.5
+
+# Display current ruby version (for logging)
+ruby -v
 
 # Remove tooling that causes build issues
 gem uninstall -i /usr/local/rvm/rubies/ruby-3.3.5/lib/ruby/gems/3.3.0 gem-wrappers
