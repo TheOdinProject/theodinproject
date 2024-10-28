@@ -1,5 +1,6 @@
 {
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "devcontainer",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"onCreateCommand": "sh .devcontainer/install-dependencies.sh"
 }

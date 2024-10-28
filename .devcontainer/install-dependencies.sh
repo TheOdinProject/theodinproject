@@ -23,3 +23,14 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &
 rails db:create
 rails db:environment:set RAILS_ENV=development
 rails db:schema:load
+
+# Remind user how to get started
+echo
+echo To get started you can run your tests by running this command:
+echo
+echo   bin/rspec
+echo
+echo ...or you can run the web site by running this command:
+echo
+echo   bin/dev
+echo
