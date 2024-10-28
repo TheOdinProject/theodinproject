@@ -1,5 +1,5 @@
-# Install ruby-3.3.5 for rvm
-rvm install ruby-3.3.5
+# Install and use ruby 3.3.5 as default; our Docker image uses rvm
+rvm install 3.3.5 --default
 
 # Remove tooling that causes build issues
 gem uninstall -i /usr/local/rvm/rubies/ruby-3.3.5/lib/ruby/gems/3.3.0 gem-wrappers
@@ -12,10 +12,6 @@ yarn install
 
 # Prepare .env
 cp env.sample .env
-
-# Manually update .env with postgres username and password; default is "postgres" for both
-# POSTGRES_USERNAME: 'postgres'
-# POSTGRES_PASSWORD: 'postgres
 
 # Install Chrome (for running tests)
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
