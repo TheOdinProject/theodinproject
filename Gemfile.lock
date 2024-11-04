@@ -345,7 +345,7 @@ GEM
     orm_adapter (0.5.0)
     pagy (9.0.5)
     parallel (1.26.3)
-    parallel_tests (4.7.1)
+    parallel_tests (4.7.2)
       parallel
     parser (3.3.5.0)
       ast (~> 2.4.1)
