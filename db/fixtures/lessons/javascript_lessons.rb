@@ -14,8 +14,8 @@ def javascript_lessons
       github_path: '/javascript/introduction/a_quick_review.md',
       identifier_uuid: '428d54c7-3324-4ee2-afaf-08e1c373b314',
     },
-    'Organizing Your Javascript Code Introduction' => {
-      title: 'Organizing Your Javascript Code Introduction',
+    'Organizing Your JavaScript Code Introduction' => {
+      title: 'Organizing Your JavaScript Code Introduction',
       description: 'introduction',
       is_project: false,
       github_path: '/javascript/organizing_your_javascript_code/organizing_your_javascript_code_introduction.md',

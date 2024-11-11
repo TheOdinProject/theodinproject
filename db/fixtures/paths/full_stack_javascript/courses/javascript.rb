@@ -27,12 +27,12 @@ end
 # SECTION - Organizing your JavaScript Code
 # +++++++++++++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Organizing Your Javascript Code'
+  section.title = 'Organizing Your JavaScript Code'
   section.description = 'This series digs in to the things you need to write larger and larger applications with JavaScript. This is where it gets real!'
   section.identifier_uuid = '8b5f0c45-60f5-4dd9-8491-86d5d98f4ed3'
 
   section.add_lessons(
-    javascript_lessons.fetch('Organizing Your Javascript Code Introduction'),
+    javascript_lessons.fetch('Organizing Your JavaScript Code Introduction'),
     javascript_lessons.fetch('Objects and Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
