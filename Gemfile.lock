@@ -123,7 +123,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css_parser (1.19.0)
+    css_parser (1.19.1)
       addressable
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
@@ -235,7 +235,7 @@ GEM
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
     io-console (0.7.2)
-    irb (1.14.0)
+    irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jsbundling-rails (1.3.1)
@@ -260,10 +260,10 @@ GEM
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
     logger (1.6.1)
-    loofah (2.22.0)
+    loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    lookbook (2.3.2)
+    lookbook (2.3.4)
       activemodel
       css_parser
       htmlbeautifier (~> 1.3)
@@ -356,7 +356,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.1.2)
+    psych (5.2.0)
       stringio
     public_activity (3.0.1)
       actionpack (>= 6.1.0)
@@ -368,7 +368,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.7)
+    rack (3.1.8)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-mini-profiler (3.3.1)
@@ -380,9 +380,8 @@ GEM
       rack (>= 3.0.0)
     rack-test (2.1.0)
       rack (>= 1.3)
-    rackup (2.1.0)
+    rackup (2.2.0)
       rack (>= 3)
-      webrick (~> 1.8)
     rails (7.1.3.4)
       actioncable (= 7.1.3.4)
       actionmailbox (= 7.1.3.4)
@@ -425,7 +424,7 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -437,7 +436,7 @@ GEM
       netrc (~> 0.8)
     rexml (3.3.9)
     rotp (6.3.0)
-    rouge (4.3.0)
+    rouge (4.5.0)
     rqrcode (2.2.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -549,7 +548,7 @@ GEM
     statsd-ruby (1.5.0)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
-    stringio (3.1.1)
+    stringio (3.1.2)
     thor (1.3.2)
     timeout (0.4.1)
     turbo-rails (2.0.6)
@@ -578,14 +577,14 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webrick (1.8.2)
+    webrick (1.9.0)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.36)
-    zeitwerk (2.6.18)
+    yard (0.9.37)
+    zeitwerk (2.7.1)
 
 PLATFORMS
   ruby
@@ -621,7 +620,7 @@ DEPENDENCIES
   kramdown-parser-gfm
   letter_opener (~> 1.8)
   listen (~> 3.9)
-  lookbook (~> 2.3.2)
+  lookbook (~> 2.3.4)
   newrelic_rpm (~> 9.7)
   noticed (~> 1.6)
   octokit (~> 9.1)
