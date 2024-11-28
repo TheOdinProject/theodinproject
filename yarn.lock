@@ -709,89 +709,89 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/babel-plugin-component-annotate@npm:2.22.4":
-  version: 2.22.4
-  resolution: "@sentry/babel-plugin-component-annotate@npm:2.22.4"
-  checksum: 10c0/35bd4ce07cf581ee1443e9411bf1a492ee9eb260d919c4efe70b7866adc0db77220a3c1a7941a9a24f03eb17c90d8f25226138f1d87cc82c83996565c7487a70
+"@sentry/babel-plugin-component-annotate@npm:2.22.6":
+  version: 2.22.6
+  resolution: "@sentry/babel-plugin-component-annotate@npm:2.22.6"
+  checksum: 10c0/142f8a742c1c4bb04d8ef5809bcc8e7f00be1467ada4954103403340bb696c2ca19515891e4cbe11bd5671ef52dca3d7cb6b782d4f3d1444aaf9e5bb35c5c963
   languageName: node
   linkType: hard
 
-"@sentry/bundler-plugin-core@npm:2.22.4":
-  version: 2.22.4
-  resolution: "@sentry/bundler-plugin-core@npm:2.22.4"
+"@sentry/bundler-plugin-core@npm:2.22.6":
+  version: 2.22.6
+  resolution: "@sentry/bundler-plugin-core@npm:2.22.6"
   dependencies:
     "@babel/core": "npm:^7.18.5"
-    "@sentry/babel-plugin-component-annotate": "npm:2.22.4"
-    "@sentry/cli": "npm:^2.33.1"
+    "@sentry/babel-plugin-component-annotate": "npm:2.22.6"
+    "@sentry/cli": "npm:^2.36.1"
     dotenv: "npm:^16.3.1"
     find-up: "npm:^5.0.0"
     glob: "npm:^9.3.2"
     magic-string: "npm:0.30.8"
     unplugin: "npm:1.0.1"
-  checksum: 10c0/abec341d5648964e99d269a87ec2c1e6b583ec6a7a8497d1da4a8c502d1348b60b0697849990f82e17987121b9eaab196f8963a203398b43680fc03d6ca6b2f8
+  checksum: 10c0/97d425a49182ed178c2d147ab48b5095394fcde5e3f94ca9dec21dcf0771269ecfebfb596e8ab41cda926591a4c2443a54616fd74b9e1c91a041add4b1ef187a
   languageName: node
   linkType: hard
 
-"@sentry/cli-darwin@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-darwin@npm:2.33.1"
+"@sentry/cli-darwin@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-darwin@npm:2.39.0"
   conditions: os=darwin
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-arm64@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-linux-arm64@npm:2.33.1"
+"@sentry/cli-linux-arm64@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-linux-arm64@npm:2.39.0"
   conditions: (os=linux | os=freebsd) & cpu=arm64
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-arm@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-linux-arm@npm:2.33.1"
+"@sentry/cli-linux-arm@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-linux-arm@npm:2.39.0"
   conditions: (os=linux | os=freebsd) & cpu=arm
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-i686@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-linux-i686@npm:2.33.1"
+"@sentry/cli-linux-i686@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-linux-i686@npm:2.39.0"
   conditions: (os=linux | os=freebsd) & (cpu=x86 | cpu=ia32)
   languageName: node
   linkType: hard
 
-"@sentry/cli-linux-x64@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-linux-x64@npm:2.33.1"
+"@sentry/cli-linux-x64@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-linux-x64@npm:2.39.0"
   conditions: (os=linux | os=freebsd) & cpu=x64
   languageName: node
   linkType: hard
 
-"@sentry/cli-win32-i686@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-win32-i686@npm:2.33.1"
+"@sentry/cli-win32-i686@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-win32-i686@npm:2.39.0"
   conditions: os=win32 & (cpu=x86 | cpu=ia32)
   languageName: node
   linkType: hard
 
-"@sentry/cli-win32-x64@npm:2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli-win32-x64@npm:2.33.1"
+"@sentry/cli-win32-x64@npm:2.39.0":
+  version: 2.39.0
+  resolution: "@sentry/cli-win32-x64@npm:2.39.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@sentry/cli@npm:^2.33.1":
-  version: 2.33.1
-  resolution: "@sentry/cli@npm:2.33.1"
+"@sentry/cli@npm:^2.36.1":
+  version: 2.39.0
+  resolution: "@sentry/cli@npm:2.39.0"
   dependencies:
-    "@sentry/cli-darwin": "npm:2.33.1"
-    "@sentry/cli-linux-arm": "npm:2.33.1"
-    "@sentry/cli-linux-arm64": "npm:2.33.1"
-    "@sentry/cli-linux-i686": "npm:2.33.1"
-    "@sentry/cli-linux-x64": "npm:2.33.1"
-    "@sentry/cli-win32-i686": "npm:2.33.1"
-    "@sentry/cli-win32-x64": "npm:2.33.1"
+    "@sentry/cli-darwin": "npm:2.39.0"
+    "@sentry/cli-linux-arm": "npm:2.39.0"
+    "@sentry/cli-linux-arm64": "npm:2.39.0"
+    "@sentry/cli-linux-i686": "npm:2.39.0"
+    "@sentry/cli-linux-x64": "npm:2.39.0"
+    "@sentry/cli-win32-i686": "npm:2.39.0"
+    "@sentry/cli-win32-x64": "npm:2.39.0"
     https-proxy-agent: "npm:^5.0.0"
     node-fetch: "npm:^2.6.7"
     progress: "npm:^2.0.3"
@@ -814,18 +814,18 @@ __metadata:
       optional: true
   bin:
     sentry-cli: bin/sentry-cli
-  checksum: 10c0/e2dc75e1709bf7252a006663a16d9c24e255a81e6f88b35bf030ffa9c52a3330a3bad6b32bb4d90046e6555ed62609967cc96af3e8f0e9ff8672552d804bd873
+  checksum: 10c0/ee861ee7553c5c1ffad916781205190921b3ccc93c401a1ddf81a2a2ef200ec7266920cb99a20e22be8bf9677dffb49bedc782c7b3b190dcf4a3b0a8690c0c47
   languageName: node
   linkType: hard
 
-"@sentry/esbuild-plugin@npm:^2.22.4":
-  version: 2.22.4
-  resolution: "@sentry/esbuild-plugin@npm:2.22.4"
+"@sentry/esbuild-plugin@npm:^2.22.6":
+  version: 2.22.6
+  resolution: "@sentry/esbuild-plugin@npm:2.22.6"
   dependencies:
-    "@sentry/bundler-plugin-core": "npm:2.22.4"
+    "@sentry/bundler-plugin-core": "npm:2.22.6"
     unplugin: "npm:1.0.1"
     uuid: "npm:^9.0.0"
-  checksum: 10c0/286b06e864d7584552ee73c4c56839b45edf29358322124a3fd03d8e9ba57c2e322150e779029f840babe56eb3e700fa2d32b5c47d29313e4dd9a4e7d42e7784
+  checksum: 10c0/115d8b4c42da904ca0db8e580988f180c9d98f7a60bbadba5d98a9d33883ed0c7195bb3e27adf83d99d1f2df3ad2a7998cd6c3f5db10798de8abdff7ade0db8e
   languageName: node
   linkType: hard
 
@@ -5558,7 +5558,7 @@ __metadata:
     "@hotwired/stimulus": "npm:^3.2.2"
     "@hotwired/turbo-rails": "npm:^8.0.5"
     "@rails/request.js": "npm:^0.0.11"
-    "@sentry/esbuild-plugin": "npm:^2.22.4"
+    "@sentry/esbuild-plugin": "npm:^2.22.6"
     "@stimulus/polyfills": "npm:^2.0.0"
     "@tailwindcss/forms": "npm:^0.5.9"
     "@tailwindcss/typography": "npm:^0.5.15"
