@@ -1,7 +1,7 @@
 class Rack::Attack
   Rack::Attack.enabled = ENV['ENABLE_RACK_ATTACK'] || Rails.env.production?
 
-  Rack::Attack.cache.store = Redis.new(url: ENV['REDIS_FOR_RACK_ATTACK_URL']) if ENV['REDIS_FOR_RACK_ATTACK_URL']
+  # Rack::Attack.cache.store = Redis.new(url: ENV['REDIS_FOR_RACK_ATTACK_URL']) if ENV['REDIS_FOR_RACK_ATTACK_URL']
 
   ### Throttle Spammy Clients ###
 
@@ -16,7 +16,7 @@ class Rack::Attack
   # Throttle all requests by IP (60rpm)
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
-  throttle('req/ip', limit: 300, period: 5.minutes, &:ip)
+  # throttle('req/ip', limit: 300, period: 5.minutes, &:ip)
 
   ### Prevent Brute-Force Login Attacks ###
 
