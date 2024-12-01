@@ -230,6 +230,14 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/damon-marlow"
 
+        - name: "Tosh"
+          image: "https://avatars.githubusercontent.com/u/126731021?v=4"
+          location: "Australia"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://avatars.githubusercontent.com/u/128783853?v=4"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
