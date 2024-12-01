@@ -136,6 +136,7 @@ course.add_section do |section|
 
   section.add_lessons(
     foundation_lessons.fetch('Variables and Operators'),
+    foundation_lessons.fetch('Installing Node.js'),
     foundation_lessons.fetch('Data Types and Conditionals'),
     foundation_lessons.fetch('JavaScript Developer Tools'),
     foundation_lessons.fetch('Function Basics'),
@@ -143,7 +144,6 @@ course.add_section do |section|
     foundation_lessons.fetch('Understanding Errors'),
     foundation_lessons.fetch('Rock Paper Scissors'),
     foundation_lessons.fetch('Clean Code'),
-    foundation_lessons.fetch('Installing Node.js'),
     foundation_lessons.fetch('Arrays and Loops'),
     foundation_lessons.fetch('DOM Manipulation and Events'),
     foundation_lessons.fetch('Revisiting Rock Paper Scissors'),
