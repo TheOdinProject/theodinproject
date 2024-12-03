@@ -39,15 +39,18 @@ Rails.application.routes.draw do
     resources :points, only: %i[index show create]
   end
 
-  get 'home' => 'static_pages#home'
-  get 'about' => 'static_pages#about'
-  get 'faq' => 'static_pages#faq'
-  get 'team' => 'static_pages#team'
-  get 'contributing' => 'static_pages#contributing'
-  get 'support_us' => 'static_pages#support_us'
-  get 'terms_of_use' => 'static_pages#terms_of_use'
-  get 'privacy-policy' => 'static_pages#privacy_policy'
-  get 'success_stories' => 'static_pages#success_stories'
+  scope controller: :static_pages do
+    get 'home'
+    get 'about'
+    get 'faq'
+    get 'team'
+    get 'contributing'
+    get 'support_us'
+    get 'terms_of_use'
+    get 'privacy-policy'
+    get 'success_stories'
+  end
+
   get 'sitemap' => 'sitemap#index', defaults: { format: 'xml' }
 
   namespace :guides do
