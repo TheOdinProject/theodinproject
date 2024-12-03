@@ -229,7 +229,15 @@ en:
               url: "https://github.com/damon314159"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/damon-marlow"
-
+              
+        - name: "Tosh"
+          image: "https://avatars.githubusercontent.com/u/128783853?v=4"
+          location: "Australia"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/ItsTosh"
+              
         - name: "Lofty"
           image: "https://avatars.githubusercontent.com/u/100270817?v=4"
           location: "India"
