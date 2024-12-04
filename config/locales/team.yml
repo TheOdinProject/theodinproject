@@ -246,6 +246,16 @@ en:
             - name: "github"
               url: "https://github.com/Lofty-Brambles"
 
+        - name: "Elemeandor"
+          image: "https://avatars.githubusercontent.com/u/22915284?s=96&v=4"
+          location: "New York, USA"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/DrantDumani"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/darnell-james/"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
