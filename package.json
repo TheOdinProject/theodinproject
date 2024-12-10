@@ -21,7 +21,7 @@
     "chart.js": "^4.4.4",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chartjs-plugin-tailwindcss-colors": "^0.2.4",
-    "chokidar": "^3.6.0",
+    "chokidar": "^4.0.1",
     "debounce": "^2.1.1",
     "el-transition": "^0.0.7",
     "esbuild": "^0.24.0",
