@@ -5,6 +5,7 @@ Thank you for expressing interest in contributing to The Odin Project (TOP) web 
 This contributing guide assumes you have followed the instructions in our general contributing guide to fork and clone our web app repo.
 
 ## Table of Contents
+
 - [How to Contribute](#how-to-contribute)
   - [Running The Odin Project Locally](#running-the-odin-project-locally)
   - [Adding Curriculum Content](#adding-curriculum-content)
@@ -35,5 +36,4 @@ Before submitting a pull request (PR) to our web app repo, you should run the fo
 rubocop
 yarn lint
 rspec
-yarn test
 ```
