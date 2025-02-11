@@ -110,4 +110,26 @@ RSpec.describe AdminUserPolicy do
       it { is_expected.to be(false) }
     end
   end
+
+  describe '#delete_learner?' do
+    subject(:policy) { described_class.new(admin_user).delete_learner? }
+
+    context 'when the admin user has the core role' do
+      let(:admin_user) { create(:admin_user, role: 'core') }
+
+      it { is_expected.to be(true) }
+    end
+
+    context 'when the admin user has the maintainer role' do
+      let(:admin_user) { create(:admin_user, role: 'maintainer') }
+
+      it { is_expected.to be(false) }
+    end
+
+    context 'when the admin user has the moderator role' do
+      let(:admin_user) { create(:admin_user, role: 'moderator') }
+
+      it { is_expected.to be(false) }
+    end
+  end
 end

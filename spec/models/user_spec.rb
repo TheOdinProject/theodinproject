@@ -51,6 +51,25 @@ RSpec.describe User do
     end
   end
 
+  describe '.search_by' do
+    it 'only returns users whose username or email matches the search term' do
+      barry = create(:user, username: 'Barry', email: 'barry@email.com')
+      alice = create(:user, username: 'Alice', email: 'alice@email.com')
+      bartholomew = create(:user, username: 'Bat', email: 'bartholomew@email.com')
+
+      expect(described_class.search_by('Bar')).to contain_exactly(barry, bartholomew)
+    end
+
+    context "when the search term doesn't match any users" do
+      it 'returns an empty array' do
+        create(:user, username: 'Barry')
+        create(:user, username: 'Alice')
+
+        expect(described_class.search_by('Z')).to be_empty
+      end
+    end
+  end
+
   describe '#progress_for' do
     let(:course) { build_stubbed(:course) }
     let(:course_progress) { instance_double(CourseProgress) }

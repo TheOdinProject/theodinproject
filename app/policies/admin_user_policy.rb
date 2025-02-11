@@ -23,6 +23,10 @@ class AdminUserPolicy
     admin_user.core?
   end
 
+  def delete_learner?
+    admin_user.core?
+  end
+
   private
 
   attr_reader :admin_user

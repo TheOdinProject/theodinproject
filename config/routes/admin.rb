@@ -13,6 +13,7 @@ namespace :admin do # rubocop:disable Metrics/BlockLength
   end
 
   resources :flags, only: %i[index show update]
+  resources :learners, only: %i[index show destroy]
   resources :announcements
   resource :two_factor_authentication, only: %i[new create], controller: :two_factor_authentication
 
