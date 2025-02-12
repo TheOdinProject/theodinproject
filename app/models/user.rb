@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PgSearch::Model
+
   before_create :enroll_in_foundations
 
   devise :database_authenticatable, :registerable, :recoverable,
@@ -23,6 +25,8 @@ class User < ApplicationRecord
   scope :created_after, ->(date) { where(arel_table[:created_at].gt(date)) }
   scope :signed_up_on, ->(date) { where(created_at: date.all_day) }
   scope :banned, -> { where(banned: true) }
+
+  pg_search_scope :search_by, against: %i[username email], using: { tsearch: { prefix: true } }
 
   def progress_for(course)
     @progress ||= Hash.new { |hash, c| hash[c] = CourseProgress.new(c, self) }

@@ -1,0 +1,76 @@
+<div class="max-w-6xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-6xl">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Learners</h1>
+    </div>
+  </div>
+
+  <%= form_with url: admin_learners_path, method: :get, class: 'mt-6 grid w-full grid-cols-1 max-w-6xl', data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit', turbo_frame: :learner_results } do |form| %>
+    <%= form.text_field :search_term, value: params[:search_term], placeholder: 'Search', class: 'col-start-1 row-start-1 block rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 border-1 -border-offset-1 border-gray-300 placeholder:text-gray-400 focus:ring-0 focus:border-1 focus:-border-offset-2 focus:border-gray-500 sm:text-sm/6 dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-0 dark:focus:border-gray-300' %>
+    <%= inline_svg_tag 'icons/magnifying-glass.svg', class: 'pointer-events-none col-start-1 row-start-1 ml-3 size-5 self-center text-gray-400' %>
+  <% end %>
+
+  <%= turbo_frame_tag :learner_results, target: '_top' do %>
+    <div class="mt-8 flow-root">
+      <% if @learners.any? %>
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-6xl px-6" data-test-id="learners-list">
+          <div class="inline-block min-w-full py-2 align-middle">
+            <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
+              <thead>
+                <tr class="text-gray-800 dark:text-gray-300">
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold  sm:pl-0">Username</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold ">Email</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Created</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Sign in count</th>
+                  <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                    <span class="sr-only">View</span>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+                <% @learners.each do |learner| %>
+                  <tr id="<%= dom_id(learner) %>">
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                      <%= link_to admin_learner_path(learner) do %>
+                        <%= learner.username %>
+                      <% end %>
+                    </td>
+
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-300 sm:pl-0">
+                      <%= link_to admin_learner_path(learner) do %>
+                        <%= learner.email %>
+                      <% end %>
+                    </td>
+
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                      <span title="<%= learner.created_at %>">
+                        <%= time_ago_in_words(learner.created_at) %> ago
+                      </span>
+                    </td>
+
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-ce text-gray-500 dark:text-gray-400">
+                      <%= learner.sign_in_count %>
+                    </td>
+
+                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                      <%= link_to 'View', admin_learner_path(learner), class: 'underline text-gray-800 hover:text-gray-900 hover:no-underline dark:text-gray-300 dark:hover:text-gray-200' %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="pt-4">
+          <%= render PaginationComponent.new(pagy: @pagy, resource_name: 'learners') %>
+        </div>
+      <% else %>
+        <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
+          <%= inline_svg_tag 'icons/inbox.svg', class: 'h-16 w-16 text-gray-400 dark:text-gray-500', aria: true %>
+          <p class="text-xl text-gray-500 dark:text-gray-400 leading-6"> No learners found!</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
