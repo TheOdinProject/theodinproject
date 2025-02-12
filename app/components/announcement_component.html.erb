@@ -2,7 +2,7 @@
   <div class="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
     <div class="pr-16 sm:px-16 sm:text-center">
       <div class="font-medium text-gray-700 dark:text-gray-100 align-baseline flex flex-col justify-center items-start sm:flex-row sm:items-center">
-        <span class="hidden items-center rounded bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 mr-2 sm:inline-flex">New!</span>
+        <span class="hidden items-center rounded-sm bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 mr-2 sm:inline-flex">New!</span>
         <p><%= announcement.message %></p>
         <% if announcement.learn_more_url.present? %>
           <p class="block sm:ml-2 sm:inline-block">
@@ -17,7 +17,7 @@
 
     <% if closeable %>
       <div class="absolute inset-y-0 right-0 flex items-start pt-1 pr-1 sm:items-start sm:pt-1 sm:pr-2">
-        <button type="button" class="-mr-1 flex p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-white" data-action="click->announcement#dismiss" data-test-id="announcement-close-button">
+        <button type="button" class="-mr-1 flex p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-hidden focus:ring-2 focus:ring-white" data-action="click->announcement#dismiss" data-test-id="announcement-close-button">
           <span class="sr-only">Dismiss</span>
           <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-gray-600 dark:text-gray-300', aria: true, title: 'Dismiss announcement' %>
         </button>
