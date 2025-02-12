@@ -1776,20 +1776,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chartjs-plugin-tailwindcss-colors@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "chartjs-plugin-tailwindcss-colors@npm:0.2.4"
-  dependencies:
-    color-name: "npm:^2.0.0"
-    lodash: "npm:^4.17.21"
-    tiny-invariant: "npm:^1.3.1"
-  peerDependencies:
-    chart.js: ^3.0.0
-    tailwindcss: ^3.0.0
-  checksum: 10c0/949762a47af51877cb8fe68c6d0dd4732be5acfad26e83c1a06075bf75006425ce80e9abac1e79e644a0099f0a521b460824de1d708111b046e9ec53ffedf665
-  languageName: node
-  linkType: hard
-
 "chevrotain-allstar@npm:~0.3.0":
   version: 0.3.1
   resolution: "chevrotain-allstar@npm:0.3.1"
@@ -1879,13 +1865,6 @@ __metadata:
   version: 1.1.3
   resolution: "color-name@npm:1.1.3"
   checksum: 10c0/566a3d42cca25b9b3cd5528cd7754b8e89c0eb646b7f214e8e2eaddb69994ac5f0557d9c175eb5d8f0ad73531140d9c47525085ee752a91a2ab15ab459caf6d6
-  languageName: node
-  linkType: hard
-
-"color-name@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "color-name@npm:2.0.0"
-  checksum: 10c0/fc0304606e5c5941f4649a9975c03a2ecd52a22aba3dadb3309b3e4ee61d78c3e13ff245e80b9a930955d38c5f32a9004196a7456c4542822aa1fcfea8e928ed
   languageName: node
   linkType: hard
 
@@ -4659,13 +4638,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash@npm:4.17.21"
-  checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
-  languageName: node
-  linkType: hard
-
 "loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
@@ -5828,7 +5800,6 @@ __metadata:
     browserslist: "npm:^4.23.3"
     chart.js: "npm:^4.4.4"
     chartjs-plugin-crosshair: "npm:^2.0.0"
-    chartjs-plugin-tailwindcss-colors: "npm:^0.2.4"
     chokidar: "npm:^4.0.3"
     debounce: "npm:^2.2.0"
     el-transition: "npm:^0.0.7"
@@ -6446,13 +6417,6 @@ __metadata:
   dependencies:
     any-promise: "npm:^1.0.0"
   checksum: 10c0/f375aeb2b05c100a456a30bc3ed07ef03a39cbdefe02e0403fb714b8c7e57eeaad1a2f5c4ecfb9ce554ce3db9c2b024eba144843cd9e344566d9fcee73b04767
-  languageName: node
-  linkType: hard
-
-"tiny-invariant@npm:^1.3.1":
-  version: 1.3.3
-  resolution: "tiny-invariant@npm:1.3.3"
-  checksum: 10c0/65af4a07324b591a059b35269cd696aba21bef2107f29b9f5894d83cc143159a204b299553435b03874ebb5b94d019afa8b8eff241c8a4cfee95872c2e1c1c4a
   languageName: node
   linkType: hard
 
