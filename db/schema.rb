@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_17_132923) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_12_143446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -327,8 +327,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_17_132923) do
     t.string "avatar"
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
+    t.virtual "search_tsvector", type: :tsvector, as: "(setweight(to_tsvector('english'::regconfig, (COALESCE(email, ''::character varying))::text), 'A'::\"char\") || setweight(to_tsvector('english'::regconfig, (COALESCE(username, ''::character varying))::text), 'B'::\"char\"))", stored: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["search_tsvector"], name: "index_users_on_search_tsvector", using: :gin
     t.index ["username"], name: "index_users_on_username"
   end
 
