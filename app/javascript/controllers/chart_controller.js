@@ -1,8 +1,6 @@
 import { Controller } from '@hotwired/stimulus'
 
 import { Chart } from 'chart.js/auto'
-import twColorsPlugin from 'chartjs-plugin-tailwindcss-colors'
-import twConfig from '../../../tailwind.config'
 
 export default class ChartController extends Controller {
   static values = {
@@ -17,7 +15,7 @@ export default class ChartController extends Controller {
       {
         type: this.typeValue,
         data: this.dataValue,
-        plugins: [twColorsPlugin(twConfig), ...this.chartTypePlugins()],
+        plugins: [...this.chartTypePlugins()],
         options: {
           maintainAspectRatio: false,
           responsive: true,
