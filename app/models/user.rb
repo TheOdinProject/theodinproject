@@ -26,7 +26,20 @@ class User < ApplicationRecord
   scope :signed_up_on, ->(date) { where(created_at: date.all_day) }
   scope :banned, -> { where(banned: true) }
 
-  pg_search_scope :search_by, against: %i[username email], using: { tsearch: { prefix: true } }
+  pg_search_scope(
+    :search_by,
+    against: %i[
+      username
+      email
+    ],
+    using: {
+      tsearch: {
+        prefix: true,
+        dictionary: 'english',
+        tsvector_column: 'search_tsvector'
+      }
+    }
+  )
 
   def progress_for(course)
     @progress ||= Hash.new { |hash, c| hash[c] = CourseProgress.new(c, self) }

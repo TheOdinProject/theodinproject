@@ -10,7 +10,7 @@
     <%= inline_svg_tag 'icons/magnifying-glass.svg', class: 'pointer-events-none col-start-1 row-start-1 ml-3 size-5 self-center text-gray-400' %>
   <% end %>
 
-  <%= turbo_frame_tag :learner_results, target: '_top' do %>
+  <%= turbo_frame_tag :learner_results, target: '_top', data: { turbo_action: 'advance' } do %>
     <div class="mt-8 flow-root">
       <% if @learners.any? %>
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-6xl px-6" data-test-id="learners-list">
