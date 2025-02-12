@@ -1,8 +1,5 @@
 module OmniauthProviders
   class Builder
-    attr_reader :auth, :user
-    private :auth, :user
-
     def initialize(auth, user)
       @auth = auth
       @user = user
@@ -13,6 +10,8 @@ module OmniauthProviders
     end
 
     private
+
+    attr_reader :auth, :user
 
     def provider_attributes
       {

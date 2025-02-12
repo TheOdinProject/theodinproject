@@ -1,7 +1,4 @@
 class Github::LessonContentImporter
-  attr_reader :lesson, :content
-  private :lesson, :content
-
   def initialize(lesson)
     @lesson = lesson
     @content = lesson.content || lesson.build_content
@@ -34,6 +31,8 @@ class Github::LessonContentImporter
   end
 
   private
+
+  attr_reader :lesson, :content
 
   def content_needs_updated?
     content.body != content_converted_to_html
