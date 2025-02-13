@@ -34,7 +34,7 @@ jobs:
       - name: Run linters
         run: |
           bin/rubocop --parallel
-          bin/erblint --lint-all
+          bin/erb_lint --lint-all
           yarn run lint
           yarn run stylelint
 

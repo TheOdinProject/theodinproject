@@ -12,7 +12,7 @@ puts 'Rubocop:'
 results['Rubocop'] = system 'bin/rubocop'
 
 puts 'Erblint:'
-results['Erblint'] = system 'bin/erblint --lint-all'
+results['Erblint'] = system 'bin/erb_lint --lint-all'
 
 puts 'Standard JS:'
 results['Standard'] = system 'yarn lint'
