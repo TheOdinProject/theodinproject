@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_12_143446) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -152,6 +152,29 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_12_143446) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "interview_concepts", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "interview_survey_concepts", force: :cascade do |t|
+    t.bigint "interview_survey_id", null: false
+    t.bigint "interview_concept_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["interview_concept_id"], name: "index_interview_survey_concepts_on_interview_concept_id"
+    t.index ["interview_survey_id"], name: "index_interview_survey_concepts_on_interview_survey_id"
+  end
+
+  create_table "interview_surveys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "interview_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interview_surveys_on_user_id"
   end
 
   create_table "lesson_completions", id: :serial, force: :cascade do |t|
@@ -339,6 +362,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_12_143446) do
   add_foreign_key "flags", "admin_users", column: "resolved_by_id"
   add_foreign_key "flags", "project_submissions"
   add_foreign_key "flags", "users", column: "flagger_id"
+  add_foreign_key "interview_survey_concepts", "interview_concepts"
+  add_foreign_key "interview_survey_concepts", "interview_surveys"
+  add_foreign_key "interview_surveys", "users"
   add_foreign_key "lesson_completions", "lessons", on_delete: :cascade
   add_foreign_key "lessons", "courses"
   add_foreign_key "likes", "users"
