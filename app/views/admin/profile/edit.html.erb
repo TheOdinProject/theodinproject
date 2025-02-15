@@ -6,7 +6,7 @@
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
 
       <%= form_with model: @admin_user, url: admin_profile_path, scope: :profile, builder: TailwindFormBuilder do |form| %>
-        <%= render CardComponent.new(classes: '!shadow-none border border-gray-200 dark:border-gray-800') do |card| %>
+        <%= render CardComponent.new(classes: 'shadow-none! border border-gray-200 dark:border-gray-800') do |card| %>
           <% card.with_header do %>
             <h3 class="text-xl leading-6 text-gray-800 dark:text-gray-200">Update your profile</h3>
           <% end %>
@@ -35,7 +35,7 @@
 
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9 mt-10">
       <%= form_with model: @admin_user, url: admin_profile_password_path, builder: TailwindFormBuilder do |form| %>
-        <%= render CardComponent.new(classes: '!shadow-none border border-gray-200 dark:border-gray-800') do |card| %>
+        <%= render CardComponent.new(classes: 'shadow-none! border border-gray-200 dark:border-gray-800') do |card| %>
           <% card.with_header do %>
             <h3 class="text-xl leading-6 text-gray-800 dark:text-gray-200">Change your password</h3>
           <% end %>

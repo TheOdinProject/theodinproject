@@ -10,7 +10,7 @@
     <p class="mt-2 text-sm">Please scan the below QR code using an OTP compatible app (such as 1Password, Google Authenticator or Authy).</p>
 
     <div class="mt-8">
-      <div class="w-52 h-52 p-2 border  border-gray-200 rounded dark:bg-white">
+      <div class="w-52 h-52 p-2 border  border-gray-200 rounded-sm dark:bg-white">
         <%= raw qr_code_as_svg(current_admin_user.two_factor_qr_code_uri) %>
       </div>
     </div>

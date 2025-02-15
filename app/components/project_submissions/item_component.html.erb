@@ -35,7 +35,7 @@
           data-transition-leave="transition ease-in duration-75"
           data-transition-leave-start="transform opacity-100 scale-100"
           data-transition-leave-end="transform opacity-10 scale-95"
-          class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white dark:bg-gray-700 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-300/5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
+          class="hidden absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white dark:bg-gray-700 py-2 shadow-lg ring-1 ring-gray-900/5 dark:ring-gray-300/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="options-menu-0-button" tabindex="-1">
 
           <%= link_to new_project_submission_flag_path(project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_frame: 'modal', test_id: 'report-submission', action: 'click->visibility#off' } do %>
             <%= inline_svg_tag 'icons/flag.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>

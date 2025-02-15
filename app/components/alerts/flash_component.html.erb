@@ -1,6 +1,6 @@
 <div class="rounded-md p-4 mb-4 shadow <%= yass(type => :bg) %>" data-controller="flash" data-test-id="flash">
   <div class="flex items-center">
-    <div class="flex-shrink-0">
+    <div class="shrink-0">
        <%= inline_svg_tag icon_path, class: "h-5 w-5 #{yass(type => :icon)}", aria: true, title: 'Icon', desc: "#{type} icon" %>
     </div>
     <div class="ml-3">
@@ -9,7 +9,7 @@
 
     <div class="ml-auto pl-3">
       <div class="-mx-1.5 -my-1.5">
-        <button type="button" class="inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 <%= yass(type => :button) %>" data-action="click->flash#dismiss">
+        <button type="button" class="inline-flex rounded-md p-1.5 focus:outline-hidden focus:ring-2 focus:ring-offset-2 <%= yass(type => :button) %>" data-action="click->flash#dismiss">
           <span class="sr-only">Dismiss</span>
            <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-5 w-5', aria: true, title: 'Dismiss icon', desc: 'Dismiss button icon' %>
         </button>

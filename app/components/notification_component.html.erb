@@ -1,7 +1,7 @@
 <%= link_to notification_path(@notification), class: 'no-underline px-4 py-4', data: { turbo_method: :patch, test_id: "notification-#{@notification.id}" } do %>
-  <li class="bg-white dark:bg-gray-800 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:ring-inset shadow overflow-hidden p-4 sm:rounded-md">
+  <li class="bg-white dark:bg-gray-800 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:ring-inset shadow-sm overflow-hidden p-4 sm:rounded-md">
     <div class="flex">
-      <div class="mr-4 flex-shrink-0">
+      <div class="mr-4 shrink-0">
         <% if @notification.read? %>
           <%= inline_svg_tag(
                 'icons/icon-read-notification.svg',
@@ -27,7 +27,7 @@
           <p class="font-medium text-gray-700 dark:text-gray-300"><%= @notification.title.titleize %></p>
         </div>
         <div>
-          <p class="mt-1 !text-sm text-gray-500 dark:text-gray-400">
+          <p class="mt-1 text-sm! text-gray-500 dark:text-gray-400">
             <%= @notification.message %>
           </p>
         </div>
