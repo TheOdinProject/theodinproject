@@ -10,10 +10,10 @@
         <div data-controller='tabs share-preview diagramming' data-share-preview-url-value="<%= lessons_preview_share_path(format: :turbo_stream) %>" data-tabs-index='0' data-tabs-active-class="text-gray-700 bg-gray-300/50 hover:bg-gray-300 dark:bg-gray-700/90" data-tabs-inactive-class="hidden">
           <div class="flex justify-between">
             <div class="flex items-center mb-3">
-              <button data-action="tabs#change" class="text-gray-600 bg-gray-300/50 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none" data-tabs-target='tab'>
+              <button data-action="tabs#change" class="text-gray-600 bg-gray-300/50 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-hidden" data-tabs-target='tab'>
                 Write
               </button>
-              <button data-action="tabs#change diagramming#render" class="ml-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-none" data-tabs-target='tab'>
+              <button data-action="tabs#change diagramming#render" class="ml-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 dark:bg-gray-700/40 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-600 rounded-md border border-transparent px-3 py-1.5 font-medium cursor-pointer focus:outline-hidden" data-tabs-target='tab'>
                 Preview
               </button>
             </div>
@@ -31,7 +31,7 @@
 
           <div data-tabs-target="panel" class="mx-auto">
             <%= form_with url: lessons_preview_path, data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit' } do |form| %>
-              <%= form.text_area :markdown, value: @preview.content, autofocus: true, maxlength: 70_000, placeholder: 'Enter markdown here...', data: { share_preview_target: 'input' }, class: 'w-full min-h-screen block rounded-md border-gray-300 dark:bg-gray-700/60 dark:focus:ring-2 dark:placeholder-gray-400 dark:border-gray-500 dark:focus:ring-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500' %>
+              <%= form.text_area :markdown, value: @preview.content, autofocus: true, maxlength: 70_000, placeholder: 'Enter markdown here...', data: { share_preview_target: 'input' }, class: 'w-full min-h-screen block rounded-md border-gray-300 dark:bg-gray-700/60 dark:focus:ring-2 dark:placeholder-gray-400 dark:border-gray-500 dark:focus:ring-gray-500 shadow-xs focus:border-blue-500 focus:ring-blue-500' %>
             <% end %>
           </div>
 

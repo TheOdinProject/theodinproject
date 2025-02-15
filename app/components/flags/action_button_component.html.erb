@@ -8,7 +8,7 @@
          <%= inline_svg_tag 'icons/chevron-down.svg', class: 'h-5 w-5 text-white', aria: true %>
       <% end %>
 
-      <ul data-controller="disable" data-visibility-target="content" class="absolute hidden right-0 z-10 mt-2 sm:w-[500px] origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
+      <ul data-controller="disable" data-visibility-target="content" class="absolute hidden right-0 z-10 mt-2 sm:w-[500px] origin-top-right divide-y divide-gray-200 overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden dark:bg-gray-800" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-0">
         <div class="divide-y divide-gray-200 dark:divide-gray-600 space-y-6">
           <div class="space-y-4 px-4 pt-6">
             <% Flags::Action.each do |flag_action| %>

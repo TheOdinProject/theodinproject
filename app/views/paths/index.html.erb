@@ -17,7 +17,7 @@
               <% end %>
             </div>
             <% if current_user.present? && current_user.on_path?(@foundations) %>
-              <div class="absolute top-3.5 right-3.5 !mt-0 md:static">
+              <div class="absolute top-3.5 right-3.5 mt-0! md:static">
                 <%= render Ui::BadgeComponent.new(color: 'green') do %>
                   Selected
                 <% end %>
@@ -75,7 +75,7 @@
             </div>
           <% end %>
 
-          <% card.with_body(classes: 'flex-grow') do %>
+          <% card.with_body(classes: 'grow') do %>
             <%= link_to path_path(path), class: 'no-underline' do %>
               <h2 class="text-xl font-medium pb-4 text-gray-800 dark:text-gray-200">
                 <%= path.title %>

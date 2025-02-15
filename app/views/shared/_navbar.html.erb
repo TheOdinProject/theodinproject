@@ -3,7 +3,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
     <div class="flex justify-between">
       <div class="flex">
-        <div class="flex-shrink-0 flex items-center">
+        <div class="shrink-0 flex items-center">
           <%= link_to root_path, class: 'logo', 'aria-label': 'Return back home' do %>
             <%= image_tag 'icons/odin-icon.svg', alt: 'Odin Logo', class: 'block lg:hidden h-12 w-auto' %>
           <% end %>
@@ -21,7 +21,7 @@
             <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support us', test_id: 'nav-support-us') %>
           </div>
 
-          <%= link_to notifications_path, class: 'ml-3 bg-white dark:bg-gray-900 p-1 rounded-full text-gray-400 dark:text-gray-300 relative hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500', data: { test_id: 'navbar-notification-icon' } do %>
+          <%= link_to notifications_path, class: 'ml-3 bg-white dark:bg-gray-900 p-1 rounded-full text-gray-400 dark:text-gray-300 relative hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-gold-500', data: { test_id: 'navbar-notification-icon' } do %>
             <span class="sr-only">View notifications</span>
             <% if unread_notifications?(current_user) %>
                 <span data-test-id="unread-notifications" class="absolute top-1 right-0.5 w-2 h-2 rounded-lg bg-gold-500"></span>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="-mr-2 flex items-center md:hidden" data-controller="open-menu" data-open-menu-visibility-outlet=".off-canvas-menu">
-        <button type="button" data-action="open-menu#open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" data-action="open-menu#open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-gold-500" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open mobile menu</span>
           <%= inline_svg_tag 'icons/bars-3.svg', class: 'block h-6 w-6', aria: true, title: 'Open mobile menu' %>
         </button>

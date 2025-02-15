@@ -1,7 +1,7 @@
 <div>
   <div class="sm:hidden">
     <label for="tabs" class="sr-only">Select a tab</label>
-    <%= select_tag nil, options_for_select(roles.map(&:values)), class: 'block mx-auto rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-gray-100 dark:focus:border-gray-700 focus:outline-none focus:ring-gray-400 dark:focus:ring-gray-700 sm:text-sm dark:text-gray-300 w-2/3 dark:bg-gray-800 dark:border-gray-700', data: { controller: 'scroll-to'} %>
+    <%= select_tag nil, options_for_select(roles.map(&:values)), class: 'block mx-auto rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-gray-100 dark:focus:border-gray-700 focus:outline-hidden focus:ring-gray-400 dark:focus:ring-gray-700 sm:text-sm dark:text-gray-300 w-2/3 dark:bg-gray-800 dark:border-gray-700', data: { controller: 'scroll-to'} %>
   </div>
 
   <div class="hidden sm:block">

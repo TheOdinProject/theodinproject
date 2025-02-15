@@ -1,26 +1,24 @@
-@layer base {
-  body {
-    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
+@utility page-heading-title {
+  @apply text-3xl text-gray-800 font-semibold pb-10 text-center mx-auto dark:text-gray-200;
 }
 
-@layer components {
-  .page-heading-title {
-    @apply text-3xl text-gray-800 font-semibold pb-10 text-center mx-auto dark:text-gray-200;
-  }
+@utility anchor-link {
+  @apply text-gray-300 dark:text-gray-100 relative;
 
-  .anchor-link {
-    @apply text-gray-300 dark:text-gray-100 relative;
-  }
-
-  .anchor-link:hover {
+  &:hover {
     @apply dark:text-gray-200;
   }
 
-  .anchor-link:hover::before {
-    mask-image: url("/icons/link.svg");
-    content:' ';
+  &:hover::before {
+    mask-image: url('/icons/link.svg');
+    content: ' ';
 
     @apply h-4 w-4 bg-gray-500 dark:bg-gray-300 absolute -left-[22px] top-1/2 -translate-y-1/2 font-semibold sm:block;
+  }
+}
+
+@layer base {
+  body {
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
