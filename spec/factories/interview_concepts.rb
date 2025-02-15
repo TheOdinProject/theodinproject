@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :interview_concept do
-    name {'React'}
+    name { 'React' }
   end
-end  
+end

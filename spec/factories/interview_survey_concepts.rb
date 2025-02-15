@@ -3,4 +3,4 @@ FactoryBot.define do
     interview_survey
     interview_concept
   end
-end  
+end

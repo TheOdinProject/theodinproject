@@ -3,4 +3,4 @@ FactoryBot.define do
     user
     interview_date { Date.current }
   end
-end  
+end

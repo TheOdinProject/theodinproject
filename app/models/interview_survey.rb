@@ -1,4 +1,4 @@
 class InterviewSurvey < ApplicationRecord
   belongs_to :user
-  has_many :interview_survey_concepts
+  has_many :interview_survey_concepts, dependent: :destroy
 end
