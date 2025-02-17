@@ -17,7 +17,7 @@
     "@tailwindcss/cli": "^4.0.6",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.15",
-    "browserslist": "^4.23.3",
+    "browserslist": "^4.24.4",
     "chart.js": "^4.4.4",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chokidar": "^4.0.3",
