@@ -1,15 +1,23 @@
 
 <div id="complete-button" class="flex items-center justify-center">
   <% if lesson.completed? %>
-    <%= button_to lesson_completion_path(lesson.id), form_class: 'w-full h-full', method: :delete, data: { test_id: 'complete-button' }, class: 'button button--primary h-[54px] sm:h-full w-full md:w-60 hover:bg-teal-700' do %>
-      <span class="flex items-center">
+    <%= button_to lesson_completion_path(lesson.id), form_class: 'w-full h-full group', method: :delete, data: { test_id: 'complete-button' }, class: 'button button--primary relative h-[54px] sm:h-full w-full md:w-60' do %>
+      <span class="flex items-center group-aria-busy:opacity-0 transition-opacity delay-100">
         <%= inline_svg_tag 'icons/checkmark-circle-solid.svg', class: "h-6 pr-2 #{'pulse-once' if animate}", aria: true, title: 'check', desc: 'checkmark icon' %>
         <span>Lesson Completed</span>
       </span>
+
+      <div class="group-aria-busy:opacity-100 opacity-0 absolute inset-0 flex items-center justify-center transition-opacity delay-100">
+         <%= inline_svg_tag 'icons/spinner.svg', class: 'h-6 w-6 animate-spin text-white', aria: true %>
+      </div>
     <% end %>
   <% else %>
-    <%= button_to lesson_completion_path(lesson.id), form_class: 'w-full h-full', data: { test_id: 'complete-button'}, class: 'button button--primary h-[54px] sm:h-full w-full md:w-60 hover:bg-teal-700' do %>
-      <span> Mark Complete </span>
+    <%= button_to lesson_completion_path(lesson.id), form_class: 'w-full h-full group', data: { test_id: 'complete-button'}, class: 'button button--primary relative h-[54px] sm:h-full w-full md:w-60' do %>
+      <span class="group-aria-busy:opacity-0 transition-opacity delay-100"> Mark Complete </span>
+
+      <div class="group-aria-busy:opacity-100 opacity-0 absolute inset-0 flex items-center justify-center transition-opacity delay-100">
+         <%= inline_svg_tag 'icons/spinner.svg', class: 'h-6 w-6 animate-spin text-white', aria: true %>
+      </div>
     <% end %>
   <% end %>
 </div>

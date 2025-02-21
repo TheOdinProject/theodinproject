@@ -1,10 +1,10 @@
 <% if params[:icon_only] %>
-  <%= turbo_stream.replace dom_id(@lesson, 'complete-button') do %>
+  <%= turbo_stream.replace dom_id(@lesson, 'complete-button'), method: :morph do %>
     <% @lesson.completed? %>
     <%= render Complete::IconComponent.new(lesson: @lesson, current_user:, animate: true) %>
   <% end %>
 <% else %>
-  <%= turbo_stream.replace 'complete-button' do %>
+  <%= turbo_stream.replace 'complete-button', method: :morph do %>
     <%= render Complete::ButtonComponent.new(lesson: @lesson, animate: true) %>
   <% end %>
 <% end %>
