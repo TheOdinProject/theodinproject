@@ -435,7 +435,7 @@ GEM
     redcarpet (3.6.0)
     redis (5.3.0)
       redis-client (>= 0.22.0)
-    redis-client (0.23.0)
+    redis-client (0.23.2)
       connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
@@ -533,8 +533,8 @@ GEM
     sentry-ruby (5.22.4)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    sentry-sidekiq (5.22.3)
-      sentry-ruby (~> 5.22.3)
+    sentry-sidekiq (5.22.4)
+      sentry-ruby (~> 5.22.4)
       sidekiq (>= 3.0)
     shoulda-matchers (6.3.0)
       activesupport (>= 5.2.0)
@@ -666,7 +666,7 @@ DEPENDENCIES
   seed-fu (~> 2.3)
   sentry-rails (~> 5.22)
   sentry-ruby (~> 5.22)
-  sentry-sidekiq (~> 5.19)
+  sentry-sidekiq (~> 5.22)
   shoulda-matchers (~> 6.1)
   sidekiq (~> 7.3)
   sidekiq-cron (~> 2.0)
