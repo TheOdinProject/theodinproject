@@ -9,7 +9,7 @@ gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'classy-yaml', '~> 1.2'
 gem 'cssbundling-rails', '~> 1.4'
-gem 'debug', '~> 1.9'
+gem 'debug', '~> 1.10'
 gem 'devise', '~> 4.9'
 gem 'devise_invitable', '~> 2.0'
 gem 'devise-two-factor', '~> 6.1'
