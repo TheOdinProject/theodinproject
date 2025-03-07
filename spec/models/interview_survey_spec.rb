@@ -8,13 +8,7 @@ RSpec.describe InterviewSurvey do
 
   it { is_expected.to validate_presence_of(:interview_date) }
 
-  describe 'interview_date_cannot_be_in_the_future' do
-    it "marks dates as invalid if they're in the future" do
-      interview_date_future = create(:interview_survey, created_at: Time.zone.today + 1.day)
-      expect(interview_date_future).not_to be_valid
-
-      interview_date_future = create(:interview_survey, created_at: Time.zone.today)
-      expect(interview_date_future).to_be_valid
-    end
-  end
+  it { is_expected.to allow_value(Time.zone.today).for(:interview_date) }
+  it { is_expected.to allow_value(1.day.ago).for(:interview_date) }
+  it { is_expected.not_to allow_value(1.day.from_now).for(:interview_date) }
 end
