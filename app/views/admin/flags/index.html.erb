@@ -7,7 +7,7 @@
   </div>
 
   <div class="mt-6">
-    <span class="isolate inline-flex rounded-md shadow-sm space-x-2">
+    <span class="isolate inline-flex rounded-md shadow-xs space-x-2">
       <% Flag.statuses.each do |status, _| %>
         <%= link_to(
               pluralize(Flag.count_for(status), "#{status.capitalize} flag"),

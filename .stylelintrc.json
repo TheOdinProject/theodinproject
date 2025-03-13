@@ -1,6 +1,22 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "utility"
+        ]
+      }
+    ],
+    "at-rule-no-deprecated": [
+      true,
+      {
+        "ignoreAtRules": [
+          "apply"
+        ]
+      }
+    ]
   }
 }

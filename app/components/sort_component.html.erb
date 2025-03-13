@@ -1,7 +1,7 @@
 <div data-controller="visibility" data-action="visibility:click:outside->visibility#off" class="flex items-center space-x-2 w-full">
   <label id="listbox-label" class="block w-full text-sm font-medium leading-6 text-gray-900 dark:text-gray-200 text-right">Sort by</label>
   <div class="relative w-full">
-    <button type="button" data-action="click->visibility#toggle" data-test-id="sort-select" class="relative w-full cursor-default rounded-md bg-white dark:bg-gray-700 py-1.5 pl-3 pr-10 text-left text-gray-900 dark:text-gray-200 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-500 sm:text-sm sm:leading-6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+    <button type="button" data-action="click->visibility#toggle" data-test-id="sort-select" class="relative w-full cursor-default rounded-md bg-white dark:bg-gray-700 py-1.5 pl-3 pr-10 text-left text-gray-900 dark:text-gray-200 shadow-xs ring-1 ring-inset ring-gray-300 dark:ring-gray-600 focus:outline-hidden focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-500 sm:text-sm sm:leading-6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
       <span class="block text-sm"><%= selected_option.fetch(:label) %></span>
       <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
         <%= inline_svg_tag 'icons/arrows-up-down.svg', class: 'h-5 w-5 text-gray-400 dark:text-gray-300', aria: true, title: 'Sort' %>
@@ -16,7 +16,7 @@
     data-transition-leave="transition ease-in duration-100"
     data-transition-leave-start="opacity-100"
     data-transition-leave-end="opacity-0"
-    class="absolute hidden z-10 mt-1 max-h-60 w-full min-w-max rounded-md bg-white dark:bg-gray-700 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
+    class="absolute hidden z-10 mt-1 max-h-60 w-full min-w-max rounded-md bg-white dark:bg-gray-700 py-1 text-base shadow-lg focus:outline-hidden sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label" aria-activedescendant="listbox-option-3">
 
       <% options.each do |option| %>
         <li class="text-gray-900 dark:text-gray-200 relative cursor-default select-none py-2 pl-8 pr-4" id="listbox-option-0" role="option">

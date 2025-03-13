@@ -1,6 +1,4 @@
 class ProgressCircle::Component < ApplicationComponent
-  RADIUS = 9
-
   renders_one :icon
 
   def initialize(percentage: 0, options: {})
@@ -22,10 +20,6 @@ class ProgressCircle::Component < ApplicationComponent
 
   def background_color
     options.fetch(:background_color, 'bg-white dark:bg-gray-900')
-  end
-
-  def circumference
-    RADIUS * 2 * Math::PI
   end
 
   def show_icon?

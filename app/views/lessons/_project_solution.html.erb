@@ -10,8 +10,8 @@
     <div class="relative block w-full rounded-lg bg-gray-50 dark:bg-gray-700/50 group single-item" data-test-id="current-user-solution">
       <%= render ProjectSubmissions::UserSolutionComponent.new(project_submission:) %>
 
-      <%= link_to new_lesson_project_submission_path(lesson), class: 'p-6 relative hidden only:block group block w-full hover:bg-gray-100 hover:dark:bg-gray-700 rounded-lg text-center focus:outline-none', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' }  do %>
-        <%= inline_svg_tag 'icons/plus-circle.svg', class: 'mx-auto h-12 w-12 text-gray-400 group-hover:text-gray-500 group-hover:dark:text-gray-300', aria: true, title: 'Submit your solution' %>
+      <%= link_to new_lesson_project_submission_path(lesson), class: 'p-6 relative hidden only:block group block w-full hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg text-center focus:outline-hidden', data: { turbo_frame: 'modal', test_id: 'add_submission_btn' }  do %>
+        <%= inline_svg_tag 'icons/plus-circle.svg', class: 'mx-auto h-12 w-12 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'Submit your solution' %>
         <span class="mt-2 block text-sm font-semibold text-gray-900 dark:text-gray-300">Submit your solution</span>
       <% end %>
     </div>

@@ -7,7 +7,7 @@
   </div>
 
   <div class="mt-6 flex justify-between">
-    <span class="isolate inline-flex rounded-md shadow-sm space-x-2">
+    <span class="isolate inline-flex rounded-md shadow-xs space-x-2">
       <% %w[active expired].each do |status| %>
         <%= link_to(
               "#{Announcement.for_status(status).count} #{status.capitalize}",
