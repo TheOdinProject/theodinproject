@@ -6,7 +6,7 @@ class InterviewSurvey < ApplicationRecord
   validate :interview_date_must_be_in_the_past
 
   def interview_date_must_be_in_the_past
-    return if interview_date.present? && interview_date.past?
+    return if interview_date.present? && interview_date <= Time.zone.today
 
     errors.add(:interview_date, "Interview date can't be in the future")
   end
