@@ -174,15 +174,6 @@ def ruby_lessons
       github_path: '/ruby/files_and_serialization/files_and_serialization.md',
       identifier_uuid: 'f68ab24d-a309-4a73-8fe1-1c03d889f514',
     },
-    'Event Manager' => {
-      title: 'Event Manager',
-      description: 'Learn File I/O while becoming civically active',
-      is_project: true,
-      github_path: '/ruby/files_and_serialization/project_event_manager.md',
-      accepts_submission: true,
-      previewable: false,
-      identifier_uuid: 'a47be9ab-7c78-44c2-b098-ec63d82af1cf',
-    },
     'Hangman' => {
       title: 'Hangman',
       description: "You'll get a chance to scrub an existing dataset and then work with dictionaries by building Hangman.",

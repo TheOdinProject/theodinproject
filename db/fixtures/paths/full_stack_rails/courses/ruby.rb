@@ -90,7 +90,6 @@ course.add_section do |section|
 
   section.add_lessons(
     ruby_lessons.fetch('Files and Serialization'),
-    ruby_lessons.fetch('Event Manager'),
     ruby_lessons.fetch('Hangman'),
   )
 end
