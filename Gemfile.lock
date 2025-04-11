@@ -572,7 +572,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode (0.4.4.5)
     unicode-display_width (2.6.0)
-    uri (1.0.2)
+    uri (1.0.3)
     vcr (6.3.1)
       base64
     version_gem (1.1.4)
