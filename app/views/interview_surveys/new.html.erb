@@ -4,8 +4,15 @@
   <div class="page-container">
     <h1 class="page-heading-title">Interview Survey</h1>
 
-    <div class='max-w-xl mx-auto'>
-      <%# where form will be rendered %>
-    </div>
+    <%= form_with model: @interview_survey, builder: TailwindFormBuilder do |form| %>
+      <%= form.label :interview_date %>
+      <%= form.date_field :interview_date %>
+
+      <%= form.label :interview_concepts %>
+      <%= form.select :interview_concepts,
+        InterviewConcept.all.map { |concept| [concept.name, concept.id] }
+      %>
+    <% end %>
+
   </div>
 </div>
