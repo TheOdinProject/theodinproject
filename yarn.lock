@@ -6086,6 +6086,7 @@ __metadata:
     mermaid: "npm:^11.4.1"
     postcss: "npm:^8.5.3"
     prismjs: "npm:^1.29.0"
+    slim-select: "npm:^2.11.0"
     sortablejs: "npm:^1.15.6"
     standard: "npm:^17.1.2"
     stimulus-use: "npm:^0.52.3"
@@ -6248,6 +6249,13 @@ __metadata:
     astral-regex: "npm:^2.0.0"
     is-fullwidth-code-point: "npm:^3.0.0"
   checksum: 10c0/6c25678db1270d4793e0327620f1e0f9f5bea4630123f51e9e399191bc52c87d6e6de53ed33538609e5eacbd1fab769fae00f3705d08d029f02102a540648918
+  languageName: node
+  linkType: hard
+
+"slim-select@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "slim-select@npm:2.11.0"
+  checksum: 10c0/a39d7c3f34f26eef8203232cc923c38a5a57e85ff624994765a129a725fc1abd98e4315e7a2eaadfaea1797d3e8dd7ee42b33251aa4fb81307dcb114341b7bcb
   languageName: node
   linkType: hard
 
