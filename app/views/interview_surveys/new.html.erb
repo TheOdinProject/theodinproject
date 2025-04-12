@@ -4,14 +4,18 @@
   <div class="page-container">
     <h1 class="page-heading-title">Interview Survey</h1>
 
-    <%= form_with model: @interview_survey, builder: TailwindFormBuilder do |form| %>
+    <%= form_with model: @interview_survey, builder: TailwindFormBuilder, html: { data: { controller: "multi-select" } } do |form| %>
       <%= form.label :interview_date %>
       <%= form.date_field :interview_date %>
 
       <%= form.label :interview_concepts %>
       <%= form.select :interview_concepts,
-        InterviewConcept.all.map { |concept| [concept.name, concept.id] }
+        InterviewConcept.all.map { |concept| [concept.name, concept.id] },
+        { multiple: true },
+        { id: "multi-select" }
       %>
+
+      <%= form.submit "Submit", class: 'button button--primary w-full text-sm' %>
     <% end %>
 
   </div>
