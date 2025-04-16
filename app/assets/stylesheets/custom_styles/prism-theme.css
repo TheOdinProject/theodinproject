@@ -19,17 +19,13 @@ pre[class*="language-"] {
 }
 
 code[class*="language-"] {
-	padding-top: 3px;
+  padding-top: 3px;
 }
 
 :not(pre)>code[class*="language-"] {
   padding: .1rem;
   border-radius: .3rem;
   white-space: normal
-}
-
-pre.highlight:not(.language-bash) + .toolbar {
-  display: none;
 }
 
 .token.block-comment,
@@ -107,7 +103,7 @@ pre.highlight:not(.language-bash) + .toolbar {
   color: green
 }
 
-.line-numbers-rows > span {
+.line-numbers-rows>span {
   display: block;
   counter-increment: linenumber;
   line-height: 1.7rem;
