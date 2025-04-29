@@ -19,7 +19,6 @@ course.add_section do |section|
 
   section.add_lessons(
     shared_lessons.fetch('Introduction to the Back End'),
-    shared_lessons.fetch('Introduction to Frameworks'),
     node_js_lessons.fetch('Introduction: What is NodeJS?'),
     node_js_lessons.fetch('Getting Started'),
     node_js_lessons.fetch('Debugging Node'),
@@ -37,6 +36,7 @@ course.add_section do |section|
   section.identifier_uuid = '3b803529-86ca-4812-8339-7f9ad6ab91cf'
 
   section.add_lessons(
+    shared_lessons.fetch('Introduction to Frameworks'),
     node_js_lessons.fetch('Introduction to Express'),
     node_js_lessons.fetch('Routes'),
     node_js_lessons.fetch('Controllers'),
