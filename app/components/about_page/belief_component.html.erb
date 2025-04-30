@@ -1,13 +1,15 @@
 <div class="sm:grid sm:grid-cols-12 sm:gap-x-6 pb-14">
-  <div class="flex sm:col-span-2 justify-center ">
-    <%= image_tag @belief[:image_path], alt: '', class: 'w-20 h-20' %>
+  <div class="flex sm:col-span-2 justify-center">
+    <div class="w-20 h-20 flex items-center justify-center rounded-full bg-gray-700 dark:bg-white shadow-md">
+      <%= inline_svg @belief[:image_path], class: "w-10 h-10 text-white dark:text-black" %>
+    </div>
   </div>
 
-  <div class="sm:col-span-10 text-center sm:text-left space-y-3">
-    <h3 class="pt-10 sm:pt-0 text-lg font-semibold">
+  <div class="sm:col-span-10 text-center sm:text-left">
+    <h3 class="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">
       <%= @belief[:title] %>
     </h3>
-    <p class="prose prose-gray dark:prose-invert text-gray-500 dark:text-gray-400">
+    <p class="leading-relaxed text-gray-600 dark:text-gray-300">
       <%= @belief[:description].html_safe %>
     </p>
   </div>
