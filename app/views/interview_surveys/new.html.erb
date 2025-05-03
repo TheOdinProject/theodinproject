@@ -10,7 +10,7 @@
 
       <%= form.label :concept_list %>
       <%= form.select :concept_list,
-        InterviewConcept.all.map { |concept| [concept.name, concept.name] },
+        InterviewConcept.pluck(:name, :name),
         { multiple: true },
         { data: { controller: "multi-select" } }
       %>
