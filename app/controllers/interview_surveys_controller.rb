@@ -6,7 +6,6 @@ class InterviewSurveysController < ApplicationController
     Flipper.enable(:survey_feature) unless Rails.env.production?
 
     @interview_survey = InterviewSurvey.new
-    @interview_survey.interview_concepts.build
   end
 
   def create
