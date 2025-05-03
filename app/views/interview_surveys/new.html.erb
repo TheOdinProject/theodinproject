@@ -8,9 +8,9 @@
       <%= form.label :interview_date %>
       <%= form.date_field :interview_date %>
 
-      <%= form.label :interview_concepts %>
-      <%= form.select :interview_concepts,
-        InterviewConcept.all.map { |concept| [concept.name, concept.id] },
+      <%= form.label :concept_list %>
+      <%= form.select :concept_list,
+        InterviewConcept.all.map { |concept| [concept.name, concept.name] },
         { multiple: true },
         { id: "multi-select" }
       %>
