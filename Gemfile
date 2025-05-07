@@ -53,7 +53,7 @@ gem 'turbo-rails', '~> 2.0'
 gem 'view_component', '~> 3.16'
 
 # https://github.com/jamesmartin/inline_svg/issues/151
-gem 'inline_svg', '~> 1.9'
+gem 'inline_svg', '~> 1.10'
 
 group :development do
   gem 'letter_opener', '~> 1.8'
