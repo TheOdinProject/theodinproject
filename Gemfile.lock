@@ -219,7 +219,7 @@ GEM
       railties (>= 4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashdiff (1.1.1)
+    hashdiff (1.1.2)
     hashie (5.0.0)
     htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
@@ -587,7 +587,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.23.1)
+    webmock (3.25.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -677,7 +677,7 @@ DEPENDENCIES
   vcr (~> 6.3)
   view_component (~> 3.16)
   web-console (~> 4.2)
-  webmock (~> 3.23)
+  webmock (~> 3.25)
 
 RUBY VERSION
    ruby 3.4.2p28
