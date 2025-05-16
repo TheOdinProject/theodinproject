@@ -144,7 +144,7 @@ course.add_section do |section|
     foundation_lessons.fetch('Understanding Errors'),
     foundation_lessons.fetch('Rock Paper Scissors'),
     foundation_lessons.fetch('Clean Code'),
-    foundation_lessons.fetch('Arrays and Loops'),
+    foundation_lessons.fetch('Loops and Arrays'),
     foundation_lessons.fetch('DOM Manipulation and Events'),
     foundation_lessons.fetch('Revisiting Rock Paper Scissors'),
     foundation_lessons.fetch('Etch-a-Sketch'),
