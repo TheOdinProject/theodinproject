@@ -6122,7 +6122,7 @@ __metadata:
     stimulus-use: "npm:^0.52.3"
     stylelint: "npm:^16.19.1"
     stylelint-config-standard: "npm:^38.0.0"
-    tailwindcss: "npm:4.0.7"
+    tailwindcss: "npm:4.1.7"
     tippy.js: "npm:^6.3.7"
   languageName: unknown
   linkType: soft
@@ -6636,17 +6636,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:4.0.7":
-  version: 4.0.7
-  resolution: "tailwindcss@npm:4.0.7"
-  checksum: 10c0/d884b580022a439e26c1c372dd693d62f552b19635c3e018af640cca00357c4407710c452bfe465902299698a325f6215777807165f7e94f8f12411651ae3d6a
-  languageName: node
-  linkType: hard
-
 "tailwindcss@npm:4.0.8":
   version: 4.0.8
   resolution: "tailwindcss@npm:4.0.8"
   checksum: 10c0/4e7656792405fe085f788510139e37a4cd2d904c620ad90222f541f3227a64885e3423413f4748870d3480253b0f50c3ddafd70bc3acd9ec33f494c12e6278aa
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:4.1.7":
+  version: 4.1.7
+  resolution: "tailwindcss@npm:4.1.7"
+  checksum: 10c0/abe56f990bd4b03e0b332a2a39063e7f0f7359e6591282ba4e56ac18e5c58baca6b271072221253fcab7d9534d50f384f13fc41b66b06e0e427ef3f0ab2035bf
   languageName: node
   linkType: hard
 
