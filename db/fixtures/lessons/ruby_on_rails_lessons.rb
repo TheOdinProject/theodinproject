@@ -199,14 +199,14 @@ def ruby_on_rails_lessons
       previewable: true,
       identifier_uuid: '5d0433d7-f3f3-46fa-99e7-3bc5893a2599'
     },
-    'Flickr API' => {
-      title: 'Flickr API',
+    'Pexels API' => {
+      title: 'Pexels API',
       description: "In this project, you'll work with a third-party API.",
       is_project: true,
-      github_path: '/ruby_on_rails/apis/project_flickr_api.md',
+      github_path: '/ruby_on_rails/apis/project_pexels_api.md',
       accepts_submission: true,
       previewable: true,
-      identifier_uuid: '2adcd199-34b4-47e0-875c-0df9ecd61ea9',
+      identifier_uuid: 'create_uuid',
     },
     'CSS Bundling' => {
       title: 'CSS Bundling',
