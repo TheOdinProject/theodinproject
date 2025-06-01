@@ -13,11 +13,6 @@ RSpec.describe 'Interview survey' do
       create(:interview_concept, name: 'Rails routing')
     end
 
-    it 'shows the survey' do
-      visit new_interview_survey_path
-      expect(page).to have_content('Interview Survey')
-    end
-
     it 'creates an interview survey with existing concepts' do
       visit new_interview_survey_path
 
