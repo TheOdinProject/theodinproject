@@ -1,10 +1,8 @@
 class InterviewSurveysController < ApplicationController
   before_action :authenticate_user!
-  before_action :feature_flag_redirect
+  requires_feature :survey_feature
 
   def new
-    Flipper.enable(:survey_feature) unless Rails.env.production?
-
     @interview_survey = InterviewSurvey.new
   end
 
@@ -25,11 +23,5 @@ class InterviewSurveysController < ApplicationController
       :interview_date,
       concept_list: []
     )
-  end
-
-  def feature_flag_redirect
-    unless Feature.enabled?(:survey_feature, current_user)
-      redirect_to dashboard_path, notice: 'Feature not enabled'
-    end
   end
 end
