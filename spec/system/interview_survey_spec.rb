@@ -25,6 +25,19 @@ RSpec.describe 'Interview survey' do
 
       expect(page).to have_content('Survey Submitted')
     end
+
+    it 'creates an interview survey with new concepts' do
+      visit new_interview_survey_path
+
+      fill_in :interview_survey_interview_date, with: Date.current
+
+      find('div[aria-label="Combobox"]').click
+      find('input[type="search"]').set('React props').send_keys(:return)
+
+      click_on 'Submit'
+
+      expect(page).to have_content('Survey Submitted')
+    end
   end
 
   context 'when the feature is disabled' do
