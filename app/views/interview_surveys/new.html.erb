@@ -12,10 +12,9 @@
       <%= form.select :concept_list,
         InterviewConcept.pluck(:name, :name),
         { multiple: true },
-        { data: { controller: "multi-select" } }
-      %>
+        { data: { controller: 'multi-select' } } %>
 
-      <%= form.submit "Submit", class: 'button button--primary w-full text-sm' %>
+      <%= form.submit 'Submit', class: 'button button--primary w-full text-sm' %>
     <% end %>
 
   </div>
