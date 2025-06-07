@@ -18,6 +18,8 @@ class InterviewSurvey < ApplicationRecord
     end
   end
 
+  private
+
   def interview_date_must_be_in_the_past
     return if interview_date.present? && interview_date <= Time.zone.today
 
