@@ -5,13 +5,15 @@ class InterviewSurvey < ApplicationRecord
            through: :interview_survey_concepts,
            inverse_of: :interview_surveys
 
-  accepts_nested_attributes_for :interview_concepts
-
   validates :interview_date, presence: true
   validate :interview_date_must_be_in_the_past
 
-  def concept_list=(concept_names)
-    self.interview_concepts = concept_names.compact_blank.map do |name|
+  def interview_concept_names
+    interview_concepts.pluck(:name)
+  end
+
+  def interview_concept_names=(names)
+    self.interview_concepts = names.compact_blank.map do |name|
       InterviewConcept.find_or_create_by(name:)
     end
   end

@@ -8,8 +8,8 @@
       <%= form.label :interview_date %>
       <%= form.date_field :interview_date %>
 
-      <%= form.label :concept_list %>
-      <%= form.select :concept_list,
+      <%= form.label :interview_concept_names %>
+      <%= form.select :interview_concept_names,
         InterviewConcept.pluck(:name, :name),
         { multiple: true },
         { data: { controller: 'multi-select' } } %>
