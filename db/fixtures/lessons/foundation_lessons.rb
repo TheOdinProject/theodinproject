@@ -139,11 +139,11 @@ def foundation_lessons
       github_path: '/foundations/javascript_basics/clean_code.md',
       identifier_uuid: 'e341018d-424e-40ac-b6cf-59fcdd422446',
     },
-    'Arrays and Loops' => {
-      title: 'Arrays and Loops',
-      description: 'In this lesson we learn about arrays and loops.',
+    'Loops and Arrays' => {
+      title: 'Loops and Arrays',
+      description: 'In this lesson we learn about loops and arrays.',
       is_project: false,
-      github_path: '/foundations/javascript_basics/arrays_and_loops.md',
+      github_path: '/foundations/javascript_basics/loops_and_arrays.md',
       identifier_uuid: '336b3336-c589-4e61-876f-1c0e60617da4',
     },
     'Etch-a-Sketch' => {

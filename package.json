@@ -10,30 +10,30 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.12",
-    "@rails/request.js": "^0.0.11",
+    "@hotwired/turbo-rails": "^8.0.13",
+    "@rails/request.js": "^0.0.12",
     "@sentry/esbuild-plugin": "^3.3.1",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/cli": "^4.0.8",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "browserslist": "^4.24.4",
-    "chart.js": "^4.4.4",
+    "browserslist": "^4.24.5",
+    "chart.js": "^4.4.9",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chokidar": "^4.0.3",
     "debounce": "^2.2.0",
     "el-transition": "^0.0.7",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.25.4",
     "esbuild-plugin-prismjs": "^1.0.8",
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
-    "mermaid": "^11.4.1",
+    "mermaid": "^11.6.0",
     "postcss": "^8.5.3",
-    "prismjs": "^1.29.0",
+    "prismjs": "^1.30.0",
     "slim-select": "^2.11.0",
     "sortablejs": "^1.15.6",
     "stimulus-use": "^0.52.3",
-    "tailwindcss": "4.0.7",
+    "tailwindcss": "4.1.7",
     "tippy.js": "^6.3.7"
   },
   "browserslist": [
@@ -41,8 +41,8 @@
   ],
   "devDependencies": {
     "standard": "^17.1.2",
-    "stylelint": "^16.13.0",
-    "stylelint-config-standard": "^37.0.0"
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^38.0.0"
   },
   "packageManager": "yarn@4.4.0"
 }
