@@ -206,7 +206,7 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/apis/project_pexels_api.md',
       accepts_submission: true,
       previewable: true,
-      identifier_uuid: 'create_uuid',
+      identifier_uuid: '98e5ca79-ea12-4400-be09-5b9fe1dddb3a',
     },
     'CSS Bundling' => {
       title: 'CSS Bundling',
