@@ -30,6 +30,7 @@
     "mermaid": "^11.6.0",
     "postcss": "^8.5.5",
     "prismjs": "^1.30.0",
+    "slim-select": "^2.11.0",
     "sortablejs": "^1.15.6",
     "stimulus-use": "^0.52.3",
     "tailwindcss": "4.1.7",
