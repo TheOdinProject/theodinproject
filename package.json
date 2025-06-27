@@ -14,7 +14,7 @@
     "@rails/request.js": "^0.0.12",
     "@sentry/esbuild-plugin": "^3.5.0",
     "@stimulus/polyfills": "^2.0.0",
-    "@tailwindcss/cli": "^4.0.8",
+    "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "browserslist": "^4.25.0",
