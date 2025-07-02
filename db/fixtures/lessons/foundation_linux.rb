@@ -44,7 +44,7 @@ def linux_lessons
     },
     'Linux Filesystem Permission' => {
       title: 'Linux Filesystem Permission',
-      description: "Linux Filesystem Permission",
+      description: 'Linux Filesystem Permission',
       is_project: false,
       github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission.md',
       identifier_uuid: 'ef45c208-6ebf-4fff-ba92-1d7584d3a9f2',
