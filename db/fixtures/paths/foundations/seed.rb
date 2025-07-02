@@ -26,17 +26,23 @@ end
 # SECTION - Introduction
 # +++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Introduction'
+  section.title = 'Linux'
   section.description = 'This section will introduce you to the world of web development and The Odin Project.'
   section.identifier_uuid = '472bf0bc-2667-4206-84ea-43498b1d67f9'
 
   section.add_lessons(
-    foundation_lessons.fetch('How This Course Will Work'),
-    foundation_lessons.fetch('Introduction to Web Development'),
-    foundation_lessons.fetch('Motivation and Mindset'),
-    foundation_lessons.fetch('Asking For Help'),
-    foundation_lessons.fetch('Join the Odin Community'),
-  )
+    foundation_lessons.fetch('Linux in every day life'),
+    foundation_lessons.fetch('Ubuntu Installations'),
+    foundation_lessons.fetch('Filesystem navigation & more'),
+    foundation_lessons.fetch('File System Exercise'),
+    foundation_lessons.fetch('Search & archiving'),
+    foundation_lessons.fetch('Search & archiving exercises.'),
+    foundation_lessons.fetch('Linux Filesystem Permission'),
+    foundation_lessons.fetch('Linux Filesystem Permission Exercise'),
+    foundation_lessons.fetch('Installation and Maintenance'),
+    foundation_lessons.fetch('Installation and Maintenance Exercise'),
+    foundation_lessons.fetch('Desktop Customization'),
+)
 end
 
 # +++++++++++++++++++++++++++++++
@@ -49,12 +55,12 @@ course.add_section do |section|
 
   section.add_lessons(
     foundation_lessons.fetch('Computer Basics'),
-    foundation_lessons.fetch('How Does the Web Work?'),
-    foundation_lessons.fetch('Installation Overview'),
-    foundation_lessons.fetch('Installations'),
-    foundation_lessons.fetch('Text Editors'),
-    foundation_lessons.fetch('Command Line Basics'),
-    foundation_lessons.fetch('Setting up Git'),
+    # foundation_lessons.fetch('How Does the Web Work?'),
+    # foundation_lessons.fetch('Installation Overview'),
+    # foundation_lessons.fetch('Installations'),
+    # foundation_lessons.fetch('Text Editors'),
+    # foundation_lessons.fetch('Command Line Basics'),
+    # foundation_lessons.fetch('Setting up Git'),
   )
 end
 

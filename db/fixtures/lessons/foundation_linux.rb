@@ -1,83 +1,83 @@
 def foundation_lessons
   {
-    'How This Course Will Work' => {
-      title: 'How This Course Will Work',
-      description: 'Before you dive in, get familiar with the lay of the land up ahead.',
+    'Linux in every day life' => {
+      title: 'Linux in every day life',
+      description: 'Linux in every day life',
       is_project: false,
-      github_path: '/foundations/introduction/how_this_course_will_work.md',
+      github_path: '/curriculum2/01_foundation/01_linux/01_linux_in_everyday_life.md',
       identifier_uuid: '73a47505-5085-4c7b-82a4-3f0d842edf66',
     },
-    'Introduction to Web Development' => {
-      title: 'Introduction to Web Development',
-      description: 'Learn a little about web development as a career.',
-      is_project: false,
-      github_path: '/foundations/introduction/introduction_to_web_development.md',
+    'Ubuntu Installations' => {
+      title: 'Ubuntu Installations',
+      description: 'Ubuntu Installations',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/01_linux/02_ubuntu_installation.md',
       identifier_uuid: '9db1e5c7-63ea-4ae0-8c88-8f5d1821413e',
     },
-    'Motivation and Mindset' => {
-      title: 'Motivation and Mindset',
-      description: 'Some advice about how to approach learning to program.',
+    'Filesystem navigation & more' => {
+      title: 'Filesystem navigation & more',
+      description: 'Filesystem navigation & more',
       is_project: false,
-      github_path: '/foundations/introduction/motivation_and_mindset.md',
+      github_path: '/curriculum2/01_foundation/01_linux/03_filesystem_navigation_and_more.md',
       identifier_uuid: '276366c4-881b-4673-8e29-8f9ce8f3ae1d',
     },
-    'Asking For Help' => {
-      title: 'Asking For Help',
-      description: 'Guidelines for asking for help in programming communities.',
+    'File System Exercise' => {
+      title: 'File System Exercise',
+      description: 'File System Exercise.',
       is_project: false,
-      github_path: '/foundations/introduction/asking_for_help.md',
+      github_path: '/curriculum2/01_foundation/01_linux/03_filesystem_navigation_and_more_exercises.md',
       identifier_uuid: 'ca37f3e5-1d7d-4a3b-bea0-95060052a83a',
     },
-    'Join the Odin Community' => {
-      title: 'Join the Odin Community',
-      description: "Find out how to join Odin's community of new and veteran learners and how to get help with coding problems.",
+    'Search & archiving' => {
+      title: 'Search & archiving',
+      description: 'Search & archiving',
       is_project: false,
-      github_path: '/foundations/introduction/join_the_odin_community.md',
+      github_path: '/curriculum2/01_foundation/01_linux/04_search_and_archiving.md',
       identifier_uuid: 'd950a6fe-8d04-4f36-a9d3-1def19e0f7a7',
     },
-    'How Does the Web Work?' => {
-      title: 'How Does the Web Work?',
-      description: "It's tough to program web sites without understanding how the web actually works!",
+    'Search & archiving exercises.' => {
+      title: 'search & archiving exercises.',
+      description: 'search & archiving exercises.',
       is_project: false,
-      github_path: '/foundations/installations/how_does_the_web_work.md',
+      github_path: '/curriculum2/01_foundation/01_linux/04_search_and_archiving_exercises.md',
       identifier_uuid: '1218a4a0-c92e-465b-b7c5-322ca5731a5f',
     },
-    'Installation Overview' => {
-      title: 'Installation Overview',
-      description: "There are some things you'll need to install before you start getting your hands dirty",
+    'Linux Filesystem Permission' => {
+      title: 'Linux Filesystem Permission',
+      description: "Linux Filesystem Permission",
       is_project: false,
-      github_path: '/foundations/installations/installation_overview.md',
+      github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission.md',
       identifier_uuid: 'ef45c208-6ebf-4fff-ba92-1d7584d3a9f2',
       installation_lesson: true,
     },
-    'Installations' => {
-      title: 'Installations',
-      description: 'Before we can install Ruby and Rails...',
+    'Linux Filesystem Permission Exercise' => {
+      title: 'Linux Filesystem Permission Exercise',
+      description: 'Linux Filesystem Permission Exercise',
       is_project: false,
-      github_path: '/foundations/installations/installations.md',
+      github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission_exercises.md',
       identifier_uuid: '93dbf0e1-3c06-46a8-8640-1d537e2e723b',
       installation_lesson: true,
     },
-    'Text Editors' => {
-      title: 'Text Editors',
-      description: 'The hottest debate in programming, VSCode or Sublime?',
+    'Installation and Maintenance' => {
+      title: 'Installation and Maintenance',
+      description: 'Installation and Maintenance',
       is_project: false,
-      github_path: '/foundations/installations/text_editors.md',
+      github_path: '/curriculum2/01_foundation/01_linux/06_installation_and_maintenance.md',
       identifier_uuid: 'e65a3229-f1a2-4589-ba7f-c114d8e0c645',
       installation_lesson: true,
     },
-    'Command Line Basics' => {
-      title: 'Command Line Basics',
-      description: 'The command line: loved, hated, and feared... but no longer by you.',
+    'Installation and Maintenance Exercise' => {
+      title: 'Installation and Maintenance Exercise',
+      description: 'Installation and Maintenance Exercise',
       is_project: false,
-      github_path: '/foundations/installations/command_line_basics.md',
+      github_path: '/curriculum2/01_foundation/01_linux/06_installation_and_maintenance_exercises.md',
       identifier_uuid: '3136c43f-e64d-4f92-bcb7-c7ed193c91e9',
     },
-    'Setting up Git' => {
-      title: 'Setting up Git',
-      description: 'The Source Code Ambulance',
+    'Desktop Customization' => {
+      title: 'Desktop Customization',
+      description: 'Desktop Customization',
       is_project: false,
-      github_path: '/foundations/installations/setting_up_git.md',
+      github_path: '/curriculum2/01_foundation/01_linux/07_desktop_customization.md',
       identifier_uuid: '8a13a21d-453e-4492-8240-58a2c8d9596f',
       installation_lesson: true,
     },
