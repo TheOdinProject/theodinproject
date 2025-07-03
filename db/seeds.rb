@@ -1,10 +1,3 @@
-require './lib/seeds/path_builder'
-
-# === Load PATHS ===
-load './db/fixtures/paths/foundations/seed.rb'
-# load './db/fixtures/paths/full_stack_python/seed.rb'
-# load './db/fixtures/paths/data_engineering/seed.rb'
-
 # === Load LESSONS ===
 load './db/fixtures/lessons/foundation_linux.rb'
 load './db/fixtures/lessons/foundation_git.rb'
@@ -12,12 +5,6 @@ load './db/fixtures/lessons/foundation_docker.rb'
 load './db/fixtures/lessons/foundation_cloud_computing.rb'
 load './db/fixtures/lessons/foundation_sqlite.rb'
 load './db/fixtures/lessons/python_backend.rb'
-# === If you have these files, keep them — otherwise delete/comment them ===
-# load './db/fixtures/lessons/react_lessons.rb'
-# load './db/fixtures/lessons/getting_hired_lessons.rb'
-# load './db/fixtures/lessons/node_js_lessons.rb'
-# load './db/fixtures/lessons/git_lessons.rb'
-# load './db/fixtures/lessons/shared_lessons.rb'
 
 # === Generate UUIDs for dev only ===
 Rails::Generators.invoke('seed_uuids') if Rails.env.development?

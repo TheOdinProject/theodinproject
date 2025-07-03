@@ -1,4 +1,4 @@
-  $docker_lessons =
+def docker_lessons
     {
     'It works on My Machine' => {
       title: 'It works on My Machine',

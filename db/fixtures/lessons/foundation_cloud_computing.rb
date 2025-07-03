@@ -1,4 +1,4 @@
-  $cloud_computing_lessons =
+def cloud_computing_lessons
     {
     'How Internet Works' => {
       title: 'How Internet Works',

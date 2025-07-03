@@ -1,4 +1,4 @@
-$linux_lessons = {
+def linux_lessons
     'Linux in every day life' => {
       title: 'Linux in every day life',
       description: 'Linux in every day life',

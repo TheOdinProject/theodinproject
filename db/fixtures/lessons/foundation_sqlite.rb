@@ -1,4 +1,4 @@
-$sqlite_lessons =
+def sqlite_lessons
   {
     'Why Tabular and Relational' => {
       title: 'Why Tabular and Relational',

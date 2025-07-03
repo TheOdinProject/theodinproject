@@ -1,4 +1,3 @@
-require_relative '../../lessons/python_backend'
 
 # ************************
 # Path - Full Stack Python

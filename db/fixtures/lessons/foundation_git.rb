@@ -1,4 +1,4 @@
-$git_lessons =
+def git_lessons
   {
     'why Version Control' => {
       title: 'why Version Control',

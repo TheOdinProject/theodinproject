@@ -1,9 +1,3 @@
-require_relative '../../lessons/foundation_linux'
-require_relative '../../lessons/foundation_git'
-require_relative '../../lessons/foundation_docker'
-require_relative '../../lessons/foundation_cloud_computing'
-require_relative '../../lessons/foundation_sqlite'
-
 # ************************
 # Path - Foundations
 # ************************

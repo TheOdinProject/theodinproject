@@ -1,4 +1,4 @@
-  $python_backend_lessons =
+def python_backend_lessons
     {
       'Fast API kickoff' => {
         title: 'Fast API kickoff',
