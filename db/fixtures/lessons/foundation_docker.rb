@@ -1,5 +1,5 @@
 def docker_lessons
-    {
+  {
     'It works on My Machine' => {
       title: 'It works on My Machine',
       description: 'It works on My Machine',
@@ -50,3 +50,4 @@ def docker_lessons
       identifier_uuid: '0a729800-db9b-4aa2-9aed-c085767aaa48',
     },
   }
+end

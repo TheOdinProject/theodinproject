@@ -57,3 +57,4 @@ def cloud_computing_lessons
       identifier_uuid: '3c22286c-cd5a-4b27-b861-a5d9c6299cce',
     },
   }
+end
