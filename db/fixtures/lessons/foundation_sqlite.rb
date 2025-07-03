@@ -36,3 +36,4 @@ def sqlite_lessons
       identifier_uuid: 'f4e140dd-42e8-40f6-8b65-63e1bae415c9',
     },
   }
+end

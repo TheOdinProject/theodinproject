@@ -58,5 +58,5 @@ def git_lessons
       github_path: 'curriculum2/01_foundation/02_git/08_git_limitations.md',
       identifier_uuid: 'e341018d-424e-40ac-b6cf-59fcdd422446',
     },
-
   }
+end
