@@ -31,17 +31,17 @@ course.add_section do |section|
   section.identifier_uuid = '472bf0bc-2667-4206-84ea-43498b1d67f9'
 
   section.add_lessons(
-    $linux_lessons.fetch('Linux in every day life'),
-    $linux_lessons.fetch('Ubuntu Installations'),
-    $linux_lessons.fetch('Filesystem navigation & more'),
-    $linux_lessons.fetch('File System Exercise'),
-    $linux_lessons.fetch('Search & archiving'),
-    $linux_lessons.fetch('Search & archiving exercises.'),
-    $linux_lessons.fetch('Linux Filesystem Permission'),
-    $linux_lessons.fetch('Linux Filesystem Permission Exercise'),
-    $linux_lessons.fetch('Installation and Maintenance'),
-    $linux_lessons.fetch('Installation and Maintenance Exercise'),
-    $linux_lessons.fetch('Desktop Customization'),
+    linux_lessons.fetch('Linux in every day life'),
+    linux_lessons.fetch('Ubuntu Installations'),
+    linux_lessons.fetch('Filesystem navigation & more'),
+    linux_lessons.fetch('File System Exercise'),
+    linux_lessons.fetch('Search & archiving'),
+    linux_lessons.fetch('Search & archiving exercises.'),
+    linux_lessons.fetch('Linux Filesystem Permission'),
+    linux_lessons.fetch('Linux Filesystem Permission Exercise'),
+    linux_lessons.fetch('Installation and Maintenance'),
+    linux_lessons.fetch('Installation and Maintenance Exercise'),
+    linux_lessons.fetch('Desktop Customization'),
   )
 end
 
@@ -54,14 +54,14 @@ course.add_section do |section|
   section.identifier_uuid = ' b63b99c0-cba2-4042-930b-bb2ab21d8366'
 
   section.add_lessons(
-    $git_lessons.fetch('why Version Control'),
-    $git_lessons.fetch('Getting Started'),
-    $git_lessons.fetch('git reset merge'),
-    $git_lessons.fetch('How git Store Objects'),
-    $git_lessons.fetch('git branching'),
-    $git_lessons.fetch('Colloboration using git'),
-    $git_lessons.fetch('Checkout Internals'),
-    $git_lessons.fetch('git Limitation'),
+    git_lessons.fetch('why Version Control'),
+    git_lessons.fetch('Getting Started'),
+    git_lessons.fetch('git reset merge'),
+    git_lessons.fetch('How git Store Objects'),
+    git_lessons.fetch('git branching'),
+    git_lessons.fetch('Colloboration using git'),
+    git_lessons.fetch('Checkout Internals'),
+    git_lessons.fetch('git Limitation'),
   )
 end
 # =======================
@@ -73,13 +73,13 @@ course.add_section do |section|
   section.identifier_uuid = '74b5e3d6-b3a8-438e-ac70-a697f0754f37'
 
   section.add_lessons(
-    $docker_lessons.fetch('It works on My Machine'),
-    $docker_lessons.fetch('Runtime Isolation'),
-    $docker_lessons.fetch('Containerization'),
-    $docker_lessons.fetch('Getting Started with Docker'),
-    $docker_lessons.fetch('Optimizing Dockerfile'),
-    $docker_lessons.fetch('Docker Compose'),
-    $docker_lessons.fetch('Knowledge Check')
+    docker_lessons.fetch('It works on My Machine'),
+    docker_lessons.fetch('Runtime Isolation'),
+    docker_lessons.fetch('Containerization'),
+    docker_lessons.fetch('Getting Started with Docker'),
+    docker_lessons.fetch('Optimizing Dockerfile'),
+    docker_lessons.fetch('Docker Compose'),
+    docker_lessons.fetch('Knowledge Check')
   )
 end
 # =======================
@@ -91,14 +91,14 @@ course.add_section do |section|
   section.identifier_uuid = '464de597-e107-43ab-9055-ebe77c75ca42'
 
   section.add_lessons(
-    $cloud_computing_lessons.fetch('How Internet Works'),
-    $cloud_computing_lessons.fetch('Hosting on Local'),
-    $cloud_computing_lessons.fetch('Why Cloud Computing'),
-    $cloud_computing_lessons.fetch('Business of Cloud Computing'),
-    $cloud_computing_lessons.fetch('Intro to AWS'),
-    $cloud_computing_lessons.fetch('S3'),
-    $cloud_computing_lessons.fetch('EC2 Instances & EBS'),
-    $cloud_computing_lessons.fetch('Billing and Cost Optimization')
+    cloud_computing_lessons.fetch('How Internet Works'),
+    cloud_computing_lessons.fetch('Hosting on Local'),
+    cloud_computing_lessons.fetch('Why Cloud Computing'),
+    cloud_computing_lessons.fetch('Business of Cloud Computing'),
+    cloud_computing_lessons.fetch('Intro to AWS'),
+    cloud_computing_lessons.fetch('S3'),
+    cloud_computing_lessons.fetch('EC2 Instances & EBS'),
+    cloud_computing_lessons.fetch('Billing and Cost Optimization')
   )
 end
 # =======================
@@ -110,11 +110,11 @@ course.add_section do |section|
   section.identifier_uuid = '313cd021-e8c8-4f21-8edd-1b18c1f81d05'
 
   section.add_lessons(
-    $sqlite_lessons.fetch('Why Tabular and Relational'),
-    $sqlite_lessons.fetch('SQLite in Everyday Life'),
-    $sqlite_lessons.fetch('Learn SQL'),
-    $sqlite_lessons.fetch('Getting Started with SQLite'),
-    $sqlite_lessons.fetch('Exercises')
+    sqlite_lessons.fetch('Why Tabular and Relational'),
+    sqlite_lessons.fetch('SQLite in Everyday Life'),
+    sqlite_lessons.fetch('Learn SQL'),
+    sqlite_lessons.fetch('Getting Started with SQLite'),
+    sqlite_lessons.fetch('Exercises')
   )
 end
 course.delete_removed_seeds
