@@ -122,7 +122,7 @@ course.add_section do |section|
     ruby_on_rails_lessons.fetch('APIs and Building Your Own'),
     ruby_on_rails_lessons.fetch('Working with External APIs'),
     ruby_on_rails_lessons.fetch('Kittens API'),
-    ruby_on_rails_lessons.fetch('Flickr API'),
+    ruby_on_rails_lessons.fetch('Pexels API'),
   )
 end
 
