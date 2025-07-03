@@ -7,8 +7,8 @@ path = Seeds::PathBuilder.build do |path|
   path.description = "This is a comprehensive Data Engineering course where you'll learn everything from Python to distributed data systems. You'll work with real-world tools and systems used by data engineers."
   path.badge_uri = 'badge-data-engineering.svg'
   path.identifier_uuid = 'new-path-uuid'  # Unique identifier for the path
-  path.position = 1  # Position of the path in the list of courses
-  path.default_path = true  # Set as the default path
+  path.position = 3  # Position of the path in the list of courses
+  # path.default_path = true  # Set as the default path
 end
 
 #######################
