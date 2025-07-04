@@ -752,12 +752,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mermaid-js/parser@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@mermaid-js/parser@npm:0.4.0"
+"@mermaid-js/parser@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@mermaid-js/parser@npm:0.5.0"
   dependencies:
     langium: "npm:3.3.1"
-  checksum: 10c0/f0bea89b993c89d9e655e487e6ffd6866897e607264e70a7addc4794683f5c9632376c1e9893246e7e2d5c05569d1b35005a213c283107453b8dff273fb8d8b2
+  checksum: 10c0/af1c1cf6cfe808bf5f7c232a881e5f9d6778c2fc3997d8ea3da93f59097411d0e13f74649e2576488f82227bab58e47a49f4e77cb11cf4196176f3c4135c724d
   languageName: node
   linkType: hard
 
@@ -2890,15 +2890,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^3.2.4":
-  version: 3.2.5
-  resolution: "dompurify@npm:3.2.5"
+"dompurify@npm:^3.2.5":
+  version: 3.2.6
+  resolution: "dompurify@npm:3.2.6"
   dependencies:
     "@types/trusted-types": "npm:^2.0.7"
   dependenciesMeta:
     "@types/trusted-types":
       optional: true
-  checksum: 10c0/b564167cc588933ad2d25c185296716bdd7124e9d2a75dac76efea831bb22d1230ce5205a1ab6ce4c1010bb32ac35f7a5cb2dd16c78cbf382111f1228362aa59
+  checksum: 10c0/c8f8e5b0879a0d93c84a2e5e78649a47d0c057ed0f7850ca3d573d2cca64b84fb1ff85bd4b20980ade69c4e5b80ae73011340f1c2ff375c7ef98bb8268e1d13a
   languageName: node
   linkType: hard
 
@@ -5130,13 +5130,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mermaid@npm:^11.6.0":
-  version: 11.6.0
-  resolution: "mermaid@npm:11.6.0"
+"mermaid@npm:^11.7.0":
+  version: 11.7.0
+  resolution: "mermaid@npm:11.7.0"
   dependencies:
     "@braintree/sanitize-url": "npm:^7.0.4"
     "@iconify/utils": "npm:^2.1.33"
-    "@mermaid-js/parser": "npm:^0.4.0"
+    "@mermaid-js/parser": "npm:^0.5.0"
     "@types/d3": "npm:^7.4.3"
     cytoscape: "npm:^3.29.3"
     cytoscape-cose-bilkent: "npm:^4.1.0"
@@ -5145,7 +5145,7 @@ __metadata:
     d3-sankey: "npm:^0.12.3"
     dagre-d3-es: "npm:7.0.11"
     dayjs: "npm:^1.11.13"
-    dompurify: "npm:^3.2.4"
+    dompurify: "npm:^3.2.5"
     katex: "npm:^0.16.9"
     khroma: "npm:^2.1.0"
     lodash-es: "npm:^4.17.21"
@@ -5154,7 +5154,7 @@ __metadata:
     stylis: "npm:^4.3.6"
     ts-dedent: "npm:^2.2.0"
     uuid: "npm:^11.1.0"
-  checksum: 10c0/69709ac58992ed532e1173e327b75f4135e226b7b9f61c15a759266a323b726ce429eef554357be1fc68463597a8111e9be4f7f013a6780b558e88ea3bda46b6
+  checksum: 10c0/ab37f563b54d53c513d792a91aae54c6e2ed20f4d8606cdec993d60b8c50534ac6ab740408d710a655c6190341704cf133f0a7fb47e230c0c94b38cf08e07775
   languageName: node
   linkType: hard
 
@@ -6132,7 +6132,7 @@ __metadata:
     esbuild-plugin-prismjs: "npm:^1.0.8"
     esbuild-rails: "npm:^1.0.7"
     flatpickr: "npm:^4.6.13"
-    mermaid: "npm:^11.6.0"
+    mermaid: "npm:^11.7.0"
     postcss: "npm:^8.5.6"
     prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.6"
