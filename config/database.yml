@@ -9,7 +9,6 @@ default: &default
   host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
   port: <%= ENV['POSTGRES_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: 5432
   timeout: 5000
 
 development: &development
