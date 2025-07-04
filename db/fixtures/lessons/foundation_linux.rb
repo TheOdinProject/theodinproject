@@ -11,6 +11,7 @@ def linux_lessons
       title: 'Ubuntu Installations',
       description: 'Ubuntu Installations',
       is_project: true,
+      accepts_submission: true,
       github_path: '/curriculum2/01_foundation/01_linux/02_ubuntu_installation.md',
       identifier_uuid: '9db1e5c7-63ea-4ae0-8c88-8f5d1821413e',
     },
