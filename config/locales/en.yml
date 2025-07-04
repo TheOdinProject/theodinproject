@@ -51,8 +51,8 @@ en:
   static_pages:
     about:
         beliefs:
-        - title: A full roadmap to becoming a developer
-          description: Our free, comprehensive curriculum will equip you to be a full stack developer, no matter your current experience level.
+        - title: A full roadmap to becoming a Software Engineers
+          description: Our free, comprehensive curriculum will equip you to be a software engineers, no matter your current experience level.
           image_path: about_page/img-education.svg
         - title: Learn by doing
           description: The most effective learning happens while building projects, so we have strategically placed them throughout our curriculum. These projects will make a strong portfolio for you to showcase on your resume.

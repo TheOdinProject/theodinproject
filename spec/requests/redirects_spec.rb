@@ -48,14 +48,14 @@ RSpec.describe 'Redirects' do
   describe 'GET #discord' do
     it 'redirects to the discord invite link' do
       get '/discord'
-      expect(response).to redirect_to(ODIN_CHAT_URL)
+      expect(response).to redirect_to(DATAMONK_CHAT_URL)
     end
   end
 
   describe 'GET /blog' do
     it 'redirects to the blog page' do
       get '/blog'
-      expect(response).to redirect_to(ODIN_BLOG_URL)
+      expect(response).to redirect_to(DATAMONK_BLOG_URL)
     end
   end
 end

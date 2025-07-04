@@ -1,3 +1,3 @@
-ODIN_BLOG_URL = 'https://dev.to/theodinproject'.freeze
-ODIN_CHAT_URL = 'https://discord.gg/fbFCkYabZB'.freeze
-CONTACT_EMAIL = 'contact@theodinproject.com'.freeze
+DATAMONK_BLOG_URL = 'https://dev.to/datamonk_'.freeze
+DATAMONK_CHAT_URL = 'https://datamonk-internship.slack.com'.freeze
+CONTACT_EMAIL = 'rgupta.datamonk@gmail.com'.freeze
