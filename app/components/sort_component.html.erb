@@ -20,7 +20,7 @@
 
       <% options.each do |option| %>
         <li class="text-gray-900 dark:text-gray-200 relative cursor-default select-none py-2 pl-8 pr-4" id="listbox-option-0" role="option">
-          <%= link_to request.params.merge(sort: option.fetch(:value), direction: option.fetch(:direction)), role: 'menuitem', tabindex: '-1' do %>
+          <%= link_to url_for(sort: option.fetch(:value), direction: option.fetch(:direction)), role: 'menuitem', tabindex: '-1' do %>
             <span class="font-normal text-sm block <%= 'font-semibold' if selected?(option) %>"><%= option.fetch(:label) %> </span>
           <% end %>
           <% if selected?(option) %>
