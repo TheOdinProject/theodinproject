@@ -4,10 +4,10 @@
 
 default: &default
   adapter: postgresql
-  username: thunder
-  password: thunder
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
-  port: 5433
+  port: <%= ENV['POSTGRES_PORT'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
