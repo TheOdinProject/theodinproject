@@ -1,22 +1,4 @@
-<% unless current_page?(support_us_path) || current_page?(about_path) %>
-  <div class="bg-gray-100 dark:bg-gray-800/30">
-    <div class="mx-auto max-w-xl px-8 py-20 xs:pt-24 lg:px-8 text-center">
-      <div>
-        <div class="flex-1 mb-6">
-          <h1 class="text-3xl mb-4 font-semibold text-gray-800 dark:text-gray-200">Support us!</h1>
-          <h2 class="text-sm text-gray-600 dark:text-gray-400">The Odin Project is funded by the community. Join us in empowering learners around the globe by supporting The Odin Project!</h2>
-        </div>
-        <div class="mt-4 flex justify-center space-x-4">
-          <%= link_to 'Learn more', support_us_path, class: 'button button--secondary' %>
-          <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary relative', target: '_blank' do %>
-            <span class="mr-4">Donate now</span>
-            <%= inline_svg_tag 'icons/arrow-right.svg', class: 'absolute right-3 h-4 w-4 ml-2', aria: false %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+
 
 <footer class="bg-white dark:bg-gray-900" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
@@ -24,33 +6,13 @@
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
 
       <div class=" flex flex-col gap-y-6">
-        <%= render LogoComponent.new(classes: 'block h-12 w-auto') %>
+        <div>
+          <img src="<%= asset_path('icons/datamonk.svg') %>" alt="Datamonk Logo" class="h-12 w-auto" />
+        </div>
         <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">
-          High quality coding education maintained by an open source community.
+          High quality coding education maintained by industry professionals at datamonk.
         </p>
 
-        <div class="flex space-x-6">
-          <%= link_to 'https://github.com/TheOdinProject', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
-            <span class="sr-only">GitHub</span>
-            <%= inline_svg_tag 'socials/github.svg', class: 'h-6 w-6 fill-current hover:fill-black dark:hover:fill-white transition duration-500', aria: true, title: 'GitHub', desc: 'GitHub logo' %>
-          <% end %>
-
-          <%= link_to ODIN_CHAT_URL, class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
-            <span class="sr-only">Discord</span>
-            <%= inline_svg_tag 'socials/discord.svg', class: 'h-6 w-6 fill-current hover:fill-[#7289d9] transition duration-500', aria: true, title: 'Discord', desc: 'Discord logo' %>
-          <% end %>
-
-          <%= link_to 'https://www.facebook.com/theodinproject/', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
-            <span class="sr-only">Facebook</span>
-            <%= inline_svg_tag 'socials/facebook.svg', class: 'h-6 w-6 fill-current hover:fill-[#4267B2] transition duration-500', aria: true, title: 'Facebook', desc: 'Facebook logo' %>
-          <% end %>
-
-          <%= link_to 'https://twitter.com/TheOdinProject', class: 'text-gray-400 hover:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400' do %>
-            <span class="sr-only">Twitter</span>
-            <%= inline_svg_tag 'socials/twitter.svg', class: 'h-6 w-6 fill-current hover:fill-black dark:hover:fill-white transition duration-500', aria: true, title: 'Twitter', desc: 'Twitter logo' %>
-          <% end %>
-
-        </div>
       </div>
 
       <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
@@ -59,8 +21,6 @@
             <h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">About us</h3>
             <ul role="list" class="mt-4 space-y-3">
               <li><%= link_to 'About', about_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
-              <li><%= link_to 'Team', team_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
-              <li><%= link_to 'Blog', blog_path, target: '_blank', rel: 'noreferrer', class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
               <li><%= link_to 'Success Stories', success_stories_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
             </ul>
           </div>
@@ -68,30 +28,12 @@
           <div class="mt-10 md:mt-0">
             <h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Support</h3>
             <ul role="list" class="mt-4 space-y-3">
-              <li><%= link_to 'FAQ', faq_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white', data: { test_id: 'faq-link' } %></li>
-              <li><%= link_to 'Contribute', contributing_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
               <li><%= link_to 'Contact us', about_path(anchor: 'contact-us'), class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
 
             </ul>
           </div>
         </div>
 
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Guides</h3>
-            <ul role="list" class="mt-4 space-y-3">
-              <li><%= link_to 'Community guides', guides_community_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white', data: { test_id: 'faq-link' } %></li>
-              <li><%= link_to 'Installation guides', guides_installations_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white', data: { test_id: 'faq-link' } %></li>
-            </ul>
-          </div>
-
-          <div class="mt-10 md:mt-0">
-            <h3 class="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Legal</h3>
-            <ul role="list" class="mt-4 space-y-3">
-              <li><%= link_to 'Terms', terms_of_use_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
-              <li><%= link_to 'Privacy', privacy_policy_path, class: 'text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' %></li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
