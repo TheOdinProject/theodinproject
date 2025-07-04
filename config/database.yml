@@ -13,7 +13,7 @@ default: &default
 
 development: &development
   <<: *default
-  database: theodinproject_development
+  database: datamonk_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,7 +21,7 @@ development: &development
 # DO NOT PUT A REAL USERNAME AND PASSWORD IN THIS FILE
 test: &test
   <<: *default
-  database: theodinproject_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: datamonk_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   adapter: postgresql

@@ -17,9 +17,16 @@ SeedFu.seed
 # GENERATE SUCCESS STORY Content
 load './db/seeds/success_stories.rb'
 
+# GENERATE test projects
+load './db/seeds/test_project_submissions.rb'
+
 # GENERATE users and admin users for testing
 load './db/seeds/test_users_and_admins.rb'
 
 # GENERATE course lesson and project counts
 load './db/seeds/update_course_counts.rb'
+
+# ADDS new feature flags to Flipper
+load './db/seeds/feature_flags.rb'
+
 
