@@ -1,0 +1,85 @@
+def linux_lessons
+  {
+    'Linux in every day life' => {
+      title: 'Linux in every day life',
+      description: 'Linux in every day life',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/01_linux_in_everyday_life.md',
+      identifier_uuid: '73a47505-5085-4c7b-82a4-3f0d842edf66',
+    },
+    'Ubuntu Installations' => {
+      title: 'Ubuntu Installations',
+      description: 'Ubuntu Installations',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/01_linux/02_ubuntu_installation.md',
+      identifier_uuid: '9db1e5c7-63ea-4ae0-8c88-8f5d1821413e',
+    },
+    'Filesystem navigation & more' => {
+      title: 'Filesystem navigation & more',
+      description: 'Filesystem navigation & more',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/03_filesystem_navigation_and_more.md',
+      identifier_uuid: '276366c4-881b-4673-8e29-8f9ce8f3ae1d',
+    },
+    'File System Exercise' => {
+      title: 'File System Exercise',
+      description: 'File System Exercise.',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/03_filesystem_navigation_and_more_exercises.md',
+      identifier_uuid: 'ca37f3e5-1d7d-4a3b-bea0-95060052a83a',
+    },
+    'Search & archiving' => {
+      title: 'Search & archiving',
+      description: 'Search & archiving',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/04_search_and_archiving.md',
+      identifier_uuid: 'd950a6fe-8d04-4f36-a9d3-1def19e0f7a7',
+    },
+    'Search & archiving exercises.' => {
+      title: 'search & archiving exercises.',
+      description: 'search & archiving exercises.',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/01_linux/04_search_and_archiving_exercises.md',
+      identifier_uuid: '1218a4a0-c92e-465b-b7c5-322ca5731a5f',
+    },
+    'Linux Filesystem Permission' => {
+      title: 'Linux Filesystem Permission',
+      description: 'Linux Filesystem Permission',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission.md',
+      identifier_uuid: 'ef45c208-6ebf-4fff-ba92-1d7584d3a9f2',
+      installation_lesson: true,
+    },
+    'Linux Filesystem Permission Exercise' => {
+      title: 'Linux Filesystem Permission Exercise',
+      description: 'Linux Filesystem Permission Exercise',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission_exercises.md',
+      identifier_uuid: '93dbf0e1-3c06-46a8-8640-1d537e2e723b',
+      installation_lesson: true,
+    },
+    'Installation and Maintenance' => {
+      title: 'Installation and Maintenance',
+      description: 'Installation and Maintenance',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/06_installation_and_maintenance.md',
+      identifier_uuid: 'e65a3229-f1a2-4589-ba7f-c114d8e0c645',
+      installation_lesson: true,
+    },
+    'Installation and Maintenance Exercise' => {
+      title: 'Installation and Maintenance Exercise',
+      description: 'Installation and Maintenance Exercise',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/01_linux/06_installation_and_maintenance_exercises.md',
+      identifier_uuid: '3136c43f-e64d-4f92-bcb7-c7ed193c91e9',
+    },
+    'Desktop Customization' => {
+      title: 'Desktop Customization',
+      description: 'Desktop Customization',
+      is_project: false,
+      github_path: '/curriculum2/01_foundation/01_linux/07_desktop_customization.md',
+      identifier_uuid: '8a13a21d-453e-4492-8240-58a2c8d9596f',
+      installation_lesson: true,
+    }
+  }
+end

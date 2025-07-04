@@ -18,7 +18,7 @@ RSpec.describe Github::LessonContentImporter do
 
   before do
     allow(Octokit).to receive(:contents)
-      .with('theodinproject/curriculum', path: '/ruby_basics/variables')
+      .with('datamonk-dev/elearning', path: '/ruby_basics/variables')
       .and_return(lesson_content_from_github)
 
     allow(Base64).to receive(:decode64).and_return(decoded_lesson_content)
@@ -27,7 +27,7 @@ RSpec.describe Github::LessonContentImporter do
 
   describe '.import_all' do
     it 'updates the content for all lessons' do
-      lessons = create_list(:lesson, 3)
+      create_list(:lesson, 3)
       allow(described_class).to receive(:for)
 
       described_class.import_all
