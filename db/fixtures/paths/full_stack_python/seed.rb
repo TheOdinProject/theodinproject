@@ -27,7 +27,7 @@ end
 course.add_section do |section|
   section.title = 'Python Basics'
   section.description = 'Core Python concepts to get started building real applications.'
-  section.identifier_uuid = '11d7101b-6c19-4c56-af15-72cc2fb28fdf'
+  section.identifier_uuid = '9270a22f-91b0-4c52-9041-33bff5441e78'
 
   section.add_lessons(
     python_backend_lessons.fetch('Inside Python'),
