@@ -13,3 +13,13 @@ Rails::Generators.invoke('seed_uuids') if Rails.env.development?
 
 # === SeedFu Fixtures ===
 SeedFu.seed
+
+# GENERATE SUCCESS STORY Content
+load './db/seeds/success_stories.rb'
+
+# GENERATE users and admin users for testing
+load './db/seeds/test_users_and_admins.rb'
+
+# GENERATE course lesson and project counts
+load './db/seeds/update_course_counts.rb'
+
