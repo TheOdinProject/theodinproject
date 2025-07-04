@@ -56,5 +56,12 @@ def cloud_computing_lessons
       github_path: '/curriculum2/01_foundation/05_cloud_computing/07_billing_and_cost_optimization.md',
       identifier_uuid: '3c22286c-cd5a-4b27-b861-a5d9c6299cce',
     },
+    'Google Cloud Clone' => {
+      title: 'Google Cloud Clone',
+      description: 'google cloud clone',
+      is_project: true,
+      github_path: '/curriculum2/01_foundation/project_submission.md',
+      identifier_uuid: '9acdf8f1-24a2-478f-868d-2bcb89e6ae34',
+    },
   }
 end

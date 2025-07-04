@@ -64,6 +64,24 @@ course.add_section do |section|
     git_lessons.fetch('git Limitation'),
   )
 end
+
+# =======================
+# Section - SQLite
+# =======================
+course.add_section do |section|
+  section.title = 'SQLite'
+  section.description = 'Learn about relational databases, SQL, and how to work with SQLite to store structured data.'
+  section.identifier_uuid = '313cd021-e8c8-4f21-8edd-1b18c1f81d05'
+
+  section.add_lessons(
+    sqlite_lessons.fetch('Why Tabular and Relational'),
+    sqlite_lessons.fetch('SQLite in Everyday Life'),
+    sqlite_lessons.fetch('Learn SQL'),
+    sqlite_lessons.fetch('Getting Started with SQLite'),
+    sqlite_lessons.fetch('Exercises')
+  )
+end
+
 # =======================
 # Section - Docker
 # =======================
@@ -98,24 +116,10 @@ course.add_section do |section|
     cloud_computing_lessons.fetch('Intro to AWS'),
     cloud_computing_lessons.fetch('S3'),
     cloud_computing_lessons.fetch('EC2 Instances & EBS'),
-    cloud_computing_lessons.fetch('Billing and Cost Optimization')
+    cloud_computing_lessons.fetch('Billing and Cost Optimization'),
+    cloud_computing_lessons.fetch('Google Cloud Clone')
   )
 end
-# =======================
-# Section - SQLite
-# =======================
-course.add_section do |section|
-  section.title = 'SQLite'
-  section.description = 'Learn about relational databases, SQL, and how to work with SQLite to store structured data.'
-  section.identifier_uuid = '313cd021-e8c8-4f21-8edd-1b18c1f81d05'
 
-  section.add_lessons(
-    sqlite_lessons.fetch('Why Tabular and Relational'),
-    sqlite_lessons.fetch('SQLite in Everyday Life'),
-    sqlite_lessons.fetch('Learn SQL'),
-    sqlite_lessons.fetch('Getting Started with SQLite'),
-    sqlite_lessons.fetch('Exercises')
-  )
-end
 course.delete_removed_seeds
 path.delete_removed_courses

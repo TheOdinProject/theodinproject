@@ -38,7 +38,7 @@ def linux_lessons
     'Search & archiving exercises.' => {
       title: 'search & archiving exercises.',
       description: 'search & archiving exercises.',
-      is_project: false,
+      is_project: true,
       github_path: '/curriculum2/01_foundation/01_linux/04_search_and_archiving_exercises.md',
       identifier_uuid: '1218a4a0-c92e-465b-b7c5-322ca5731a5f',
     },
@@ -53,7 +53,7 @@ def linux_lessons
     'Linux Filesystem Permission Exercise' => {
       title: 'Linux Filesystem Permission Exercise',
       description: 'Linux Filesystem Permission Exercise',
-      is_project: false,
+      is_project: true,
       github_path: '/curriculum2/01_foundation/01_linux/05_linux_filesystem_permission_exercises.md',
       identifier_uuid: '93dbf0e1-3c06-46a8-8640-1d537e2e723b',
       installation_lesson: true,
@@ -69,7 +69,7 @@ def linux_lessons
     'Installation and Maintenance Exercise' => {
       title: 'Installation and Maintenance Exercise',
       description: 'Installation and Maintenance Exercise',
-      is_project: false,
+      is_project: true,
       github_path: '/curriculum2/01_foundation/01_linux/06_installation_and_maintenance_exercises.md',
       identifier_uuid: '3136c43f-e64d-4f92-bcb7-c7ed193c91e9',
     },
