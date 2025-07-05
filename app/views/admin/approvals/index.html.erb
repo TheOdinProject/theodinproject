@@ -1,0 +1,63 @@
+<div class="max-w-6xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-6xl">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Learners</h1>
+    </div>
+  </div>
+
+  <%= form_with url: admin_approval_path, method: :get, class: 'mt-6 grid w-full grid-cols-1 max-w-6xl', data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit', turbo_frame: :learner_results } do |form| %>
+    <%= form.text_field :search_term, value: params[:search_term], placeholder: 'Search', class: 'col-start-1 row-start-1 block rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 border-1 -border-offset-1 border-gray-300 placeholder:text-gray-400 focus:ring-0 focus:border-1 focus:-border-offset-2 focus:border-gray-500 sm:text-sm/6 dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-0 dark:focus:border-gray-300' %>
+  <% end %>
+
+  <div class="mt-8 flow-root">
+    <% if @submissions.any? %>
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-6xl px-6" data-test-id="learners-list">
+        <div class="inline-block min-w-full py-2 align-middle">
+          <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
+            <thead>
+              <tr class="text-gray-800 dark:text-gray-300">
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-0">Username</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Email</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Lesson</th>
+
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <% @submissions.each do |submission| %>
+              <tr id="<%= dom_id(submission) %>">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                  <%= submission.user.username %>
+                </td>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-300 sm:pl-0">
+                  <%= submission.user.email %>
+                </td>
+                <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
+                  <%= submission.lesson.title %>
+                <td class="px-3 py-3.5 text-left text-sm font-semibold">
+                  <div class="flex space-x-2">
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm">Approve</button>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Reject</button>
+                  </div>
+                </td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                  <%= link_to 'View Lesson', lesson_path(submission.lesson), class: 'underline text-gray-800 hover:text-gray-900 hover:no-underline dark:text-gray-300 dark:hover:text-gray-200' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pt-4">
+        <%= render PaginationComponent.new(pagy: @pagy, resource_name: 'approvals') %>
+      </div>
+    <% else %>
+      <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
+        <p class="text-xl text-gray-500 dark:text-gray-400 leading-6">No learners found!</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

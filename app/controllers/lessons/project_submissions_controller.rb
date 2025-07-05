@@ -60,6 +60,7 @@ module Lessons
         format.turbo_stream
       end
     end
+    
 
     private
 

@@ -103,5 +103,18 @@ Rails.application.routes.draw do
   resource :themes, only: :update
   resources :interview_surveys, only: %i[new create]
 
-  draw(:admin)
+draw(:admin)
+
+get 'approval' => 'admin/approvals#index', as: :admin_approval
+
+namespace :admin do
+  resources :project_submissions, only: [] do
+    member do
+      put :approve
+      put :reject
+    end
+  end
+end
+
+
 end
