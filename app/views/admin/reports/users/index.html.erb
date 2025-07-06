@@ -7,7 +7,7 @@
 
     <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
       <dt class="truncate text-sm font-medium text-gray-500 dark:text-gray-300">Total users</dt>
-      <dd class="mt-1 text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= number_with_delimiter(User.count) %></dd>
+      <dd class="mt-1 text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200"><%= number_with_delimiter(Path.pluck(:users_count).sum) %></dd>
     </li>
 
     <li class="overflow-hidden rounded-lg bg-white dark:bg-gray-800 px-4 py-5 hover:border-gray-300 border border-gray-200 dark:border-gray-700 dark:hover:border-gray-600 sm:p-6">
