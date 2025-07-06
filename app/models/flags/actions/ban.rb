@@ -14,7 +14,6 @@ class Flags::Actions::Ban < Flags::Actions::Base
   private
 
   def send_email(project_submission_owner)
-    ban_mailer = BanMailer.new
-    ban_mailer.send_ban_email_to(project_submission_owner)
+    UserMailer.send_ban_email_to(project_submission_owner).deliver_later(project_submission_owner)
   end
 end
