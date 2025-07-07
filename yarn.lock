@@ -629,13 +629,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/turbo-rails@npm:^8.0.13":
-  version: 8.0.13
-  resolution: "@hotwired/turbo-rails@npm:8.0.13"
+"@hotwired/turbo-rails@npm:^8.0.16":
+  version: 8.0.16
+  resolution: "@hotwired/turbo-rails@npm:8.0.16"
   dependencies:
     "@hotwired/turbo": "npm:^8.0.13"
-    "@rails/actioncable": "npm:^7.0"
-  checksum: 10c0/3987981f08fdc56942e0f01daa3e53bff69edb167f7cdfc8d96841dbec9c86d89ba48d00d4a5fa296225dc0aee275d4a19a77bce89cf8fcd38b7e100799b73e8
+    "@rails/actioncable": "npm:>=7.0"
+  checksum: 10c0/a3781bf5e7c798307754a726b5b66f63e4ec71a74e508549f257b3acf834ffc5c28baaf03b8dcdeeb7b35caa361769e417bbca629dcf873729398773585d35ca
   languageName: node
   linkType: hard
 
@@ -1023,10 +1023,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:^7.0":
-  version: 7.0.4
-  resolution: "@rails/actioncable@npm:7.0.4"
-  checksum: 10c0/91fa4b1f0935e4b2672d594fd972222c125f4d58e247d5d6df4d4fdcf8b41231f38dfe069586b455f1210ad1c4449169432bb2b62787442daa5fbbeb287fc3db
+"@rails/actioncable@npm:>=7.0":
+  version: 8.0.200
+  resolution: "@rails/actioncable@npm:8.0.200"
+  checksum: 10c0/42c861f3b43131ab523d37125e30e802bd5bab98bf8150a780531f82f05177cd0071a75a7f1341eac9de772732625194ac16205a40b82dc567cc05c21c56e412
   languageName: node
   linkType: hard
 
@@ -6242,7 +6242,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@hotwired/stimulus": "npm:^3.2.2"
-    "@hotwired/turbo-rails": "npm:^8.0.13"
+    "@hotwired/turbo-rails": "npm:^8.0.16"
     "@rails/request.js": "npm:^0.0.12"
     "@sentry/esbuild-plugin": "npm:^3.5.0"
     "@stimulus/polyfills": "npm:^2.0.0"
