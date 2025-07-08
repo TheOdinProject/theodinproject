@@ -3,18 +3,21 @@ module Admin
     before_action :authorize_admin
 
     def index
-      if params[:search_term].present?
-        submissions = ProjectSubmission.includes(:user).search_by(params[:search_term])
-      else
-        submissions = ProjectSubmission.includes(:user)
+      @submissions = ProjectSubmission.all
+    end
+    def approve
+      submission = ProjectSubmission.find(params[:id])
+      submission.update(isapprove: true)
+      redirect_to admin_approvals_path, notice: "Submission approved!"
+    end
+    def reject
+      submission = ProjectSubmission.find(params[:id])
+      submission.update(isapprove: false)
+      redirect_to admin_approvals_path, notice: "Submission rejected!"
+    end
+      def show
+        @approval = ProjectSubmission.find(params[:id])
       end
-
-      @pagy, @submissions = pagy(submissions.order(created_at: :desc), items: 20)
-    end
-
-    def show
-      @approval = ProjectSubmission.find(params[:id])
-    end
 
     private
 

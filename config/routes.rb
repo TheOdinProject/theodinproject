@@ -108,13 +108,18 @@ draw(:admin)
 get 'approval' => 'admin/approvals#index', as: :admin_approval
 
 namespace :admin do
-  resources :project_submissions, only: [] do
+  resources :approvals, only: %i[index show] do
     member do
-      put :approve
-      put :reject
+      patch :approve
+      patch :reject
     end
   end
 end
+
+resources :lessons do
+  patch :mark_complete, on: :member
+end
+
 
 
 end

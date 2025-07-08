@@ -91,6 +91,7 @@ def python_backend_lessons
       title: 'Python Project',
       description: 'Python Project',
       is_project: true,
+      accepts_submission: true,
       github_path: '/curriculum2/02_python_backend/08_project.md',
       identifier_uuid: '0edd6743-7c56-4bd8-a7b8-2c75851859c8',
     },

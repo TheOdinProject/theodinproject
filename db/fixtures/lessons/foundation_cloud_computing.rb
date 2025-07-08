@@ -60,6 +60,7 @@ def cloud_computing_lessons
       title: 'Google Cloud Clone',
       description: 'google cloud clone',
       is_project: true,
+      accepts_submission: true,
       github_path: '/curriculum2/01_foundation/project_submission.md',
       identifier_uuid: '9acdf8f1-24a2-478f-868d-2bcb89e6ae34',
     },

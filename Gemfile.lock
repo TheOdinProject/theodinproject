@@ -86,6 +86,7 @@ GEM
       statsd-ruby (~> 1.1)
     base64 (0.3.0)
     bcrypt (3.1.20)
+    benchmark (0.4.1)
     better_html (2.1.1)
       actionview (>= 6.0)
       activesupport (>= 6.0)
@@ -349,6 +350,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    ostruct (0.6.2)
     pagy (9.3.3)
     parallel (1.26.3)
     parallel_tests (4.7.2)
@@ -608,6 +610,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.3)
   barnes (~> 0.0)
+  benchmark
   bootsnap (~> 1.18)
   capybara (~> 3.40)
   capybara-email (~> 3.0)
@@ -643,6 +646,7 @@ DEPENDENCIES
   omniauth-github (~> 2.0.1)
   omniauth-google-oauth2 (~> 1.2.1)
   omniauth-rails_csrf_protection (~> 1.0)
+  ostruct
   pagy (~> 9.3)
   parallel_tests (~> 4.7)
   pg (~> 1.5)
