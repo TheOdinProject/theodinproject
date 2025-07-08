@@ -796,12 +796,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mermaid-js/parser@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "@mermaid-js/parser@npm:0.5.0"
+"@mermaid-js/parser@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@mermaid-js/parser@npm:0.6.0"
   dependencies:
     langium: "npm:3.3.1"
-  checksum: 10c0/af1c1cf6cfe808bf5f7c232a881e5f9d6778c2fc3997d8ea3da93f59097411d0e13f74649e2576488f82227bab58e47a49f4e77cb11cf4196176f3c4135c724d
+  checksum: 10c0/d25a4a13e48755c3230f5d19fe12f4b6c9b33820b6190644b6c70f755dae90f653b44f6ed2c45664a71746d096f613743f4e73d9dd342b765568ddf677f05fae
   languageName: node
   linkType: hard
 
@@ -5239,13 +5239,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mermaid@npm:^11.7.0":
-  version: 11.7.0
-  resolution: "mermaid@npm:11.7.0"
+"mermaid@npm:^11.8.0":
+  version: 11.8.0
+  resolution: "mermaid@npm:11.8.0"
   dependencies:
     "@braintree/sanitize-url": "npm:^7.0.4"
     "@iconify/utils": "npm:^2.1.33"
-    "@mermaid-js/parser": "npm:^0.5.0"
+    "@mermaid-js/parser": "npm:^0.6.0"
     "@types/d3": "npm:^7.4.3"
     cytoscape: "npm:^3.29.3"
     cytoscape-cose-bilkent: "npm:^4.1.0"
@@ -5263,7 +5263,7 @@ __metadata:
     stylis: "npm:^4.3.6"
     ts-dedent: "npm:^2.2.0"
     uuid: "npm:^11.1.0"
-  checksum: 10c0/ab37f563b54d53c513d792a91aae54c6e2ed20f4d8606cdec993d60b8c50534ac6ab740408d710a655c6190341704cf133f0a7fb47e230c0c94b38cf08e07775
+  checksum: 10c0/645b323b2887f6387a421907191b0522bdc8694256f5def15c7189970b093def48d3963aafbc9c3f2fffa5ff1e937bd2935274ee7b5f4b8c018143b6edeb616a
   languageName: node
   linkType: hard
 
@@ -6248,7 +6248,7 @@ __metadata:
     esbuild-plugin-prismjs: "npm:^1.0.8"
     esbuild-rails: "npm:^1.0.7"
     flatpickr: "npm:^4.6.13"
-    mermaid: "npm:^11.7.0"
+    mermaid: "npm:^11.8.0"
     postcss: "npm:^8.5.6"
     prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.6"
