@@ -6,7 +6,12 @@ devise_for :admin_users, path: :admin, module: :admin
 namespace :admin do # rubocop:disable Metrics/BlockLength
   root to: 'dashboard#show'
   resource :dashboard, only: :show, controller: :dashboard
-
+    resources :approvals, only: %i[index show] do
+    member do
+      patch :approve
+      patch :reject
+    end
+  end
   authenticate :admin_user do
     mount Sidekiq::Web => '/sidekiq'
     mount Flipper::UI.app(Flipper) => '/feature_flags', as: :feature_flags
@@ -40,4 +45,5 @@ namespace :admin do # rubocop:disable Metrics/BlockLength
     resources :paths, only: :show
     resources :users, only: :index
   end
+
 end
