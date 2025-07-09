@@ -9,9 +9,16 @@
           <% end %>
         </div>
         <div class="mt-4">
-         <%= form.label :image, 'Upload Project Image' %>
-         <%= form.file_field :image, accept: 'image/*', class: 'text-sm' %>
-        </div>
+          <label for="project_submission_image" class="block text-sm font-medium text-gray-700 mb-2">
+            <span class="inline-flex items-center space-x-2">
+              <%= inline_svg_tag 'icons/uploadimg.svg', class: 'h-5 w-5 text-gray-500' %>
+              <span>Upload Project Image</span>
+            </span>
+          </label>
+
+  <%= form.file_field :image, accept: 'image/*', class: 'block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100' %>
+</div>
+
 
         <% if project_submission.lesson.previewable? %>
           <div>
