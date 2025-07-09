@@ -103,15 +103,10 @@ Rails.application.routes.draw do
   resource :themes, only: :update
   resources :interview_surveys, only: %i[new create]
 
-draw(:admin)
+  draw(:admin)
 
-
-
-
-resources :lessons do
-  patch :mark_complete, on: :member
-end
-
-
+  resources :lessons do
+    patch :mark_complete, on: :member
+  end
 
 end

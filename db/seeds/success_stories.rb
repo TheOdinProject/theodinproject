@@ -11,7 +11,7 @@ Yeah, I genuinely think I can get better with this whole development thing with 
   {
     student_name: 'Aashima Ladha',
     avatar_path_name: 'ashima_ladha.png',
-    story_content: "<p>It was truly a great session, and I would like to thank the Data Monk team for being so helpful and kind to us.</p>",
+    story_content: '<p>It was truly a great session, and I would like to thank the Data Monk team for being so helpful and kind to us.</p>',
     job_title: 'Data Analyst at Chegg',
     social_media_link: 'https://www.linkedin.com/in/ashimaladha/',
   },
@@ -21,8 +21,8 @@ Yeah, I genuinely think I can get better with this whole development thing with 
     story_content: "<p> Today's session was great. I understood the importance of Docker. I learnt that if you want to work on an industry project, then the foundation must be clear.</p>",
     job_title: 'Student at PDUSU, Sikar',
     social_media_link: 'https://www.linkedin.com/in/shahidkhanofficialprofile/',
-  },
- 
+  }
+
 ]
 
 seeded_stories = success_stories.flat_map do |success_story|

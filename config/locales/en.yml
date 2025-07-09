@@ -58,11 +58,8 @@ en:
           description: The most effective learning happens while building projects, so we have strategically placed them throughout our curriculum. These projects will make a strong portfolio for you to showcase on your resume.
           image_path: about_page/img-build.svg
         - title: Receive support from others
-          description: <a href="/team">The maintainers of the curriculum</a> run a Discord community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
+          description: The maintainers of the curriculum run a slack community, with the help of countless other volunteers, where you can receive help with anything in our curriculum.
           image_path: about_page/img-people.svg
-        - title: Open source and community driven
-          description: You can deepen your understanding and improve your GitHub skills by contributing to our open source curriculum and helping others in our Discord community.
-          image_path: about_page/img-opensource.svg
     contributing:
       contributing_options:
         ways_to_contribute:

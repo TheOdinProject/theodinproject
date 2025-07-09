@@ -15,7 +15,7 @@
         ) %>
   <% end %>
 
-  <% if course.next_lesson(lesson).present? %>
+  <% if course.next_lesson(lesson).present? && !lesson.is_project? %>
     <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--secondary px-4 py-2 font-medium', data: { test_id: 'next-lesson-btn' } do %>
       <%= inline_svg_tag 'icons/arrow-right-circle.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Next lesson', desc: 'Go to next lesson' %>
       Next Lesson
@@ -26,4 +26,5 @@
       Choose Path
     <% end %>
   <% end %>
+
 </div>
