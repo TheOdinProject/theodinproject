@@ -13,7 +13,7 @@
         <% if lesson.locked_for?(current_user) %>
           <div class="opacity-50 pointer-events-none">
             <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
-            <p class="text-sm text-red-500 mt-1">Lesson is locked</p>
+            <p class="text-xs text-red-500 mt-1">This lesson is locked until the previous project is approved.</p>
           </div>
         <% else %>
           <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
