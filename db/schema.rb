@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_09_073503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,34 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "admin_roles", ["moderator", "maintainer", "core"]
   create_enum "admin_user_status", ["pending", "activated", "deactivated", "pending_reactivation"]
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -351,12 +379,23 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
     t.integer "path_id", default: 1
     t.boolean "banned", default: false, null: false
     t.virtual "search_tsvector", type: :tsvector, as: "(setweight(to_tsvector('english'::regconfig, (COALESCE(email, ''::character varying))::text), 'A'::\"char\") || setweight(to_tsvector('english'::regconfig, (COALESCE(username, ''::character varying))::text), 'B'::\"char\"))", stored: true
+    t.string "mobile_number"
+    t.string "college"
+    t.string "degree"
+    t.integer "graduation_year"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "operating_system"
+    t.string "resume"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["search_tsvector"], name: "index_users_on_search_tsvector", using: :gin
     t.index ["username"], name: "index_users_on_username"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "announcements", "admin_users", column: "created_by_id"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "admin_users", column: "resolved_by_id"
@@ -374,12 +413,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
   add_foreign_key "project_submissions", "users"
 
   create_view "all_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date)) AS id,
-      (lesson_completions.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS completions_count
      FROM lesson_completions
-    GROUP BY ((lesson_completions.created_at)::date)
-    ORDER BY ((lesson_completions.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
   create_view "path_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
       SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date) DESC) AS id,
@@ -398,11 +437,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
     ORDER BY ((lesson_completions.created_at)::date) DESC;
   SQL
   create_view "user_sign_ups_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((users.created_at)::date)) AS id,
-      (users.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS sign_ups_count
      FROM users
-    GROUP BY ((users.created_at)::date)
-    ORDER BY ((users.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
 end
