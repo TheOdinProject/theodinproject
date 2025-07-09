@@ -52,7 +52,7 @@ class Lesson < ApplicationRecord
     # Get all approved project positions for this user
     approved_positions = Lesson
       .joins(:project_submissions)
-      .where(course_id: course.id, is_project: true, project_submissions: { user_id: user.id, isapprove: true })
+      .where(course_id: course.id, is_project: true, project_submissions: { user_id: user.id, is_approved: true })
       .order(:position)
       .pluck(:position)
 
@@ -81,7 +81,7 @@ end
   #   # Get the last approved lesson for this user
   #   last_approved_lesson = Lesson
   #     .joins(:project_submissions)
-  #     .where('project_submissions.user_id = ? AND project_submissions.isapprove = ?', user.id, true)
+  #     .where('project_submissions.user_id = ? AND project_submissions.is_approved = ?', user.id, true)
   #     .order(:position)
   #     .last
 

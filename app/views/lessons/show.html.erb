@@ -10,21 +10,6 @@
         <%= render ContentContainerComponent.new(classes: 'xl:mx-0 pb-6', data_attributes: { lesson_toc_target: 'lessonContent' }) do |component| %>
           <%= @lesson.body.html_safe %>
 
-          <% component.with_footer do %>
-            <%= link_to github_edit_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
-              <%= inline_svg_tag 'icons/github.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Improve on GitHub', desc: 'Github logo icon' %>
-              <span class="underline hover:no-underline">Improve on GitHub</span>
-            <% end %>
-
-            <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
-              <%= inline_svg_tag 'icons/flag.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Report an issue', desc: 'Report icon' %>
-              <span>Report an issue</span>
-            <% end %>
-
-            <%= link_to github_commits_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm ml-auto text-right' do %>
-              See lesson changelog
-            <% end %>
-          <% end %>
         <% end %>
 
         <% if user_signed_in? && @lesson.accepts_submission? %>

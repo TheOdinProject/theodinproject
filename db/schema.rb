@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_08_083136) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_09_122603) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -319,7 +319,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_08_083136) do
     t.integer "likes_count", default: 0
     t.datetime "discarded_at", precision: nil
     t.datetime "discard_at", precision: nil
-    t.boolean "isapprove"
+    t.boolean "is_approved"
     t.index ["created_at"], name: "index_project_submissions_on_created_at"
     t.index ["discarded_at"], name: "index_project_submissions_on_discarded_at"
     t.index ["is_public"], name: "index_project_submissions_on_is_public"

@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_cache_control_header_to_no_store
+  before_action :authenticate_user!, only: [:show]
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -10,5 +11,5 @@ class LessonsController < ApplicationController
     end
   end
 
-  
+
 end

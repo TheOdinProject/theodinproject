@@ -50,12 +50,12 @@
 
                 <td class="px-3 py-3.5 text-left text-sm font-semibold">
              <div class="flex space-x-2">
-    <% if submission.isapprove.nil? %>
+    <% if submission.isapproved.nil? %>
 
       <%= button_to "Approve", approve_admin_approval_path(submission), method: :patch, class: "bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm" %>
       <%= button_to "Reject", reject_admin_approval_path(submission), method: :patch, class: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" %>
 
-    <% elsif submission.isapprove? %>
+    <% elsif submission.isapproved? %>
 
       <span class="text-green-600 font-semibold"> Approved</span>
 
