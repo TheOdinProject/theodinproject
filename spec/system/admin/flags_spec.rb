@@ -28,7 +28,7 @@ RSpec.describe 'Admin flags' do
       end
 
       # resolve button is hidden
-      expect(page).to have_no_selector(:link_or_button, 'Resolve flag')
+      expect(page).not_to have_selector(:link_or_button, 'Resolve flag')
 
       # flag is in resolved list
       visit admin_flags_path(status: 'resolved')
@@ -49,7 +49,7 @@ RSpec.describe 'Admin flags' do
       end
 
       # resolve button is hidden
-      expect(page).to have_no_selector(:link_or_button, 'Resolve flag')
+      expect(page).not_to have_selector(:link_or_button, 'Resolve flag')
 
       # flag is in resolved list
       visit admin_flags_path(status: 'resolved')
@@ -61,7 +61,7 @@ RSpec.describe 'Admin flags' do
         visit lesson_project_submissions_path(lesson)
 
         within(:test_id, 'submissions-list') do
-          expect(page).to have_no_content(submission_owner.username)
+          expect(page).not_to have_content(submission_owner.username)
         end
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe 'Admin flags' do
       end
 
       # resolve button is hidden
-      expect(page).to have_no_selector(:link_or_button, 'Resolve flag')
+      expect(page).not_to have_selector(:link_or_button, 'Resolve flag')
 
       # flag is in resolved list
       visit admin_flags_path(status: 'resolved')
@@ -92,7 +92,7 @@ RSpec.describe 'Admin flags' do
         visit lesson_project_submissions_path(lesson)
 
         within(:test_id, 'submissions-list') do
-          expect(page).to have_no_content(submission_owner.username)
+          expect(page).not_to have_content(submission_owner.username)
         end
       end
 
@@ -122,7 +122,7 @@ RSpec.describe 'Admin flags' do
       end
 
       # resolve button is hidden
-      expect(page).to have_no_selector(:link_or_button, 'Resolve flag')
+      expect(page).not_to have_selector(:link_or_button, 'Resolve flag')
 
       # flag is in resolved list
       visit admin_flags_path(status: 'resolved')

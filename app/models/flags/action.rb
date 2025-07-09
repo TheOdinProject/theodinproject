@@ -5,8 +5,8 @@ Flags::Action = Data.define(:value, :name, :description, :past_tense) do
     I18n.t('flag_actions').map { |action| new(**action) }
   end
 
-  def self.each(&block)
-    all.each(&block)
+  def self.each(&)
+    all.each(&)
   end
 
   def self.for(value)
