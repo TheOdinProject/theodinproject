@@ -6,9 +6,9 @@ path = Seeds::PathBuilder.build do |path|
   path.short_title = 'Data Engineering Path'
   path.description = "This is a comprehensive Data Engineering course where you'll learn everything from Python to distributed data systems. You'll work with real-world tools and systems used by data engineers."
   path.badge_uri = 'badge-data-engineering.svg'
-  path.identifier_uuid = 'new-path-uuid'  # Unique identifier for the path
-  path.position = 1  # Position of the path in the list of courses
-  path.default_path = true  # Set as the default path
+  path.identifier_uuid = 'b2c2b4cf-6125-412b-9616-c2d1d3808c35'  # Unique identifier for the path
+  path.position = 3  # Position of the path in the list of courses
+  # path.default_path = false  # Set as the default path
 end
 
 #######################
@@ -18,7 +18,7 @@ end
 course = path.add_course do |course|
   course.title = 'Data Engineering'
   course.description = "A hands-on course in Data Engineering, teaching you Python, SQL, ETL pipelines, data storage, distributed processing, and analytics."
-  course.identifier_uuid = 'new-course-uuid'  # Unique identifier for the course
+  course.identifier_uuid = '4bf81824-6cb2-4b8c-8fa4-25a5a97ae93d'  # Unique identifier for the course
   course.badge_uri = 'badge-data-engineering.svg'
 end
 
@@ -28,7 +28,7 @@ end
 course.add_section do |section|
   section.title = 'Python for Data Engineering'
   section.description = 'This section introduces you to Python basics for data engineering tasks, including data processing and automation.'
-  section.identifier_uuid = 'python-section-uuid'
+  section.identifier_uuid = '1be111f4-2e5e-4cbc-8df7-3073c00c5746'
 
   section.add_lessons(
     data_engineering_lessons.fetch('Python Introduction')  # Only Python Introduction
@@ -41,7 +41,7 @@ end
 course.add_section do |section|
   section.title = 'SQL & SQLite'
   section.description = 'This section covers SQL queries and working with SQLite for data manipulation and storage.'
-  section.identifier_uuid = 'sql-section-uuid'
+  section.identifier_uuid = '0195da75-5cbc-40cc-a910-67f4ef4e41ea'
 
   section.add_lessons(
     data_engineering_lessons.fetch('SQL & SQLite Intro'),
@@ -56,7 +56,7 @@ end
 course.add_section do |section|
   section.title = 'Data Engineering End-to-End'
   section.description = 'Learn how to build a complete data engineering pipeline, from data ingestion to processing and storage.'
-  section.identifier_uuid = 'end-to-end-section-uuid'
+  section.identifier_uuid = '3177f650-c996-40f1-854d-28c54df1c108'
 
   section.add_lessons(
     data_engineering_lessons.fetch('End-to-End Data Engineering Intro'),
@@ -70,7 +70,7 @@ end
 course.add_section do |section|
   section.title = 'Data Visualization Tools'
   section.description = 'Learn to visualize and interpret data using tools like Tableau and PowerBI, and AWS CLI for setup.'
-  section.identifier_uuid = 'visualization-section-uuid'
+  section.identifier_uuid = '29398ecf-fd42-4b90-9498-64506e264536'
 
   section.add_lessons(
     data_engineering_lessons.fetch('Data Visualization Tools Intro'),
@@ -84,7 +84,7 @@ end
 course.add_section do |section|
   section.title = 'Storage Systems'
   section.description = 'This section focuses on different storage systems, including DuckDB, PostgreSQL, and ClickHouse.'
-  section.identifier_uuid = 'storage-section-uuid'
+  section.identifier_uuid = 'a892c4b8-5fb4-4d17-bf6f-433308615262'
 
   section.add_lessons(
     data_engineering_lessons.fetch('Storage 01_duckdb Intro'),
@@ -109,7 +109,7 @@ end
 course.add_section do |section|
   section.title = 'ETL Workflows'
   section.description = 'Learn how to automate ETL (Extract, Transform, Load) workflows with tools like Airflow and Dagster.'
-  section.identifier_uuid = 'etl-section-uuid'
+  section.identifier_uuid = '1559f4fc-89b4-4a5d-8a2b-1b550ee59053'
 
   section.add_lessons(
     data_engineering_lessons.fetch('ETL 01_data_preprocessing Intro'),
@@ -127,7 +127,7 @@ end
 course.add_section do |section|
   section.title = 'Analytics and Reporting'
   section.description = 'Learn how to perform data analytics and create reports to visualize the outcomes using tools like Seaborn and Superset.'
-  section.identifier_uuid = 'analytics-section-uuid'
+  section.identifier_uuid = 'b7e4c844-f91e-47de-84db-1defd1a40870'
 
   section.add_lessons(
     data_engineering_lessons.fetch('Analytics 00_intro'),
@@ -144,7 +144,7 @@ end
 course.add_section do |section|
   section.title = 'Distributed Data Processing'
   section.description = 'This section will teach you the fundamentals of distributed data processing using frameworks like Spark and Hadoop.'
-  section.identifier_uuid = 'distributed-section-uuid'
+  section.identifier_uuid = 'e62ae789-6bc7-496d-9404-964925944de5'
 
   section.add_lessons(
     data_engineering_lessons.fetch('Distributed Data Processing Introduction')
