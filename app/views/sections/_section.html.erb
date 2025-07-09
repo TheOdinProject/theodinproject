@@ -5,13 +5,19 @@
         <%= section.title %>
       </h3>
     <% end %>
-
   <% end %>
 
   <% card.with_body(classes: 'py-4 px-4') do %>
     <div class="flex flex-col space-y-3" data-test-id="course-section">
       <% section.lessons.each do |lesson| %>
-        <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
+        <% if lesson.locked_for?(current_user) %>
+          <div class="opacity-50 pointer-events-none">
+            <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
+            <p class="text-sm text-red-500 mt-1">Lesson is locked</p>
+          </div>
+        <% else %>
+          <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

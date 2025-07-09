@@ -9,8 +9,6 @@ class LessonsController < ApplicationController
       Courses::MarkCompletedLessons.call(user: current_user, lessons: Array(@lesson))
     end
   end
-  def Mark_Complete
 
-  end
-
+  
 end
