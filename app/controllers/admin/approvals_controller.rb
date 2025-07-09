@@ -4,7 +4,7 @@ module Admin
     before_action :set_submission, only: %i[approve reject show]
 
     def index
-      @submissions = ProjectSubmission.all
+      @submissions = ProjectSubmission.order(created_at: :desc)
     end
 
     def approve

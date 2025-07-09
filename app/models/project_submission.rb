@@ -10,10 +10,9 @@ class ProjectSubmission < ApplicationRecord
   belongs_to :user
   belongs_to :lesson
   has_many :flags, dependent: :destroy
-  validates :repo_url, url: true
+  validates :repo_url, url: true, allow_blank: true
   validates :live_preview_url, url: true, allow_blank: true
   validate :live_preview_allowed
-  validates :repo_url, presence: { message: 'Required' }
   validates :user_id, uniqueness: { scope: :lesson_id, message: 'You have already submitted a project for this lesson' }
 
   scope :only_public, -> { where(is_public: true, discarded_at: nil) }
