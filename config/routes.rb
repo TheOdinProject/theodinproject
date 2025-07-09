@@ -103,23 +103,20 @@ Rails.application.routes.draw do
   resource :themes, only: :update
   resources :interview_surveys, only: %i[new create]
 
-draw(:admin)
+  draw(:admin)
 
-get 'approval' => 'admin/approvals#index', as: :admin_approval
+  get 'approval' => 'admin/approvals#index', as: :admin_approval
 
-namespace :admin do
-  resources :approvals, only: %i[index show] do
-    member do
-      patch :approve
-      patch :reject
+  namespace :admin do
+    resources :approvals, only: %i[index show] do
+      member do
+        patch :approve
+        patch :reject
+      end
     end
   end
-end
 
-resources :lessons do
-  patch :mark_complete, on: :member
-end
-
-
-
+  resources :lessons do
+    patch :mark_complete, on: :member
+  end
 end

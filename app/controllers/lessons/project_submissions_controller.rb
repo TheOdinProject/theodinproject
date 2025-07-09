@@ -61,7 +61,6 @@ module Lessons
       end
     end
 
-
     private
 
     def mark_liked_project_submissions

@@ -42,39 +42,38 @@ class Lesson < ApplicationRecord
     title
   end
 
- def locked_for?(user)
-    return false if user.nil? && position <= first_project_position  # Unauthenticated users can view up to first project
-    return false if user.nil?                                        # Everything else locked for guests
+   def locked_for?(user)
+      return false if user.nil? && position <= first_project_position  # Unauthenticated users can view up to first project
+      return false if user.nil?                                        # Everything else locked for guests
 
-    project_lessons = Lesson.where(course_id: course.id, is_project: true).order(:position)
-    return false if project_lessons.empty?
+      project_lessons = Lesson.where(course_id: course.id, is_project: true).order(:position)
+      return false if project_lessons.empty?
 
-    # Get all approved project positions for this user
-    approved_positions = Lesson
-      .joins(:project_submissions)
-      .where(course_id: course.id, is_project: true, project_submissions: { user_id: user.id, is_approved: true })
-      .order(:position)
-      .pluck(:position)
+      # Get all approved project positions for this user
+      approved_positions = Lesson
+        .joins(:project_submissions)
+        .where(course_id: course.id, is_project: true, project_submissions: { user_id: user.id, is_approved: true })
+        .order(:position)
+        .pluck(:position)
 
-    # Determine how far the user can go
-    if approved_positions.empty?
-      # No projects approved, user can view up to the first project
-      return position > first_project_position
-    else
-      # Find the next project after the highest approved one
-      max_approved = approved_positions.max
-      next_project = project_lessons.find { |l| l.position > max_approved }
-      unlock_until = next_project ? next_project.position : Lesson.where(course_id: course.id).maximum(:position)
-      return position > unlock_until
+      # Determine how far the user can go
+      if approved_positions.empty?
+        # No projects approved, user can view up to the first project
+        position > first_project_position
+      else
+        # Find the next project after the highest approved one
+        max_approved = approved_positions.max
+        next_project = project_lessons.find { |l| l.position > max_approved }
+        unlock_until = next_project ? next_project.position : Lesson.where(course_id: course.id).maximum(:position)
+        position > unlock_until
+      end
+   end
+
+  private
+
+    def first_project_position
+      Lesson.where(course_id: course.id, is_project: true).order(:position).pluck(:position).first || 1
     end
-end
-
-private
-
-def first_project_position
-  Lesson.where(course_id: course.id, is_project: true).order(:position).pluck(:position).first || 1
-end
-
 
   # def locked_for?(user)
   #    return position > 1 if user.nil?
@@ -88,8 +87,6 @@ end
   #   return position > 1 if last_approved_lesson.nil?
   #   position > (last_approved_lesson.position + 1)
   # end
-
-  private
 
   def slug_candidates
     [

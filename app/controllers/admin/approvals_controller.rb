@@ -5,16 +5,19 @@ module Admin
     def index
       @submissions = ProjectSubmission.all
     end
+
     def approve
       submission = ProjectSubmission.find(params[:id])
       submission.update(isapproved: true)
-      redirect_to admin_approvals_path, notice: "Submission approved!"
+      redirect_to admin_approvals_path, notice: 'Submission approved!'
     end
+
     def reject
       submission = ProjectSubmission.find(params[:id])
       submission.update(isapproved: false)
-      redirect_to admin_approvals_path, notice: "Submission rejected!"
+      redirect_to admin_approvals_path, notice: 'Submission rejected!'
     end
+
       def show
         @approval = ProjectSubmission.find(params[:id])
       end

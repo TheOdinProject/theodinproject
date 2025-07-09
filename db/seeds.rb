@@ -7,7 +7,6 @@ load './db/fixtures/lessons/foundation_sqlite.rb'
 load './db/fixtures/lessons/python_backend.rb'
 load './db/fixtures/lessons/data_engineering.rb'
 
-
 # === Generate UUIDs for dev only ===
 Rails::Generators.invoke('seed_uuids') if Rails.env.development?
 
@@ -28,5 +27,3 @@ load './db/seeds/update_course_counts.rb'
 
 # ADDS new feature flags to Flipper
 load './db/seeds/feature_flags.rb'
-
-

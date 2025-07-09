@@ -10,8 +10,6 @@ class ProjectSubmission < ApplicationRecord
   belongs_to :lesson
   has_many :flags, dependent: :destroy
 
-
-
   validates :repo_url, url: true
   validates :live_preview_url, url: true, allow_blank: true
   validate :live_preview_allowed

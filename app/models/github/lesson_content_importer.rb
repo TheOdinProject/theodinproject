@@ -49,6 +49,5 @@ class Github::LessonContentImporter
   def github_response
     Octokit.contents('datamonk-dev/elearning', path: lesson.github_path)
     # Octokit.contents('theodinproject/curriculum', path: lesson.github_path)
-
   end
 end
