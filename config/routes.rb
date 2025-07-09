@@ -105,18 +105,8 @@ Rails.application.routes.draw do
 
   draw(:admin)
 
-  get 'approval' => 'admin/approvals#index', as: :admin_approval
-
-  namespace :admin do
-    resources :approvals, only: %i[index show] do
-      member do
-        patch :approve
-        patch :reject
-      end
-    end
-  end
-
   resources :lessons do
     patch :mark_complete, on: :member
   end
+
 end

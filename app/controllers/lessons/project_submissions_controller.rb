@@ -80,7 +80,7 @@ module Lessons
         :live_preview_url,
         :is_public,
         :lesson_id,
-        :screenshot
+        :image
       )
     end
 

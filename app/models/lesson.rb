@@ -75,24 +75,11 @@ class Lesson < ApplicationRecord
       Lesson.where(course_id: course.id, is_project: true).order(:position).pluck(:position).first || 1
     end
 
-  # def locked_for?(user)
-  #    return position > 1 if user.nil?
-  #   # Get the last approved lesson for this user
-  #   last_approved_lesson = Lesson
-  #     .joins(:project_submissions)
-  #     .where('project_submissions.user_id = ? AND project_submissions.is_approved = ?', user.id, true)
-  #     .order(:position)
-  #     .last
-
-  #   return position > 1 if last_approved_lesson.nil?
-  #   position > (last_approved_lesson.position + 1)
-  # end
-
-  def slug_candidates
-    [
-      [course.title, title].uniq,
-      [course.path_short_title, course.title, title].uniq,
-      [course.path_short_title, course.title, title, SecureRandom.hex(2)].uniq
-    ]
-  end
+    def slug_candidates
+      [
+        [course.title, title].uniq,
+        [course.path_short_title, course.title, title].uniq,
+        [course.path_short_title, course.title, title, SecureRandom.hex(2)].uniq
+      ]
+    end
 end

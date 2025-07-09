@@ -19,7 +19,7 @@ module Admin
     end
 
       def show
-        @approval = ProjectSubmission.find(params[:id])
+        @project_submission = ProjectSubmission.find(params[:id])
       end
 
     private
