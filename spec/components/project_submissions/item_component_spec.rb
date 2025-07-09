@@ -18,7 +18,7 @@ RSpec.describe ProjectSubmissions::ItemComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_no_css('[data-test-id="submission-item"]')
+      expect(page).not_to have_css('[data-test-id="submission-item"]')
     end
   end
 end

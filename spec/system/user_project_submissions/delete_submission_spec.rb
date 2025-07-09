@@ -23,7 +23,7 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
     end
 
     within(:test_id, 'user-submissions-list') do
-      expect(page).to have_no_content(lesson.title)
+      expect(page).not_to have_content(lesson.title)
     end
   end
 end

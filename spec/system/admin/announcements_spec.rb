@@ -63,13 +63,13 @@ RSpec.describe 'Admin announcements' do
       end
 
       expect(page).to have_current_path(admin_announcements_path)
-      expect(page).to have_no_content('Test Message')
+      expect(page).not_to have_content('Test Message')
 
       using_session('learner') do
         sign_in(create(:user))
 
         visit home_path
-        expect(page).to have_no_content('Test Message')
+        expect(page).not_to have_content('Test Message')
       end
     end
   end
