@@ -1,4 +1,5 @@
 class ProjectSubmission < ApplicationRecord
+  has_one_attached :image
   include Discard::Model
   include Likeable
 

@@ -1,9 +1,4 @@
 
-
-
-
-
-
 <div class="max-w-6xl w-full mx-auto">
   <div class="sm:flex sm:items-center max-w-6xl">
     <div class="sm:flex-auto">
@@ -11,7 +6,7 @@
     </div>
   </div>
 
-  <%= form_with url: admin_approval_path, method: :get, class: 'mt-6 grid w-full grid-cols-1 max-w-6xl', data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit', turbo_frame: :learner_results } do |form| %>
+  <%= form_with url: admin_approvals_path, method: :get, class: 'mt-6 grid w-full grid-cols-1 max-w-6xl', data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit', turbo_frame: :learner_results } do |form| %>
 
   <% end %>
 
@@ -26,6 +21,8 @@
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Email</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Lesson</th>
                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold" >repo-url</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold" >image</th>
+
 
 
               </tr>
@@ -41,34 +38,27 @@
                 </td>
                 <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
                   <%= submission.lesson.title %>
-                  </td>
-                  <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
-  <%= link_to submission.repo_url, submission.repo_url, target: "_blank", rel: "noopener", class: "underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" %>
-</td>
-
-
-
+                </td>
+                <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
+                  <%= link_to submission.repo_url, submission.repo_url, target: "_blank", rel: "noopener", class: "underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" %>
+                </td>
+                <td>
+                  <%= link_to 'View Details', admin_approval_path(submission), class: 'text-blue-600 hover:underline' %>
+                </td>
                 <td class="px-3 py-3.5 text-left text-sm font-semibold">
-             <div class="flex space-x-2">
-    <% if submission.isapprove.nil? %>
+                 <div class="flex space-x-2">
+                   <% if submission.isapprove.nil? %>
+                    <%= button_to "Approve", approve_admin_approval_path(submission), method: :patch, class: "bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm" %>
+                    <%= button_to "Reject", reject_admin_approval_path(submission), method: :patch, class: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" %>
 
-      <%= button_to "Approve", approve_admin_approval_path(submission), method: :patch, class: "bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm" %>
-      <%= button_to "Reject", reject_admin_approval_path(submission), method: :patch, class: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" %>
+                   <% elsif submission.isapprove? %>
+                    <span class="text-green-600 font-semibold"> Approved</span>
 
-    <% elsif submission.isapprove? %>
-
-      <span class="text-green-600 font-semibold"> Approved</span>
-
-    <% else %>
-
-      <span class="text-red-600 font-semibold">Rejected</span>
-
-
-    <% end %>
-  </div>
-</td>
-
-
+                   <% else %>
+                    <span class="text-red-600 font-semibold">Rejected</span>
+                   <% end %>
+                 </div>
+               </td>
               </tr>
             <% end %>
           </tbody>

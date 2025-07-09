@@ -1,1 +1,6 @@
 
+<% if @project_submission.image.attached? %>
+  <%= image_tag @project_submission.image, class: 'rounded-md shadow' %>
+<% else %>
+  <p class="text-gray-500">No image uploaded.</p>
+<% end %>

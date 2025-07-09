@@ -16,7 +16,7 @@ module Admin
       redirect_to admin_approvals_path, notice: "Submission rejected!"
     end
       def show
-        @approval = ProjectSubmission.find(params[:id])
+        @project_submission = ProjectSubmission.find(params[:id])
       end
 
     private
