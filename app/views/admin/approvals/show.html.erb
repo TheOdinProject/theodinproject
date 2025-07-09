@@ -1,6 +1,7 @@
-
 <% if @project_submission.image.attached? %>
-  <%= image_tag @project_submission.image, class: 'rounded-md shadow' %>
+  <div class="flex justify-center">
+    <%= image_tag @project_submission.image, class: 'rounded-md shadow max-w-full h-[400px] w-auto object-contain' %>
+  </div>
 <% else %>
-  <p class="text-gray-500">No image uploaded.</p>
+  <p class="text-gray-500 text-center">No image uploaded.</p>
 <% end %>
