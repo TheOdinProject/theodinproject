@@ -29,21 +29,6 @@
       <p class="block text-lg font-bold text-gray-800 dark:text-gray-300"><%= number_with_delimiter(@sign_up_stats.values.sum) %></p>
     </div>
 
-    <%= turbo_frame_tag 'sign_up_stats', class: 'block h-60' do %>
-      <%= render Charts::LineChartComponent.new(
-            labels: @sign_up_stats.keys.map { |date| date.to_fs(:"graph_#{params.fetch(:period, 'day')}") },
-            display_x_labels: params.fetch('display_x_labels', true),
-            datasets: [
-              {
-                label: 'Sign ups',
-                data: @sign_up_stats.values,
-                fill: true,
-                backgroundColor: '#bedbff',
-                borderColor: '#155dfc',
-                borderWidth: 2,
-              }
-            ],
-          ) %>
-    <% end %>
+   
   </div>
 </div>

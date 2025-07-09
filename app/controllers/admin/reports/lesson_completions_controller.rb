@@ -1,6 +1,6 @@
 module Admin
   class Reports::LessonCompletionsController < Admin::BaseController
-    before_action :set_date_range, only: :show
+    before_action :set_date_range
 
     def show
       @lesson_completions_stats = ::Reports::AllLessonCompletionsDayStat

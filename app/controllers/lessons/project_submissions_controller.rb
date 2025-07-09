@@ -79,7 +79,8 @@ module Lessons
         :repo_url,
         :live_preview_url,
         :is_public,
-        :lesson_id
+        :lesson_id,
+        :screenshot
       )
     end
 

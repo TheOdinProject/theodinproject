@@ -1,0 +1,90 @@
+
+
+
+
+
+
+<div class="max-w-6xl w-full mx-auto">
+  <div class="sm:flex sm:items-center max-w-6xl">
+    <div class="sm:flex-auto">
+      <h1 class="text-xl font-semibold leading-6 text-gray-800 dark:text-gray-300">Admin Approval page</h1>
+    </div>
+  </div>
+
+  <%= form_with url: admin_approval_path, method: :get, class: 'mt-6 grid w-full grid-cols-1 max-w-6xl', data: { controller: 'autosubmit', action: 'input->autosubmit#debouncedSubmit', turbo_frame: :learner_results } do |form| %>
+
+  <% end %>
+
+  <div class="mt-8 flow-root">
+    <% if @submissions.any? %>
+      <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 max-w-6xl px-6" data-test-id="learners-list">
+        <div class="inline-block min-w-full py-2 align-middle">
+          <table class="min-w-full divide-y divide-gray-300 dark:divide-gray-700">
+            <thead>
+              <tr class="text-gray-800 dark:text-gray-300">
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold sm:pl-0">Username</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Email</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold">Lesson</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold" >repo-url</th>
+
+
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+            <% @submissions.each do |submission| %>
+              <tr id="<%= dom_id(submission) %>">
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+                  <%= submission.user.username %>
+                </td>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 dark:text-gray-300 sm:pl-0">
+                  <%= submission.user.email %>
+                </td>
+                <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
+                  <%= submission.lesson.title %>
+                  </td>
+                  <td class="px-3 py-4 text-sm text-gray-700 dark:text-gray-300">
+  <%= link_to submission.repo_url, submission.repo_url, target: "_blank", rel: "noopener", class: "underline text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300" %>
+</td>
+
+
+
+                <td class="px-3 py-3.5 text-left text-sm font-semibold">
+             <div class="flex space-x-2">
+    <% if submission.isapproved.nil? %>
+
+      <%= button_to "Approve", approve_admin_approval_path(submission), method: :patch, class: "bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm" %>
+      <%= button_to "Reject", reject_admin_approval_path(submission), method: :patch, class: "bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" %>
+
+    <% elsif submission.isapproved? %>
+
+      <span class="text-green-600 font-semibold"> Approved</span>
+
+    <% else %>
+
+      <span class="text-red-600 font-semibold">Rejected</span>
+
+
+    <% end %>
+  </div>
+</td>
+
+
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pt-4">
+        <%# <%= render PaginationComponent.new(pagy: @pagy, resource_name: 'approvals') %>
+      </div>
+    <% else %>
+      <div class="mt-6 flex flex-col items-center space-y-2 pt-10">
+        <p class="text-xl text-gray-500 dark:text-gray-400 leading-6">No learners found!</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
