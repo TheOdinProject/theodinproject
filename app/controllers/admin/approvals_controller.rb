@@ -25,7 +25,7 @@ module Admin
     private
 
     def authorize_admin
-      return if AdminUserPolicy.new(current_admin_user).delete_learner?
+      return if current_admin_user.core?
 
       redirect_to admin_learners_path, alert: 'You are not authorized to perform this action'
     end
