@@ -15,16 +15,19 @@
         ) %>
   <% end %>
 
-  <% if course.next_lesson(lesson).present? && !lesson.is_project? %>
-    <%= link_to lesson_path(course.next_lesson(lesson)), class: 'button button--secondary px-4 py-2 font-medium', data: { test_id: 'next-lesson-btn' } do %>
-      <%= inline_svg_tag 'icons/arrow-right-circle.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Next lesson', desc: 'Go to next lesson' %>
-      Next Lesson
-    <% end %>
-  <% elsif lesson.choose_path_lesson? %>
-    <%= link_to paths_url, class: 'button button--secondary px-4 font-medium', data: { test_id: 'choose-path-lesson-btn' } do %>
-      <%= inline_svg_tag 'icons/map.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Choose path', desc: 'Go to paths page' %>
-      Choose Path
-    <% end %>
+<% next_lesson = course.next_lesson(lesson) %>
+
+<% if next_lesson.present? && (!lesson.is_project? || (lesson.is_project? && lesson.project_submissions.find_by(user: current_user)&.is_approved?)) %>
+  <%= link_to lesson_path(next_lesson), class: 'button button--secondary px-4 py-2 font-medium', data: { test_id: 'next-lesson-btn' } do %>
+    <%= inline_svg_tag 'icons/arrow-right-circle.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Next lesson', desc: 'Go to next lesson' %>
+    Next Lesson
   <% end %>
+<% elsif lesson.choose_path_lesson? %>
+  <%= link_to paths_url, class: 'button button--secondary px-4 font-medium', data: { test_id: 'choose-path-lesson-btn' } do %>
+    <%= inline_svg_tag 'icons/map.svg', class: 'h-8 w-8 pr-2', aria: true, title: 'Choose path', desc: 'Go to paths page' %>
+    Choose Path
+  <% end %>
+<% end %>
+
 
 </div>

@@ -12,7 +12,7 @@ module ButtonHelper
   end
 
   def chat_button
-    link_to 'Open Discord', DATAMONK_CHAT_URL, class: 'button button--secondary px-4', target: '_blank',
+    link_to 'Open SLACK', DATAMONK_CHAT_URL, class: 'button button--secondary px-4', target: '_blank',
                                                rel: 'noreferrer'
   end
 end
