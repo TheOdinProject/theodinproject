@@ -38,11 +38,23 @@ class ApplicationController < ActionController::Base
     response.cache_control.replace(no_store: true)
   end
 
+  # ✅ This is the ONLY updated part
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    added_attrs = [
+      :username, :email, :password, :password_confirmation,
+      :mobile_number, :college, :degree, :graduation_year,
+      :city, :state, :country, :operating_system, :resume
+    ]
+
+    devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
 
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:email, :username, :current_password, :password, :password_confirmation, :learning_goal)
+      u.permit(
+        :email, :username, :current_password, :password, :password_confirmation,
+        :mobile_number, :college, :degree, :graduation_year,
+        :city, :state, :country, :operating_system, :resume,
+        :learning_goal
+      )
     end
   end
 end

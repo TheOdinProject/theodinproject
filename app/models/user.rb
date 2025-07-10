@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :announcements, dependent: nil
   has_many :likes, dependent: :destroy
+  has_one_attached :resume
+
 
   belongs_to :path, optional: true, counter_cache: true
 

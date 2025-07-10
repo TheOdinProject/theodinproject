@@ -13,7 +13,7 @@
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     <%= render CardComponent.new do |card| %>
       <%= card.with_body do %>
-        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder do |form| %>
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { multipart: true } do |form| %>
           <div class="space-y-6">
             <div>
               <%= form.label :username %>
@@ -34,6 +34,53 @@
               <%= form.label :password_confirmation %>
               <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password-confirmation-field' } %>
             </div>
+
+            <!-- ✅ Additional fields (added without modifying anything else) -->
+            <div>
+              <%= form.label :mobile_number %>
+              <%= form.telephone_field :mobile_number, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :college %>
+              <%= form.text_field :college, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :degree %>
+              <%= form.text_field :degree, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :graduation_year %>
+              <%= form.number_field :graduation_year, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :city %>
+              <%= form.text_field :city, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :state %>
+              <%= form.text_field :state, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :country %>
+              <%= form.text_field :country, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :operating_system %>
+              <%= form.text_field :operating_system, class: 'dark-form-input' %>
+            </div>
+
+            <div>
+              <%= form.label :resume %>
+              <%= form.file_field :resume, class: 'dark-form-input' %>
+            </div>
+            <!-- ✅ End of additional fields -->
 
             <div class="text-center">
               <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-500 dark:text-gray-400 hover:underline text-sm' %>
