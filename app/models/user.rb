@@ -9,7 +9,23 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :username, length: { in: 2..100 }
+  validates :mobile_number,
+          presence: true,
+          format: { with: /\A[6-9]\d{9}\z/, message: 'must be a valid 10-digit mobile number' }
+
+  validates :username, :email, :password, :password_confirmation,
+            :mobile_number, :college, :degree, :graduation_year,
+            :city, :state, :country, :operating_system, :resume,
+            presence: true
+
   validates :learning_goal, length: { maximum: 1700 }
+  validates :graduation_year, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 1950,
+    less_than_or_equal_to: 2050,
+    message: "must be between 1950 and 2050"
+  }
+
 
   has_many :lesson_completions, dependent: :destroy
   has_many :completed_lessons, through: :lesson_completions, source: :lesson

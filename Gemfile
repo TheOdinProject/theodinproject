@@ -51,6 +51,7 @@ gem 'stackprof', '~> 0.2'
 gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 2.0'
 gem 'view_component', '~> 3.16'
+gem 'country_state_select', '~> 3.0', '>= 3.0.1'
 
 # https://github.com/jamesmartin/inline_svg/issues/151
 gem 'inline_svg', '~> 1.10'

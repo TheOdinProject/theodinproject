@@ -7,64 +7,111 @@
     </div>
 
     <div class="flex gap-x-2 mt-4 sm:mt-0">
-      <%= link_to 'Delete', admin_learner_path(@learner), data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone', test_id: 'delete-button' }, class: 'button button--secondary p-1.5 text-red-600 border-red-600 hover:bg-red-600 hover:text-white focus:ring-0' %>
+      <%= link_to 'Delete', admin_learner_path(@learner),
+                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone', test_id: 'delete-button' },
+                  class: 'button button--secondary p-1.5 text-red-600 border-red-600 hover:bg-red-600 hover:text-white focus:ring-0' %>
     </div>
   </div>
 
-   <div>
-    <div class="mt-6 border-t border-gray-100 dark:border-gray-700">
-      <dl class="divide-y divide-gray-100 dark:divide-gray-700">
-        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Email</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @learner.email %> </dd>
-        </div>
+  <div class="mt-6 border-t border-gray-100 dark:border-gray-700">
+    <dl class="divide-y divide-gray-100 dark:divide-gray-700">
 
-        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">learning goal</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @learner.learning_goal %> </dd>
-        </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Email</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.email %></dd>
+      </div>
 
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Learning goal</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.learning_goal %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Created</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2">
+          <span title="<%= @learner.created_at %>">
+            <%= time_ago_in_words(@learner.created_at) %> ago
+          </span>
+        </dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Sign in count</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.sign_in_count %></dd>
+      </div>
+
+      <% if @learner.last_sign_in_at.present? %>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Created</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0">
-            <span title="<%= @learner.created_at %>">
-              <%= time_ago_in_words(@learner.created_at) %> ago
+          <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Last signed in</dt>
+          <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2">
+            <span title="<%= @learner.last_sign_in_at %>">
+              <%= time_ago_in_words(@learner.last_sign_in_at) %> ago
             </span>
           </dd>
         </div>
+      <% end %>
 
+      <% if @learner.completed_lessons.any? %>
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Sign in count</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @learner.sign_in_count %> </dd>
+          <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Last lesson completed</dt>
+          <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.completed_lessons.last.title %></dd>
         </div>
 
-        <% if @learner.last_sign_in_at.present? %>
-          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Last signed in</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0">
-              <span title="<%= @learner.last_sign_in_at %>">
-                <%= time_ago_in_words(@learner.last_sign_in_at) %> ago
-              </span>
-            </dd>
-          </div>
-        <% end %>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Last lesson completed on</dt>
+          <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.lesson_completions.last.created_at %></dd>
+        </div>
+      <% end %>
 
-        <% if @learner.completed_lessons.any? %>
-          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Last lesson completed</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0"><%= @learner.completed_lessons.last.title %> </dd>
-          </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Mobile number</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.mobile_number %></dd>
+      </div>
 
-          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium leading-6 text-gray-800 dark:text-gray-200">Last lesson completed on</dt>
-            <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-gray-300 sm:col-span-2 sm:mt-0">
-              <span>
-                <%= @learner.lesson_completions.last.created_at %>
-              </span>
-            </dd>
-          </div>
-        <% end %>
-      </dl>
-    </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">College</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.college %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Degree</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.degree %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Graduation Year</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.graduation_year %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">City</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.city %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">State</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.state %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Country</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.country %></dd>
+      </div>
+
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Operating System</dt>
+        <dd class="text-sm text-gray-700 dark:text-gray-300 sm:col-span-2"><%= @learner.operating_system %></dd>
+      </div>
+
+      <% if @learner.resume.attached? %>
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          <dt class="text-sm font-medium text-gray-800 dark:text-gray-200">Resume</dt>
+          <dd class="text-sm text-blue-600 dark:text-blue-400 sm:col-span-2">
+            <%= link_to 'Download Resume', url_for(@learner.resume), target: "_blank", rel: "noopener", class: "hover:underline" %>
+          </dd>
+        </div>
+      <% end %>
+
+    </dl>
   </div>
 </div>

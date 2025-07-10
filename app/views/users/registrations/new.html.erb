@@ -1,93 +1,155 @@
 <%= title('Sign up') %>
 
 <div class="page-container">
-
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
-    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200">Sign up for free</h2>
-    <p class="block mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200">
+      Sign up for free
+    </h2>
+    <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
       Or
-      <%= link_to 'sign in to your existing account', sign_in_path, class: 'font-medium underline hover:no-underline text-gray-700 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-300' %>
+      <%= link_to 'sign in to your existing account', sign_in_path,
+                  class: 'font-medium underline hover:no-underline text-gray-700 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-300' %>
     </p>
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     <%= render CardComponent.new do |card| %>
       <%= card.with_body do %>
-        <%= form_for resource, as: resource_name, url: registration_path(resource_name), builder: TailwindFormBuilder, html: { multipart: true } do |form| %>
-          <div class="space-y-6">
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+                      builder: TailwindFormBuilder, html: { multipart: true } do |form| %>
+          <div class="space-y-5">
             <div>
               <%= form.label :username %>
-              <%= form.text_field :username, required: true, autofocus: true, class: 'dark-form-input', data: { test_id: 'username-field' } %>
+              <%= form.text_field :username, required: true, autofocus: true,
+                                  class: 'dark-form-input w-full', data: { test_id: 'username-field' } %>
+              <% if form.object.errors[:username].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:username].first %>
+                </p>
+              <% end %>
             </div>
 
             <div>
               <%= form.label :email %>
-              <%= form.email_field :email, required: true, class: 'dark-form-input', data: { test_id: 'email-field' } %>
+              <%= form.email_field :email, required: true,
+                                   class: 'dark-form-input w-full', data: { test_id: 'email-field' } %>
+              <% if form.object.errors[:email].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:email].first %>
+                </p>
+              <% end %>
             </div>
 
             <div>
               <%= form.label :password %>
-              <%= form.password_field :password, required: true, class: 'dark-form-input', data: { test_id: 'password-field' } %>
+              <%= form.password_field :password, required: true,
+                                       class: 'dark-form-input w-full', data: { test_id: 'password-field' } %>
+              <% if form.object.errors[:password].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:password].first %>
+                </p>
+              <% end %>
             </div>
 
             <div>
               <%= form.label :password_confirmation %>
-              <%= form.password_field :password_confirmation, required: true, class: 'dark-form-input', data: { test_id: 'password-confirmation-field' } %>
+              <%= form.password_field :password_confirmation, required: true,
+                                       class: 'dark-form-input w-full', data: { test_id: 'password-confirmation-field' } %>
+              <% if form.object.errors[:password_confirmation].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:password_confirmation].first %>
+                </p>
+              <% end %>
             </div>
 
-            <!-- ✅ Additional fields (added without modifying anything else) -->
             <div>
               <%= form.label :mobile_number %>
-              <%= form.telephone_field :mobile_number, class: 'dark-form-input' %>
+              <%= form.telephone_field :mobile_number, placeholder: 'Enter 10 digit number', class: 'dark-form-input w-full' %>
+              <% if form.object.errors[:mobile_number].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:mobile_number].first %>
+                </p>
+              <% end %>
             </div>
 
             <div>
               <%= form.label :college %>
-              <%= form.text_field :college, class: 'dark-form-input' %>
+              <%= form.text_field :college, class: 'dark-form-input w-full' %>
             </div>
 
             <div>
               <%= form.label :degree %>
-              <%= form.text_field :degree, class: 'dark-form-input' %>
+              <%= form.text_field :degree,  placeholder: "e.g., B.Tech, M.S.", class: 'dark-form-input w-full' %>
             </div>
 
             <div>
               <%= form.label :graduation_year %>
-              <%= form.number_field :graduation_year, class: 'dark-form-input' %>
+              <%= form.number_field :graduation_year, class: 'dark-form-input w-full', required: true, min: 1950, max: 2050 %>
+              <% if form.object.errors[:graduation_year].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:graduation_year].first %>
+                </p>
+              <% end %>
             </div>
+
 
             <div>
               <%= form.label :city %>
-              <%= form.text_field :city, class: 'dark-form-input' %>
+              <%= form.text_field :city, class: 'dark-form-input w-full' %>
             </div>
 
             <div>
               <%= form.label :state %>
-              <%= form.text_field :state, class: 'dark-form-input' %>
+              <%= form.text_field :state, class: 'dark-form-input w-full' %>
             </div>
 
             <div>
               <%= form.label :country %>
-              <%= form.text_field :country, class: 'dark-form-input' %>
+              <%= form.text_field :country, class: 'dark-form-input w-full' %>
             </div>
 
             <div>
-              <%= form.label :operating_system %>
-              <%= form.text_field :operating_system, class: 'dark-form-input' %>
+             <%= form.label :operating_system %>
+             <%= form.select :operating_system,
+                 ['Windows', 'macOS', 'Linux'],
+                 { prompt: 'Select your OS' },
+                 class: 'dark-form-input w-full' %>
+                 <% if form.object.errors[:operating_system].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:operating_system].first %>
+                </p>
+              <% end %>
             </div>
 
-            <div>
-              <%= form.label :resume %>
-              <%= form.file_field :resume, class: 'dark-form-input' %>
+
+            <div class="mt-4">
+              <%= form.label :resume, class: "block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2" do %>
+                <span class="inline-flex items-center space-x-2">
+                  <%= inline_svg_tag 'icons/uploadimg.svg', class: 'h-5 w-5 text-gray-500' %>
+                  <span>Upload Resume</span>
+                </span>
+              <% end %>
+
+              <%= form.file_field :resume,
+                    accept: '.pdf,.doc,.docx',
+                    class: "block w-full text-sm text-gray-700 dark:text-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 dark:file:bg-gray-700 dark:file:text-gray-100 dark:hover:file:bg-gray-600" %>
+                    <% if form.object.errors[:resume].any? %>
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <%= form.object.errors[:resume].first %>
+                </p>
+              <% end %>
             </div>
-            <!-- ✅ End of additional fields -->
+
 
             <div class="text-center">
-              <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path, class: 'font-medium text-gray-500 dark:text-gray-400 hover:underline text-sm' %>
+              <%= link_to 'By signing up, you agree to our terms of use.', terms_of_use_path,
+                          class: 'font-medium text-gray-500 dark:text-gray-400 hover:underline text-sm' %>
             </div>
 
             <div>
-              <%= form.submit 'Sign up', class: 'button button--primary w-full py-2 px-4 text-sm', data: {test_id: 'submit-btn', disable_with: false } %>
+              <%= form.submit 'Sign up',
+                              class: 'button button--primary w-full py-2 px-4 text-sm',
+                              data: { test_id: 'submit-btn', disable_with: false } %>
             </div>
           </div>
         <% end %>
@@ -95,16 +157,9 @@
         <div class="mt-6">
           <div class="relative">
             <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-300"></div>
-            </div>
-            <div class="relative flex justify-center text-sm">
-              <p class="bg-white dark:bg-gray-800 px-2 text-gray-500 dark:text-gray-400">Or continue with</p>
+              <div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
             </div>
           </div>
-        </div>
-
-        <div class="mt-6 grid grid-cols-2 gap-3">
-          <%= render(Oauth::ConnectButtonComponent.with_collection(%i[github google], resource_name:)) %>
         </div>
       <% end %>
     <% end %>
