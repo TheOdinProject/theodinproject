@@ -56,7 +56,7 @@ RSpec.describe 'Course Progress Badge' do
       visit path_course_path(path, course)
 
       within :test_id, 'default-badge' do
-        expect(page).not_to have_content('0%')
+        expect(page).to have_no_content('0%')
       end
     end
   end

@@ -17,7 +17,7 @@ class Flag < ApplicationRecord
   validates :extra, presence: true, if: -> { reason == 'other' }
   validates :resolved_by_id, presence: true, if: -> { status == 'resolved' }
 
-  enum reason: REASONS.each_with_object({}) { |reason, hash| hash[reason.name] = reason.value }
+  enum :reason, REASONS.each_with_object({}) { |reason, hash| hash[reason.name] = reason.value }
   enum :status, { active: 0, resolved: 1 }
   enum :action_taken, { pending: 0, dismiss: 1, ban: 2, removed_project_submission: 3, notified_user: 4 }
 
