@@ -64,7 +64,7 @@ RSpec.describe 'User Notifications' do
       visit root_path
 
       within(:test_id, 'navbar-notification-icon') do
-        expect(page).not_to have_css("span[data-test-id='unread-notifications']")
+        expect(page).to have_no_css("span[data-test-id='unread-notifications']")
       end
     end
 

@@ -15,7 +15,7 @@ RSpec.describe 'Admin learners' do
 
     within(:test_id, 'learners-list') do
       expect(page).to have_content('John')
-      expect(page).not_to have_content('Jane')
+      expect(page).to have_no_content('Jane')
     end
   end
 
@@ -30,7 +30,7 @@ RSpec.describe 'Admin learners' do
     expect(page).to have_content('Learner deleted')
 
     within(:test_id, 'learners-list') do
-      expect(page).not_to have_content('John')
+      expect(page).to have_no_content('John')
     end
   end
 end

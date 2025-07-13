@@ -60,10 +60,13 @@ group :development do
   gem 'listen', '~> 3.9'
   gem 'lookbook', '~> 2.3.4'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.66', require: false
-  gem 'rubocop-performance', '~> 1.25', require: false
-  gem 'rubocop-rails', '~> 2.26', require: false
-  gem 'rubocop-rspec', '~> 2.25', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
   gem 'web-console', '~> 4.2'
 end
 

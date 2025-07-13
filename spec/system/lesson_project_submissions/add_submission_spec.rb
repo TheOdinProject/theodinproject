@@ -14,14 +14,14 @@ RSpec.describe 'Add a Project Submission' do
     it 'successfully adds a submission' do
       within(:test_id, 'current-user-solution') do
         expect(page).to have_content('Submit your solution')
-        expect(page).not_to have_content(lesson.title)
+        expect(page).to have_no_content(lesson.title)
       end
 
       Pages::ProjectSubmissions::Form.new.open.fill_in.submit
 
       within(:test_id, 'current-user-solution') do
         expect(page).to have_content(lesson.title)
-        expect(page).not_to have_content('Submit your solution')
+        expect(page).to have_no_content('Submit your solution')
       end
     end
 
@@ -33,14 +33,14 @@ RSpec.describe 'Add a Project Submission' do
 
         within(:test_id, 'current-user-solution') do
           expect(page).to have_content(lesson.title)
-          expect(page).not_to have_content('Submit your solution')
+          expect(page).to have_no_content('Submit your solution')
         end
 
         click_on('View community solutions')
 
         within(:test_id, 'submissions-list') do
           page.driver.refresh
-          expect(page).not_to have_content(user.username)
+          expect(page).to have_no_content(user.username)
         end
 
         using_session('another_user') do
@@ -48,7 +48,7 @@ RSpec.describe 'Add a Project Submission' do
           visit lesson_project_submissions_path(lesson)
 
           within(:test_id, 'submissions-list') do
-            expect(page).not_to have_content(user.username)
+            expect(page).to have_no_content(user.username)
           end
         end
       end
@@ -74,7 +74,7 @@ RSpec.describe 'Add a Project Submission' do
       within(:test_id, 'current-user-solution') do
         expect(page).to have_content(lesson.title)
         expect(page).to have_link('View code')
-        expect(page).not_to have_link('Live preview')
+        expect(page).to have_no_link('Live preview')
       end
     end
   end
@@ -84,7 +84,9 @@ RSpec.describe 'Add a Project Submission' do
       lesson = create(:lesson, :project)
       visit lesson_path(lesson)
 
-      expect(page).not_to have_content('Submit your solution')
+      expect(page).to have_css('[data-test-id]')
+
+      expect(page).to have_no_content('Submit your solution')
     end
   end
 end
