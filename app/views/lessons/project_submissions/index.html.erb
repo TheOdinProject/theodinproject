@@ -10,7 +10,6 @@
 
   <%= turbo_frame_tag 'submissions-list', data: { test_id: 'submissions-list', turbo_action: :advance } do %>
     <div class="mb-4 text-left">
-
       <header class="flex flex-col space-y-6 justify-between items-center text-center md:space-y-0 md:text-left md:flex-row">
         <div class="flex md:flex-start flex-col space-y-1">
           <h3 class="text-3xl font-medium text-gray-900 dark:text-gray-200" id="solutions"><%= @lesson.display_title %> solutions</h3>
@@ -22,16 +21,16 @@
       </header>
 
       <div class="py-4 flex justify-end">
-          <div class="w-64">
-            <%= render SortComponent.new(
-                  selected: { value: params[:sort], direction: params[:direction] },
-                  options: [
-                    { value: 'created_at', label: 'Newest', direction: 'desc', default: true },
-                    { value: 'created_at', label: 'Oldest', direction: 'asc', default: false },
-                    { value: 'likes_count', label: 'Most liked', direction: 'desc', default: false }
-                  ]
-                ) %>
-          </div>
+        <div class="w-64">
+          <%= render SortComponent.new(
+            selected: { value: params[:sort], direction: params[:direction] },
+            options: [
+              { value: 'created_at', label: 'Newest', direction: 'desc', default: true },
+              { value: 'created_at', label: 'Oldest', direction: 'asc', default: false },
+              { value: 'likes_count', label: 'Most liked', direction: 'desc', default: false }
+            ]
+          ) %>
+        </div>
       </div>
 
       <%= render CardComponent.new do |card| %>
@@ -49,10 +48,10 @@
               <div class="text-center">
                 <%= inline_svg_tag 'icons/folder-plus.svg', class: 'mx-auto h-12 w-12 text-gray-400 dark:text-gray-500', aria: true, title: 'No solutions', desc: 'No solutions icon' %>
 
-              <h3 class="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-200">No solutions</h3>
-              <%= link_to "Return to #{@lesson.display_title}", lesson_path(@lesson, anchor: 'project-solution'), class: 'block mt-2 text-sm underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300', data: { turbo_frame: '_top'} %>
+                <h3 class="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-200">No solutions</h3>
+                <%= link_to "Return to #{@lesson.display_title}", lesson_path(@lesson, anchor: 'project-solution'), class: 'block mt-2 text-sm underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300', data: { turbo_frame: '_top'} %>
+              </div>
             </div>
-          </div>
           <% end %>
         <% end %>
       <% end %>
