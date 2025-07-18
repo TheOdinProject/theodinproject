@@ -1,7 +1,7 @@
 <div class="flex flex-col items-end space-y-4">
   <div class="fixed top-10 z-40 mr-8">
     <% flash.each do |type, message| %>
-      <%= render Alerts::FlashComponent.new(type:, message:) %>
+      <%= render Overlays::FlashComponent.new(type:, message:) %>
     <% end %>
   </div>
 </div>

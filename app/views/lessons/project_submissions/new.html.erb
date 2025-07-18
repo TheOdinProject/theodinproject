@@ -1,3 +1,3 @@
-<%= render ModalComponent.new(title: 'Submit your project')  do %>
+<%= render Overlays::ModalComponent.new(title: 'Submit your project')  do %>
   <%= render 'project_submissions/form', project_submission: @project_submission, model: [@lesson, @project_submission] %>
 <% end %>
