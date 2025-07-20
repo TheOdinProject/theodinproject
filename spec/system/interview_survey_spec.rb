@@ -38,6 +38,19 @@ RSpec.describe 'Interview survey' do
 
       expect(page).to have_content('Survey Submitted')
     end
+
+    it 'reports validation errors with invalid form data' do
+      visit new_interview_survey_path
+
+      fill_in :interview_survey_interview_date, with: Date.current + 3.days
+
+      find('div[aria-label="Combobox"]').click
+      find('input[type="search"]').set('React props').send_keys(:return)
+
+      click_on 'Submit'
+
+      expect(page).to have_content("Interview date can't be in the future")
+    end
   end
 
   context 'when the feature is disabled' do

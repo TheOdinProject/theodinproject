@@ -9,7 +9,7 @@ class InterviewSurveysController < ApplicationController
   def create
     @interview_survey = current_user.interview_surveys.build(interview_survey_params)
 
-    if @interview_survey.save!
+    if @interview_survey.save
       redirect_to dashboard_path, notice: 'Survey Submitted'
     else
       render :new, status: :unprocessable_entity
