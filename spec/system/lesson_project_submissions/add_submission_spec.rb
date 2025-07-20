@@ -84,6 +84,8 @@ RSpec.describe 'Add a Project Submission' do
       lesson = create(:lesson, :project)
       visit lesson_path(lesson)
 
+      expect(page).to have_css('[data-test-id]')
+
       expect(page).to have_no_content('Submit your solution')
     end
   end

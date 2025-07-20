@@ -18,7 +18,7 @@ RSpec.configure do |config|
 
     start = Time.current
     begin
-      $stdout.reopen(File.new('/dev/null', 'w'))
+      $stdout.reopen(File.new(File::NULL, 'w'))
       system('bin/rails test:prepare') # invokes css:build and javascript:build
     ensure
       $stdout.reopen(original_stdout)

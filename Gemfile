@@ -40,11 +40,11 @@ gem 'rack-attack', '~> 6.7'
 gem 'redis', '~> 5.4'
 gem 'rqrcode', '~> 3.1'
 gem 'ruby-progressbar', '~> 1.13'
-gem 'scenic', '~> 1.8'
+gem 'scenic', '~> 1.9'
 gem 'seed-fu', '~> 2.3'
 gem 'sentry-rails', '~> 5.22'
 gem 'sentry-ruby', '~> 5.22'
-gem 'sentry-sidekiq', '~> 5.22'
+gem 'sentry-sidekiq', '~> 5.25'
 gem 'sidekiq', '~> 7.3'
 gem 'sidekiq-cron', '~> 2.0'
 gem 'stackprof', '~> 0.2'
@@ -60,10 +60,13 @@ group :development do
   gem 'listen', '~> 3.9'
   gem 'lookbook', '~> 2.3.4'
   gem 'rack-mini-profiler'
-  gem 'rubocop', '~> 1.66', require: false
-  gem 'rubocop-performance', '~> 1.22', require: false
-  gem 'rubocop-rails', '~> 2.26', require: false
-  gem 'rubocop-rspec', '~> 2.25', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
   gem 'web-console', '~> 4.2'
 end
 

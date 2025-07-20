@@ -22,7 +22,7 @@ class ProgressCircle::Component < ApplicationComponent
     options.fetch(:background_color, 'bg-white dark:bg-gray-900')
   end
 
-  def show_icon?
+  def show_icon_class
     if show_icon
       'visible'
     else

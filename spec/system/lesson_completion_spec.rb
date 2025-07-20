@@ -36,6 +36,8 @@ RSpec.describe 'Lesson Completions' do
     it 'cannot complete a lesson' do
       visit lesson_path(lesson)
 
+      expect(page).to have_css('[data-test-id]')
+
       expect(page).to have_no_button('Mark Complete')
       expect(page).to have_no_button('Lesson Completed')
       expect(find(:test_id, 'sign_in_button')).to have_content('Sign in to track progress')

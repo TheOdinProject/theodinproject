@@ -3,8 +3,8 @@ class AdminUser < ApplicationRecord
   include PublicActivity::Common
   include AASM
 
-  enum status: %w[pending activated deactivated pending_reactivation].index_by(&:itself)
-  enum role: %w[moderator maintainer core].index_by(&:itself)
+  enum :status, %w[pending activated deactivated pending_reactivation].index_by(&:itself)
+  enum :role, %w[moderator maintainer core].index_by(&:itself)
 
   devise :two_factor_authenticatable
   devise :invitable, :recoverable, :trackable, :timeoutable, :validatable,

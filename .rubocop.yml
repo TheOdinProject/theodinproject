@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
@@ -7,6 +7,10 @@ require:
   - rubocop-factory_bot
 
 AllCops:
+  TargetRubyVersion: 3.4
+  TargetRailsVersion: 7.1
+  ExtraDetails: true
+  DisplayStyleGuide: true
   Include:
     - Gemfile
     - Rakefile

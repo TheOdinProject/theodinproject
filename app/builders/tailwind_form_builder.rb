@@ -1,9 +1,9 @@
 class TailwindFormBuilder < ActionView::Helpers::FormBuilder
-  def text_field(attribute, options = {}, &block)
+  def text_field(attribute, options = {}, &)
     if options[:leading_icon]
       default_opts = { class: "#{classes_for(attribute, options)} pl-10" }
 
-      text_layout(attribute) { leading_icon(&block) + super(attribute, options.merge(default_opts)) }
+      text_layout(attribute) { leading_icon(&) + super(attribute, options.merge(default_opts)) }
     else
       default_opts = { class: classes_for(attribute, options) }
 

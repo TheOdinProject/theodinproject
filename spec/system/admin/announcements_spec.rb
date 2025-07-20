@@ -69,6 +69,7 @@ RSpec.describe 'Admin announcements' do
         sign_in(create(:user))
 
         visit home_path
+        expect(page).to have_current_path(home_path)
         expect(page).to have_no_content('Test Message')
       end
     end
