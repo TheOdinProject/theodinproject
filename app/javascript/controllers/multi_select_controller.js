@@ -1,5 +1,6 @@
 import { Controller } from '@hotwired/stimulus'
 import SlimSelect from 'slim-select'
+import 'slim-select/styles'
 
 export default class MultiSelectController extends Controller {
   connect () {
