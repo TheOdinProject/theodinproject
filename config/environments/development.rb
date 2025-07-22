@@ -68,6 +68,8 @@ Rails.application.configure do
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
 
+  config.active_record.encryption.support_sha1_for_non_deterministic_encryption = true
+
   config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
   config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
   config.active_record.encryption.key_derivation_salt = 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'

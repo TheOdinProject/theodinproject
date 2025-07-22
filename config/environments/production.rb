@@ -100,4 +100,6 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.active_record.encryption.support_sha1_for_non_deterministic_encryption = true
 end
