@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Alerts::FlashComponent, type: :component do
+RSpec.describe Overlays::FlashComponent, type: :component do
   context 'when the type is alert' do
     it 'renders an alert flash' do
       component = described_class.new(type: 'alert', message: 'Fire!')
