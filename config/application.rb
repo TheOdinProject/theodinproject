@@ -25,5 +25,6 @@ module Theodinproject
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
     config.assets.css_compressor = nil
     config.active_job.queue_adapter = :sidekiq
+    config.active_record.encryption.support_sha1_for_non_deterministic_encryption = true
   end
 end
