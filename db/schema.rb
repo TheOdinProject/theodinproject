@@ -171,7 +171,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
 
   create_table "interview_surveys", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.date "interview_date"
+    t.date "interview_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_interview_surveys_on_user_id"
