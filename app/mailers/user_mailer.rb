@@ -10,4 +10,14 @@ class UserMailer < ApplicationMailer
       template_name: 'welcome_email',
     )
   end
+
+  def send_ban_email_to(user)
+    @user = user
+
+    mail(
+      subject: 'You Have Been Banned From The Odin Project',
+      to: user.email,
+      template_name: 'ban_email',
+    )
+  end
 end
