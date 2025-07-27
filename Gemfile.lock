@@ -95,6 +95,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    brakeman (7.1.0)
+      racc
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -619,6 +621,7 @@ DEPENDENCIES
   aasm (~> 5.3)
   barnes (~> 0.0)
   bootsnap (~> 1.18)
+  brakeman
   capybara (~> 3.40)
   capybara-email (~> 3.0)
   classy-yaml (~> 1.2)
