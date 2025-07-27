@@ -17,10 +17,6 @@ RSpec.describe Lesson do
       travel_to Time.utc(2021, 4, 14)
     end
 
-    after do
-      travel_back
-    end
-
     it 'returns the most recently updated_at time stamp' do
       create(:lesson, updated_at: 2.weeks.ago)
       create(:lesson, updated_at: 1.week.ago)

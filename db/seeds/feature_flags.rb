@@ -4,7 +4,7 @@ FEATURE_FLAGS = %i[].freeze
 FEATURE_FLAGS.each do |flag|
   next if Flipper.exist?(flag)
 
-  puts "🚀 Adding feature flag: #{flag}"
+  Rails.logger.debug { "🚀 Adding feature flag: #{flag}" }
   Flipper.add(flag)
 end
 
@@ -13,7 +13,7 @@ if Rails.env.development? || ENV['STAGING'] == 'true'
   FEATURE_FLAGS.each do |flag|
     next if Flipper.enabled?(flag)
 
-    puts "🚀 Enabling feature flag: #{flag}"
+    Rails.logger.debug { "🚀 Enabling feature flag: #{flag}" }
     Flipper.enable(flag)
   end
 end
@@ -22,6 +22,6 @@ end
 Flipper.features.each do |feature|
   next if FEATURE_FLAGS.include?(feature.key.to_sym)
 
-  puts "🗑 Removing feature flag: #{feature.key}"
+  Rails.logger.debug { "🗑 Removing feature flag: #{feature.key}" }
   feature.remove
 end

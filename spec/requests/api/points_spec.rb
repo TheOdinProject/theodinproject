@@ -29,7 +29,7 @@ RSpec.describe 'Static Pages' do
           headers: { 'Authorization' => 'Token ODIN_BOT_ACCESS_TOKEN' }
         )
 
-        expect(JSON.parse(response.body)).to eq(
+        expect(response.parsed_body).to eq(
           [highest_points, middle_points, lowest_points].map(&:as_json)
         )
       end
@@ -43,7 +43,7 @@ RSpec.describe 'Static Pages' do
           api_points_path(offset: 1, limit: 1),
           headers: { 'Authorization' => 'Token ODIN_BOT_ACCESS_TOKEN' }
         )
-        expect(JSON.parse(response.body)).to eq([middle_points.as_json])
+        expect(response.parsed_body).to eq([middle_points.as_json])
       end
     end
   end
@@ -74,7 +74,7 @@ RSpec.describe 'Static Pages' do
           headers: { 'Authorization' => 'Token ODIN_BOT_ACCESS_TOKEN' }
         )
 
-        expect(JSON.parse(response.body)).to eq(user_points.as_json)
+        expect(response.parsed_body).to eq(user_points.as_json)
       end
 
       it 'returns an error message if the discord user cannot be found' do
@@ -83,7 +83,7 @@ RSpec.describe 'Static Pages' do
           headers: { 'Authorization' => 'Token ODIN_BOT_ACCESS_TOKEN' }
         )
 
-        expect(JSON.parse(response.body)).to eq({ 'message' => 'Unable to find that user' })
+        expect(response.parsed_body).to eq({ 'message' => 'Unable to find that user' })
       end
     end
   end
@@ -131,7 +131,7 @@ RSpec.describe 'Static Pages' do
           headers: { 'Authorization' => 'Token ODIN_BOT_ACCESS_TOKEN' }
         )
 
-        expect(JSON.parse(response.body)).to eq({ 'message' => 'Unable to update points' })
+        expect(response.parsed_body).to eq({ 'message' => 'Unable to update points' })
       end
     end
 
