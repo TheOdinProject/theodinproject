@@ -26,6 +26,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - 'db/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -99,6 +101,10 @@ Lint/RaiseException:
 Lint/SelfAssignment:
   Enabled: true
 
+Lint/ShadowingOuterLocalVariable:
+  Exclude:
+    - 'db/**/*'  
+
 Lint/StructNewOverride:
   Enabled: true
 
@@ -107,6 +113,10 @@ Lint/TopLevelReturnWithArgument:
 
 Lint/UnreachableLoop:
   Enabled: true
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'spec/**/*'
 
 Style/AccessorGrouping:
   Enabled: true
@@ -210,4 +220,27 @@ Rails/I18nLocaleTexts:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
+    - 'spec/**/*'
   Enabled: true
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/**/*'
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/ExpectChange:
+  EnforcedStyle: block
+
+RSpec/MultipleExpectations:
+  Max: 5
+  Exclude:
+    - 'spec/system/**/*'
+
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/requests/**/*'
+    - 'spec/system/**/*'
+    - 'spec/tasks/**/*'
+    - 'spec/seeds/**/*'

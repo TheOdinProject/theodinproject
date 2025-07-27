@@ -1,3 +1,4 @@
+# rubocop:disable Rails/ReversibleMigration
 class AddSearchTsVectorColumnToUsers < ActiveRecord::Migration[7.1]
   disable_ddl_transaction!
 
@@ -13,3 +14,4 @@ class AddSearchTsVectorColumnToUsers < ActiveRecord::Migration[7.1]
     add_index :users, :search_tsvector, using: :gin, algorithm: :concurrently
   end
 end
+# rubocop:enable Rails/ReversibleMigration

@@ -1,3 +1,4 @@
+# rubocop:disable Rails/ReversibleMigration
 class AddReactivatedToAdminUser < ActiveRecord::Migration[7.0]
   def change
     execute <<-SQL.squish
@@ -7,3 +8,4 @@ class AddReactivatedToAdminUser < ActiveRecord::Migration[7.0]
     SQL
   end
 end
+# rubocop:enable Rails/ReversibleMigration
