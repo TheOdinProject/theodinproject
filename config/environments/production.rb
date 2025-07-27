@@ -6,10 +6,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
-  routes.default_url_options = {
-    host: 'www.theodinproject.com',
-    protocol: 'https'
-  }
+  routes.default_url_options = { host: 'www.theodinproject.com', protocol: 'https' }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -18,7 +15,7 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
@@ -71,7 +68,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  # config.active_job.queue_adapter     = :resque
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "theodinproject_production"
 
   config.action_mailer.perform_caching = false
