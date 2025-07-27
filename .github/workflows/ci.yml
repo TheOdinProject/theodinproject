@@ -69,6 +69,8 @@ jobs:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
       SKIP_YARN_INSTALL: true
+      CI_NODE_INDEX: ${{ matrix.ci_node_index }}
+      CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
 
     steps:
       - name: Checkout code
