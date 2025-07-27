@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '7.1.3.4'
+gem 'rails', '7.2.2.1'
 
 gem 'aasm', '~> 5.3'
 gem 'barnes', '~> 0.0'
@@ -71,6 +71,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'dotenv-rails', '~> 3.1'
   gem 'parallel_tests', '~> 4.7'
   gem 'rspec-rails', '~> 7.0'

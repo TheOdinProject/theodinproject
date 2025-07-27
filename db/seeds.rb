@@ -11,6 +11,7 @@ load './db/fixtures/lessons/node_js_lessons.rb'
 load './db/fixtures/lessons/git_lessons.rb'
 load './db/fixtures/lessons/shared_lessons.rb'
 
+require_relative '../lib/generators/rails/seed_uuids/seed_uuids_generator'
 Rails::Generators.invoke('seed_uuids') if Rails.env.development?
 SeedFu.seed
 

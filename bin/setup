@@ -3,6 +3,7 @@ require 'fileutils'
 
 # path to your application root.
 APP_ROOT = File.expand_path('..', __dir__)
+APP_NAME = 'theodinproject'
 
 def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")
@@ -31,4 +32,8 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
+
+  # puts "\n== Configuring puma-dev =="
+  # system "ln -nfs #{APP_ROOT} ~/.puma-dev/#{APP_NAME}"
+  # system "curl -Is https://#{APP_NAME}.test/up | head -n 1"
 end

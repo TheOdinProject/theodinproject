@@ -1,3 +1,5 @@
+require 'rails/generators'
+
 class Rails::SeedUuidsGenerator < Rails::Generators::Base
   def generate_uuids
     seed_files = Dir.glob('db/fixtures/**/*').reject { |f| File.directory?(f) }
