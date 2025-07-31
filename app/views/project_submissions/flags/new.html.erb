@@ -1,4 +1,4 @@
-<%= render ModalComponent.new(title: 'Report submission')  do %>
+<%= render Overlays::ModalComponent.new(title: 'Report submission')  do %>
   <%= turbo_frame_tag 'flag_form', class: 'w-full' do %>
     <%= form_with model: [@project_submission, @flag], builder: TailwindFormBuilder do |form| %>
 

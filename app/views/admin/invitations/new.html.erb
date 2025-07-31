@@ -1,4 +1,4 @@
-<%= render ModalComponent.new(title: 'Invite a new team member')  do %>
+<%= render Overlays::ModalComponent.new(title: 'Invite a new team member')  do %>
   <%= turbo_frame_tag 'invitation_form', class: 'w-full' do %>
     <%= form_with model: resource, url: invitation_path(resource_name), builder: TailwindFormBuilder, class: 'w-full', html: { method: :post } do |form| %>
       <div class='space-y-6'>

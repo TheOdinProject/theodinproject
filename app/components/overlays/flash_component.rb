@@ -1,4 +1,4 @@
-class Alerts::FlashComponent < ApplicationComponent
+class Overlays::FlashComponent < ApplicationComponent
   DISSALLOWED_TYPES = %i[timedout].freeze
 
   def initialize(type:, message:)

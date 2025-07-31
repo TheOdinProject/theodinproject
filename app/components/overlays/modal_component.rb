@@ -1,4 +1,4 @@
-class ModalComponent < ApplicationComponent
+class Overlays::ModalComponent < ApplicationComponent
   def initialize(title:)
     @title = title
   end

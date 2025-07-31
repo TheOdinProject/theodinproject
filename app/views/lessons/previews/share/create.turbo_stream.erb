@@ -1,5 +1,5 @@
 <%= turbo_stream.replace 'modal' do %>
-  <%= render ModalComponent.new(title: 'Share preview') do %>
+  <%= render Overlays::ModalComponent.new(title: 'Share preview') do %>
     <div class="w-full h-14">
       <div data-controller="clipboard">
         <div class="relative flex items-center">
