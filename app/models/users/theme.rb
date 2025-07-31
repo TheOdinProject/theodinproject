@@ -3,8 +3,8 @@ module Users
     include Comparable
 
     DEFAULT_THEMES = [
-      %w[light sun],
-      %w[dark moon]
+      %w[light moon],
+      %w[dark sun]
     ].freeze
 
     def self.default_themes
