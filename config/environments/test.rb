@@ -20,9 +20,7 @@ Rails.application.configure do
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
-  config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
-  }
+  config.public_file_server.headers = { 'Cache-Control' => "public, max-age=#{1.hour.to_i}" }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
@@ -40,20 +38,21 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array.
+  config.action_mailer.delivery_method = :test
+
   test_port = 3001 + ENV['TEST_ENV_NUMBER'].to_i
   config.action_mailer.default_url_options = {
     host: ENV.fetch('HOST', 'localhost'),
     port: ENV.fetch('HOST_PORT', test_port)
   }
+
   routes.default_url_options = {
     host: ENV.fetch('HOST', 'localhost'),
     port: ENV.fetch('HOST_PORT', test_port)
   }
-
-  # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
@@ -64,16 +63,19 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
-  config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
-  config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
-  config.active_record.encryption.key_derivation_salt = 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
-  # Raise error when a before_action's only/except options reference missing actions
+  # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Required to test emails / jobs fired with deliver_later / perform_later
+  config.active_job.queue_adapter = :inline
+
+  config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
+  config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
+  config.active_record.encryption.key_derivation_salt = 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'
 end
