@@ -98,11 +98,8 @@ jobs:
 
       - name: Setup test database
         run: |
-          bundle exec rake parallel:create
-          bundle exec rake parallel:load_schema
-          bundle exec rake parallel:migrate
+          bin/rails db:schema:load
 
       - name: Run tests
         run: |
-          bin/rails db:schema:load
           bin/rspec
