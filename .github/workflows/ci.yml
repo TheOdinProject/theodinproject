@@ -98,6 +98,7 @@ jobs:
 
       - name: Setup test database
         run: |
+          bin/rails db:create
           bin/rails db:schema:load
 
       - name: Run tests
