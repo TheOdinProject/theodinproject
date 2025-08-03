@@ -8,7 +8,7 @@ plugins:
 
 AllCops:
   TargetRubyVersion: 3.4
-  TargetRailsVersion: 7.1
+  TargetRailsVersion: 7.2
   ExtraDetails: true
   DisplayStyleGuide: true
   Include:
@@ -220,6 +220,7 @@ Rails/I18nLocaleTexts:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
+    - 'config/routes.rb'
     - 'spec/**/*'
   Enabled: true
 
