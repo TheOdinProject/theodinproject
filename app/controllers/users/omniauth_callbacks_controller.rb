@@ -21,7 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
   def send_welcome_email
-    return unless  @user&.persisted? && @user.sign_in_count == 1 && ENV['STAGING'].nil?
+    return unless @user&.persisted? && @user.sign_in_count == 1 && ENV['STAGING'].nil?
 
     UserMailer.send_welcome_email_to(@user).deliver_now
   end
