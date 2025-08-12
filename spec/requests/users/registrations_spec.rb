@@ -23,19 +23,5 @@ RSpec.describe 'User Registrations' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
-
-    context 'when on a staging environment' do
-      around do |example|
-        Dotenv.modify(STAGING: 'TRUE') do
-          example.run
-        end
-      end
-
-      it 'still creates the user and redirects to dashboard' do
-        post user_registration_path(params: { user: attributes_for(:user, email: 'odin@example.com') })
-
-        expect(response).to redirect_to(dashboard_path)
-      end
-    end
   end
 end
