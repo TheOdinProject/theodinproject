@@ -28,7 +28,7 @@
     <%= javascript_include_tag 'main', defer: true, data: { turbo_track: 'reload' } %>
   </head>
 
-  <body class="h-full bg-white text-gray-600 dark:bg-gray-900 dark:text-gray-300">
+  <body data-controller="dialog-router" class="h-full bg-white text-gray-600 dark:bg-gray-900 dark:text-gray-300">
     <div>
       <%= render 'layouts/admin/sidebar_nav' %>
       <div class="lg:pl-72">

@@ -1,0 +1,14 @@
+<div
+  id="<%= id %>"
+  data-controller="overlays--dialog"
+  data-dialog-router-target="dialog"
+  data-action="overlays--dialog:click:outside->overlays--dialog#close turbo:submit-end->overlays--dialog#submitEnd keydown->overlays--dialog#onKeydown">
+  <dialog
+    data-overlays--dialog-target="dialog"
+    class="z-50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 m-0 transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:w-full sm:max-w-lg sm:p-6 data-closed:sm:translate-y-0 data-closed:sm:scale-95 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10 backdrop:bg-gray-500/75 dark:backdrop:bg-black/50">
+    <div data-overlays--dialog-target="content">
+      <%= content %>
+    </div>
+  </dialog>
+</div>
+

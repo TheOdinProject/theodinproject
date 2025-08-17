@@ -34,7 +34,13 @@
             Edit
           <% end %>
 
-          <%= link_to lesson_project_submission_path(project_submission.lesson, project_submission), class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200', role: 'menuitem', tabindex: '-1', data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone.', test_id: 'delete-submission' } do %>
+          <%= link_to(
+                lesson_project_submission_path(project_submission.lesson, project_submission),
+                class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200',
+                role: 'menuitem',
+                tabindex: '-1',
+                data: { action: "dialog-router#open:prevent visibility#off", dialog_router_id_param: "delete_user_submission", test_id: 'delete-submission-btn' }
+              ) do %>
             <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
             Delete
           <% end %>
@@ -42,4 +48,18 @@
       </div>
     </div>
   </div>
+
+  <%= render Overlays::DialogComponent.new(id: "delete_user_submission") do |component| %>
+    <div>
+      <h3 id="dialog-title" class="text-base font-semibold text-gray-900 dark:text-white">Delete project</h3>
+      <div class="mt-2">
+        <p class="text-sm text-gray-600 dark:text-gray-300">Are you sure you want to remove this project? This action cannot be undone.</p>
+      </div>
+    </div>
+
+    <div class="mt-5 flex flex-row-reverse gap-x-2">
+      <%= button_to "Delete", lesson_project_submission_path(project_submission.lesson, project_submission), method: :delete, class: "button button--danger bg-red-600 !px-3 !py-2 text-sm font-semibold min-w-0 focus:ring-0 focus:ring-offset-0", data: { test_id: "confirm-delete-submission-btn"} %>
+      <button type="button" data-action="overlays--dialog#close" class="button button--secondary px-3 py-2 text-sm font-semibold min-w-0">Cancel</button>
+    </div>
+  <% end %>
 </div>
