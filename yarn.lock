@@ -5259,9 +5259,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mermaid@npm:^11.9.0":
-  version: 11.9.0
-  resolution: "mermaid@npm:11.9.0"
+"mermaid@npm:^11.10.0":
+  version: 11.10.0
+  resolution: "mermaid@npm:11.10.0"
   dependencies:
     "@braintree/sanitize-url": "npm:^7.0.4"
     "@iconify/utils": "npm:^2.1.33"
@@ -5283,7 +5283,7 @@ __metadata:
     stylis: "npm:^4.3.6"
     ts-dedent: "npm:^2.2.0"
     uuid: "npm:^11.1.0"
-  checksum: 10c0/f3420d0fd8919b31e36354cbf0ddd26398898c960e0bcb0e52aceae657245fcf1e5fe3e28651bff83c9b1fb8b6d3e07fc8b26d111ef3159fcf780d53ce40a437
+  checksum: 10c0/0ba7cfcd29c0e7a7cf91e1ba0ba763e8d83ad28d844b3a6c3f114630c0846e2023a24975ed6986ed224bd538d048bd132e5acf495933356f1625706ae4b6474f
   languageName: node
   linkType: hard
 
@@ -6268,7 +6268,7 @@ __metadata:
     esbuild-plugin-prismjs: "npm:^1.0.8"
     esbuild-rails: "npm:^1.0.7"
     flatpickr: "npm:^4.6.13"
-    mermaid: "npm:^11.9.0"
+    mermaid: "npm:^11.10.0"
     postcss: "npm:^8.5.6"
     prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.6"
