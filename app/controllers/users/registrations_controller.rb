@@ -13,7 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     dashboard_path
   end
 
-  def after_inactive_sign_up_path_for(_resource)
+  def after_inactive_sign_up_path_for(hello
+    )
     dashboard_path
   end
 end
