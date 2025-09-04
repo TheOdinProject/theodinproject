@@ -177,6 +177,14 @@ en:
             - name: "github"
               url: "https://github.com/ChargrilledChook"
 
+        - name: "Mao"
+          image: "https://avatars.githubusercontent.com/u/122839503?v=4"
+          location: "UK"
+          joined: "2024"
+          socials:
+            - name: "github"
+              url: "https://github.com/MaoShizhong"
+
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
       members:
@@ -282,7 +290,3 @@ en:
         - name: "Antoni Sobolewski"
           image: "https://avatars.githubusercontent.com/u/95084627?v=4"
           url: "https://github.com/scheals"
-
-        - name: "Mao"
-          image: "https://avatars.githubusercontent.com/u/122839503?v=4"
-          url: "https://github.com/MaoShizhong"
