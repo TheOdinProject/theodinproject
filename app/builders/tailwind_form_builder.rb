@@ -1,4 +1,34 @@
 class TailwindFormBuilder < ActionView::Helpers::FormBuilder
+  # rubocop:disable Layout/LineLength
+  TEXT_FIELD_CLASSES = ClassVariants.build(
+    base: 'block w-full border rounded-md py-2 px-3 focus:outline-hidden dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-2 dark:focus:border-transparent',
+    variants: {
+      state: {
+        valid: 'border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark:focus:ring-blue-400',
+        invalid: 'pr-10 border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
+      }
+    }
+  )
+
+  LABEL_CLASSES = ClassVariants.build(
+    base: 'block text-sm font-medium text-gray-700 dark:text-gray-200'
+  )
+
+  SELECT_CLASSES = ClassVariants.build(
+    base: 'block w-full mt-6 sm:mt-0 border rounded-md py-2 px-3 focus:outline-hidden dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark:focus:ring-blue-400'
+  )
+
+  ERROR_FIELD_CLASSES = ClassVariants.build(
+    base: 'mt-2 text-sm text-red-600 dark:text-red-500',
+    variants: {
+      state: {
+        visible: '',
+        hidden: 'hidden'
+      }
+    }
+  )
+  # rubocop:enable Layout/LineLength
+
   def text_field(attribute, options = {}, &)
     if options[:leading_icon]
       default_opts = { class: "#{classes_for(attribute, options)} pl-10" }
@@ -36,7 +66,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def label(attribute, text = nil, options = {}, &)
-    default_opts = { class: "#{@template.yass(label: :base)} #{options[:class]}" }
+    default_opts = { class: LABEL_CLASSES.render(class: options[:class]) }
 
     super(attribute, text, options.merge(default_opts), &)
   end
@@ -48,7 +78,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def select(attribute, choices, options = {}, html_options = {})
-    default_opts = { class: "#{@template.yass(select: :base)} #{html_options[:class]}" }
+    default_opts = { class: SELECT_CLASSES.render(class: html_options[:class]) }
 
     super(attribute, choices, options, html_options.merge(default_opts))
   end
@@ -58,7 +88,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   def classes_for(attribute, options)
     state = @object && @object.errors[attribute].present? ? :invalid : :valid
 
-    [@template.yass(text_field: state), options[:class]].compact.join(' ')
+    TEXT_FIELD_CLASSES.render(state: state, class: options[:class])
   end
 
   def text_layout(attribute)
@@ -90,7 +120,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
 
     state = @object.errors[attribute].present? ? :visible : :hidden
 
-    @template.content_tag :div, class: @template.yass(error_field: state) do
+    @template.content_tag :div, class: ERROR_FIELD_CLASSES.render(state: state) do
       @object.errors[attribute].first
     end
   end
