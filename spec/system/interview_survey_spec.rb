@@ -10,11 +10,46 @@ RSpec.describe 'Interview survey' do
   context 'when the feature is enabled' do
     before do
       Flipper.enable(:survey_feature)
+      create(:interview_concept, name: 'Rails routing')
     end
 
-    it 'shows the survey' do
+    it 'creates an interview survey with existing concepts' do
       visit new_interview_survey_path
-      expect(page).to have_content('Interview Survey')
+
+      fill_in :interview_survey_interview_date, with: Date.current
+
+      find('div[aria-label="Combobox"]').click
+      find('div[class="ss-option"]', text: 'Rails routing').click
+
+      click_on 'Submit'
+
+      expect(page).to have_content('Survey Submitted')
+    end
+
+    it 'creates an interview survey with new concepts' do
+      visit new_interview_survey_path
+
+      fill_in :interview_survey_interview_date, with: Date.current
+
+      find('div[aria-label="Combobox"]').click
+      find('input[type="search"]').set('React props').send_keys(:return)
+
+      click_on 'Submit'
+
+      expect(page).to have_content('Survey Submitted')
+    end
+
+    it 'reports validation errors with invalid form data' do
+      visit new_interview_survey_path
+
+      fill_in :interview_survey_interview_date, with: Date.current + 3.days
+
+      find('div[aria-label="Combobox"]').click
+      find('input[type="search"]').set('React props').send_keys(:return)
+
+      click_on 'Submit'
+
+      expect(page).to have_content("Interview date can't be in the future")
     end
   end
 
