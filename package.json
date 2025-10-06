@@ -32,7 +32,7 @@
     "prismjs": "^1.30.0",
     "sortablejs": "^1.15.6",
     "stimulus-use": "^0.52.3",
-    "tailwindcss": "4.1.11",
+    "tailwindcss": "4.1.14",
     "tippy.js": "^6.3.7"
   },
   "browserslist": [
