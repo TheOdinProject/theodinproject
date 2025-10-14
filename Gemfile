@@ -84,7 +84,7 @@ group :test do
   gem 'cuprite', '~> 0.15'
   gem 'erb_lint', '~> 0.9', require: false
   gem 'factory_bot_rails', '~> 6.4'
-  gem 'faraday-retry', '~> 2.2'
+  gem 'faraday-retry', '~> 2.3'
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'
   gem 'rspec-snapshot', '~> 2.0'
