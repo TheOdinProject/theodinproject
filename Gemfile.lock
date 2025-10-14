@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (5.5.0)
+    aasm (5.5.1)
       concurrent-ruby (~> 1.0)
     actioncable (7.2.2.1)
       actionpack (= 7.2.2.1)
@@ -619,7 +619,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm (~> 5.3)
+  aasm (~> 5.5)
   barnes (~> 0.0)
   bootsnap (~> 1.18)
   brakeman
