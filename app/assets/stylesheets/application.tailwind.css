@@ -20,6 +20,10 @@
 
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
+
+  `cursor: pointer` added to buttons and [role="button"] when not disabled,
+  to preserve expected interactivity from Tailwind v3.
+
 */
 @layer base {
   *,
@@ -29,4 +33,9 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+  button:not([disabled]),
+ [role="button"]:not([disabled]) {
+ cursor: pointer;
+}
+
 }
