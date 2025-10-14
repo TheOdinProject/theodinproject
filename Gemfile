@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.2.2.1'
 
-gem 'aasm', '~> 5.3'
+gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'class_variants', '~> 1.1'
