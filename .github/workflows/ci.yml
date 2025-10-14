@@ -76,6 +76,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Prevent https://github.com/rails/rails/issues/53661
+        run: touch tmp/local_secret.txt && openssl rand -hex 64 > tmp/local_secret.txt
+
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
