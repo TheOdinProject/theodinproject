@@ -27,7 +27,7 @@
     <%= javascript_include_tag 'main', defer: true, data: { turbo_track: 'reload' } %>
   </head>
 
-  <body class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
+  <body data-controller="dialog-router" class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
     <%= render AnnouncementComponent.new(announcement: Announcement.showable_messages(disabled_announcement_ids).first) %>
     <%= render 'shared/navbar' %>
     <div id="flash-messages">

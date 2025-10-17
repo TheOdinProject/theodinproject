@@ -17,10 +17,8 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
     end
 
     find(:test_id, 'submission-action-menu-btn').click
-
-    page.accept_confirm do
-      find(:test_id, 'delete-submission').click
-    end
+    find(:test_id, 'delete-submission-btn').click
+    find(:test_id, 'confirm-delete-submission-btn').click
 
     within(:test_id, 'user-submissions-list') do
       expect(page).to have_no_content(lesson.title)
