@@ -1,6 +1,16 @@
 class Course::BadgeComponent < ApplicationComponent
   delegate :user_signed_in?, to: :helpers
 
+  style do
+    variant type: :default do
+      slot :default_badge, class: 'w-24 h-24 sm:w-28 sm:h-28'
+    end
+
+    variant type: :small do
+      slot :default_badge, class: 'w-24 h-24'
+    end
+  end
+
   def initialize(course:, options: {})
     @course = course
     @options = options
@@ -26,6 +36,10 @@ class Course::BadgeComponent < ApplicationComponent
 
   def size
     options[:size] || :default
+  end
+
+  def variant
+    size
   end
 
   def option_params

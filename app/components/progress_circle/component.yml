@@ -1,9 +1,0 @@
-text:
-  default: 'text-xs sm:text-sm'
-  small: 'text-xs p-2'
-container_size:
-  default: 'h-24 w-24 sm:h-28 sm:w-28'
-  small: 'h-24 w-24'
-icon_size:
-  default: 'w-20 h-20 sm:p-2 sm:w-24 sm:h-24'
-  small: 'w-24 h-24 p-3'

@@ -3,7 +3,7 @@
     data-controller="progress"
     data-progress-percent-value="<%= percentage %>"
     data-test-id='progress-circle'
-    class="inline-flex items-center justify-center group <%= yass(container_size: size) %>">
+    class="inline-flex items-center justify-center group <%= classes_for(:container_size) %>">
 
     <svg width="100%" height="100%" fill="none" class="overflow-visible z-20" viewBox="0 0 20 20">
       <circle
@@ -29,13 +29,13 @@
         pathLength="100" />
       </svg>
 
-    <div class="z-10 absolute group-hover:opacity-0 rounded-full overflow-hidden <%= background_color %> <%= show_icon_class %> <%= yass(icon: size) %>">
-      <div class="<%= yass(icon_size: size) %>">
+    <div class="z-10 absolute group-hover:opacity-0 rounded-full overflow-hidden <%= background_color %> <%= show_icon_class %>">
+      <div class="<%= classes_for(:icon_size) %>">
         <%= icon %>
       </div>
     </div>
     <span class="absolute">
-      <span class="block transition-opacity delay-200 duration-500 ease-in-out text-gray-400 leading-5 break-words w-16 sm:w-20 text-center font-medium <%= yass(text: size) %>">
+      <span class="block transition-opacity delay-200 duration-500 ease-in-out text-gray-400 leading-5 break-words w-16 sm:w-20 text-center font-medium <%= classes_for(:text) %>">
         <%= number_to_percentage(percentage, precision: 0) %> <span class="hidden sm:block">Complete</span>
       </span>
     </span>
