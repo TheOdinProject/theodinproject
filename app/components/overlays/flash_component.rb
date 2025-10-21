@@ -1,7 +1,7 @@
 class Overlays::FlashComponent < ApplicationComponent
-  DISSALLOWED_TYPES = %i[timedout].freeze
+  DISALLOWED_TYPES = %i[timedout].freeze
 
-  FLASH_CLASSES = ClassVariants.build do
+  style do
     variant type: :notice do
       slot :bg, class: 'bg-green-100'
       slot :icon, class: 'text-green-700'
@@ -24,7 +24,7 @@ class Overlays::FlashComponent < ApplicationComponent
   end
 
   def render?
-    DISSALLOWED_TYPES.exclude?(type)
+    DISALLOWED_TYPES.exclude?(type)
   end
 
   def icon_path
@@ -34,8 +34,8 @@ class Overlays::FlashComponent < ApplicationComponent
     }.fetch(type)
   end
 
-  def classes(slot)
-    FLASH_CLASSES.render(slot, type: type)
+  def variant
+    type
   end
 
   private
