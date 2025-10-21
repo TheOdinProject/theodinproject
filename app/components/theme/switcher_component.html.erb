@@ -1,4 +1,4 @@
-<%= link_to themes_path(theme: other_theme.name), class: yass(link: type), data: { turbo_method: :put } do %>
-  <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: yass(icon: type), aria: true, title: 'theme icon' %>
+<%= link_to themes_path(theme: other_theme.name), class: classes_for(:link), data: { turbo_method: :put } do %>
+  <%= inline_svg_tag "icons/#{current_theme.icon}.svg", class: classes_for(:icon), aria: true, title: 'theme icon' %>
   <%= text unless icon_only? %>
 <% end %>
