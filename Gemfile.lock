@@ -198,7 +198,7 @@ GEM
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
-    flipper (1.3.4)
+    flipper (1.3.6)
       concurrent-ruby (< 2)
     flipper-active_record (1.3.0)
       activerecord (>= 4.2, < 8)
@@ -640,7 +640,7 @@ DEPENDENCIES
   erb_lint (~> 0.9)
   factory_bot_rails (~> 6.4)
   faraday-retry (~> 2.3)
-  flipper (~> 1.2)
+  flipper (~> 1.3)
   flipper-active_record (~> 1.2)
   flipper-ui (~> 1.3)
   friendly_id (~> 5.5)
