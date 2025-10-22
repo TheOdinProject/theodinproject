@@ -4,29 +4,28 @@
   <div class="page-container">
     <h1 class="page-heading-title">Change admin password</h1>
 
-    <div class='max-w-lg mx-auto'>
+    <div class="max-w-lg mx-auto">
       <%= render CardComponent.new do |card| %>
         <% card.with_body do %>
           <%= form_for resource, as: resource_name, url: password_path(resource_name), builder: TailwindFormBuilder, html: { method: :put, class: 'grid grid-cols-6 gap-6 grid-flow-row' } do |form| %>
-              <%= form.hidden_field :reset_password_token %>
+            <%= form.hidden_field :reset_password_token %>
 
-              <% resource.errors[:reset_password_token].each do |error| %>
-                <span class="col-span-full text-sm text-red-600 dark:text-red-500"><%= error.html_safe %></span>
-              <% end %>
+            <% resource.errors[:reset_password_token].each do |error| %>
+              <span class="col-span-full text-sm text-red-600 dark:text-red-500"><%= error.html_safe %></span>
+            <% end %>
 
-              <div class="col-span-full">
-                <%= form.label :password, 'New password' %>
-                <%= form.password_field :password, required: true %>
-              </div>
+            <div class="col-span-full">
+              <%= form.label :password, 'New password' %>
+              <%= form.password_field :password, required: true %>
+            </div>
 
-              <div class="col-span-full">
-                <%= form.label :password_confirmation, 'Confirm new password' %>
-                <%= form.password_field :password_confirmation, required: true %>
-              </div>
+            <div class="col-span-full">
+              <%= form.label :password_confirmation, 'Confirm new password' %>
+              <%= form.password_field :password_confirmation, required: true %>
+            </div>
 
-              <div class="col-span-full">
-                <%= form.submit 'Change my password', class: 'button button--primary w-full text-sm' %>
-              </div>
+            <div class="col-span-full">
+              <%= form.submit 'Change my password', class: 'button button--primary w-full text-sm' %>
             </div>
           <% end %>
         <% end %>

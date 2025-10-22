@@ -19,73 +19,72 @@
     data-transition-leave-end="transform opacity-0">
   </div>
 
+  <div
+    data-visibility-target="content"
+    class="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-hidden hidden dark:bg-gray-800"
+    data-transition-enter="transition ease-in-out duration-200 transform"
+    data-transition-enter-start="-translate-x-full"
+    data-transition-enter-end="translate-x-0"
+    data-transition-leave="transition ease-in-out duration-200 transform"
+    data-transition-leave-start="translate-x-0"
+    data-transition-leave-end="-translate-x-full">
+
     <div
       data-visibility-target="content"
-      class="relative flex-1 flex flex-col max-w-xs w-full bg-white focus:outline-hidden hidden dark:bg-gray-800"
-      data-transition-enter="transition ease-in-out duration-200 transform"
-      data-transition-enter-start="-translate-x-full"
-      data-transition-enter-end="translate-x-0"
-      data-transition-leave="transition ease-in-out duration-200 transform"
-      data-transition-leave-start="translate-x-0"
-      data-transition-leave-end="-translate-x-full">
+      class="absolute top-2 right-2 -mr-12 pt-3 hidden"
+      data-transition-enter="transition ease-in-out duration-200"
+      data-transition-enter-start="transform opacity-0"
+      data-transition-enter-end="transform opacity-100"
+      data-transition-leave="transition ease-in duration-200"
+      data-transition-leave-start="transform opacity-100"
+      data-transition-leave-end="transform opacity-0">
+      <button type="button" data-action="click->visibility#off" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-white">
+        <span class="sr-only">Close sidebar</span>
+        <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: 'Close menu' %>
+      </button>
+    </div>
 
-      <div
-        data-visibility-target="content"
-        class="absolute top-2 right-2 -mr-12 pt-3 hidden"
-        data-transition-enter="transition ease-in-out duration-200"
-        data-transition-enter-start="transform opacity-0"
-        data-transition-enter-end="transform opacity-100"
-        data-transition-leave="transition ease-in duration-200"
-        data-transition-leave-start="transform opacity-100"
-        data-transition-leave-end="transform opacity-0">
-        <button type="button" data-action="click->visibility#off" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-white">
-          <span class="sr-only">Close sidebar</span>
-          <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: 'Close menu' %>
-        </button>
+    <div class="flex-1 h-0 pt-3 pb-4 overflow-y-auto">
+      <div class="shrink-0 flex items-center px-4">
+        <%= render LogoComponent.new(classes: 'h-12 w-auto') %>
       </div>
-
-      <div class="flex-1 h-0 pt-3 pb-4 overflow-y-auto">
-        <div class="shrink-0 flex items-center px-4">
-          <%= render LogoComponent.new(classes: 'h-12 w-auto') %>
+      <nav aria-label="Sidebar" class="mt-3">
+        <div class="px-2 space-y-1">
+          <% if user_signed_in? %>
+            <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard', icon_path: 'icons/home.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: notifications_path, text: 'Notifications', test_id: 'nav-notifications', icon_path: 'icons/bell.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support Us', test_id: 'nav-support-us', icon_path: 'icons/heart-outline.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
+          <% else %>
+            <%= render Nav::ItemComponent.new(path: root_path, text: 'Home', test_id: 'nav-home', icon_path: 'icons/home.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about', icon_path: 'icons/information.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support Us', test_id: 'nav-support-us', icon_path: 'icons/heart-outline.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
+          <% end %>
         </div>
-        <nav aria-label="Sidebar" class="mt-3">
-          <div class="px-2 space-y-1">
-            <% if user_signed_in? %>
-              <%= render Nav::ItemComponent.new(path: dashboard_path, text: 'Dashboard', test_id: 'nav-dashboard', icon_path: 'icons/home.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: notifications_path, text: 'Notifications', test_id: 'nav-notifications', icon_path: 'icons/bell.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support Us', test_id: 'nav-support-us', icon_path: 'icons/heart-outline.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
-            <% else %>
-              <%= render Nav::ItemComponent.new(path: root_path, text: 'Home', test_id: 'nav-home', icon_path: 'icons/home.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: paths_url, text: 'All Paths', test_id: 'nav-all-paths', icon_path: 'icons/map.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: about_path, text: 'About', test_id: 'nav-about', icon_path: 'icons/information.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: support_us_path, text: 'Support Us', test_id: 'nav-support-us', icon_path: 'icons/heart-outline.svg', options: { mobile: true }) %>
-              <%= render Nav::ItemComponent.new(path: ODIN_CHAT_URL, text: 'Community', test_id: 'nav-community', icon_path: 'icons/speech-bubbles.svg', options: { mobile: true }) %>
+        <hr class="border-t border-gray-200 my-4" aria-hidden="true">
+        <div class="px-2 space-y-1">
+          <% if user_signed_in? %>
+            <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', options: { mobile: true }) %>
+             <%= turbo_frame_tag 'theme_switcher_mobile' do %>
+              <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
             <% end %>
-          </div>
-          <hr class="border-t border-gray-200 my-4" aria-hidden="true">
-          <div class="px-2 space-y-1">
-            <% if user_signed_in? %>
-              <%= render Nav::ItemComponent.new(path: edit_users_profile_path, text: 'Settings', test_id: 'nav-settings', icon_path: 'icons/gear.svg', options: { mobile: true }) %>
-               <%= turbo_frame_tag 'theme_switcher_mobile' do %>
-                <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
-              <% end %>
-              <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', options: { method: :delete, mobile: true }) %>
-            <% else %>
-              <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', options: { mobile: true }) %>
-              <%= turbo_frame_tag 'theme_switcher_mobile' do %>
-                <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
-              <% end %>
-              <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', options: { mobile: true }) %>
+            <%= render Nav::ItemComponent.new(path: sign_out_path, text: 'Sign out', test_id: 'nav-sign-out', icon_path: 'icons/sign-out.svg', options: { method: :delete, mobile: true }) %>
+          <% else %>
+            <%= render Nav::ItemComponent.new(path: sign_up_path, text: 'Get started', test_id: 'nav-sign-up', icon_path: 'icons/rocket.svg', options: { mobile: true }) %>
+            <%= turbo_frame_tag 'theme_switcher_mobile' do %>
+              <%= render Theme::SwitcherComponent.new(current_theme:, type: :mobile) %>
             <% end %>
-          </div>
-        </nav>
-      </div>
+            <%= render Nav::ItemComponent.new(path: sign_in_path, text: 'Sign in', test_id: 'nav-sign-in', icon_path: 'icons/sign-in.svg', options: { mobile: true }) %>
+          <% end %>
+        </div>
+      </nav>
     </div>
+  </div>
 
-    <div class="shrink-0 w-14" aria-hidden="true">
-      <!-- Force sidebar to shrink to fit close icon -->
-    </div>
+  <div class="shrink-0 w-14" aria-hidden="true">
+    <!-- Force sidebar to shrink to fit close icon -->
   </div>
 </div>
