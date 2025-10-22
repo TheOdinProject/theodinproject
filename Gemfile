@@ -8,7 +8,6 @@ gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'class_variants', '~> 1.1'
-gem 'classy-yaml', '~> 1.2'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'debug', '~> 1.10'
 gem 'devise', '~> 4.9'

@@ -3,7 +3,6 @@ require 'rails_helper'
 # To update all snapshots run: `UPDATE_SNAPSHOTS=true rspec spec/builders/tailwind_form_builder_spec.rb`
 
 class TestHelper < ActionView::Base
-  include Classy::Yaml::Helpers
   include InlineSvg::ActionView::Helpers
 end
 
