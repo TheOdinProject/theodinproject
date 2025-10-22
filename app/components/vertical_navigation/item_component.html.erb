@@ -1,4 +1,4 @@
-<%= link_to href, class: "#{yass(link: status)} group rounded-md px-3 py-2 flex items-center text-sm font-medium" do %>
-  <%= inline_svg_tag "icons/#{icon_path}", class: "#{yass(icon: status)} shrink-0 -ml-1 mr-3 h-6 w-6", aria: true, title: "#{name} icon" %>
+<%= link_to href, class: "#{classes_for(:link)} group rounded-md px-3 py-2 flex items-center text-sm font-medium" do %>
+  <%= inline_svg_tag "icons/#{icon_path}", class: "#{classes_for(:icon)} shrink-0 -ml-1 mr-3 h-6 w-6", aria: true, title: "#{name} icon" %>
   <span class="truncate"> <%= name %> </span>
 <% end %>
