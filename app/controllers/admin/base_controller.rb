@@ -1,7 +1,6 @@
 # rubocop:disable Rails/ApplicationController
 module Admin
   class BaseController < ActionController::Base
-    helper(Classy::Yaml::Helpers)
     include Pagy::Backend
     include CurrentTheme
 
