@@ -125,7 +125,7 @@ GEM
       unicode (>= 0.4.4.5)
     css_parser (1.21.1)
       addressable
-    cssbundling-rails (1.4.1)
+    cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
     cuprite (0.15.1)
       capybara (~> 3.0)
