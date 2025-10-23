@@ -123,7 +123,7 @@ GEM
     cronex (0.15.0)
       tzinfo
       unicode (>= 0.4.4.5)
-    css_parser (1.19.1)
+    css_parser (1.21.1)
       addressable
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
@@ -267,7 +267,7 @@ GEM
     loofah (2.24.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    lookbook (2.3.4)
+    lookbook (2.3.13)
       activemodel
       css_parser
       htmlbeautifier (~> 1.3)
@@ -284,7 +284,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.4)
+    marcel (1.1.0)
     matrix (0.4.2)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
@@ -432,7 +432,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
-    redcarpet (3.6.0)
+    redcarpet (3.6.1)
     redis (5.4.0)
       redis-client (>= 0.22.0)
     redis-client (0.24.0)
@@ -450,7 +450,7 @@ GEM
       netrc (~> 0.8)
     rexml (3.4.2)
     rotp (6.3.0)
-    rouge (4.5.0)
+    rouge (4.6.1)
     rqrcode (3.1.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 2.0)
@@ -588,8 +588,8 @@ GEM
     vcr (6.3.1)
       base64
     version_gem (1.1.4)
-    view_component (4.0.2)
-      activesupport (>= 7.1.0, < 8.1)
+    view_component (4.1.0)
+      activesupport (>= 7.1.0, < 8.2)
       concurrent-ruby (~> 1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -646,7 +646,7 @@ DEPENDENCIES
   kramdown-parser-gfm
   letter_opener (~> 1.8)
   listen (~> 3.9)
-  lookbook (~> 2.3.4)
+  lookbook (~> 2.3)
   newrelic_rpm (~> 9.16)
   noticed (~> 1.6)
   octokit (~> 10.0)

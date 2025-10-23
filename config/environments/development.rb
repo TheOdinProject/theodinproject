@@ -82,8 +82,8 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   # Settings for view component previews https://viewcomponent.org/guide/previews.html
-  config.view_component.preview_paths << Rails.root.join('spec/components/previews')
-  config.view_component.default_preview_layout = 'component_preview'
+  config.view_component.previews.paths << Rails.root.join('spec/components/previews')
+  config.view_component.previews.default_layout = 'component_preview'
 
   config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
   config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
