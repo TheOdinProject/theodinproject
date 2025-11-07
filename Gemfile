@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '7.2.2.1'
+gem 'rails', '8.0.4'
 
 gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
