@@ -100,6 +100,9 @@ GEM
     brakeman (7.1.1)
       racc
     builder (3.3.0)
+    bundler-audit (0.9.2)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -622,6 +625,7 @@ DEPENDENCIES
   barnes (~> 0.0)
   bootsnap (~> 1.18)
   brakeman
+  bundler-audit
   capybara (~> 3.40)
   capybara-email (~> 3.0)
   class_variants (~> 1.1)

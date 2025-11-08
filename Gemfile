@@ -72,6 +72,7 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   gem 'dotenv-rails', '~> 3.1'
   gem 'parallel_tests', '~> 5.4'
   gem 'rspec-rails', '~> 7.0'

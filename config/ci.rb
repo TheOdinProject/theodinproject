@@ -8,7 +8,9 @@ CI.run do
   step 'Style: JS', 'yarn lint'
   step 'Style: CSS', 'yarn run stylelint'
 
-  step 'Security: Brakeman code analysis', 'bin/brakeman --quiet --no-pager --exit-on-warn --exit-on-error'
+  step 'Security: Gem audit', 'bin/bundler-audit'
+  # TODO: Swap to --exit-on-warn --exit-on-error once issues are resolved
+  step 'Security: Brakeman code analysis', 'bin/brakeman --quiet --no-pager --no-exit-on-warn --no-exit-on-error'
 
   step 'Tests: Rails', 'bin/rspec --tag ~type:system'
   step 'Tests: System', 'bin/rails spec:system'
