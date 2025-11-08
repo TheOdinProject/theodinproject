@@ -15,16 +15,16 @@
 # If set to `:offset`, `to_time` methods will use the UTC offset.
 # If `false`, `to_time` methods will convert to the local system UTC offset instead.
 #++
-# Rails.application.config.active_support.to_time_preserves_timezone = :zone
+Rails.application.config.active_support.to_time_preserves_timezone = :zone
 
 ###
 # When both `If-Modified-Since` and `If-None-Match` are provided by the client
 # only consider `If-None-Match` as specified by RFC 7232 Section 6.
 # If set to `false` both conditions need to be satisfied.
 #++
-# Rails.application.config.action_dispatch.strict_freshness = true
+Rails.application.config.action_dispatch.strict_freshness = true
 
 ###
 # Set `Regexp.timeout` to `1`s by default to improve security over Regexp Denial-of-Service attacks.
 #++
-# Regexp.timeout = 1
+Regexp.timeout = 1
