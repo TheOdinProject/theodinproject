@@ -290,7 +290,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0806)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (5.26.0)
     msgpack (1.7.2)
     multi_json (1.15.0)
@@ -310,8 +309,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (9.16.0)
     nio4r (2.7.3)
-    nokogiri (1.18.10)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.18.10-arm64-darwin)
       racc (~> 1.4)
     noticed (1.6.3)
       http (>= 4.0.0)
@@ -428,6 +426,8 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
+    rbs (3.9.5)
+      logger
     rdoc (6.15.0)
       erb
       psych (>= 4.0.0)
@@ -520,6 +520,12 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
+    ruby-lsp (0.26.2)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 1.2, < 2.0)
+      rbs (>= 3, < 5)
+    ruby-lsp-rspec (0.1.28)
+      ruby-lsp (~> 0.26.0)
     ruby-progressbar (1.13.0)
     sanitize (7.0.0)
       crass (~> 1.0.2)
@@ -676,6 +682,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
+  ruby-lsp-rspec
   ruby-progressbar (~> 1.13)
   scenic (~> 1.9)
   seed-fu (~> 2.3)
