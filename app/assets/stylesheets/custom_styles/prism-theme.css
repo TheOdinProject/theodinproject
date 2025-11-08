@@ -108,3 +108,7 @@ code[class*="language-"] {
   counter-increment: linenumber;
   line-height: 1.7rem;
 }
+
+.light .copy-to-clipboard-button[data-copy-state^="copy"] span {
+  color: #bbb;
+}
