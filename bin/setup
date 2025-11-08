@@ -21,6 +21,8 @@ FileUtils.chdir APP_ROOT do
   puts '\n== Preparing database =='
   system! 'bin/rails db:prepare'
 
+  system! 'bin/rails db:reset' if ARGV.include?('--reset')
+
   puts '\n== Importing curriculum =='
   system! 'rails curriculum:update_content'
 
