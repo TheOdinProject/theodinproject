@@ -379,7 +379,7 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.18)
-    rack-attack (6.7.0)
+    rack-attack (6.8.0)
       rack (>= 1.0, < 4)
     rack-mini-profiler (4.0.1)
       rack (>= 1.2.0)
@@ -660,7 +660,7 @@ DEPENDENCIES
   propshaft (~> 1.1)
   public_activity (~> 3.0)
   puma (~> 6.5)
-  rack-attack (~> 6.7)
+  rack-attack (~> 6.8)
   rack-mini-profiler
   rails (= 7.2.2.1)
   redis (~> 5.4)
