@@ -22,6 +22,7 @@ course.add_section do |section|
     shared_lessons.fetch('Introduction to the Back End'),
     shared_lessons.fetch('Introduction to Frameworks'),
     ruby_on_rails_lessons.fetch('Installing Rails'),
+    ruby_on_rails_lessons.fetch('Installing PostgreSQL'),
     ruby_on_rails_lessons.fetch('A Railsy Web Refresher')
   )
 end
@@ -100,7 +101,6 @@ course.add_section do |section|
   section.identifier_uuid = 'd391a4d0-8aa2-4eb0-bd58-2395ba3f837c'
 
   section.add_lessons(
-    ruby_on_rails_lessons.fetch('Installing PostgreSQL'),
     ruby_on_rails_lessons.fetch('Active Record Queries'),
     ruby_on_rails_lessons.fetch('Active Record Associations'),
     ruby_on_rails_lessons.fetch('Private Events'),
