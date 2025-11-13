@@ -4,4 +4,6 @@ class InterviewConcept < ApplicationRecord
 
   validates :name, presence: true
   validates :name, length: { minimum: 2, maximum: 25 }
+
+  normalizes :name, with: ->(name) { name.downcase }
 end
