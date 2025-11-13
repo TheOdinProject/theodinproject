@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include CurrentTheme
   include Pagy::Backend
+  extend RequiresFeature
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_sentry_user, if: :current_user
