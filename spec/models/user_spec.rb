@@ -16,6 +16,7 @@ RSpec.describe User do
   it { is_expected.to have_many(:flags).dependent(:destroy) }
   it { is_expected.to have_many(:notifications) }
   it { is_expected.to have_many(:likes).dependent(:destroy) }
+  it { is_expected.to have_many(:interview_surveys).dependent(:destroy) }
   it { is_expected.to belong_to(:path).optional(true) }
 
   context 'when user is created' do
