@@ -6,9 +6,21 @@ class InterviewSurvey < ApplicationRecord
   validates :interview_date, presence: true
   validate :interview_date_must_be_in_the_past
 
+  attribute :interview_concept_names, :string, array: true, default: -> { [] }
+
+  after_save :create_concepts
+
   def interview_date_must_be_in_the_past
     return if interview_date.present? && interview_date <= Time.zone.today
 
     errors.add(:interview_date, "Interview date can't be in the future")
+  end
+
+  private
+
+  def create_concepts
+    self.interview_concepts = interview_concept_names.compact_blank.map do |name|
+      InterviewConcept.find_or_create_by(name:)
+    end
   end
 end
