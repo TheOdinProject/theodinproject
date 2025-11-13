@@ -1,6 +1,7 @@
 class InterviewSurvey < ApplicationRecord
   belongs_to :user
-  has_many :interview_survey_concepts, dependent: :destroy
+  has_many :interview_survey_concepts, dependent: :destroy, inverse_of: :interview_survey
+  has_many :interview_concepts, through: :interview_survey_concepts, inverse_of: :interview_surveys
 
   validates :interview_date, presence: true
   validate :interview_date_must_be_in_the_past
