@@ -87,6 +87,7 @@ def node_js_lessons
       is_project: false,
       github_path: '/nodeJS/express/installing_postgresql.md',
       identifier_uuid: '42c192e3-9d49-4029-b76c-4a6a8e714298',
+      installation_lesson: true,
     },
     'Using PostgreSQL' => {
       title: 'Using PostgreSQL',
