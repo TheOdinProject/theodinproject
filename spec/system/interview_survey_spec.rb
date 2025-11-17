@@ -34,7 +34,7 @@ RSpec.describe 'Interview survey' do
 
       find('div[class="ts-control"]').click
       find('input[id="interview_survey_interview_concept_names-ts-control"]')
-        .set("React props")
+        .set('React props')
         .send_keys(:return)
 
       click_on 'Submit'
