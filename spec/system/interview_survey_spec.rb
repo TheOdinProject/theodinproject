@@ -10,7 +10,7 @@ RSpec.describe 'Interview survey' do
   context 'when the feature is enabled' do
     before do
       Flipper.enable(:survey_feature)
-      create(:interview_concept, name: 'Rails routing')
+      create(:interview_concept, name: 'rails routing')
     end
 
     it 'creates an interview survey with existing concepts' do
@@ -20,7 +20,7 @@ RSpec.describe 'Interview survey' do
       fill_in :interview_survey_interview_date, with: Date.current
 
       find('div[class="ts-control"]').click
-      find('div[role="option"]', text: 'Rails routing').click
+      find('div[role="option"]', text: 'rails routing').click
 
       click_on 'Submit'
 
@@ -48,7 +48,7 @@ RSpec.describe 'Interview survey' do
       fill_in :interview_survey_interview_date, with: Date.current + 3.days
 
       find('div[class="ts-control"]').click
-      find('div[role="option"]', text: 'Rails routing').click
+      find('div[role="option"]', text: 'rails routing').click
 
       click_on 'Submit'
 
