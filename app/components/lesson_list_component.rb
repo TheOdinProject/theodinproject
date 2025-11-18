@@ -4,4 +4,8 @@ class LessonListComponent < ApplicationComponent
     @lessons = lessons
     @current_user = current_user
   end
+
+  private
+
+  attr_reader :title, :lessons, :current_user
 end
