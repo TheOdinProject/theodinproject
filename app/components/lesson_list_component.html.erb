@@ -1,18 +1,20 @@
-<%= render CardComponent.new(classes: 'mb-10') do |card| %>
-  <% card.with_header(classes: 'px-6 pt-4 pb-4 border-b dark:border-gray-700') do %>
-    <%= link_to "##{title.parameterize}", id: title.parameterize, class: 'no-underline scroll-mt-5 inline-block' do %>
-      <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300 hover:underline w-fit">
-        <%= title %>
-      </h3>
+<section>
+  <%= render CardComponent.new(classes: 'mb-10') do |card| %>
+    <% card.with_header(classes: 'px-6 pt-4 pb-4 border-b dark:border-gray-700') do %>
+      <%= link_to "##{title.parameterize}", id: title.parameterize, class: 'no-underline scroll-mt-5 inline-block' do %>
+        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300 hover:underline w-fit">
+          <%= title %>
+        </h3>
+      <% end %>
+
     <% end %>
 
+    <% card.with_body(classes: 'py-4 px-4') do %>
+      <div class="flex flex-col space-y-3" data-test-id="lesson-list">
+        <% lessons.each do |lesson| %>
+          <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-
-  <% card.with_body(classes: 'py-4 px-4') do %>
-    <div class="flex flex-col space-y-3" data-test-id="lesson-list">
-      <% lessons.each do |lesson| %>
-        <%= render Sections::LessonComponent.new(lesson:, current_user:) %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
+</section>
