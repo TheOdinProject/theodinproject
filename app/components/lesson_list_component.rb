@@ -1,5 +1,5 @@
 class LessonListComponent < ApplicationComponent
-  def initialize(title:, lessons:, current_user:)
+  def initialize(title:, lessons:, current_user: nil)
     @title = title
     @lessons = lessons
     @current_user = current_user

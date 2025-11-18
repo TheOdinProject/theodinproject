@@ -4,7 +4,7 @@
   <h1 class="page-heading-title text-center">Installation Guides</h1>
   <div class="max-w-xl mx-auto space-y-5">
     <% @lessons_by_path.each do |path, lessons| %>
-      <%= render LessonListComponent.new(title: path.title, lessons:, current_user: nil) %>
+      <%= render LessonListComponent.new(title: path.title, lessons:) %>
     <% end %>
   </div>
 </div>
