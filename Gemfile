@@ -9,7 +9,6 @@ gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'class_variants', '~> 1.1'
 gem 'cssbundling-rails', '~> 1.4'
-gem 'debug', '~> 1.10'
 gem 'devise', '~> 4.9'
 gem 'devise_invitable', '~> 2.0'
 gem 'devise-two-factor', '~> 6.1'
@@ -72,6 +71,7 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'debug', '~> 1.10', require: false
   gem 'dotenv-rails', '~> 3.1'
   gem 'parallel_tests', '~> 5.4'
   gem 'rspec-rails', '~> 7.0'
