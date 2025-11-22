@@ -21,7 +21,6 @@ module.exports = {
     'toc-item-active',
     'inline-img'
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({
