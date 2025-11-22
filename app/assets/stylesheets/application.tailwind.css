@@ -15,7 +15,8 @@
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* Must use :is for specificity. Using :where will cause some light mode styles to take priority */
+@custom-variant dark (&:is(.dark, .dark *));
 
 /* These custom classes are directly used in any views - generated via curriculum content.
    Must ensure Tailwind still generates them. */
