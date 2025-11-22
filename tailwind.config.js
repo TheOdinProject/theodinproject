@@ -1,7 +1,8 @@
+// @tailwindcss/typography still requires JS config to customise the CSS (as of v0.5.19)
 module.exports = {
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: {
         DEFAULT: {
           css: {
             code: {
@@ -15,11 +16,11 @@ module.exports = {
             h3: {
               width: 'fit-content',
               a: {
-                color: theme('colors.gray.800'),
+                color: 'var(--colors-gray-800)',
                 'text-decoration': 'none',
                 'font-weight': '600',
                 '&:hover': {
-                  color: theme('colors.gray.800'),
+                  color: 'var(--colors-gray-800)',
                 }
               },
             },
@@ -40,11 +41,10 @@ module.exports = {
         },
         gray: {
           css: {
-            '--tw-prose-code': theme('colors.pink.700'),
-            '--tw-prose-invert-code': theme('colors.pink.400'),
-          },
+            '--tw-prose-code': 'var(--colors-pink-700)',
+            '--tw-prose-invert-code': 'var(--colors-pink-400)',          },
         },
-      }),
+      },
       colors: {
         transitionProperty: {
           'stroke-dashoffset': 'stroke-dashoffset'
