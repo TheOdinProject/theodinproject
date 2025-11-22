@@ -1,16 +1,4 @@
 module.exports = {
-  content: [
-    './app/**/*.html.erb',
-    './app/**/*.turbo_stream.erb',
-    './app/components/**/*',
-    './app/components/*.rb',
-    './app/javascript/**/*.js',
-    './app/javascript/components/**/*.jsx',
-    'app/assets/images/icons/*.svg',
-    './config/utility_classes.yml',
-    './app/components/**/*.yml',
-    './app/builders/**/*.rb',
-  ],
   theme: {
     extend: {
       typography: (theme) => ({
@@ -76,9 +64,6 @@ module.exports = {
         },
       },
     },
-  },
-  corePlugins: {
-    container: false,
   },
   plugins: [
     require('@tailwindcss/typography'),
