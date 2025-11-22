@@ -6,7 +6,8 @@
       true,
       {
         "ignoreAtRules": [
-          "utility"
+          "utility",
+          "theme"
         ]
       }
     ],
