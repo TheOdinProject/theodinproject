@@ -12,4 +12,17 @@
 @import './custom_styles/static-pages.css' layer(utilities);
 @import './custom_styles/charts.css' layer(utilities);
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* These custom classes are directly used in any views - generated via curriculum content.
+   Must ensure Tailwind still generates them. */
+@source inline('lesson-note');
+@source inline('lesson-note--tip');
+@source inline('lesson-note--warning');
+@source inline('lesson-note--critical');
+@source inline('lesson-content__panel');
+@source inline('anchor-link');
+@source inline('toc-item-active');
+@source inline('inline-img');
+
 @config '../../../tailwind.config.js';

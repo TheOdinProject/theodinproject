@@ -11,16 +11,6 @@ module.exports = {
     './app/components/**/*.yml',
     './app/builders/**/*.rb',
   ],
-  safelist: [
-    'lesson-note',
-    'lesson-note--tip',
-    'lesson-note--warning',
-    'lesson-note--critical',
-    'lesson-content__panel',
-    'anchor-link',
-    'toc-item-active',
-    'inline-img'
-  ],
   theme: {
     extend: {
       typography: (theme) => ({
