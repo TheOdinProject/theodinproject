@@ -19,7 +19,7 @@
 /* Must use :is for specificity. Using :where will cause some light mode styles to take priority */
 @custom-variant dark (&:is(.dark, .dark *));
 
-/* These custom classes are directly used in any views - generated via curriculum content.
+/* These custom classes are not directly used in any views - generated via curriculum content.
    Must ensure Tailwind still generates them. */
 @source inline('lesson-note');
 @source inline('lesson-note--tip');
