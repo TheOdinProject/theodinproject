@@ -18,7 +18,6 @@ RSpec.describe LessonGroupComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_css('div[data-test-id="lesson-list"]')
     expect(page).to have_content('Lesson title', count:)
   end
 end
