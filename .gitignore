@@ -68,3 +68,5 @@
 
 # Ruby tool versions
 .tool-versions
+
+bun.lock
