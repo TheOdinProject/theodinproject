@@ -1,4 +1,4 @@
-class LessonListComponent < ApplicationComponent
+class LessonGroupComponent < ApplicationComponent
   def initialize(title:, lessons:, current_user: nil)
     @title = title
     @lessons = lessons

@@ -10,7 +10,7 @@
     </div>
 
     <% @sections.each do |section| %>
-      <%= render LessonListComponent.new(
+      <%= render LessonGroupComponent.new(
             title: section.title,
             lessons: section.lessons,
             current_user:,

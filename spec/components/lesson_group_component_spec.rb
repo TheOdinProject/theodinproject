@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LessonListComponent, type: :component do
+RSpec.describe LessonGroupComponent, type: :component do
   it 'renders the list with a title' do
     component = described_class.new(title: 'HTML Basics', lessons: [])
 
