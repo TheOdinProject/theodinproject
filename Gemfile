@@ -71,7 +71,7 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
-  gem 'debug', '~> 1.10', require: false
+  gem 'debug', '~> 1.10', require: 'debug/prelude'
   gem 'dotenv-rails', '~> 3.1'
   gem 'parallel_tests', '~> 5.4'
   gem 'rspec-rails', '~> 7.0'
