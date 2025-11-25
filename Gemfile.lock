@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (5.5.1)
+    aasm (5.5.2)
       concurrent-ruby (~> 1.0)
     actioncable (8.0.4)
       actionpack (= 8.0.4)
