@@ -52,11 +52,11 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/rails_basics/deployment.md',
       identifier_uuid: '122dffc9-d98e-490e-8e58-e5f7c66909d4',
     },
-    'Blog App' => {
-      title: 'Blog App',
-      description: "You've learned the basics, now let's put them to work by building a basic blogging app.",
+    'Store App' => {
+      title: 'Store App',
+      description: "You've learned the basics, now let's put them to work by building a basic store app.",
       is_project: true,
-      github_path: '/ruby_on_rails/rails_basics/project_blog_app.md',
+      github_path: '/ruby_on_rails/rails_basics/project_store_app.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: '00167c46-3d50-410f-947a-729571744920'
