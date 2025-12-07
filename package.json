@@ -20,7 +20,7 @@
     "browserslist": "^4.27.0",
     "chart.js": "^4.5.1",
     "chartjs-plugin-crosshair": "^2.0.0",
-    "chokidar": "^4.0.3",
+    "chokidar": "^5.0.0",
     "debounce": "^2.2.0",
     "el-transition": "^0.0.7",
     "esbuild": "^0.27.0",
