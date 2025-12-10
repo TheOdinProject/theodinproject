@@ -10,8 +10,8 @@
   }
 
   &:hover::before {
-    mask-image: url('/icons/link.svg');
-    content: ' ';
+    mask-image: url("/icons/link.svg");
+    content: " ";
 
     @apply h-4 w-4 bg-gray-500 dark:bg-gray-300 absolute -left-[22px] top-1/2 -translate-y-1/2 font-semibold sm:block;
   }
@@ -21,4 +21,11 @@
   body {
     font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+}
+
+/* More visually distinctive inline code blocks
+   https://github.com/tailwindlabs/tailwindcss-typography?tab=readme-ov-file#adding-custom-color-themes */
+@utility prose-gray {
+  --tw-prose-code: var(--color-pink-700);
+  --tw-prose-invert-code: var(--color-pink-400);
 }
