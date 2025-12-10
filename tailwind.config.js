@@ -16,12 +16,12 @@ module.exports = {
             h3: {
               width: 'fit-content',
               a: {
-                color: 'var(--colors-gray-800)',
+                color: 'var(--color-gray-800)',
                 'text-decoration': 'none',
                 'font-weight': '600',
                 '&:hover': {
-                  color: 'var(--colors-gray-800)',
-                }
+                  color: 'var(--color-gray-800)',
+                },
               },
             },
             h4: {
@@ -34,17 +34,18 @@ module.exports = {
                 'font-size': '1.25rem',
                 'margin-bottom': '1.25rem',
                 'font-weight': '600',
-                'cursor': 'pointer',
+                cursor: 'pointer',
               },
-            }
+            },
           },
         },
         gray: {
           css: {
-            '--tw-prose-code': 'var(--colors-pink-700)',
-            '--tw-prose-invert-code': 'var(--colors-pink-400)',          },
+            '--tw-prose-code': 'var(--color-pink-700)',
+            '--tw-prose-invert-code': 'var(--color-pink-400)',
+          },
         },
       },
     },
   },
-}
+};
