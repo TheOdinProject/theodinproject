@@ -6,43 +6,43 @@ module.exports = {
         DEFAULT: {
           css: {
             code: {
-              "&:before": {
-                display: "none",
+              '&:before': {
+                display: 'none',
               },
-              "&:after": {
-                display: "none",
+              '&:after': {
+                display: 'none',
               },
             },
             h3: {
-              width: "fit-content",
+              width: 'fit-content',
               a: {
-                color: "var(--color-gray-800)",
-                "text-decoration": "none",
-                "font-weight": "600",
-                "&:hover": {
-                  color: "var(--color-gray-800)",
+                color: 'var(--color-gray-800)',
+                'text-decoration': 'none',
+                'font-weight': '600',
+                '&:hover': {
+                  color: 'var(--color-gray-800)',
                 },
               },
             },
             h4: {
               a: {
-                "text-decoration": "none",
+                'text-decoration': 'none',
               },
             },
             details: {
               summary: {
-                "font-size": "1.25rem",
-                "margin-bottom": "1.25rem",
-                "font-weight": "600",
-                cursor: "pointer",
+                'font-size': '1.25rem',
+                'margin-bottom': '1.25rem',
+                'font-weight': '600',
+                cursor: 'pointer',
               },
             },
           },
         },
         gray: {
           css: {
-            "--tw-prose-code": "var(--color-pink-700)",
-            "--tw-prose-invert-code": "var(--color-pink-400)",
+            '--tw-prose-code': 'var(--color-pink-700)',
+            '--tw-prose-invert-code': 'var(--color-pink-400)',
           },
         },
       },
