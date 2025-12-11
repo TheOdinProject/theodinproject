@@ -39,7 +39,7 @@ course.add_section do |section|
     ruby_on_rails_lessons.fetch('Routing'),
     ruby_on_rails_lessons.fetch('Controllers'),
     ruby_on_rails_lessons.fetch('Views'),
-    ruby_on_rails_lessons.fetch('Blog App'),
+    ruby_on_rails_lessons.fetch('Store App'),
     ruby_on_rails_lessons.fetch('Deployment'),
   )
 end
