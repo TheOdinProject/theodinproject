@@ -141,11 +141,11 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/form_validation_with_javascript.md',
       identifier_uuid: 'c95fe496-2223-4c96-bf3f-9d8e3796d233',
     },
-    'What is ES6?' => {
-      title: 'What is ES6?',
-      description: 'What is ES6?',
+    'ECMAScript' => {
+      title: 'ECMAScript',
+      description: 'A brief overview of ECMAScript and the impact of versions in practice',
       is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/what_is_es6.md',
+      github_path: '/javascript/javascript_in_the_real_world/ecmascript.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
     },
     'Asynchronous Code' => {
