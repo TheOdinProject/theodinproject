@@ -266,11 +266,11 @@ def ruby_on_rails_lessons
       github_path: '/ruby_on_rails/mailers_advanced_topics/websockets_and_actioncable.md',
       identifier_uuid: '949892d1-90af-46e0-a750-bedab0c5120b',
     },
-    'Rails Final Project' => {
-      title: 'Rails Final Project',
+    'Odin Book' => {
+      title: 'Odin Book',
       description: "There's a pretty popular social networking app you should build.  They may have made a movie about it.",
       is_project: true,
-      github_path: '/ruby_on_rails/mailers_advanced_topics/project_final.md',
+      github_path: '/ruby_on_rails/mailers_advanced_topics/project_odin_book.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: '3eac603e-c8e7-4ba8-ade0-87c4e3c3de59',

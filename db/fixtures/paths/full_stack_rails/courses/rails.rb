@@ -155,7 +155,7 @@ course.add_section do |section|
     ruby_on_rails_lessons.fetch('Sending Confirmation Emails'),
     ruby_on_rails_lessons.fetch('Advanced Topics'),
     ruby_on_rails_lessons.fetch('Websockets and Actioncable'),
-    ruby_on_rails_lessons.fetch('Rails Final Project'),
+    ruby_on_rails_lessons.fetch('Odin Book'),
     ruby_on_rails_lessons.fetch('Conclusion'),
   )
 end
