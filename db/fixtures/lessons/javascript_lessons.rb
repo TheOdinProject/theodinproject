@@ -143,7 +143,7 @@ def javascript_lessons
     },
     'ECMAScript' => {
       title: 'ECMAScript',
-      description: 'What is ES6?',
+      description: 'A brief overview of ECMAScript and the impact of versions in practice',
       is_project: false,
       github_path: '/javascript/javascript_in_the_real_world/ecmascript.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
