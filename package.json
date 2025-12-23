@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint": "standard app/javascript --verbose",
-    "stylelint": "stylelint 'app/assets/stylesheets/custom_styles/*.css'",
+    "lint": "standard",
+    "stylelint": "stylelint 'app/assets/stylesheets'",
     "build": "node esbuild.config.mjs",
     "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --postcss"
   },
