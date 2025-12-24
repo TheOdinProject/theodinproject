@@ -61,7 +61,11 @@
         <% end %>
         <% card.with_body do %>
           <div class="inline-flex flex-col space-y-5">
-            <%= link_to users_progress_path(current_user), class: 'button button--secondary px-3 py-2 text-sm', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?', test_id: 'user-reset-progress-link' } do %>
+            <%= link_to(
+              users_progress_path(current_user),
+              class: 'button button--secondary px-3 py-2 text-sm',
+              data: { action: 'dialog-router#open:prevent visibility#off', dialog_router_id_param: 'reset_user_progress', test_id: 'user-reset-progress-btn' }
+            ) do %>
               <%= inline_svg_tag 'icons/refresh.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-red-700 dark:text-red-500', aria: true, title: 'Reset icon' %>
               Reset progress
             <% end %>
@@ -74,4 +78,19 @@
       <% end %>
     </div>
   </div>
+
+  <%= render Overlays::DialogComponent.new(id: 'reset_user_progress') do |component| %>
+    <div>
+      <h3 id="dialog-title" class="text-base font-semibold text-gray-900 dark:text-white">Reset progress & submissions</h3>
+      <div class="mt-2">
+        <p class="text-sm text-gray-600 dark:text-gray-300">Are you sure you want to reset all of your progress? All progress and project submissions will be erased.</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">This action cannot be undone.</p>
+      </div>
+    </div>
+
+    <div class="mt-5 flex flex-row-reverse gap-x-2">
+      <%= button_to 'Reset', users_progress_path(current_user), method: :delete, class: 'button button--danger bg-red-600 !px-3 !py-2 text-sm font-semibold min-w-0 focus:ring-0 focus:ring-offset-0', data: { test_id: 'confirm-user-reset-progress-btn'} %>
+      <button type="button" data-action="overlays--dialog#close" class="button button--secondary px-3 py-2 text-sm font-semibold min-w-0">Cancel</button>
+    </div>
+  <% end %>
 </div>
