@@ -1,4 +1,4 @@
-FEATURE_FLAGS = %i[].freeze
+FEATURE_FLAGS = %i[survey_feature].freeze
 
 # Add any new feature flags
 FEATURE_FLAGS.each do |flag|

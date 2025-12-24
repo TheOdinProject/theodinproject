@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
+@import './custom_styles/base.css';
 @import './custom_styles/buttons.css';
+@import './custom_styles/colors.css';
 @import './custom_styles/layout.css';
 @import './custom_styles/typography.css';
 @import './custom_styles/buttons.css';
@@ -11,30 +13,21 @@
 @import './custom_styles/static-pages.css' layer(utilities);
 @import './custom_styles/charts.css' layer(utilities);
 
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+/* Must use :is for specificity. Using :where will cause some light mode styles to take priority */
+@custom-variant dark (&:is(.dark, .dark *));
+
+/* These custom classes are not directly used in any views - generated via curriculum content.
+   Must ensure Tailwind still generates them. */
+@source inline('lesson-note');
+@source inline('lesson-note--tip');
+@source inline('lesson-note--warning');
+@source inline('lesson-note--critical');
+@source inline('lesson-content__panel');
+@source inline('anchor-link');
+@source inline('toc-item-active');
+@source inline('inline-img');
+
 @config '../../../tailwind.config.js';
-
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-
-  `cursor: pointer` was removed from buttons in Tailwind CSS v4,
-  so it has been added back to preserve expected interactivity from Tailwind v3.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-  
-  button:not([disabled]),
-  [role="button"]:not([disabled]) {
-    cursor: pointer;
-  }
-}

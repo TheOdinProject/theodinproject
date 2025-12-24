@@ -14,16 +14,16 @@
     "@rails/request.js": "^0.0.12",
     "@sentry/esbuild-plugin": "^4.3.0",
     "@stimulus/polyfills": "^2.0.0",
-    "@tailwindcss/cli": "^4.1.11",
+    "@tailwindcss/cli": "^4.1.17",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.19",
-    "browserslist": "^4.25.1",
+    "browserslist": "^4.27.0",
     "chart.js": "^4.5.1",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chokidar": "^4.0.3",
     "debounce": "^2.2.0",
     "el-transition": "^0.0.7",
-    "esbuild": "^0.25.8",
+    "esbuild": "^0.27.0",
     "esbuild-plugin-prismjs": "^1.0.8",
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
@@ -40,7 +40,7 @@
   ],
   "devDependencies": {
     "standard": "^17.1.2",
-    "stylelint": "^16.24.0",
+    "stylelint": "^16.25.0",
     "stylelint-config-standard": "^38.0.0"
   },
   "packageManager": "yarn@4.4.0"

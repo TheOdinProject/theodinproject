@@ -1,5 +1,5 @@
 <div id="<%= dom_id(project_submission) %>" data-test-id="submission-item" class="group-[.single-item]:px-4">
-  <div class="relative py-6 flex flex-col md:flex-row justify-between md:items-center">
+  <div class="relative py-6 flex flex-col md:flex-row justify-between md:items-center space-x-2">
 
     <div class="flex items-center mb-4 md:mb-0">
       <%= render ProjectSubmissions::LikeComponent.new(project_submission:, current_users_submission: true) %>

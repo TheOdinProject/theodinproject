@@ -1,9 +1,7 @@
 class InterviewSurveysController < ApplicationController
-  def new
-    unless Feature.enabled?(:survey_feature, current_user)
-      redirect_to dashboard_path, notice: 'Feature not enabled'
-    end
-  end
+  requires_feature :survey_feature
+
+  def new; end
 
   def create
     # puts params[:survey]
