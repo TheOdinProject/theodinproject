@@ -28,7 +28,8 @@ RSpec.describe 'User Reset Progress' do
 
     visit edit_users_profile_path
     page.accept_confirm do
-      find(:test_id, 'user-reset-progress-link').click
+      find(:test_id, 'user-reset-progress-btn').click
+      find(:test_id, 'confirm-user-reset-progress-btn').click
     end
     visit dashboard_path
 
@@ -46,7 +47,8 @@ RSpec.describe 'User Reset Progress' do
 
     visit edit_users_profile_path
     page.accept_confirm do
-      find(:test_id, 'user-reset-progress-link').click
+      find(:test_id, 'user-reset-progress-btn').click
+      find(:test_id, 'confirm-user-reset-progress-btn').click
     end
     visit dashboard_path
 
