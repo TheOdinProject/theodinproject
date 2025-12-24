@@ -27,10 +27,10 @@ RSpec.describe 'User Reset Progress' do
     end
 
     visit edit_users_profile_path
-    page.accept_confirm do
-      find(:test_id, 'user-reset-progress-btn').click
-      find(:test_id, 'confirm-user-reset-progress-btn').click
-    end
+
+    find(:test_id, 'user-reset-progress-btn').click
+    find(:test_id, 'confirm-user-reset-progress-btn').click
+
     visit dashboard_path
 
     expect(user.lesson_completions.count).to eq(0)
@@ -46,10 +46,10 @@ RSpec.describe 'User Reset Progress' do
     end
 
     visit edit_users_profile_path
-    page.accept_confirm do
-      find(:test_id, 'user-reset-progress-btn').click
-      find(:test_id, 'confirm-user-reset-progress-btn').click
-    end
+
+    find(:test_id, 'user-reset-progress-btn').click
+    find(:test_id, 'confirm-user-reset-progress-btn').click
+
     visit dashboard_path
 
     expect(user.reload.path).not_to eq(rails_path)
