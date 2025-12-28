@@ -62,10 +62,14 @@
         <% card.with_body do %>
           <div class="inline-flex flex-col space-y-5">
             <%= link_to(
-              users_progress_path(current_user),
-              class: 'button button--secondary px-3 py-2 text-sm',
-              data: { action: 'dialog-router#open:prevent visibility#off', dialog_router_id_param: 'reset_user_progress', test_id: 'user-reset-progress-btn' }
-            ) do %>
+                  users_progress_path(current_user),
+            class: 'button button--secondary px-3 py-2 text-sm',
+            data: {
+              action: 'dialog-router#open:prevent visibility#off',
+              dialog_router_id_param: 'reset_user_progress',
+              test_id: 'user-reset-progress-btn'
+            }
+                ) do %>
               <%= inline_svg_tag 'icons/refresh.svg', class: '-ml-0.5 mr-2 h-4 w-4 text-red-700 dark:text-red-500', aria: true, title: 'Reset icon' %>
               Reset progress
             <% end %>
