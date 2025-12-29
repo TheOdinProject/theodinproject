@@ -127,13 +127,6 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/linting.md',
       identifier_uuid: 'a7ae0481-b9cc-40b3-a9dd-4c7227ce2d3d',
     },
-    'Dynamic User Interface Interactions' => {
-      title: 'Dynamic User Interface Interactions',
-      description: 'UI Interactions',
-      is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/dynamic_user_interface_interactions.md',
-      identifier_uuid: 'd6a88ccb-9fdb-4544-a363-4d7f1054e36f',
-    },
     'Form Validation with JavaScript' => {
       title: 'Form Validation with JavaScript',
       description: 'This lesson will cover the Constraint Validation API',
