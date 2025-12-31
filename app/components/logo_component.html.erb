@@ -1,3 +1,4 @@
 <%= link_to redirect_to_path, 'aria-label': 'Return back home' do %>
+  <%= image_tag 'icons/odin-icon.svg', alt: 'Odin Logo', class: 'lg:hidden h-12 w-auto' %>
   <%= inline_svg_tag 'logo.svg', class: "#{classes} text-gray-800 dark:text-gray-300", aria: true, title: 'Odin Logo' %>
 <% end %>
