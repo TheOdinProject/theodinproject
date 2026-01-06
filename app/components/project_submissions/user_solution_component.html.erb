@@ -39,7 +39,11 @@
                 class: 'text-gray-700 dark:text-gray-300 group flex items-center px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-gray-200',
                 role: 'menuitem',
                 tabindex: '-1',
-                data: { action: 'dialog-router#open:prevent visibility#off', dialog_router_id_param: 'delete_user_submission', test_id: 'delete-submission-btn' }
+                data: {
+                  action: 'dialog-router#open:prevent visibility#off',
+                  dialog_router_id_param: dom_id(project_submission, 'delete_user_submission'),
+                  test_id: 'delete-submission-btn'
+                }
               ) do %>
             <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
             Delete
@@ -49,7 +53,7 @@
     </div>
   </div>
 
-  <%= render Overlays::DialogComponent.new(id: 'delete_user_submission') do |component| %>
+  <%= render Overlays::DialogComponent.new(id: dom_id(project_submission, 'delete_user_submission')) do |component| %>
     <div>
       <h3 id="dialog-title" class="text-base font-semibold text-gray-900 dark:text-white">Delete project</h3>
       <div class="mt-2">
