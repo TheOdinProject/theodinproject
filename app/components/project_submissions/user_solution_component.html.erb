@@ -42,7 +42,8 @@
                 data: {
                   action: 'dialog-router#open:prevent visibility#off',
                   dialog_router_id_param: dom_id(project_submission, 'delete_user_submission'),
-                  test_id: 'delete-submission-btn'
+                  test_id: 'delete-submission-btn',
+                  turbo_prefetch: false
                 }
               ) do %>
             <%= inline_svg_tag 'icons/trash.svg', class: 'mr-3 h-4 w-4 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-300', aria: true, title: 'edit', desc: 'edit icon' %>
