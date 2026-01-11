@@ -127,13 +127,6 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/linting.md',
       identifier_uuid: 'a7ae0481-b9cc-40b3-a9dd-4c7227ce2d3d',
     },
-    'Dynamic User Interface Interactions' => {
-      title: 'Dynamic User Interface Interactions',
-      description: 'UI Interactions',
-      is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/dynamic_user_interface_interactions.md',
-      identifier_uuid: 'd6a88ccb-9fdb-4544-a363-4d7f1054e36f',
-    },
     'Form Validation with JavaScript' => {
       title: 'Form Validation with JavaScript',
       description: 'This lesson will cover the Constraint Validation API',
@@ -141,11 +134,11 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/form_validation_with_javascript.md',
       identifier_uuid: 'c95fe496-2223-4c96-bf3f-9d8e3796d233',
     },
-    'What is ES6?' => {
-      title: 'What is ES6?',
-      description: 'What is ES6?',
+    'ECMAScript' => {
+      title: 'ECMAScript',
+      description: 'A brief overview of ECMAScript and the impact of versions in practice',
       is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/what_is_es6.md',
+      github_path: '/javascript/javascript_in_the_real_world/ecmascript.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
     },
     'Asynchronous Code' => {

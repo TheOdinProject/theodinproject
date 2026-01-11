@@ -12,6 +12,7 @@ module Users
     def call
       user.transaction do
         delete_lesson_completions
+        delete_project_submissions
         reset_default_path unless user.path.default_path?
         @success = true
       end
@@ -29,6 +30,10 @@ module Users
 
     def delete_lesson_completions
       user.lesson_completions.delete_all
+    end
+
+    def delete_project_submissions
+      user.project_submissions.delete_all
     end
 
     def reset_default_path

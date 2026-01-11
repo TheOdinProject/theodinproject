@@ -171,7 +171,7 @@ course.add_section do |section|
   section.identifier_uuid = '42521d3c-c22e-481f-9885-9ef1156897c6'
 
   section.add_lessons(
-    ruby_lessons.fetch('Ruby Final Project'),
+    ruby_lessons.fetch('Chess'),
     ruby_lessons.fetch('Conclusion'),
   )
 end
