@@ -269,7 +269,7 @@ def javascript_lessons
       title: 'Battleship',
       description: 'Battleship',
       is_project: true,
-      github_path: '/javascript/testing_javascript/project_battleship.md',
+      github_path: '/javascript/finishing_up_with_javascript/project_battleship.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: '62702165-7705-47ba-a308-dd39c561e057',
