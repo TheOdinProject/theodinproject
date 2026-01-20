@@ -647,9 +647,9 @@ __metadata:
   linkType: hard
 
 "@hotwired/turbo@npm:^8.0.13":
-  version: 8.0.13
-  resolution: "@hotwired/turbo@npm:8.0.13"
-  checksum: 10c0/fc9fd58ce2e006ad2f9e3948cf1ec71f47187ce8115f03e531bab849d0e13abc94cd0067f0888f7064d730b4c1a8212101bfa6d55f6166c6ad2db275e280149a
+  version: 8.0.21
+  resolution: "@hotwired/turbo@npm:8.0.21"
+  checksum: 10c0/eee21c593525d2d68c223b200b0c842b0660d689100cba43481f1bd56eaf6ec9a91147aca154cf9f9eb44cebfcbd9421384b71c213ff7cbc8d605fd42bf8076a
   languageName: node
   linkType: hard
 
