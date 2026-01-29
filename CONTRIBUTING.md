@@ -7,6 +7,7 @@ This contributing guide assumes you have followed the instructions in our genera
 ## Table of Contents
 
 - [How to Contribute](#how-to-contribute)
+  - [Documentation-Only and Minor Contributions](#documentation-only-and-minor-contributions)
   - [Running The Odin Project Locally](#running-the-odin-project-locally)
   - [Adding Curriculum Content](#adding-curriculum-content)
   - [Testing Changes Locally](#testing-changes-locally)
@@ -15,6 +16,25 @@ This contributing guide assumes you have followed the instructions in our genera
 
 Due to the complexity of our web app repo compared to some of our other repos, contributing requires you to be able to run our web app locally and to run tests to ensure any changes being made look and work as expected.
 
+### Documentation-Only and Minor Contributions
+
+Not all contributions to The Odin Project web app require running the application locally. We welcome documentation-only and other minor contributions that improve clarity, accuracy, and maintainability of the project.
+
+Examples of contributions that typically do not require running the web app locally include:
+
+-Fixing typos, grammar, or formatting
+
+-Improving explanations or comments in documentation
+
+-Updating or correcting links
+
+-Making small content edits that do not affect application behavior
+
+-Improving README or other markdown files
+
+For these types of changes, contributors may submit a pull request without running the full local development environment or test suite. However, contributors should still review their changes carefully to ensure accuracy and consistency with existing content.
+
+If you are unsure whether your contribution requires local testing, feel free to open an issue or ask for clarification in your pull request description. Maintainers are happy to help guide you.
 ### Running The Odin Project Locally
 
 Follow our [instructions on running The Odin Project locally](https://github.com/TheOdinProject/theodinproject/wiki/Running-The-Odin-Project-Locally). These instructions include all installations you will need as well as optional instructions for setting up authentication.
