@@ -19,7 +19,6 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('How This Course Will Work'),
-    javascript_lessons.fetch('A Quick Review'),
   )
 end
 
@@ -32,7 +31,6 @@ course.add_section do |section|
   section.identifier_uuid = '8b5f0c45-60f5-4dd9-8491-86d5d98f4ed3'
 
   section.add_lessons(
-    javascript_lessons.fetch('Organizing Your JavaScript Code Introduction'),
     javascript_lessons.fetch('Objects and Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
