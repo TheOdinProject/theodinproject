@@ -260,33 +260,15 @@ en:
 
         - name: "Valera Kushnir"
           image: "https://avatars.githubusercontent.com/u/12993486?v=4"
-          location: "USA"
-          joined: "2021"
 
         - name: "Chook"
           image: "https://avatars.githubusercontent.com/u/58506115?v=4"
-          location: "Australia"
-          joined: "2022"
-          socials:
-            - name: "github"
-              url: "https://github.com/ChargrilledChook"
+          url: "https://github.com/ChargrilledChook"
 
         - name: "MacDaniel Maisel"
           image: "https://avatars.githubusercontent.com/u/44100935"
-          location: "California"
-          joined: "2022"
-          socials:
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/macdaniel-maisel/"
-            - name: "github"
-              url: "https://github.com/linkonsat"
+          url: "https://github.com/linkonsat"
 
         - name: "Benjamin Aguirre"
           image: "https://avatars.githubusercontent.com/u/114883353?v=4"
-          location: "Illinois, USA"
-          joined: "2023"
-          socials:
-            - name: "github"
-              url: "https://github.com/Baguirre03"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/ben-aguirre/"
+          url: "https://www.linkedin.com/in/ben-aguirre/"
