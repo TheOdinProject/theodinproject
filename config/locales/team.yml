@@ -162,10 +162,7 @@ en:
             - name: "github"
               url: "https://github.com/mao-sz"
 
-    moderators:
-      description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
-      members:
-        - name: "Fred Love"
+         - name: "Fred Love"
           image: "https://avatars.githubusercontent.com/u/48169481?v=4"
           location: "Pennsylvania, USA"
           joined: "2023"
@@ -175,6 +172,9 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
 
+    moderators:
+      description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
+      members:
         - name: "Bryan Fines"
           image: "https://avatars.githubusercontent.com/u/49371751?v=4"
           location: "Virginia, USA"
