@@ -162,7 +162,7 @@ en:
             - name: "github"
               url: "https://github.com/mao-sz"
 
-         - name: "Fred Love"
+        - name: "Fred Love"
           image: "https://avatars.githubusercontent.com/u/48169481?v=4"
           location: "Pennsylvania, USA"
           joined: "2023"
@@ -204,7 +204,7 @@ en:
               url: "https://github.com/damon314159"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/damon-marlow"
-              
+
         - name: "Tosh"
           image: "https://avatars.githubusercontent.com/u/128783853?v=4"
           location: "Australia"
@@ -212,7 +212,7 @@ en:
           socials:
             - name: "github"
               url: "https://github.com/ItsTosh"
-              
+
         - name: "Lofty"
           image: "https://avatars.githubusercontent.com/u/100270817?v=4"
           location: "India"
