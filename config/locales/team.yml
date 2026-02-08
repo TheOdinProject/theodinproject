@@ -85,24 +85,9 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/austin-m-sullivan/"
 
-        - name: "Valera Kushnir"
-          image: "https://avatars.githubusercontent.com/u/12993486?v=4"
-          location: "USA"
-          joined: "2021"
-
     maintainers:
       description: "Maintainers oversee our GitHub repositories. They work tirelessly to triage issues, merge pull requests, and manage projects aimed at making The Odin Project a better experience for our learners."
       members:
-        - name: "MacDaniel Maisel"
-          image: "https://avatars.githubusercontent.com/u/44100935"
-          location: "California"
-          joined: "2022"
-          socials:
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/macdaniel-maisel/"
-            - name: "github"
-              url: "https://github.com/linkonsat"
-
         - name: "Manon Voorbrood"
           image: "https://avatars.githubusercontent.com/u/81025586"
           location: "The Netherlands"
@@ -185,9 +170,6 @@ en:
             - name: "github"
               url: "https://github.com/mao-sz"
 
-    moderators:
-      description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
-      members:
         - name: "Fred Love"
           image: "https://avatars.githubusercontent.com/u/48169481?v=4"
           location: "Pennsylvania, USA"
@@ -198,6 +180,9 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
 
+    moderators:
+      description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
+      members:
         - name: "Bryan Fines"
           image: "https://avatars.githubusercontent.com/u/49371751?v=4"
           location: "Virginia, USA"
@@ -218,16 +203,6 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/mclilzee"
 
-        - name: "Benjamin Aguirre"
-          image: "https://avatars.githubusercontent.com/u/114883353?v=4"
-          location: "Illinois, USA"
-          joined: "2023"
-          socials:
-            - name: "github"
-              url: "https://github.com/Baguirre03"
-            - name: "linkedin"
-              url: "https://www.linkedin.com/in/ben-aguirre/"
-
         - name: "Damon Marlow"
           image: "https://avatars.githubusercontent.com/u/126731021?v=4"
           location: "United Kingdom"
@@ -237,7 +212,7 @@ en:
               url: "https://github.com/damon314159"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/damon-marlow"
-              
+
         - name: "Tosh"
           image: "https://avatars.githubusercontent.com/u/128783853?v=4"
           location: "Australia"
@@ -245,7 +220,7 @@ en:
           socials:
             - name: "github"
               url: "https://github.com/ItsTosh"
-              
+
         - name: "Lofty"
           image: "https://avatars.githubusercontent.com/u/100270817?v=4"
           location: "India"
@@ -290,3 +265,15 @@ en:
         - name: "Antoni Sobolewski"
           image: "https://avatars.githubusercontent.com/u/95084627?v=4"
           url: "https://github.com/scheals"
+
+        - name: "Valera Kushnir"
+          image: "https://avatars.githubusercontent.com/u/12993486?v=4"
+          url: "https://github.com/kashura"
+
+        - name: "MacDaniel Maisel"
+          image: "https://avatars.githubusercontent.com/u/44100935"
+          url: "https://github.com/linkonsat"
+
+        - name: "Benjamin Aguirre"
+          image: "https://avatars.githubusercontent.com/u/114883353?v=4"
+          url: "https://www.linkedin.com/in/ben-aguirre/"

@@ -18,7 +18,6 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('How This Course Will Work'),
-    javascript_lessons.fetch('A Quick Review'),
   )
 end
 
@@ -31,7 +30,6 @@ course.add_section do |section|
   section.identifier_uuid = 'd0be5e66-0acc-4c62-8993-8d50e5af15a0'
 
   section.add_lessons(
-    javascript_lessons.fetch('Organizing Your JavaScript Code Introduction'),
     javascript_lessons.fetch('Objects and Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
@@ -58,9 +56,8 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('Linting'),
-    javascript_lessons.fetch('Dynamic User Interface Interactions'),
     javascript_lessons.fetch('Form Validation with JavaScript'),
-    javascript_lessons.fetch('What is ES6?'),
+    javascript_lessons.fetch('ECMAScript'),
   )
 end
 
@@ -92,7 +89,6 @@ course.add_section do |section|
     javascript_lessons.fetch('Testing Basics'),
     javascript_lessons.fetch('Testing Practice'),
     javascript_lessons.fetch('More Testing'),
-    javascript_lessons.fetch('Battleship'),
   )
 end
 
@@ -105,6 +101,7 @@ course.add_section do |section|
   section.identifier_uuid = 'd3a05406-615d-4645-85f2-0cba667f2749'
 
   section.add_lessons(
+    javascript_lessons.fetch('Battleship'),
     javascript_lessons.fetch('Conclusion'),
   )
 end

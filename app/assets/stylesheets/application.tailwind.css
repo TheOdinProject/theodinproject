@@ -1,11 +1,9 @@
 @import 'tailwindcss';
-
 @import './custom_styles/base.css';
 @import './custom_styles/buttons.css';
 @import './custom_styles/colors.css';
 @import './custom_styles/layout.css';
 @import './custom_styles/typography.css';
-@import './custom_styles/buttons.css';
 @import './custom_styles/lesson-content.css';
 @import './custom_styles/lesson-notes.css';
 @import './custom_styles/prism-theme.css' layer(utilities);

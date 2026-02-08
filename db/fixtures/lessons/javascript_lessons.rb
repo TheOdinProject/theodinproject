@@ -7,20 +7,6 @@ def javascript_lessons
       github_path: '/javascript/introduction/how_this_course_will_work.md',
       identifier_uuid: '93d2a049-0f6c-4da8-b346-d477c1e7a000',
     },
-    'A Quick Review' => {
-      title: 'A Quick Review',
-      description: 'A quick review',
-      is_project: false,
-      github_path: '/javascript/introduction/a_quick_review.md',
-      identifier_uuid: '428d54c7-3324-4ee2-afaf-08e1c373b314',
-    },
-    'Organizing Your JavaScript Code Introduction' => {
-      title: 'Organizing Your JavaScript Code Introduction',
-      description: 'introduction',
-      is_project: false,
-      github_path: '/javascript/organizing_your_javascript_code/organizing_your_javascript_code_introduction.md',
-      identifier_uuid: 'ecbc4a4c-d787-440f-a26b-bd4558a76869',
-    },
     'Objects and Object Constructors' => {
       title: 'Objects and Object Constructors',
       description: 'Covers plain old JavaScript objects and object constructors',
@@ -127,13 +113,6 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/linting.md',
       identifier_uuid: 'a7ae0481-b9cc-40b3-a9dd-4c7227ce2d3d',
     },
-    'Dynamic User Interface Interactions' => {
-      title: 'Dynamic User Interface Interactions',
-      description: 'UI Interactions',
-      is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/dynamic_user_interface_interactions.md',
-      identifier_uuid: 'd6a88ccb-9fdb-4544-a363-4d7f1054e36f',
-    },
     'Form Validation with JavaScript' => {
       title: 'Form Validation with JavaScript',
       description: 'This lesson will cover the Constraint Validation API',
@@ -141,11 +120,11 @@ def javascript_lessons
       github_path: '/javascript/javascript_in_the_real_world/form_validation_with_javascript.md',
       identifier_uuid: 'c95fe496-2223-4c96-bf3f-9d8e3796d233',
     },
-    'What is ES6?' => {
-      title: 'What is ES6?',
-      description: 'What is ES6?',
+    'ECMAScript' => {
+      title: 'ECMAScript',
+      description: 'A brief overview of ECMAScript and the impact of versions in practice',
       is_project: false,
-      github_path: '/javascript/javascript_in_the_real_world/what_is_es6.md',
+      github_path: '/javascript/javascript_in_the_real_world/ecmascript.md',
       identifier_uuid: 'f5c4b108-adf8-41af-bf3b-a38dd409a67d',
     },
     'Asynchronous Code' => {
@@ -276,7 +255,7 @@ def javascript_lessons
       title: 'Battleship',
       description: 'Battleship',
       is_project: true,
-      github_path: '/javascript/testing_javascript/project_battleship.md',
+      github_path: '/javascript/finishing_up_with_javascript/project_battleship.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: '62702165-7705-47ba-a308-dd39c561e057',
