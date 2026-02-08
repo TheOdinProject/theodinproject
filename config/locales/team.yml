@@ -154,6 +154,14 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/joshua-m-smith-dev/"
 
+        - name: "Chook"
+          image: "https://avatars.githubusercontent.com/u/58506115?v=4"
+          location: "Australia"
+          joined: "2022"
+          socials:
+            - name: "github"
+              url: "https://github.com/ChargrilledChook"
+
         - name: "Mao"
           image: "https://avatars.githubusercontent.com/u/122839503?v=4"
           location: "UK"
@@ -261,10 +269,6 @@ en:
         - name: "Valera Kushnir"
           image: "https://avatars.githubusercontent.com/u/12993486?v=4"
           url: "https://github.com/kashura"
-
-        - name: "Chook"
-          image: "https://avatars.githubusercontent.com/u/58506115?v=4"
-          url: "https://github.com/ChargrilledChook"
 
         - name: "MacDaniel Maisel"
           image: "https://avatars.githubusercontent.com/u/44100935"
