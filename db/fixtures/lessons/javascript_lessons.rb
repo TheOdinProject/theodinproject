@@ -7,11 +7,18 @@ def javascript_lessons
       github_path: '/javascript/introduction/how_this_course_will_work.md',
       identifier_uuid: '93d2a049-0f6c-4da8-b346-d477c1e7a000',
     },
-    'Objects and Object Constructors' => {
-      title: 'Objects and Object Constructors',
-      description: 'Covers plain old JavaScript objects and object constructors',
+    'Organizing Code with Objects' => {
+      title: 'Organizing Code with Objects',
+      description: 'Covers plain old JavaScript objects and organizational concepts',
       is_project: false,
-      github_path: '/javascript/organizing_your_javascript_code/objects_and_object_constructors.md',
+      github_path: '/javascript/organizing_your_javascript_code/organizing_your_code_with_objects.md',
+      identifier_uuid: '929a6951-b992-4201-ab90-10ce1707850c',
+    },
+    'Object Constructors' => {
+      title: 'Object Constructors',
+      description: 'Covers object constructors and prototypal inheritance',
+      is_project: false,
+      github_path: '/javascript/organizing_your_javascript_code/object_constructors.md',
       identifier_uuid: '0b148848-4f2d-4425-837c-b64b72c741bd',
     },
     'Library' => {

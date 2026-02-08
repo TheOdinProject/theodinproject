@@ -31,7 +31,8 @@ course.add_section do |section|
   section.identifier_uuid = '8b5f0c45-60f5-4dd9-8491-86d5d98f4ed3'
 
   section.add_lessons(
-    javascript_lessons.fetch('Objects and Object Constructors'),
+    javascript_lessons.fetch('Organizing Code with Objects'),
+    javascript_lessons.fetch('Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
     javascript_lessons.fetch('Tic Tac Toe'),
