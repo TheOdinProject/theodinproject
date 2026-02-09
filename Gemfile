@@ -90,5 +90,5 @@ group :test do
   gem 'shoulda-matchers', '~> 6.5'
   gem 'simplecov', '~> 0.22', require: false
   gem 'vcr', '~> 6.3'
-  gem 'webmock', '~> 3.25'
+  gem 'webmock', '~> 3.26'
 end
