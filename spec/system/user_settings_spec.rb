@@ -58,6 +58,7 @@ RSpec.describe 'User Profile' do
         find(:test_id, 'email-field').fill_in(with: 'valid@example.com')
         find(:test_id, 'save-profile-btn').click
 
+        expect(page).to have_field('user[email]', with: 'valid@example.com')
         expect(page).to have_no_content("can't be blank")
       end
     end

@@ -3,6 +3,8 @@
   "rules": {
     "selector-class-pattern": null,
     "import-notation": "string",
+    "nesting-selector-no-missing-scoping-root": null,
+    "no-invalid-position-declaration": null,
     "at-rule-no-unknown": [
       true,
       {
