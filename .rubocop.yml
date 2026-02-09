@@ -103,7 +103,7 @@ Lint/SelfAssignment:
 
 Lint/ShadowingOuterLocalVariable:
   Exclude:
-    - 'db/**/*'  
+    - 'db/**/*'
 
 Lint/StructNewOverride:
   Enabled: true
@@ -245,3 +245,6 @@ RSpec/DescribeClass:
     - 'spec/system/**/*'
     - 'spec/tasks/**/*'
     - 'spec/seeds/**/*'
+
+RSpecRails/HttpStatusNameConsistency:
+  Enabled: false
