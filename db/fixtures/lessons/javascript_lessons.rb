@@ -11,7 +11,7 @@ def javascript_lessons
       title: 'Organizing Code with Objects',
       description: 'Covers plain old JavaScript objects and organizational concepts',
       is_project: false,
-      github_path: '/javascript/organizing_your_javascript_code/organizing_your_code_with_objects.md',
+      github_path: '/javascript/organizing_your_javascript_code/organizing_code_with_objects.md',
       identifier_uuid: '929a6951-b992-4201-ab90-10ce1707850c',
     },
     'Object Constructors' => {
