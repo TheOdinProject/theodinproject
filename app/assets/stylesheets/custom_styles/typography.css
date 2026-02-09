@@ -19,6 +19,13 @@
 
 @layer base {
   body {
-    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
+}
+
+/* More visually distinctive inline code blocks
+   https://github.com/tailwindlabs/tailwindcss-typography?tab=readme-ov-file#adding-custom-color-themes */
+@utility prose-gray {
+  --tw-prose-code: var(--color-pink-700);
+  --tw-prose-invert-code: var(--color-pink-400);
 }

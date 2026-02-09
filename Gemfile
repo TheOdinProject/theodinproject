@@ -2,15 +2,13 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '7.2.2.1'
+gem 'rails', '8.0.4'
 
 gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'class_variants', '~> 1.1'
-gem 'classy-yaml', '~> 1.2'
 gem 'cssbundling-rails', '~> 1.4'
-gem 'debug', '~> 1.10'
 gem 'devise', '~> 4.9'
 gem 'devise_invitable', '~> 2.0'
 gem 'devise-two-factor', '~> 6.1'
@@ -25,7 +23,7 @@ gem 'github_webhook', '~> 1.4'
 gem 'jsbundling-rails', '~> 1.3'
 gem 'kramdown', '~> 2.5'
 gem 'kramdown-parser-gfm'
-gem 'newrelic_rpm', '~> 9.16'
+gem 'newrelic_rpm', '~> 9.23'
 gem 'noticed', '~> 1.6'
 gem 'octokit', '~> 10.0'
 gem 'omniauth-github', '~> 2.0.1'
@@ -37,7 +35,7 @@ gem 'pg_search', '~> 2.3'
 gem 'propshaft', '~> 1.1'
 gem 'public_activity', '~> 3.0'
 gem 'puma', '~> 6.5'
-gem 'rack-attack', '~> 6.7'
+gem 'rack-attack', '~> 6.8'
 gem 'redis', '~> 5.4'
 gem 'rqrcode', '~> 3.1'
 gem 'ruby-progressbar', '~> 1.13'
@@ -51,7 +49,7 @@ gem 'sidekiq-cron', '~> 2.3'
 gem 'stackprof', '~> 0.2'
 gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 2.0'
-gem 'view_component', '~> 3.16'
+gem 'view_component', '~> 4.0'
 
 # https://github.com/jamesmartin/inline_svg/issues/151
 gem 'inline_svg', '~> 1.10'
@@ -59,7 +57,7 @@ gem 'inline_svg', '~> 1.10'
 group :development do
   gem 'letter_opener', '~> 1.8'
   gem 'listen', '~> 3.9'
-  gem 'lookbook', '~> 2.3.4'
+  gem 'lookbook', '~> 2.3'
   gem 'rack-mini-profiler'
   gem 'rubocop', require: false
   gem 'rubocop-capybara', require: false
@@ -73,8 +71,9 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'debug', '~> 1.10', require: 'debug/prelude'
   gem 'dotenv-rails', '~> 3.1'
-  gem 'parallel_tests', '~> 4.7'
+  gem 'parallel_tests', '~> 5.4'
   gem 'rspec-rails', '~> 7.0'
 end
 
@@ -83,7 +82,7 @@ group :test do
   gem 'capybara-email', '~> 3.0'
   gem 'cuprite', '~> 0.15'
   gem 'erb_lint', '~> 0.9', require: false
-  gem 'factory_bot_rails', '~> 6.4'
+  gem 'factory_bot_rails', '~> 6.5'
   gem 'faraday-retry', '~> 2.3'
   gem 'rspec_junit_formatter', '~> 0.6'
   gem 'rspec-retry', '~> 0.6'

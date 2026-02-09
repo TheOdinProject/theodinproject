@@ -1,6 +1,0 @@
-link:
-  active: 'bg-gray-200 text-gray-900 dark:bg-gray-700/50 dark:text-gray-300'
-  inactive: 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:hover:bg-gray-600/70 dark:hover:text-gray-300 dark:text-gray-400'
-icon:
-  active: 'text-gray-500 group-hover:text-gray-700 dark:text-gray-300 dark:group-hover:text-gray-300'
-  inactive: 'text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-300'

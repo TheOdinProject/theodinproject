@@ -51,7 +51,7 @@ RSpec.describe 'Navigating Lessons' do
 
       expect(find(:test_id, 'course-title-header')).to have_text(/#{course.title}/i)
 
-      within '[data-test-id="course-section"]', match: :first do
+      within '[data-test-id="lesson-list"]', match: :first do
         expect(page).to have_text(/#{lesson.title}/i)
       end
     end

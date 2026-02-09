@@ -109,6 +109,21 @@ course.add_section do |section|
   )
 end
 
+# +++++++++++++++++++++++++++++++++
+# SECTION - Testing Ruby with RSpec
+# +++++++++++++++++++++++++++++++++
+course.add_section do |section|
+  section.title = 'Testing Ruby with RSpec'
+  section.description = "You've been briefly introduced to testing in Ruby a couple of times before in this course, but now you're going to really learn why testing can be hugely helpful and how to apply it to your own projects."
+  section.identifier_uuid = '1e8d5245-ed37-498e-a06e-be208aced01f'
+
+  section.add_lessons(
+    ruby_lessons.fetch('Test Driven Development'),
+    ruby_lessons.fetch('Introduction to RSpec'),
+    ruby_lessons.fetch('Connect Four'),
+  )
+end
+
 # +++++++++++++++++++++++++++++++++++
 # SECTION - A Bit of Computer Science
 # +++++++++++++++++++++++++++++++++++
@@ -147,21 +162,6 @@ course.add_section do |section|
   )
 end
 
-# +++++++++++++++++++++++++++++++++
-# SECTION - Testing Ruby with RSpec
-# +++++++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'Testing Ruby with RSpec'
-  section.description = "You've been briefly introduced to testing in Ruby a couple of times before in this course, but now you're going to really learn why testing can be hugely helpful and how to apply it to your own projects."
-  section.identifier_uuid = '1e8d5245-ed37-498e-a06e-be208aced01f'
-
-  section.add_lessons(
-    ruby_lessons.fetch('Test Driven Development'),
-    ruby_lessons.fetch('Introduction to RSpec'),
-    ruby_lessons.fetch('Connect Four'),
-  )
-end
-
 # ++++++++++++++++++++
 # SECTION - Conclusion
 # ++++++++++++++++++++
@@ -171,7 +171,7 @@ course.add_section do |section|
   section.identifier_uuid = '42521d3c-c22e-481f-9885-9ef1156897c6'
 
   section.add_lessons(
-    ruby_lessons.fetch('Ruby Final Project'),
+    ruby_lessons.fetch('Chess'),
     ruby_lessons.fetch('Conclusion'),
   )
 end

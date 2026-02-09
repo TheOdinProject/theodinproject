@@ -1,6 +1,7 @@
 class ApplicationComponent < ViewComponent::Base
-  include Classy::Yaml::ComponentHelpers
   include Turbo::FramesHelper
+
+  delegate :inline_svg_tag, :inline_svg, to: :helpers
 
   class << self
     attr_reader :class_variants

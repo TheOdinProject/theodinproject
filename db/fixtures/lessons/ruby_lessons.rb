@@ -291,11 +291,11 @@ def ruby_lessons
       previewable: true,
       identifier_uuid: '33440cca-8fbf-46fe-9265-67d938fe1d8c',
     },
-    'Ruby Final Project' => {
-      title: 'Ruby Final Project',
+    'Chess' => {
+      title: 'Chess',
       description: 'Now would be a good time to refresh your memory on how to play Chess. Building it is actually more fun (and more rewarding)!',
       is_project: true,
-      github_path: '/ruby/conclusion/project_ruby_final.md',
+      github_path: '/ruby/conclusion/project_chess.md',
       accepts_submission: true,
       previewable: true,
       identifier_uuid: 'acf6c3f1-915a-4878-8224-2c5f12b1e43b',
