@@ -239,6 +239,14 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/darnell-james/"
 
+        - name: "Rick N"
+          image: "https://avatars.githubusercontent.com/u/138608018?v=4"
+          location: "Canada"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/ric-projects"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
