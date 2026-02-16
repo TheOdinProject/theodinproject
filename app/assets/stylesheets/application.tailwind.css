@@ -29,3 +29,5 @@
 @source inline('inline-img');
 
 @config '../../../tailwind.config.js';
+
+@import 'tom-select/dist/css/tom-select'
