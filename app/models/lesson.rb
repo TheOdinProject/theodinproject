@@ -8,7 +8,7 @@ class Lesson < ApplicationRecord
   has_one :path, through: :course
   has_one :content, dependent: :destroy
   has_many :project_submissions, dependent: :destroy
-  has_many :lesson_completions, dependent: :destroy
+  has_many :lesson_completions, dependent: :delete_all
   has_many :completing_users, through: :lesson_completions, source: :user
 
   scope :most_recent_updated_at, -> { maximum(:updated_at) }

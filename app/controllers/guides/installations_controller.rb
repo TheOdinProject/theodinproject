@@ -1,9 +1,10 @@
 module Guides
   class InstallationsController < ApplicationController
     def index
-      @lessons = Lesson.installation_lessons.sort_by do |lesson|
-        [lesson.course.position, lesson.path.position]
-      end
+      @lessons_by_path = Lesson
+        .installation_lessons
+        .sort_by { |lesson| [lesson.course.position, lesson.path.position] }
+        .group_by(&:path)
     end
   end
 end

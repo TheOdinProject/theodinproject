@@ -2,20 +2,26 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "selector-class-pattern": null,
+    "import-notation": "string",
+    "nesting-selector-no-missing-scoping-root": null,
+    "no-invalid-position-declaration": null,
     "at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": [
-          "utility"
+          "utility",
+          "theme",
+          "config",
+          "source",
+          "custom-variant",
+          "plugin"
         ]
       }
     ],
     "at-rule-no-deprecated": [
       true,
       {
-        "ignoreAtRules": [
-          "apply"
-        ]
+        "ignoreAtRules": ["apply"]
       }
     ]
   }

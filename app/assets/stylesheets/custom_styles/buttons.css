@@ -18,7 +18,7 @@
 @utility button--secondary {
   @apply border-gray-300 text-gray-700 hover:text-gray-700 bg-white hover:bg-gray-50
     focus:ring-gray-400 focus:text-gray-700 dark:text-gray-300 dark:hover:bg-gray-700
-    dark:border-gray-600 dark:focus:ring-gray-600 dark:bg-transparent;
+    dark:border-gray-600 dark:focus:ring-gray-500 dark:bg-transparent;
 }
 
 @utility button--danger {
@@ -51,4 +51,3 @@
 @utility button--google {
   @apply bg-blue-500 hover:bg-blue-600 focus:ring-blue-400;
 }
-

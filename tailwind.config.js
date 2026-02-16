@@ -1,98 +1,51 @@
+// @tailwindcss/typography still requires JS config to customise the CSS (as of v0.5.19)
 module.exports = {
-  content: [
-    './app/**/*.html.erb',
-    './app/**/*.turbo_stream.erb',
-    './app/components/**/*',
-    './app/components/*.rb',
-    './app/javascript/**/*.js',
-    './app/javascript/components/**/*.jsx',
-    'app/assets/images/icons/*.svg',
-    './config/utility_classes.yml',
-    './app/components/**/*.yml',
-    './app/builders/**/*.rb',
-  ],
-  safelist: [
-    'lesson-note',
-    'lesson-note--tip',
-    'lesson-note--warning',
-    'lesson-note--critical',
-    'lesson-content__panel',
-    'anchor-link',
-    'toc-item-active',
-    'inline-img'
-  ],
-  darkMode: 'class',
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: {
         DEFAULT: {
           css: {
             code: {
               '&:before': {
-                display: 'none',
+                display: 'none'
               },
               '&:after': {
-                display: 'none',
-              },
+                display: 'none'
+              }
             },
             h3: {
               width: 'fit-content',
               a: {
-                color: theme('colors.gray.800'),
+                color: 'var(--color-gray-800)',
                 'text-decoration': 'none',
                 'font-weight': '600',
                 '&:hover': {
-                  color: theme('colors.gray.800'),
+                  color: 'var(--color-gray-800)'
                 }
-              },
+              }
             },
             h4: {
               a: {
-                'text-decoration': 'none',
-              },
+                'text-decoration': 'none'
+              }
             },
             details: {
               summary: {
                 'font-size': '1.25rem',
                 'margin-bottom': '1.25rem',
                 'font-weight': '600',
-                'cursor': 'pointer',
-              },
+                cursor: 'pointer'
+              }
             }
-          },
+          }
         },
         gray: {
           css: {
-            '--tw-prose-code': theme('colors.pink.700'),
-            '--tw-prose-invert-code': theme('colors.pink.400'),
-          },
-        },
-      }),
-      colors: {
-        transitionProperty: {
-          'stroke-dashoffset': 'stroke-dashoffset'
-        },
-        'gold': {
-          DEFAULT: '#CE973E',
-          '50': '#F3E6D0',
-          '100': '#EFDDC0',
-          '200': '#E7CCA0',
-          '300': '#DFBA7F',
-          '400': '#D6A95F',
-          '500': '#CE973E',
-          '600': '#A9792B',
-          '700': '#7C5920',
-          '800': '#503914',
-          '900': '#231909'
-        },
-      },
-    },
-  },
-  corePlugins: {
-    container: false,
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require("@tailwindcss/forms"),
-  ],
+            '--tw-prose-code': 'var(--color-pink-700)',
+            '--tw-prose-invert-code': 'var(--color-pink-400)'
+          }
+        }
+      }
+    }
+  }
 }

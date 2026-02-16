@@ -19,7 +19,6 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('How This Course Will Work'),
-    javascript_lessons.fetch('A Quick Review'),
   )
 end
 
@@ -32,8 +31,8 @@ course.add_section do |section|
   section.identifier_uuid = '8b5f0c45-60f5-4dd9-8491-86d5d98f4ed3'
 
   section.add_lessons(
-    javascript_lessons.fetch('Organizing Your JavaScript Code Introduction'),
-    javascript_lessons.fetch('Objects and Object Constructors'),
+    javascript_lessons.fetch('Organizing Code with Objects'),
+    javascript_lessons.fetch('Object Constructors'),
     javascript_lessons.fetch('Library'),
     javascript_lessons.fetch('Factory Functions and the Module Pattern'),
     javascript_lessons.fetch('Tic Tac Toe'),
@@ -59,9 +58,8 @@ course.add_section do |section|
 
   section.add_lessons(
     javascript_lessons.fetch('Linting'),
-    javascript_lessons.fetch('Dynamic User Interface Interactions'),
     javascript_lessons.fetch('Form Validation with JavaScript'),
-    javascript_lessons.fetch('What is ES6?'),
+    javascript_lessons.fetch('ECMAScript'),
   )
 end
 
@@ -78,6 +76,21 @@ course.add_section do |section|
     javascript_lessons.fetch('Working with APIs'),
     javascript_lessons.fetch('Async and Await'),
     javascript_lessons.fetch('Weather App'),
+  )
+end
+
+# ++++++++++++++++++++++++++++
+# SECTION - Testing JavaScript
+# ++++++++++++++++++++++++++++
+course.add_section do |section|
+  section.title = 'Testing JavaScript'
+  section.description = "Test driven development is an important skill in today's dev world. This section digs into the details of writing automated JavaScript tests."
+  section.identifier_uuid = 'def99a36-0705-4b03-8aee-0aa0ae2b447c'
+
+  section.add_lessons(
+    javascript_lessons.fetch('Testing Basics'),
+    javascript_lessons.fetch('Testing Practice'),
+    javascript_lessons.fetch('More Testing'),
   )
 end
 
@@ -119,22 +132,6 @@ course.add_section do |section|
   )
 end
 
-# ++++++++++++++++++++++++++++
-# SECTION - Testing JavaScript
-# ++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'Testing JavaScript'
-  section.description = "Test driven development is an important skill in today's dev world. This section digs into the details of writing automated JavaScript tests."
-  section.identifier_uuid = 'def99a36-0705-4b03-8aee-0aa0ae2b447c'
-
-  section.add_lessons(
-    javascript_lessons.fetch('Testing Basics'),
-    javascript_lessons.fetch('Testing Practice'),
-    javascript_lessons.fetch('More Testing'),
-    javascript_lessons.fetch('Battleship'),
-  )
-end
-
 # ++++++++++++++++++++++++++++++++++++++
 # SECTION - Finishing Up with JavaScript
 # ++++++++++++++++++++++++++++++++++++++
@@ -144,6 +141,7 @@ course.add_section do |section|
   section.identifier_uuid = 'b0761d75-2a9a-4c33-b02a-1d072b75889f'
 
   section.add_lessons(
+    javascript_lessons.fetch('Battleship'),
     javascript_lessons.fetch('Conclusion'),
   )
 end

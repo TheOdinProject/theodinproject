@@ -4,11 +4,9 @@
     <div class="flex justify-between">
       <div class="flex">
         <div class="shrink-0 flex items-center">
-          <%= link_to root_path, class: 'logo', 'aria-label': 'Return back home' do %>
-            <%= image_tag 'icons/odin-icon.svg', alt: 'Odin Logo', class: 'block lg:hidden h-12 w-auto' %>
+          <%= render LogoComponent.new(classes: 'h-12 w-auto') do |component| %>
+            <%= component.with_small_icon(classes: 'h-12 w-auto') %>
           <% end %>
-
-          <%= render LogoComponent.new(classes: 'hidden lg:block h-12 w-auto') %>
         </div>
 
       </div>

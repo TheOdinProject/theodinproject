@@ -1,13 +1,9 @@
 class InterviewSurveysController < ApplicationController
   before_action :authenticate_user!
-  # TODO: merge feature flag stuff in
+  requires_feature :survey_feature
 
   def new
-    if Flipper.enabled?(:survey_feature, current_user)
-      @interview_survey = InterviewSurvey.new
-    else
-      redirect_to dashboard_path, notice: 'Feature not enabled'
-    end
+    @interview_survey = InterviewSurvey.new
   end
 
   def create

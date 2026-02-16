@@ -7,7 +7,7 @@ pre[class*="language-"] {
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  word-wrap: normal;
+  overflow-wrap: normal;
   line-height: 1.7;
   tab-size: 4;
   hyphens: none;
@@ -107,4 +107,8 @@ code[class*="language-"] {
   display: block;
   counter-increment: linenumber;
   line-height: 1.7rem;
+}
+
+.light .copy-to-clipboard-button[data-copy-state^="copy"] span {
+  color: #bbb;
 }
