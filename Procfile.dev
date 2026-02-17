@@ -1,4 +1,4 @@
-web: bundle exec puma -C config/puma_development.rb -p 3000
+web: env RUBY_DEBUG_OPEN=true bundle exec puma -C config/puma_development.rb -p 3000
 worker: bundle exec sidekiq
 css: yarn build:css --watch
 js: yarn build --watch
