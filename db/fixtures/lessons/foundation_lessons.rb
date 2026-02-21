@@ -44,7 +44,7 @@ def foundation_lessons
     },
     'Installations' => {
       title: 'Installations',
-      description: 'Before we can install Ruby and Rails...',
+      description: 'Operating system and browser requirements for The Odin Project',
       is_project: false,
       github_path: '/foundations/installations/installations.md',
       identifier_uuid: '93dbf0e1-3c06-46a8-8640-1d537e2e723b',
