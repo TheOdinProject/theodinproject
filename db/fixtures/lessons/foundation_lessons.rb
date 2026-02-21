@@ -42,14 +42,6 @@ def foundation_lessons
       github_path: '/foundations/installations/how_does_the_web_work.md',
       identifier_uuid: '1218a4a0-c92e-465b-b7c5-322ca5731a5f',
     },
-    'Installation Overview' => {
-      title: 'Installation Overview',
-      description: "There are some things you'll need to install before you start getting your hands dirty",
-      is_project: false,
-      github_path: '/foundations/installations/installation_overview.md',
-      identifier_uuid: 'ef45c208-6ebf-4fff-ba92-1d7584d3a9f2',
-      installation_lesson: true,
-    },
     'Installations' => {
       title: 'Installations',
       description: 'Before we can install Ruby and Rails...',
