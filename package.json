@@ -23,7 +23,7 @@
     "chokidar": "^4.0.3",
     "debounce": "^3.0.0",
     "el-transition": "^0.0.7",
-    "esbuild": "^0.27.0",
+    "esbuild": "^0.27.3",
     "esbuild-plugin-prismjs": "^1.0.8",
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
