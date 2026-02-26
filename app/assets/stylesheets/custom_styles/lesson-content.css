@@ -24,9 +24,7 @@
   }
 
   & pre code {
-    @apply bg-transparent! p-0;
-
-    padding-top: 3px;
+    @apply bg-transparent! p-0 pt-1;
   }
 
   & a > code {
@@ -50,11 +48,11 @@
   }
 
   & :is(h3, h4) > a {
-    color: inherit !important;
+    @apply text-inherit!;
   }
 
   & :is(h3, h4)[id] {
-    scroll-margin-top: 40px;
+    @apply scroll-mt-10;
   }
 }
 
