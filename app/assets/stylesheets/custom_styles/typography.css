@@ -26,6 +26,6 @@
 /* More visually distinctive inline code blocks
    https://github.com/tailwindlabs/tailwindcss-typography?tab=readme-ov-file#adding-custom-color-themes */
 @utility prose-gray {
-  --tw-prose-code: var(--color-pink-700);
+  --tw-prose-code: var(--color-pink-800);
   --tw-prose-invert-code: var(--color-pink-400);
 }
