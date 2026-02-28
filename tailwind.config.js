@@ -38,12 +38,6 @@ module.exports = {
               }
             }
           }
-        },
-        gray: {
-          css: {
-            '--tw-prose-code': 'var(--color-pink-700)',
-            '--tw-prose-invert-code': 'var(--color-pink-400)'
-          }
         }
       }
     }
