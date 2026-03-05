@@ -10,6 +10,7 @@
 @import './custom_styles/animations.css' layer(utilities);
 @import './custom_styles/static-pages.css' layer(utilities);
 @import './custom_styles/charts.css' layer(utilities);
+@import 'tom-select/dist/css/tom-select';
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
@@ -29,5 +30,3 @@
 @source inline('inline-img');
 
 @config '../../../tailwind.config.js';
-
-@import 'tom-select/dist/css/tom-select'
