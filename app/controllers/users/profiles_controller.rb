@@ -8,7 +8,7 @@ module Users
       if current_user.update(user_params)
         redirect_to edit_users_profile_path, notice: 'Your account has been updated'
       else
-        render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_content
       end
     end
 

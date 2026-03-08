@@ -16,7 +16,7 @@ RSpec.describe 'Error Pages' do
   describe 'GET 422' do
     it 'returns the correct status code' do
       get '/422'
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
 
     it 'returns the correct page' do

@@ -25,7 +25,7 @@ module Admin
         create_activity(@announcement, 'created')
         redirect_to admin_announcement_path(@announcement)
       else
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_content
       end
     end
 
@@ -36,7 +36,7 @@ module Admin
         create_activity(@announcement, 'updated')
         redirect_to admin_announcement_path(@announcement), notice: 'Announcement updated.'
       else
-        render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_content
       end
     end
 

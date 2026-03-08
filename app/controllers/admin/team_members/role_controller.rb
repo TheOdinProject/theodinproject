@@ -16,7 +16,7 @@ module Admin
           flash.now[:notice] = "#{@team_member.name} role updated"
           format.turbo_stream
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
         end
       end
     end
