@@ -56,7 +56,7 @@ RSpec.describe 'Two factor authentication' do
           two_fa: { otp_code: 'wrong-code' },
         }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
         expect(flash[:alert]).to eq('Incorrect Code')
       end
     end

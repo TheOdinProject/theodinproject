@@ -1,33 +1,33 @@
 plugins:
-  - rubocop-performance
-  - rubocop-rails
-  - rubocop-rspec
-  - rubocop-rspec_rails
-  - rubocop-capybara
-  - rubocop-factory_bot
+- rubocop-performance
+- rubocop-rails
+- rubocop-rspec
+- rubocop-rspec_rails
+- rubocop-capybara
+- rubocop-factory_bot
 
 AllCops:
   TargetRubyVersion: 3.4
-  TargetRailsVersion: 7.2
+  TargetRailsVersion: 8.1
   ExtraDetails: true
   DisplayStyleGuide: true
   Include:
-    - Gemfile
-    - Rakefile
-    - config.ru
-    - lib/**/*.rake
-    - '**/*.rb'
+  - Gemfile
+  - Rakefile
+  - config.ru
+  - lib/**/*.rake
+  - '**/*.rb'
   Exclude:
-    - 'vendor/**/*'
-    - 'bin/*'
-    - 'node_modules/**/*'
-    - db/schema.rb
+  - 'vendor/**/*'
+  - 'bin/*'
+  - 'node_modules/**/*'
+  - db/schema.rb
   NewCops: enable
 
 Layout/LineLength:
   Max: 120
   Exclude:
-    - 'db/**/*'
+  - 'db/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -86,7 +86,7 @@ Lint/FloatComparison:
 
 Lint/MissingSuper:
   Exclude:
-    - 'app/components/**/*'
+  - 'app/components/**/*'
   Enabled: true
 
 Lint/MixedRegexpCaptureTypes:
@@ -103,7 +103,7 @@ Lint/SelfAssignment:
 
 Lint/ShadowingOuterLocalVariable:
   Exclude:
-    - 'db/**/*'
+  - 'db/**/*'
 
 Lint/StructNewOverride:
   Enabled: true
@@ -116,7 +116,7 @@ Lint/UnreachableLoop:
 
 Lint/UselessAssignment:
   Exclude:
-    - 'spec/**/*'
+  - 'spec/**/*'
 
 Style/AccessorGrouping:
   Enabled: true
@@ -219,14 +219,14 @@ Rails/I18nLocaleTexts:
 
 Metrics/BlockLength:
   Exclude:
-    - 'config/environments/*'
-    - 'config/routes.rb'
-    - 'spec/**/*'
+  - 'config/environments/*'
+  - 'config/routes.rb'
+  - 'spec/**/*'
   Enabled: true
 
 Metrics/MethodLength:
   Exclude:
-    - 'db/**/*'
+  - 'db/**/*'
 
 RSpec/ExampleLength:
   Enabled: false
@@ -237,14 +237,11 @@ RSpec/ExpectChange:
 RSpec/MultipleExpectations:
   Max: 5
   Exclude:
-    - 'spec/system/**/*'
+  - 'spec/system/**/*'
 
 RSpec/DescribeClass:
   Exclude:
-    - 'spec/requests/**/*'
-    - 'spec/system/**/*'
-    - 'spec/tasks/**/*'
-    - 'spec/seeds/**/*'
-
-RSpecRails/HttpStatusNameConsistency:
-  Enabled: false
+  - 'spec/requests/**/*'
+  - 'spec/system/**/*'
+  - 'spec/tasks/**/*'
+  - 'spec/seeds/**/*'

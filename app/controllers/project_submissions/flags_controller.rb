@@ -16,7 +16,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
         format.html { redirect_to lesson_path(@project_submission.lesson) }
         format.turbo_stream { flash.now[:notice] = 'Thank you! your report has been submitted.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
       end
     end
   end
@@ -28,7 +28,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
   end
 
   def flag_params
-    params.require(:flag).permit(:reason, :extra).merge(flagger: current_user)
+    params.expect(flag: %i[reason extra]).merge(flagger: current_user)
   end
 
   def notify_discord_admins

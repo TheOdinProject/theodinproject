@@ -34,7 +34,7 @@ module Lessons
           format.html { redirect_to lesson_path(@lesson), notice: 'Project submitted' }
           format.turbo_stream
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_content }
         end
       end
     end
@@ -47,7 +47,7 @@ module Lessons
           format.html { redirect_to lesson_path(@lesson), notice: 'Project updated' }
           format.turbo_stream
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
         end
       end
     end
@@ -75,11 +75,11 @@ module Lessons
     end
 
     def project_submission_params
-      params.require(:project_submission).permit(
-        :repo_url,
-        :live_preview_url,
-        :is_public,
-        :lesson_id
+      params.expect(
+        project_submission: %i[repo_url
+                               live_preview_url
+                               is_public
+                               lesson_id]
       )
     end
 

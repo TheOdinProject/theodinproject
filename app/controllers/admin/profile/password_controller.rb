@@ -8,14 +8,14 @@ module Admin
         bypass_sign_in(@admin_user)
         redirect_to edit_admin_profile_path, notice: 'Password updated'
       else
-        render 'admin/profile/edit', status: :unprocessable_entity
+        render 'admin/profile/edit', status: :unprocessable_content
       end
     end
 
     private
 
     def password_params
-      params.require(:admin_user).permit(:password, :password_confirmation, :current_password)
+      params.expect(admin_user: %i[password password_confirmation current_password])
     end
   end
 end

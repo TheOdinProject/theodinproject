@@ -20,7 +20,7 @@ RSpec.describe 'User Registrations' do
       it 'renders the registration page again' do
         post user_registration_path(params: { user: attributes_for(:user, email: 'odin@') })
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end

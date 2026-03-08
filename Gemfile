@@ -2,7 +2,7 @@ ruby File.read('.ruby-version').strip
 
 source 'https://rubygems.org'
 
-gem 'rails', '8.0.4'
+gem 'rails', '8.1.3'
 
 gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
@@ -49,7 +49,7 @@ gem 'sidekiq-cron', '~> 2.3'
 gem 'stackprof', '~> 0.2'
 gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 2.0'
-gem 'view_component', '~> 4.0'
+gem 'view_component', '~> 4.5'
 
 # https://github.com/jamesmartin/inline_svg/issues/151
 gem 'inline_svg', '~> 1.10'
@@ -71,6 +71,7 @@ end
 
 group :development, :test do
   gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   gem 'debug', '~> 1.11', require: 'debug/prelude'
   gem 'dotenv-rails', '~> 3.1'
   gem 'parallel_tests', '~> 5.4'

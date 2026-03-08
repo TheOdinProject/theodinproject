@@ -30,7 +30,7 @@ RSpec.describe 'Admin user profile password' do
           admin_user: { password: 'new', password_confirmation: 'new', current_password: 'wrongpassword' },
         }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 

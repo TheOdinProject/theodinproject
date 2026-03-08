@@ -16,7 +16,7 @@ module Admin
           flash.now[:notice] = "#{@team_member.name} role updated"
           format.turbo_stream
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          format.html { render :edit, status: :unprocessable_content }
         end
       end
     end
@@ -24,7 +24,7 @@ module Admin
     private
 
     def admin_user_params
-      params.require(:admin_user).permit(:role)
+      params.expect(admin_user: [:role])
     end
 
     def record_not_found

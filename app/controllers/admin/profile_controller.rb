@@ -11,14 +11,14 @@ module Admin
       if @admin_user.update(profile_params)
         redirect_to edit_admin_profile_path, notice: 'Account updated'
       else
-        render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_content
       end
     end
 
     private
 
     def profile_params
-      params.require(:profile).permit(:email, :name)
+      params.expect(profile: %i[email name])
     end
   end
 end

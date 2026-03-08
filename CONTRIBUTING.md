@@ -33,7 +33,5 @@ When new content is ready to be or has already been merged in the TOP curriculum
 Before submitting a pull request (PR) to our web app repo, you should run the following commands locally to test that any changes made don't cause any failures. This can be quicker than waiting for your PR to finish running its checks to see whether there are any failures, and it can also help prevent you from making an unnecessary amount of commits that all fail to resolve a test failure.
 
 ```bash
-rubocop
-yarn lint
-rspec
+bin/ci
 ```

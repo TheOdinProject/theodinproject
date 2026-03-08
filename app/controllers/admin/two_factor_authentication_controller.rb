@@ -18,14 +18,14 @@ module Admin
         redirect_to admin_dashboard_path, notice: 'Successfully enabled two factor authentication'
       else
         flash.now[:alert] = 'Incorrect Code'
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_content
       end
     end
 
     private
 
     def two_factor_params
-      params.require(:two_fa).permit(:otp_code)
+      params.expect(two_fa: [:otp_code])
     end
   end
 end

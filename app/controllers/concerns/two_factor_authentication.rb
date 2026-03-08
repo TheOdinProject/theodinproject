@@ -48,6 +48,6 @@ module TwoFactorAuthentication
   end
 
   def resource_params
-    params.require(resource_name).permit(:email, :password, :otp_attempt)
+    params.expect(resource_name => %i[email password otp_attempt])
   end
 end
