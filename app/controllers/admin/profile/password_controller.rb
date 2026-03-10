@@ -8,7 +8,7 @@ module Admin
         bypass_sign_in(@admin_user)
         redirect_to edit_admin_profile_path, notice: 'Password updated'
       else
-        render 'admin/profile/edit', status: :unprocessable_entity
+        render 'admin/profile/edit', status: :unprocessable_content
       end
     end
 

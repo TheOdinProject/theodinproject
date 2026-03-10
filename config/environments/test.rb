@@ -63,6 +63,7 @@ Rails.application.configure do
   # Required to test emails / jobs fired with deliver_later / perform_later
   config.active_job.queue_adapter = :inline
 
+  # This is to reduce friction for setting up encryption in development.
   config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
   config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
   config.active_record.encryption.key_derivation_salt = 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'

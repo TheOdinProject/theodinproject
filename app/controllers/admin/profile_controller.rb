@@ -11,7 +11,7 @@ module Admin
       if @admin_user.update(profile_params)
         redirect_to edit_admin_profile_path, notice: 'Account updated'
       else
-        render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_content
       end
     end
 

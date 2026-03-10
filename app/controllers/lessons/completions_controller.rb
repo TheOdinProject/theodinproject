@@ -21,7 +21,7 @@ module Lessons
           format.turbo_stream
         end
       else
-        redirect_to @lesson, alert: 'Cannot complete lesson', status: :unprocessable_entity
+        redirect_to @lesson, alert: 'Cannot complete lesson', status: :unprocessable_content
       end
     end
     # rubocop: enable Metrics/MethodLength
@@ -40,7 +40,7 @@ module Lessons
           format.turbo_stream { render :create }
         end
       else
-        redirect_to @lesson, alert: 'Cannot uncomplete lesson', status: :unprocessable_entity
+        redirect_to @lesson, alert: 'Cannot uncomplete lesson', status: :unprocessable_content
       end
     end
     # rubocop: enable Metrics/MethodLength

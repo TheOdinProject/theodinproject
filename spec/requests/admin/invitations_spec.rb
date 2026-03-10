@@ -134,7 +134,7 @@ RSpec.describe 'Admin invitations' do
           admin_user: { password: 'password', password_confirmation: 'password', invitation_token: '123' },
         }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end

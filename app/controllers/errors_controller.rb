@@ -4,7 +4,7 @@ class ErrorsController < ActionController::Base # rubocop:disable Rails/Applicat
   end
 
   def unprocessable_entity
-    render status: :unprocessable_entity
+    render status: :unprocessable_content
   end
 
   def internal_server_error

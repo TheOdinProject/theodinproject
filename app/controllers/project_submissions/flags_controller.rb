@@ -16,7 +16,7 @@ class ProjectSubmissions::FlagsController < ApplicationController
         format.html { redirect_to lesson_path(@project_submission.lesson) }
         format.turbo_stream { flash.now[:notice] = 'Thank you! your report has been submitted.' }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
       end
     end
   end

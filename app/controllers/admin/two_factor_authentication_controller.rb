@@ -18,7 +18,7 @@ module Admin
         redirect_to admin_dashboard_path, notice: 'Successfully enabled two factor authentication'
       else
         flash.now[:alert] = 'Incorrect Code'
-        render :new, status: :unprocessable_entity
+        render :new, status: :unprocessable_content
       end
     end
 

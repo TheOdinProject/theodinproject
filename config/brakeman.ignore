@@ -1,0 +1,230 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "3589f5f09a8ff5797f7ff7d7d019115523a18b4d0dd0210682c74d69ee9aba6f",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/lessons/show.html.erb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Lesson.find(params[:id]).body",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "LessonsController",
+          "method": "show",
+          "line": 8,
+          "file": "app/controllers/lessons_controller.rb",
+          "rendered": {
+            "name": "lessons/show",
+            "file": "app/views/lessons/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "lessons/show"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "5a690d3d70af4026748e08dd28edafbef30b5349dd68ade1eab9b027493d5535",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/static_pages/success_stories.html.erb",
+      "line": 18,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(SuccessStory.new.student_name, SuccessStory.new.social_media_link, :class => \"underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-200 dark:hover:text-gray-300\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "success_stories",
+          "line": 20,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/success_stories",
+            "file": "app/views/static_pages/success_stories.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/success_stories"
+      },
+      "user_input": "SuccessStory.new.social_media_link",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "96eea8c955f6c2e2d397b9525781c6e428182ef96e55bda9929c024aa85f3869",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/static_pages/success_stories.html.erb",
+      "line": 40,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "SuccessStory.new.story_content",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "success_stories",
+          "line": 20,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/success_stories",
+            "file": "app/views/static_pages/success_stories.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/success_stories"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 110,
+      "fingerprint": "9ae68e59cfee3e5256c0540dadfeb74e6b72c91997fdb60411063a6e8518144a",
+      "check_name": "CookieSerialization",
+      "message": "Use of unsafe cookie serialization strategy `:hybrid` might lead to remote code execution",
+      "file": "config/initializers/cookies_serializer.rb",
+      "line": 5,
+      "link": "https://brakemanscanner.org/docs/warning_types/unsafe_deserialization",
+      "code": "Rails.application.config.action_dispatch.cookies_serializer = :hybrid",
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "Medium",
+      "cwe_id": [
+        565,
+        502
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 105,
+      "fingerprint": "9b020a4ed753960782fd4f2314e35e095b3ebf9901689343a1b8e0080a8cd856",
+      "check_name": "PermitAttributes",
+      "message": "Potentially dangerous key allowed for mass assignment",
+      "file": "app/controllers/admin/team_members/role_controller.rb",
+      "line": 27,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.require(:admin_user).permit(:role)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::TeamMembers::RoleController",
+        "method": "admin_user_params"
+      },
+      "user_input": ":role",
+      "confidence": "Medium",
+      "cwe_id": [
+        915
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "9c5b2f53b6f6fee7c28f0d19959e12da6eba776bace6a8ac675181cd78849cbd",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/reports/all_lesson_completions_day_stat.rb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "group(\"DATE_TRUNC('#{period}', date)\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Reports::AllLessonCompletionsDayStat",
+        "method": "group_by_period"
+      },
+      "user_input": "period",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "a0077e8372de3f0d83303a0e84697be4d10ea4daa9796624560e3bda08a4245c",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/models/reports/user_sign_ups_day_stat.rb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "group(\"DATE_TRUNC('#{period}', date)\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Reports::UserSignUpsDayStat",
+        "method": "group_by_period"
+      },
+      "user_input": "period",
+      "confidence": "Medium",
+      "cwe_id": [
+        89
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "f248c8266d501f8acbb480e5dd77785fc90e175aeba465e3906a2b9197b67f93",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/static_pages/success_stories.html.erb",
+      "line": 19,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(SuccessStory.new.social_media_link)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "StaticPagesController",
+          "method": "success_stories",
+          "line": 20,
+          "file": "app/controllers/static_pages_controller.rb",
+          "rendered": {
+            "name": "static_pages/success_stories",
+            "file": "app/views/static_pages/success_stories.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "static_pages/success_stories"
+      },
+      "user_input": "SuccessStory.new.social_media_link",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "8.0.4"
+}

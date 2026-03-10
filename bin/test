@@ -7,6 +7,7 @@ results = {
   'Standard' => false,
   'Stylelint' => false
 }
+puts 'DEPRECATION WARNING: bin/test is deprecated. Use bin/ci instead.'
 puts "\n== Running linters =="
 puts 'Rubocop:'
 results['Rubocop'] = system 'bin/rubocop'

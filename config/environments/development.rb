@@ -19,13 +19,14 @@ Rails.application.configure do
   # Run rails dev:cache to toggle Action Controller caching.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
-    config.cache_store = :memory_store
     config.action_controller.enable_fragment_cache_logging = true
     config.public_file_server.headers = { 'cache-control' => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false
-    config.cache_store = :null_store
   end
+
+  # Change to :null_store to avoid any caching.
+  config.cache_store = :memory_store
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
@@ -61,6 +62,12 @@ Rails.application.configure do
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
 
+  # Highlight code that triggered redirect in logs.
+  config.action_dispatch.verbose_redirect_logs = true
+
+  # Suppress logger output for asset requests.
+  config.assets.quiet = true
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -85,6 +92,7 @@ Rails.application.configure do
   config.view_component.previews.paths << Rails.root.join('spec/components/previews')
   config.view_component.previews.default_layout = 'component_preview'
 
+  # This is to reduce friction for setting up encryption in development.
   config.active_record.encryption.primary_key = 'C697JaYLcwzaSkxtmnedQad2Tl369h4P'
   config.active_record.encryption.deterministic_key = '7Db9oVtlyUn59MkoSnqnwBo17eJqqw7w'
   config.active_record.encryption.key_derivation_salt = 'IlKDRto84iBwxg09w0nbBqlWBe8a2NWT'

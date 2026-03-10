@@ -13,7 +13,7 @@ module Admin
           flash.now[:notice] = "Invitation sent to #{resource.email}"
           format.turbo_stream
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { render :new, status: :unprocessable_content }
         end
       end
     end
