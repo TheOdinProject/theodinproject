@@ -35,9 +35,9 @@ course.add_section do |section|
   section.add_lessons(
     react_lessons.fetch('React Components'),
     react_lessons.fetch('What Is JSX?'),
+    react_lessons.fetch('Passing Data Between Components'),
     react_lessons.fetch('Rendering Techniques'),
     react_lessons.fetch('Keys In React'),
-    react_lessons.fetch('Passing Data Between Components'),
   )
 end
 
