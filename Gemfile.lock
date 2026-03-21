@@ -358,7 +358,7 @@ GEM
     parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
+    pg (1.6.3)
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
@@ -662,7 +662,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 2.0)
   pagy (~> 9.3)
   parallel_tests (~> 5.4)
-  pg (~> 1.5)
+  pg (~> 1.6)
   pg_search (~> 2.3)
   propshaft (~> 1.1)
   public_activity (~> 3.0)
