@@ -5,7 +5,7 @@ module Kramdown
   module Converter
     module OdinHtml
       HEADER_LEVELS_TO_CONVERT = [3, 4].freeze
-      EXTERNAL_LINK_ATTRIBUTES = { target: '_blank', rel: 'noopener noreferrer' }.freeze
+      EXTERNAL_LINK_ATTRIBUTES = { rel: 'noreferrer' }.freeze
 
       def convert_img(element, _indent)
         return super if @stack.last.type == :a || element.attr['alt'] == ''
