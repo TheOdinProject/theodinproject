@@ -21,7 +21,7 @@ class InterviewSurveysController < ApplicationController
   def interview_survey_params
     params.require(:interview_survey).permit(
       :interview_date,
-      interview_concept_names: []
+      concept_names_to_be_saved: []
     )
   end
 end

@@ -33,7 +33,7 @@ RSpec.describe 'Interview survey' do
       fill_in :interview_survey_interview_date, with: Date.current
 
       find('div[class="ts-control"]').click
-      find('input[id="interview_survey_interview_concept_names-ts-control"]')
+      find('input[id="interview_survey_concept_names_to_be_saved-ts-control"]')
         .set('React props')
         .send_keys(:return)
 

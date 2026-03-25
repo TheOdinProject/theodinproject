@@ -6,7 +6,7 @@ class InterviewSurvey < ApplicationRecord
   validates :interview_date, presence: true
   validate :interview_date_must_be_in_the_past
 
-  attribute :interview_concept_names, :string, array: true, default: -> { [] }
+  attribute :concept_names_to_be_saved, :string, array: true, default: -> { [] }
 
   after_save :create_concepts
 
@@ -19,7 +19,7 @@ class InterviewSurvey < ApplicationRecord
   end
 
   def create_concepts
-    self.interview_concepts = interview_concept_names.compact_blank.map do |name|
+    self.interview_concepts = concept_names_to_be_saved.compact_blank.map do |name|
       InterviewConcept.find_or_create_by(name:)
     end
   end
