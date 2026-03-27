@@ -1,11 +1,10 @@
-/* eslint-disable no-undef, no-unused-expressions */
+import * as Sentry from '@sentry/browser'
 
 const {
   SENTRY_DSN, currentUserSignedIn, currentUserId, currentUsername
 } = window
 
-window.Sentry = window.Sentry || {}
-window.Sentry && Sentry.onLoad && Sentry.onLoad(() => {
+if (SENTRY_DSN) {
   Sentry.init({
     dsn: SENTRY_DSN,
     environment: 'production'
@@ -17,4 +16,4 @@ window.Sentry && Sentry.onLoad && Sentry.onLoad(() => {
       name: currentUsername
     })
   }
-})
+}
