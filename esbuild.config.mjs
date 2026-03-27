@@ -21,9 +21,9 @@ import { sentryEsbuildPlugin } from '@sentry/esbuild-plugin'
 const clients = []
 const entryPoints = ['main.js']
 const watchDirectories = [
-  './app/javascript/**/*.js',
-  './app/views/**/*.html.erb',
-  './app/assets/builds/**/*.css' // Wait for cssbundling changes
+  './app/javascript',
+  './app/views',
+  './app/assets/builds' // Wait for cssbundling changes
 ]
 
 const config = {
