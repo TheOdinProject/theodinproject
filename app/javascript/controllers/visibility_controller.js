@@ -33,10 +33,15 @@ export default class VisibilityController extends Controller {
 
   async visibleValueChanged (visible) {
     if (visible) {
-      this.contentTargets.forEach((element) => enter(element))
+      this.contentTargets
+        .filter((el) => el.classList.contains('hidden'))
+        .forEach(enter)
     } else {
-      for (const el of this.contentTargets.reverse()) {
-        // each transition will wait for the previous one to finish
+      const visibleTargets = this.contentTargets
+        .filter((el) => !el.classList.contains('hidden'))
+        .reverse()
+
+      for (const el of visibleTargets) {
         await leave(el)
       }
     }
