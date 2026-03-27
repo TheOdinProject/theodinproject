@@ -9,7 +9,7 @@ gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
 gem 'class_variants', '~> 1.1'
 gem 'cssbundling-rails', '~> 1.4'
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0'
 gem 'devise_invitable', '~> 2.0'
 gem 'devise-two-factor', '~> 6.1'
 gem 'discard', '~> 1.4'
