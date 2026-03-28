@@ -33,9 +33,9 @@ export default class VisibilityController extends Controller {
 
   async visibleValueChanged (visible) {
     if (visible) {
-      this.contentTargets
-        .filter((el) => el.classList.contains('hidden'))
-        .forEach(enter)
+      for (const el of this.contentTargets.filter((el) => el.classList.contains('hidden'))) {
+        await enter(el)
+      }
     } else {
       const visibleTargets = this.contentTargets
         .filter((el) => !el.classList.contains('hidden'))

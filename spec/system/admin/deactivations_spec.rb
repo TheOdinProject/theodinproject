@@ -8,7 +8,6 @@ RSpec.describe 'Admin team member deactivation' do
     sign_in(admin)
 
     visit admin_team_path
-    sleep 0.1 # dropdown animations can be slow
 
     within("#admin_user_#{other_admin.id}") do
       find(:test_id, 'dropdown-button').click

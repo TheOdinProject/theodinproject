@@ -79,7 +79,6 @@ RSpec.describe 'Admin sign in and sign out' do
       sign_in(create(:admin_user))
 
       visit admin_root_path
-      sleep 0.1 # it will not open the dropdown without this
 
       expect(page).to have_current_path(admin_root_path)
 

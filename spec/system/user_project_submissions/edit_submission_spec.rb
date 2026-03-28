@@ -18,7 +18,6 @@ RSpec.describe 'Editing a Project Submission on the Dashboard' do
   end
 
   it 'successfully edits a submission' do
-    sleep 0.1 # it will not open the dropdown without this
     find(:test_id, 'submission-action-menu-btn').click
     find(:test_id, 'edit-submission').click
 

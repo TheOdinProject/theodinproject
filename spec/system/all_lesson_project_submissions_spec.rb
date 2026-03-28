@@ -40,7 +40,6 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
       end
 
       # sort by oldest
-      sleep 0.4 # it will not open the dropdown without this
       find(:test_id, 'sort-select').trigger('click')
       expect(page).to have_link('Oldest')
       click_on('Oldest')

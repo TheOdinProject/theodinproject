@@ -12,8 +12,6 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
   end
 
   it 'successfully deletes a submission' do
-    sleep 0.1 # it will not open the dropdown without this
-
     within(:test_id, 'user-submissions-list') do
       expect(page).to have_content('My Project')
       expect(page).to have_content('Another Project')
