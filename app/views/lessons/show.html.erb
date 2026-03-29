@@ -20,9 +20,14 @@
                 <span class="underline hover:no-underline">Improve on GitHub</span>
               <% end %>
 
-              <%= link_to github_report_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
-                <%= inline_svg_tag 'icons/flag.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Report an issue', desc: 'Report icon' %>
-                <span>Report an issue</span>
+              <%= link_to github_report_url(@lesson, 'broken_link'), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+                <%= inline_svg_tag 'icons/link.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Report broken link', desc: 'Broken link icon' %>
+                <span>Report broken link</span>
+              <% end %>
+
+              <%= link_to github_report_url(@lesson, 'suggestion'), target: :_blank, rel: 'noreferrer noopener', class: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 pr-5 text-sm' do %>
+                <%= inline_svg_tag 'icons/flag.svg', class: 'h-4 w-4 mr-1 inline', aria: true, title: 'Report other issue', desc: 'Report icon' %>
+                <span>Report other issue</span>
               <% end %>
 
               <%= link_to github_commits_url(@lesson), target: :_blank, rel: 'noreferrer noopener', class: 'underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm ml-auto text-right' do %>
