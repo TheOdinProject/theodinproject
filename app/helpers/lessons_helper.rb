@@ -7,10 +7,10 @@ module LessonsHelper
     github_link("curriculum/commits/main#{lesson.github_path}")
   end
 
-  def github_report_url(lesson)
+  def github_report_url(lesson, template)
     params = {
       labels: 'Status: Needs Triage',
-      template: 'suggestion.yaml',
+      template: "#{template}.yaml",
       title: "#{lesson.title}: <Short description of your suggestion>",
       'lesson-link': lesson_url(lesson)
     }

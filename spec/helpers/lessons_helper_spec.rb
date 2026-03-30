@@ -25,8 +25,14 @@ RSpec.describe LessonsHelper do
     let(:course) { create(:course, title: 'Test Course1') }
     let(:lesson) { create(:lesson, title: 'Ruby Basics', course:) }
 
-    it 'returns the correct github url' do
-      expect(helper.github_report_url(lesson)).to eql(
+    it 'returns the correct github url for broken links' do
+      expect(helper.github_report_url(lesson, 'broken_link')).to eql(
+        'https://github.com/TheOdinProject/curriculum/issues/new?labels=Status%3A+Needs+Triage&lesson-link=http%3A%2F%2Ftest.host%2Flessons%2Ftest-course1-ruby-basics&template=broken_link.yaml&title=Ruby+Basics%3A+%3CShort+description+of+your+suggestion%3E'
+      )
+    end
+
+    it 'returns the correct github url for other issues' do
+      expect(helper.github_report_url(lesson, 'suggestion')).to eql(
         'https://github.com/TheOdinProject/curriculum/issues/new?labels=Status%3A+Needs+Triage&lesson-link=http%3A%2F%2Ftest.host%2Flessons%2Ftest-course1-ruby-basics&template=suggestion.yaml&title=Ruby+Basics%3A+%3CShort+description+of+your+suggestion%3E'
       )
     end
