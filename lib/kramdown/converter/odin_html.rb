@@ -10,7 +10,8 @@ module Kramdown
       def convert_img(element, _indent)
         return super if @stack.last.type == :a || element.attr['alt'] == ''
 
-        attributes = { href: element.attr['src'] }.merge(EXTERNAL_LINK_ATTRIBUTES)
+        attributes = { href: element.attr['src'], 'aria-label': "image showing #{element.attr['alt']}" }
+          .merge(EXTERNAL_LINK_ATTRIBUTES)
         %(<a#{html_attributes(attributes)}>#{super}</a>)
       end
 

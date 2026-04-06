@@ -126,7 +126,7 @@ RSpec.describe MarkdownConverter do
         MARKDOWN
 
         html_result = <<~HTML
-          <p><a href="https://example.com/image.jpeg" rel="noreferrer"><img src="https://example.com/image.jpeg" alt="an image" /></a></p>
+          <p><a href="https://example.com/image.jpeg" aria-label="image showing an image" rel="noreferrer"><img src="https://example.com/image.jpeg" alt="an image" /></a></p>
         HTML
 
         expect(described_class.new(markdown).as_html).to eq(html_result)
