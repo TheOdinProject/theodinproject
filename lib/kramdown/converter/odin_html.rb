@@ -12,7 +12,7 @@ module Kramdown
 
         attributes = { href: element.attr['src'], 'aria-label': "image showing #{element.attr['alt']}" }
           .merge(EXTERNAL_LINK_ATTRIBUTES)
-        %(<a#{html_attributes(attributes)}>#{super}</a>)
+        "<a#{html_attributes(attributes)}>#{super}</a>"
       end
 
       def convert_a(element, indent)
