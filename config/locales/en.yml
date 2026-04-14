@@ -66,7 +66,7 @@ en:
     contributing:
       contributing_options:
         ways_to_contribute:
-          - title: Contribute to the Curriculum
+          - title: Curriculum
             description: |
               The curriculum consists of the lessons and projects on this site.
               We are constantly expanding and updating the curriculum to keep it current and
@@ -74,7 +74,7 @@ en:
               Our goal is to create the best free web development curriculum in the world, anyone
               is welcome to join in and help us in striving for this goal.
             path: curriculum
-          - title: Contribute to the Main Site
+          - title: Main Site
             description: |
               The site you are on right now is a Ruby on Rails application. We are
               always working on new features that improve the platform and help students in

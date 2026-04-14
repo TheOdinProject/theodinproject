@@ -29,13 +29,18 @@ RSpec.describe ButtonHelper do
 
   describe '#chat_button' do
     let(:chat_button) do
-      # rubocop:disable Layout/LineLength
-      '<a class="button button--secondary px-4" target="_blank" rel="noreferrer" href="https://discord.gg/fbFCkYabZB">Open Discord</a>'
-      # rubocop:enable Layout/LineLength
+      render NewTabLinkComponent.new(
+        text: 'Open Discord',
+        href: 'https://discord.gg/fbFCkYabZB',
+        classes: 'button button--secondary px-4'
+      )
     end
 
     it 'returns a chat button' do
-      expect(helper.chat_button).to eq(chat_button)
+      # https://regexr.com/8ll7q to test this regex
+      id = /(?<=\sid="|\saria-labelledby=").+(?=")/
+
+      expect(helper.chat_button.gsub(id, 'test-id')).to eq(chat_button.gsub(id, 'test-id'))
     end
   end
 end
