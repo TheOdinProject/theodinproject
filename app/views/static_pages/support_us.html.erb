@@ -15,7 +15,10 @@
     </div>
 
     <div class="mt-8 text-center">
-      <%= link_to 'Donate now!', 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary text-base px-12 py-4', target: '_blank' %>
+      <%= link_to 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary text-base px-12 py-4', target: '_blank' do %>
+        <span>Donate now!</span>
+        <%= inline_svg_tag 'icons/open-new-tab.svg', class: 'h-4 w-4 ml-1 inline', aria: true, desc: 'New tab' %>
+      <% end %>
     </div>
     <%# <script src='https://opencollective.com/theodinproject/banner.js?style={"h2":{"color":"rgb(112, 112, 128)"}}'></script> %>
   </section>

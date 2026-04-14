@@ -15,10 +15,16 @@
     </div>
 
     <div class="flex flex-row md:items-center">
-      <%= link_to 'View code', project_submission.repo_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'view-code-btn' } %>
+      <%= link_to project_submission.repo_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'view-code-btn' } do %>
+        <span>View code</span>
+        <%= inline_svg_tag 'icons/open-new-tab.svg', class: 'h-4 w-4 ml-1 inline', aria: true, desc: 'New tab' %>
+      <% end %>
 
       <% if project_submission.lesson.previewable? && project_submission.live_preview_url? %>
-        <%= link_to 'Live preview', project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } %>
+        <%= link_to project_submission.live_preview_url, target: '_blank', rel: 'noreferrer', class: 'button button--gray font-semibold mr-4', data: { test_id: 'live-preview-btn' } do %>
+          <span>Live preview</span>
+          <%= inline_svg_tag 'icons/open-new-tab.svg', class: 'h-4 w-4 ml-1 inline', aria: true, desc: 'New tab' %>
+        <% end %>
       <% end %>
 
       <div class="flex-none absolute top-7 right-0 md:relative md:top-auto md:right-auto" data-controller="visibility" data-action="visibility:click:outside->visibility#off" data-visibility-visible-value="false">

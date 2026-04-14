@@ -14,12 +14,14 @@
 
         <% card.with_footer(classes: 'text-center mt-auto') do %>
             <%= link_to(
-                  'View on GitHub',
                   github_link(contribution[:path]),
                   class: 'button button--primary text-base',
                   target: '_blank',
                   rel: 'noreferrer'
-                ) %>
+                ) do %>
+              <span>View on GitHub</span>
+              <%= inline_svg_tag 'icons/open-new-tab.svg', class: 'h-4 w-4 ml-1 inline', aria: true, desc: 'New tab' %>
+            <% end %>
         <% end %>
       <% end %>
     <% end %>
