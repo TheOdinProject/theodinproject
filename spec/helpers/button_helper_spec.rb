@@ -38,9 +38,9 @@ RSpec.describe ButtonHelper do
 
     it 'returns a chat button' do
       # https://regexr.com/8ll7q to test this regex
-      id = /(?<=\sid="|\saria-labelledby=").+(?=")/
+      id = /\s(id|aria-labelledby)=".+"/
 
-      expect(helper.chat_button.gsub(id, 'test-id')).to eq(chat_button.gsub(id, 'test-id'))
+      expect(helper.chat_button.gsub(id, '')).to eq(chat_button.gsub(id, ''))
     end
   end
 end
