@@ -195,7 +195,7 @@ GEM
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
       websocket-driver (~> 0.7)
-    ffi (1.17.0)
+    ffi (1.17.4)
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
@@ -264,7 +264,8 @@ GEM
     letter_opener (1.10.0)
       launchy (>= 2.2, < 4)
     lint_roller (1.1.0)
-    listen (3.9.0)
+    listen (3.10.0)
+      logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     llhttp-ffi (0.5.0)
@@ -660,7 +661,7 @@ DEPENDENCIES
   kramdown (~> 2.5)
   kramdown-parser-gfm
   letter_opener (~> 1.8)
-  listen (~> 3.9)
+  listen (~> 3.10)
   lookbook (~> 2.3)
   newrelic_rpm (~> 9.23)
   noticed (~> 1.6)
