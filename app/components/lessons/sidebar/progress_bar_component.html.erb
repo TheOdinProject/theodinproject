@@ -1,0 +1,16 @@
+<div class="sidebar-progress-bar">
+  <div class="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-1.5 overflow-hidden">
+    <div
+      class="bg-teal-600 dark:bg-teal-500 h-full rounded-full transition-all"
+      style="width: <%= percentage %>%;"
+      role="progressbar"
+      aria-valuenow="<%= percentage %>"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-label="Course progress">
+    </div>
+  </div>
+  <span class="mt-2 block text-xs text-gray-500 dark:text-gray-400">
+    <%= percentage %>% complete
+  </span>
+</div>

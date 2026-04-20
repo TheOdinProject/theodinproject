@@ -1,0 +1,14 @@
+<details class="group border-b border-gray-100 dark:border-gray-800" <%= 'open' if expanded? %>>
+  <summary class="flex items-center justify-between gap-2 py-3 px-2 cursor-pointer list-none text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">
+    <span class="truncate"><%= section.title %></span>
+    <%= inline_svg_tag 'icons/chevron-down.svg', class: 'h-4 w-4 shrink-0 text-gray-400 transition-transform group-open:rotate-180' %>
+  </summary>
+
+  <ul class="pb-2 space-y-1">
+    <% section.lessons.each do |lesson| %>
+      <li>
+        <%= render Lessons::Sidebar::LessonComponent.new(lesson:, current_lesson:, current_user:) %>
+      </li>
+    <% end %>
+  </ul>
+</details>

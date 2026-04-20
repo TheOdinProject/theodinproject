@@ -1,24 +1,12 @@
-<header class="mb-16">
-  <div class="flex space-y-4 items-center flex-col justify-center xl:space-y-0 xl:space-x-4 xl:flex-row xl:justify-start">
-    <%= render Course::BadgeComponent.new(course: lesson.course, options: {show_badge: true }) %>
-
-    <div class="text-center xl:text-left">
-      <div class="flex flex-col xl:flex-row items-center gap-0 sm:gap-3">
-        <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-200" data-test-id="lesson-title-header">
-          <%= lesson.display_title %>
-        </h1>
-        <% if lesson.recently_added? %>
-          <%= render Ui::BadgeComponent.new(color: 'green') do %>
-            new
-          <% end %>
-        <% end %>
-      </div>
-
-      <%= link_to path_course_url(lesson.course.path, lesson.course), class: 'no-underline' do %>
-        <h2 class="min-w-full text-lg text-gray-500 dark:text-gray-400" data-test-id="course-title-header">
-          <%= lesson.course.title %> Course
-        </h2>
+<header class="mb-8 max-w-prose mx-auto xl:mx-0">
+  <div class="flex items-center gap-3">
+    <h1 class="text-3xl font-semibold text-gray-800 dark:text-gray-200" data-test-id="lesson-title-header">
+      <%= lesson.display_title %>
+    </h1>
+    <% if lesson.recently_added? %>
+      <%= render Ui::BadgeComponent.new(color: 'green') do %>
+        new
       <% end %>
-    </div>
+    <% end %>
   </div>
 </header>
