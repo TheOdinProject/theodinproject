@@ -16,17 +16,17 @@
 
             <% component.with_footer do %>
               <div class="flex flex-col gap-2">
-                <%= render NewTabLinkComponent.new(
+                <%= render NewTabTextLinkComponent.new(
                       text: 'Improve on GitHub',
                       href: github_edit_url(@lesson),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
                     ) %>
-                <%= render NewTabLinkComponent.new(
+                <%= render NewTabTextLinkComponent.new(
                       text: 'Report broken link',
                       href: github_report_url(@lesson, 'broken_link'),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
                     ) %>
-                <%= render NewTabLinkComponent.new(
+                <%= render NewTabTextLinkComponent.new(
                       text: 'Report other issue',
                       href: github_report_url(@lesson, 'suggestion'),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
@@ -34,7 +34,7 @@
               </div>
 
               <div class="flex flex-col">
-                <%= render NewTabLinkComponent.new(
+                <%= render NewTabTextLinkComponent.new(
                       text: 'See lesson changelog',
                       href: github_commits_url(@lesson),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'

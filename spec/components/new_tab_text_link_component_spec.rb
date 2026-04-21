@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NewTabLinkComponent, type: :component do
+RSpec.describe NewTabTextLinkComponent, type: :component do
   it 'renders the link with a new tab svg icon' do
     component = described_class.new(
       text: 'link text',

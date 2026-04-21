@@ -1,4 +1,4 @@
-class NewTabLinkComponent < ApplicationComponent
+class NewTabTextLinkComponent < ApplicationComponent
   def initialize(text:, href:, classes:, data: nil, noreferrer: true)
     @text = text
     @href = href
