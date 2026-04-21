@@ -17,7 +17,7 @@
             <% component.with_footer do %>
               <div class="flex flex-col gap-2">
                 <%= render NewTabTextLinkComponent.new(
-                      text: 'Improve on GitHub',
+                      text: 'Edit on GitHub',
                       href: github_edit_url(@lesson),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
                     ) %>
@@ -27,7 +27,7 @@
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
                     ) %>
                 <%= render NewTabTextLinkComponent.new(
-                      text: 'Report other issue',
+                      text: 'Report other issue/suggestion',
                       href: github_report_url(@lesson, 'suggestion'),
                       classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
                     ) %>
