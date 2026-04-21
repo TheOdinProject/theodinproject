@@ -12,10 +12,6 @@ module ButtonHelper
   end
 
   def chat_button
-    render NewTabLinkComponent.new(
-      text: 'Open Discord',
-      href: ODIN_CHAT_URL,
-      classes: 'button button--secondary px-4'
-    )
+    link_to 'Open Discord', ODIN_CHAT_URL, class: 'button button--secondary px-4', target: '_blank', rel: 'noreferrer'
   end
 end

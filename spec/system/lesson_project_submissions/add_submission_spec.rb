@@ -73,7 +73,7 @@ RSpec.describe 'Add a Project Submission' do
 
       within(:test_id, 'current-user-solution') do
         expect(page).to have_content(lesson.title)
-        expect(page).to have_link('View code')
+        expect(page).to have_link('View GitHub repo')
         expect(page).to have_no_link('Live preview')
       end
     end

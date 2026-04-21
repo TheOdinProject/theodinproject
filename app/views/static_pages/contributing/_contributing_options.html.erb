@@ -5,7 +5,7 @@
     <% contributions.each do |contribution| %>
       <%= render CardComponent.new(classes: 'flex flex-col flex-between h-full border-t-8 border-t-gold-600 dark:border-t-gold-700') do |card| %>
         <% card.with_header do %>
-          <h3 class="text-xl font-medium text-center">Contribute to the <%= contribution[:title] %></h3>
+          <h3 class="text-xl font-medium text-center"><%= contribution[:title] %></h3>
         <% end %>
 
         <% card.with_body(classes: 'pt-4') do %>
@@ -13,11 +13,13 @@
         <% end %>
 
         <% card.with_footer(classes: 'text-center mt-auto') do %>
-            <%= render NewTabLinkComponent.new(
-                  text: "View the #{contribution[:title]} on GitHub",
-                  href: github_link(contribution[:path]),
-                  classes: 'button button--primary text-base'
-                ) %>
+          <%= link_to(
+                "View the #{contribution[:title]} on GitHub",
+                github_link(contribution[:path]),
+                class: 'button button--primary text-base',
+                target: '_blank',
+                rel: 'noreferrer'
+              ) %>
         <% end %>
       <% end %>
     <% end %>

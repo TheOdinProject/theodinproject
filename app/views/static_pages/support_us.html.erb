@@ -15,14 +15,8 @@
     </div>
 
     <div class="mt-8 text-center">
-      <%= render NewTabLinkComponent.new(
-            text: 'Donate now!',
-            href: 'https://opencollective.com/theodinproject/donate?amount=5',
-            classes: 'button button--primary text-base px-12 py-4',
-            noreferrer: false
-          ) %>
+      <%= link_to 'Donate now!', 'https://opencollective.com/theodinproject/donate?amount=5', class: 'button button--primary text-base px-12 py-4', target: '_blank' %>
     </div>
-    <%# <script src='https://opencollective.com/theodinproject/banner.js?style={"h2":{"color":"rgb(112, 112, 128)"}}'></script> %>
   </section>
 
   <section class='bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'>
