@@ -53,7 +53,7 @@ success_stories = [
     avatar_path_name: 'sean.jpg',
     story_content: '<p>TOP smoothed out the steep learning curve in web development, allowing me to confidently learn at my own pace and taught me how to approach and solve real-life programming problems.</p> <p>The projects in TOP were a perfect mix of difficulty, allowing me to gain exposure to different technologies and feel challenged without feeling overwhelmed. Because of the foundation TOP provided, I was able to easily transition into freelancing and then into a junior level Rails developer position.</p>',
     job_title: 'Mid-Level Rails Developer',
-    social_media_link: 'https://www.seanszurko.com/',
+    social_media_link: '',
   },
   {
     student_name: 'Aron Fischer',
