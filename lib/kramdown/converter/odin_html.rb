@@ -20,6 +20,13 @@ module Kramdown
           element.attr.merge!(EXTERNAL_LINK_ATTRIBUTES)
         end
 
+        # Markdown allows adding link titles but not aria-labels
+        # "title" not ideal for accessible name - "aria-label" preferred
+        # https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_rule_avoid_fallback
+        if element.attr.key? 'title'
+          element.attr['aria-label'] = element.attr['title']
+        end
+
         super
       end
 
