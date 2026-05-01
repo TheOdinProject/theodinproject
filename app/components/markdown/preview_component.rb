@@ -8,7 +8,7 @@ class Markdown::PreviewComponent < ApplicationComponent
   end
 
   def allowed_attributes
-    Rails::HTML5::SafeListSanitizer::DEFAULT_ALLOWED_ATTRIBUTES + %w[id data-title]
+    Rails::HTML5::SafeListSanitizer::DEFAULT_ALLOWED_ATTRIBUTES + %w[id data-title rel aria-label]
   end
 
   private
