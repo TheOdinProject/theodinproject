@@ -11,12 +11,13 @@ RSpec.describe 'Editing a Project Submission' do
   end
 
   before do
+    create(:project_submission, user:, lesson:)
     sign_in(user)
-    visit lesson_path(lesson)
-    Pages::ProjectSubmissions::Form.new.open.fill_in.submit
   end
 
   it 'successfully edits a submission' do
+    visit lesson_path(lesson)
+
     within(:test_id, 'current-user-solution') do
       find(:test_id, 'submission-action-menu-btn').click
       find(:test_id, 'edit-submission').click

@@ -5,18 +5,15 @@ RSpec.describe 'Opening Course from User Dashboard' do
   let!(:foundations_course) { create(:course, title: 'Foundations', path: default_path) }
 
   context 'when user has completed a course' do
+    let(:user) { create(:user) }
+
     before do
       first_lesson = create(:lesson, course: foundations_course)
       second_lesson = create(:lesson, course: foundations_course)
+      create(:lesson_completion, user:, lesson: first_lesson, course: foundations_course)
+      create(:lesson_completion, user:, lesson: second_lesson, course: foundations_course)
 
-      sign_in(create(:user))
-
-      visit lesson_path(first_lesson)
-      find(:test_id, 'complete-button').click
-
-      visit lesson_path(second_lesson)
-      find(:test_id, 'complete-button').click
-
+      sign_in(user)
       visit dashboard_path
     end
 

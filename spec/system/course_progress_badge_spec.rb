@@ -7,9 +7,9 @@ RSpec.describe 'Course Progress Badge' do
   let!(:second_lesson) { create(:lesson, course:) }
 
   context 'when signed in' do
-    before do
-      sign_in(create(:user))
-    end
+    let(:user) { create(:user) }
+
+    before { sign_in(user) }
 
     context 'when course has not been started' do
       it 'displays 0% completion' do
@@ -23,9 +23,8 @@ RSpec.describe 'Course Progress Badge' do
 
     context 'when course has some progress' do
       it 'shows percentage of completion' do
-        visit lesson_path(first_lesson)
+        create(:lesson_completion, user:, lesson: first_lesson, course:)
 
-        find(:test_id, 'complete-button').click
         visit path_course_path(path, course)
 
         within :test_id, 'progress-circle' do
@@ -36,11 +35,8 @@ RSpec.describe 'Course Progress Badge' do
 
     context 'when course is completed' do
       it 'shows 100% completion' do
-        visit lesson_path(first_lesson)
-        find(:test_id, 'complete-button').click
-
-        visit lesson_path(second_lesson)
-        find(:test_id, 'complete-button').click
+        create(:lesson_completion, user:, lesson: first_lesson, course:)
+        create(:lesson_completion, user:, lesson: second_lesson, course:)
 
         visit path_course_path(path, course)
 

@@ -6,14 +6,13 @@ RSpec.describe 'Resuming Course from User Dashboard' do
   let!(:incomplete_lesson) { create(:lesson, course: foundations_course) }
 
   context 'when user has completed first lesson in course' do
+    let(:user) { create(:user) }
+
     before do
-      lesson = create(:lesson, course: foundations_course)
+      completed_lesson = create(:lesson, course: foundations_course)
+      create(:lesson_completion, user:, lesson: completed_lesson, course: foundations_course)
 
-      sign_in(create(:user))
-
-      visit lesson_path(lesson)
-      find(:test_id, 'complete-button').click
-
+      sign_in(user)
       visit dashboard_path
     end
 
