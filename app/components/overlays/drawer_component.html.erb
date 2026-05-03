@@ -1,0 +1,52 @@
+<div
+  class="relative z-50 hidden <%= breakpoint_class %> <%= hook_class %>"
+  role="dialog"
+  aria-modal="true"
+  aria-label="<%= aria_label %>"
+  data-controller="visibility"
+  data-visibility-target="content"
+  data-visibility-visible-value="false">
+
+  <div
+    class="fixed inset-0 bg-gray-900/80 dark:bg-black/70 hidden"
+    data-visibility-target="content"
+    data-action="click->visibility#off"
+    aria-hidden="true"
+    data-transition-enter="transition-opacity ease-linear duration-200"
+    data-transition-enter-start="opacity-0"
+    data-transition-enter-end="opacity-100"
+    data-transition-leave="transition-opacity ease-linear duration-200"
+    data-transition-leave-start="opacity-100"
+    data-transition-leave-end="opacity-0">
+  </div>
+
+  <div class="fixed inset-0 flex">
+    <div
+      class="relative mr-16 flex w-full max-w-xs flex-1 hidden"
+      data-visibility-target="content"
+      data-transition-enter="transition ease-in-out duration-200 transform"
+      data-transition-enter-start="-translate-x-full"
+      data-transition-enter-end="translate-x-0"
+      data-transition-leave="transition ease-in-out duration-200 transform"
+      data-transition-leave-start="translate-x-0"
+      data-transition-leave-end="-translate-x-full">
+
+      <div
+        class="absolute left-full top-0 flex w-16 justify-center pt-5 hidden"
+        data-visibility-target="content"
+        data-transition-enter="ease-in-out duration-200"
+        data-transition-enter-start="opacity-0"
+        data-transition-enter-end="opacity-100"
+        data-transition-leave="ease-in-out duration-200"
+        data-transition-leave-start="opacity-100"
+        data-transition-leave-end="opacity-0">
+        <button type="button" class="-m-2.5 p-2.5" data-action="click->visibility#off">
+          <span class="sr-only"><%= close_label %></span>
+          <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: close_label %>
+        </button>
+      </div>
+
+      <%= content %>
+    </div>
+  </div>
+</div>
