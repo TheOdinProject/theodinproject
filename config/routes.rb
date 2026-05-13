@@ -62,6 +62,7 @@ Rails.application.routes.draw do
         get :how_to_ask
         get :expectations
         get :rules
+        get :how_to_help
       end
     end
   end

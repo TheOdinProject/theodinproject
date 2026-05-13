@@ -13,7 +13,8 @@ module Guides
         'Rules' => rules_guides_community_path,
         'Expectations' => expectations_guides_community_path,
         'How to Ask Technical Questions' => how_to_ask_guides_community_path,
-        'Help Yourself Before Asking Others' => before_asking_guides_community_path
+        'Help Yourself Before Asking Others' => before_asking_guides_community_path,
+        'How to Help Others Solve Coding Problems' => how_to_help_guides_community_path,
       }
     end
   end
