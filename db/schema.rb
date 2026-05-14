@@ -83,6 +83,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
     t.bigint "created_by_id", null: false
     t.index ["created_by_id"], name: "index_announcements_on_created_by_id"
     t.index ["expires_at"], name: "index_announcements_on_expires_at"
+    t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_bookmarks_on_lesson_id"
+    t.index ["user_id", "lesson_id"], name: "index_bookmarks_on_user_id_and_lesson_id", unique: true
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -358,6 +369,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_15_230748) do
   end
 
   add_foreign_key "announcements", "admin_users", column: "created_by_id"
+  add_foreign_key "bookmarks", "lessons"
+  add_foreign_key "bookmarks", "users"
   add_foreign_key "contents", "lessons"
   add_foreign_key "flags", "admin_users", column: "resolved_by_id"
   add_foreign_key "flags", "project_submissions"

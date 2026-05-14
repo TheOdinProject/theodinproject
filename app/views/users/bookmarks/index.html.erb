@@ -1,0 +1,16 @@
+
+<div class="page-container">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="page-heading-title">My Bookmarked Lessons</h1>
+    <section class="mb-24" data-test-id="bookmarks">
+      <div class="text-center mt-0 mb-6 mx-auto">
+        <% @lessons.each do|lesson| %>
+          <div>
+            <icon class="fa-solid fa-bookmark"></icon>
+            <%= link_to lesson.title, lesson %>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

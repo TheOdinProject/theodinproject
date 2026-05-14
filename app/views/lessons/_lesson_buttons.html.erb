@@ -5,6 +5,7 @@
   <% end %>
 
   <% if user_signed_in? %>
+    <%= render Bookmarks::ButtonComponent.new(lesson:, bookmark:, current_user:) %>
     <%= render Complete::ButtonComponent.new(lesson:) %>
   <% else %>
     <%= link_to(
