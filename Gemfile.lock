@@ -128,7 +128,7 @@ GEM
     cronex (0.15.0)
       tzinfo
       unicode (>= 0.4.4.5)
-    css_parser (1.21.1)
+    css_parser (1.22.0)
       addressable
     cssbundling-rails (1.4.3)
       railties (>= 6.0.0)
