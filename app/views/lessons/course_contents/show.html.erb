@@ -1,0 +1,3 @@
+<%= turbo_frame_tag 'lesson-sidebar-frame', target: '_top' do %>
+  <%= render Lessons::SidebarComponent.new(course: @course, sections: @sections, current_lesson: @lesson, current_user:) %>
+<% end %>

@@ -1,0 +1,15 @@
+<div
+  class="sticky -top-px z-20 bg-white dark:bg-gray-900 -mx-4 sm:-mx-6 lg:-mx-8 xl:-mr-4 xl:-ml-10 group-[.sidebar-collapsed]/sidebar-layout:xl:-ml-4"
+  data-controller="sticky-state"
+  data-sticky-state-stuck-class="border-b border-gray-200 dark:border-gray-800">
+  <div class="h-12 flex items-center px-4 sm:px-6 lg:px-8">
+    <button
+      type="button"
+      class="inline-flex items-center justify-center p-1.5 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+      data-action="click->lessons--sidebar-toggle#toggle"
+      aria-label="Toggle course contents"
+      data-test-id="sidebar-toggle-btn">
+      <%= inline_svg_tag 'icons/panel-left.svg', class: 'h-5 w-5', aria: true, title: 'Toggle course contents' %>
+    </button>
+  </div>
+</div>

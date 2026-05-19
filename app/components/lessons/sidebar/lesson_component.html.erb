@@ -1,0 +1,15 @@
+<%= link_to(
+      lesson_path(lesson),
+      class: 'flex items-center justify-between gap-2 px-2 py-1.5 rounded-md no-underline text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-200 aria-[current=page]:bg-gray-100 dark:aria-[current=page]:bg-gray-800 aria-[current=page]:font-semibold aria-[current=page]:text-gray-900 dark:aria-[current=page]:text-gray-100',
+      aria: { current: ('page' if current?) },
+      data: { test_id: 'lesson-sidebar-link', 'lessons--sidebar-toggle-target': 'item' }
+    ) do %>
+  <span class="flex items-center gap-2 min-w-0">
+    <%= inline_svg_tag "icons/#{icon_name}.svg", class: 'h-4 w-4 shrink-0 text-gray-400 dark:text-gray-500' %>
+    <span class="truncate"><%= lesson.display_title %></span>
+  </span>
+
+  <% if current_user %>
+    <%= render Lessons::Sidebar::CompletionIconComponent.new(lesson:) %>
+  <% end %>
+<% end %>

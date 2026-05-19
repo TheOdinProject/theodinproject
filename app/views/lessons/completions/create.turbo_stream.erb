@@ -11,3 +11,11 @@
 <%= turbo_stream.update dom_id(@lesson.course, 'progress') do %>
   <%= render ProgressCircle::Component.new(percentage: @lesson.course.progress_for(current_user).percentage) %>
 <% end %>
+
+<%= turbo_stream.replace_all ".sidebar-completion-icon-#{@lesson.id}" do %>
+  <%= render Lessons::Sidebar::CompletionIconComponent.new(lesson: @lesson) %>
+<% end %>
+
+<%= turbo_stream.replace_all '.sidebar-progress-bar' do %>
+  <%= render Lessons::Sidebar::ProgressBarComponent.new(percentage: @lesson.course.progress_for(current_user).percentage) %>
+<% end %>

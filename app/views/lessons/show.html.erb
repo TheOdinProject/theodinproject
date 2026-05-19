@@ -1,68 +1,90 @@
 <%= title(@lesson.display_title) %>
 
-<div class="bg-white dark:bg-gray-900">
-  <div class="py-10 px-4 sm:py-14 sm:px-6 lg:px-8">
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:grid xl:grid-cols-[1fr_minmax(0,65ch)_1fr] xl:gap-x-10">
+<div
+  class="bg-white dark:bg-gray-900 group/sidebar-layout"
+  data-controller="lessons--sidebar-toggle"
+  data-lessons--sidebar-toggle-storage-key-value="lesson-sidebar-collapsed"
+  data-lessons--sidebar-toggle-collapsed-class="sidebar-collapsed"
+  data-lessons--sidebar-toggle-visibility-outlet=".lesson-sidebar-drawer">
 
-      <div class="xl:col-start-2">
-        <%= render 'lessons/header', lesson: @lesson %>
-      </div>
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:flex xl:gap-x-10 xl:max-w-none xl:px-4">
 
-      <main class="xl:contents" data-controller="lesson-toc diagramming" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
+    <%= turbo_frame_tag(
+          'lesson-sidebar-frame',
+          src: lesson_course_contents_path(@lesson),
+          loading: :lazy,
+          target: '_top',
+          data: { turbo_permanent: true },
+          class: 'block xl:w-72 xl:shrink-0 border-gray-200 dark:border-gray-800 xl:border-r group-[.sidebar-collapsed]/sidebar-layout:xl:hidden'
+        ) do %>
+      <%= render 'lessons/sidebar_skeleton' %>
+    <% end %>
 
-        <article class="mx-auto xl:col-start-2 xl:max-w-none">
-          <%= render ContentContainerComponent.new(classes: 'xl:mx-0 pb-6', data_attributes: { lesson_toc_target: 'lessonContent' }) do |component| %>
-            <%= @lesson.body.html_safe %>
+    <div class="xl:flex-1 xl:min-w-0">
 
-            <% component.with_footer do %>
-              <div class="flex flex-col gap-2">
-                <%= render NewTabTextLinkComponent.new(
-                      text: 'Edit on GitHub',
-                      href: github_edit_url(@lesson),
-                      classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
-                    ) %>
-                <%= render NewTabTextLinkComponent.new(
-                      text: 'Report broken link',
-                      href: github_report_url(@lesson, 'broken_link'),
-                      classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
-                    ) %>
-                <%= render NewTabTextLinkComponent.new(
-                      text: 'Report other issue/suggestion',
-                      href: github_report_url(@lesson, 'suggestion'),
-                      classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
-                    ) %>
+      <%= render 'lessons/sub_navbar' %>
+
+      <div class="xl:flex xl:gap-x-10" data-controller="lesson-toc diagramming" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
+
+        <main class="py-10 sm:pt-14 xl:flex-1 xl:min-w-0 sm:py-14 group-[.sidebar-collapsed]/sidebar-layout:xl:pl-[328px]">
+          <div class="mx-auto xl:max-w-[65ch]">
+            <%= render 'lessons/header', lesson: @lesson %>
+
+            <article>
+              <%= render ContentContainerComponent.new(classes: 'xl:mx-0 pb-6', data_attributes: { lesson_toc_target: 'lessonContent' }) do |component| %>
+                <%= @lesson.body.html_safe %>
+
+                <% component.with_footer do %>
+                  <div class="flex flex-col gap-2">
+                    <%= render NewTabTextLinkComponent.new(
+                          text: 'Edit on GitHub',
+                          href: github_edit_url(@lesson),
+                          classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
+                        ) %>
+                    <%= render NewTabTextLinkComponent.new(
+                          text: 'Report broken link',
+                          href: github_report_url(@lesson, 'broken_link'),
+                          classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
+                        ) %>
+                    <%= render NewTabTextLinkComponent.new(
+                          text: 'Report other issue/suggestion',
+                          href: github_report_url(@lesson, 'suggestion'),
+                          classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
+                        ) %>
+                  </div>
+
+                  <div class="flex flex-col">
+                    <%= render NewTabTextLinkComponent.new(
+                          text: 'See lesson changelog',
+                          href: github_commits_url(@lesson),
+                          classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
+                        ) %>
+                  </div>
+                <% end %>
+              <% end %>
+
+              <% if user_signed_in? && @lesson.accepts_submission? %>
+                <div class="py-10 border-t border-gray-100 dark:border-white/5">
+                  <div class="max-w-2xl mx-auto xl:max-w-full border border-gray dark:border-white/5 rounded-lg p-4 dark:bg-gray-800">
+                    <%= render 'lessons/project_solution', lesson: @lesson, project_submission: @project_submission %>
+                  </div>
+                </div>
+              <% end %>
+
+              <div class="pt-10 border-t border-gray-100 dark:border-white/5">
+                <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
               </div>
-
-              <div class="flex flex-col">
-                <%= render NewTabTextLinkComponent.new(
-                      text: 'See lesson changelog',
-                      href: github_commits_url(@lesson),
-                      classes: 'inline-flex items-center underline hover:no-underline text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300 text-sm'
-                    ) %>
-              </div>
-            <% end %>
-          <% end %>
-
-          <% if user_signed_in? && @lesson.accepts_submission? %>
-            <div class="py-10 border-t border-gray-100 dark:border-white/5">
-              <div class="max-w-2xl mx-auto xl:max-w-full border border-gray dark:border-white/5 rounded-lg p-4 dark:bg-gray-800">
-                <%= render 'lessons/project_solution', lesson: @lesson, project_submission: @project_submission %>
-              </div>
-            </div>
-          <% end %>
-
-          <div class="pt-10 border-t border-gray-100 dark:border-white/5">
-            <%= render 'lesson_buttons', lesson: @lesson, course: @lesson.course, user: @user %>
+            </article>
           </div>
-        </article>
+        </main>
 
-        <aside class="hidden xl:block xl:col-start-3 xl:w-72 xl:justify-self-start">
-          <div class="sticky top-12 pb-20">
+        <aside class="hidden xl:block xl:w-72 xl:shrink-0">
+          <div class="sticky top-12 pt-10 sm:pt-14 pb-20">
             <h4 class="text-md pb-4 text-gray-700 dark:text-gray-300">Lesson contents</h4>
             <ul class="flex flex-col text-gray-500 dark:text-gray-400" data-lesson-toc-target="toc"></ul>
           </div>
         </aside>
-      </main>
+      </div>
     </div>
   </div>
 </div>

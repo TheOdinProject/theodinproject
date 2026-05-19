@@ -1,0 +1,90 @@
+<%# Off-canvas drawer — below xl %>
+<div
+  class="relative z-40 xl:hidden lesson-sidebar-drawer hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Course contents"
+  data-controller="visibility"
+  data-visibility-target="content"
+  data-visibility-visible-value="false">
+
+  <div
+    class="fixed inset-0 bg-gray-900/80 dark:bg-black/70 hidden"
+    data-visibility-target="content"
+    data-action="click->visibility#off"
+    aria-hidden="true"
+    data-transition-enter="transition-opacity ease-linear duration-200"
+    data-transition-enter-start="opacity-0"
+    data-transition-enter-end="opacity-100"
+    data-transition-leave="transition-opacity ease-linear duration-200"
+    data-transition-leave-start="opacity-100"
+    data-transition-leave-end="opacity-0"></div>
+
+  <div class="fixed inset-0 flex">
+    <div
+      class="relative mr-16 flex w-full max-w-xs flex-1 hidden"
+      data-visibility-target="content"
+      data-transition-enter="transition ease-in-out duration-200 transform"
+      data-transition-enter-start="-translate-x-full"
+      data-transition-enter-end="translate-x-0"
+      data-transition-leave="transition ease-in-out duration-200 transform"
+      data-transition-leave-start="translate-x-0"
+      data-transition-leave-end="-translate-x-full">
+
+      <div
+        class="absolute left-full top-0 flex w-16 justify-center pt-5 hidden"
+        data-visibility-target="content"
+        data-transition-enter="ease-in-out duration-200"
+        data-transition-enter-start="opacity-0"
+        data-transition-enter-end="opacity-100"
+        data-transition-leave="ease-in-out duration-200"
+        data-transition-leave-start="opacity-100"
+        data-transition-leave-end="opacity-0">
+
+        <button type="button" class="-m-2.5 p-2.5" data-action="click->visibility#off">
+          <span class="sr-only">Close course contents</span>
+          <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: 'Close course contents' %>
+        </button>
+      </div>
+
+      <div class="flex grow flex-col gap-y-4 overflow-y-auto scrollbar-thin bg-white dark:bg-gray-900 px-4 pb-6 pt-5">
+        <div class="flex flex-col gap-2">
+          <%= render Ui::BackLinkComponent.new(path: path_course_path(course.path, course), name: 'Back to course') %>
+
+          <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline' %>
+
+          <% if progress_percentage %>
+            <%= render Lessons::Sidebar::ProgressBarComponent.new(percentage: progress_percentage) %>
+          <% end %>
+        </div>
+
+        <nav aria-label="Course contents">
+          <% sections.each do |section| %>
+            <%= render Lessons::Sidebar::SectionComponent.new(section:, current_lesson:, current_user:) %>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Static desktop sidebar — xl+ %>
+<aside class="hidden xl:block xl:h-full" data-test-id="lesson-sidebar">
+  <div class="sticky top-0 h-screen overflow-y-auto scrollbar-thin pt-4 pb-20">
+    <div class="mb-4 flex flex-col gap-2">
+      <%= render Ui::BackLinkComponent.new(path: path_course_path(course.path, course), name: 'Back to course') %>
+
+      <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline' %>
+
+      <% if progress_percentage %>
+        <%= render Lessons::Sidebar::ProgressBarComponent.new(percentage: progress_percentage) %>
+      <% end %>
+    </div>
+
+    <nav aria-label="Course contents">
+      <% sections.each do |section| %>
+        <%= render Lessons::Sidebar::SectionComponent.new(section:, current_lesson:, current_user:) %>
+      <% end %>
+    </nav>
+  </div>
+</aside>
