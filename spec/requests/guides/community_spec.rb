@@ -40,4 +40,12 @@ RSpec.describe 'Community Guides' do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe 'GET #how_to_help' do
+    it 'renders the how to help others guide' do
+      get how_to_help_guides_community_path
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
