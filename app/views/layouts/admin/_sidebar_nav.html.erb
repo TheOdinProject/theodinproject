@@ -20,78 +20,26 @@ nav_links = [
 ]
 %>
 
-<!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-<div
-  class="relative z-50 lg:hidden off-canvas-menu"
-  role="dialog"
-  aria-modal="true"
-  data-controller="visibility"
-  data-visibility-target="content"
-  data-visibility-visible-value="false">
-
-  <div
-    class="fixed inset-0 bg-gray-900/80 hidden"
-    data-visibility-target="content"
-    data-action="click->visibility#off"
-    aria-hidden="true"
-    data-transition-enter="transition-opacity ease-linear duration-200"
-    data-transition-enter-start="opacity-0"
-    data-transition-enter-end="opacity-100"
-    data-transition-leave="transition-opacity ease-linear duration-200"
-    data-transition-leave-start="opacity-100"
-    data-transition-leave-end="opacity-0">
-  </div>
-
-  <div class="fixed inset-0 flex">
-
-    <div
-      class="relative mr-16 flex w-full max-w-xs flex-1 hidden"
-      data-visibility-target="content"
-      data-transition-enter="transition ease-in-out duration-200 transform"
-      data-transition-enter-start="-translate-x-full"
-      data-transition-enter-end="translate-x-0"
-      data-transition-leave="transition ease-in-out duration-200 transform"
-      data-transition-leave-start="translate-x-0"
-      data-transition-leave-end="-translate-x-full">
-
-      <div
-        class="absolute left-full top-0 flex w-16 justify-center pt-5"
-        data-visibility-target="content"
-        data-transition-enter="ease-in-out duration-200"
-        data-transition-enter-start="opacity-0"
-        data-transition-enter-end="opacity-100"
-        data-transition-leave="ease-in-out duration-200"
-        data-transition-leave-start="opacity-100"
-        data-transition-leave-end="opacity-0">
-
-        <button type="button" class="-m-2.5 p-2.5" data-action="click->visibility#off">
-          <span class="sr-only">Close sidebar</span>
-          <%= inline_svg_tag 'icons/x-mark.svg', class: 'h-6 w-6 text-white', aria: true, title: 'Close menu' %>
-        </button>
-      </div>
-
-      <!-- Sidebar component -->
-      <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white dark:bg-gray-800 px-6 pb-4">
-        <div class="flex h-16 shrink-0 items-center">
-          <%= render LogoComponent.new(classes: 'block h-10 w-auto', path: admin_root_path) %>
-        </div>
-
-        <nav class="flex flex-1 flex-col">
-          <ul role="list" class="flex flex-1 flex-col gap-y-7">
-            <%= render 'layouts/admin/nav_links', nav_links: %>
-
-            <li class="mt-auto">
-              <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200' do %>
-                <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-800 dark:text-gray-400 dark:group-hover:text-gray-200' %>
-                Settings
-              <% end %>
-            </li>
-          </ul>
-        </nav>
-      </div>
+<%= render Overlays::DrawerComponent.new(hook_class: 'off-canvas-menu', close_label: 'Close sidebar', aria_label: 'Admin navigation') do %>
+  <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white dark:bg-gray-800 px-6 pb-4">
+    <div class="flex h-16 shrink-0 items-center">
+      <%= render LogoComponent.new(classes: 'block h-10 w-auto', path: admin_root_path) %>
     </div>
+
+    <nav class="flex flex-1 flex-col">
+      <ul role="list" class="flex flex-1 flex-col gap-y-7">
+        <%= render 'layouts/admin/nav_links', nav_links: %>
+
+        <li class="mt-auto">
+          <%= link_to '#', class: 'group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-200 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200' do %>
+            <%= inline_svg_tag 'icons/gear.svg', class: 'h-5 w-5 shrink-0 text-gray-500 group-hover:text-gray-800 dark:text-gray-400 dark:group-hover:text-gray-200' %>
+            Settings
+          <% end %>
+        </li>
+      </ul>
+    </nav>
   </div>
-</div>
+<% end %>
 
 <!-- Static sidebar for desktop -->
 <div class="hidden lg:fixed lg:inset-y-0 lg:z-30 lg:flex lg:w-72 lg:flex-col">
