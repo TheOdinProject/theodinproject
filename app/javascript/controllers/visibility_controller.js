@@ -17,6 +17,7 @@ export default class VisibilityController extends Controller {
 
   disconnect () {
     this.contentTargets.forEach((element) => element.classList.toggle('hidden', true))
+    this.off()
   }
 
   on () {
