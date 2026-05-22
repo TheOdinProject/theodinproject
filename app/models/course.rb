@@ -18,6 +18,10 @@ class Course < ApplicationRecord
   end
 
   def next_lesson(lesson)
-    lessons.where('lessons.position > ?', lesson.position).first
+    lessons.where(lessons: { position: lesson.position.next.. }).first
+  end
+
+  def previous_lesson(lesson)
+    lessons.where(lessons: { position: ...lesson.position }).last
   end
 end

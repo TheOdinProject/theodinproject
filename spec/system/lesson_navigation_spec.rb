@@ -23,13 +23,15 @@ RSpec.describe 'Navigating Lessons' do
 
     context 'when on the last lesson of a section' do
       let!(:next_section) { create(:section, position: 2, course:) }
-      let!(:next_section_lesson) { create(:lesson, position: 2, section: next_section) }
+      let!(:first_lesson_in_next_section) { create(:lesson, position: 2, section: next_section) }
+
+      before { create(:lesson, position: 3, section: next_section) }
 
       it 'moves to the first lesson in the next section when clicked' do
         visit lesson_path(lesson)
         find(:test_id, 'next-lesson-btn').click
 
-        expect(find(:test_id, 'lesson-title-header')).to have_text(/#{next_section_lesson.title}/i)
+        expect(find(:test_id, 'lesson-title-header')).to have_text(/#{first_lesson_in_next_section.title}/i)
       end
     end
 
@@ -44,15 +46,39 @@ RSpec.describe 'Navigating Lessons' do
     end
   end
 
-  describe 'the View Course button' do
-    it 'directs to the course view' do
-      visit lesson_path(lesson)
-      find(:test_id, 'view-course-btn').click
+  describe 'the previous lesson button' do
+    context 'when the previous lesson is within the same section' do
+      let!(:current_lesson) { create(:lesson, position: 2, section:) }
 
-      expect(find(:test_id, 'course-title-header')).to have_text(/#{course.title}/i)
+      it 'moves to the previous lesson in the section when clicked' do
+        visit lesson_path(current_lesson)
+        find(:test_id, 'previous-lesson-btn').click
 
-      within '[data-test-id="lesson-list"]', match: :first do
-        expect(page).to have_text(/#{lesson.title}/i)
+        expect(find(:test_id, 'lesson-title-header')).to have_text(/#{lesson.title}/i)
+      end
+    end
+
+    context 'when on the first lesson of a section' do
+      let!(:next_section) { create(:section, position: 2, course:) }
+      let!(:next_section_lesson) { create(:lesson, position: 3, section: next_section) }
+
+      it 'moves to the last lesson in the previous section when clicked' do
+        last_lesson_in_previous_section = create(:lesson, position: 2, section:)
+
+        visit lesson_path(next_section_lesson)
+        find(:test_id, 'previous-lesson-btn').click
+
+        expect(find(:test_id, 'lesson-title-header')).to have_text(/#{last_lesson_in_previous_section.title}/i)
+      end
+    end
+
+    context 'when on the first lesson in the course' do
+      it 'is not present' do
+        visit lesson_path(lesson)
+
+        expect(page).to have_css('[data-test-id]')
+
+        expect(page).to have_no_css('[data-test-id="previous-lesson-btn"]')
       end
     end
   end

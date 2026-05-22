@@ -37,10 +37,24 @@ RSpec.describe Course do
       it 'returns the next lesson' do
         course = create(:course)
         section = create(:section, course:)
-        lesson_one = create(:lesson, position: 1, section:)
-        lesson_two = create(:lesson, position: 2, section:)
+        next_lesson = create(:lesson, position: 3, section:)
+        current_lesson = create(:lesson, position: 2, section:)
+        _previous_lesson = create(:lesson, position: 1, section:)
 
-        expect(course.next_lesson(lesson_one)).to eql(lesson_two)
+        expect(course.next_lesson(current_lesson)).to eql(next_lesson)
+      end
+    end
+
+    context 'when the next lesson is in a later section' do
+      it 'returns the lowest-position lesson after the current one' do
+        course = create(:course)
+        section = create(:section, position: 1, course:)
+        next_section = create(:section, position: 2, course:)
+        current_lesson = create(:lesson, position: 1, section:)
+        first_lesson_in_next_section = create(:lesson, position: 2, section: next_section)
+        _second_lesson_in_next_section = create(:lesson, position: 3, section: next_section)
+
+        expect(course.next_lesson(current_lesson)).to eql(first_lesson_in_next_section)
       end
     end
 
@@ -48,9 +62,46 @@ RSpec.describe Course do
       it 'returns nothing' do
         course = create(:course)
         section = create(:section, course:)
-        lesson_one = create(:lesson, position: 1, section:)
+        current_lesson = create(:lesson, position: 1, section:)
 
-        expect(course.next_lesson(lesson_one)).to be_nil
+        expect(course.next_lesson(current_lesson)).to be_nil
+      end
+    end
+  end
+
+  describe '#previous_lesson' do
+    context 'when there is a previous lesson' do
+      it 'returns the previous lesson' do
+        course = create(:course)
+        section = create(:section, course:)
+        current_lesson = create(:lesson, position: 2, section:)
+        previous_lesson = create(:lesson, position: 1, section:)
+        _next_lesson = create(:lesson, position: 3, section:)
+
+        expect(course.previous_lesson(current_lesson)).to eql(previous_lesson)
+      end
+    end
+
+    context 'when the previous lesson is in an earlier section' do
+      it 'returns the highest-position lesson before the current one' do
+        course = create(:course)
+        section = create(:section, position: 1, course:)
+        next_section = create(:section, position: 2, course:)
+        _first_lesson_in_previous_section = create(:lesson, position: 1, section:)
+        last_lesson_in_previous_section = create(:lesson, position: 2, section:)
+        current_lesson = create(:lesson, position: 3, section: next_section)
+
+        expect(course.previous_lesson(current_lesson)).to eql(last_lesson_in_previous_section)
+      end
+    end
+
+    context 'when there is no previous lesson' do
+      it 'returns nothing' do
+        course = create(:course)
+        section = create(:section, course:)
+        current_lesson = create(:lesson, position: 1, section:)
+
+        expect(course.previous_lesson(current_lesson)).to be_nil
       end
     end
   end
