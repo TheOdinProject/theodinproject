@@ -1,4 +1,3 @@
-
 # -- Active team member attributes --
 # name - required
 # image - required
@@ -179,6 +178,16 @@ en:
               url: "https://github.com/justwavethings"
             - name: "linkedin"
               url: "https://www.linkedin.com/in/fredlove000/"
+
+        - name: "Goran Jović"
+          image: "https://avatars.githubusercontent.com/u/25707370?v=4"
+          location: "Banja Luka, Bosnia and Herzegovina"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/goran1010"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/goran-jovic-dev/"
 
     moderators:
       description: "Our team of moderators diligently maintains a welcoming, safe, and productive environment for all members within The Odin Project's Discord community."
