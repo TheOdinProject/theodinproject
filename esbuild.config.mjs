@@ -9,14 +9,14 @@
 // Minify is enabled when "RAILS_ENV=production"
 // Sourcemaps are enabled in non-production environments
 
-import * as esbuild from 'esbuild'
-import path from 'path'
-import rails from 'esbuild-rails'
-import chokidar from 'chokidar'
-import http from 'http'
-import { setTimeout } from 'timers/promises'
-import { prismjsPlugin } from 'esbuild-plugin-prismjs'
-import { sentryEsbuildPlugin } from '@sentry/esbuild-plugin'
+import * as esbuild from 'esbuild';
+import path from 'path';
+import rails from 'esbuild-rails';
+import chokidar from 'chokidar';
+import http from 'http';
+import { setTimeout } from 'timers/promises';
+import { prismjsPlugin } from 'esbuild-plugin-prismjs';
+import { sentryEsbuildPlugin } from '@sentry/esbuild-plugin';
 
 const clients = []
 const entryPoints = ['main.js']
