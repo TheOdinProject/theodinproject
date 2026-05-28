@@ -57,6 +57,6 @@ export default class LessonTocController extends Controller {
   tocItem (heading) {
     const id = heading.firstChild.getAttribute('href')
 
-    return `<li class="p-2 pl-4"><a class="${this.itemClassesValue}" href="${id}">${heading.innerText}</a></li>`
+    return `<li><a class="block w-full h-full p-2.5 pl-4 ${this.itemClassesValue}" href="${id}">${heading.innerText}</a></li>`
   }
 }
