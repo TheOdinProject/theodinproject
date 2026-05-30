@@ -1,0 +1,37 @@
+services:
+  top:
+    build: .
+    image: top
+    container_name: top
+    tty: true
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./:/home/user
+    env_file: .env
+    ports:
+      - 3000:3000
+    environment:
+      POSTGRES_HOST: postgres
+      REDIS_URL: redis://redis:6379/1
+
+  postgres:
+    image: postgres:18.4
+    volumes:
+      - db-data:/var/lib/postgresql/18/docker
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  redis:
+    image: redis:8.6.2-alpine
+
+volumes:
+  db-data:
