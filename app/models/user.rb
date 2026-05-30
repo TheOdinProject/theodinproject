@@ -46,16 +46,6 @@ class User < ApplicationRecord
     @progress[course]
   end
 
-  def completed?(lesson)
-    completed_lessons.pluck(:id).include?(lesson.id)
-  end
-
-  def latest_completed_lesson
-    return if last_lesson_completed.nil?
-
-    Lesson.find(last_lesson_completed.lesson_id)
-  end
-
   def lesson_completions_for_course(course)
     lesson_completions.where(course_id: course.id)
   end
@@ -88,10 +78,6 @@ class User < ApplicationRecord
   end
 
   private
-
-  def last_lesson_completed
-    lesson_completions.order(created_at: :asc).last
-  end
 
   def enroll_in_foundations
     default_path = Path.default_path

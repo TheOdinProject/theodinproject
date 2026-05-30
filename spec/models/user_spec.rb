@@ -83,65 +83,6 @@ RSpec.describe User do
     end
   end
 
-  describe '#completed?' do
-    let(:lesson) { create(:lesson) }
-
-    context 'when the user has completed the lesson' do
-      it 'returns true' do
-        create(:lesson_completion, lesson:, user:)
-
-        expect(user.completed?(lesson)).to be(true)
-      end
-    end
-
-    context 'when the user has not completed the lesson' do
-      it 'returns false' do
-        expect(user.completed?(lesson)).to be(false)
-      end
-    end
-  end
-
-  describe '#latest_completed_lesson' do
-    let(:lesson_completed_last_week) { create(:lesson) }
-    let(:lesson_completed_yesterday) { create(:lesson) }
-    let(:lesson_completed_today) { create(:lesson) }
-
-    context 'when the user has completed any lessons' do
-      before do
-        create(
-          :lesson_completion,
-          lesson: lesson_completed_last_week,
-          user:,
-          created_at: Time.zone.today - 7.days
-        )
-
-        create(
-          :lesson_completion,
-          lesson: lesson_completed_yesterday,
-          user:,
-          created_at: Time.zone.today - 1.day
-        )
-
-        create(
-          :lesson_completion,
-          lesson: lesson_completed_today,
-          user:,
-          created_at: Time.zone.today
-        )
-      end
-
-      it 'returns the latest completed lesson' do
-        expect(user.latest_completed_lesson).to eql(lesson_completed_today)
-      end
-    end
-
-    context 'when the user does not have any completed lessons' do
-      it 'returns nil' do
-        expect(user.latest_completed_lesson).to be_nil
-      end
-    end
-  end
-
   describe '#lesson_completions_for_course' do
     it 'returns the users lesson completions for a course' do
       create(:lesson_completion, user:)
