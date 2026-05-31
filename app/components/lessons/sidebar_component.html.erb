@@ -21,10 +21,10 @@
 <%# Static desktop sidebar — xl+ %>
 <aside class="hidden xl:block xl:h-full" data-test-id="lesson-sidebar">
   <div class="sticky top-0 h-screen overflow-y-auto scrollbar-thin pt-4 pb-20 pr-2">
-    <div class="mb-4 flex flex-col gap-2">
+    <div class="mb-4 px-2 flex flex-col gap-2">
       <%= render Ui::BackLinkComponent.new(path: path_course_path(course.path, course), name: 'Back to course') %>
 
-      <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline px-2' %>
+      <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline' %>
 
       <% if progress_percentage %>
         <%= render Lessons::Sidebar::ProgressBarComponent.new(percentage: progress_percentage) %>
