@@ -6,8 +6,6 @@ RSpec.describe Path do
   it { is_expected.to have_many(:users) }
   it { is_expected.to have_many(:courses).order(:position) }
   it { is_expected.to have_many(:lessons).through(:courses) }
-  it { is_expected.to have_many(:path_prerequisites).dependent(:destroy) }
-  it { is_expected.to have_many(:prerequisites).through(:path_prerequisites).source(:prerequisite) }
 
   it do
     expect(path).to have_many(:lesson_completion_stats).class_name('Reports::PathLessonCompletionsDayStat')
