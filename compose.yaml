@@ -17,7 +17,8 @@ services:
       REDIS_URL: redis://redis:6379/1
 
   postgres:
-    image: postgres:18.4
+    image: postgres:18.4-alpine3.23
+    container_name: top-postgres
     volumes:
       - db-data:/var/lib/postgresql/18/docker
     environment:
@@ -32,6 +33,7 @@ services:
 
   redis:
     image: redis:8.6.2-alpine
+    container_name: top-redis
 
 volumes:
   db-data:
