@@ -7,7 +7,7 @@
   data-lessons--sidebar-toggle-collapsed-class="sidebar-collapsed"
   data-lessons--sidebar-toggle-visibility-outlet=".lesson-sidebar-drawer">
 
-  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:flex xl:gap-x-10 xl:max-w-none xl:px-2">
+  <div class="max-w-screen-2xl mx-auto xl:flex xl:max-w-none">
 
     <%= turbo_frame_tag(
           'lesson-sidebar-frame',
@@ -24,9 +24,9 @@
 
       <%= render 'lessons/sub_navbar' %>
 
-      <div class="xl:flex xl:gap-x-10" data-controller="lesson-toc diagramming" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
+      <div class="xl:flex xl:gap-x-10 px-6 sm:px-8 xl:px-10" data-controller="lesson-toc diagramming" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
 
-        <main class="py-10 sm:pt-14 xl:flex-1 xl:min-w-0 sm:py-14 group-[.sidebar-collapsed]/sidebar-layout:xl:pl-[328px]">
+        <main class="py-10 sm:pt-14 xl:flex-1 xl:min-w-0 sm:py-14 group-[.sidebar-collapsed]/sidebar-layout:xl:pl-72">
           <div class="mx-auto xl:max-w-[65ch]">
             <%= render 'lessons/header', lesson: @lesson %>
 
