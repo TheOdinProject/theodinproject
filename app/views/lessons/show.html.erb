@@ -15,7 +15,7 @@
           loading: :lazy,
           target: '_top',
           data: { turbo_permanent: true },
-          class: 'block xl:w-72 xl:shrink-0 border-gray-200 dark:border-gray-800 xl:border-r group-[.sidebar-collapsed]/sidebar-layout:xl:hidden'
+          class: 'block xl:w-80 xl:shrink-0 border-gray-200 dark:border-gray-800 xl:border-r group-[.sidebar-collapsed]/sidebar-layout:xl:hidden'
         ) do %>
       <%= render 'lessons/sidebar_skeleton' %>
     <% end %>
@@ -26,7 +26,7 @@
 
       <div class="xl:flex xl:gap-x-10 px-6 sm:px-8 xl:px-10" data-controller="lesson-toc diagramming" data-lesson-toc-item-classes-value="no-underline hover:text-gray-800 text-sm dark:hover:text-gray-300">
 
-        <main class="py-10 sm:pt-14 xl:flex-1 xl:min-w-0 sm:py-14 group-[.sidebar-collapsed]/sidebar-layout:xl:pl-72">
+        <main class="py-10 sm:pt-14 xl:flex-1 xl:min-w-0 sm:py-14 group-[.sidebar-collapsed]/sidebar-layout:xl:pl-80">
           <div class="mx-auto xl:max-w-[65ch]">
             <%= render 'lessons/header', lesson: @lesson %>
 
