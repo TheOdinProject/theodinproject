@@ -15,7 +15,7 @@ html:has([data-controller~="lessons--sidebar-toggle"]) {
 @utility scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: var(--color-gray-300) transparent;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
 
   &::-webkit-scrollbar {
     width: 6px;

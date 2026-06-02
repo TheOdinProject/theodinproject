@@ -1,6 +1,6 @@
 <%= render Overlays::DrawerComponent.new(hook_class: 'lesson-sidebar-drawer', breakpoint: :xl, close_label: 'Close course contents', aria_label: 'Course contents') do %>
   <div class="flex grow flex-col gap-y-4 overflow-y-auto scrollbar-thin bg-white dark:bg-gray-900 px-4 pb-6 pt-5">
-    <div class="flex flex-col gap-2">
+    <div class="px-2 flex flex-col gap-2">
       <%= render Ui::BackLinkComponent.new(path: path_course_path(course.path, course), name: 'Back to course') %>
 
       <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline' %>
@@ -20,8 +20,8 @@
 
 <%# Static desktop sidebar — xl+ %>
 <aside class="hidden xl:block xl:h-full" data-test-id="lesson-sidebar">
-  <div class="sticky top-0 h-screen overflow-y-auto scrollbar-thin pt-4 pb-20">
-    <div class="mb-4 flex flex-col gap-2">
+  <div class="sticky top-0 h-screen overflow-y-auto scrollbar-thin pt-4 pb-20 px-2">
+    <div class="mb-4 px-2 flex flex-col gap-2">
       <%= render Ui::BackLinkComponent.new(path: path_course_path(course.path, course), name: 'Back to course') %>
 
       <%= link_to course.title, path_course_path(course.path, course), class: 'text-lg font-semibold text-gray-800 dark:text-gray-200 no-underline hover:underline' %>
