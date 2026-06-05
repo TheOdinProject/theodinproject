@@ -12,7 +12,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
     "@rails/request.js": "^0.0.13",
-    "@sentry/browser": "^10.46.0",
+    "@sentry/browser": "^10.55.0",
     "@sentry/esbuild-plugin": "^5.3.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/cli": "^4.3.0",
@@ -29,11 +29,11 @@
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
     "mermaid": "^11.15.0",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.15",
     "prismjs": "^1.30.0",
     "sortablejs": "^1.15.7",
     "stimulus-use": "^0.52.3",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.3.0",
     "tippy.js": "^6.3.7"
   },
   "browserslist": [
