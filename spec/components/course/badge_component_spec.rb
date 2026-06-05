@@ -45,7 +45,7 @@ RSpec.describe Course::BadgeComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).not_to have_link(href: path_course_path(course.path, course))
+      expect(page).to have_no_link(href: path_course_path(course.path, course))
     end
   end
 end
