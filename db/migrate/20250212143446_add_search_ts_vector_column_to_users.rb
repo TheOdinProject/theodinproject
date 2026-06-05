@@ -3,7 +3,7 @@ class AddSearchTsVectorColumnToUsers < ActiveRecord::Migration[7.1]
   disable_ddl_transaction!
 
   def change
-    execute <<-SQL.squish
+    execute <<~SQL.squish
       ALTER TABLE users
       ADD COLUMN search_tsvector tsvector GENERATED ALWAYS AS (
         setweight(to_tsvector('english', coalesce(email, '')), 'A') ||
