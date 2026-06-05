@@ -1,6 +1,6 @@
 <div class="mb-6">
   <div class='flex justify-center'>
-    <%= render Course::BadgeComponent.new(course:, options: {show_badge: true }) %>
+    <%= render Course::BadgeComponent.new(course:, options: {show_badge: true }, linked: false) %>
   </div>
 
   <%= link_to path_course_url(path, course), class: 'no-underline' do %>
