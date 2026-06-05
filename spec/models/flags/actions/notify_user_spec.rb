@@ -11,18 +11,14 @@ RSpec.describe Flags::Actions::NotifyUser do
           .to change { flag.project_submission.reload.discard_at }.from(nil).to(7.days.from_now.all_day)
       end
 
-      it 'creates a dead link notification' do
-        deadlink_notification = Messages::DeadLink.new(flag)
-        allow(Notifications::FlagNotification).to receive(:with).and_call_original
+      it 'creates a dead link notification for the submission owner' do
+        recipient = flag.project_submission.user
 
-        described_class.perform(admin_user:, flag:)
+        expect { described_class.perform(admin_user:, flag:) }
+          .to change { recipient.notifications.count }.by(1)
 
-        expect(Notifications::FlagNotification).to have_received(:with).with(
-          flag:,
-          title: deadlink_notification.title,
-          message: deadlink_notification.content,
-          url: deadlink_notification.url
-        )
+        expect(recipient.notifications.last.message)
+          .to include('has a broken link in your submission')
       end
 
       it "changes the flag action taken to 'notified_user'" do

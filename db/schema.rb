@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_30_124754) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -238,12 +238,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_30_124754) do
   create_table "notifications", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "message", null: false
-    t.jsonb "params"
     t.datetime "read_at", precision: nil
     t.bigint "recipient_id", null: false
     t.string "recipient_type", null: false
     t.string "title", null: false
-    t.string "type", null: false
     t.datetime "updated_at", null: false
     t.string "url", null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
