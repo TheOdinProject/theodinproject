@@ -16,15 +16,6 @@ class Flags::Actions::NotifyUser < Flags::Actions::Base
   private
 
   def send_notification
-    Notifications::FlagNotification.with(
-      flag:,
-      title: message.title,
-      message: message.content,
-      url: message.url
-    ).deliver_later(flag.project_submission.user)
-  end
-
-  def message
-    @message ||= Messages::DeadLink.new(flag)
+    Notifications::DeadLinkNotification.new(flag).deliver
   end
 end
