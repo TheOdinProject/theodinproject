@@ -15,9 +15,9 @@ export default class VisibilityController extends Controller {
     useClickOutside(this)
   }
 
-  backdropClick(event) {
+  backdropClick (event) {
     if (event.target === event.currentTarget) {
-        this.off()
+      this.off()
     }
   }
 
