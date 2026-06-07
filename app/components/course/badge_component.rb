@@ -11,9 +11,10 @@ class Course::BadgeComponent < ApplicationComponent
     end
   end
 
-  def initialize(course:, options: {})
+  def initialize(course:, options: {}, linked: true)
     @course = course
     @options = options
+    @linked = linked
   end
 
   private
@@ -40,6 +41,10 @@ class Course::BadgeComponent < ApplicationComponent
 
   def variant
     size
+  end
+
+  def linked?
+    @linked
   end
 
   def option_params
