@@ -15,12 +15,6 @@ export default class VisibilityController extends Controller {
     useClickOutside(this)
   }
 
-  backdropClick (event) {
-    if (event.target === event.currentTarget) {
-      this.off()
-    }
-  }
-
   disconnect () {
     this.contentTargets.forEach((element) => element.classList.toggle('hidden', true))
     this.off()
