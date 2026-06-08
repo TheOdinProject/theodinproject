@@ -12,7 +12,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
     "@rails/request.js": "^0.0.13",
-    "@sentry/browser": "^10.55.0",
+    "@sentry/browser": "^10.56.0",
     "@sentry/esbuild-plugin": "^5.3.0",
     "@stimulus/polyfills": "^2.0.0",
     "@tailwindcss/cli": "^4.3.0",
