@@ -6,7 +6,7 @@ gem 'rails', '8.1.3'
 
 gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
-gem 'bootsnap', '~> 1.18', require: false
+gem 'bootsnap', '~> 1.24', require: false
 gem 'class_variants', '~> 1.1'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'devise', '~> 5.0'
