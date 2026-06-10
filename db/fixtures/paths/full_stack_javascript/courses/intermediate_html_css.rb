@@ -19,7 +19,6 @@ course.add_section do |section|
 
   section.add_lessons(
     html_and_css_lessons.fetch('Introduction'),
-    html_and_css_lessons.fetch('Emmet'),
     html_and_css_lessons.fetch('SVG'),
     html_and_css_lessons.fetch('Tables'),
   )

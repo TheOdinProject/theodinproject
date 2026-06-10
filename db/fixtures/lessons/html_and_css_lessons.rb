@@ -65,13 +65,6 @@ def html_and_css_lessons
       github_path: '/intermediate_html_css/intermediate_html_concepts/introduction.md',
       identifier_uuid: 'c1209191-1c2b-4c26-a838-8c4d4c3d388b'
     },
-    'Emmet' => {
-      title: 'Emmet',
-      description: 'Emmet is a useful tool for helping create and manipulate HTMl and CSS',
-      is_project: false,
-      github_path: '/intermediate_html_css/intermediate_html_concepts/emmet.md',
-      identifier_uuid: '71254f29-7f01-47b3-b621-2a664d368675'
-    },
     'SVG' => {
       title: 'SVG',
       description: 'SVG is neat!',
