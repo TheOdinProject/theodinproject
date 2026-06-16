@@ -117,6 +117,7 @@ GEM
     capybara-email (3.0.2)
       capybara (>= 2.4, < 4.0)
       mail
+    cgi (0.5.1)
     childprocess (5.1.0)
       logger (~> 1.5)
     chunky_png (1.4.0)
@@ -626,6 +627,7 @@ DEPENDENCIES
   bundler-audit
   capybara (~> 3.40)
   capybara-email (~> 3.0)
+  cgi
   class_variants (~> 1.1)
   cssbundling-rails (~> 1.4)
   cuprite (~> 0.17)
@@ -699,7 +701,7 @@ DEPENDENCIES
   webmock (~> 3.26)
 
 RUBY VERSION
-   ruby 3.4.6p54
+   ruby 4.0.2p0
 
 BUNDLED WITH
    2.7.1

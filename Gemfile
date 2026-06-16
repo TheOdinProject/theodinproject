@@ -1,4 +1,4 @@
-ruby File.read('.ruby-version').strip
+ruby file: '.ruby-version'
 
 source 'https://rubygems.org'
 
@@ -7,6 +7,7 @@ gem 'rails', '8.1.3'
 gem 'aasm', '~> 5.5'
 gem 'barnes', '~> 0.0'
 gem 'bootsnap', '~> 1.18', require: false
+gem 'cgi' # Removed from standard lib in Ruby 4. Can remove if / when added as a Rails dep
 gem 'class_variants', '~> 1.1'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'devise', '~> 5.0'

@@ -7,7 +7,7 @@ plugins:
 - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 4.0
   TargetRailsVersion: 8.1
   ExtraDetails: true
   DisplayStyleGuide: true
