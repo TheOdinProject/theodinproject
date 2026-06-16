@@ -339,5 +339,14 @@ def ruby_lessons
       previewable: false,
       identifier_uuid: '20b01618-5437-40c4-a362-8b5f51421b4d'
     },
+    'Debugging with VSCode' => {
+      title: 'Debugging with VSCode',
+      description: 'Learn to debug your code with VSCode.',
+      is_project: false,
+      # TODO: upgrade the path after PR https://github.com/TheOdinProject/curriculum/pull/30267 gets merged
+      # github_path: '/ruby/basic_ruby/debugging_with_vscode.md',
+      github_path: '/ruby/basic_ruby/debugging.md',
+      identifier_uuid: '0ef4b02d-21c9-4ea7-825f-927d4bbf2c2f',
+    },
   }
 end
