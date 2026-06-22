@@ -97,7 +97,7 @@ GEM
       smart_properties
     bigdecimal (4.1.2)
     bindex (0.8.1)
-    bootsnap (1.18.4)
+    bootsnap (1.24.6)
       msgpack (~> 1.2)
     brakeman (8.0.4)
       racc
@@ -293,7 +293,7 @@ GEM
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    msgpack (1.7.2)
+    msgpack (1.8.1)
     multi_json (1.15.0)
     multi_xml (0.8.1)
       bigdecimal (>= 3.1, < 5)
@@ -621,7 +621,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.5)
   barnes (~> 0.0)
-  bootsnap (~> 1.18)
+  bootsnap (~> 1.24)
   brakeman
   bundler-audit
   capybara (~> 3.40)
