@@ -1207,18 +1207,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stimulus/polyfills@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@stimulus/polyfills@npm:2.0.0"
-  dependencies:
-    core-js: "npm:^3.4.0"
-    element-closest: "npm:^2.0.2"
-    eventlistener-polyfill: "npm:^1.0.5"
-    mutation-observer-inner-html-shim: "npm:^1.0.0"
-  checksum: 10c0/37da80aeb5d807a1dae4cfb899f20f6c1850138a7b6c201d2528ff23237906fb27516a9b19d057cefe6b78d9a53478a0eee52c28550b44a1cc129a8a6c3f635e
-  languageName: node
-  linkType: hard
-
 "@tailwindcss/cli@npm:^4.3.0":
   version: 4.3.0
   resolution: "@tailwindcss/cli@npm:4.3.0"
@@ -2288,13 +2276,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.4.0":
-  version: 3.37.0
-  resolution: "core-js@npm:3.37.0"
-  checksum: 10c0/7e00331f346318ca3f595c08ce9e74ddae744715aef137486c1399163afd79792fb94c3161280863adfdc3e30f8026912d56bd3036f93cacfc689d33e185f2ee
-  languageName: node
-  linkType: hard
-
 "cose-base@npm:^1.0.0":
   version: 1.0.3
   resolution: "cose-base@npm:1.0.3"
@@ -2991,13 +2972,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"element-closest@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "element-closest@npm:2.0.2"
-  checksum: 10c0/1279012d0b23ef1eb84e8e4bcf54dac0b26f5ad101d0ea2c5ba11bba081ba2092ff4c3728c9d413a6d219cf6f80fcc62a41149f5cf8b4a47572c6ce9501ceaab
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:^8.0.0":
   version: 8.0.0
   resolution: "emoji-regex@npm:8.0.0"
@@ -3606,13 +3580,6 @@ __metadata:
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
   checksum: 10c0/9a2fe69a41bfdade834ba7c42de4723c97ec776e40656919c62cbd13607c45e127a003f05f724a1ea55e5029a4cf2de444b13009f2af71271e42d93a637137c7
-  languageName: node
-  linkType: hard
-
-"eventlistener-polyfill@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "eventlistener-polyfill@npm:1.0.5"
-  checksum: 10c0/631cabae50dba3a9428575def6d052da4299596d9243f27098781d4dbc593c697f384bf5bee31d9f8e2aa56e8808cc16a6e50dbf4aae64ffbb0c392688ca59ca
   languageName: node
   linkType: hard
 
@@ -5326,13 +5293,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mutation-observer-inner-html-shim@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "mutation-observer-inner-html-shim@npm:1.0.1"
-  checksum: 10c0/168b9335e599ed5c2cc0f30936c9b48629068fc2fbe5db302e46c2c364b855e4be66da9324dbacef51229be6ce65c5358e303df2c5dfdab3dd2c59688c5dbfbf
-  languageName: node
-  linkType: hard
-
 "nanoid@npm:^3.3.12":
   version: 3.3.12
   resolution: "nanoid@npm:3.3.12"
@@ -6041,7 +6001,6 @@ __metadata:
     "@rails/request.js": "npm:^0.0.13"
     "@sentry/browser": "npm:^10.56.0"
     "@sentry/esbuild-plugin": "npm:^5.3.0"
-    "@stimulus/polyfills": "npm:^2.0.0"
     "@tailwindcss/cli": "npm:^4.3.0"
     "@tailwindcss/forms": "npm:^0.5.11"
     "@tailwindcss/typography": "npm:^0.5.19"
