@@ -5969,7 +5969,6 @@ __metadata:
     esbuild-rails: "npm:^1.0.7"
     flatpickr: "npm:^4.6.13"
     mermaid: "npm:^11.15.0"
-    postcss: "npm:^8.5.15"
     prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.7"
     standard: "npm:^17.1.2"
