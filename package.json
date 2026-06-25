@@ -6,7 +6,7 @@
     "lint": "standard",
     "stylelint": "stylelint 'app/assets/stylesheets'",
     "build": "node esbuild.config.mjs",
-    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --postcss"
+    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
@@ -27,7 +27,6 @@
     "esbuild-rails": "^1.0.7",
     "flatpickr": "^4.6.13",
     "mermaid": "^11.15.0",
-    "postcss": "^8.5.15",
     "prismjs": "^1.30.0",
     "sortablejs": "^1.15.7",
     "stimulus-use": "^0.52.3",
