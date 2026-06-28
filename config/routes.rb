@@ -36,10 +36,6 @@ Rails.application.routes.draw do
     resource :webhooks, only: :create, defaults: { formats: :json }
   end
 
-  namespace :api do
-    resources :points, only: %i[index show create]
-  end
-
   scope controller: :static_pages do
     get 'home'
     get 'about'
