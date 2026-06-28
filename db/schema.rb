@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_28_151237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -95,11 +95,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
 
   create_table "courses", id: :serial, force: :cascade do |t|
     t.string "badge_uri", null: false
-    t.text "build_highlights", default: [], array: true
     t.datetime "created_at", precision: nil, null: false
     t.text "description"
     t.string "identifier_uuid", default: "", null: false
-    t.text "learning_outcomes", default: [], array: true
     t.integer "lessons_count", default: 0, null: false
     t.integer "path_id"
     t.integer "position", null: false
@@ -264,12 +262,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
     t.index ["slug"], name: "index_paths_on_slug", unique: true
   end
 
-  create_table "points", force: :cascade do |t|
-    t.string "discord_id", null: false
-    t.integer "points", default: 0, null: false
-    t.index ["discord_id"], name: "index_points_on_discord_id", unique: true
-  end
-
   create_table "project_submissions", id: :serial, force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.datetime "discard_at", precision: nil
@@ -362,12 +354,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
   add_foreign_key "project_submissions", "users"
 
   create_view "all_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date)) AS id,
-      (lesson_completions.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS completions_count
      FROM lesson_completions
-    GROUP BY ((lesson_completions.created_at)::date)
-    ORDER BY ((lesson_completions.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
   create_view "path_lesson_completions_day_stats", materialized: true, sql_definition: <<-SQL
       SELECT row_number() OVER (ORDER BY ((lesson_completions.created_at)::date) DESC) AS id,
@@ -386,11 +378,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_05_120000) do
     ORDER BY ((lesson_completions.created_at)::date) DESC;
   SQL
   create_view "user_sign_ups_day_stats", materialized: true, sql_definition: <<-SQL
-      SELECT row_number() OVER (ORDER BY ((users.created_at)::date)) AS id,
-      (users.created_at)::date AS date,
+      SELECT row_number() OVER (ORDER BY ((created_at)::date)) AS id,
+      (created_at)::date AS date,
       count(*) AS sign_ups_count
      FROM users
-    GROUP BY ((users.created_at)::date)
-    ORDER BY ((users.created_at)::date);
+    GROUP BY ((created_at)::date)
+    ORDER BY ((created_at)::date);
   SQL
 end
