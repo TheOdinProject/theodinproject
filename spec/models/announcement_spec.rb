@@ -17,6 +17,7 @@ RSpec.describe Announcement do
       announcement_expires_tomorrow = create(:announcement, expires_at: 1.day.from_now)
       announcement_expires_next_week = create(:announcement, expires_at: 1.week.from_now)
       create(:announcement, :without_validations, expires_at: 1.hour.ago)
+      create(:announcement, :without_validations, status: :expired, expires_at: 1.day.from_now)
 
       expect(described_class.active).to contain_exactly(
         announcement_expires_tomorrow, announcement_expires_next_week
@@ -28,8 +29,9 @@ RSpec.describe Announcement do
     it 'returns expired messages' do
       create(:announcement, expires_at: 1.day.from_now)
       expired_announcement = create(:announcement, :without_validations, expires_at: 1.hour.ago)
+      expired_early_announcement = create(:announcement, :without_validations, status: :expired, expires_at: 1.day.from_now)
 
-      expect(described_class.expired).to contain_exactly(expired_announcement)
+      expect(described_class.expired).to contain_exactly(expired_announcement, expired_early_announcement)
     end
   end
 
@@ -97,6 +99,12 @@ RSpec.describe Announcement do
         expect(build(:announcement, expires_at: 1.day.ago).status).to eq(:expired)
       end
     end
+
+    context 'when the announcement has been expired early' do
+      it 'returns expired' do
+        expect(build(:announcement, status: :expired, expires_at: 1.day.from_now).status).to eq(:expired)
+      end
+    end
   end
 
   describe '#active?' do
@@ -110,6 +118,31 @@ RSpec.describe Announcement do
       it 'returns false' do
         expect(build(:announcement, expires_at: 1.day.ago)).not_to be_active
       end
+    end
+
+    context 'when the announcement is expired early' do
+      it 'returns false' do
+        expect(build(:announcement, status: :expired, expires_at: 1.day.from_now)).not_to be_active
+      end
+    end
+  end
+
+  describe 'validations' do
+    it 'validates that expires_at must be in the future on create' do
+      announcement = build(:announcement, expires_at: 1.day.ago)
+      expect(announcement).not_to be_valid
+      expect(announcement.errors[:expires_at]).to include('expiry must be greater than today')
+    end
+
+    it 'allows updating active announcements without validating expires_at if it has not changed' do
+      announcement = create(:announcement, expires_at: 1.day.from_now)
+      announcement.message = 'Updated Message'
+      expect(announcement).to be_valid
+    end
+
+    it 'does not validate expires_at when status is expired' do
+      announcement = build(:announcement, status: :expired, expires_at: 1.day.ago)
+      expect(announcement).to be_valid
     end
   end
 end

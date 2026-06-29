@@ -74,4 +74,40 @@ RSpec.describe 'Admin announcements' do
       end
     end
   end
+
+  context 'when expiring an announcement' do
+    it 'expires the announcement from the show page' do
+      announcement = create(:announcement, message: 'Test Message', expires_at: 10.days.from_now)
+      visit admin_announcement_path(announcement)
+      expect(page).to have_content('Active')
+
+      accept_confirm do
+        click_on('Expire')
+      end
+
+      expect(page).to have_content('Expired')
+      expect(page).to have_content('Announcement updated.')
+
+      using_session('learner') do
+        sign_in(create(:user))
+
+        visit home_path
+        expect(page).to have_no_content('Test Message')
+      end
+    end
+
+    it 'expires the announcement from the index page' do
+      announcement = create(:announcement, message: 'Test Message', expires_at: 10.days.from_now)
+      visit admin_announcements_path
+      expect(page).to have_content('Test Message')
+
+      accept_confirm do
+        click_on('Expire')
+      end
+
+      expect(page).to have_current_path(admin_announcement_path(announcement))
+      expect(page).to have_content('Announcement updated.')
+      expect(page).to have_content('Expired')
+    end
+  end
 end

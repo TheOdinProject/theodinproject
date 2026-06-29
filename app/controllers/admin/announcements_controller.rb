@@ -51,7 +51,7 @@ module Admin
     private
 
     def announcement_params
-      params.expect(announcement: %i[message expires_at learn_more_url])
+      params.expect(announcement: %i[message expires_at learn_more_url status])
     end
 
     def create_activity(announcement, key)

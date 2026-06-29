@@ -3,14 +3,16 @@ class Announcement < ApplicationRecord
 
   belongs_to :created_by, class_name: 'AdminUser', inverse_of: :announcements
 
+  enum :status, { active: 0, expired: 1 }, default: :active
+
   validates :message, presence: true
   validates :message, length: { maximum: 100 }
   validates :expires_at, presence: true
   validates :learn_more_url, url: true, allow_blank: true
-  validate :expiry_must_be_in_the_future
+  validate :expiry_must_be_in_the_future, if: -> { new_record? || (expires_at_changed? && active?) }
 
-  scope :active, -> { where(expires_at: Time.zone.now..).order(created_at: :desc) }
-  scope :expired, -> { where(expires_at: ...Time.zone.now) }
+  scope :active, -> { where(status: :active).where(expires_at: Time.zone.now..).order(created_at: :desc) }
+  scope :expired, -> { where(status: :expired).or(where(expires_at: ...Time.zone.now)).order(created_at: :desc) }
   scope :showable_messages, ->(disabled_ids) { active.where.not(id: disabled_ids) }
   scope :ordered_by_recent, -> { order(created_at: :desc) }
 
@@ -22,9 +24,11 @@ class Announcement < ApplicationRecord
   end
 
   def status
-    return :active if expires_at > Time.zone.now
-
-    :expired
+    if read_attribute(:status) == 'expired' || expires_at <= Time.zone.now
+      :expired
+    else
+      :active
+    end
   end
 
   def active?

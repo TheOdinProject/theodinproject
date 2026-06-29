@@ -10,6 +10,9 @@
     </div>
 
     <div class="flex gap-x-2 mt-4 sm:mt-0">
+      <% if @announcement.active? %>
+        <%= button_to 'Expire', admin_announcement_path(@announcement), method: :patch, params: { announcement: { status: :expired } }, data: { turbo_confirm: 'Are you sure you want to expire this announcement early?' }, class: 'button button--secondary p-1.5' %>
+      <% end %>
       <%= link_to 'Delete', admin_announcement_path(@announcement), data: { turbo_method: :delete, turbo_confirm: 'Are you sure? this cannot be undone'}, class: 'button button--secondary p-1.5 text-red-600 border-red-600 hover:bg-red-600 hover:text-white focus:ring-0' %>
       <%= link_to 'Edit', edit_admin_announcement_path(@announcement), class: 'button button--secondary p-1.5' %>
     </div>

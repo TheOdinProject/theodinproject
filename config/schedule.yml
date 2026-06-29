@@ -2,3 +2,8 @@ refresh_materialized_views:
   cron: "every 5 minutes"
   class: 'RefreshMaterializedViewsJob'
   queue: default
+
+expire_announcements:
+  cron: "0 0 * * *"
+  class: 'ExpireAnnouncementsJob'
+  queue: default
