@@ -29,7 +29,7 @@ module Notifications
     end
 
     def project_like_count
-      Like.liked_on(Time.zone.yesterday).count
+      Like.liked_on(Time.zone.yesterday).count - project_submission_count
     end
   end
 end
