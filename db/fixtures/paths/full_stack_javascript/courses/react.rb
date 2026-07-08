@@ -95,7 +95,6 @@ course.add_section do |section|
   section.identifier_uuid = '8d644340-1fde-40bd-8a86-a967d5baf6bc'
 
   section.add_lessons(
-    react_lessons.fetch('Type Checking With PropTypes'),
     react_lessons.fetch('React Router'),
     react_lessons.fetch('Fetching Data In React'),
     react_lessons.fetch('Styling React Applications'),

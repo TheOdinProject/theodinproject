@@ -123,13 +123,6 @@ def react_lessons
       github_path: '/react/react_testing/mocking_callbacks_and_components.md',
       identifier_uuid: 'ca39b471-0c91-4b23-8e7f-2e7af0131c1f',
     },
-    'Type Checking With PropTypes' => {
-      title: 'Type Checking With PropTypes',
-      description: 'Type Checking With PropTypes',
-      is_project: false,
-      github_path: '/react/the_react_ecosystem/type_checking_with_proptypes.md',
-      identifier_uuid: '35d780f7-733f-425e-8f64-0c225d335dca',
-    },
     'React Router' => {
       title: 'React Router',
       description: 'React Router',
