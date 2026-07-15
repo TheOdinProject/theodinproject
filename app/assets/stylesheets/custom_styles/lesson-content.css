@@ -56,6 +56,19 @@
   & li > p {
     @apply my-2;
   }
+
+  /* For automatic subnumbering e.g. 1.1, 2.1.2 */
+  & ol {
+    counter-reset: item;
+  }
+
+  & ol > li {
+    counter-increment: item;
+  }
+
+  & ol > li::marker {
+    content: counters(item, ".") ".";
+  }
 }
 
 @utility toc-item-active {
