@@ -1386,14 +1386,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/typography@npm:^0.5.19":
-  version: 0.5.19
-  resolution: "@tailwindcss/typography@npm:0.5.19"
+"@tailwindcss/typography@npm:^0.5.20":
+  version: 0.5.20
+  resolution: "@tailwindcss/typography@npm:0.5.20"
   dependencies:
     postcss-selector-parser: "npm:6.0.10"
   peerDependencies:
     tailwindcss: "*"
-  checksum: 10c0/b9eb38e9c7adca59b55d7321275f59ea62c7d65a0c3d324c18c1c5864c69ec6e15b838e7df61e531cda62cfea08627b4343bc419bb0996182321891e5171e4d6
+  checksum: 10c0/e42f9347a7802d620c56ea3379dc7986c0eece9af2d0ae170d530a8c8ef9815f6fdb6b23b2ae76c9832314dcca125e6a166bfec1c88326495896afeab64c1c2e
   languageName: node
   linkType: hard
 
@@ -5958,7 +5958,7 @@ __metadata:
     "@sentry/esbuild-plugin": "npm:^5.3.0"
     "@tailwindcss/cli": "npm:^4.3.0"
     "@tailwindcss/forms": "npm:^0.5.11"
-    "@tailwindcss/typography": "npm:^0.5.19"
+    "@tailwindcss/typography": "npm:^0.5.20"
     chart.js: "npm:^4.5.1"
     chartjs-plugin-crosshair: "npm:^2.0.0"
     chokidar: "npm:^5.0.0"
