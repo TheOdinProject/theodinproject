@@ -39,3 +39,14 @@ html:has([data-controller~="lessons--sidebar-toggle"]) {
     background-color: var(--color-gray-700);
   }
 }
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  top: 0;
+}

@@ -29,13 +29,24 @@
 
   <body data-controller="dialog-router" class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
     <%= render AnnouncementComponent.new(announcement: Announcement.showable_messages(disabled_announcement_ids).first) %>
-    <%= render 'shared/navbar' %>
+    
+    <header>
+      <a href="#main-content" class="skip-link">
+        Skip to main content
+      </a>
+
+      <%= render 'shared/navbar' %>
+    </header>
+
     <div id="flash-messages">
       <%= render 'shared/flash', flash: flash if flash.any? %>
     </div>
 
     <%= turbo_frame_tag 'modal' %>
-    <%= yield %>
+
+    <main id="main-content">
+      <%= yield %>
+    </main>
 
     <%= render 'shared/footer' %>
   </body>
