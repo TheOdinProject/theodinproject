@@ -78,13 +78,19 @@
           </div>
         </main>
 
-        <aside class="hidden xl:block xl:w-72 xl:shrink-0">
+        <nav class="hidden xl:block xl:w-72 xl:shrink-0" aria-labelledby="lesson-contents-heading">
           <div class="sticky top-12 pt-10 sm:pt-14 pb-20">
-            <h4 class="text-md pb-4 text-gray-700 dark:text-gray-300">Lesson contents</h4>
-            <ul class="flex flex-col text-gray-500 dark:text-gray-400" data-lesson-toc-target="toc"></ul>
+
+            <h4 id="lesson-contents-heading" class="text-md pb-4 text-gray-700 dark:text-gray-300">
+              Lesson contents
+            </h4>
+
+            <ul class="flex flex-col text-gray-500 dark:text-gray-400" data-lesson-toc-target="toc" role="list" aria-labelledby="lesson-contents-heading">
+            </ul>
           </div>
-        </aside>
+        </nav>
       </div>
     </div>
   </div>
 </div>
+
