@@ -59,15 +59,22 @@
 
   /* For automatic subnumbering e.g. 1.1, 2.1.2 */
   & ol {
-    counter-reset: item;
+    --counter: item;
+
+    counter-reset: var(--counter);
+  }
+
+  /* Note boxes should have their own list hierarchies */
+  & .lesson-note ol {
+    --counter: item-in-note-box;
   }
 
   & ol > li {
-    counter-increment: item;
+    counter-increment: var(--counter);
   }
 
   & ol > li::marker {
-    content: counters(item, ".") ".";
+    content: counters(var(--counter), ".") ".";
   }
 }
 
