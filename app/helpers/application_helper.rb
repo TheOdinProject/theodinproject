@@ -31,6 +31,6 @@ module ApplicationHelper
   end
 
   def unread_notifications?(user)
-    user.notifications.any?(&:unread?)
+    user.notifications.unread.exists?
   end
 end
