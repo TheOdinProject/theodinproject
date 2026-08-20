@@ -12,7 +12,6 @@
     <%= turbo_frame_tag(
           'lesson-sidebar-frame',
           src: lesson_course_contents_path(@lesson),
-          loading: :lazy,
           target: '_top',
           data: { turbo_permanent: true },
           class: 'block xl:w-80 xl:shrink-0 border-gray-200 dark:border-gray-800 xl:border-r group-[.sidebar-collapsed]/sidebar-layout:xl:hidden'
