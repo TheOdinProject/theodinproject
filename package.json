@@ -16,7 +16,7 @@
     "@sentry/esbuild-plugin": "^5.3.0",
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/forms": "^0.5.11",
-    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/typography": "^0.5.20",
     "chart.js": "^4.5.1",
     "chartjs-plugin-crosshair": "^2.0.0",
     "chokidar": "^5.0.0",
