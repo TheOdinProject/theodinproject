@@ -5732,13 +5732,6 @@ __metadata:
   linkType: hard
 
 "prismjs@npm:^1.29.0":
-  version: 1.29.0
-  resolution: "prismjs@npm:1.29.0"
-  checksum: 10c0/d906c4c4d01b446db549b4f57f72d5d7e6ccaca04ecc670fb85cea4d4b1acc1283e945a9cbc3d81819084a699b382f970e02f9d1378e14af9808d366d9ed7ec6
-  languageName: node
-  linkType: hard
-
-"prismjs@npm:^1.30.0":
   version: 1.30.0
   resolution: "prismjs@npm:1.30.0"
   checksum: 10c0/f56205bfd58ef71ccfcbcb691fd0eb84adc96c6ff21b0b69fc6fdcf02be42d6ef972ba4aed60466310de3d67733f6a746f89f2fb79c00bf217406d465b3e8f23
@@ -5978,7 +5971,6 @@ __metadata:
     esbuild-rails: "npm:^1.0.7"
     flatpickr: "npm:^4.6.13"
     mermaid: "npm:^11.16.1"
-    prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.7"
     standard: "npm:^17.1.2"
     stimulus-use: "npm:^0.52.3"
