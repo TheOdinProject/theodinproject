@@ -12,7 +12,7 @@
   </div>
 
   <div class="flex flex-1 justify-between sm:justify-end">
-    <%= link_to 'Previous', url_for(page: pagy.prev), class: 'relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 dark:bg-gray-800 dark:ring-gray-700 dark:text-gray-300 dark:hover:bg-gray-700' if @pagy.prev.present? %>
+    <%= link_to 'Previous', request.params.merge(page: pagy.prev), class: 'relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 dark:bg-gray-800 dark:ring-gray-700 dark:text-gray-300 dark:hover:bg-gray-700' if @pagy.prev.present? %>
     <%= link_to 'Next', request.params.merge(page: pagy.next), class: 'relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0 dark:bg-gray-800 dark:ring-gray-700 dark:text-gray-300 dark:hover:bg-gray-700' if @pagy.next.present? %>
   </div>
 </nav>
