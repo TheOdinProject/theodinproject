@@ -3152,14 +3152,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-rails@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "esbuild-rails@npm:1.0.7"
+"esbuild-rails@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "esbuild-rails@npm:1.0.8"
   dependencies:
     fast-glob: "npm:^3.2.12"
   peerDependencies:
     esbuild: "*"
-  checksum: 10c0/93df8cabbfbdceba5c7a3dc038d3c0b6b68a8e117538a341649dd04433ba5c548743533d0d2f92a991b25c7550749b10ff3d536bc3b15a2dc16c632c23988eb2
+  checksum: 10c0/2d08137c30edd45f9f3320d87464d812df9dd04277a2c9f2ca7c131d43b8ae8b5a2b09c5c8f409ca614867d2f95f034fef60035083075047638495210e516a29
   languageName: node
   linkType: hard
 
@@ -5975,7 +5975,7 @@ __metadata:
     el-transition: "npm:^0.0.7"
     esbuild: "npm:^0.28.2"
     esbuild-plugin-prismjs: "npm:^1.0.8"
-    esbuild-rails: "npm:^1.0.7"
+    esbuild-rails: "npm:^1.0.8"
     flatpickr: "npm:^4.6.13"
     mermaid: "npm:^11.16.1"
     prismjs: "npm:^1.30.0"
