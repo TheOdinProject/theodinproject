@@ -240,6 +240,16 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/viet-anh-hoang/"
 
+        - name: "Lucy G"
+          image: "https://avatars.githubusercontent.com/u/112640408?v=4"
+          location: "Brazil"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/LuGodi"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/lulu-g/"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
