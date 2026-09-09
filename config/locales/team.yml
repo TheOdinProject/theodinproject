@@ -230,6 +230,16 @@ en:
             - name: "github"
               url: "https://github.com/ric-projects"
 
+        - name: "Zack Hoang"
+          image: "https://avatars.githubusercontent.com/u/130317776?v=4"
+          location: "Canada"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/ZackHoang"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/viet-anh-hoang/"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
