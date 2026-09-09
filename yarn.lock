@@ -5992,7 +5992,7 @@ __metadata:
     prismjs: "npm:^1.30.0"
     sortablejs: "npm:^1.15.7"
     standard: "npm:^17.1.2"
-    stimulus-use: "npm:^0.52.3"
+    stimulus-use: "npm:^0.53.0"
     stylelint: "npm:^17.13.0"
     stylelint-config-standard: "npm:^40.0.0"
     tailwindcss: "npm:4.3.0"
@@ -6244,13 +6244,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stimulus-use@npm:^0.52.3":
-  version: 0.52.3
-  resolution: "stimulus-use@npm:0.52.3"
+"stimulus-use@npm:^0.53.0":
+  version: 0.53.0
+  resolution: "stimulus-use@npm:0.53.0"
   peerDependencies:
     "@hotwired/stimulus": ">= 3"
     hotkeys-js: ">= 3"
-  checksum: 10c0/706dfb49563cbbc058beca5924b463b9a5140f2a784d0291477b1e769954cdd3ccbd7e9dd8b73d3d28e7b2be19bfa2859dfe49f304b25e4ebb0dc3c55b21a349
+  checksum: 10c0/f861230d949588a5036ecd2a38789e17cb75d27821e01652327b144636386f3a599ecd1074154665f587a536698041327b0a712d714f34cfb514f7121936c461
   languageName: node
   linkType: hard
 
