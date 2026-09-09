@@ -250,6 +250,14 @@ en:
             - name: "linkedin"
               url: "https://www.linkedin.com/in/lulu-g/"
 
+        - name: "Sam"
+          image: "https://avatars.githubusercontent.com/u/1546488?v=4"
+          location: "Australia"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/sam-omalley"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
