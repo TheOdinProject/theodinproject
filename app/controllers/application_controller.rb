@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include CurrentTheme
-  include Pagy::Backend
+  include Pagy::Method
   extend RequiresFeature
 
   before_action :configure_permitted_parameters, if: :devise_controller?

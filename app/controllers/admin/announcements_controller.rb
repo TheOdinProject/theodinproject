@@ -3,7 +3,7 @@ module Admin
     def index
       @pagy, @announcements = pagy(Announcement
         .for_status(params.fetch(:status, :active))
-        .ordered_by_recent, items: 20)
+        .ordered_by_recent, limit: 20)
     end
 
     def show
