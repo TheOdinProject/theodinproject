@@ -663,7 +663,7 @@ DEPENDENCIES
   omniauth-github (~> 2.0.1)
   omniauth-google-oauth2 (~> 1.2.1)
   omniauth-rails_csrf_protection (~> 2.0)
-  pagy (= 43.6.2)
+  pagy (~> 43.6)
   parallel_tests (~> 5.4)
   pg (~> 1.6)
   pg_search (~> 2.3)
