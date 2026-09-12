@@ -4,7 +4,7 @@ RSpec.describe PaginationComponent, type: :component do
   context 'when there is more than one page' do
     it 'renders the pagination component' do
       with_request_url('/admin/flags') do
-        pagy = instance_double(Pagy, pages: 3, next: 3, prev: 1, from: 1, to: 10, count: 30)
+        pagy = instance_double(Pagy::Offset, pages: 3, next: 3, previous: 1, from: 1, to: 10, count: 30)
         component = described_class.new(pagy:, resource_name: 'flags')
 
         render_inline(component)
@@ -13,12 +13,26 @@ RSpec.describe PaginationComponent, type: :component do
         expect(page).to have_content('Next')
       end
     end
+
+    it 'retains query parameters in navigation links' do
+      path = '/lessons/foundations-recipes/project_submissions'
+
+      with_request_url("#{path}?direction=desc&sort=likes_count") do
+        pagy = instance_double(Pagy::Offset, pages: 3, next: 3, previous: 1, from: 1, to: 10, count: 30)
+        component = described_class.new(pagy:, resource_name: 'Solutions')
+
+        render_inline(component)
+
+        expect(page).to have_link('Previous', href: "#{path}?direction=desc&page=1&sort=likes_count")
+        expect(page).to have_link('Next', href: "#{path}?direction=desc&page=3&sort=likes_count")
+      end
+    end
   end
 
   context 'when there is only one page' do
     it 'does not render the pagination component' do
       with_request_url('/admin/flags') do
-        pagy = instance_double(Pagy, pages: 1, next: nil, prev: nil, from: 1, to: 10, count: 10)
+        pagy = instance_double(Pagy::Offset, pages: 1, next: nil, previous: nil, from: 1, to: 10, count: 10)
         component = described_class.new(pagy:, resource_name: 'flags')
 
         render_inline(component)

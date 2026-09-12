@@ -1,6 +1,6 @@
 module ApplicationHelper
   require 'kramdown'
-  include Pagy::Frontend
+  include Pagy::Method
 
   def github_link(extension = '')
     "https://github.com/TheOdinProject/#{extension}"

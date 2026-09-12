@@ -27,6 +27,11 @@ module Theodinproject
     config.exceptions_app = routes
     config.middleware.insert_after ActionDispatch::Static, Rack::Deflater
 
+    # The app does not use Active Storage variants, so disable the variant
+    # processor to silence the boot-time warning about the missing
+    # image_processing gem.
+    config.active_storage.variant_processor = :disabled
+
     # We can remove this, but we will need to re-encrypt existing data
     config.active_record.encryption.support_sha1_for_non_deterministic_encryption = true
   end

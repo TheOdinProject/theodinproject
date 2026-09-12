@@ -28,7 +28,7 @@ RSpec.describe Overlays::DrawerComponent, type: :component do
 
   it 'requires aria_label' do
     expect { described_class.new(hook_class: 'off-canvas-menu') }
-      .to raise_error(ArgumentError, /aria_label/)
+      .to raise_error(KeyError, /aria_label/)
   end
 
   it 'defaults to lg breakpoint' do

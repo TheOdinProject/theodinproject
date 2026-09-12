@@ -4,9 +4,9 @@ module Admin
 
     def index
       if params[:search_term].present?
-        @pagy, @learners = pagy(User.search_by(params[:search_term]), items: 20)
+        @pagy, @learners = pagy(User.search_by(params[:search_term]), limit: 20)
       else
-        @pagy, @learners = pagy(User.all, items: 20)
+        @pagy, @learners = pagy(User.all, limit: 20)
       end
     end
 

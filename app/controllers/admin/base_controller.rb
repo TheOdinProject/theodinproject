@@ -1,7 +1,7 @@
 # rubocop:disable Rails/ApplicationController
 module Admin
   class BaseController < ActionController::Base
-    include Pagy::Backend
+    include Pagy::Method
     include CurrentTheme
 
     before_action :authenticate_admin_user!

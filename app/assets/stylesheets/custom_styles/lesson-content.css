@@ -56,6 +56,26 @@
   & li > p {
     @apply my-2;
   }
+
+  /* For automatic subnumbering e.g. 1.1, 2.1.2 */
+  & ol {
+    --counter: item;
+
+    counter-reset: var(--counter);
+  }
+
+  /* Note boxes should have their own list hierarchies */
+  & .lesson-note ol {
+    --counter: item-in-note-box;
+  }
+
+  & ol > li {
+    counter-increment: var(--counter);
+  }
+
+  & ol > li::marker {
+    content: counters(var(--counter), ".") ".";
+  }
 }
 
 @utility toc-item-active {

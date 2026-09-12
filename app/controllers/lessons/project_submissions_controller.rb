@@ -12,7 +12,7 @@ module Lessons
         .only_public
         .sort_by_params(sort_column_for(ProjectSubmission), sort_direction)
 
-      @pagy, @project_submissions = pagy(project_submissions.includes(:user), items: params.fetch(:limit, 15))
+      @pagy, @project_submissions = pagy(project_submissions.includes(:user), limit: params.fetch(:limit, 15))
       mark_liked_project_submissions
     end
 

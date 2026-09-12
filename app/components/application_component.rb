@@ -1,4 +1,6 @@
 class ApplicationComponent < ViewComponent::Base
+  extend Dry::Initializer
+
   include Turbo::FramesHelper
 
   delegate :inline_svg_tag, :inline_svg, to: :helpers

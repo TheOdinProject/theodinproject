@@ -1,13 +1,7 @@
 class NewTabTextLinkComponent < ApplicationComponent
-  def initialize(text:, href:, classes:, data: nil, noreferrer: true)
-    @text = text
-    @href = href
-    @classes = classes
-    @data = data
-    @noreferrer = noreferrer
-  end
-
-  private
-
-  attr_reader :text, :href, :classes, :data, :noreferrer
+  option :text, reader: :private
+  option :href, reader: :private
+  option :classes, reader: :private
+  option :data, default: -> {}, reader: :private
+  option :noreferrer, default: -> { true }, reader: :private
 end
