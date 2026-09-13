@@ -16,13 +16,24 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
       expect(page).to have_current_path(lesson_project_submissions_path(lesson))
 
       within(:test_id, 'submissions-list') do
-        expect(page).to have_css('[data-test-id="submission-item"]', count: 20)
+        expect(page).to have_css('[data-test-id="submission-item"]', count: 15)
       end
 
       click_on('Next')
 
       within(:test_id, 'submissions-list') do
-        expect(page).to have_css('[data-test-id="submission-item"]', count: 5, visible: :all)
+        expect(page).to have_css('[data-test-id="submission-item"]', count: 10, visible: :all)
+      end
+    end
+
+    it 'respects a custom limit param' do
+      create_list(:project_submission, 25, lesson:) # rubocop:disable FactoryBot/ExcessiveCreateList
+
+      sign_in(user)
+      visit lesson_project_submissions_path(lesson, limit: 5)
+
+      within(:test_id, 'submissions-list') do
+        expect(page).to have_css('[data-test-id="submission-item"]', count: 5)
       end
     end
 
