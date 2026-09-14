@@ -29,7 +29,7 @@
     "mermaid": "^11.16.1",
     "prismjs": "^1.30.0",
     "sortablejs": "^1.15.7",
-    "stimulus-use": "^0.53.0",
+    "stimulus-use": "^0.53.1",
     "tailwindcss": "4.3.0",
     "tippy.js": "^6.3.7"
   },
