@@ -258,6 +258,16 @@ en:
             - name: "github"
               url: "https://github.com/sam-omalley"
 
+        - name: "Zebra🎅"
+          image: "https://avatars.githubusercontent.com/u/2159742?v=4"
+          location: "Oregon, USA"
+          joined: "2026"
+          socials:
+            - name: "github"
+              url: "https://github.com/Falciron"
+            - name: "linkedin"
+              url: "https://www.linkedin.com/in/aaronmattson"
+
     alumni:
       description: "We extend our gratitude to all our former team members. Their dedication and contributions have played an invaluable role in the development of The Odin Project."
       members:
