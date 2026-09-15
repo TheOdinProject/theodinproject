@@ -33,6 +33,14 @@ RSpec.describe 'Static Pages' do
     end
   end
 
+  describe 'GET #community' do
+    it 'renders the community page' do
+      get community_path
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe 'GET #terms_of_use' do
     it 'renders the terms of use page' do
       get terms_of_use_path

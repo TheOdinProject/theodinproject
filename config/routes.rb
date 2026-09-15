@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     get 'about'
     get 'faq'
     get 'team'
+    get 'community'
     get 'contributing'
     get 'support_us'
     get 'terms_of_use'
