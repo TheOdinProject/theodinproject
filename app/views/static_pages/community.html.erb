@@ -1,0 +1,25 @@
+<%= title('Community') %>
+
+<section class="page-container">
+  <div class="grid grid-cols-12">
+    <div class="col-span-12 md:col-start-3 md:col-span-8 space-y-8">
+      <div class="text-center">
+        <h1 class="page-heading-title">Join the Community</h1>
+        <p class="max-w-prose mx-auto prose prose-gray dark:prose-invert text-gray-600 dark:text-gray-300">
+          Learning web development is a long journey, but you don't have to do it alone. Working and collaborating with other people is an important part of being a web developer,
+          so we encourage you to join our Discord community, where you can grow alongside other Odinites and help each other learn.
+        </p>
+        <p class="max-w-prose mx-auto mt-4 prose prose-gray dark:prose-invert text-gray-600 dark:text-gray-300">
+          Before joining, please read our <%= link_to 'community rules', rules_guides_community_path %> and <%= link_to 'community expectations', expectations_guides_community_path %>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 text-center">
+    <%= link_to 'Join our Discord server', ODIN_CHAT_URL, class: 'button button--primary text-base px-12 py-4', data: { test_id: 'community-discord-link' } %>
+    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+      Our community chat is hosted on Discord, an external chat platform.
+    </p>
+  </div>
+</section>
