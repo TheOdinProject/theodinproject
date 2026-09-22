@@ -8,7 +8,7 @@ RSpec.describe User::LearningGoalComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('Learn Ruby')
+      expect(page).to have_text('Learn Ruby')
     end
   end
 

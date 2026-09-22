@@ -29,7 +29,7 @@ RSpec.describe 'Editing a Project Submission' do
     end
 
     within(:test_id, 'current-user-solution') do
-      expect(page).to have_content(lesson.title)
+      expect(page).to have_text(lesson.title)
       expect(find(:test_id, 'view-code-btn')['href']).to eq('https://github.com/edited-project-repo-url')
       expect(find(:test_id, 'live-preview-btn')['href']).to eq('http://edited-live-preview-url.com/')
     end

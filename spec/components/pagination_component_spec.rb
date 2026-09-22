@@ -9,8 +9,8 @@ RSpec.describe PaginationComponent, type: :component do
 
         render_inline(component)
 
-        expect(page).to have_content('Previous')
-        expect(page).to have_content('Next')
+        expect(page).to have_text('Previous')
+        expect(page).to have_text('Next')
       end
     end
 
@@ -37,8 +37,8 @@ RSpec.describe PaginationComponent, type: :component do
 
         render_inline(component)
 
-        expect(page).to have_no_content('Previous')
-        expect(page).to have_no_content('Next')
+        expect(page).to have_no_text('Previous')
+        expect(page).to have_no_text('Next')
       end
     end
   end

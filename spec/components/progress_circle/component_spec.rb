@@ -7,7 +7,7 @@ RSpec.describe ProgressCircle::Component, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('0% Complete')
+      expect(page).to have_text('0% Complete')
     end
   end
 
@@ -17,7 +17,7 @@ RSpec.describe ProgressCircle::Component, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('33% Complete')
+      expect(page).to have_text('33% Complete')
     end
   end
 
@@ -27,7 +27,7 @@ RSpec.describe ProgressCircle::Component, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('100% Complete')
+      expect(page).to have_text('100% Complete')
     end
   end
 end

@@ -18,7 +18,7 @@ RSpec.describe 'Admin team member deactivation' do
     end
 
     within('#deactivated_team_members') do
-      expect(page).to have_content(other_admin.name)
+      expect(page).to have_text(other_admin.name)
     end
 
     using_session('other_admin') do
@@ -31,7 +31,7 @@ RSpec.describe 'Admin team member deactivation' do
       end
 
       expect(page).to have_current_path(new_admin_user_session_path)
-      expect(page).to have_content('Your account is deactivated')
+      expect(page).to have_text('Your account is deactivated')
     end
   end
 end

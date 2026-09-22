@@ -14,8 +14,8 @@ RSpec.describe 'Admin learners' do
     fill_in 'search_term', with: 'John'
 
     within(:test_id, 'learners-list') do
-      expect(page).to have_content('John')
-      expect(page).to have_no_content('Jane')
+      expect(page).to have_text('John')
+      expect(page).to have_no_text('Jane')
     end
   end
 
@@ -27,10 +27,10 @@ RSpec.describe 'Admin learners' do
     end
 
     accept_confirm { find(:test_id, 'delete-button').click }
-    expect(page).to have_content('Learner deleted')
+    expect(page).to have_text('Learner deleted')
 
     within(:test_id, 'learners-list') do
-      expect(page).to have_no_content('John')
+      expect(page).to have_no_text('John')
     end
   end
 end

@@ -21,10 +21,10 @@ RSpec.describe 'Admin flags' do
       choose('action_taken_dismiss')
       click_on('Submit')
 
-      expect(page).to have_content('Flag dismissed')
+      expect(page).to have_text('Flag dismissed')
 
       within(:test_id, 'flag-status') do
-        expect(page).to have_content('Dismissed')
+        expect(page).to have_text('Dismissed')
       end
 
       # resolve button is hidden
@@ -42,10 +42,10 @@ RSpec.describe 'Admin flags' do
       choose('action_taken_removed_project_submission')
       click_on('Submit')
 
-      expect(page).to have_content('Project submission removed')
+      expect(page).to have_text('Project submission removed')
 
       within(:test_id, 'flag-status') do
-        expect(page).to have_content('Project submission removed')
+        expect(page).to have_text('Project submission removed')
       end
 
       # resolve button is hidden
@@ -61,7 +61,7 @@ RSpec.describe 'Admin flags' do
         visit lesson_project_submissions_path(lesson)
 
         within(:test_id, 'submissions-list') do
-          expect(page).to have_no_content(submission_owner.username)
+          expect(page).to have_no_text(submission_owner.username)
         end
       end
     end
@@ -73,10 +73,10 @@ RSpec.describe 'Admin flags' do
       choose('action_taken_ban')
       click_on('Submit')
 
-      expect(page).to have_content('Project submission owner has been banned')
+      expect(page).to have_text('Project submission owner has been banned')
 
       within(:test_id, 'flag-status') do
-        expect(page).to have_content('Banned')
+        expect(page).to have_text('Banned')
       end
 
       # resolve button is hidden
@@ -92,7 +92,7 @@ RSpec.describe 'Admin flags' do
         visit lesson_project_submissions_path(lesson)
 
         within(:test_id, 'submissions-list') do
-          expect(page).to have_no_content(submission_owner.username)
+          expect(page).to have_no_text(submission_owner.username)
         end
       end
 
@@ -115,10 +115,10 @@ RSpec.describe 'Admin flags' do
       choose('action_taken_notified_user')
       click_on('Submit')
 
-      expect(page).to have_content('Notification sent')
+      expect(page).to have_text('Notification sent')
 
       within(:test_id, 'flag-status') do
-        expect(page).to have_content('Notified')
+        expect(page).to have_text('Notified')
       end
 
       # resolve button is hidden

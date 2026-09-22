@@ -28,9 +28,9 @@ RSpec.describe 'User Profile' do
         find(:test_id, 'learning-goal-field').fill_in(with: 'Learn Ruby')
         find(:test_id, 'save-profile-btn').click
 
-        expect(find(:test_id, 'username-field').value).to have_content('Joseph Bloggs')
-        expect(find(:test_id, 'email-field').value).to have_content('joey@bloggs.com')
-        expect(find(:test_id, 'learning-goal-field').value).to have_content('Learn Ruby')
+        expect(find(:test_id, 'username-field').value).to have_text('Joseph Bloggs')
+        expect(find(:test_id, 'email-field').value).to have_text('joey@bloggs.com')
+        expect(find(:test_id, 'learning-goal-field').value).to have_text('Learn Ruby')
 
         expect(user.reload.username).to eq('Joseph Bloggs')
         expect(user.reload.email).to eq('joey@bloggs.com')
@@ -44,8 +44,8 @@ RSpec.describe 'User Profile' do
         find(:test_id, 'email-field').fill_in(with: '')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).to have_content('is too short (minimum is 2 characters)')
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_text('is too short (minimum is 2 characters)')
+        expect(page).to have_text("can't be blank")
       end
 
       it 'successfully submits and and removes the error when fields are corrected' do
@@ -53,13 +53,13 @@ RSpec.describe 'User Profile' do
         find(:test_id, 'email-field').fill_in(with: '')
         find(:test_id, 'save-profile-btn').click
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_text("can't be blank")
 
         find(:test_id, 'email-field').fill_in(with: 'valid@example.com')
         find(:test_id, 'save-profile-btn').click
 
         expect(page).to have_field('user[email]', with: 'valid@example.com')
-        expect(page).to have_no_content("can't be blank")
+        expect(page).to have_no_text("can't be blank")
       end
     end
   end
@@ -90,8 +90,8 @@ RSpec.describe 'User Profile' do
       find(:test_id, 'password-confirmation-field').fill_in(with: 'sup')
       find(:test_id, 'save-btn').click
 
-      expect(page).to have_content('is too short (minimum is 6 characters)')
-      expect(page).to have_content("doesn't match Password")
+      expect(page).to have_text('is too short (minimum is 6 characters)')
+      expect(page).to have_text("doesn't match Password")
     end
   end
 end

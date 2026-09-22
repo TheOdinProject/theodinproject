@@ -6,7 +6,7 @@ RSpec.describe ContentContainerComponent, type: :component do
 
     render_inline(component) { 'Some riveting content' }
 
-    expect(page).to have_content('Some riveting content')
+    expect(page).to have_text('Some riveting content')
   end
 
   it 'renders content with classes' do

@@ -16,16 +16,16 @@ RSpec.describe 'Liking project submissions' do
 
     it 'you can like and unlike another users submission' do
       within(:test_project_submission, 1) do
-        expect(find(:test_id, 'like-count')).to have_content('0')
+        expect(find(:test_id, 'like-count')).to have_text('0')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('1')
+        expect(find(:test_id, 'like-count')).to have_text('1')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('0')
+        expect(find(:test_id, 'like-count')).to have_text('0')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('1')
+        expect(find(:test_id, 'like-count')).to have_text('1')
       end
     end
   end
@@ -42,16 +42,16 @@ RSpec.describe 'Liking project submissions' do
 
     it 'you can like and unlike another users submission' do
       within(:test_project_submission, 1) do
-        expect(find(:test_id, 'like-count')).to have_content('10')
+        expect(find(:test_id, 'like-count')).to have_text('10')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('11')
+        expect(find(:test_id, 'like-count')).to have_text('11')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('10')
+        expect(find(:test_id, 'like-count')).to have_text('10')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('11')
+        expect(find(:test_id, 'like-count')).to have_text('11')
       end
     end
   end
@@ -68,13 +68,13 @@ RSpec.describe 'Liking project submissions' do
 
     it 'cannot like the submission' do
       within(:test_project_submission, 1) do
-        expect(find(:test_id, 'like-count')).to have_content('0')
+        expect(find(:test_id, 'like-count')).to have_text('0')
 
         find(:test_id, 'like-submission').click
-        expect(find(:test_id, 'like-count')).to have_content('0')
+        expect(find(:test_id, 'like-count')).to have_text('0')
       end
 
-      expect(page).to have_content('Failed to like')
+      expect(page).to have_text('Failed to like')
     end
   end
 end

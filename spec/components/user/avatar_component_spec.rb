@@ -19,7 +19,7 @@ RSpec.describe User::AvatarComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('default user avatar')
+      expect(page).to have_text('default user avatar')
     end
   end
 end

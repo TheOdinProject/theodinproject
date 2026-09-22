@@ -8,7 +8,7 @@ RSpec.describe AnnouncementComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('Hello, world!')
+      expect(page).to have_text('Hello, world!')
     end
   end
 

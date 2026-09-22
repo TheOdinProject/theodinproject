@@ -4,7 +4,7 @@ RSpec.describe Overlays::DrawerComponent, type: :component do
   it 'renders yielded content' do
     render_inline(described_class.new(hook_class: 'off-canvas-menu', aria_label: 'Navigation')) { 'drawer content' }
 
-    expect(page).to have_content('drawer content')
+    expect(page).to have_text('drawer content')
   end
 
   it 'renders the close button with the given label' do

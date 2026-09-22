@@ -12,15 +12,15 @@ RSpec.describe 'Deleting a Project Submission' do
 
   it 'removes a submission' do
     within(:test_id, 'current-user-solution') do
-      expect(page).to have_content(lesson.title)
+      expect(page).to have_text(lesson.title)
 
       find(:test_id, 'submission-action-menu-btn').click
 
       find(:test_id, 'delete-submission-btn').click
       find(:test_id, 'confirm-delete-submission-btn').click
 
-      expect(page).to have_content('Submit your solution')
-      expect(page).to have_no_content(lesson.title)
+      expect(page).to have_text('Submit your solution')
+      expect(page).to have_no_text(lesson.title)
     end
   end
 end

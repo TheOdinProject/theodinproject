@@ -17,14 +17,14 @@ RSpec.describe 'Admin announcements' do
       click_on('Save')
 
       visit admin_announcements_path
-      expect(page).to have_content('Test Message')
-      expect(page).to have_content(10.days.from_now.strftime('%B %d, %Y'))
+      expect(page).to have_text('Test Message')
+      expect(page).to have_text(10.days.from_now.strftime('%B %d, %Y'))
 
       using_session('learner') do
         sign_in(create(:user))
 
         visit home_path
-        expect(page).to have_content('Test Message')
+        expect(page).to have_text('Test Message')
       end
     end
   end
@@ -39,13 +39,13 @@ RSpec.describe 'Admin announcements' do
       click_on('Save')
 
       visit admin_announcements_path
-      expect(page).to have_content('Edited test Message')
+      expect(page).to have_text('Edited test Message')
 
       using_session('learner') do
         sign_in(create(:user))
 
         visit home_path
-        expect(page).to have_content('Edited test Message')
+        expect(page).to have_text('Edited test Message')
       end
     end
   end
@@ -54,7 +54,7 @@ RSpec.describe 'Admin announcements' do
     it 'removes the announcement' do
       announcement = create(:announcement, message: 'Test Message', expires_at: 10.days.from_now)
       visit admin_announcements_path
-      expect(page).to have_content('Test Message')
+      expect(page).to have_text('Test Message')
 
       visit admin_announcement_path(announcement)
 
@@ -63,14 +63,14 @@ RSpec.describe 'Admin announcements' do
       end
 
       expect(page).to have_current_path(admin_announcements_path)
-      expect(page).to have_no_content('Test Message')
+      expect(page).to have_no_text('Test Message')
 
       using_session('learner') do
         sign_in(create(:user))
 
         visit home_path
         expect(page).to have_current_path(home_path)
-        expect(page).to have_no_content('Test Message')
+        expect(page).to have_no_text('Test Message')
       end
     end
   end

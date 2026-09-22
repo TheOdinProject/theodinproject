@@ -16,7 +16,7 @@ RSpec.describe 'Course Progress Badge' do
         visit path_course_path(path, course)
 
         within :test_id, 'progress-circle' do
-          expect(page).to have_content('0%')
+          expect(page).to have_text('0%')
         end
       end
     end
@@ -28,7 +28,7 @@ RSpec.describe 'Course Progress Badge' do
         visit path_course_path(path, course)
 
         within :test_id, 'progress-circle' do
-          expect(page).to have_content('50%')
+          expect(page).to have_text('50%')
         end
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Course Progress Badge' do
         visit path_course_path(path, course)
 
         within :test_id, 'progress-circle' do
-          expect(page).to have_content('100%')
+          expect(page).to have_text('100%')
         end
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe 'Course Progress Badge' do
       visit path_course_path(path, course)
 
       within :test_id, 'default-badge' do
-        expect(page).to have_no_content('0%')
+        expect(page).to have_no_text('0%')
       end
     end
   end

@@ -8,7 +8,7 @@ RSpec.describe Flags::ActionButtonComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('Resolve flag')
+      expect(page).to have_text('Resolve flag')
     end
   end
 

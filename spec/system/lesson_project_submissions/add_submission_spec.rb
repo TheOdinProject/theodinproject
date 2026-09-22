@@ -13,15 +13,15 @@ RSpec.describe 'Add a Project Submission' do
 
     it 'successfully adds a submission' do
       within(:test_id, 'current-user-solution') do
-        expect(page).to have_content('Submit your solution')
-        expect(page).to have_no_content(lesson.title)
+        expect(page).to have_text('Submit your solution')
+        expect(page).to have_no_text(lesson.title)
       end
 
       Pages::ProjectSubmissions::Form.new.open.fill_in.submit
 
       within(:test_id, 'current-user-solution') do
-        expect(page).to have_content(lesson.title)
-        expect(page).to have_no_content('Submit your solution')
+        expect(page).to have_text(lesson.title)
+        expect(page).to have_no_text('Submit your solution')
       end
     end
 
@@ -32,15 +32,15 @@ RSpec.describe 'Add a Project Submission' do
         form.submit
 
         within(:test_id, 'current-user-solution') do
-          expect(page).to have_content(lesson.title)
-          expect(page).to have_no_content('Submit your solution')
+          expect(page).to have_text(lesson.title)
+          expect(page).to have_no_text('Submit your solution')
         end
 
         click_on('View community solutions')
 
         within(:test_id, 'submissions-list') do
           page.driver.refresh
-          expect(page).to have_no_content(user.username)
+          expect(page).to have_no_text(user.username)
         end
 
         using_session('another_user') do
@@ -48,7 +48,7 @@ RSpec.describe 'Add a Project Submission' do
           visit lesson_project_submissions_path(lesson)
 
           within(:test_id, 'submissions-list') do
-            expect(page).to have_no_content(user.username)
+            expect(page).to have_no_text(user.username)
           end
         end
       end
@@ -72,7 +72,7 @@ RSpec.describe 'Add a Project Submission' do
         .submit
 
       within(:test_id, 'current-user-solution') do
-        expect(page).to have_content(lesson.title)
+        expect(page).to have_text(lesson.title)
         expect(page).to have_link('View GitHub repo')
         expect(page).to have_no_link('Live preview')
       end
@@ -86,7 +86,7 @@ RSpec.describe 'Add a Project Submission' do
 
       expect(page).to have_css('[data-test-id]')
 
-      expect(page).to have_no_content('Submit your solution')
+      expect(page).to have_no_text('Submit your solution')
     end
   end
 end

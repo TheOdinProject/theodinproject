@@ -13,12 +13,12 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
 
   it 'successfully deletes a submission' do
     within(:test_id, 'user-submissions-list') do
-      expect(page).to have_content('My Project')
-      expect(page).to have_content('Another Project')
+      expect(page).to have_text('My Project')
+      expect(page).to have_text('Another Project')
     end
 
     within(:test_project_submission, 2) do
-      expect(page).to have_content('My Project')
+      expect(page).to have_text('My Project')
 
       find(:test_id, 'submission-action-menu-btn').click
       find(:test_id, 'delete-submission-btn').click
@@ -26,8 +26,8 @@ RSpec.describe 'Deleting a Project Submission on the Dashboard' do
     end
 
     within(:test_id, 'user-submissions-list') do
-      expect(page).to have_no_content('My Project')
-      expect(page).to have_content('Another Project')
+      expect(page).to have_no_text('My Project')
+      expect(page).to have_text('Another Project')
     end
   end
 end
