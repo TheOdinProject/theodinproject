@@ -1,7 +1,7 @@
 <%= render Overlays::ModalComponent.new(title: "Change role for #{@team_member.name}")  do %>
   <%= turbo_frame_tag 'edit_role_form', class: 'w-full' do %>
     <%= form_with model: @team_member, url: admin_team_member_role_path(@team_member), builder: TailwindFormBuilder, class: 'w-full', html: { method: :put } do |form| %>
-      <div class='space-y-6'>
+      <div class="space-y-6">
         <div class="space-y-6 pt-4">
           <div>
             <%= form.label :role, 'Role', class: 'mb-2' %>
