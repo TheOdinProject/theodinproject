@@ -22,7 +22,7 @@ RSpec.describe Team::FormerMemberComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('John Doe')
+    expect(page).to have_text('John Doe')
   end
 
   it 'renders the former team members url' do

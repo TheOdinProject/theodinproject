@@ -8,7 +8,7 @@ RSpec.describe Lessons::Sidebar::SectionComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('Getting Started')
+    expect(page).to have_text('Getting Started')
   end
 
   it 'renders one link per lesson in the section' do

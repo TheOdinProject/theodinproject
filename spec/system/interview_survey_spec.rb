@@ -14,14 +14,14 @@ RSpec.describe 'Interview survey' do
 
     it 'shows the survey' do
       visit new_interview_survey_path
-      expect(page).to have_content('Interview Survey')
+      expect(page).to have_text('Interview Survey')
     end
   end
 
   context 'when the feature is disabled' do
     it 'redirects to the dashboard' do
       visit new_interview_survey_path
-      expect(page).to have_content('Feature not enabled')
+      expect(page).to have_text('Feature not enabled')
       expect(page).to have_current_path(dashboard_path)
     end
   end

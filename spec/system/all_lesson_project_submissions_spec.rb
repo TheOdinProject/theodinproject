@@ -69,7 +69,7 @@ RSpec.describe 'View all Project Submissions for a Lesson' do
       visit lesson_project_submissions_path(lesson)
 
       expect(page).to have_current_path(lesson_path(lesson))
-      expect(find(:test_id, 'flash')).to have_content('This project does not accept submissions')
+      expect(find(:test_id, 'flash')).to have_text('This project does not accept submissions')
     end
   end
 

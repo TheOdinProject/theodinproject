@@ -25,7 +25,7 @@ RSpec.describe NotificationComponent, type: :component do
     let(:notification) { create(:notification, read_at: Time.zone.now) }
 
     it 'renders the read notification icon inside the component' do
-      expect(page).to have_content('read notification')
+      expect(page).to have_text('read notification')
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe NotificationComponent, type: :component do
     let(:notification) { create(:notification, read_at: nil) }
 
     it 'renders the unread notification icon inside the component' do
-      expect(page).to have_content('unread notification')
+      expect(page).to have_text('unread notification')
     end
   end
 end

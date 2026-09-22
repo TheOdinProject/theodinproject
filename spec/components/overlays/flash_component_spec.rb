@@ -8,7 +8,7 @@ RSpec.describe Overlays::FlashComponent, type: :component do
       render_inline(component)
 
       expect(page).to have_css('.bg-red-100')
-      expect(page).to have_content('Fire!')
+      expect(page).to have_text('Fire!')
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe Overlays::FlashComponent, type: :component do
       render_inline(component)
 
       expect(page).to have_css('.bg-green-100')
-      expect(page).to have_content('Success!')
+      expect(page).to have_text('Success!')
     end
   end
 

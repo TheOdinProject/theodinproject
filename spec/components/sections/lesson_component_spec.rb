@@ -8,7 +8,7 @@ RSpec.describe Sections::LessonComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('Project: HTML Basics')
+      expect(page).to have_text('Project: HTML Basics')
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe Sections::LessonComponent, type: :component do
 
       render_inline(component)
 
-      expect(page).to have_content('HTML Basics')
+      expect(page).to have_text('HTML Basics')
     end
   end
 end

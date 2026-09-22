@@ -26,7 +26,7 @@ RSpec.describe 'Sign in' do
       find(:test_id, 'submit-btn').click
 
       expect(page).to have_current_path(sign_in_path)
-      expect(page).to have_content('Invalid email or password.')
+      expect(page).to have_text('Invalid email or password.')
     end
   end
 

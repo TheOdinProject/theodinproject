@@ -42,7 +42,7 @@ RSpec.describe 'User Reset Progress' do
 
   it 'resets to the default path' do
     within(:test_id, 'skills') do
-      expect(page).to have_content(rails_course.title)
+      expect(page).to have_text(rails_course.title)
     end
 
     visit edit_users_profile_path
@@ -54,7 +54,7 @@ RSpec.describe 'User Reset Progress' do
 
     expect(user.reload.path).not_to eq(rails_path)
     within(:test_id, 'skills') do
-      expect(page).to have_content(foundation_course.title)
+      expect(page).to have_text(foundation_course.title)
     end
   end
 end

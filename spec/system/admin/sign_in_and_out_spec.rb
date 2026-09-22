@@ -46,7 +46,7 @@ RSpec.describe 'Admin sign in and sign out' do
           click_on 'Sign in'
         end
 
-        expect(page).to have_content('Two factor authentication')
+        expect(page).to have_text('Two factor authentication')
         fill_in 'Authentication code', with: otp_code_for(admin_user)
         within 'form' do
           click_on 'Sign in'
@@ -69,7 +69,7 @@ RSpec.describe 'Admin sign in and sign out' do
         end
 
         expect(page).to have_current_path(new_admin_user_session_path)
-        expect(page).to have_content('Your account is deactivated')
+        expect(page).to have_text('Your account is deactivated')
       end
     end
   end

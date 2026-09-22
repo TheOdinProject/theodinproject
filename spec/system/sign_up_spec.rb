@@ -16,7 +16,7 @@ RSpec.describe 'Sign Up' do
       find(:test_id, 'password-confirmation-field').fill_in(with: 'partyparrot128')
       find(:test_id, 'submit-btn').click
 
-      expect(find(:test_id, 'profile-username')).to have_content('codesquad64')
+      expect(find(:test_id, 'profile-username')).to have_text('codesquad64')
     end
   end
 
@@ -28,8 +28,8 @@ RSpec.describe 'Sign Up' do
       find(:test_id, 'password-confirmation-field').fill_in(with: 'partyparrot18')
       find(:test_id, 'submit-btn').click
 
-      expect(page).to have_content('is too short (minimum is 2 characters)')
-      expect(page).to have_content("doesn't match Password")
+      expect(page).to have_text('is too short (minimum is 2 characters)')
+      expect(page).to have_text("doesn't match Password")
       expect(page).to have_current_path(sign_up_path)
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe 'Sign Up' do
 
     it 'can sign up with github' do
       find(:test_id, 'github-btn').click
-      expect(find(:test_id, 'profile-username')).to have_content('chrissy shenko')
+      expect(find(:test_id, 'profile-username')).to have_text('chrissy shenko')
     end
 
     context 'when invalid credentials are provided' do
@@ -72,12 +72,12 @@ RSpec.describe 'Sign Up' do
 
         sign_in(user)
         visit dashboard_path
-        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_text(user.learning_goal)
 
         sign_out(:user)
         visit new_user_registration_path
         find(:test_id, 'github-btn').click
-        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_text(user.learning_goal)
       end
     end
   end
@@ -93,7 +93,7 @@ RSpec.describe 'Sign Up' do
 
     it 'can sign up with google' do
       find(:test_id, 'google-btn').click
-      expect(find(:test_id, 'profile-username')).to have_content('chrissy shenko')
+      expect(find(:test_id, 'profile-username')).to have_text('chrissy shenko')
     end
 
     context 'when user has an existing account with the same email' do
@@ -107,12 +107,12 @@ RSpec.describe 'Sign Up' do
 
         sign_in(user)
         visit dashboard_path
-        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_text(user.learning_goal)
 
         sign_out(:user)
         visit new_user_registration_path
         find(:test_id, 'google-btn').click
-        expect(find(:test_id, 'learning-goal')).to have_content(user.learning_goal)
+        expect(find(:test_id, 'learning-goal')).to have_text(user.learning_goal)
       end
     end
 

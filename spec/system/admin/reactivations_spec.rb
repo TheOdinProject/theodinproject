@@ -18,7 +18,7 @@ RSpec.describe 'Admin team members reactivations' do
     end
 
     within('#team_members') do
-      expect(page).to have_content(deactivated_admin.name)
+      expect(page).to have_text(deactivated_admin.name)
     end
 
     using_session('deactivated_admin') do
@@ -38,7 +38,7 @@ RSpec.describe 'Admin team members reactivations' do
       end
 
       expect(page).to have_current_path(admin_dashboard_path)
-      expect(page).to have_content('Successfully enabled two factor authentication')
+      expect(page).to have_text('Successfully enabled two factor authentication')
     end
   end
 end

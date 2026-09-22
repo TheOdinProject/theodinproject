@@ -14,8 +14,8 @@ RSpec.describe 'Admin invitations' do
     select('Core', from: 'Role')
     click_on('Send invite')
 
-    expect(page).to have_content('Invitation sent to john@example.com')
-    expect(page).to have_content('John Doe')
+    expect(page).to have_text('Invitation sent to john@example.com')
+    expect(page).to have_text('John Doe')
 
     # Accept the invitation
     using_session('john') do
@@ -23,7 +23,7 @@ RSpec.describe 'Admin invitations' do
       expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
       current_email.click_on('Join the team')
 
-      expect(page).to have_content('Welcome to the team!')
+      expect(page).to have_text('Welcome to the team!')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
@@ -37,7 +37,7 @@ RSpec.describe 'Admin invitations' do
       end
 
       expect(page).to have_current_path(admin_dashboard_path)
-      expect(page).to have_content('Successfully enabled two factor authentication')
+      expect(page).to have_text('Successfully enabled two factor authentication')
     end
   end
 
@@ -54,8 +54,8 @@ RSpec.describe 'Admin invitations' do
     select('Core', from: 'Role')
     click_on('Send invite')
 
-    expect(page).to have_content('Invitation sent to john@example.com')
-    expect(page).to have_content('John Doe')
+    expect(page).to have_text('Invitation sent to john@example.com')
+    expect(page).to have_text('John Doe')
 
     # Accept the invitation
     using_session('john') do
@@ -63,7 +63,7 @@ RSpec.describe 'Admin invitations' do
       expect(current_email.subject).to match(/Joining The Odin Project Admin Team/)
       current_email.click_on('Join the team')
 
-      expect(page).to have_content('Welcome to the team!')
+      expect(page).to have_text('Welcome to the team!')
 
       find(:test_id, 'password-field').fill_in(with: 'supersecretpassword')
       find(:test_id, 'password-confirmation-field').fill_in(with: 'supersecretpassword')
@@ -73,7 +73,7 @@ RSpec.describe 'Admin invitations' do
 
       click_on('Dashboard')
       expect(page).to have_current_path(new_admin_two_factor_authentication_path)
-      expect(page).to have_content('Please enable two factor authentication before continuing.')
+      expect(page).to have_text('Please enable two factor authentication before continuing.')
     end
   end
 end

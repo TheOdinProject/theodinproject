@@ -6,6 +6,6 @@ RSpec.describe Oauth::ConnectButtonComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('Sign in with Github')
+    expect(page).to have_text('Sign in with Github')
   end
 end

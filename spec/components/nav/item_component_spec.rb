@@ -14,7 +14,7 @@ RSpec.describe Nav::ItemComponent, type: :component do
       render_inline(component)
 
       expect(page).to have_link('Home', href: '/home')
-      expect(page).to have_content('Home icon')
+      expect(page).to have_text('Home icon')
     end
   end
 

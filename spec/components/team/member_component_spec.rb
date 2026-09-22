@@ -29,7 +29,7 @@ RSpec.describe Team::MemberComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('John Doe')
+    expect(page).to have_text('John Doe')
   end
 
   it 'renders the team members meta data' do
@@ -37,8 +37,8 @@ RSpec.describe Team::MemberComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('Berlin')
-    expect(page).to have_content('2019')
+    expect(page).to have_text('Berlin')
+    expect(page).to have_text('2019')
   end
 
   it 'renders the team members socials' do

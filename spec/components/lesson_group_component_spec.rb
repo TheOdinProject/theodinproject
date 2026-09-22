@@ -18,6 +18,6 @@ RSpec.describe LessonGroupComponent, type: :component do
 
     render_inline(component)
 
-    expect(page).to have_content('Lesson title', count:)
+    expect(page).to have_text('Lesson title', count:)
   end
 end
