@@ -19,7 +19,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "chart.js": "^4.5.1",
     "chartjs-plugin-crosshair": "^2.0.0",
-    "chokidar": "^5.0.0",
+    "chokidar": "^6.0.0",
     "debounce": "^3.0.0",
     "el-transition": "^0.0.7",
     "esbuild": "^0.28.2",
