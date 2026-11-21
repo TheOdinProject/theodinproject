@@ -40,7 +40,8 @@ export default class SidebarToggleController extends Controller {
   }
 
   isDesktop () {
-    return window.matchMedia('(min-width: 1280px)').matches
+    // matches Tailwind xl breakpoint
+    return window.matchMedia('(min-width: 80rem)').matches
   }
 
   isCollapsed () {
