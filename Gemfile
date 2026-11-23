@@ -89,6 +89,6 @@ group :test do
   gem 'rspec-snapshot', '~> 2.0'
   gem 'shoulda-matchers', '~> 6.5'
   gem 'simplecov', '~> 0.22', require: false
-  gem 'vcr', '~> 6.3'
+  gem 'vcr', '~> 6.4'
   gem 'webmock', '~> 3.26'
 end
