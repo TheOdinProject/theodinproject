@@ -80,7 +80,7 @@ end
 group :test do
   gem 'capybara', '~> 3.40'
   gem 'capybara-email', '~> 3.0'
-  gem 'cuprite', '~> 0.17'
+  gem 'cuprite', '~> 0.20'
   gem 'erb_lint', '~> 0.9', require: false
   gem 'factory_bot_rails', '~> 6.5'
   gem 'faraday-retry', '~> 2.4'
