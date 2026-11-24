@@ -42,15 +42,15 @@ bin/rspec spec/models/user_spec.rb:42 # Single example by line number
 ```bash
 bin/rubocop              # Ruby linting
 bin/erb_lint --lint-all  # ERB template linting
-yarn lint                # JavaScript (Standard.js)
-yarn stylelint           # CSS/SCSS
+bin/yarn lint                # JavaScript (Standard.js)
+bin/yarn stylelint           # CSS/SCSS
 ```
 
 ### Assets
 
 ```bash
-yarn build       # JavaScript bundle (esbuild)
-yarn build:css   # Tailwind CSS build
+bin/yarn build       # JavaScript bundle (esbuild)
+bin/yarn build:css   # Tailwind CSS build
 ```
 
 ## Architecture
