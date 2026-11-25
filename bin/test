@@ -16,10 +16,10 @@ puts 'Erblint:'
 results['Erblint'] = system 'bin/erb_lint --lint-all'
 
 puts 'Standard JS:'
-results['Standard'] = system 'yarn lint'
+results['Standard'] = system 'bin/yarn lint'
 
 puts 'Stylelint:'
-results['Stylelint'] = system 'yarn run stylelint'
+results['Stylelint'] = system 'bin/yarn run stylelint'
 
 puts "\n== Running specs =="
 puts 'Rspec:'

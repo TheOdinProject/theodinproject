@@ -6,7 +6,7 @@
     "lint": "standard",
     "stylelint": "stylelint 'app/assets/stylesheets'",
     "build": "node esbuild.config.mjs",
-    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
