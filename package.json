@@ -38,5 +38,8 @@
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "engines": {
+    "node": "^26.13"
+  }
 }
